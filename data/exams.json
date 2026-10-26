@@ -1,0 +1,24 @@
+[
+  {
+    "id": "main",
+    "name": "材料科学",
+    "groups": [
+      {
+        "id": "basic",
+        "name": "基礎"
+      },
+      {
+        "id": "phases",
+        "name": "組織と相変態"
+      },
+      {
+        "id": "classes",
+        "name": "材料の種類"
+      },
+      {
+        "id": "analysis",
+        "name": "評価・先端"
+      }
+    ]
+  }
+]

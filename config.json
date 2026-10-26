@@ -1,0 +1,50 @@
+{
+  "baseUrl": "https://tatuyaochi-blip.github.io/matsci-quiz/",
+  "siteName": {
+    "ja": "材料科学教室",
+    "en": "Materials Science Room"
+  },
+  "languages": [
+    {
+      "code": "ja",
+      "path": "",
+      "htmlLang": "ja",
+      "locale": "ja-JP",
+      "label": "日本語"
+    }
+  ],
+  "mainLang": "ja",
+  "cname": null,
+  "noindex": true,
+  "onlyReviewed": false,
+  "contactFormUrl": {
+    "ja": "https://forms.gle/VZFqdvB4m1fLpBEg7",
+    "en": "https://forms.gle/2Hmk3GZD2oU8z6b98"
+  },
+  "reportFormUrl": null,
+  "adPlaceholders": false,
+  "adsenseClient": null,
+  "adsenseSlots": null,
+  "amazonTag": null,
+  "amazonDomain": null,
+  "ga4Id": null,
+  "brand": {
+    "ja": {
+      "search_example": "ミラー指数",
+      "tools_example": "XRDのピーク位置や拡散距離",
+      "subject": "材料科学",
+      "site": "材料科学教室",
+      "site_en": "Materials Science Room",
+      "full_title": "材料科学教室｜結晶・状態図・材料分析の練習問題と解説",
+      "scope": "結晶構造・欠陥と拡散・機械的性質から、状態図と熱処理、セラミックス・高分子・電子材料、薄膜とSEM・TEM・XRDなどの材料分析",
+      "hero": "材料科学を、3択クイズで学ぶ",
+      "hero_lead": "結晶構造・状態図・機械的性質から、薄膜やXRD・SEMの材料分析まで。すべての問題に解説が付いています。",
+      "tools_lead": "ブラッグの法則と面間隔、てこの規則、拡散係数など、材料科学でよく使う計算をブラウザ上で確かめられる無料のツールです。"
+    }
+  },
+  "icon": {
+    "c1": "#5b3fc4",
+    "c2": "#1d64c8",
+    "glyph": "lattice"
+  }
+}
