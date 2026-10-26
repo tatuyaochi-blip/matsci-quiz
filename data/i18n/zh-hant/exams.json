@@ -1,0 +1,6 @@
+{
+  "main": {
+    "name": "材料科學",
+    "groups": { "basic": "基礎", "phases": "顯微組織與相變態", "classes": "材料的種類", "analysis": "分析與進階主題" }
+  }
+}
