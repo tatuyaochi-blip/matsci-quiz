@@ -1,4 +1,4 @@
 [
-  {"id": "intro", "name": {"ja": "はじめての材料科学"}, "desc": {"ja": "結晶構造から、欠陥と拡散、機械的性質、状態図、熱処理までを順に学びます。金属材料を中心に、材料科学の基本の流れを一通りたどる最初の一歩におすすめです。"}, "steps": ["crystal", "defects-diffusion", "mechanical", "phase-diagram", "heat-treatment"]},
-  {"id": "failure-analysis", "name": {"ja": "材料分析・故障解析の基礎"}, "desc": {"ja": "結晶構造と欠陥・拡散の基礎から、薄膜と表面の現象、XRD・SEM・TEM・XPS・SIMSなどの分析法までを学びます。プロセスや故障解析の業務で分析結果を読み解く力をつけたい人に向いています。"}, "steps": ["crystal", "defects-diffusion", "thin-films", "characterization"]}
+  {"id": "intro", "name": {"ja": "はじめての材料科学"}, "desc": {"ja": "結晶構造から、欠陥と拡散、機械的性質、状態図、熱処理までを順に学びます。金属材料を中心に、材料科学の基本の流れを一通りたどる最初の一歩におすすめです。"}, "steps": ["crystal", "defects-diffusion", "mechanical", "phase-diagram", "heat-treatment", "metals"]},
+  {"id": "failure-analysis", "name": {"ja": "材料分析・故障解析の基礎"}, "desc": {"ja": "結晶構造と欠陥・拡散の基礎から、薄膜と表面の現象、XRD・SEM・TEM・XPS・SIMSなどの分析法までを学びます。プロセスや故障解析の業務で分析結果を読み解く力をつけたい人に向いています。"}, "steps": ["crystal", "defects-diffusion", "thin-films", "characterization", "corrosion"]}
 ]
