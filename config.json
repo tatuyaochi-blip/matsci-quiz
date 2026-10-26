@@ -40,6 +40,19 @@
       "hero": "材料科学を、3択クイズで学ぶ",
       "hero_lead": "結晶構造・状態図・機械的性質から、薄膜やXRD・SEMの材料分析まで。すべての問題に解説が付いています。",
       "tools_lead": "ブラッグの法則と面間隔、てこの規則、拡散係数など、材料科学でよく使う計算をブラウザ上で確かめられる無料のツールです。"
+    },
+    "en": {
+      "subject": "materials science",
+      "subject_title": "Materials Science",
+      "site": "Materials Science Room",
+      "site_en": "Materials Science Room",
+      "search_example": "Miller indices",
+      "tools_example": "XRD peak positions and diffusion lengths",
+      "full_title": "Materials Science Room | Practice Questions on Crystals, Phase Diagrams and Characterization",
+      "scope": "crystal structures, defects and diffusion, mechanical properties, phase diagrams and heat treatment, ceramics, polymers and electronic materials, thin films, and materials characterization with SEM, TEM and XRD",
+      "hero": "Learn materials science with quick quizzes",
+      "hero_lead": "From crystal structures, phase diagrams and mechanical properties to thin films and characterization with XRD and SEM, with an explanation for every question.",
+      "tools_lead": "Free browser calculators for everyday materials science: Bragg’s law and interplanar spacing, the lever rule, diffusion coefficients and more."
     }
   },
   "icon": {
