@@ -120,6 +120,61 @@
           "a": "1 eV/原子は約96.49 kJ/molです。たとえば1.5 eVなら約145 kJ/molを入れます。原子1個あたりで計算するときは、気体定数Rのかわりにボルツマン定数 k = 8.617 × 10⁻⁵ eV/K を使い、D = D0·exp(−Q/kT) とします。"
         }
       ]
+    },
+    "en": {
+      "nav": "Diffusion coefficient and length",
+      "card": "Find the diffusion coefficient from the Arrhenius equation, then the diffusion length and carburizing concentration",
+      "title": "Diffusion Coefficient Calculator: Arrhenius Equation, Diffusion Length √Dt and Error-Function Solution",
+      "description": "Calculate the diffusion coefficient D = D0·exp(−Q/RT) from temperature, then find the approximate diffusion length √(Dt) from time and the concentration ratio at depth x for a constant surface concentration (the error-function solution). Useful for estimating carburizing and dopant diffusion.",
+      "h1": "Diffusion Coefficient and Diffusion Length Calculator",
+      "lead": "Find the diffusion coefficient at a given temperature from the pre-exponential factor D0 and activation energy Q, and estimate from the heating time how deep atoms diffuse. The defaults are carbon in austenite (γ-iron) (D0 = 2.3 × 10⁻⁵ m²/s, Q = 148 kJ/mol), carburized at 900 °C for 4 hours.",
+      "in_heading": "Inputs",
+      "d0": "Pre-exponential factor D0 (m²/s)",
+      "q": "Activation energy Q (kJ/mol)",
+      "t": "Temperature (°C)",
+      "hours": "Time (h)",
+      "x": "Depth from surface x (mm)",
+      "out_heading": "Results",
+      "tk": "Absolute temperature T",
+      "d": "Diffusion coefficient D",
+      "l": "Approximate diffusion length √(Dt)",
+      "erf_heading": "Constant surface concentration (semi-infinite solid)",
+      "ratio": "Concentration ratio at depth x, (Cx − C0)/(Cs − C0)",
+      "note": "D0 and Q depend on the combination of material and diffusing element. The concentration ratio is calculated with the error-function solution, valid when the surface concentration Cs is held constant and the specimen is thick enough to be treated as semi-infinite. Gas constant R = 8.314 J/(mol·K).",
+      "practice": "Practice crystal defect and diffusion questions",
+      "related": "Related terms",
+      "sections": [
+        {
+          "h": "Temperature dependence of the diffusion coefficient (Arrhenius equation)",
+          "p": "Atoms in a solid move in discrete jumps via vacancies or interstitial sites. Each jump must overcome an activation energy Q, so the diffusion coefficient varies exponentially with temperature as D = D0·exp(−Q/RT). For the defaults (carbon in γ-iron, 900 °C = 1173.15 K), D = 2.3 × 10⁻⁵ × exp(−148000/(8.314 × 1173.15)) ≈ 5.91 × 10⁻¹² m²/s. Raising the temperature by just 100 °C increases D several times, which is why temperature control matters in heat treatment. Taking logarithms of both sides, ln D = ln D0 − Q/(RT) is a straight line against 1/T, and its slope gives −Q/R."
+        },
+        {
+          "h": "The approximate diffusion length √(Dt)",
+          "p": "The distance atoms move by diffusion is proportional not to time but to the square root of time. The estimate x ≈ √(Dt) is widely used; for the default 4 hours (14,400 s), √(5.91 × 10⁻¹² × 14400) ≈ 0.292 mm. To double the diffusion depth at the same temperature, the time must be quadrupled. Depending on the definition, the coefficient may be given differently, as in 2√(Dt), so use the same definition when comparing."
+        },
+        {
+          "h": "Carburizing and the error-function solution",
+          "p": "When the surface of a steel is held in an atmosphere of carbon concentration Cs for carburizing, the concentration profile in a thick specimen of initial concentration C0 is given by the solution of Fick's second law, (Cx − C0)/(Cs − C0) = 1 − erf(x/(2√(Dt))). At the default depth of 0.5 mm, x/(2√(Dt)) ≈ 0.857, and the concentration ratio is about 22.6 %. With C0 = 0.20 wt% and Cs = 1.00 wt%, for example, the carbon concentration at 0.5 mm is about 0.38 wt%. erf(z) is a function that is 0 at z = 0 and nearly 1 for z above 2."
+        },
+        {
+          "h": "Typical values of D0 and Q",
+          "p": "Diffusion is faster for small atoms that move interstitially and slower for substitutional atoms. For carbon in γ-iron (interstitial diffusion), D0 ≈ 2.3 × 10⁻⁵ m²/s and Q ≈ 148 kJ/mol; for carbon in α-iron, D0 ≈ 1.1 × 10⁻⁶ m²/s and Q ≈ 87 kJ/mol. Self-diffusion of iron (in γ-iron, by the vacancy mechanism), by contrast, has a large Q of around 280 kJ/mol and is many orders of magnitude slower at the same temperature. Values vary between sources, so when calculating, enter the values from your source as given."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the unit of the diffusion coefficient?",
+          "a": "In SI units it is m²/s. Literature values are often given in cm²/s; convert with 1 cm²/s = 10⁻⁴ m²/s. Enter D0 in this calculator in m²/s."
+        },
+        {
+          "q": "Why is the diffusion length proportional to the square root of time?",
+          "a": "Atoms repeat jumps in random directions (a random walk), so the average distance traveled is proportional to the square root of the number of jumps. The number of jumps is proportional to time, so the distance is proportional to √t."
+        },
+        {
+          "q": "What if I know the activation energy in eV?",
+          "a": "1 eV per atom is about 96.49 kJ/mol; for 1.5 eV, for example, enter about 145 kJ/mol. When calculating per atom, use Boltzmann's constant k = 8.617 × 10⁻⁵ eV/K instead of the gas constant R, with D = D0·exp(−Q/kT)."
+        }
+      ]
     }
   }
 }

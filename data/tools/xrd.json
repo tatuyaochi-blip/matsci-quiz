@@ -141,6 +141,71 @@
           "a": "Kα1が0.15406 nm、Kα2が0.15444 nmで、強度比はおよそ2 : 1です。分けずに扱うときは重み付き平均の約0.15418 nmを使うこともあります。ほかにCo Kα(約0.1789 nm)、Mo Kα(約0.0709 nm)などもよく使われます。"
         }
       ]
+    },
+    "en": {
+      "nav": "XRD and Bragg's law",
+      "card": "Calculate cubic interplanar spacings, 2θ angles and the peaks allowed by extinction rules",
+      "title": "XRD Calculator: Bragg's Law, Interplanar Spacing, 2θ and Extinction Rules",
+      "description": "Calculate the interplanar spacing d and diffraction angle 2θ of a cubic crystal from the lattice parameter and Miller indices, and check with the extinction rules for simple cubic, BCC, FCC and diamond structures whether that plane gives a diffraction peak. It also lists the peaks that appear, starting from low angles.",
+      "h1": "XRD Calculator (Bragg's Law and Extinction Rules)",
+      "lead": "Find the interplanar spacing and diffraction angle 2θ from the lattice parameter a and Miller indices (hkl), and check with the extinction rules for each crystal structure whether a peak appears. The defaults are BCC iron (a = 0.2866 nm) and Cu Kα radiation (λ = 0.15406 nm).",
+      "in_heading": "Inputs",
+      "type": "Crystal structure",
+      "type_sc": "Simple cubic (SC)",
+      "type_bcc": "Body-centered cubic (BCC)",
+      "type_fcc": "Face-centered cubic (FCC)",
+      "type_diamond": "Diamond structure",
+      "a": "Lattice parameter a (nm)",
+      "lambda": "X-ray wavelength λ (nm)",
+      "h": "Miller index h",
+      "k": "Miller index k",
+      "l": "Miller index l",
+      "out_heading": "Results",
+      "d": "Interplanar spacing d",
+      "two_theta": "Diffraction angle 2θ",
+      "rule": "Extinction rule",
+      "peaks_heading": "Peaks from the low-angle side (up to 6)",
+      "peaks": "(hkl) and 2θ",
+      "note": "Calculated for first-order diffraction (n = 1). Planes for which λ/2d exceeds 1 do not diffract at that wavelength. Peak intensities (structure factor magnitude, multiplicity and temperature factor) are not calculated.",
+      "practice": "Practice materials characterization questions",
+      "related": "Related terms",
+      "js": {
+        "rule_yes": "Diffraction peak appears",
+        "rule_no": "Extinct (no peak)",
+        "no_peak": "No diffraction at this wavelength"
+      },
+      "sections": [
+        {
+          "h": "Bragg's law and cubic interplanar spacing",
+          "p": "When X-rays of wavelength λ strike a crystal, strong diffraction occurs at angles θ where reflections from atomic planes spaced d apart reinforce each other. This condition is Bragg's law, nλ = 2d·sinθ. In a cubic crystal, the spacing of planes with Miller indices (hkl) is d = a/√(h² + k² + l²). For the (110) planes of the default BCC iron (a = 0.2866 nm), d = 0.2866/√2 ≈ 0.2027 nm, and with Cu Kα radiation (λ = 0.15406 nm), sinθ = 0.15406/(2 × 0.2027) ≈ 0.380, giving 2θ ≈ 44.68°. XRD instruments output patterns with 2θ on the horizontal axis, so calculations are usually compared in 2θ as well."
+        },
+        {
+          "h": "Extinction rules: why expected peaks are missing",
+          "p": "When the unit cell contains several atoms, the waves scattered from them can cancel, making the diffracted intensity from certain planes zero. These are the extinction rules, which can be derived by calculating the structure factor F = Σ f·exp(2πi(hx + ky + lz)). In body-centered cubic, only planes with h + k + l even appear: (100) is absent, and the sequence runs (110), (200), (211), (220)…. In face-centered cubic, only planes with h, k and l all even or all odd appear: (111), (200), (220), (311)…. In the diamond structure (Si, Ge and so on), planes with all-even indices must in addition have h + k + l divisible by 4, so (200) is absent and the sequence is (111), (220), (311), (400)…."
+        },
+        {
+          "h": "Identifying the crystal structure from the peak sequence",
+          "p": "In cubic crystals sin²θ is proportional to h² + k² + l², so taking the ratios of sin²θ for the peaks in order from low angle identifies the structure. For BCC the ratios run 2 : 4 : 6 : 8 … (1 : 2 : 3 : 4 …), and for FCC 3 : 4 : 8 : 11 : 12 …. SC gives 1 : 2 : 3 : 4 : 5 : 6 : 8 …, characterized by the missing 7. If the first two peaks are in the ratio 1 : 2, it is likely BCC; if 3 : 4, FCC. Switch the structure in this calculator to see how the list of peaks changes."
+        },
+        {
+          "h": "When calculation and measurement disagree",
+          "p": "Measured peak positions can deviate from calculation by around 0.1° because of specimen height displacement, zero-point error, changes in lattice parameter due to alloying elements, residual stress and so on. To determine lattice parameters accurately, several high-angle peaks are used and extrapolated. Cu Kα radiation also consists of Kα1 (0.15406 nm) and Kα2 (0.15444 nm), and at high angles peaks appear split in two. Peak widths broaden with crystallite size and strain, and the Scherrer equation D = Kλ/(β·cosθ) gives an estimate of crystallite size."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is n in Bragg's law?",
+          "a": "It is the order of diffraction. Diffraction from (110) planes with n = 2 appears at the same angle as first-order diffraction from (220) planes, which have half the spacing. In XRD, therefore, n is usually taken as 1 and the reflection is labeled by planes with doubled indices, such as (220)."
+        },
+        {
+          "q": "Why does BCC show no (100) peak?",
+          "a": "The body-center atoms form planes of the same density exactly halfway between the (100) planes formed by the corner atoms, and the waves scattered from them are half a wavelength out of step and cancel. All planes with h + k + l odd vanish for the same reason."
+        },
+        {
+          "q": "What is the wavelength of Cu Kα radiation?",
+          "a": "Kα1 is 0.15406 nm and Kα2 is 0.15444 nm, with an intensity ratio of about 2 : 1. When they are not separated, the weighted average of about 0.15418 nm is sometimes used. Co Kα (about 0.1789 nm) and Mo Kα (about 0.0709 nm) are also commonly used."
+        }
+      ]
     }
   }
 }

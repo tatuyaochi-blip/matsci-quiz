@@ -1,0 +1,6 @@
+{
+  "main": {
+    "name": "Materials Science",
+    "groups": { "basic": "Fundamentals", "phases": "Microstructure and phase transformations", "classes": "Classes of materials", "analysis": "Characterization and advanced topics" }
+  }
+}

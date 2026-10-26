@@ -119,6 +119,65 @@
           "a": "当てはまりません。てこの規則は平衡状態を前提にしています。実際の鋳造のように速く冷えると、固相内の拡散が追いつかずに偏析(コアリング)が起こり、平衡とは違う組成や分率になります。"
         }
       ]
+    },
+    "en": {
+      "nav": "Lever rule",
+      "card": "Calculate the mass fraction of each phase in a two-phase region from compositions",
+      "title": "Lever Rule Calculator: Phase Fractions and Mass Fractions from Phase Diagrams",
+      "description": "In a two-phase region of a binary phase diagram, calculate the mass fraction and mass of each phase by the lever rule from the overall alloy composition and the compositions of the two phases at the ends of the tie line. It can also be used to calculate the fractions of eutectic structure and primary phase.",
+      "h1": "Lever Rule Calculator",
+      "lead": "For an alloy in a two-phase region of a phase diagram, find what percentage of each phase is present from the overall composition C0 and the compositions at the two ends of the tie line at that temperature (phase α and phase β). The defaults are a Pb–40 wt% Sn alloy just above the eutectic temperature (α phase 18.3 wt% Sn, liquid 61.9 wt% Sn).",
+      "in_heading": "Inputs (all compositions in the same units, e.g. wt% Sn)",
+      "c0": "Overall alloy composition C0",
+      "ca": "Composition of phase α, Cα (one end of the tie line)",
+      "cb": "Composition of phase β, Cβ (other end of the tie line)",
+      "m": "Mass of alloy (g)",
+      "out_heading": "Results",
+      "wa": "Mass fraction of phase α, Wα",
+      "wb": "Mass fraction of phase β, Wβ",
+      "check": "Check",
+      "mass_heading": "Mass of each phase",
+      "ma": "Mass of phase α",
+      "mb": "Mass of phase β",
+      "note": "Entering wt% gives mass fractions; entering at% gives fractions by number of atoms (mole fractions). Make sure all compositions use the same unit.",
+      "practice": "Practice phase diagram questions",
+      "related": "Related terms",
+      "js": {
+        "ok": "C0 lies between the two phase compositions, so the fractions can be calculated",
+        "out_of_range": "C0 does not lie between Cα and Cβ (the rule cannot be used outside the two-phase region)"
+      },
+      "sections": [
+        {
+          "h": "What the lever rule is",
+          "p": "In a two-phase region of a binary phase diagram, a horizontal line (tie line) drawn at a given temperature has ends that give the compositions of the two coexisting phases. For an alloy of overall composition C0, the mass balance C0 = Wα·Cα + Wβ·Cβ together with Wα + Wβ = 1 gives Wα = (Cβ − C0)/(Cβ − Cα) and Wβ = (C0 − Cα)/(Cβ − Cα). It is called the lever rule because, like a balance (lever) with its fulcrum at C0, the length of the opposite arm corresponds to each phase's amount. For the default Pb–40 wt% Sn alloy, Wα = (61.9 − 40)/(61.9 − 18.3) ≈ 50.2 %, and the liquid is about 49.8 %."
+        },
+        {
+          "h": "Fractions of primary phase and eutectic structure",
+          "p": "When a hypoeutectic alloy is cooled to just below the eutectic temperature, all the liquid present just above the eutectic temperature becomes eutectic structure (a lamellar structure of α and β). The fractions of primary α and eutectic structure are therefore equal to the fractions of α and liquid just above the eutectic temperature, and can be calculated by entering the eutectic composition Ce as Cβ. If, on the other hand, you want the fractions of “all α phase” and “all β phase” just below the eutectic temperature, enter the compositions of the α and β phases at the two ends (about 18.3 wt% and about 97.8 wt% Sn for Pb–Sn). Distinguishing which fraction you are after is the most common source of mistakes in this calculation."
+        },
+        {
+          "h": "Mass fractions and volume fractions",
+          "p": "With compositions entered in wt%, the lever rule gives mass fractions. The area fractions seen in micrographs are close to volume fractions, and when the two phases differ in density they do not match the mass fractions. Convert to volume fraction with Vα = (Wα/ρα)/(Wα/ρα + Wβ/ρβ). With compositions entered in at%, the result is the fraction by number of atoms (mole fraction). Always use the same unit for all three compositions you enter."
+        },
+        {
+          "h": "Use in the Fe–C system",
+          "p": "The lever rule is also widely used in calculating steel microstructures. Just below the eutectoid temperature (727 °C), the fractions of ferrite and pearlite in a 0.40 wt% C hypoeutectoid steel are found by entering 0.022 wt% C for the ferrite end and the eutectoid composition 0.76 wt% C for the other end: about 48.8 % proeutectoid ferrite and about 51.2 % pearlite. For the fractions of all ferrite phase and all cementite phase, use 0.022 wt% and 6.70 wt% C for the two ends."
+        }
+      ],
+      "faq": [
+        {
+          "q": "When can the lever rule be used?",
+          "a": "It can be used for an alloy in a two-phase region of a phase diagram at equilibrium. In a single-phase region there is only one phase, so its fraction is 100 %; on the horizontal line exactly at the eutectic temperature, where three phases coexist, the two-phase lever rule alone cannot fix the fractions."
+        },
+        {
+          "q": "Why is the length on the opposite side used?",
+          "a": "The closer C0 is to Cα, the more α phase there should be, so the fraction of α is proportional to the distance from C0 to Cβ (the opposite arm). Solving the mass balance equations produces this form naturally."
+        },
+        {
+          "q": "Does it apply when cooling is fast?",
+          "a": "No. The lever rule assumes equilibrium. With fast cooling, as in real casting, diffusion in the solid cannot keep up and segregation (coring) occurs, giving compositions and fractions different from equilibrium."
+        }
+      ]
     }
   }
 }
