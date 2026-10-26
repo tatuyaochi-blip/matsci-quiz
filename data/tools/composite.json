@@ -1,0 +1,296 @@
+{
+  "id": "composite",
+  "order": 5,
+  "slug": "composite-rule-of-mixtures-calculator",
+  "cats": [
+    "composites",
+    "polymers",
+    "materials-selection"
+  ],
+  "cat": "composites",
+  "terms": [
+    "複合則",
+    "CFRP(炭素繊維強化プラスチック)",
+    "GFRP(ガラス繊維強化プラスチック)",
+    "比剛性",
+    "臨界繊維長"
+  ],
+  "questions": [
+    "composites-003",
+    "composites-005",
+    "composites-007"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "comp-form",
+    "fields": [
+      {
+        "name": "basis",
+        "options": [
+          "vol",
+          "mass"
+        ],
+        "value": "vol"
+      },
+      {
+        "name": "f",
+        "value": 60,
+        "attrs": "min=\"0\" max=\"100\" step=\"any\""
+      },
+      {
+        "name": "ef",
+        "value": 230,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "em",
+        "value": 3.5,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "rf",
+        "value": 1.8,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "rm",
+        "value": 1.2,
+        "attrs": "min=\"0\" step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "stats": [
+          "vf",
+          "wf",
+          "rho"
+        ]
+      },
+      {
+        "heading": "mod_heading",
+        "stats": [
+          "e1",
+          "e2",
+          "ratio",
+          "share"
+        ]
+      },
+      {
+        "heading": "spec_heading",
+        "stats": [
+          "s1",
+          "s2",
+          "sb"
+        ]
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "複合則",
+      "card": "繊維と母材のヤング率と体積分率から、複合材料のヤング率と比剛性を計算",
+      "title": "複合則 計算ツール(複合材料のヤング率・並列 Voigt と直列 Reuss・比剛性)",
+      "description": "一方向にそろった連続繊維の複合材料について、繊維と母材のヤング率・密度と繊維の体積分率(または質量分率)から、繊維方向のヤング率 E₁ = VfEf + VmEm(等ひずみ、Voigt)と垂直方向の 1/E₂ = Vf/Ef + Vm/Em(等応力、Reuss)、密度、比剛性 E/ρ を計算します。",
+      "h1": "複合則 計算ツール",
+      "lead": "繊維と母材(マトリックス)のヤング率と、繊維の体積分率から、複合材料のヤング率を複合則で見積もります。繊維方向は等ひずみ(並列のばね)、繊維に垂直な方向は等応力(直列のばね)の式を使います。既定値は、炭素繊維(230 GPa、1.80 g/cm³)を体積分率60 %でエポキシ樹脂(3.5 GPa、1.20 g/cm³)に入れた一方向材で、繊維方向は約139 GPa、垂直方向は約8.6 GPaです。",
+      "in_heading": "入力(連続繊維の一方向材、ボイドなし、弾性範囲)",
+      "basis": "繊維の割合の入れ方",
+      "basis_vol": "体積分率 Vf",
+      "basis_mass": "質量分率 Wf",
+      "f": "繊維の割合 (%)",
+      "ef": "繊維のヤング率 Ef (GPa)",
+      "em": "母材のヤング率 Em (GPa)",
+      "rf": "繊維の密度 ρf (g/cm³)",
+      "rm": "母材の密度 ρm (g/cm³)",
+      "out_heading": "結果",
+      "vf": "繊維の体積分率 Vf",
+      "wf": "繊維の質量分率 Wf",
+      "rho": "複合材料の密度 ρ",
+      "mod_heading": "ヤング率(複合則)",
+      "e1": "繊維方向 E₁(等ひずみ、Voigt、上限)",
+      "e2": "垂直方向 E₂(等応力、Reuss、下限)",
+      "ratio": "異方性 E₁/E₂",
+      "share": "繊維方向の荷重のうち繊維の受け持ち",
+      "spec_heading": "比剛性",
+      "s1": "繊維方向 E₁/ρ",
+      "s2": "垂直方向 E₂/ρ",
+      "sb": "軽くて剛い梁の指数 √E₁/ρ (GPa^½/(g/cm³))",
+      "note": "等ひずみの式と等応力の式は、ヤング率の上限と下限の目安です。実際の垂直方向のヤング率は等応力の式より少し大きいことが多く、ハルピン・ツァイの式などで補正します。短繊維や粒子分散の材料、ボイドを含む材料では、この値から外れます。",
+      "practice": "複合材料の問題を解く",
+      "related": "関連する用語",
+      "js": {
+        "unit_specific": "GPa/(g/cm³)"
+      },
+      "sections": [
+        {
+          "h": "等ひずみの式(並列、Voigt)",
+          "p": "繊維に平行に引っ張ると、繊維と母材は並列につないだばねのように同じだけ伸びます。ひずみが等しいので、全体の応力は体積分率で重みをつけた平均になり、E₁ = VfEf + VmEm が得られます。既定値では 0.60 × 230 + 0.40 × 3.5 ≈ 139 GPa です。このとき、荷重のうち繊維が受け持つ割合は VfEf/E₁ で、既定値では約99 %になります。繊維の体積が半分ほどでも、繊維方向の剛性と強度はほぼ繊維で決まります。"
+        },
+        {
+          "h": "等応力の式(直列、Reuss)",
+          "p": "繊維に垂直に引っ張ると、繊維と母材は直列につないだばねのように同じ応力を受け、ひずみが体積分率で足し合わされます。そのため 1/E₂ = Vf/Ef + Vm/Em となり、柔らかい母材の影響が強く出ます。既定値では 1/(0.60/230 + 0.40/3.5) ≈ 8.6 GPa で、繊維方向の約16分の1です。同じ体積分率で比べると、等ひずみの式は上限、等応力の式は下限を与えます(フォークトとロイスの限界)。"
+        },
+        {
+          "h": "体積分率と質量分率",
+          "p": "複合則に使うのは体積分率です。製造では繊維の質量分率で管理することが多いので、密度で換算します。Vf = (Wf/ρf)/(Wf/ρf + (1 − Wf)/ρm) で、炭素繊維(1.80 g/cm³)とエポキシ(1.20 g/cm³)なら、質量分率70 %は体積分率約61 %です。繊維の密度が母材より大きいと、体積分率は質量分率より小さくなります。複合材料の密度は、ボイドがなければ ρ = Vfρf + Vmρm です。"
+        },
+        {
+          "h": "比剛性と材料選択",
+          "p": "同じ重さでどれだけ剛いかは、比剛性 E/ρ で比べます。鋼(210 GPa、7.9 g/cm³)は約27 GPa/(g/cm³)で、アルミニウム合金やチタン合金もほぼ同じです。既定値のCFRPは繊維方向で約89 GPa/(g/cm³)と3倍以上ですが、垂直方向では約5.5で鋼より小さくなります。曲げ剛性を決めて最も軽い梁を選ぶときの指数は √E/ρ で、鋼の約1.8に対し、既定値の繊維方向は約7.6です。実際の部品では、繊維の向きを変えた層を積み重ねて方向による差を補うため、比剛性の利点はこれより小さくなります。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "どちらの式を使えばよいですか?",
+          "a": "連続繊維の一方向材を繊維に平行に引っ張るときは等ひずみの式、垂直に引っ張るときは等応力の式で近似します。粒子を分散させた材料や短繊維の材料のヤング率は、ふつう2つの式のあいだに入ります。"
+        },
+        {
+          "q": "強度にも複合則は使えますか?",
+          "a": "繊維方向の強度は、繊維が破断するときのひずみでの母材の応力を使って σc ≈ Vfσf + Vmσm′ と見積もることがあります。ただし、強度は欠陥や界面の接着、繊維の長さ(臨界繊維長)の影響を強く受け、ヤング率ほどよくは合いません。"
+        },
+        {
+          "q": "なぜ Voigt の式が上限になるのですか?",
+          "a": "同じ平均ひずみを与えたとき、材料の中のひずみの分布は、弾性ひずみエネルギーが最も小さくなるように決まります(最小ポテンシャルエネルギーの原理)。一様なひずみ(等ひずみ)はありうる分布の1つにすぎないので、それで計算したエネルギー、つまり等ひずみの式のヤング率は、真の値以上になります。実際には柔らかい母材のほうが大きくひずむことで、エネルギーが下がります。同じように、一様な応力を仮定すると補エネルギーが真の値以上になるので、等応力の式は下限になります。この2つの式がヤング率の厳密な限界になるのは、両相のポアソン比が等しいときで、違うと一方向材の繊維方向のヤング率は等ひずみの値をわずかに上回ることがあります。一方向材の繊維方向では実際のひずみがほぼ一様なので、等ひずみの式はよく合います。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Rule of mixtures",
+      "card": "Calculate a composite's Young's modulus and specific stiffness from the moduli and volume fraction of fiber and matrix",
+      "title": "Rule of Mixtures Calculator: Composite Young's Modulus (Voigt and Reuss) and Specific Stiffness",
+      "description": "For a composite of aligned continuous fibers, calculate the Young's modulus along the fibers E₁ = VfEf + VmEm (isostrain, Voigt), across them 1/E₂ = Vf/Ef + Vm/Em (isostress, Reuss), the density and the specific stiffness E/ρ, from the moduli and densities of fiber and matrix and the fiber volume fraction (or mass fraction).",
+      "h1": "Rule of Mixtures Calculator",
+      "lead": "Estimate the Young's modulus of a composite by the rule of mixtures from the Young's moduli of the fiber and matrix and the fiber volume fraction. Along the fibers the isostrain form (springs in parallel) is used, and across them the isostress form (springs in series). The defaults are a unidirectional composite of carbon fiber (230 GPa, 1.80 g/cm³) at a volume fraction of 60 % in epoxy (3.5 GPa, 1.20 g/cm³): about 139 GPa along the fibers and about 8.6 GPa across them.",
+      "in_heading": "Inputs (unidirectional continuous fibers, no voids, elastic range)",
+      "basis": "How the fiber content is entered",
+      "basis_vol": "Volume fraction Vf",
+      "basis_mass": "Mass fraction Wf",
+      "f": "Fiber content (%)",
+      "ef": "Young's modulus of fiber Ef (GPa)",
+      "em": "Young's modulus of matrix Em (GPa)",
+      "rf": "Density of fiber ρf (g/cm³)",
+      "rm": "Density of matrix ρm (g/cm³)",
+      "out_heading": "Results",
+      "vf": "Fiber volume fraction Vf",
+      "wf": "Fiber mass fraction Wf",
+      "rho": "Density of composite ρ",
+      "mod_heading": "Young's modulus (rule of mixtures)",
+      "e1": "Along the fibers E₁ (isostrain, Voigt, upper bound)",
+      "e2": "Across the fibers E₂ (isostress, Reuss, lower bound)",
+      "ratio": "Anisotropy E₁/E₂",
+      "share": "Share of the load along the fibers carried by the fibers",
+      "spec_heading": "Specific stiffness",
+      "s1": "Along the fibers E₁/ρ",
+      "s2": "Across the fibers E₂/ρ",
+      "sb": "Index for a light, stiff beam √E₁/ρ (GPa^½/(g/cm³))",
+      "note": "The isostrain and isostress forms are rough upper and lower bounds on Young's modulus. The actual transverse modulus is often a little higher than the isostress value and is corrected with the Halpin–Tsai equations or similar. Short-fiber or particle-reinforced materials and materials with voids depart from these values.",
+      "practice": "Practice composite materials questions",
+      "related": "Related terms",
+      "js": {
+        "unit_specific": "GPa/(g/cm³)"
+      },
+      "sections": [
+        {
+          "h": "The isostrain form (parallel, Voigt)",
+          "p": "When pulled parallel to the fibers, the fiber and matrix stretch by the same amount, like springs connected in parallel. Because the strains are equal, the overall stress is the volume-fraction-weighted average, giving E₁ = VfEf + VmEm. With the defaults, 0.60 × 230 + 0.40 × 3.5 ≈ 139 GPa. The share of the load carried by the fibers is VfEf/E₁, about 99 % with the defaults. Even with only about half the volume as fiber, stiffness and strength along the fibers are set almost entirely by the fibers."
+        },
+        {
+          "h": "The isostress form (series, Reuss)",
+          "p": "When pulled perpendicular to the fibers, the fiber and matrix carry the same stress, like springs connected in series, and their strains add in proportion to volume fraction. This gives 1/E₂ = Vf/Ef + Vm/Em, in which the soft matrix dominates. With the defaults, 1/(0.60/230 + 0.40/3.5) ≈ 8.6 GPa, about one sixteenth of the value along the fibers. At the same volume fraction, the isostrain form gives an upper bound and the isostress form a lower bound (the Voigt and Reuss bounds)."
+        },
+        {
+          "h": "Volume fraction and mass fraction",
+          "p": "The rule of mixtures uses volume fractions. In manufacturing, fiber content is often controlled by mass fraction, so convert using the densities: Vf = (Wf/ρf)/(Wf/ρf + (1 − Wf)/ρm). For carbon fiber (1.80 g/cm³) and epoxy (1.20 g/cm³), a mass fraction of 70 % is a volume fraction of about 61 %. When the fiber is denser than the matrix, the volume fraction is smaller than the mass fraction. Without voids, the density of the composite is ρ = Vfρf + Vmρm."
+        },
+        {
+          "h": "Specific stiffness and materials selection",
+          "p": "How stiff a material is for its weight is compared by the specific stiffness E/ρ. Steel (210 GPa, 7.9 g/cm³) is about 27 GPa/(g/cm³), and aluminum and titanium alloys are about the same. The default CFRP is about 89 GPa/(g/cm³) along the fibers, more than three times higher, but across them it is about 5.5, lower than steel. The index for choosing the lightest beam of given bending stiffness is √E/ρ: about 1.8 for steel, against about 7.6 for the default composite along the fibers. In real parts, layers with different fiber directions are stacked to make up for the directional difference, so the advantage in specific stiffness is smaller than this."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Which form should I use?",
+          "a": "For a unidirectional continuous-fiber composite, approximate loading parallel to the fibers with the isostrain form and loading perpendicular to them with the isostress form. The Young's modulus of particle-dispersed or short-fiber materials usually lies between the two."
+        },
+        {
+          "q": "Can the rule of mixtures be used for strength too?",
+          "a": "The strength along the fibers is sometimes estimated as σc ≈ Vfσf + Vmσm′, using the matrix stress at the fiber failure strain. However, strength is strongly affected by defects, interfacial bonding and fiber length (the critical fiber length), and does not agree as well as Young's modulus does."
+        },
+        {
+          "q": "Why is the Voigt form an upper bound?",
+          "a": "For a given average strain, the strain distribution inside the material is the one that minimizes the elastic strain energy (the principle of minimum potential energy). A uniform strain (isostrain) is just one possible distribution, so the energy calculated from it, and hence the isostrain Young's modulus, is at or above the true value. In reality the soft matrix strains more, which lowers the energy. Likewise, assuming a uniform stress gives a complementary energy at or above the true value, so the isostress form is a lower bound. These two forms are strict bounds on Young's modulus when the two phases have the same Poisson's ratio; if they differ, the modulus of a unidirectional composite along the fibers can slightly exceed the isostrain value. Along the fibers of a unidirectional composite the actual strain is nearly uniform, so the isostrain form agrees well."
+        }
+      ]
+    },
+    "zh-hant": {
+      "nav": "混合法則",
+      "card": "由纖維與基材的楊氏模數與體積分率，計算複合材料的楊氏模數與比剛性",
+      "title": "混合法則計算工具（複合材料的楊氏模數、並聯Voigt與串聯Reuss、比剛性）",
+      "description": "對單向排列的連續纖維複合材料，由纖維與基材的楊氏模數、密度與纖維的體積分率（或質量分率），計算纖維方向的楊氏模數 E₁ = VfEf + VmEm（等應變，Voigt）、垂直方向的 1/E₂ = Vf/Ef + Vm/Em（等應力，Reuss）、密度與比剛性 E/ρ。",
+      "h1": "混合法則計算工具",
+      "lead": "由纖維與基材的楊氏模數及纖維的體積分率，以混合法則估算複合材料的楊氏模數。纖維方向使用等應變（並聯的彈簧）的式子，垂直纖維的方向使用等應力（串聯的彈簧）的式子。預設值是將碳纖維（230 GPa，1.80 g/cm³）以體積分率60 %加入環氧樹脂（3.5 GPa，1.20 g/cm³）的單向材，纖維方向約為139 GPa，垂直方向約為8.6 GPa。",
+      "in_heading": "輸入（連續纖維的單向材，無孔隙，彈性範圍內）",
+      "basis": "纖維比例的輸入方式",
+      "basis_vol": "體積分率 Vf",
+      "basis_mass": "質量分率 Wf",
+      "f": "纖維的比例 (%)",
+      "ef": "纖維的楊氏模數 Ef (GPa)",
+      "em": "基材的楊氏模數 Em (GPa)",
+      "rf": "纖維的密度 ρf (g/cm³)",
+      "rm": "基材的密度 ρm (g/cm³)",
+      "out_heading": "結果",
+      "vf": "纖維的體積分率 Vf",
+      "wf": "纖維的質量分率 Wf",
+      "rho": "複合材料的密度 ρ",
+      "mod_heading": "楊氏模數（混合法則）",
+      "e1": "纖維方向 E₁（等應變，Voigt，上限）",
+      "e2": "垂直方向 E₂（等應力，Reuss，下限）",
+      "ratio": "異向性 E₁/E₂",
+      "share": "纖維方向的負荷中由纖維承擔的比例",
+      "spec_heading": "比剛性",
+      "s1": "纖維方向 E₁/ρ",
+      "s2": "垂直方向 E₂/ρ",
+      "sb": "輕而剛的梁的指標 √E₁/ρ (GPa^½/(g/cm³))",
+      "note": "等應變式與等應力式是楊氏模數上限與下限的估計。實際的垂直方向楊氏模數常比等應力式稍大，會以Halpin-Tsai式等加以修正。短纖維或粒子分散的材料、含孔隙的材料，會偏離這些值。",
+      "practice": "練習複合材料的題目",
+      "related": "相關名詞",
+      "js": {
+        "unit_specific": "GPa/(g/cm³)"
+      },
+      "sections": [
+        {
+          "h": "等應變式（並聯，Voigt）",
+          "p": "平行纖維拉伸時，纖維與基材像並聯的彈簧一樣伸長相同的量。由於應變相等，整體的應力是以體積分率加權的平均，得到 E₁ = VfEf + VmEm。預設值為 0.60 × 230 + 0.40 × 3.5 ≈ 139 GPa。此時負荷中由纖維承擔的比例為 VfEf/E₁，預設值約為99 %。即使纖維的體積只有一半左右，纖維方向的剛性與強度幾乎由纖維決定。"
+        },
+        {
+          "h": "等應力式（串聯，Reuss）",
+          "p": "垂直纖維拉伸時，纖維與基材像串聯的彈簧一樣承受相同的應力，應變按體積分率相加。因此 1/E₂ = Vf/Ef + Vm/Em，柔軟基材的影響很強。預設值為 1/(0.60/230 + 0.40/3.5) ≈ 8.6 GPa，約為纖維方向的16分之1。在相同體積分率下比較，等應變式給出上限，等應力式給出下限（Voigt與Reuss界限）。"
+        },
+        {
+          "h": "體積分率與質量分率",
+          "p": "混合法則使用的是體積分率。製造時常以纖維的質量分率管理，因此以密度換算：Vf = (Wf/ρf)/(Wf/ρf + (1 − Wf)/ρm)。碳纖維（1.80 g/cm³）與環氧樹脂（1.20 g/cm³）時，質量分率70 %相當於體積分率約61 %。纖維的密度比基材大時，體積分率小於質量分率。沒有孔隙時，複合材料的密度為 ρ = Vfρf + Vmρm。"
+        },
+        {
+          "h": "比剛性與材料選擇",
+          "p": "以相同重量比較有多剛，使用比剛性 E/ρ。鋼（210 GPa，7.9 g/cm³）約為27 GPa/(g/cm³)，鋁合金與鈦合金也幾乎相同。預設值的CFRP在纖維方向約為89 GPa/(g/cm³)，是3倍以上，但在垂直方向約為5.5，比鋼小。決定彎曲剛性而選擇最輕的梁時，指標為 √E/ρ，鋼約為1.8，預設值的纖維方向約為7.6。實際零件以改變纖維方向的層疊層來補足方向性的差異，因此比剛性的優勢會比這個值小。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "應該使用哪一個式子？",
+          "a": "連續纖維的單向材平行纖維拉伸時以等應變式、垂直拉伸時以等應力式近似。粒子分散材料或短纖維材料的楊氏模數，通常落在兩個式子之間。"
+        },
+        {
+          "q": "強度也可以使用混合法則嗎？",
+          "a": "纖維方向的強度，有時使用纖維斷裂應變下基材的應力，以 σc ≈ Vfσf + Vmσm′ 估算。不過強度受缺陷、界面黏著與纖維長度（臨界纖維長度）的影響很強，吻合程度不如楊氏模數。"
+        },
+        {
+          "q": "為什麼Voigt式是上限？",
+          "a": "施加相同的平均應變時，材料內部的應變分布會使彈性應變能最小（最小位能原理）。均勻的應變（等應變）只是可能的分布之一，因此由它計算的能量，也就是等應變式的楊氏模數，會在真實值以上。實際上柔軟的基材應變較大，使能量降低。同樣地，假設均勻的應力時，餘能會在真實值以上，因此等應力式給出下限。兩相的蒲松比相等時，這兩個式子才是楊氏模數嚴格的界限；若不相等，單向材纖維方向的楊氏模數有時會稍微超過等應變的值。單向材的纖維方向實際應變幾乎均勻，因此等應變式吻合得很好。"
+        }
+      ]
+    }
+  }
+}

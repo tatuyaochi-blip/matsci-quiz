@@ -1,0 +1,302 @@
+{
+  "id": "thermal",
+  "order": 4,
+  "slug": "thermal-expansion-stress-calculator",
+  "cats": [
+    "thin-films",
+    "ceramics",
+    "mechanical"
+  ],
+  "cat": "thin-films",
+  "terms": [
+    "熱応力",
+    "ヤング率"
+  ],
+  "questions": [
+    "thin-films-007",
+    "thin-films-008",
+    "ceramics-008"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "thermal-form",
+    "fields": [
+      {
+        "name": "mode",
+        "options": [
+          "uniaxial",
+          "biaxial"
+        ],
+        "value": "uniaxial"
+      },
+      {
+        "name": "alpha",
+        "value": 12,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "as",
+        "value": 0,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "l",
+        "value": 1000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "t1",
+        "value": 20,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "t2",
+        "value": 70,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "e",
+        "value": 200,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "nu",
+        "value": 0.3,
+        "attrs": "min=\"0\" max=\"0.49\" step=\"0.01\""
+      },
+      {
+        "name": "sy",
+        "value": 250,
+        "attrs": "min=\"0\" step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "stats": [
+          "dt",
+          "dl",
+          "eps"
+        ]
+      },
+      {
+        "heading": "sigma_heading",
+        "stats": [
+          "sigma",
+          "state",
+          "dtc"
+        ]
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "熱膨張と熱応力",
+      "card": "温度変化による伸びと、拘束したときの熱応力を計算",
+      "title": "熱膨張・熱応力 計算ツール(ΔL = αLΔT、σ = −EαΔT)",
+      "description": "線膨張係数と温度変化から、自由に膨張したときの伸び ΔL = αLΔT を、両端を拘束した棒や基板上の薄膜では熱応力 σ = −EΔαΔT(引張を正、薄膜は ÷(1 − ν))を計算します。応力が強さに達する温度差の目安も出します。",
+      "h1": "熱膨張・熱応力 計算ツール",
+      "lead": "材料の温度が変わると、線膨張係数 α に比例して伸び縮みします。自由に伸び縮みできれば応力は生じませんが、拘束されると熱応力になります。既定値は、長さ1000 mmの鋼の棒(α = 12×10⁻⁶ K⁻¹、E = 200 GPa)を20 ℃から70 ℃に加熱する例で、自由なら0.60 mm伸び、両端を動かない壁で止めると約120 MPaの圧縮応力になります。",
+      "in_heading": "入力(弾性範囲、温度で物性値は変わらないとする)",
+      "mode": "拘束のしかた",
+      "mode_uniaxial": "棒の両端を拘束(一軸)",
+      "mode_biaxial": "基板上の薄膜・面内を拘束した板(等二軸)",
+      "alpha": "線膨張係数 α (×10⁻⁶ K⁻¹)",
+      "as": "拘束する側の線膨張係数 αs (×10⁻⁶ K⁻¹、動かない壁なら0)",
+      "l": "長さ L (mm)",
+      "t1": "はじめの温度(応力のない温度) (℃)",
+      "t2": "あとの温度 (℃)",
+      "e": "ヤング率 E (GPa)",
+      "nu": "ポアソン比 ν(等二軸のときだけ使う)",
+      "sy": "比べる強さ(降伏応力や破壊強度) (MPa)",
+      "out_heading": "結果",
+      "dt": "温度変化 ΔT",
+      "dl": "自由な伸び ΔL = αLΔT",
+      "eps": "熱ひずみ αΔT",
+      "sigma_heading": "拘束したときの熱応力",
+      "sigma": "熱応力 σ(引張が正)",
+      "state": "応力の向き",
+      "dtc": "|σ| が強さに達する温度変化 ΔTc",
+      "note": "αsは、棒を止めている枠や薄膜の基板の線膨張係数です。拘束する側は十分に剛い(変形しない)とみなし、熱応力は −E(α − αs)ΔT(等二軸では ÷(1 − ν))で計算します。物性値の温度依存、塑性変形やクリープによる応力の緩和は考えていません。",
+      "practice": "薄膜・表面・ナノ材料の問題を解く",
+      "related": "関連する用語",
+      "js": {
+        "tension": "引張",
+        "compression": "圧縮",
+        "none": "応力なし",
+        "no_limit": "α と αs が等しく、応力は生じない"
+      },
+      "sections": [
+        {
+          "h": "熱膨張の式",
+          "p": "固体の長さは、温度が上がると原子間の平均距離が広がるために伸びます。温度範囲が広すぎなければ、伸びは温度変化に比例し、ΔL = αLΔT と書けます。αは線膨張係数で、鋼で約12×10⁻⁶ K⁻¹、アルミニウムで約23×10⁻⁶ K⁻¹、シリコンで約2.6×10⁻⁶ K⁻¹、石英ガラスで約0.5×10⁻⁶ K⁻¹です。等方的な材料の体積膨張係数は、およそ3αになります。原子間の結合が強く融点の高い材料ほど、αは小さい傾向があります。"
+        },
+        {
+          "h": "拘束されたときの熱応力",
+          "p": "両端を動かない壁で止めた棒を加熱すると、伸びようとする熱ひずみ αΔT を、同じ大きさの弾性ひずみが打ち消します。そのため熱応力は σ = −EαΔT となり、加熱では圧縮、冷却では引張になります。応力は棒の長さによらず、Eとαの積で決まります。既定値の鋼では 200×10⁹ × 12×10⁻⁶ × 50 = 1.2×10⁸ Pa、約120 MPaの圧縮です。枠のほうも膨張するときは、αの代わりに差 Δα = α − αs を使います。"
+        },
+        {
+          "h": "薄膜の熱応力(等二軸)",
+          "p": "厚い基板の上の薄膜は、面内の2方向に同時に拘束されます。この等二軸の状態では、二軸弾性率 E/(1 − ν) を使い、σ = −EΔαΔT/(1 − ν) になります。たとえば、シリコン基板上のアルミニウム膜(E = 70 GPa、ν = 0.35、α = 23×10⁻⁶ K⁻¹)を応力のない125 ℃から25 ℃まで冷やすと、約220 MPaの引張応力になります。膜の線膨張係数が基板より大きければ冷却後に引張、小さければ圧縮です。"
+        },
+        {
+          "h": "熱衝撃の目安",
+          "p": "高温のセラミックスを急冷すると、表面だけが先に縮もうとして内部に拘束され、表面に等二軸の引張応力が生じます。この応力が強さ σf に達する温度差は ΔTc = σf(1 − ν)/(Eα) と見積もれます。曲げ強度300 MPa、E = 380 GPa、ν = 0.22、α = 8.0×10⁻⁶ K⁻¹なら約77 Kです。このツールで等二軸を選び、αs = 0、強さに σf を入れると同じ値が出ます。実際には熱伝導や部品の寸法の影響を受けるので、材料どうしを比べる目安として使います。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "熱応力は棒の長さで変わりますか?",
+          "a": "完全に拘束された場合は変わりません。熱ひずみ αΔT が長さによらないので、応力 EαΔT も長さによりません。長い部材で問題になるのは、伸びの量 ΔL のほうで、橋やレールに伸縮のすき間を設けるのはこのためです。"
+        },
+        {
+          "q": "なぜ薄膜では (1 − ν) で割るのですか?",
+          "a": "薄膜は面内の2方向に同時に縮むのを止められます。一方向の応力は、ポアソン効果で直交する方向のひずみを少し打ち消すので、同じ熱ひずみを打ち消すのに大きな応力が必要になります。その結果、弾性率が E から E/(1 − ν) に増えた形になります。"
+        },
+        {
+          "q": "計算した応力が降伏応力を超えたらどうなりますか?",
+          "a": "その先は弾性の式が成り立たず、金属では塑性変形が起こって応力はおよそ降伏応力で頭打ちになります。温度を戻すと逆向きの残留応力が残ることもあります。ぜい性のセラミックスやガラスでは、引張側で割れが生じるおそれがあります。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Thermal expansion and stress",
+      "card": "Calculate the elongation from a temperature change and the thermal stress when constrained",
+      "title": "Thermal Expansion and Thermal Stress Calculator (ΔL = αLΔT, σ = −EαΔT)",
+      "description": "From the coefficient of linear thermal expansion and the temperature change, calculate the free elongation ΔL = αLΔT, and the thermal stress σ = −EΔαΔT (tension positive) for a bar constrained at both ends or a thin film on a substrate (divided by (1 − ν) for a film). It also gives a rough temperature change at which the stress reaches the strength.",
+      "h1": "Thermal Expansion and Thermal Stress Calculator",
+      "lead": "When the temperature of a material changes, it expands or contracts in proportion to its coefficient of linear thermal expansion α. If it is free to do so, no stress arises, but if it is constrained, a thermal stress develops. The defaults are a steel bar 1000 mm long (α = 12×10⁻⁶ K⁻¹, E = 200 GPa) heated from 20 °C to 70 °C: free, it lengthens by 0.60 mm; held between immovable walls, it develops a compressive stress of about 120 MPa.",
+      "in_heading": "Inputs (elastic range; properties assumed not to change with temperature)",
+      "mode": "Type of constraint",
+      "mode_uniaxial": "Bar constrained at both ends (uniaxial)",
+      "mode_biaxial": "Thin film on a substrate, or plate constrained in-plane (equibiaxial)",
+      "alpha": "Coefficient of linear thermal expansion α (×10⁻⁶ K⁻¹)",
+      "as": "Expansion coefficient of the constraining part αs (×10⁻⁶ K⁻¹; 0 for an immovable wall)",
+      "l": "Length L (mm)",
+      "t1": "Initial temperature (stress-free) (°C)",
+      "t2": "Final temperature (°C)",
+      "e": "Young's modulus E (GPa)",
+      "nu": "Poisson's ratio ν (used only for equibiaxial)",
+      "sy": "Strength to compare (yield stress or fracture strength) (MPa)",
+      "out_heading": "Results",
+      "dt": "Temperature change ΔT",
+      "dl": "Free elongation ΔL = αLΔT",
+      "eps": "Thermal strain αΔT",
+      "sigma_heading": "Thermal stress when constrained",
+      "sigma": "Thermal stress σ (tension positive)",
+      "state": "Sign of stress",
+      "dtc": "Temperature change at which |σ| reaches the strength, ΔTc",
+      "note": "αs is the expansion coefficient of the frame holding the bar or of the film's substrate. The constraining part is taken as rigid (it does not deform), and the thermal stress is calculated as −E(α − αs)ΔT (divided by (1 − ν) for equibiaxial). Temperature dependence of the properties and stress relaxation by plastic deformation or creep are not considered.",
+      "practice": "Practice thin films, surfaces and nanomaterials questions",
+      "related": "Related terms",
+      "js": {
+        "tension": "Tensile",
+        "compression": "Compressive",
+        "none": "No stress",
+        "no_limit": "α equals αs, so no stress arises"
+      },
+      "sections": [
+        {
+          "h": "The thermal expansion equation",
+          "p": "A solid gets longer as its temperature rises because the average distance between atoms increases. Over a not-too-wide temperature range, the elongation is proportional to the temperature change and can be written ΔL = αLΔT. α is the coefficient of linear thermal expansion: about 12×10⁻⁶ K⁻¹ for steel, about 23×10⁻⁶ K⁻¹ for aluminum, about 2.6×10⁻⁶ K⁻¹ for silicon and about 0.5×10⁻⁶ K⁻¹ for fused silica. For an isotropic material the volumetric expansion coefficient is roughly 3α. Materials with stronger interatomic bonds and higher melting points tend to have smaller α."
+        },
+        {
+          "h": "Thermal stress under constraint",
+          "p": "When a bar held between immovable walls is heated, an elastic strain of equal size cancels the thermal strain αΔT that it would otherwise undergo. The thermal stress is therefore σ = −EαΔT: compressive on heating and tensile on cooling. The stress does not depend on the bar's length and is set by the product of E and α. For the default steel, 200×10⁹ × 12×10⁻⁶ × 50 = 1.2×10⁸ Pa, about 120 MPa in compression. If the frame also expands, use the difference Δα = α − αs in place of α."
+        },
+        {
+          "h": "Thermal stress in thin films (equibiaxial)",
+          "p": "A thin film on a thick substrate is constrained in both in-plane directions at once. In this equibiaxial state the biaxial modulus E/(1 − ν) applies, giving σ = −EΔαΔT/(1 − ν). For example, an aluminum film on a silicon substrate (E = 70 GPa, ν = 0.35, α = 23×10⁻⁶ K⁻¹) cooled from a stress-free 125 °C to 25 °C develops a tensile stress of about 220 MPa. If the film's expansion coefficient is larger than the substrate's, the film is in tension after cooling; if smaller, in compression."
+        },
+        {
+          "h": "A rough guide to thermal shock",
+          "p": "When a hot ceramic is quenched, the surface tries to shrink first but is held back by the interior, so an equibiaxial tensile stress arises at the surface. The temperature difference at which this stress reaches the strength σf can be estimated as ΔTc = σf(1 − ν)/(Eα). For a flexural strength of 300 MPa, E = 380 GPa, ν = 0.22 and α = 8.0×10⁻⁶ K⁻¹, it is about 77 K. Choosing equibiaxial in this tool with αs = 0 and σf as the strength gives the same value. In practice heat conduction and part size also matter, so use it as a guide for comparing materials."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Does the thermal stress depend on the length of the bar?",
+          "a": "Not when it is fully constrained. The thermal strain αΔT does not depend on length, so neither does the stress EαΔT. What matters for long members is the amount of elongation ΔL, which is why bridges and rails have expansion gaps."
+        },
+        {
+          "q": "Why divide by (1 − ν) for a thin film?",
+          "a": "A thin film is prevented from shrinking in both in-plane directions at once. A stress in one direction partly cancels the strain in the perpendicular direction through the Poisson effect, so a larger stress is needed to cancel the same thermal strain. The result is as if the modulus increased from E to E/(1 − ν)."
+        },
+        {
+          "q": "What happens if the calculated stress exceeds the yield stress?",
+          "a": "Beyond that point the elastic equation no longer holds; in metals plastic deformation occurs and the stress levels off at roughly the yield stress. When the temperature returns, a residual stress of the opposite sign may remain. In brittle ceramics and glass, cracking may occur on the tensile side."
+        }
+      ]
+    },
+    "zh-hant": {
+      "nav": "熱膨脹與熱應力",
+      "card": "計算溫度變化造成的伸長，以及受拘束時的熱應力",
+      "title": "熱膨脹與熱應力計算工具（ΔL = αLΔT、σ = −EαΔT）",
+      "description": "由線膨脹係數與溫度變化，計算自由膨脹時的伸長 ΔL = αLΔT，以及兩端受拘束的棒或基板上薄膜的熱應力 σ = −EΔαΔT（拉伸為正，薄膜再除以 (1 − ν)）。也給出應力達到強度的溫差估計。",
+      "h1": "熱膨脹與熱應力計算工具",
+      "lead": "材料的溫度改變時，會與線膨脹係數 α 成正比地伸長或收縮。若能自由伸縮則不產生應力，但受到拘束時就會產生熱應力。預設值是將長1000 mm的鋼棒（α = 12×10⁻⁶ K⁻¹，E = 200 GPa）由20 ℃加熱到70 ℃的例子：自由時伸長0.60 mm，以不動的壁固定兩端時產生約120 MPa的壓縮應力。",
+      "in_heading": "輸入（彈性範圍內，設物性值不隨溫度改變）",
+      "mode": "拘束方式",
+      "mode_uniaxial": "棒的兩端受拘束（單軸）",
+      "mode_biaxial": "基板上的薄膜、面內受拘束的板（等雙軸）",
+      "alpha": "線膨脹係數 α (×10⁻⁶ K⁻¹)",
+      "as": "拘束側的線膨脹係數 αs (×10⁻⁶ K⁻¹，不動的壁為0)",
+      "l": "長度 L (mm)",
+      "t1": "初始溫度（無應力的溫度） (℃)",
+      "t2": "最終溫度 (℃)",
+      "e": "楊氏模數 E (GPa)",
+      "nu": "蒲松比 ν（僅用於等雙軸）",
+      "sy": "比較用的強度（降伏應力或破壞強度） (MPa)",
+      "out_heading": "結果",
+      "dt": "溫度變化 ΔT",
+      "dl": "自由伸長 ΔL = αLΔT",
+      "eps": "熱應變 αΔT",
+      "sigma_heading": "受拘束時的熱應力",
+      "sigma": "熱應力 σ（拉伸為正）",
+      "state": "應力的方向",
+      "dtc": "|σ| 達到強度的溫度變化 ΔTc",
+      "note": "αs是固定棒的框架或薄膜基板的線膨脹係數。視拘束側為足夠剛硬（不變形），熱應力以 −E(α − αs)ΔT（等雙軸再除以 (1 − ν)）計算。未考慮物性值的溫度依存性，以及塑性變形或潛變造成的應力鬆弛。",
+      "practice": "練習薄膜、表面與奈米材料的題目",
+      "related": "相關名詞",
+      "js": {
+        "tension": "拉伸",
+        "compression": "壓縮",
+        "none": "無應力",
+        "no_limit": "α 與 αs 相等，不產生應力"
+      },
+      "sections": [
+        {
+          "h": "熱膨脹的式子",
+          "p": "固體在溫度上升時，原子間的平均距離變大，因此長度增加。溫度範圍不太大時，伸長與溫度變化成正比，可寫成 ΔL = αLΔT。α是線膨脹係數，鋼約為12×10⁻⁶ K⁻¹，鋁約為23×10⁻⁶ K⁻¹，矽約為2.6×10⁻⁶ K⁻¹，石英玻璃約為0.5×10⁻⁶ K⁻¹。等向性材料的體膨脹係數約為3α。原子間鍵結越強、熔點越高的材料，α有越小的傾向。"
+        },
+        {
+          "h": "受拘束時的熱應力",
+          "p": "將兩端以不動的壁固定的棒加熱時，想要伸長的熱應變 αΔT 會被相同大小的彈性應變抵消。因此熱應力為 σ = −EαΔT，加熱時為壓縮，冷卻時為拉伸。應力與棒的長度無關，由E與α的乘積決定。對預設值的鋼，200×10⁹ × 12×10⁻⁶ × 50 = 1.2×10⁸ Pa，約為120 MPa的壓縮。框架也會膨脹時，以差值 Δα = α − αs 代替α。"
+        },
+        {
+          "h": "薄膜的熱應力（等雙軸）",
+          "p": "厚基板上的薄膜，在面內2個方向同時受到拘束。在這種等雙軸狀態下使用雙軸模數 E/(1 − ν)，得到 σ = −EΔαΔT/(1 − ν)。例如，將矽基板上的鋁膜（E = 70 GPa，ν = 0.35，α = 23×10⁻⁶ K⁻¹）由無應力的125 ℃冷卻至25 ℃時，產生約220 MPa的拉伸應力。膜的線膨脹係數比基板大時，冷卻後為拉伸；比基板小時為壓縮。"
+        },
+        {
+          "h": "熱衝擊的估計",
+          "p": "將高溫的陶瓷急冷時，只有表面先想收縮而受內部拘束，表面產生等雙軸的拉伸應力。此應力達到強度 σf 的溫差可估計為 ΔTc = σf(1 − ν)/(Eα)。彎曲強度300 MPa、E = 380 GPa、ν = 0.22、α = 8.0×10⁻⁶ K⁻¹時約為77 K。在本工具中選擇等雙軸，αs = 0，強度輸入 σf，會得到相同的值。實際上還受熱傳導與零件尺寸的影響，因此作為比較材料之間的估計使用。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "熱應力會隨棒的長度改變嗎？",
+          "a": "完全受拘束時不會改變。熱應變 αΔT 與長度無關，因此應力 EαΔT 也與長度無關。長構件的問題在於伸長量 ΔL，橋梁與鐵軌設置伸縮縫就是這個原因。"
+        },
+        {
+          "q": "為什麼薄膜要除以 (1 − ν)？",
+          "a": "薄膜在面內2個方向同時被阻止收縮。一個方向的應力會因蒲松效應抵消一部分垂直方向的應變，因此需要較大的應力才能抵消相同的熱應變。結果相當於彈性模數由 E 增加為 E/(1 − ν)。"
+        },
+        {
+          "q": "計算出的應力超過降伏應力時會怎樣？",
+          "a": "超過後彈性的式子不再成立，金屬會發生塑性變形，應力大約在降伏應力處達到上限。溫度回復時，可能殘留相反方向的殘留應力。脆性的陶瓷與玻璃，在拉伸側可能發生破裂。"
+        }
+      ]
+    }
+  }
+}
