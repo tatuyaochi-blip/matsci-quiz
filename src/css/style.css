@@ -1482,3 +1482,99 @@ th[aria-sort] .md-sort-i { color: var(--accent); }
   .md-note { max-width: 11em; }
 }
 .md-cmp-table .md-v { white-space: normal; overflow-wrap: anywhere; }
+
+/* ---- 公式集(/formulas/。動きは formulas.js。印刷は下の @media print) ---- */
+.fm-app { display: grid; gap: 12px; margin: 1rem 0; }
+.fm-find, .fm-sel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; min-width: 0; }
+.fm-q { display: grid; gap: 4px; font-size: .88rem; color: var(--muted); }
+.fm-q input { font: inherit; font-size: 1rem; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; min-height: 44px; width: 100%; min-width: 0; box-sizing: border-box; }
+.fm-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.fm-chips .chip { min-height: 36px; }
+.fm-count { margin: 8px 0 0; font-size: .85rem; font-variant-numeric: tabular-nums; }
+.fm-sel { display: grid; gap: 8px; }
+.fm-sel p { margin: 0; }
+.fm-sel-n { font-weight: 700; }
+.fm-sel-opts { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: .92rem; }
+.fm-sel-opts label { display: flex; align-items: center; gap: 6px; min-height: 36px; }
+.fm-sel-opts input, .fm-pick input { accent-color: var(--accent); width: 18px; height: 18px; margin: 0; }
+.fm-sel-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.fm-msg { padding: 8px 12px; border-radius: 10px; background: var(--accent-soft); font-size: .9rem; }
+.fm-none { margin: 1rem 0; }
+.fm-group h2 { scroll-margin-top: 12px; }
+.fm-n { font-size: .8rem; font-weight: 600; color: var(--muted); }
+.fm-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin: 0 0 12px; min-width: 0; scroll-margin-top: 12px; }
+.fm-card:target { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.fm-card.is-picked { border-color: var(--accent); }
+.fm-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.fm-head h3 { margin: 0; font-size: 1.05rem; line-height: 1.5; min-width: 0; }
+.fm-head h3 a { color: inherit; text-decoration: none; }
+.fm-head h3 a:hover { text-decoration: underline; }
+.fm-pick { display: none; flex: none; align-items: center; gap: 6px; font-size: .88rem; min-height: 36px; padding: 0 10px; border: 1px solid var(--border); border-radius: 999px; cursor: pointer; white-space: nowrap; }
+.fm-js .fm-pick { display: inline-flex; }
+.fm-card.is-picked .fm-pick { border-color: var(--accent); background: var(--accent-soft); }
+.fm-eqs { margin: 10px 0; padding: 10px 12px; background: var(--bg); border-radius: 10px; }
+.fm-eq { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin: 4px 0; }
+.fm-f { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; font-size: 1.12rem; line-height: 1.6; overflow-wrap: anywhere; min-width: 0; }
+.fm-f sub, .fm-f sup { font-size: .72em; }
+.fm-l { font-size: .82rem; color: var(--muted); }
+.fm-d { margin-left: auto; font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.fm-sym { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.fm-sym th, .fm-sym td { padding: 5px 8px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.fm-sym thead th { font-size: .78rem; color: var(--muted); font-weight: 600; }
+.fm-sym tbody tr:last-child > * { border-bottom: 0; }
+.fm-sym .fm-s { white-space: nowrap; font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; font-size: 1rem; }
+.fm-sym .fm-u { white-space: nowrap; }
+.fm-dim { margin: 8px 0 0; font-size: .82rem; color: var(--muted); }
+.fm-dim b, .fm-links b, .fm-terms b { color: var(--text); margin-right: 4px; }
+.fm-more { margin: 10px 0 0; display: grid; gap: 6px; font-size: .92rem; line-height: 1.75; }
+.fm-more dt { font-weight: 700; font-size: .85rem; }
+.fm-more dd { margin: 0; overflow-wrap: anywhere; }
+.fm-links { margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: .88rem; }
+.fm-ln a + a::before { content: "/ "; color: var(--muted); }
+.fm-terms { margin: 8px 0 0; font-size: .88rem; }
+.fm-src { margin: 4px 0 0; font-size: .8rem; color: var(--muted); }
+.fm-guide p { line-height: 1.85; }
+.fm-scroll { overflow-x: auto; }
+.fm-table table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.fm-table th, .fm-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+.fm-table thead th { font-size: .8rem; color: var(--muted); font-weight: 600; }
+.fm-table .fm-nw { white-space: nowrap; }
+.fm-table .fm-num { font-variant-numeric: tabular-nums; }
+.fm-refs ul { padding-left: 1.2em; font-size: .88rem; line-height: 1.7; overflow-wrap: anywhere; }
+.fm-refs li { margin: 4px 0; }
+@media (max-width: 520px) {
+  .fm-card { padding: 12px; }
+  .fm-sym th, .fm-sym td { padding: 5px 4px; }
+  .fm-sym .fm-u { white-space: normal; }
+  .fm-sel-btns .btn { flex: 1 1 auto; }
+}
+/* 印刷: 公式集のページだけ。ヘッダー・広告・ナビ・検索欄・説明の文は出さず、式のカードを2段に並べる。
+   「選んだ式だけ印刷」は html.fm-print-sel(formulas.js)。説明(条件・間違い・例)は html.fm-print-more のときだけ */
+@media print {
+  body:has(#fm-list) { background: #fff; color: #000; font-size: 9pt; }
+  body:has(#fm-list) .site-header, body:has(#fm-list) .site-footer, body:has(#fm-list) .lang-banner,
+  body:has(#fm-list) main > :not(h1):not(#fm-list), body:has(#fm-list) [data-ad], body:has(#fm-list) ins.adsbygoogle { display: none !important; }
+  body:has(#fm-list) main { max-width: none; padding: 0; margin: 0; }
+  body:has(#fm-list) h1 { font-size: 13pt; margin: 0 0 3mm; }
+  #fm-list, #fm-list * { color: #000 !important; background: transparent !important; box-shadow: none !important; }
+  #fm-list { columns: 2; column-gap: 7mm; }
+  #fm-list .fm-group[hidden], #fm-list .fm-card[hidden] { display: none; }
+  .fm-group h2 { font-size: 10.5pt; margin: 0 0 2mm; break-after: avoid; }
+  .fm-n, .fm-pick, .fm-links, .fm-terms, .fm-src, .fm-dim { display: none !important; }
+  .fm-card { border: 0; border-bottom: .4pt solid #999; border-radius: 0; padding: 0 0 2mm; margin: 0 0 2.5mm; break-inside: avoid; }
+  .fm-card.is-picked { border-color: #999; }
+  .fm-head h3 { font-size: 10pt; }
+  .fm-eqs { margin: 1mm 0; padding: 0; }
+  .fm-eq { margin: .5mm 0; gap: 0 6px; }
+  .fm-f { font-size: 10.5pt; line-height: 1.4; }
+  .fm-l, .fm-d { font-size: 7.5pt; }
+  .fm-sym { font-size: 7.5pt; }
+  .fm-sym thead { display: none; }
+  .fm-sym th, .fm-sym td { padding: .3mm 1.5mm .3mm 0; border-bottom: 0; }
+  .fm-sym .fm-s { font-size: 8.5pt; }
+  .fm-more { display: none; font-size: 7.5pt; line-height: 1.45; gap: 1mm; margin-top: 1mm; }
+  html.fm-print-more .fm-more { display: grid; }
+  .fm-more dt { font-size: 7.5pt; }
+  html.fm-print-sel .fm-card:not(.is-picked), html.fm-print-sel .fm-group:not(.has-picked) { display: none !important; }
+  html.fm-print-sel .fm-card.is-picked { display: block !important; }
+}
