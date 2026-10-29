@@ -221,7 +221,7 @@ if (form) {
   });
 
   // 格子定数の文
-  const nm = v => `${f(v)} nm`;
+  const nm = v => `${f(v)}\u00a0nm`;
   function latText(e) {
     if (e.a == null) return null;
     if (e.ang != null) return `a = ${nm(e.a)}, α = ${f(e.ang)}°${tag(T.rhomb_cell)}`;
@@ -258,14 +258,14 @@ if (form) {
     add('lat', lat ? `${lat}${tag(e.ls === 'WEL' ? 'WebElements' : T.asm25)}` : '—');
     if (e.c === 'hcp' || e.st === 'dhcp') add('ca', `${num(e.cc / e.a, 4)}${tag(e.c === 'hcp' ? T.ca_ideal : T.ca_ideal_dhcp)}`);
     if (e.c === 'gas') add('rho', esc(T.rho_gas));
-    else add('rho', e.d != null ? `${f(e.d)} g/cm³${tag(e.ds === 'ED' ? 'ElementData' : e.ds === 'WP' ? 'WebElements' : 'CRC')}${e.c === 'liq' ? tag(T.liquid) : ''}` : '—');
-    if (e.x != null) add('xrho', `${num(e.x, 4)} g/cm³${tag(T.calc)}`);
-    add('mp', e.mp != null ? `${f(e.mp)} ${T.degC}${tag(e.ms === 'WEL' ? 'WebElements' : 'CRC')}` : e.mn ? esc(T[`mp_${e.mn}`]) : '—');
+    else add('rho', e.d != null ? `${f(e.d)}\u00a0g/cm³${tag(e.ds === 'ED' ? 'ElementData' : e.ds === 'WP' ? 'WebElements' : 'CRC')}${e.c === 'liq' ? tag(T.liquid) : ''}` : '—');
+    if (e.x != null) add('xrho', `${num(e.x, 4)}\u00a0g/cm³${tag(T.calc)}`);
+    add('mp', e.mp != null ? `${f(e.mp)}\u00a0${T.degC}${tag(e.ms === 'WEL' ? 'WebElements' : 'CRC')}` : e.mn ? esc(T[`mp_${e.mn}`]) : '—');
     if (e.c !== 'gas' && e.c !== 'liq' && e.c !== 'unk') {
-      add('E', e.E == null ? '—' : Array.isArray(e.E) ? `${num(e.E[0], 3)}–${num(e.E[1], 3)} GPa${tag(T.e_si)}` : `${f(e.E)} GPa${tag(e.Es === 'CRC' ? 'CRC' : 'WebElements')}`);
+      add('E', e.E == null ? '—' : Array.isArray(e.E) ? `${num(e.E[0], 3)}–${num(e.E[1], 3)}\u00a0GPa${tag(T.e_si)}` : `${f(e.E)}\u00a0GPa${tag(e.Es === 'CRC' ? 'CRC' : 'WebElements')}`);
     }
-    add('rm', e.rm != null ? `${f(e.rm)} pm${tag(T.cn12)}` : '—');
-    if (e.h != null) add('half', `${num(e.h, 4)} pm${tag(T.calc)}`);
+    add('rm', e.rm != null ? `${f(e.rm)}\u00a0pm${tag(T.cn12)}` : '—');
+    if (e.h != null) add('half', `${num(e.h, 4)}\u00a0pm${tag(T.calc)}`);
     if (e.f != null) add('apf', `${num(e.f, 2)}${tag(T.apf_note)}`);
     add('tr', trText(e));
     if (T[`note_${s}`]) add('note', esc(T[`note_${s}`]));
