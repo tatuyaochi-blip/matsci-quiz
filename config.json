@@ -38,11 +38,11 @@
   },
   "reportFormUrl": null,
   "adPlaceholders": false,
-  "adsenseClient": null,
+  "adsenseClient": "ca-pub-2325130884595699",
   "adsenseSlots": null,
   "amazonTag": null,
   "amazonDomain": null,
-  "ga4Id": null,
+  "ga4Id": "G-CC5QX4JLKH",
   "brand": {
     "ja": {
       "search_example": "ミラー指数",
