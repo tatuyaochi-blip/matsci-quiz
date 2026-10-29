@@ -130,7 +130,9 @@ if (form) {
   const unitOf = prop => (prop === 'rho' ? 'g/cm³' : UNIT[prop]);
   const axisLabel = prop => `${T[`p_${prop}`]} ${SYM[prop]} (${unitOf(prop)})`;
   const fmt = x => num(x, 3);
-  // 13px の文字列のおおよその幅(viewBox の単位)。太字を考えて、全角は 13.5、半角は 8.2 とみなす
+  // 13px の文字列のおおよその幅(viewBox の単位)。太字を考えて、全角(ハングルを含む)は 13.5、半角は 8.2 とみなす
+  // 括弧書き: 日本語・中国語・韓国語は前に空白を入れず、ほかの言語は空白を入れる
+  const par = str => (/^(ja|zh|ko)/.test(document.documentElement.lang) ? `(${str})` : ` (${str})`);
   const tw = str => [...str].reduce((w, c) => w + (/[\u2e80-\u9fff\uf900-\uffef]/.test(c) ? 13.5 : 8.2), 0);
   const rng = r => (r[0] === r[1] ? fmt(r[0]) : `${fmt(r[0])}–${fmt(r[1])}`);
   // 目盛の数字: 0.001〜1000 はそのまま、それ以外は 10 の累乗
@@ -411,7 +413,7 @@ if (form) {
     const ixs = st.key && st.x !== st.y ? MATS.map(m => [m, indexOf(m, st.key)]).filter(([, i]) => i) : [];
     if (st.key && st.x !== st.y) {
       const sl = slope(st.key, st.x);
-      out('slope').textContent = `${num(sl, 3)}(${INDEX[st.key].f} = ${fmt(st.v)} ${INDEX[st.key].u})`;
+      out('slope').textContent = `${num(sl, 3)}${par(`${INDEX[st.key].f} = ${fmt(st.v)} ${INDEX[st.key].u}`)}`;
       const good = ixs.filter(([, i]) => side(i, st.v) === 'good').length, cross = ixs.filter(([, i]) => side(i, st.v) === 'cross').length;
       out('above').textContent = T.above_fmt.replace('{n}', good).replace('{m}', cross);
     } else {
@@ -440,14 +442,14 @@ if (form) {
     const g = GROUPS[m[1]];
     const rows = PROPS.map(p => {
       const r = range(m, p);
-      const label = p === 's' ? `${T.p_s} ${SYM.s}(${T[`sk_${g}`]})` : `${T[`p_${p}`]} ${SYM[p]}`;
+      const label = p === 's' ? `${T.p_s} ${SYM.s}${par(T[`sk_${g}`])}` : `${T[`p_${p}`]} ${SYM[p]}`;
       return [label, r ? `${rng(r)} ${unitOf(p)}` : T.unverified];
     });
     if (st.key) {
       const i = indexOf(m, st.key), I = INDEX[st.key];
-      rows.push([`${T.mat_idx} ${I.f}`, i ? `${fmt(i.c)}(${fmt(i.lo)}–${fmt(i.hi)}) ${I.u}` : T.unverified]);
+      rows.push([`${T.mat_idx} ${I.f}`, i ? `${fmt(i.c)}${par(`${fmt(i.lo)}–${fmt(i.hi)}`)} ${I.u}` : T.unverified]);
     }
-    out('mat').innerHTML = `<p><strong>${esc(NAME[m[0]])}</strong>(${esc(T[`g_${g}`])})</p>${table([T.col_prop, T.col_val], rows, 'mat', box.clientWidth < 460)}`;
+    out('mat').innerHTML = `<p><strong>${esc(NAME[m[0]])}</strong>${esc(par(T[`g_${g}`]))}</p>${table([T.col_prop, T.col_val], rows, 'mat', box.clientWidth < 460)}`;
   }
   form.addEventListener('input', update);
   form.addEventListener('change', update);
