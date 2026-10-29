@@ -309,7 +309,7 @@
         },
         {
           "h": "指標の線の傾きと良い側",
-          "p": "√E/ρ = C とおくと E = C²ρ² で、両辺の対数をとると log E = 2 log ρ + 2 log C となり、ヤング率–密度の図では傾き2の直線になります。同じように、E/ρ は傾き1、∛E/ρ は傾き3、強度–密度の図の σf/ρ は傾き1、∛(σf²)/ρ は傾き1.5、√σf/ρ は傾き2です。同じ線の上にある材料は、その使い方で同じ性能です。線を左上へ平行に動かすほど指標の値が大きくなるので、線より左上にある材料ほど同じ剛性や強度の部材を軽くつくれます。既定の √E/ρ = 3 GPa^½/(g/cm³) の線では、代表値でアルミニウム合金(約3.2)、マグネシウム合金、CFRP、木材の繊維方向などが良い側にあり、鋼(約1.9)は悪い側にあります。縦軸と横軸を入れ替えると、良い側は線の右下になります。"
+          "p": "√E/ρ = C とおくと E = C²ρ² で、両辺の対数をとると log E = 2 log ρ + 2 log C となり、ヤング率–密度の図では傾き2の直線になります。同じように、E/ρ は傾き1、∛E/ρ は傾き3、強度–密度の図の σf/ρ は傾き1、∛(σf²)/ρ は傾き1.5、√σf/ρ は傾き2です。同じ線の上にある材料は、その使い方で同じ性能です。線を左上へ平行に動かすほど指標の値が大きくなるので、線より左上にある材料ほど同じ剛性や強度の部材を軽くつくれます。既定の √E/ρ = 3 GPa^½/(g/cm³) の線では、代表値でアルミニウム合金(約3.2)、マグネシウム合金、CFRP、木材の繊維方向などが良い側にあり、鋼(約1.8〜1.9)は悪い側にあります。縦軸と横軸を入れ替えると、良い側は線の右下になります。"
         },
         {
           "h": "破壊前降伏と熱によるひずみの指標",
@@ -502,7 +502,7 @@
         },
         {
           "h": "Slope of the index line and the better side",
-          "p": "Setting √E/ρ = C gives E = C²ρ², or log E = 2 log ρ + 2 log C, a straight line of slope 2 on the modulus–density chart. In the same way, E/ρ has slope 1 and ∛E/ρ slope 3, and on the strength–density chart σf/ρ has slope 1, ∛(σf²)/ρ slope 1.5 and √σf/ρ slope 2. Materials on the same line perform equally well in that use. Moving the line parallel toward the upper left increases the index, so materials further to the upper left can make a part of the same stiffness or strength with less mass. With the default line √E/ρ = 3 GPa^½/(g/cm³), aluminum alloys (about 3.2), magnesium alloys, CFRP and wood along the grain lie on the better side by their typical values, while steel (about 1.9) lies on the worse side. If the two axes are swapped, the better side is to the lower right of the line."
+          "p": "Setting √E/ρ = C gives E = C²ρ², or log E = 2 log ρ + 2 log C, a straight line of slope 2 on the modulus–density chart. In the same way, E/ρ has slope 1 and ∛E/ρ slope 3, and on the strength–density chart σf/ρ has slope 1, ∛(σf²)/ρ slope 1.5 and √σf/ρ slope 2. Materials on the same line perform equally well in that use. Moving the line parallel toward the upper left increases the index, so materials further to the upper left can make a part of the same stiffness or strength with less mass. With the default line √E/ρ = 3 GPa^½/(g/cm³), aluminum alloys (about 3.2), magnesium alloys, CFRP and wood along the grain lie on the better side by their typical values, while steels (about 1.8–1.9) lie on the worse side. If the two axes are swapped, the better side is to the lower right of the line."
         },
         {
           "h": "Indices for yield before fracture and thermal distortion",
@@ -695,7 +695,7 @@
         },
         {
           "h": "指標線的斜率與較佳的一側",
-          "p": "設 √E/ρ = C，則 E = C²ρ²，兩邊取對數得 log E = 2 log ρ + 2 log C，在楊氏模數–密度圖上成為斜率2的直線。同樣地，E/ρ 的斜率為1，∛E/ρ 為3；在強度–密度圖上，σf/ρ 的斜率為1，∛(σf²)/ρ 為1.5，√σf/ρ 為2。位於同一條線上的材料，在該用途中性能相同。線往左上平行移動越多，指標的值越大，因此越位於線左上方的材料，越能把相同剛性或強度的構件做得輕。預設的 √E/ρ = 3 GPa^½/(g/cm³) 線上，以代表值而言，鋁合金（約3.2）、鎂合金、CFRP、木材的纖維方向等位於較佳一側，鋼（約1.9）位於較差一側。若將縱軸與橫軸互換，較佳的一側會變成線的右下方。"
+          "p": "設 √E/ρ = C，則 E = C²ρ²，兩邊取對數得 log E = 2 log ρ + 2 log C，在楊氏模數–密度圖上成為斜率2的直線。同樣地，E/ρ 的斜率為1，∛E/ρ 為3；在強度–密度圖上，σf/ρ 的斜率為1，∛(σf²)/ρ 為1.5，√σf/ρ 為2。位於同一條線上的材料，在該用途中性能相同。線往左上平行移動越多，指標的值越大，因此越位於線左上方的材料，越能把相同剛性或強度的構件做得輕。預設的 √E/ρ = 3 GPa^½/(g/cm³) 線上，以代表值而言，鋁合金（約3.2）、鎂合金、CFRP、木材的纖維方向等位於較佳一側，鋼（約1.8～1.9）位於較差一側。若將縱軸與橫軸互換，較佳的一側會變成線的右下方。"
         },
         {
           "h": "破壞前降伏與熱變形的指標",
