@@ -2779,6 +2779,8 @@ ${x.faq?.length ? `<section class="faq">
     // 関連する図解と比較ページ(この言語で出せるものだけ)
     const tf = (tool.figures ?? []).map(id => figList.find(f => f.id === id)).filter(Boolean);
     const tcmp = (tool.compares ?? []).map(slug => cmp.find(e => e.slug === slug)).filter(Boolean);
+    // 公式集でこのツールを挙げている式
+    const tfm = (fml?.formulas ?? []).filter(f => (f.tools ?? []).some(y => y.id === tool.id));
     page({
       path: toolPath(tool, L),
       alt: Object.fromEntries(langs.filter(y => tool.text[y.code]).map(y => [y.code, toolPath(tool, y)])),
@@ -2835,6 +2837,10 @@ ${tf.length ? `<section>
   <ul class="tool-figs">${tf.map(f => `<li><a href="${figHref(f.id)}"><img src="${base}img/${code}/${f.id}.svg" alt="" width="${f.size[0]}" height="${f.size[1]}" loading="lazy"><span>${esc(f.title)}</span></a></li>`).join('')}</ul>
 </section>` : ''}
 ${cmpSection(t('tool_rel_compare'), tcmp)}
+${tfm.length ? `<section>
+  <h2>${esc(S.nav_formulas)}</h2>
+  <p class="term-chips">${tfm.map(f => `<a class="chip" href="${home}formulas/#f-${f.id}">${esc(f.name)}</a>`).join(' ')}</p>
+</section>` : ''}
 ${toolsIn(code).length > 1 ? `<section>
   <h2>${esc(t('figure_tools'))}</h2>
   <div class="mode-grid compact">${relatedTools(tool).map(y => `<a class="mode-card" href="${home}tools/${y.slug}/"><strong>${esc(y.text[code].h1)}</strong><span>${esc(y.text[code].card)}</span></a>`).join('')}</div>
@@ -3239,18 +3245,20 @@ ${relCats.length ? `<section>
       .map(y => [y.id, { n: y.text[code].nav, u: `${home}tools/${y.slug}/` }]));
     const typeTerms = x => (x.terms ?? []).map(k => terms.find(g => g.key === k)).filter(Boolean).map(g => ({ n: g.term, u: `${home}term/${termSlug[g.key]}/` }));
     const typeLearn = x => (x.learn ?? []).map(s => learnArts.find(a => a.slug === s)).filter(Boolean).map(a => ({ n: a.title, u: `${home}learn/${a.slug}/` }));
+    // 公式集でこの型を挙げている式(公式集のある言語だけ)
+    const typeFml = x => (fml?.formulas ?? []).filter(f => (f.drill ?? []).includes(x.id)).map(f => ({ n: f.name, u: `${home}formulas/#f-${f.id}` }));
     const pct = tol => { const s = String(+(tol * 100).toPrecision(2)); return /^de/.test(code) ? s.replace('.', ',') : s; };
     const tolText = x => t('drill_tol', { tol: [pct(x.tol), ...Object.values(x.tolv ?? {}).map(pct)].filter((v, i, a) => a.indexOf(v) === i).join(' / ') });
     // drill.js に渡すデータ(型・数値のデータ・名前・画面の文言)
     const jsData = {
       t: Object.fromEntries(['drill_all_types', 'drill_n_of', 'drill_answer_in', 'drill_unit_none', 'drill_bad_input', 'drill_bad_unit', 'drill_correct', 'drill_incorrect', 'drill_shown',
         'drill_answer_is', 'drill_you', 'drill_h_sign', 'drill_h_unit', 'drill_h_pow', 'drill_h_close', 'drill_h_either', 'drill_steps', 'drill_tool_lead', 'drill_related', 'drill_next', 'drill_to_summary',
-        'drill_score', 'drill_retry_type', 'drill_rec_empty', 'drill_rec_group', 'drill_rec_done', 'drill_rec_rate', 'drill_rec_weak', 'drill_rec_clear_q'].map(k => [k, need(k)])),
+        'drill_score', 'drill_retry_type', 'drill_rec_empty', 'drill_rec_group', 'drill_rec_done', 'drill_rec_rate', 'drill_rec_weak', 'drill_rec_clear_q'].map(k => [k, need(k)]).concat(fml ? [['nav_formulas', S.nav_formulas]] : [])),
       data: D.data, names,
       groups: D.groups.map(g => ({ id: g.id, name: g.name })),
       unitLabels: D.units,
       types: D.types.map(x => ({ id: x.id, group: x.group, name: x.name, q: x.q, steps: x.steps, mistakes: x.mistakes, tol: x.tol, tolv: x.tolv, sig: x.sig,
-        v: x.v, pick: x.pick, data: x.data, tools: typeTools(x), terms: typeTerms(x), learn: typeLearn(x) })),
+        v: x.v, pick: x.pick, data: x.data, tools: typeTools(x), terms: typeTerms(x), learn: typeLearn(x), fml: typeFml(x) })),
     };
     function need(k) { if (S[k] == null) throw new Error(`src/i18n/${code}.json: ${k} がありません`); return S[k]; }
     const relCats = [...new Set(D.groups.map(g => g.cat))].map(catOf).filter(c => c && live.includes(c));

@@ -957,6 +957,12 @@ function ui(D) {
       for (const x of [...(T.learn ?? []), ...(T.terms ?? [])]) { const a = el('a', 'chip', x.n); a.href = x.u; p2.append(a, ' '); }
       linksEl.append(p2);
     }
+    if (T.fml?.length) {
+      const p3 = el('p', 'term-chips');
+      p3.append(el('span', 'muted', `${S.nav_formulas}${colon()}`));
+      for (const x of T.fml) { const a = el('a', 'chip', x.n); a.href = x.u; p3.append(a, ' '); }
+      linksEl.append(p3);
+    }
     linksEl.hidden = !linksEl.childNodes.length;
     res.hidden = false;
     nextBtn.textContent = set && set.i + 1 >= set.list.length ? S.drill_to_summary : S.drill_next;
