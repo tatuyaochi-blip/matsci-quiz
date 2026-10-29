@@ -1,0 +1,1535 @@
+{
+  "title": "材料資料集（附出處查詢、比較與匯出物性值）",
+  "description": "可查詢金屬、合金、陶瓷、玻璃、高分子、複合材料用纖維、半導體等 160 種以上材料的密度、楊氏模數、強度、熱導率、線膨脹係數、熔點、晶格常數、擴散係數等，每個數值都附有出處與條件（溫度、狀態、方向）。可切換單位、並列比較 2～4 種材料、匯出附出處欄的 CSV，並連結到計算工具。",
+  "h1": "材料資料集",
+  "lead": "這是附出處與條件查詢、並列比較、匯出材料物性值的頁面。數值取自本站計算工具所使用、經過檢查的資料集，每個數值都可以知道出自哪份資料、是哪個工具的資料。可用材料名稱（中文、英文、日文、別名、符號）查詢，依種類與物性篩選，切換單位並將表格排序。",
+  "note": "即使是同一種材料，數值也會因牌號、熱處理、溫度與方向而改變。使用表中的數值時，請確認條件（加註的欄位）與出處。設計構件時，請使用標準的保證值或製造商資料中的數值。",
+  "lowerNames": false,
+  "classes": {
+    "metal": "純金屬（元素）",
+    "alloy": "合金",
+    "ceramic": "陶瓷",
+    "glass": "玻璃",
+    "polymer": "高分子",
+    "elastomer": "彈性體",
+    "fiber": "纖維（複合材料用）",
+    "composite": "複合材料",
+    "semi": "半導體",
+    "nonmetal": "非金屬與半金屬元素",
+    "foam": "發泡體",
+    "natural": "天然材料"
+  },
+  "props": {
+    "rho": {
+      "name": "密度",
+      "sym": "ρ"
+    },
+    "E": {
+      "name": "楊氏模數",
+      "sym": "E"
+    },
+    "G": {
+      "name": "剛性模數（剪切模數）",
+      "sym": "G"
+    },
+    "nu": {
+      "name": "蒲松比",
+      "sym": "ν"
+    },
+    "s": {
+      "name": "強度",
+      "sym": "σ"
+    },
+    "K": {
+      "name": "破壞韌性",
+      "sym": "K_IC"
+    },
+    "eu": {
+      "name": "斷裂伸長率",
+      "sym": "ε_u"
+    },
+    "k": {
+      "name": "熱導率",
+      "sym": "κ"
+    },
+    "a": {
+      "name": "線膨脹係數",
+      "sym": "α"
+    },
+    "mp": {
+      "name": "熔點",
+      "sym": "T_m"
+    },
+    "tg": {
+      "name": "玻璃轉移溫度",
+      "sym": "T_g"
+    },
+    "sp": {
+      "name": "應變點",
+      "sym": "T_st"
+    },
+    "curie": {
+      "name": "居里溫度",
+      "sym": "T_C"
+    },
+    "dT": {
+      "name": "耐熱衝擊溫差",
+      "sym": "ΔT"
+    },
+    "la": {
+      "name": "晶格常數 a",
+      "sym": "a"
+    },
+    "lb": {
+      "name": "晶格常數 b",
+      "sym": "b"
+    },
+    "lc": {
+      "name": "晶格常數 c",
+      "sym": "c"
+    },
+    "lal": {
+      "name": "菱面體的軸角",
+      "sym": "α"
+    },
+    "struct": {
+      "name": "晶體結構",
+      "sym": ""
+    },
+    "rm": {
+      "name": "金屬半徑",
+      "sym": "r"
+    },
+    "aw": {
+      "name": "原子量",
+      "sym": "A_r"
+    },
+    "hf": {
+      "name": "熔解熱",
+      "sym": "ΔH_f"
+    },
+    "res": {
+      "name": "電阻率",
+      "sym": "ρ_e"
+    },
+    "aR": {
+      "name": "電阻溫度係數",
+      "sym": "α_R"
+    },
+    "D0": {
+      "name": "擴散的頻率因子",
+      "sym": "D₀"
+    },
+    "Q": {
+      "name": "擴散的活化能",
+      "sym": "Q"
+    },
+    "df": {
+      "name": "纖維直徑",
+      "sym": "d"
+    },
+    "comp": {
+      "name": "化學成分",
+      "sym": ""
+    },
+    "tr": {
+      "name": "變態（1大氣壓）",
+      "sym": ""
+    }
+  },
+  "kinds": {
+    "y": "降伏強度（0.2 %偏位降伏強度）",
+    "t": "抗拉強度",
+    "f": "彎曲強度",
+    "c": "壓縮強度",
+    "sh": "剪切強度",
+    "A": "Ashby 的強度 σf（金屬與高分子為降伏強度，陶瓷與玻璃為接近抗拉強度的值）"
+  },
+  "conds": {
+    "rt": "室溫",
+    "c25": "25 ℃",
+    "k300": "300 K",
+    "mean": "{a}–{b} ℃的平均",
+    "at": "{a} ℃",
+    "liq25": "25 ℃的液體",
+    "atm1": "1大氣壓",
+    "orient": "依晶體方向而變（最小–最大）",
+    "c25atm": "25 ℃、1大氣壓",
+    "cn12": "12配位",
+    "calc_cij": "由彈性常數計算的值",
+    "wq": "水淬法",
+    "dsc": "DSC 法",
+    "ashc": "Ashby 範圍的幾何平均",
+    "inplane": "面內（XY 方向）",
+    "fax": "纖維軸向",
+    "ftr": "纖維徑向",
+    "g12": "面內剪切（1–2）",
+    "nu12": "ν₁₂（主蒲松比）",
+    "l1": "纖維方向（1）",
+    "l2": "垂直於纖維（2）",
+    "l12": "面內剪切（1–2）",
+    "ge": "資料記為「超過 50 %」（下限值）",
+    "mid": "資料中 {a}–{b} 的中央值",
+    "k300c": "300 K",
+    "meta": "常溫常壓下為介穩相",
+    "eut": "共晶溫度",
+    "wt": "質量 %",
+    "jis": "JIS 的規定範圍",
+    "ann": "退火材",
+    "rtc": "室溫",
+    "mrange": "熔化範圍（固相線–液相線）",
+    "dself": "自擴散",
+    "dsolute": "{el}的擴散",
+    "ph_a": "α 相（BCC）中",
+    "ph_g": "γ 相（FCC）中",
+    "dk_int": "間隙型",
+    "dk_sub": "置換型（Callister 表中「相互擴散」的欄）",
+    "dk_imp": "雜質擴散",
+    "dk_dop": "摻雜物"
+  },
+  "structs": {
+    "s_bcc": "體心立方（BCC）",
+    "s_dia": "鑽石結構",
+    "s_fcc": "面心立方（FCC）",
+    "s_hcp": "六方最密堆積（HCP）",
+    "st_I2": "斜方晶（I₂分子）",
+    "st_In": "體心正方晶",
+    "st_P": "同素異形體很多（白磷、黑磷等）",
+    "st_Sm": "菱面體晶（釤型，9層最密堆積）",
+    "st_alphaAs": "菱面體晶（砷型）",
+    "st_alphaGa": "斜方晶（α-鎵）",
+    "st_alphaMn": "立方晶（α-錳，單位晶胞含58個原子）",
+    "st_alphaS": "斜方晶（α-硫，S₈分子）",
+    "st_betaSn": "體心正方晶（白錫，β-錫）",
+    "st_dhcp": "雙六方最密堆積（dhcp，ABAC堆疊）",
+    "st_gammaSe": "三方晶（螺旋狀的鏈）",
+    "st_graphite": "六方晶（石墨）",
+    "st_rhombB": "菱面體晶（β-硼）",
+    "st_sc": "簡單立方",
+    "type_diamond": "鑽石結構",
+    "type_fluorite": "螢石型（CaF₂型）",
+    "type_nacl": "岩鹽型（NaCl型）",
+    "type_wurtzite": "纖鋅礦型",
+    "type_zb": "閃鋅礦型（ZnS型）"
+  },
+  "mpNotes": {
+    "mp_he": "—（1大氣壓下不會成為固體）",
+    "mp_c": "—（1大氣壓下不熔化而昇華）",
+    "mp_as": "—（1大氣壓下於615 ℃昇華；熔點817 ℃是3.70 MPa下的三相點）"
+  },
+  "tr": {
+    "up": "{t} ℃以上：{p}相（{s}）",
+    "down": "{t} ℃以下：{p}相（{s}）",
+    "meta": "鑽石（鑽石結構）在常溫常壓下為介穩相",
+    "st": {
+      "hcp": "HCP",
+      "bcc": "BCC",
+      "cP20": "單位晶胞含20個原子的立方晶",
+      "fcc": "FCC",
+      "dia": "鑽石結構",
+      "orth": "斜方晶",
+      "rhomb": "菱面體晶",
+      "mono": "單斜晶"
+    }
+  },
+  "units": {
+    "gcc": "g/cm³",
+    "kgm3": "kg/m³",
+    "GPa": "GPa",
+    "MPa": "MPa",
+    "none": "",
+    "MPam": "MPa·m¹ᐟ²",
+    "pct": "%",
+    "Wm": "W/(m·K)",
+    "Wcm": "W/(cm·K)",
+    "ppmK": "10⁻⁶ K⁻¹",
+    "mK": "10⁻³ K⁻¹",
+    "perK": "K⁻¹",
+    "C": "℃",
+    "K": "K",
+    "dC": "℃",
+    "dK": "K",
+    "nm": "nm",
+    "A": "Å",
+    "pm": "pm",
+    "deg": "°",
+    "kJmol": "kJ/mol",
+    "Jmol": "J/mol",
+    "eV": "eV",
+    "calmol": "cal/mol",
+    "uOcm": "µΩ·cm",
+    "Om": "Ω·m",
+    "nOm": "nΩ·m",
+    "m2s": "m²/s",
+    "cm2s": "cm²/s",
+    "um": "µm"
+  },
+  "sources": {
+    "pt:LAT_ASM": "P. Villars 編「Crystal Structures and Cell Parameters of Allotropes of the Chemical Elements」ASM Alloy Phase Diagram Database（ASM International，2007）中 25 ℃的值",
+    "pt:LAT_WEL": "WebElements 各元素的晶體結構頁面（Zn：Jette 1935，Tc：Mooney 1948）",
+    "pt:RHO_CRC": "CRC Handbook of Chemistry and Physics 的密度（Wikipedia「Densities of the elements (data page)」中 CRC 的列）",
+    "pt:RHO_ED": "Wolfram ElementData（periodictable.com 的列表）的密度",
+    "pt:RHO_WP": "Wikipedia「Densities of the elements (data page)」的採用值",
+    "pt:MP_CRC": "CRC Handbook 的熔點（Wikipedia「Melting points of the elements (data page)」中 CRC 的列）",
+    "pt:MP_WEL": "Wikipedia「Melting points of the elements (data page)」中 WebElements 與採用值的列",
+    "pt:E_WEL": "WebElements 的楊氏模數（Wikipedia「Elastic properties of the elements (data page)」中 WEL 的列）",
+    "pt:E_CRC": "CRC Handbook 的楊氏模數（Wikipedia「Elastic properties of the elements (data page)」中 CRC 的列）",
+    "pt:RM": "Wikipedia「Atomic radii of the elements (data page)」的金屬半徑（12配位，WebElements 的值）",
+    "pt:TR": "ASM Alloy Phase Diagram Database 的同素異形體表（1 atm 下的變態溫度）",
+    "aw:CIAAW": "CIAAW/IUPAC 的標準原子量（簡略值，2021）",
+    "th:WPa": "Wikipedia「Thermal expansion coefficients of the elements (data page)」（CRC Handbook、Lange、WebElements 的值，25 ℃附近）",
+    "th:WPe": "Wikipedia「Elastic properties of the elements (data page)」（WebElements 的蒲松比）",
+    "th:WPk": "Wikipedia「Thermal conductivities of the elements (data page)」（300 K 附近）",
+    "th:A": "M. F. Ashby, Material property data for engineering materials, 5th ed.（Ansys Granta，2021）（與選材圖相同的範圍；代表值為範圍的幾何平均）",
+    "th:EC3": "EN 1993-1-1（E = 210 GPa，ν = 0.3，α = 12×10⁻⁶ K⁻¹）與 EN 1993-1-2（結構鋼的熱應變與熱導率公式，20–1200 ℃）",
+    "th:RA": "Rolled Alloys, Invar 36 data sheet（自 70 °F 起的平均線膨脹係數，0.2 %偏位降伏強度）",
+    "th:HTI": "High Temp Metals, Invar 36 technical data（退火材的 E、密度、熱導率、居里溫度）",
+    "th:HTK": "High Temp Metals, Kovar technical data（自 25 ℃起的平均線膨脹係數、E、密度、熱導率、降伏強度）",
+    "th:KY": "京瓷精密陶瓷的材料特性（資料表；彎曲強度為三點彎曲 JIS R 1601，熱衝擊為水淬法 JIS R 1648）",
+    "th:ISO": "ISO 16293-1:2008（建築用鈉鈣矽酸鹽玻璃的一般物性值）",
+    "th:SCH": "SCHOTT BOROFLOAT 33 的技術資料（α 20–300 ℃、E、ν、彎曲強度、應變點）",
+    "th:COR": "Corning HPFS 7980 熔融石英的資料（E、ν、密度、熱導率、平均 CTE、應變點、表面刮傷試樣的彎曲強度）",
+    "th:WSL": "Wikipedia「Soda–lime glass」的表（平板玻璃的 Tg 564 ℃）",
+    "th:ISOLA": "Isola 370HR 資料表（FR-4 系積層板：CTE x/y、E、ν、熱導率、彎曲強度、Tg）",
+    "th:H10": "M. A. Hopcroft, W. D. Nix, T. W. Kenny, J. Microelectromech. Syst. 19 (2010) 229（Si 的 E 與 ν，(100) 的雙軸模數 180 GPa，C11 = 165.7、C12 = 63.9、C44 = 79.6 GPa）",
+    "as:A": "M. F. Ashby, \"Material property data for engineering materials\", 5th ed., Oct 2021, Ansys Granta EduPack 教學資源（表 A2 密度、A3 楊氏模數與降伏強度、A4 抗拉強度與破壞韌性、A6 熱導率與熱膨脹）",
+    "as:C": "CoorsTek, \"Advanced Alumina\" material properties（94～99.9 % Al₂O₃）",
+    "as:W": "Wikipedia「Soda–lime glass」的性質表（密度、E、CTE 引自 Seward & Vascott eds., High temperature glass melt property database, ACerS 2005，熱導率引自 Janssen & Warmoeskerken, Transport phenomena data companion, 2006）",
+    "as:Q": "Corning HPFS 7980 熔融石英的產品資料（UQG Optics 轉載的 Corning 數值）",
+    "as:N": "NIST Structural Ceramics Database, alumina（AD-999 3.96，燒結 99.6 % 3.98 g/cm³）",
+    "as:L": "A. F. Liu, Mechanics and Mechanisms of Fracture, ASM International 2005, Appendix 7（NIST 公開）；2124-T351 L-T 的 K_IC 47.9",
+    "as:P": "Aircraft Materials, 17-4PH（AMS 5643/5604）H900 的 0.2 %偏位降伏強度 170 ksi（= 1170 MPa）",
+    "as:T": "ASM Aerospace Specification Metals, Ti-6Al-4V (Grade 5) 退火材的熱導率 6.7 W/(m·K)",
+    "as:I": "Special Metals, INCONEL alloy 718 technical bulletin 的室溫熱導率 77 Btu·in/(ft²·h·°F)（= 11.1 W/(m·K)）",
+    "as:R": "Natural Stone Institute, R-Value for Natural Stone（花崗岩 1.73～3.98、石灰岩 1.26～2.15、大理石 2.07～2.94、砂岩 1.83～2.90、石英岩 5.38 W/(m·K)）",
+    "as:Z": "NETZSCH Polymers, CR: Chloroprene rubber（線膨脹係數 185～250 ×10⁻⁶/K，熱導率 0.18～0.20 W/(m·K)）",
+    "cp:TOR_T300": "Toray Composite Materials America, TORAYCA T300 Technical Data Sheet (No. CFA-001)",
+    "cp:TOR_T700S": "Toray Composite Materials America, TORAYCA T700S Technical Data Sheet (No. CFA-005)",
+    "cp:TOR_T800S": "Toray Composite Materials America, TORAYCA T800S Technical Data Sheet",
+    "cp:TOR_M40J": "Toray Composite Materials America, TORAYCA M40J Technical Data Sheet (No. CFA-014)",
+    "cp:TOR_M55J": "Toray Composite Materials America, TORAYCA M55J Technical Data Sheet (No. CFA-017)",
+    "cp:TEI_HTS40": "Teijin Tenax HTS40（12K/24K 粗紗），經銷商 compositeshop.de 所列的數值",
+    "cp:WWFE": "P. D. Soden, M. J. Hinton, A. S. Kaddour, Compos. Sci. Technol. 58 (1998) 1011（WWFE），依 NPTEL course 101104010, Lecture 25（IIT Kanpur）的表 7.1–7.2",
+    "cp:AGY": "AGY, “S-Series High Performance Materials for Automotive Applications”（E-Glass / S-2 Glass 的物性表）",
+    "cp:OC": "Owens Corning, “Higher Performance Composites” sell sheet, Pub. 10023976（2021），Advantex E-CR 玻璃",
+    "cp:DUP": "DuPont, Kevlar Aramid Fiber Technical Guide 的表 II-1 與 II-4（Kevlar 49）",
+    "cp:DUP_TR": "DuPont Kevlar 49 Data Manual（1986）中 Kevlar 49 的橫向常數，依 Autodesk Helius PFA Material Manager, Appendix A 所列",
+    "cp:MAFIC": "Mafic, Basalt Direct Roving 17 µm technical data（含浸股線，ASTM D2343）",
+    "cp:ZHU": "J. Zhu, H. Zhu, J. Njuguna, H. Abhyankar, Materials 6 (2013) 5171 的表 2（引自 Sparnins 2009；Symington et al. 2009）",
+    "cp:HEX8552": "Hexcel, HexPly 8552 Product Data Sheet（純樹脂）",
+    "cp:ASHBY": "M. F. Ashby, Material property data for engineering materials, 5th ed.（Ansys Granta，2021）範圍的中央，與本站選材圖相同",
+    "cp:DER": "Ashland, DERAKANE MOMENTUM 411-350 Technical Datasheet（硬化後的澆鑄體）",
+    "cp:VIC": "Victrex, VICTREX PEEK 450G Typical Properties",
+    "cp:BASF": "BASF, Ultramid B3S (PA6) 資料表（ISO 527、ISO 11359）",
+    "cp:LYB": "LyondellBasell, Moplen HP500N 資料表（ISO 527）",
+    "cp:ASM6061": "ASM Aerospace Specification Metals, Aluminum 6061-T6 data sheet",
+    "cp:UC3M": "T300/5208（Tsai & Hahn），依 Universidad Carlos III de Madrid, Mecánica de Materiales Compuestos, Ejercicios Tema 5 所列",
+    "cp:NTNU": "N. P. Vedvik, TMM4175 Lightweight Design, NTNU, “Material properties” 的表 1（V_f = 0.55）",
+    "cp:EC3": "EN 1993-1-1 §3.2.6（E = 210 GPa，ν = 0.3）與 EN 10025-2 S355（f_y = 355 MPa，t ≤ 16 mm）；ρ = 7.85 g/cm³",
+    "df:C9": "W. D. Callister, D. G. Rethwisch, Materials Science and Engineering: An Introduction, 9th ed.（Wiley，2014）的表 5.2",
+    "df:C7": "W. D. Callister, Materials Science and Engineering: An Introduction, 7th ed.（Wiley，2007）的表 5.2",
+    "df:ASK": "D. R. Askeland, The Science and Engineering of Materials 的表 5-1（FCC 鐵中的 C：D0 = 0.23 cm²/s，Q = 32,900 cal/mol）",
+    "df:FUJ": "S. Fujikawa, K. Hirano, Y. Fukushima, Metall. Trans. A 9 (1978) 1811（753–893 K）",
+    "df:FAIR": "R. B. Fair（1981）的本質擴散係數，依 S. W. Jones, Diffusion in Silicon（IC Knowledge，2000）的表 1.4 所列",
+    "df:CEX": "Callister & Rethwisch 第 9 版 5.6 節，硼擴散進入矽的例題（D0 = 2.4 × 10⁻³ m²/s，Qd = 3.87 eV/atom）",
+    "xr:HOM": "Handbook of Mineralogy（各礦物的資料表：Halite、Sylvite、Griceite、Periclase、Fluorite、Sphalerite、Zincite）",
+    "xr:VMR": "I. Vurgaftman, J. R. Meyer, L. R. Ram-Mohan, J. Appl. Phys. 89 (2001) 5815（300 K 的晶格常數）",
+    "xr:KE": "S. Kisi, M. M. Elcombe, Acta Cryst. C45 (1989) 1867（纖鋅礦型 ZnS 的 a、c、u，ZnO 的 u）",
+    "lv:UW": "Univ. of Washington MSE 170 Lecture 16（Callister 的圖與例題：Pb–Sn 183 ℃、61.9 wt% Sn；Cu–Ag 779 ℃、71.9 wt% Ag）",
+    "lv:AFS": "Modern Casting（AFS）「Al–Si 相圖」（共晶 577 ℃、12.6 wt% Si）",
+    "lv:PRIN": "Princeton MAE 324 09mae_45（Al–Cu：共晶 548 ℃，共晶液相 33.2 wt% Cu）",
+    "lv:HF": "Wikipedia「Heats of fusion of the elements」中 Lange’s Handbook 的欄",
+    "dr:IEC": "IEC 60028（退火標準軟銅：20 ℃時 1.7241 × 10⁻⁸ Ω·m，溫度係數 0.00393 K⁻¹）",
+    "dr:EC": "導電用鋁 61 % IACS（由以 1.7241 µΩ·cm 為 100 % 的導電率求得：2.8264 × 10⁻⁸ Ω·m，溫度係數 0.00403 K⁻¹）",
+    "dg:JSSA": "日本不鏽鋼協會「不鏽鋼配管手冊 基礎篇」的成分表（JIS 的規定範圍）",
+    "dg:NBK": "鍋屋 Bi-tech「鋁合金的化學成分」（A6061 等）",
+    "add:CLF304": "Cleveland-Cliffs「304/304L Stainless Steel」Product Data Bulletin（2021）：物性值表，以及表 3 中退火材 70 °F（21 ℃）的列",
+    "add:CLF316": "Cleveland-Cliffs「316/316L Stainless Steel」Product Data Bulletin（2021）：物性值表，以及表 1 的室溫代表值（typical）"
+  },
+  "materials": {
+    "li": {
+      "name": "鋰",
+      "al": []
+    },
+    "be": {
+      "name": "鈹",
+      "al": []
+    },
+    "na": {
+      "name": "鈉",
+      "al": []
+    },
+    "mg": {
+      "name": "鎂",
+      "al": [],
+      "note": "結構用金屬中密度最小（1.74 g/cm³），以鎂合金的形式用於輕量化。"
+    },
+    "al": {
+      "name": "鋁",
+      "al": [
+        "純鋁"
+      ],
+      "note": "密度只有2.70 g/cm³的FCC金屬，以鋁合金的形式用於需要輕量的結構材料。",
+      "vars": {
+        "ec": "導電用鋁（61 % IACS）"
+      }
+    },
+    "k": {
+      "name": "鉀",
+      "al": []
+    },
+    "ca": {
+      "name": "鈣",
+      "al": []
+    },
+    "sc": {
+      "name": "鈧",
+      "al": []
+    },
+    "ti": {
+      "name": "鈦",
+      "al": [
+        "純鈦"
+      ],
+      "note": "密度約為鐵的六成（4.51 g/cm³），Ti-6Al-4V等鈦合金用於飛機零件與生醫材料。"
+    },
+    "v": {
+      "name": "釩",
+      "al": []
+    },
+    "cr": {
+      "name": "鉻",
+      "al": [],
+      "note": "在鋼中加入約11 %（標準的定義為10.5 %）以上，表面會形成Cr氧化物的鈍化膜，成為不鏽鋼。"
+    },
+    "mn": {
+      "name": "錳",
+      "al": []
+    },
+    "fe": {
+      "name": "鐵",
+      "al": [
+        "純鐵"
+      ],
+      "note": "鋼與鑄鐵的主要成分。912 ℃下BCC與FCC之間的變態，是淬火等熱處理的基礎。",
+      "trn": "在770 ℃附近的居里溫度（由鐵磁性變為順磁性），晶體結構不變。"
+    },
+    "co": {
+      "name": "鈷",
+      "al": [],
+      "note": "用作WC-Co超硬合金中連結WC顆粒的黏結相，也用於超合金與磁性材料。",
+      "trn": "也有資料記為427 ℃或450 ℃。相的名稱依照ASM的表，室溫的HCP為ε、高溫的FCC為α（也有資料把HCP稱為α、FCC稱為β）。"
+    },
+    "ni": {
+      "name": "鎳",
+      "al": [],
+      "note": "沃斯田鐵系不鏽鋼與Ni基超合金的主要元素。"
+    },
+    "cu": {
+      "name": "銅",
+      "al": [
+        "純銅",
+        "紅銅"
+      ],
+      "note": "導電率高，用於電線與配線。與鋅的合金是黃銅。",
+      "vars": {
+        "iacs": "退火標準軟銅（IEC 60028）"
+      }
+    },
+    "zn": {
+      "name": "鋅",
+      "al": [],
+      "note": "用於鋼的鍍鋅（刮傷使鋼露出時，鋅會先溶解而保護鋼）與黃銅（Cu–Zn合金）。"
+    },
+    "ga": {
+      "name": "鎵",
+      "al": []
+    },
+    "rb": {
+      "name": "銣",
+      "al": []
+    },
+    "sr": {
+      "name": "鍶",
+      "al": []
+    },
+    "y": {
+      "name": "釔",
+      "al": []
+    },
+    "zr": {
+      "name": "鋯",
+      "al": [],
+      "trn": "也有教科書記為872 ℃。"
+    },
+    "nb": {
+      "name": "鈮",
+      "al": []
+    },
+    "mo": {
+      "name": "鉬",
+      "al": [],
+      "note": "熔點高達2623 ℃的BCC金屬，用作鋼的合金元素與高溫用零件。"
+    },
+    "tc": {
+      "name": "鎝",
+      "al": [
+        "鍀"
+      ]
+    },
+    "ru": {
+      "name": "釕",
+      "al": []
+    },
+    "rh": {
+      "name": "銠",
+      "al": []
+    },
+    "pd": {
+      "name": "鈀",
+      "al": []
+    },
+    "ag": {
+      "name": "銀",
+      "al": []
+    },
+    "cd": {
+      "name": "鎘",
+      "al": []
+    },
+    "in": {
+      "name": "銦",
+      "al": []
+    },
+    "sn": {
+      "name": "錫",
+      "al": [
+        "白錫"
+      ],
+      "trn": "13 ℃以下灰錫（鑽石結構）較穩定。密度由白錫的7.265 g/cm³降為5.769 g/cm³，體積約增加26 %（密度取自CRC）。"
+    },
+    "cs": {
+      "name": "銫",
+      "al": []
+    },
+    "ba": {
+      "name": "鋇",
+      "al": []
+    },
+    "la": {
+      "name": "鑭",
+      "al": []
+    },
+    "ce": {
+      "name": "鈰",
+      "al": []
+    },
+    "pr": {
+      "name": "鐠",
+      "al": []
+    },
+    "nd": {
+      "name": "釹",
+      "al": []
+    },
+    "pm": {
+      "name": "鉕",
+      "al": []
+    },
+    "sm": {
+      "name": "釤",
+      "al": []
+    },
+    "eu": {
+      "name": "銪",
+      "al": []
+    },
+    "gd": {
+      "name": "釓",
+      "al": []
+    },
+    "tb": {
+      "name": "鋱",
+      "al": []
+    },
+    "dy": {
+      "name": "鏑",
+      "al": []
+    },
+    "ho": {
+      "name": "鈥",
+      "al": []
+    },
+    "er": {
+      "name": "鉺",
+      "al": []
+    },
+    "tm": {
+      "name": "銩",
+      "al": []
+    },
+    "yb": {
+      "name": "鐿",
+      "al": []
+    },
+    "lu": {
+      "name": "鎦",
+      "al": [
+        "鑥"
+      ]
+    },
+    "hf": {
+      "name": "鉿",
+      "al": []
+    },
+    "ta": {
+      "name": "鉭",
+      "al": []
+    },
+    "w": {
+      "name": "鎢",
+      "al": [],
+      "note": "金屬中熔點最高的元素（3422 ℃）。碳化鎢（WC）是超硬合金的主要成分。"
+    },
+    "re": {
+      "name": "錸",
+      "al": []
+    },
+    "os": {
+      "name": "鋨",
+      "al": []
+    },
+    "ir": {
+      "name": "銥",
+      "al": []
+    },
+    "pt": {
+      "name": "鉑",
+      "al": [
+        "白金"
+      ]
+    },
+    "au": {
+      "name": "金",
+      "al": [
+        "黃金"
+      ]
+    },
+    "hg": {
+      "name": "汞",
+      "al": [
+        "水銀"
+      ]
+    },
+    "tl": {
+      "name": "鉈",
+      "al": []
+    },
+    "pb": {
+      "name": "鉛",
+      "al": []
+    },
+    "bi": {
+      "name": "鉍",
+      "al": []
+    },
+    "po": {
+      "name": "釙",
+      "al": []
+    },
+    "low-carbon-steel": {
+      "name": "低碳鋼",
+      "al": [
+        "軟鋼",
+        "碳鋼"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "low-alloy-steel": {
+      "name": "低合金鋼",
+      "al": [
+        "合金鋼"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "stainless-steel": {
+      "name": "不鏽鋼",
+      "al": [
+        "不銹鋼",
+        "白鐵",
+        "SUS"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "gray-cast-iron": {
+      "name": "灰鑄鐵",
+      "al": [
+        "鑄鐵",
+        "片狀石墨鑄鐵",
+        "FC"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "al-alloys": {
+      "name": "鋁合金",
+      "al": [
+        "杜拉鋁",
+        "硬鋁"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "cu-alloys": {
+      "name": "銅合金",
+      "al": [
+        "黃銅",
+        "青銅"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "mg-alloys": {
+      "name": "鎂合金",
+      "al": [],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "ti-alloys": {
+      "name": "鈦合金",
+      "al": [
+        "Ti-6Al-4V",
+        "Ti64"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "ni-alloys": {
+      "name": "鎳合金",
+      "al": [
+        "英高鎳",
+        "鎳基超合金"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "pb-alloys": {
+      "name": "鉛合金",
+      "al": [],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "w-alloys": {
+      "name": "鎢合金",
+      "al": [
+        "鎢重合金",
+        "高比重鎢合金"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "structural-steel": {
+      "name": "結構鋼（S235、S355）",
+      "al": [
+        "鋼",
+        "鋼材",
+        "結構用鋼"
+      ],
+      "vars": {
+        "s235": "S235",
+        "s355": "S355（t ≤ 16 mm）"
+      }
+    },
+    "invar": {
+      "name": "因瓦合金（Fe-36Ni）",
+      "al": [
+        "因瓦合金",
+        "殷鋼",
+        "不變鋼"
+      ]
+    },
+    "kovar": {
+      "name": "科伐合金（Fe-29Ni-17Co）",
+      "al": [
+        "科伐合金",
+        "可伐合金"
+      ]
+    },
+    "a6061-t6": {
+      "name": "鋁合金 6061-T6",
+      "al": [
+        "6061鋁合金",
+        "6061鋁"
+      ]
+    },
+    "pb-sn-eutectic": {
+      "name": "Pb–Sn 共晶銲料",
+      "al": [
+        "銲料",
+        "焊錫",
+        "銲錫",
+        "共晶銲錫",
+        "含鉛銲錫"
+      ]
+    },
+    "al-si-eutectic": {
+      "name": "Al–Si 共晶合金",
+      "al": [
+        "鋁矽合金"
+      ]
+    },
+    "ag-cu-eutectic": {
+      "name": "Ag–Cu 共晶合金（銀焊料）",
+      "al": [
+        "銀焊料",
+        "銀銲料",
+        "銀焊條"
+      ]
+    },
+    "al-cu-eutectic": {
+      "name": "Al–Cu 共晶（Al 側）",
+      "al": []
+    },
+    "sus304": {
+      "name": "不鏽鋼 SUS304",
+      "al": [
+        "18-8不鏽鋼",
+        "304不鏽鋼",
+        "沃斯田鐵系不鏽鋼",
+        "白鐵"
+      ]
+    },
+    "sus316": {
+      "name": "不鏽鋼 SUS316",
+      "al": [
+        "316不鏽鋼",
+        "沃斯田鐵系不鏽鋼",
+        "含鉬不鏽鋼"
+      ]
+    },
+    "alumina": {
+      "name": "氧化鋁",
+      "al": [
+        "Al2O3",
+        "剛玉",
+        "藍寶石"
+      ],
+      "vars": {
+        "ky": "京瓷 AO479O",
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "aln": {
+      "name": "氮化鋁",
+      "al": [
+        "AlN"
+      ],
+      "vars": {
+        "ky": "京瓷 AN216A",
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "sic": {
+      "name": "碳化矽",
+      "al": [
+        "SiC",
+        "金剛砂",
+        "碳化硅"
+      ],
+      "vars": {
+        "ky": "京瓷 SC1000",
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "wc": {
+      "name": "碳化鎢",
+      "al": [
+        "WC",
+        "超硬合金",
+        "鎢鋼"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "brick": {
+      "name": "磚",
+      "al": [
+        "紅磚",
+        "磚塊"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "concrete": {
+      "name": "混凝土",
+      "al": [],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "stone": {
+      "name": "石材",
+      "al": [
+        "石頭",
+        "岩石"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "si3n4": {
+      "name": "氮化矽 Si₃N₄",
+      "al": [
+        "Si3N4"
+      ],
+      "vars": {
+        "ky": "京瓷 SN240"
+      }
+    },
+    "zro2": {
+      "name": "氧化鋯 ZrO₂（部分穩定）",
+      "al": [
+        "ZrO2",
+        "PSZ",
+        "部分穩定氧化鋯"
+      ],
+      "vars": {
+        "ky": "京瓷 ZO201N"
+      }
+    },
+    "cordierite": {
+      "name": "堇青石",
+      "al": [
+        "2MgO·2Al2O3·5SiO2"
+      ],
+      "vars": {
+        "ky": "京瓷 CO220O"
+      }
+    },
+    "nacl": {
+      "name": "氯化鈉（岩鹽）",
+      "al": [
+        "食鹽",
+        "岩鹽",
+        "鹽"
+      ]
+    },
+    "kcl": {
+      "name": "氯化鉀",
+      "al": [
+        "鉀鹽"
+      ]
+    },
+    "lif": {
+      "name": "氟化鋰",
+      "al": []
+    },
+    "mgo": {
+      "name": "氧化鎂",
+      "al": [
+        "鎂氧",
+        "苦土",
+        "方鎂石"
+      ]
+    },
+    "caf2": {
+      "name": "氟化鈣（螢石）",
+      "al": [
+        "螢石",
+        "氟石"
+      ]
+    },
+    "soda-lime-glass": {
+      "name": "鈉鈣玻璃",
+      "al": [
+        "平板玻璃",
+        "窗玻璃",
+        "浮法玻璃"
+      ],
+      "vars": {
+        "iso": "ISO 16293-1（建築用平板玻璃）",
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "borosilicate-glass": {
+      "name": "硼矽酸玻璃",
+      "al": [
+        "Pyrex",
+        "派熱克斯",
+        "耐熱玻璃"
+      ],
+      "vars": {
+        "schott": "SCHOTT BOROFLOAT 33",
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "silica-glass": {
+      "name": "石英玻璃",
+      "al": [
+        "熔融石英",
+        "熔融矽石",
+        "SiO2"
+      ],
+      "vars": {
+        "hpfs": "Corning HPFS 7980",
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "pe": {
+      "name": "聚乙烯（PE）",
+      "al": [
+        "HDPE",
+        "LDPE"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "pp": {
+      "name": "聚丙烯（PP）",
+      "al": [],
+      "vars": {
+        "hp500n": "Moplen HP500N",
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "ps": {
+      "name": "聚苯乙烯（PS）",
+      "al": [
+        "苯乙烯樹脂"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "pvc": {
+      "name": "聚氯乙烯（PVC）",
+      "al": [
+        "氯乙烯樹脂"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "pmma": {
+      "name": "壓克力（PMMA）",
+      "al": [
+        "亞克力",
+        "有機玻璃",
+        "聚甲基丙烯酸甲酯"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "pa": {
+      "name": "聚醯胺（尼龍，PA）",
+      "al": [
+        "尼龍",
+        "耐龍",
+        "PA6",
+        "PA66"
+      ],
+      "vars": {
+        "b3sc": "PA6 Ultramid B3S（調濕）",
+        "b3s": "PA6 Ultramid B3S（乾燥）",
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "pc": {
+      "name": "聚碳酸酯（PC）",
+      "al": [],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "peek": {
+      "name": "聚醚醚酮（PEEK）",
+      "al": [],
+      "vars": {
+        "vic450g": "Victrex 450G",
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "ptfe": {
+      "name": "聚四氟乙烯（PTFE）",
+      "al": [
+        "鐵氟龍",
+        "特氟龍",
+        "氟樹脂"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "epoxy": {
+      "name": "環氧樹脂",
+      "al": [
+        "環氧"
+      ],
+      "vars": {
+        "hex8552": "Hexcel 8552（航空用）",
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "vinyl-ester": {
+      "name": "乙烯基酯（Derakane 411-350）",
+      "al": [
+        "乙烯基酯樹脂"
+      ],
+      "vars": {
+        "der": "Derakane Momentum 411-350"
+      }
+    },
+    "iir": {
+      "name": "丁基橡膠",
+      "al": [
+        "IIR"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "nr": {
+      "name": "天然橡膠",
+      "al": [
+        "橡膠",
+        "NR"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "cr-rubber": {
+      "name": "氯丁橡膠（Neoprene）",
+      "al": [
+        "CR",
+        "尼奧普林"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "silicone-rubber": {
+      "name": "矽氧橡膠",
+      "al": [
+        "矽膠",
+        "矽利康",
+        "硅橡膠",
+        "VMQ"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "cf-t300": {
+      "name": "碳纖維 T300（東麗，標準模數）",
+      "al": [
+        "碳纖維",
+        "Torayca"
+      ]
+    },
+    "cf-t700s": {
+      "name": "碳纖維 T700S（東麗，高強度）",
+      "al": [
+        "碳纖維",
+        "Torayca"
+      ]
+    },
+    "cf-t800s": {
+      "name": "碳纖維 T800S（東麗，中模數）",
+      "al": [
+        "碳纖維",
+        "Torayca"
+      ]
+    },
+    "cf-m40j": {
+      "name": "碳纖維 M40J（東麗，高模數）",
+      "al": [
+        "碳纖維",
+        "Torayca"
+      ]
+    },
+    "cf-m55j": {
+      "name": "碳纖維 M55J（東麗，高模數）",
+      "al": [
+        "碳纖維",
+        "Torayca"
+      ]
+    },
+    "cf-hts40": {
+      "name": "碳纖維 HTS40（帝人 Tenax）",
+      "al": [
+        "碳纖維",
+        "Tenax"
+      ]
+    },
+    "e-glass-fiber": {
+      "name": "E玻璃（AGY）",
+      "al": [
+        "玻璃纖維",
+        "玻纖"
+      ]
+    },
+    "ecr-glass-fiber": {
+      "name": "E-CR玻璃 Advantex（Owens Corning）",
+      "al": [
+        "玻璃纖維",
+        "玻纖"
+      ]
+    },
+    "s2-glass-fiber": {
+      "name": "S-2玻璃（AGY）",
+      "al": [
+        "玻璃纖維",
+        "玻纖"
+      ]
+    },
+    "kevlar49": {
+      "name": "芳香族聚醯胺 Kevlar 49（DuPont）",
+      "al": [
+        "克維拉",
+        "芳綸",
+        "醯胺纖維"
+      ]
+    },
+    "basalt-fiber": {
+      "name": "玄武岩纖維（Mafic）",
+      "al": [
+        "玄武纖維"
+      ]
+    },
+    "flax-fiber": {
+      "name": "亞麻纖維",
+      "al": [
+        "亞麻",
+        "天然纖維"
+      ]
+    },
+    "hemp-fiber": {
+      "name": "漢麻（大麻）纖維",
+      "al": [
+        "大麻纖維",
+        "麻",
+        "天然纖維"
+      ]
+    },
+    "cfrp": {
+      "name": "CFRP（環氧樹脂基材，準等向性）",
+      "al": [
+        "碳纖維強化塑膠",
+        "碳纖維複合材料"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "gfrp": {
+      "name": "GFRP（環氧樹脂基材，準等向性）",
+      "al": [
+        "玻璃纖維強化塑膠",
+        "玻璃鋼",
+        "FRP"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "fr4": {
+      "name": "FR-4系印刷電路板（面內）",
+      "al": [
+        "玻纖環氧板",
+        "印刷電路板",
+        "PCB"
+      ],
+      "vars": {
+        "isola": "Isola 370HR"
+      }
+    },
+    "ud-t300-5208": {
+      "name": "T300/5208 碳/環氧樹脂（Tsai–Hahn）",
+      "al": []
+    },
+    "ud-cf-standard": {
+      "name": "碳/環氧樹脂，標準模數（NTNU的表，Vf 55 %）",
+      "al": []
+    },
+    "ud-cf-high-modulus": {
+      "name": "碳/環氧樹脂，高模數（NTNU的表）",
+      "al": []
+    },
+    "ud-e-glass": {
+      "name": "E玻璃/環氧樹脂（NTNU的表）",
+      "al": []
+    },
+    "ud-s-glass": {
+      "name": "S玻璃/環氧樹脂（NTNU的表）",
+      "al": []
+    },
+    "ud-kevlar49": {
+      "name": "Kevlar 49/環氧樹脂（NTNU的表）",
+      "al": []
+    },
+    "si": {
+      "name": "矽",
+      "al": [
+        "硅",
+        "矽晶圓"
+      ],
+      "note": "半導體元件基板（單晶矽晶圓）的材料。楊氏模數依晶體方向在130～188 GPa之間變化。",
+      "vars": {
+        "poly": "多晶，等向平均",
+        "w100": "(100) 晶圓，面內",
+        "w111": "(111) 晶圓，面內"
+      }
+    },
+    "ge": {
+      "name": "鍺",
+      "al": []
+    },
+    "zns": {
+      "name": "硫化鋅（閃鋅礦型）",
+      "al": [
+        "閃鋅礦"
+      ]
+    },
+    "gaas": {
+      "name": "砷化鎵",
+      "al": []
+    },
+    "alas": {
+      "name": "砷化鋁",
+      "al": []
+    },
+    "inas": {
+      "name": "砷化銦",
+      "al": []
+    },
+    "inp": {
+      "name": "磷化銦",
+      "al": []
+    },
+    "gap": {
+      "name": "磷化鎵",
+      "al": []
+    },
+    "zns-w": {
+      "name": "硫化鋅（纖鋅礦型）",
+      "al": [
+        "纖鋅礦"
+      ]
+    },
+    "zno": {
+      "name": "氧化鋅",
+      "al": [
+        "鋅白"
+      ]
+    },
+    "b": {
+      "name": "硼",
+      "al": []
+    },
+    "c": {
+      "name": "碳",
+      "al": [
+        "石墨"
+      ]
+    },
+    "p": {
+      "name": "磷",
+      "al": []
+    },
+    "s": {
+      "name": "硫",
+      "al": [
+        "硫磺"
+      ]
+    },
+    "as": {
+      "name": "砷",
+      "al": []
+    },
+    "se": {
+      "name": "硒",
+      "al": []
+    },
+    "br": {
+      "name": "溴",
+      "al": []
+    },
+    "sb": {
+      "name": "銻",
+      "al": []
+    },
+    "te": {
+      "name": "碲",
+      "al": []
+    },
+    "i": {
+      "name": "碘",
+      "al": []
+    },
+    "diamond": {
+      "name": "鑽石",
+      "al": [
+        "金剛石"
+      ]
+    },
+    "flexible-foam": {
+      "name": "軟質高分子發泡體（低密度）",
+      "al": [
+        "泡棉",
+        "PU泡棉",
+        "海綿"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "rigid-foam": {
+      "name": "硬質高分子發泡體（低密度）",
+      "al": [
+        "保麗龍",
+        "發泡聚苯乙烯",
+        "硬質PU"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "rigid-foam-hd": {
+      "name": "硬質高分子發泡體（高密度）",
+      "al": [],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "cork": {
+      "name": "軟木",
+      "al": [
+        "軟木塞"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "paper": {
+      "name": "紙與紙板",
+      "al": [
+        "紙",
+        "紙板",
+        "瓦楞紙"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "wood-along": {
+      "name": "木材（纖維方向）",
+      "al": [
+        "木",
+        "木頭"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    },
+    "wood-across": {
+      "name": "木材（垂直纖維方向）",
+      "al": [
+        "木",
+        "木頭"
+      ],
+      "vars": {
+        "ash": "Ashby 的材料群範圍"
+      }
+    }
+  },
+  "guide": [
+    {
+      "id": "read",
+      "h": "代表值與範圍的讀法",
+      "p": [
+        "數值分為兩種：牌號或標準的單一數值（例：京瓷 AO479O 的楊氏模數 360 GPa），以及材料群的範圍（例：Ashby 的「氧化鋁」340–390 GPa）。範圍是彙整了組成與製程不同的許多牌號的幅度，並不表示每一種牌號都落在這個範圍內。",
+        "範圍的代表值，是取下限與上限的幾何平均（√(下限×上限)）並取 3 位有效數字的值。這與選材圖中橢圓的中心相同；對於跨越 1 個數量級以上的性質（發泡體的強度、高分子的熱導率等），比算術平均更能表示在範圍中的位置。",
+        "同一種材料有好幾個同一性質的數值時，表中列出第一個數值（有牌號的值就列牌號的值，沒有就列範圍），並以「+n」標示其他數值的個數。卡片中則列出全部的數值，並附上條件與出處。"
+      ]
+    },
+    {
+      "id": "vary",
+      "h": "數值會因溫度、組織與方向而變",
+      "p": [
+        "線膨脹係數會隨溫度範圍而變。SUS304 在 0–100 ℃的平均為 16.9 × 10⁻⁶ K⁻¹，在 0–649 ℃的平均為 18.7 × 10⁻⁶ K⁻¹。熱導率、楊氏模數與強度也會隨溫度而變，多數金屬的楊氏模數在溫度升高時會下降。比較時請使用相同溫度下的數值。",
+        "強度受組織（熱處理、加工）的影響比受組成的影響大。降伏強度、抗拉強度與彎曲強度是不同的量，陶瓷的彎曲強度會比抗拉強度大一些。表中的強度一定會註明是哪一種強度。高分子也會因吸濕而改變，PA6 乾燥時的楊氏模數為 3.5 GPa，吸濕後則為 1.2 GPa。",
+        "單晶、纖維與單向材的數值會隨方向而不同。矽的楊氏模數依晶體方向為 130–188 GPa；碳纖維 T300 軸向的線膨脹係數為負值，徑向則為正值。多晶材料的數值是各方向的平均。"
+      ]
+    },
+    {
+      "id": "spec",
+      "h": "標準值、型錄值與量測值",
+      "p": [
+        "標準中的數值，包括保證的最小值（EN 10025-2 中 S355 的降伏強度 355 MPa，是板厚 16 mm 以下時保證的最小值）以及成分的規定範圍（JIS 的 Cr 18.00–20.00 % 等）。製造商資料中的「代表值（typical）」是量測值的平均，並不是保證值。",
+        "即使是同一個材料名稱，不同資料的數值略有差異是很常見的。這是因為試樣、量測方法與溫度不同，不一定是哪一方有誤。本資料集對於各工具之間數值不同的項目，不加以修正，而是附上條件與出處將兩者都列出。"
+      ]
+    },
+    {
+      "id": "cite",
+      "h": "引用數值時的注意事項",
+      "p": [
+        "引用時，請引用數值的出處（卡片與出處一覽中所列的資料），而不是本頁。最確實的做法是開啟出處資料，確認條件（溫度、狀態、方向、試驗方法）之後再使用。",
+        "抄錄數值時，請一併寫上單位與條件。換算後的數值，以原始數值的有效數字位數顯示。CSV 中會同時列出表中所用單位的數值與原始單位的數值。"
+      ]
+    },
+    {
+      "id": "how",
+      "h": "本資料集的製作方式",
+      "p": [
+        "數值是以程式從本站計算工具（材料用週期表、熱膨脹與熱應力實驗室、選材圖、複合材料設計工具、擴散與表面處理模擬器、XRD解析工作台、二元系相圖實驗室、計算練習、材料記號的解讀）所使用的資料集中擷取的。工具中的數值沒有以人工抄寫，擷取的數值全部都與原工具的數值逐一核對過。",
+        "工具中沒有的數值，只有 SUS304 與 SUS316 的物性（Cleveland-Cliffs 的產品資料，美國的 304/304L 與 316/316L 資料）。這些是從資料的表中抄錄的數值，抄錄後再與資料核對一次；資料中美制單位與 SI 數值不一致的數值不予收錄（只有條件溫度不一致者，以 °F 的溫度為準）。在複合材料設計工具中作為假設而設定的數值（沒有資料的數值），以及假設等向性所計算的數值，都不予收錄。",
+        "材料卡片上的「用計算工具開啟」，會以填入該材料數值的狀態開啟工具，與在工具中選擇該材料的狀態相同。"
+      ]
+    }
+  ],
+  "faq": [
+    [
+      "與手冊中的數值略有不同，哪一個才正確？",
+      "多數情況下兩者都正確，差異來自試樣、量測方法與溫度的不同。本頁的數值都附有出處與條件，請先確認條件是否相同。若條件相同而數值差異很大，請查閱出處資料後告知本站。"
+    ],
+    [
+      "範圍的代表值為什麼不是下限與上限的正中間？",
+      "因為對於跨越好幾倍的性質，在對數刻度上位於正中間的幾何平均，更能表示在範圍中的位置。這與選材圖中橢圓的中心是相同的值。例如 0.01–1 範圍的算術平均為 0.505，幾何平均則為 0.1。"
+    ],
+    [
+      "可以用這些數值設計零件嗎？",
+      "可以用來縮小候選材料的範圍與比較，但請不要用於設計。設計時請使用標準的保證值，或所用牌號製造商資料中的數值（最小值與各溫度下的數值）。"
+    ],
+    [
+      "應該看降伏強度還是抗拉強度？",
+      "不希望發生塑性變形的零件看降伏強度（0.2 %偏位降伏強度），比較到斷裂為止的強度時看抗拉強度。陶瓷與玻璃不會降伏，因此看彎曲強度或抗拉強度。表中的強度都會註明是哪一種強度。"
+    ],
+    [
+      "為什麼有些性質是空白？",
+      "因為只收錄能在出處中確認的數值。工具資料集中沒有的數值，或資料中沒有記載的數值，都不以推估填補。"
+    ],
+    [
+      "CSV 中數值的位數是怎麼決定的？",
+      "換算成表中所用單位的數值，會四捨五入到原始數值的有效數字位數。同一列中也會列出原始單位的數值與出處，因此可以確認原始數值。"
+    ]
+  ]
+}

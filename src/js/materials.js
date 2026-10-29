@@ -60,6 +60,12 @@ export function show(x, sg) {
   const t = x.toPrecision(sg);
   return minus(t.includes('e') ? String(Number(t)) : t);
 }
+// 画面の数の書き方。de は小数点をコンマに(桁区切りは付けない)。ほかの言語は show のまま。
+// CSV は機械で読む形なので、D.plain(csvWide・csvLong が付ける)のときはピリオドのまま
+const deNum = D => /^de/.test(D?.lang ?? '') && !D.plain;
+export const numText = (D, t) => (deNum(D) ? String(t).replace(/(\d)\.(\d)/g, '$1,$2') : String(t));
+// 文に差し込む数(条件の {a}・変態の {t} など)。数でなければそのまま
+const numIn = (D, x) => (typeof x === 'number' ? numText(D, show(x, null)) : x);
 
 // ---- 値の読み方 ----
 export const propOf = (D, p) => D.props.find(x => x.id === p);
@@ -77,10 +83,11 @@ export function valText(D, v, to) {
   if (v.r) {
     const lo = conv(v.r[0], from, to), hi = conv(v.r[1], from, to), rep = v.m != null ? conv(v.m, from, to) : null;
     // 上下が同じ範囲(Ashby の 8.9–8.9 など)は1つの値で書く
-    return { main: lo.s === hi.s ? lo.s : `${lo.s}–${hi.s}`, rep: rep?.s ?? null, lo: lo.n, hi: hi.n, n: rep?.n ?? null };
+    const ls = numText(D, lo.s), hs = numText(D, hi.s);
+    return { main: ls === hs ? ls : `${ls}–${hs}`, rep: rep ? numText(D, rep.s) : null, lo: lo.n, hi: hi.n, n: rep?.n ?? null };
   }
   const c = conv(v.v, from, to);
-  return c ? { main: c.s, rep: null, n: c.n } : null;
+  return c ? { main: numText(D, c.s), rep: null, n: c.n } : null;
 }
 // 文字の値(結晶構造・成分・変態・融点がない理由)
 export function textOf(D, v) {
@@ -89,13 +96,18 @@ export function textOf(D, v) {
   if (v.p === 'tr') {
     const [t, way, ph, k] = v.x;
     if (way === 'meta') return D.tr.meta;
-    return fill(D.tr[way], { t: show(t, null), p: ph, s: D.tr.st[k] ?? k });
+    return fill(D.tr[way], { t: numIn(D, t), p: ph, s: D.tr.st[k] ?? k });
   }
-  if (v.p === 'comp') return v.x.split(',').map(s => { const [el, q] = s.split(':'); return `${el} ${q === 'bal' ? D.t.md_bal : q.startsWith('-') ? `≤ ${q.slice(1)}` : q.replace('-', '–')}`; }).join(', ');
+  // 成分: de はコンマ小数と紛れないよう「; 」で並べる
+  if (v.p === 'comp') return v.x.split(',').map(s => { const [el, q] = s.split(':'); return `${el} ${q === 'bal' ? D.t.md_bal : numText(D, q.startsWith('-') ? `≤ ${q.slice(1)}` : q.replace('-', '–'))}`; }).join(deNum(D) ? '; ' : ', ');
   return v.x ?? '';
 }
-export const condText = (D, v) => (v.c ?? []).map(c => fill(D.conds[c] ?? c, v.cp ?? {}));
-export const kindShort = (D, k) => (D.kinds[k] ?? k).replace(/[((].*$/, '').trim();
+export const condText = (D, v) => (v.c ?? []).map(c => fill(D.conds[c] ?? c, Object.fromEntries(Object.entries(v.cp ?? {}).map(([k, x]) => [k, numIn(D, x)]))));
+// 区切りの記号は言語で変える(日本語は中点、中国語は読点と全角のコロン)
+const sepOf = D => (/^ja/.test(D.lang) ? '・' : /^zh/.test(D.lang) ? '、' : ' · ');
+const listSep = D => (/^(ja|zh)/.test(D.lang) ? '、' : ', ');
+const colon = D => (/^zh/.test(D.lang) ? '：' : ': ');
+export const kindShort = (D, k) => (D.kinds[k] ?? k).replace(/[(（].*$/, '').trim();
 // 値に添える文(銘柄・状態、強さの種類、条件)
 export function noteOf(D, m, v, short = true) {
   return [v.g ? m.vars?.[v.g] : null, v.k ? (short ? kindShort(D, v.k) : D.kinds[v.k]) : null, ...condText(D, v)].filter(Boolean);
@@ -131,11 +143,11 @@ export function cellHTML(D, m, p, u) {
     const t = valText(D, v, u ?? P.u); // 列の見出しの単位(選んでいなければ性質の既定の単位)で出す
     main = `<span class="md-v">${esc(t.main)}</span>${t.rep ? `<span class="md-rep">${esc(fill(D.t.md_rep_short, { v: t.rep }))}</span>` : ''}`;
   }
-  return `<td>${main}<sup class="md-srcs">${srcMarks(D, v)}</sup>${more}${note.length ? `<small class="md-note">${esc(note.join('・'))}</small>` : ''}</td>`;
+  return `<td>${main}<sup class="md-srcs">${srcMarks(D, v)}</sup>${more}${note.length ? `<small class="md-note">${esc(note.join(sepOf(D)))}</small>` : ''}</td>`;
 }
 export function rowHTML(D, m, st, home = '') {
   const on = st.cmp?.includes(m.id);
-  const sub = [m.sym && m.sym !== m.name ? m.sym : null, D.classes.find(c => c.id === m.cls)?.name].filter(Boolean).join('・');
+  const sub = [m.sym && m.sym !== m.name ? m.sym : null, D.classes.find(c => c.id === m.cls)?.name].filter(Boolean).join(sepOf(D));
   return `<tr data-id="${m.id}"><td class="md-c-cmp"><input type="checkbox" data-cmp="${m.id}" aria-label="${esc(fill(D.t.md_cmp_add_a, { m: m.name }))}"${on ? ' checked' : ''}></td><th scope="row" class="md-c-name"><a href="?m=${m.id}#md-card" data-card="${m.id}">${esc(m.name)}</a><small>${esc(sub)}</small></th>${st.cols.map(p => cellHTML(D, m, p, st.units[p])).join('')}</tr>`;
 }
 export const tableHTML = (D, rows, st) => `<thead>${headHTML(D, st)}</thead><tbody>${rows.map(m => rowHTML(D, m, st)).join('')}</tbody>`;
@@ -187,9 +199,9 @@ export function compareRows(D, mats, units) {
     const present = vs.map((v, i) => [v, mats[i]]).filter(([v]) => v);
     const sig = v => JSON.stringify([v.c ?? [], v.cp ?? {}]);
     if (present.length > 1) {
-      if (new Set(present.map(([v]) => v.k ?? '')).size > 1) notes.push(fill(D.t.md_cmp_kind, { l: present.map(([v, m]) => `${m.name}: ${v.k ? kindShort(D, v.k) : '—'}`).join(' / ') }));
+      if (new Set(present.map(([v]) => v.k ?? '')).size > 1) notes.push(fill(D.t.md_cmp_kind, { l: present.map(([v, m]) => `${m.name}${colon(D)}${v.k ? kindShort(D, v.k) : '—'}`).join(' / ') }));
       // 条件の書いていない値(資料に条件がない)は比べない。条件の書いてある値どうしが違うときだけ
-      if (new Set(present.filter(([v]) => v.c?.length).map(([v]) => sig(v))).size > 1) notes.push(fill(D.t.md_cmp_cond, { l: present.map(([v, m]) => `${m.name}: ${condText(D, v).join('・') || '—'}`).join(' / ') }));
+      if (new Set(present.filter(([v]) => v.c?.length).map(([v]) => sig(v))).size > 1) notes.push(fill(D.t.md_cmp_cond, { l: present.map(([v, m]) => `${m.name}${colon(D)}${condText(D, v).join(sepOf(D)) || '—'}`).join(' / ') }));
       if (!P.text && new Set(present.map(([v]) => !!v.r)).size > 1) notes.push(D.t.md_cmp_range);
       if (UNIT[u]?.[0] === 'T' && present.length > 1) notes.push(D.t.md_cmp_kelvin);
     }
@@ -198,7 +210,7 @@ export function compareRows(D, mats, units) {
   }
   return out;
 }
-export const ratioText = r => (r == null ? '' : `×${show(r, r >= 100 || r < 0.01 ? 2 : 3)}`);
+export const ratioText = (r, D) => (r == null ? '' : `×${numText(D, show(r, r >= 100 || r < 0.01 ? 2 : 3))}`);
 
 // ---- CSV ----
 const csvCell = x => { const s = x == null ? '' : String(x); return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
@@ -206,7 +218,8 @@ export const csvText = rows => rows.map(r => r.map(csvCell).join(',')).join('\r\
 const srcNames = (D, v) => v.s.map(k => D.sources.find(s => s.id === k)?.name ?? k).join(' | ');
 const toolNames = (D, v) => v.t.map(t => D.tools[t]?.n ?? D.t[`md_tool_${t}`] ?? t).join(' | ');
 // 表のとおり: 1材料1行、列ごとに 値(代表)・範囲・条件・出典
-export function csvWide(D, rows, st) {
+export function csvWide(D0, rows, st) {
+  const D = { ...D0, plain: true }; // 数はピリオドの小数のまま
   const h = [D.t.md_csv_name, 'id', D.t.md_csv_class];
   for (const p of st.cols) {
     const P = propOf(D, p), ul = unitLabel(D, st.units[p] ?? P.u);
@@ -227,7 +240,8 @@ export function csvWide(D, rows, st) {
   return out;
 }
 // すべての値: 1値1行。表示の単位の値と、元の単位の値の両方
-export function csvLong(D, rows, st) {
+export function csvLong(D0, rows, st) {
+  const D = { ...D0, plain: true }; // 数はピリオドの小数のまま
   const T = D.t;
   const out = [[T.md_csv_name, 'id', T.md_csv_class, T.md_csv_prop, T.md_csv_value, T.md_csv_lo, T.md_csv_hi, T.md_csv_unit, T.md_csv_ovalue, T.md_csv_olo, T.md_csv_ohi, T.md_csv_ounit,
     T.md_csv_var, T.md_csv_kind, T.md_csv_cond, T.md_csv_src, T.md_csv_url, T.md_csv_tool]];
@@ -325,7 +339,7 @@ function init(D) {
       const q = new URLSearchParams(Object.entries(l.q).map(([k, v]) => [k, String(v)])).toString();
       let label = D.tools[l.tool].n;
       if (l.g && m.vars?.[l.g]) label += `(${m.vars[l.g]})`;
-      if (l.dsys) { const v = m.v.find(x => x.dsys === l.dsys); if (v) label += `(${condText(D, v).join('・')})`; }
+      if (l.dsys) { const v = m.v.find(x => x.dsys === l.dsys); if (v) label += `(${condText(D, v).join(sepOf(D))})`; }
       return `<a class="btn btn-ghost btn-small" href="${esc(D.tools[l.tool].u)}?${esc(q)}" data-tool="${l.tool}">${esc(label)}</a>`;
     }).join(' ');
   }
@@ -344,15 +358,15 @@ function init(D) {
     const inCmp = st.cmp.includes(m.id);
     cardEl.innerHTML = `<h2 id="md-card-h" tabindex="-1">${esc(m.name)}</h2>
 <p class="md-card-sub">${[m.sub, m.sym && m.sym !== m.name ? m.sym : null, m.z ? `Z = ${m.z}` : null, D.classes.find(c => c.id === m.cls)?.name].filter(Boolean).map(esc).join(' · ')}</p>
-${m.codes.length ? `<p class="md-codes"><span class="muted">${esc(T.md_codes)}:</span> ${m.codes.map(c => `<code>${esc(c)}</code>`).join(' ')}</p>` : ''}
-${m.al.length ? `<p class="md-codes"><span class="muted">${esc(T.md_alias)}:</span> ${m.al.map(esc).join('、')}</p>` : ''}
+${m.codes.length ? `<p class="md-codes"><span class="muted">${esc(T.md_codes)}${colon(D)}</span>${m.codes.map(c => `<code>${esc(c)}</code>`).join(' ')}</p>` : ''}
+${m.al.length ? `<p class="md-codes"><span class="muted">${esc(T.md_alias)}${colon(D)}</span>${m.al.map(esc).join(listSep(D))}</p>` : ''}
 ${m.note ? `<p>${esc(m.note)}</p>` : ''}${m.trn ? `<p class="muted">${esc(m.trn)}</p>` : ''}
 <div class="table-wrap"><table class="md-vals"><caption class="visually-hidden">${esc(fill(T.md_card_cap, { m: m.name }))}</caption>
 <thead><tr><th scope="col">${esc(T.md_th_value)}</th><th scope="col">${esc(T.md_th_unit)}</th><th scope="col">${esc(T.md_th_cond)}</th><th scope="col">${esc(T.md_th_src)}</th></tr></thead>
-${groups.map(([P, vs]) => `<tbody><tr class="md-pg"><th scope="colgroup" colspan="4">${esc(P.name)}${P.sym ? ` <span class="md-sym">${symHTML(P.sym)}</span>` : ''}</th></tr>${vs.map(v => `<tr>${valCell(P, v)}<td class="md-c">${esc(noteOf(D, m, v, false).join('・') || '—')}</td><td class="md-s"><sup class="md-srcs">${srcMarks(D, v)}</sup> <small class="md-tools">${esc(toolNames(D, v))}</small></td></tr>`).join('')}</tbody>`).join('')}</table></div>
+${groups.map(([P, vs]) => `<tbody><tr class="md-pg"><th scope="colgroup" colspan="4">${esc(P.name)}${P.sym ? ` <span class="md-sym">${symHTML(P.sym)}</span>` : ''}</th></tr>${vs.map(v => `<tr>${valCell(P, v)}<td class="md-c">${esc(noteOf(D, m, v, false).join(sepOf(D)) || '—')}</td><td class="md-s"><sup class="md-srcs">${srcMarks(D, v)}</sup> <small class="md-tools">${esc(toolNames(D, v))}</small></td></tr>`).join('')}</tbody>`).join('')}</table></div>
 ${m.tl.some(l => D.tools[l.tool]) ? `<h3>${esc(T.md_open_tool)}</h3><p class="md-tl">${toolLinks(m)}</p><p class="muted md-tl-note">${esc(T.md_open_tool_note)}</p>` : ''}
-${terms.length ? `<p class="term-chips"><span class="muted">${esc(T.md_terms)}:</span> ${terms.map(x => `<a class="chip" href="${esc(x.u)}">${esc(x.n)}</a>`).join(' ')}</p>` : ''}
-${learn.length ? `<p class="md-learn"><span class="muted">${esc(T.md_learn)}:</span> ${learn.map(x => `<a href="${esc(x.u)}">${esc(x.n)}</a>`).join(' / ')}</p>` : ''}
+${terms.length ? `<p class="term-chips"><span class="muted">${esc(T.md_terms)}${colon(D)}</span>${terms.map(x => `<a class="chip" href="${esc(x.u)}">${esc(x.n)}</a>`).join(' ')}</p>` : ''}
+${learn.length ? `<p class="md-learn"><span class="muted">${esc(T.md_learn)}${colon(D)}</span>${learn.map(x => `<a href="${esc(x.u)}">${esc(x.n)}</a>`).join(' / ')}</p>` : ''}
 <div class="cmp-tools"><button type="button" class="btn btn-ghost" data-card-cmp="${m.id}"${!inCmp && st.cmp.length >= 4 ? ' disabled' : ''}>${esc(inCmp ? T.md_cmp_remove : T.md_cmp_add)}</button><button type="button" class="btn btn-ghost" data-card-link data-done="${esc(T.md_copied)}">${esc(T.md_card_link)}</button><button type="button" class="btn btn-ghost" data-card-close>${esc(T.md_close)}</button></div>`;
   }
   function openCard(id, focus = true) {
@@ -376,8 +390,8 @@ ${cr.map(r => {
       return `<tbody><tr class="md-pg"><th scope="colgroup" colspan="${mats.length}">${esc(P.name)}${ul ? ` <small>${esc(ul)}</small>` : ''}</th></tr><tr>${r.cells.map((c, i) => {
         if (!c) return '<td class="md-na">–</td>';
         const note = noteOf(D, mats[i], c.v);
-        if (c.text != null) return `<td>${esc(c.text || '—')}<sup class="md-srcs">${srcMarks(D, c.v)}</sup>${note.length ? `<small class="md-note">${esc(note.join('・'))}</small>` : ''}</td>`;
-        return `<td><span class="md-v">${esc(c.t.main)}</span>${c.t.rep ? `<span class="md-rep">${esc(fill(T.md_rep_short, { v: c.t.rep }))}</span>` : ''}<sup class="md-srcs">${srcMarks(D, c.v)}</sup>${c.ratio != null ? `<span class="md-ratio" data-ratio="${c.ratio}">${esc(ratioText(c.ratio))}</span>` : ''}${note.length ? `<small class="md-note">${esc(note.join('・'))}</small>` : ''}</td>`;
+        if (c.text != null) return `<td>${esc(c.text || '—')}<sup class="md-srcs">${srcMarks(D, c.v)}</sup>${note.length ? `<small class="md-note">${esc(note.join(sepOf(D)))}</small>` : ''}</td>`;
+        return `<td><span class="md-v">${esc(c.t.main)}</span>${c.t.rep ? `<span class="md-rep">${esc(fill(T.md_rep_short, { v: c.t.rep }))}</span>` : ''}<sup class="md-srcs">${srcMarks(D, c.v)}</sup>${c.ratio != null ? `<span class="md-ratio" data-ratio="${c.ratio}">${esc(ratioText(c.ratio, D))}</span>` : ''}${note.length ? `<small class="md-note">${esc(note.join(sepOf(D)))}</small>` : ''}</td>`;
       }).join('')}</tr>${r.notes.length ? `<tr class="md-cmp-note"><td colspan="${mats.length}">${r.notes.map(n => `<span>${esc(n)}</span>`).join('')}</td></tr>` : ''}</tbody>`;
     }).join('')}</table></div>`;
   }
@@ -394,6 +408,73 @@ ${cr.map(r => {
   const chartSel = chartEl.querySelector('select[name="ch"]');
   const logBox = chartEl.querySelector('input[name="lg"]');
   chartSel.innerHTML = D.props.filter(p => !p.text).map(p => `<option value="${p.id}">${esc(p.name)}</option>`).join('');
+  // 図の文字の幅を測る(見えない SVG の text。図と同じクラスなので同じ字の大きさ)。測れないときは字数から見積もる
+  const NS = 'http://www.w3.org/2000/svg';
+  let meas = null;
+  const textW = (cls, s) => {
+    if (!s) return 0;
+    if (!meas?.isConnected) {
+      const svg = document.createElementNS(NS, 'svg');
+      svg.setAttribute('width', '0'); svg.setAttribute('height', '0'); svg.setAttribute('aria-hidden', 'true');
+      Object.assign(svg.style, { position: 'absolute', visibility: 'hidden', overflow: 'hidden' });
+      meas = document.createElementNS(NS, 'text'); svg.append(meas); chartEl.append(svg);
+    }
+    meas.setAttribute('class', cls); meas.textContent = s;
+    let w = 0; try { w = meas.getComputedTextLength(); } catch {}
+    return w > 0 ? w : [...s].length * (/[\u2E80-\u9FFF\uAC00-\uD7AF\uFF00-\uFFEF]/.test(s) ? 11 : 6.5);
+  };
+  // 幅 max に収まるよう末尾を「…」で切る(head が true なら「…」を付けずに頭だけ返す)
+  const fitEnd = (cls, s, max, head = false) => {
+    if (textW(cls, s) <= max) return s;
+    const cs = [...s];
+    let lo = 0, hi = cs.length;
+    const f = k => cs.slice(0, k).join('').trimEnd() + (head ? '' : '…');
+    while (lo < hi) { const k = Math.ceil((lo + hi) / 2); if (textW(cls, f(k)) <= max) lo = k; else hi = k - 1; }
+    return lo ? f(lo) : head ? '' : '…';
+  };
+  // 先頭を「…」にして末尾を残す
+  const fitStart = (cls, s, max) => {
+    if (textW(cls, s) <= max) return s;
+    const cs = [...s];
+    let lo = 0, hi = cs.length;
+    const f = k => `…${cs.slice(cs.length - k).join('').trimStart()}`;
+    while (lo < hi) { const k = Math.ceil((lo + hi) / 2); if (textW(cls, f(k)) <= max) lo = k; else hi = k - 1; }
+    return f(lo);
+  };
+  // 材料名を幅に合わせて切る。切った形が同じになる名前どうし(「Nichtrostender Stahl 304 …」と「… 316 …」など)は、
+  // 違いの始まる語を残して「頭… 違う所」にする
+  function fitNames(names, max) {
+    const cls = 'md-lab', out = names.map(n => fitEnd(cls, n, max));
+    for (const l of new Set(out.filter((l, i) => l !== names[i]))) {
+      const same = out.map((x, i) => (x === l ? i : -1)).filter(i => i >= 0);
+      if (new Set(same.map(i => names[i])).size < 2) continue;
+      const toks = same.map(i => names[i].split(/(?<=\s)/));
+      let k = 0;
+      while (toks.every(t => k < t.length - 1 && t[k] === toks[0][k])) k++;
+      for (const [j, i] of same.entries()) {
+        const rest = toks[j].slice(k).join(''), restW = Math.min(textW(cls, rest), max * 0.75);
+        const head = k ? fitEnd(cls, toks[j].slice(0, k).join('').trimEnd(), max - restW - textW(cls, '… '), true) : '';
+        out[i] = head ? `${head}… ${fitEnd(cls, rest, max - textW(cls, `${head}… `))}` : fitEnd(cls, rest, max);
+      }
+    }
+    // それでも同じ形が残るとき(違いが名前の終わりにあるなど)は、末尾を残す
+    const seen = new Map();
+    out.forEach((l, i) => seen.set(l, [...(seen.get(l) ?? []), i]));
+    for (const is of seen.values()) if (is.length > 1 && new Set(is.map(i => names[i])).size > 1) for (const i of is) out[i] = fitStart(cls, names[i], max);
+    return out;
+  }
+  // 見出しを幅 max で行に分ける(空白で。漢字・かなは1字ずつ。閉じ括弧・句読点は前の字につける)
+  const CJK = '\u2E80-\u9FFF\uF900-\uFAFF\u3040-\u30FF';
+  const TOK = new RegExp(`[(（「]?[${CJK}][)）」、。，：・]*|[^\\s${CJK}]+|\\s+`, 'g');
+  function wrap(cls, s, max) {
+    const lines = []; let cur = '';
+    for (const t of s.match(TOK) ?? []) {
+      if (/^\s+$/.test(t)) { cur += t; continue; }
+      if (cur.trim() && textW(cls, (cur + t).trimEnd()) > max) { lines.push(cur.trimEnd()); cur = t; } else cur += t;
+    }
+    if (cur.trim()) lines.push(cur.trimEnd());
+    return lines.map(l => fitEnd(cls, l, max));
+  }
   function renderChart() {
     const p = st.ch || st.has || st.cols.find(c => !propOf(D, c).text) || 'E';
     chartSel.value = p;
@@ -411,8 +492,24 @@ ${cr.map(r => {
     const lmin = Math.min(...shown.map(x => x.lo)), lmax = Math.max(...shown.map(x => x.hi));
     const useLog = pos && (st.lg ?? lmax / lmin > 50);
     logBox.checked = useLog; logBox.disabled = !pos;
-    const W = Math.max(240, Math.min(box.clientWidth || 640, 900)), lw = Math.min(170, Math.round(W * 0.36)), pr = 56, rh = 22, top = 42, H = top + shown.length * rh + 8;
+    const W = Math.max(240, Math.min(box.clientWidth || 640, 900)), lw = Math.min(170, Math.round(W * 0.36)), pr = 56, rh = 22;
     const x0 = lw + 8, x1 = W - pr;
+    // 軸の見出し: 名前と単位(ja・zh は全角の括弧、ほかは空白と半角の括弧)。収まらなければ左端から、行に分けて
+    const ul = unitLabel(D, u);
+    const axis = `${P.name}${ul ? (/^(ja|zh)/.test(D.lang) ? `（${ul}）` : ` (${ul})`) : ''}`;
+    const logw = useLog ? `— ${T.md_chart_logw}` : '';
+    const full = logw ? `${axis} ${logw}` : axis;
+    let ax = x0, lines = [full];
+    if (textW('md-axis', full) > W - x0 - 2) {
+      ax = 2;
+      const mw = W - 4;
+      if (textW('md-axis', full) <= mw) lines = [full];
+      else {
+        lines = wrap('md-axis', axis, mw);
+        if (logw) { const last = `${lines[lines.length - 1]} ${logw}`; if (textW('md-axis', last) <= mw) lines[lines.length - 1] = last; else lines.push(fitEnd('md-axis', logw, mw)); }
+      }
+    }
+    const lh = 13, top = 42 + (lines.length - 1) * lh, H = top + shown.length * rh + 8;
     let sx, ticks;
     if (useLog) {
       const a = Math.floor(Math.log10(lmin)), b = Math.ceil(Math.log10(lmax)) + (Math.log10(lmax) % 1 === 0 ? 0 : 0);
@@ -426,21 +523,24 @@ ${cr.map(r => {
       sx = x => x0 + (x - a) / (b - a) * (x1 - x0);
       ticks = []; for (let x = a; x <= b + step / 2; x += step) ticks.push(Number(x.toPrecision(10)));
     }
-    const ul = unitLabel(D, u);
-    const axis = `${P.name}${ul ? `(${ul})` : ''}`;
-    const tickLabel = x => (useLog ? show(x, 1) : show(x, null));
+    const tickLabel = x => numText(D, useLog ? show(x, 1) : show(x, null));
     const g = ticks.map(x => `<line x1="${sx(x).toFixed(1)}" x2="${sx(x).toFixed(1)}" y1="${top - 4}" y2="${H - 6}" class="md-grid"/><text x="${sx(x).toFixed(1)}" y="${top - 8}" class="md-tick">${esc(tickLabel(x))}</text>`).join('');
+    const names = fitNames(shown.map(d => d.m.name), lw - 4);
     const bars = shown.map((d, i) => {
       const y = top + i * rh + rh / 2;
-      const name = d.m.name.length > 16 ? `${d.m.name.slice(0, 15)}…` : d.m.name;
-      const note = noteOf(D, d.m, d.v).join('・');
-      const tip = `${d.m.name}: ${d.t.main}${d.t.rep ? ` (${fill(T.md_rep_short, { v: d.t.rep })})` : ''} ${ul}${note ? ` — ${note}` : ''}`;
+      const name = names[i];
+      const note = noteOf(D, d.m, d.v).join(sepOf(D));
+      const tip = `${d.m.name}${colon(D)}${d.t.main}${d.t.rep ? ` (${fill(T.md_rep_short, { v: d.t.rep })})` : ''} ${ul}${note ? ` — ${note}` : ''}`;
       const xl = sx(d.lo), xh = sx(d.hi), xc = sx(d.c);
       const label = d.t.rep ?? d.t.main;
+      // 値の文字: ふつうは点(範囲の右端)の右。図の右端を越えるなら範囲の左に、そこも狭ければ右端に寄せる
+      const vw = textW('md-val', label);
+      let vx = Math.max(xh, xc) + 8, va = '';
+      if (vx + vw > W - 2) { const l = Math.min(xl, xc) - 8; if (l - vw >= x0) { vx = l; va = ' text-anchor="end"'; } else vx = W - 2 - vw; }
       return `<g class="md-bar" data-card="${d.m.id}" tabindex="0" role="link" aria-label="${esc(tip)}"><title>${esc(tip)}</title><rect x="0" y="${y - rh / 2}" width="${W}" height="${rh}" class="md-hit"/>
-<text x="${lw}" y="${y + 4}" class="md-lab">${esc(name)}</text>${d.v.r ? `<line x1="${xl.toFixed(1)}" x2="${Math.max(xh, xl + 1).toFixed(1)}" y1="${y}" y2="${y}" class="md-rng"/>` : ''}<circle cx="${xc.toFixed(1)}" cy="${y}" r="4" class="md-dot"/><text x="${(Math.max(xh, xc) + 8).toFixed(1)}" y="${y + 4}" class="md-val">${esc(label)}</text></g>`;
+<text x="${lw}" y="${y + 4}" class="md-lab">${esc(name)}</text>${d.v.r ? `<line x1="${xl.toFixed(1)}" x2="${Math.max(xh, xl + 1).toFixed(1)}" y1="${y}" y2="${y}" class="md-rng"/>` : ''}<circle cx="${xc.toFixed(1)}" cy="${y}" r="4" class="md-dot"/><text x="${vx.toFixed(1)}" y="${y + 4}" class="md-val"${va}>${esc(label)}</text></g>`;
     }).join('');
-    box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(fill(T.md_chart_aria, { p: axis, n: shown.length }))}"><text x="${x0}" y="14" class="md-axis">${esc(axis)}${useLog ? ` — ${esc(T.md_chart_logw)}` : ''}</text>${g}${bars}</svg>`;
+    box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(fill(T.md_chart_aria, { p: axis, n: shown.length }))}"><text x="${ax}" y="14" class="md-axis">${lines.map((l, i) => `<tspan x="${ax}"${i ? ` dy="${lh}"` : ''}>${esc(l)}</tspan>`).join('')}</text>${g}${bars}</svg>`;
     cap.textContent = fill(items.length > N ? T.md_chart_cap_n : T.md_chart_cap, { n: shown.length, all: items.length });
   }
   const niceStep = r => { const e = 10 ** Math.floor(Math.log10(r)), f = r / e; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10) * e; };
