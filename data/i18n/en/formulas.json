@@ -1,0 +1,1783 @@
+{
+ "title": "Materials science formula sheet (symbols, units, conditions, worked examples)",
+ "description": "85 materials science formulas, from interplanar spacing, Bragg’s law and the lever rule to Fick’s laws, Hall–Petch, stress intensity, the Paris law, thermal stress, the rule of mixtures and Larson–Miller, each with symbols and SI units, conditions of use, common mistakes and a numerical example. Print only the formulas you pick on A4.",
+ "h1": "Formula sheet",
+ "lead": "The formulas used in materials science courses and exams, grouped by topic. Each one lists symbols with SI units, conditions and range, common mistakes and a numerical example, and the dimensions of both sides have all been checked by machine. Links lead to drill types and calculators that use the same formula.",
+ "note": "Example values come from this site’s calculator data or match textbook examples (sources are given per formula). For design, use values from standards and material datasheets.",
+ "groups": {
+  "crystal": "Crystals",
+  "phase": "Phase diagrams",
+  "diffusion": "Diffusion and defects",
+  "mechanical": "Mechanical properties",
+  "fracture": "Fracture",
+  "thermal": "Thermal",
+  "composite": "Composites",
+  "other": "Electrical, corrosion, creep"
+ },
+ "guide": [
+  {
+   "h": "How to use",
+   "p": [
+    "Type a formula name, symbol or term (“Bragg”, “K_IC”, “diffusion length”) in the search box to keep only the matching formulas, or narrow them with the topic buttons. Each heading has a link (#f-…) that jumps straight to that formula.",
+    "Tick “Pick” on a formula to add it to your own formula sheet. “Print picked only” prints the formulas and symbol tables of the picked items on A4 in two columns (10–15 formulas fit on one or two pages). Tick “Also print conditions and examples” to include those as well.",
+    "“Copy link to picked” gives a URL (?f=…) that opens the same selection. Your picks are also kept in this browser (localStorage) and are never sent to a server. If your browser blocks storage, the URL still restores the selection."
+   ]
+  },
+  {
+   "h": "Choosing the right formula",
+   "p": [
+    "Diffusion: if the concentration profile does not change with time (steady flow through a membrane), use Fick’s first law; the flux J is constant and the profile is linear across the thickness. For carburising and dopant diffusion, where concentration changes with time, use Fick’s second law: the erfc solution for a constant surface concentration, the Gaussian solution for a fixed total amount (drive-in after a short pre-deposition). Both assume the diffusion length √(Dt) is small compared with the specimen (semi-infinite).",
+    "Stress and strain: engineering stress F/A₀ and strain Δl/l₀ from a tensile test are used for design (yield and tensile strength). Work hardening (Hollomon) and large deformations need true stress σ(1 + ε) and true strain ln(1 + ε). The conversion assumes constant volume and uniform deformation, so it holds only up to necking (maximum load); after necking measure the cross-section.",
+    "Rule of mixtures: the longitudinal modulus follows the isostrain rule (upper bound, Voigt) and the transverse modulus roughly the isostress inverse rule (lower bound, Reuss). Real transverse moduli lie somewhat above the lower bound, which the Halpin–Tsai equations capture. For particle-filled materials the true value lies between the two bounds.",
+    "Fracture: stresses at holes and notches use the stress concentration factor K_t, but for a sharp crack K_t becomes unbounded. For cracks use the stress intensity factor K = Yσ√(πa) and compare it with the fracture toughness K_IC. Crack growth under cyclic load follows the Paris law; fatigue of uncracked parts uses the S–N curve and Miner’s rule.",
+    "Thermal stress: a bar constrained in one direction gives EαΔT; a plate or thin film constrained in both in-plane directions gives EαΔT/(1 − ν). With partial constraint (two bars joined together, bimetals) solve from force balance and compatibility of elongation."
+   ]
+  },
+  {
+   "h": "How the dimensions were checked",
+   "p": [
+    "For all 85 formulas, the SI units in the symbol tables were reduced to base units (kg, m, s, K, mol, A) and a program checked that both sides of each equation have the same dimensions and that the arguments of exp, ln, erf and trigonometric functions, and symbolic exponents, are dimensionless. The [ ] to the right of each line shows the dimensions of both sides.",
+    "Some formulas expect numbers in a fixed unit, such as log₁₀t_r in hours (Larson–Miller), the ASTM grain size number or the Paris constant C. The unit is given in the symbol table; with a different unit the constants change."
+   ]
+  }
+ ],
+ "units_h": "Unit conversions",
+ "units_lead": "Conversions for turning values into SI units before using a formula (after NIST SP 811).",
+ "units": [
+  {
+   "a": "1 MPa",
+   "b": "10⁶ Pa = 1 N/mm²",
+   "q": "stress"
+  },
+  {
+   "a": "1 ksi",
+   "b": "6.8948 MPa",
+   "q": "stress (1000 lbf/in²)"
+  },
+  {
+   "a": "1 ksi√in",
+   "b": "1.0988 MPa√m",
+   "q": "fracture toughness"
+  },
+  {
+   "a": "1 Å",
+   "b": "0.1 nm = 10⁻¹⁰ m",
+   "q": "length (lattice parameter, wavelength)"
+  },
+  {
+   "a": "1 eV",
+   "b": "1.602176634 × 10⁻¹⁹ J",
+   "q": "energy"
+  },
+  {
+   "a": "1 eV/atom",
+   "b": "96.485 kJ/mol",
+   "q": "activation energy"
+  },
+  {
+   "a": "1 cal",
+   "b": "4.184 J",
+   "q": "heat (thermochemical calorie)"
+  },
+  {
+   "a": "T [K]",
+   "b": "t [°C] + 273.15",
+   "q": "temperature (a difference of 1 K equals 1 °C)"
+  },
+  {
+   "a": "1 g/cm³",
+   "b": "10³ kg/m³",
+   "q": "density"
+  },
+  {
+   "a": "1 cm²/s",
+   "b": "10⁻⁴ m²/s",
+   "q": "diffusion coefficient"
+  },
+  {
+   "a": "1 cm⁻³",
+   "b": "10⁶ m⁻³",
+   "q": "carrier or dopant concentration"
+  },
+  {
+   "a": "1 cm²/(V·s)",
+   "b": "10⁻⁴ m²/(V·s)",
+   "q": "mobility"
+  },
+  {
+   "a": "1 Ω·cm",
+   "b": "10⁻² Ω·m",
+   "q": "resistivity (1 µΩ·cm = 10⁻⁸ Ω·m)"
+  },
+  {
+   "a": "1 µA/cm²",
+   "b": "10⁻² A/m²",
+   "q": "current density"
+  },
+  {
+   "a": "1 atm",
+   "b": "101325 Pa",
+   "q": "pressure (1 bar = 10⁵ Pa, 1 Torr = 133.322 Pa)"
+  },
+  {
+   "a": "1 in",
+   "b": "25.4 mm",
+   "q": "length"
+  },
+  {
+   "a": "1 lbf",
+   "b": "4.448222 N",
+   "q": "force"
+  },
+  {
+   "a": "1 year (365 d)",
+   "b": "3.1536 × 10⁷ s",
+   "q": "time (corrosion rates)"
+  }
+ ],
+ "const_h": "Physical constants",
+ "const_lead": "CODATA 2022 recommended values (Mohr et al., Rev. Mod. Phys. 97, 025002 (2025); physics.nist.gov/cuu). “Exact” marks constants fixed by the 2019 SI and those derived from them. Figures in parentheses are the standard uncertainty in the last digits. The examples use these values (the drill uses rounded values such as R = 8.314).",
+ "constants": [
+  "Avogadro constant",
+  "Boltzmann constant",
+  "Boltzmann constant (eV)",
+  "molar gas constant N_A k",
+  "elementary charge",
+  "Faraday constant N_A e",
+  "Planck constant",
+  "speed of light in vacuum",
+  "Stefan–Boltzmann constant",
+  "vacuum electric permittivity",
+  "vacuum magnetic permeability",
+  "electron mass",
+  "atomic mass constant (1 u)"
+ ],
+ "faq": [
+  [
+   "What is the [ ] to the right of each formula?",
+   "The dimensions of both sides of that line in SI base units (kg, m, s, K, mol, A). Stress, for example, is kg·m⁻¹·s⁻² (= Pa); dimensionless quantities show 1. Use it to check the unit of your answer. Every formula has been checked by a program to have equal dimensions on both sides."
+  ],
+  [
+   "How many pages does printing the picked formulas take?",
+   "With formulas and symbol tables only, 10–15 formulas take roughly one or two A4 pages in two columns. Including conditions and examples makes it longer. The header, ads and search box are not printed, and the page reads fine with background graphics turned off."
+  ],
+  [
+   "Example values sometimes differ slightly from the drill or calculators.",
+   "Because constants are rounded differently. The examples here use CODATA 2022 values (R = 8.314462618 J/(mol·K) and so on), while drill questions state rounded values such as R = 8.314. The difference is in the fourth digit or beyond. Material properties are the same as in the calculators’ data."
+  ],
+  [
+   "Can I use this as a crib sheet for an exam?",
+   "Yes. Pick the formulas you need and use “Print picked only”. What you may bring in (examples, explanations) depends on the exam, so check the rules."
+  ],
+  [
+   "Are some formulas missing?",
+   "This sheet covers the formulas used by the drill and the calculators plus common textbook formulas. For crystal symmetry, elasticity of dislocations or detailed transformation kinetics, see a textbook."
+  ]
+ ],
+ "sources_h": "Main sources",
+ "refs": {
+  "callister": "Callister 10th ed.",
+  "cullity": "Cullity 3rd ed.",
+  "askeland": "Askeland 7th ed.",
+  "wh1953": "Williamson & Hall 1953",
+  "porter": "Porter 3rd ed.",
+  "scheil1942": "Scheil 1942",
+  "shewmon": "Shewmon 2nd ed.",
+  "crank": "Crank 2nd ed.",
+  "sze": "Sze 3rd ed.",
+  "hullbacon": "Hull & Bacon 5th ed.",
+  "e112": "ASTM E112",
+  "dowling": "Dowling 4th ed.",
+  "ashby": "Ashby 5th ed.",
+  "anderson": "Anderson 4th ed.",
+  "e399": "ASTM E399",
+  "paris1963": "Paris & Erdogan 1963",
+  "weibull1951": "Weibull 1951",
+  "tg": "Timoshenko & Goodier 3rd ed.",
+  "stoney": "Stoney 1909",
+  "tim1925": "Timoshenko 1925",
+  "kingery": "Kingery 2nd ed.",
+  "manson": "Manson 1966",
+  "kittel": "Kittel 8th ed.",
+  "hullclyne": "Hull & Clyne 2nd ed.",
+  "halpin1976": "Halpin & Kardos 1976",
+  "rmjones": "Jones 2nd ed.",
+  "kt1965": "Kelly & Tyson 1965",
+  "schapery1968": "Schapery 1968",
+  "iec60028": "IEC 60028",
+  "pb1923": "Pilling & Bedworth 1923",
+  "birks": "Birks et al. 2nd ed.",
+  "lm1952": "Larson & Miller 1952"
+ },
+ "formulas": {
+  "d-cubic": {
+   "name": "Interplanar spacing (cubic)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "interplanar spacing of (hkl)",
+    "lattice parameter (cube edge)",
+    "Miller indices (integers)"
+   ],
+   "when": "Cubic lattices only (simple cubic, BCC, FCC, diamond, NaCl type, …). For tetragonal, hexagonal and other lattices use the non-cubic formula below. It gives the spacing of the plane family and holds numerically even for (hkl) whose reflection is extinct.",
+   "miss": "Forgetting the square root or dividing by h + k + l. Confusing (100) and (200): in BCC the (100) reflection is extinct and appears as (200) with d/2. Mixing nm and Å (1 Å = 0.1 nm).",
+   "ex": "Cu (FCC, a = 0.36146 nm), (111) planes: d = 0.36146/√3 = 0.2087 nm. For BCC Fe (a = 0.28665 nm), (110): 0.28665/√2 = 0.2027 nm.",
+   "kw": "d-spacing interplanar spacing Miller indices cubic"
+  },
+  "d-noncubic": {
+   "name": "Interplanar spacing (tetragonal, orthorhombic, hexagonal)",
+   "l": [
+    "tetragonal, orthorhombic",
+    "hexagonal"
+   ],
+   "m": [
+    "interplanar spacing",
+    "lattice parameters (orthorhombic a ≠ b ≠ c, tetragonal a = b)",
+    "Miller indices (for hexagonal, h, k, l of (hkil), i = −(h + k))"
+   ],
+   "when": "Use the first form for lattices with orthogonal axes (cubic, tetragonal, orthorhombic) and the second for hexagonal (a axes at 120°, c perpendicular). Monoclinic and triclinic need the general form with the axial angles (reciprocal metric). In the hexagonal form h, k, l are the indices of (hkil) without i.",
+   "miss": "Putting the i of the four-index (10−11) into the formula (i follows from h and k). Using the cubic form for hexagonal crystals. Swapping a and c in a tetragonal cell.",
+   "ex": "Tetragonal β-Sn (a = 0.58318 nm, c = 0.31818 nm), (101): 1/d² = 1/a² + 1/c² gives d = 0.2793 nm. Hexagonal Mg (a = 0.32094 nm, c = 0.52107 nm), (101) (i.e. (10−11)): 1/d² = 4/(3a²) + 1/c² gives d = 0.2452 nm.",
+   "kw": "d-spacing hexagonal tetragonal orthorhombic general hcp"
+  },
+  "bragg": {
+   "name": "Bragg’s law",
+   "l": [
+    ""
+   ],
+   "m": [
+    "order of reflection (usually n = 1; the nth order is treated as first order from d/n)",
+    "X-ray wavelength",
+    "interplanar spacing",
+    "Bragg angle (between beam and planes; diffractometers report 2θ)"
+   ],
+   "when": "Condition for constructive interference from lattice planes (kinematic diffraction). A reflection exists only if λ ≤ 2d. It fixes peak positions only; intensities come from the structure factor and LP factor.",
+   "miss": "Confusing θ and 2θ (instruments report 2θ); degrees vs radians; mixing Kα1 with the averaged Kα wavelength; assigning a peak to an extinct (hkl).",
+   "ex": "Cu Kα1 (λ = 0.15406 nm) on Cu (111) (d = 0.2087 nm): sin θ = λ/(2d) = 0.3691, θ = 21.66°, peak at 2θ = 43.32°.",
+   "kw": "Bragg diffraction angle 2theta XRD wavelength"
+  },
+  "density": {
+   "name": "Theoretical density",
+   "l": [
+    "",
+    "cubic"
+   ],
+   "m": [
+    "theoretical density",
+    "atoms per unit cell (SC 1, BCC 2, FCC 4, diamond 8, HCP hexagonal prism 6)",
+    "molar mass (atomic weight × 10⁻³ kg/mol)",
+    "Avogadro constant",
+    "unit-cell volume",
+    "lattice parameter"
+   ],
+   "when": "Density of a perfect crystal; real materials differ slightly through vacancies, porosity and impurities. For compounds use n formula units and the formula mass (NaCl type: 4 Na⁺–Cl⁻ pairs).",
+   "miss": "Cubing a in nm (convert nm → cm by × 10⁻⁷ for g/cm³); using M in g/mol with m³ (for kg/m³, M must be in kg/mol); swapping n for BCC and FCC.",
+   "ex": "BCC Fe (n = 2, M = 55.845 g/mol, a = 0.28665 nm = 0.28665 × 10⁻⁷ cm): V_c = a³ = 2.355 × 10⁻²³ cm³, ρ = 2 × 55.845/(6.02214 × 10²³ × 2.355 × 10⁻²³) = 7.874 g/cm³ (handbook: 7.87 g/cm³).",
+   "kw": "theoretical density unit cell Avogadro"
+  },
+  "atomic-radius": {
+   "name": "Lattice parameter and atomic radius",
+   "l": [
+    "SC",
+    "BCC",
+    "FCC",
+    "HCP",
+    "ideal HCP"
+   ],
+   "m": [
+    "lattice parameter",
+    "atomic radius (hard sphere)",
+    "c lattice parameter of HCP"
+   ],
+   "when": "Hard spheres touching along the cube edge (SC), body diagonal (BCC), face diagonal (FCC) or within the basal plane (HCP). The “radius” depends on bonding (metallic radii refer to coordination 12).",
+   "miss": "Radius vs diameter (4r is two diameters); swapping the BCC and FCC relations.",
+   "ex": "BCC Fe (a = 0.28665 nm): r = √3a/4 = 0.1241 nm. FCC Cu (a = 0.36146 nm): r = √2a/4 = 0.1278 nm.",
+   "kw": "atomic radius lattice parameter BCC FCC HCP c/a"
+  },
+  "apf": {
+   "name": "Packing factor (metals and ionic crystals)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "atomic packing factor",
+    "number of atoms (ions) of radius r_i per cell",
+    "atomic (ionic) radius",
+    "unit-cell volume"
+   ],
+   "when": "Hard-sphere model. Metals: SC 0.524, BCC 0.680, FCC and HCP 0.740, diamond 0.340. In ionic crystals, a follows from the direction in which cation and anion touch (edge in NaCl type, body diagonal in CsCl type).",
+   "miss": "Taking a from anion–anion contact (only right for small radius ratios); counting one NaCl pair per cell instead of four.",
+   "ex": "BCC: 2 × (4/3)π(√3a/4)³/a³ = √3π/8 = 0.6802; FCC: π/(3√2) = 0.7405. NaCl type (Na⁺ 0.102 nm, Cl⁻ 0.181 nm, ions touching along the cube edge): a = 2(r₊ + r₋) = 0.5660 nm, APF = 4 × (4/3)π(r₊³ + r₋³)/a³ = 0.646.",
+   "kw": "atomic packing factor APF ionic crystal NaCl CsCl"
+  },
+  "planar-density": {
+   "name": "Planar and linear density",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "planar density",
+    "linear density",
+    "atoms centred on the plane or line (counted by the fraction inside the section)",
+    "plane area",
+    "line length"
+   ],
+   "when": "Count only atoms whose centres lie on the plane (line). When counting within a unit-cell section, add corner and edge atoms by the fraction inside the section. Slip planes are the densest planes and slip directions the densest directions (FCC {111}⟨110⟩, BCC {110}⟨111⟩).",
+   "miss": "Counting atoms that merely intersect the plane; using a² for every plane ((110) has √2a², the (111) triangle (√3/2)a²).",
+   "ex": "FCC Al (a = 0.40496 nm), (111): the section of the unit cell is an equilateral triangle of side √2a (area (√3/2)a² = 0.1420 nm²) holding 3 × 1/6 + 3 × 1/2 = 2 atoms. PD = 14.08 nm⁻². Linear density along [110]: 2/(√2a) = 3.492 nm⁻¹.",
+   "kw": "planar density linear density slip system"
+  },
+  "hcp-cell": {
+   "name": "HCP cell volume and atom count",
+   "l": [
+    "",
+    "hexagonal prism"
+   ],
+   "m": [
+    "volume of the hexagonal prism",
+    "lattice parameters",
+    "atoms in the prism"
+   ],
+   "when": "Count in the hexagonal prism (three primitive cells): 12 corners × 1/6, 2 faces × 1/2, 3 inside = 6 atoms. The primitive cell ((√3/2)a²c) holds 2. Use either in the density formula. Ideal c/a = √(8/3) = 1.633 (Mg 1.624, Zn 1.856, Ti 1.587).",
+   "miss": "Pairing the prism volume with 2 atoms, or the primitive cell with 6 (density off by a factor of 3).",
+   "ex": "Mg (a = 0.32094 nm, c = 0.52107 nm): c/a = 1.624 (close to the ideal 1.633). The hexagonal prism (3√3/2)a²c = 1.394 × 10⁻²² cm³ holds 6 atoms; with M = 24.305 g/mol, ρ = 1.737 g/cm³ (handbook: 1.74 g/cm³).",
+   "kw": "HCP hexagonal close packed c/a unit cell"
+  },
+  "interstitial": {
+   "name": "Interstitial hole sizes and radius ratio",
+   "l": [
+    "octahedral hole",
+    "tetrahedral hole",
+    "cubic hole"
+   ],
+   "m": [
+    "radius of the sphere that fits",
+    "radius of the surrounding atoms (anions)"
+   ],
+   "when": "Octahedral and tetrahedral holes of close packing (FCC, HCP) and the cube centre of simple cubic. For ionic crystals it is the smallest radius ratio at which the cation still touches the anions, a guide to coordination (0.225–0.414: 4, 0.414–0.732: 6, ≥ 0.732: 8). BCC holes are distorted: octahedral 0.155, tetrahedral 0.291.",
+   "miss": "Using FCC’s 0.414 for BCC octahedral holes. The radius-ratio rule is only a guide and fails for strongly covalent compounds.",
+   "ex": "γ-Fe (FCC, a ≈ 0.3647 nm): R = √2a/4 = 0.1289 nm; the sphere that fits the octahedral hole is r = (√2 − 1)R = 0.0534 nm. A carbon atom (radius about 0.071 nm) is larger and pushes the neighbouring atoms apart.",
+   "kw": "interstitial site octahedral tetrahedral radius ratio coordination"
+  },
+  "structure-factor": {
+   "name": "Structure factor and diffracted intensity",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "structure factor (in units of one electron)",
+    "atomic scattering factor of atom j (falls with sin θ/λ)",
+    "Miller indices",
+    "fractional coordinates of atom j",
+    "integrated intensity (relative)",
+    "multiplicity (planes of equal d)",
+    "Bragg angle"
+   ],
+   "when": "Kinematic intensities for a randomly oriented powder in Bragg–Brentano geometry with an infinitely thick sample, neglecting absorption and extinction. The LP factor (1 + cos²2θ)/(sin²θ cos θ) combines polarisation and Lorentz terms (its form changes with a monochromator). Multiplying by exp(−2B sin²θ/λ²) weakens high angles. Extinctions: BCC h + k + l odd; FCC h, k, l of mixed parity give F = 0.",
+   "miss": "Comparing F instead of |F|²; leaving out the multiplicity; counting reflections of equal d (e.g. BCC (411) and (330)) separately.",
+   "ex": "For FCC, F = 4f when h, k, l are all even or all odd, and 0 when mixed. Al with Cu Kα1: (111) at 2θ = 38.47°, f = 8.96, F = 35.8, LP = 15.7, multiplicity 8; (200) at 2θ = 44.72°, f = 8.51, F = 34.0, LP = 11.2, multiplicity 6. Intensity ratio I(200)/I(111) = 0.48 (without the temperature factor and anomalous dispersion).",
+   "kw": "structure factor extinction intensity Lorentz polarization multiplicity scattering factor"
+  },
+  "scherrer": {
+   "name": "Scherrer equation",
+   "l": [
+    ""
+   ],
+   "m": [
+    "crystallite size (volume-weighted, normal to the planes)",
+    "shape factor (0.89–0.94, usually 0.9)",
+    "X-ray wavelength",
+    "size broadening (FWHM after removing the instrumental width)",
+    "Bragg angle"
+   ],
+   "when": "When broadening comes from size alone (separate strain with Williamson–Hall). Useful up to about 100 nm; beyond that the size broadening is lost in the instrumental width. Remove the instrumental width β_i as β² = β_m² − β_i² (Gaussian) or β = β_m − β_i (Lorentzian).",
+   "miss": "Using β in degrees (convert to radians); putting 2θ into cos θ; not removing the instrumental width. The result is the coherent-domain size, not necessarily the grain size.",
+   "ex": "Cu Kα1, 2θ = 44.5°, measured FWHM 0.55°, instrumental width 0.08° (Gaussian: β = √(0.55² − 0.08²) = 0.5442° = 0.009497 rad), K = 0.9: D = 0.9 × 0.15406/(0.009497 × cos 22.25°) = 15.8 nm.",
+   "kw": "Scherrer crystallite size FWHM peak broadening"
+  },
+  "williamson-hall": {
+   "name": "Williamson–Hall plot",
+   "l": [
+    ""
+   ],
+   "m": [
+    "breadth (FWHM after instrumental correction)",
+    "Bragg angle",
+    "shape factor",
+    "wavelength",
+    "crystallite size",
+    "inhomogeneous (micro)strain"
+   ],
+   "when": "Assumes size (1/cos θ) and strain (tan θ) broadening are both Lorentzian and simply add. Plot β cos θ against 4 sin θ: the intercept gives D and the slope ε. Elastically anisotropic materials scatter; use the modified W–H method.",
+   "miss": "Plotting against sin θ and forgetting the factor 4 in the slope; reporting D when the intercept is negative or near zero (no measurable size broadening).",
+   "ex": "With the five Ni peaks of the XRD workbench example (2θ = 44.5°–98.4°, instrumental width 0.08° removed as Gaussian), a least-squares line of β cos θ against 4 sin θ gives intercept 6.924 × 10⁻³ rad and slope ε = 1.50 × 10⁻³ (= 0.150 %). D = Kλ/intercept = 0.9 × 0.15406/6.924 × 10⁻³ = 20.0 nm.",
+   "kw": "Williamson Hall microstrain line broadening"
+  },
+  "peak-shift": {
+   "name": "Peak shift and lattice strain",
+   "l": [
+    ""
+   ],
+   "m": [
+    "peak shift",
+    "original Bragg angle",
+    "relative change of d (lattice strain)"
+   ],
+   "when": "Differential of Bragg’s law, valid for small Δd/d. Uniform strain (residual stress, solute, thermal expansion) shifts peaks; non-uniform strain broadens them. Shifts grow with angle, so precise lattice parameters use high-angle peaks.",
+   "miss": "Sign: an expanded lattice moves 2θ down. The result is in radians (× 180/π for degrees). Using 2θ for θ. Sample displacement (zero error) also shifts peaks.",
+   "ex": "Cu (111) (2θ = 43.32°, θ = 21.66°) with the lattice expanded by 0.1 % (Δd/d = 1.0 × 10⁻³): Δ(2θ) ≈ −2 × 1.0 × 10⁻³ × tan 21.66° = −7.94 × 10⁻⁴ rad = −0.0455° (towards lower angle).",
+   "kw": "peak shift lattice strain residual stress 2theta"
+  },
+  "vegard": {
+   "name": "Vegard’s law",
+   "l": [
+    ""
+   ],
+   "m": [
+    "lattice parameter of the solid solution",
+    "mole (atom) fraction of B",
+    "lattice parameters of pure A and B (same structure)"
+   ],
+   "when": "Empirical rule for continuous solid solutions of the same structure. Many alloys deviate (bowing up or down); precise compositions use measured calibrations. x is a mole fraction, not wt%.",
+   "miss": "Using wt% for x; using lattice parameters of different structures.",
+   "ex": "A Si–Ge solid solution (a_Si = 0.54306 nm, a_Ge = 0.56574 nm) measured at a = 0.5500 nm: x_Ge = (0.5500 − 0.54306)/(0.56574 − 0.54306) = 0.306. Si–Ge deviates slightly below Vegard’s law, so precise compositions use a corrected relation.",
+   "kw": "Vegard solid solution lattice parameter composition"
+  },
+  "phase-rule": {
+   "name": "Gibbs phase rule",
+   "l": [
+    "",
+    "constant pressure (condensed systems)"
+   ],
+   "m": [
+    "degrees of freedom (independent intensive variables)",
+    "number of components",
+    "number of coexisting phases"
+   ],
+   "when": "Equilibrium only. Phase diagrams of metals and ceramics are usually at constant pressure, so use the +1 form. Phase amounts are not degrees of freedom.",
+   "miss": "Counting microconstituents (pearlite) as phases; using +2 for a constant-pressure diagram; applying it to non-equilibrium structures (martensite).",
+   "ex": "Pb–Sn eutectic point at constant pressure (C = 2; α, β and liquid, P = 3): F = 2 − 3 + 1 = 0, so temperature and all three compositions are fixed (183 °C). In a two-phase field F = 1 (fixing T fixes both compositions). Triple point of water (pressure variable, C = 1, P = 3): F = 1 − 3 + 2 = 0.",
+   "kw": "phase rule degrees of freedom Gibbs invariant point"
+  },
+  "lever": {
+   "name": "Lever rule",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "mass fractions of α and β",
+    "overall alloy composition (wt%)",
+    "tie-line ends (phase compositions at that temperature, wt%)"
+   ],
+   "when": "Inside a two-phase field at equilibrium. wt% inputs give mass fractions, at% give mole fractions; divide by phase densities for volume fractions. Fractions of eutectic or proeutectoid constituents also come from the lever rule just above or below the three-phase line.",
+   "miss": "Using the arm on the side of the wanted phase (use the opposite arm); mixing wt% and at%; taking the alloy composition as a phase composition.",
+   "ex": "Cu–35 wt% Ni held at 1250 °C (tie-line ends C_L = 31.5 wt%, C_α = 42.5 wt%): W_L = (42.5 − 35)/(42.5 − 31.5) = 0.682, W_α = 0.318.",
+   "kw": "lever rule tie line phase fraction"
+  },
+  "eutectic-fraction": {
+   "name": "Primary phase and eutectic fractions",
+   "l": [
+    "hypoeutectic",
+    "primary α"
+   ],
+   "m": [
+    "mass fraction of eutectic microconstituent",
+    "mass fraction of primary α",
+    "alloy composition (wt%)",
+    "α solvus limit at the eutectic temperature (wt%)",
+    "eutectic composition (wt%)"
+   ],
+   "when": "Just below the eutectic temperature after equilibrium solidification. For hypereutectic alloys replace α by β and C_α by C_β. The eutectic itself contains α, so the total α phase is a separate lever rule using C_β.",
+   "miss": "Confusing microconstituent fractions (primary, eutectic) with phase fractions (α, β). Fast (Scheil-like) solidification gives eutectic even where equilibrium predicts none.",
+   "ex": "Pb–40 wt% Sn (hypoeutectic) just below 183 °C: eutectic microconstituent W_e = (40 − 18.3)/(61.9 − 18.3) = 0.498, primary α 0.502. As phases: β = (40 − 18.3)/(97.8 − 18.3) = 0.273, α = 0.727 (including the α inside the eutectic).",
+   "kw": "eutectic primary phase microconstituent hypoeutectic hypereutectic"
+  },
+  "proeutectoid": {
+   "name": "Proeutectoid phase and pearlite (Fe–C)",
+   "l": [
+    "hypoeutectoid",
+    "hypoeutectoid",
+    "hypereutectoid"
+   ],
+   "m": [
+    "mass fraction of pearlite",
+    "mass fractions of proeutectoid ferrite, cementite",
+    "carbon content (wt%)"
+   ],
+   "when": "Fe–Fe₃C cooled slowly to just below 727 °C. Values: eutectoid 0.76 wt% C, ferrite limit 0.022 wt%, Fe₃C 6.70 wt% (as in the site’s diagram and questions; some texts use 0.77 and 6.67).",
+   "miss": "Confusing proeutectoid ferrite with total ferrite (including that in pearlite); using the hypo/hyper formula on the wrong side; applying it to rapid cooling.",
+   "ex": "A 0.40 wt% C steel (hypoeutectoid) just below 727 °C: pearlite W_P = (0.40 − 0.022)/(0.76 − 0.022) = 0.512, proeutectoid ferrite 0.488. Total ferrite phase (including that in pearlite): (6.70 − 0.40)/(6.70 − 0.022) = 0.943. For 1.00 wt% C (hypereutectoid) the proeutectoid cementite is (1.00 − 0.76)/(6.70 − 0.76) = 0.0404.",
+   "kw": "proeutectoid ferrite cementite pearlite iron carbon"
+  },
+  "wt-at": {
+   "name": "Converting wt% and at%",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "mole fractions (× 100 for at%)",
+    "mass fractions (× 100 for wt%)",
+    "molar masses (atomic weights)"
+   ],
+   "when": "Two components; for more, sum all components in the denominator. Also checks compound compositions (Fe₃C: 6.70 wt% C = 25 at% C).",
+   "miss": "Swapping the atomic weights of A and B; treating wt% as an atom ratio.",
+   "ex": "Pb–Sn eutectic, 61.9 wt% Sn (Pb 207.2, Sn 118.71 g/mol): x_Sn = (61.9/118.71)/(61.9/118.71 + 38.1/207.2) = 73.9 at%.",
+   "kw": "wt% at% weight percent atomic percent conversion mole fraction"
+  },
+  "scheil": {
+   "name": "Scheil equation (non-equilibrium solidification)",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "solid composition at the interface (wt%)",
+    "liquid composition (wt%)",
+    "partition coefficient C_s/C_L (solidus/liquidus ratio)",
+    "alloy composition (wt%)",
+    "solid and liquid fractions"
+   ],
+   "when": "No diffusion in the solid, complete mixing in the liquid, local equilibrium at the interface, constant k (straight solidus and liquidus). Estimates casting segregation and non-equilibrium eutectic. For k < 1 the last liquid is the most enriched.",
+   "miss": "Swapping f_s and f_L; inverting k; expecting the equilibrium lever-rule result (equilibrium assumes a uniform solid).",
+   "ex": "Al–4 wt% Cu (straight-line diagram, k = 5.65/33.2 = 0.170): at half solidified (f_s = 0.5) the solid at the interface is C_s = 0.170 × 4 × 0.5^(−0.830) = 1.21 wt%. The liquid reaches the eutectic 33.2 wt% at f_L = (33.2/4)^(1/(k − 1)) = 0.0781: about 7.8 % solidifies as eutectic although equilibrium predicts none.",
+   "kw": "Scheil segregation solidification partition coefficient non-equilibrium"
+  },
+  "regular-solution": {
+   "name": "Regular solution and entropy of mixing",
+   "l": [
+    "",
+    "",
+    "top of the miscibility gap"
+   ],
+   "m": [
+    "Gibbs energy of mixing per mole",
+    "ideal entropy of mixing",
+    "interaction parameter (0: ideal, > 0: tendency to separate)",
+    "mole fractions",
+    "gas constant",
+    "temperature",
+    "critical temperature"
+   ],
+   "when": "Random mixing with heat of mixing Ωx_A x_B (regular solution). For Ω > 2RT the ΔG_mix curve has two minima: phase separation (miscibility gap, spinodal decomposition).",
+   "miss": "Using log₁₀ for ln; T in °C; dropping the minus sign (ΔS_mix is positive).",
+   "ex": "Ideal solution (Ω = 0), x_B = 0.5, T = 1000 K: ΔG_mix = RT(0.5 ln 0.5 × 2) = −5763 J/mol, ΔS_mix = 5.763 J/(mol·K). With Ω = 20 kJ/mol the miscibility gap closes at T_c = Ω/(2R) = 1203 K.",
+   "kw": "regular solution entropy of mixing ideal solution interaction parameter spinodal"
+  },
+  "nucleation": {
+   "name": "Homogeneous nucleation: critical nucleus",
+   "l": [
+    "",
+    "",
+    ""
+   ],
+   "m": [
+    "driving force per unit volume (magnitude)",
+    "latent heat per unit volume (positive)",
+    "undercooling T_m − T",
+    "melting point",
+    "solid–liquid interfacial energy",
+    "critical radius",
+    "nucleation barrier"
+   ],
+   "when": "Spherical nucleus, isotropic interfacial energy, small ΔT (linear ΔG_v near T_m). Heterogeneous nucleation multiplies ΔG* by S(θ) = (2 + cos θ)(1 − cos θ)²/4.",
+   "miss": "Sign conventions (Callister takes ΔH_f negative: r* = −2γT_m/(ΔH_f ΔT)); using latent heat per mole (divide by molar volume); radius vs diameter.",
+   "ex": "Pure gold (latent heat L_v = 1.16 × 10⁹ J/m³, γ = 0.132 J/m², T_m = 1337 K) undercooled by ΔT = 230 K: r* = 2 × 0.132 × 1337/(1.16 × 10⁹ × 230) = 1.32 nm, ΔG* = 9.68 × 10⁻¹⁹ J (the same numbers as the Callister chapter 10 example).",
+   "kw": "nucleation critical radius undercooling solidification"
+  },
+  "avrami": {
+   "name": "Avrami (JMAK) equation",
+   "l": [
+    ""
+   ],
+   "m": [
+    "fraction transformed",
+    "rate constant (temperature dependent; units depend on n)",
+    "time",
+    "Avrami exponent (1–4 depending on nucleation and growth)"
+   ],
+   "when": "Isothermal transformations by random nucleation and growth (recrystallisation, pearlite). A plot of log ln[1/(1 − y)] against log t has slope n. The rate is often expressed as 1/t₀.₅.",
+   "miss": "Assuming k is in s⁻¹ (it depends on n); applying it directly to continuous cooling.",
+   "ex": "With n = 3 and half-transformation time t₀.₅ = 100 s, k = ln 2/t₀.₅³ = 6.93 × 10⁻⁷ s⁻³. At 150 s, y = 1 − exp(−k × 150³) = 0.904.",
+   "kw": "Avrami JMAK transformation kinetics recrystallization isothermal"
+  },
+  "arrhenius": {
+   "name": "Arrhenius equation for diffusion",
+   "l": [
+    "",
+    "Arrhenius plot (slope −Q/R)",
+    "from two points"
+   ],
+   "m": [
+    "diffusion coefficient",
+    "pre-exponential factor",
+    "activation energy per mole (per atom: replace R by k)",
+    "gas constant 8.314",
+    "absolute temperature"
+   ],
+   "when": "Within a temperature range controlled by one mechanism (lattice diffusion). At low temperature grain-boundary or pipe diffusion bends the Arrhenius plot; D₀ and Q change across magnetic or phase transitions (Fe).",
+   "miss": "T in °C; dividing kJ/mol by R in J/(mol·K) (factor 1000); confusing eV/atom and kJ/mol (1 eV/atom = 96.49 kJ/mol); ln vs log₁₀ slopes (log₁₀ slope is −Q/(2.303R)).",
+   "ex": "Carbon in γ-Fe (D₀ = 2.3 × 10⁻⁵ m²/s, Q = 148 kJ/mol) at 1000 °C = 1273.15 K: Q/RT = 13.98, D = 1.95 × 10⁻¹¹ m²/s. Conversely, D = 5.92 × 10⁻¹² at 900 °C and 5.39 × 10⁻¹¹ m²/s at 1100 °C give back Q = R ln(D₂/D₁)/(1/T₁ − 1/T₂) = 148.0 kJ/mol. Per atom, Q/N_A = 1.53 eV.",
+   "kw": "Arrhenius diffusion coefficient activation energy D0 Q"
+  },
+  "fick1": {
+   "name": "Fick’s first law (steady state)",
+   "l": [
+    "",
+    "linear profile"
+   ],
+   "m": [
+    "diffusion flux",
+    "diffusion coefficient",
+    "concentration (mol/m³ or atoms/m³ also work; J follows)",
+    "position"
+   ],
+   "when": "Steady state, where the profile does not change with time (e.g. hydrogen permeation through a membrane), with D independent of concentration. Flux runs down the gradient (minus sign).",
+   "miss": "Not converting mm to m; using wt% (convert to amount per volume); using it for non-steady problems.",
+   "ex": "Steel plate at 700 °C with 1.2 kg/m³ of carbon at 5 mm and 0.8 kg/m³ at 10 mm, D = 3 × 10⁻¹¹ m²/s (steady state): J = 3 × 10⁻¹¹ × (1.2 − 0.8)/(5 × 10⁻³) = 2.4 × 10⁻⁹ kg/(m²·s) (the same numbers as the Callister chapter 5 example).",
+   "kw": "Fick first law flux steady state concentration gradient"
+  },
+  "fick2": {
+   "name": "Fick’s second law (non-steady state)",
+   "l": [
+    "",
+    "D depends on C",
+    "3-D"
+   ],
+   "m": [
+    "concentration",
+    "time",
+    "diffusion coefficient",
+    "position"
+   ],
+   "when": "General equation when the profile changes with time. Solutions depend on boundary conditions: erfc for a semi-infinite solid with constant surface concentration, Gaussian for a fixed amount at the surface, erf for a diffusion couple, Fourier series or numerics for a finite slab. Concentration-dependent D (interdiffusion) needs the second form.",
+   "miss": "Using the constant-D form when D varies strongly; choosing erfc vs Gaussian without checking the boundary conditions.",
+   "ex": "The time to smooth out concentration differences over L = 50 µm (e.g. dendrite arm spacing) with D = 1 × 10⁻¹³ m²/s is of order L²/D = 2.5 × 10⁴ s (about 6.9 h). Doubling the distance quadruples the time.",
+   "kw": "Fick second law non-steady diffusion equation"
+  },
+  "erfc": {
+   "name": "Error-function solutions (carburising, diffusion couple)",
+   "l": [
+    "constant surface concentration",
+    "diffusion couple (interface at x = 0)"
+   ],
+   "m": [
+    "concentration at depth x and time t",
+    "initial uniform concentration",
+    "constant surface concentration",
+    "initial concentrations left (x < 0) and right of the couple",
+    "distance from surface (interface)",
+    "diffusion coefficient (constant)",
+    "time"
+   ],
+   "when": "Semi-infinite solid (√(Dt) much smaller than the thickness), constant D, constant surface concentration (or constant concentrations far on both sides of a couple). The ratio form also works with wt%.",
+   "miss": "Mixing erf and erfc (= 1 − erf); dropping the 2 in 2√(Dt); time in hours; using C_s − C_x as the denominator.",
+   "ex": "A 0.25 wt% C steel carburised at 950 °C (D = 1.10 × 10⁻¹¹ m²/s, same data as the diffusion simulator) with surface 1.20 wt%, to reach 0.80 wt% at 0.5 mm: (0.80 − 0.25)/(1.20 − 0.25) = 0.5789 = 1 − erf z, so erf z = 0.4211, z = 0.3924, t = x²/(4z²D) = 3.69 × 10⁴ s = 10.2 h. In a diffusion couple at x = √(Dt) (z = 0.5), C = (C_A + C_B)/2 − (C_A − C_B)/2 × erf 0.5, i.e. a fraction 0.760 of the way from C_A to C_B.",
+   "kw": "error function erf erfc carburizing diffusion couple semi-infinite"
+  },
+  "diffusion-length": {
+   "name": "Diffusion distance and time–temperature equivalence",
+   "l": [
+    "",
+    "same profile",
+    "changing temperature"
+   ],
+   "m": [
+    "depth of a given concentration",
+    "diffusion coefficient",
+    "time",
+    "activation energy",
+    "gas constant",
+    "temperatures"
+   ],
+   "when": "For the same boundary conditions when the profile depends only on x/√(Dt) (erf, Gaussian). Doubling the depth needs four times the time.",
+   "miss": "Making depth proportional to time (dropping the √); swapping T₁ and T₂ (higher T means shorter time).",
+   "ex": "Cu in Al (D₀ = 6.5 × 10⁻⁵ m²/s, Q = 136 kJ/mol): D = 4.22 × 10⁻¹⁴ at 500 °C and 4.75 × 10⁻¹³ m²/s at 600 °C. To match 10 h at 500 °C, 600 °C needs t = 10 h × D₅₀₀/D₆₀₀ = 0.887 h. √(Dt) for 10 h at 500 °C is 39.0 µm.",
+   "kw": "diffusion length root Dt time temperature equivalence"
+  },
+  "gaussian": {
+   "name": "Diffusion from a fixed surface amount (Gaussian)",
+   "l": [
+    "",
+    "junction depth"
+   ],
+   "m": [
+    "concentration (number density; kg/m³ also works)",
+    "amount per unit area initially at the surface (conserved)",
+    "diffusion coefficient",
+    "time",
+    "depth",
+    "depth where C equals background C_B",
+    "background concentration"
+   ],
+   "when": "A fixed amount M initially at the surface, no flux through the surface, spreading into a semi-infinite solid: semiconductor drive-in, tracer diffusion. For a thin layer inside an infinite body spreading both ways use M/(2√(πDt)).",
+   "miss": "Mixing the semi-infinite and infinite prefactors (1/√(πDt) vs 1/(2√(πDt))); cm vs m (10¹⁴ cm⁻² = 10¹⁸ m⁻², 1 cm²/s = 10⁻⁴ m²/s).",
+   "ex": "Boron in Si (D₀ = 0.76 cm²/s, E_a = 3.46 eV) driven in at 1100 °C (D = 1.52 × 10⁻¹⁷ m²/s) for 1 h with dose M = 5 × 10¹⁸ m⁻² (5 × 10¹⁴ cm⁻²): surface concentration M/√(πDt) = 1.21 × 10²⁵ m⁻³. Depth where it equals the background 10²¹ m⁻³ (junction depth): x_j = √(4Dt ln(C(0)/C_B)) = 1.43 µm.",
+   "kw": "Gaussian drive-in thin film diffusion junction depth semiconductor"
+  },
+  "ftcs": {
+   "name": "Explicit finite differences (FTCS)",
+   "l": [
+    "",
+    "stability"
+   ],
+   "m": [
+    "concentration at node i, step n",
+    "mesh Fourier number",
+    "diffusion coefficient",
+    "time step",
+    "grid spacing"
+   ],
+   "when": "Forward-time, centred-space solution of the 1-D second law with constant D. For r > 1/2 the solution oscillates and diverges. Used where no analytic solution exists (finite slabs, changing surface concentration).",
+   "miss": "Refining the grid without reducing Δt (halving Δx needs a quarter of Δt).",
+   "ex": "D = 1 × 10⁻¹¹ m²/s, Δx = 10 µm: Δt ≤ Δx²/(2D) = 5.0 s. The diffusion simulator uses r = 0.4 for margin (Δt = 4.0 s).",
+   "kw": "finite difference FTCS numerical stability"
+  },
+  "vacancy": {
+   "name": "Equilibrium vacancy concentration",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "equilibrium vacancy concentration",
+    "number density of atomic sites",
+    "vacancy formation energy per vacancy (often given in eV)",
+    "Boltzmann constant (8.617 × 10⁻⁵ eV/K)",
+    "absolute temperature",
+    "Avogadro constant",
+    "density",
+    "molar mass"
+   ],
+   "when": "Thermal-equilibrium vacancies; the formation-entropy factor exp(S_v/k) (about 1–10) is omitted. Quenched samples retain high-temperature vacancies.",
+   "miss": "Dividing eV by k in J/K (use k in eV/K); T in °C; the 10⁶ when converting g/cm³ to m⁻³.",
+   "ex": "Cu at 1000 °C (ρ = 8.4 g/cm³, A = 63.5 g/mol, Q_v = 0.9 eV): N = N_A ρ/A = 7.97 × 10²⁸ m⁻³, Q_v/kT = 8.203, N_v = 2.2 × 10²⁵ m⁻³ (the same numbers as the Callister chapter 4 example): one vacancy per 3653 atoms.",
+   "kw": "vacancy point defect formation energy equilibrium concentration"
+  },
+  "burgers": {
+   "name": "Magnitude of the Burgers vector",
+   "l": [
+    "b = (a/n)[uvw]",
+    "FCC a/2⟨110⟩",
+    "BCC a/2⟨111⟩"
+   ],
+   "m": [
+    "magnitude of the Burgers vector",
+    "lattice parameter",
+    "denominator (2 for perfect dislocations in FCC and BCC)",
+    "direction indices"
+   ],
+   "when": "For perfect dislocations b is the shortest lattice translation (FCC a/2⟨110⟩, BCC a/2⟨111⟩, HCP a/3⟨11−20⟩ with |b| = a). The FCC Shockley partial a/6⟨112⟩ has |b| = a/√6.",
+   "miss": "Dropping the 1/2 and getting √2a; swapping the BCC and FCC directions.",
+   "ex": "FCC Cu (a = 0.36146 nm), a/2⟨110⟩: |b| = a/√2 = 0.2556 nm (the nearest-neighbour distance). BCC Fe (a = 0.28665 nm), a/2⟨111⟩: |b| = √3a/2 = 0.2482 nm.",
+   "kw": "Burgers vector dislocation slip direction"
+  },
+  "grain-size": {
+   "name": "Grain size number (ASTM E112)",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "grains per unit area at 1×",
+    "15.50 mm⁻² (one grain per square inch at 100×)",
+    "ASTM grain size number",
+    "mean lineal intercept",
+    "0.320 mm (intercept at G = 0)"
+   ],
+   "when": "ASTM E112 conversions; the original definition is N = 2^{G−1} grains per square inch at 100×. JIS G 0551 (ISO 643) uses m = 8 × 2^G per mm², giving numbers about 0.05 lower for the same structure. Converting to a “diameter” (e.g. d ≈ ℓ̄) is a convention.",
+   "miss": "Larger numbers mean finer grains; using counts from images not at 100× without converting to true area.",
+   "ex": "Grain size number G = 6: 2⁵ = 32 grains per square inch at 100×, i.e. N_A = 15.50 × 32 = 496 mm⁻² at 1×. Mean intercept ℓ̄ = 0.3200 × 2^(−3) = 40.0 µm.",
+   "kw": "grain size number ASTM E112 JIS G0551 intercept method"
+  },
+  "hooke": {
+   "name": "Stress, strain and Hooke’s law",
+   "l": [
+    "",
+    "",
+    "",
+    "elongation of a bar"
+   ],
+   "m": [
+    "engineering stress",
+    "load",
+    "original cross-section (πd²/4 for a round bar)",
+    "engineering strain",
+    "elongation and original length",
+    "Young’s modulus"
+   ],
+   "when": "Linear elasticity (below the proportional limit), small strain, uniaxial load on a uniform bar. After yielding, or for stepped bars, treat sections separately.",
+   "miss": "Using the diameter as the radius (πd² is four times too big); MPa vs GPa (N/mm² vs kN/mm²); applying it above the yield stress.",
+   "ex": "A Cu bar pulled at σ = 276 MPa (l₀ = 305 mm, E = 110 GPa, elastic): ε = 276/110000 = 2.51 × 10⁻³, Δl = εl₀ = 0.765 mm. For a 10 mm diameter bar, F = σA = 276 × 78.54 = 21.68 kN.",
+   "kw": "Hooke law Young modulus stress strain elongation elastic"
+  },
+  "poisson": {
+   "name": "Poisson’s ratio",
+   "l": [
+    "",
+    "change in diameter"
+   ],
+   "m": [
+    "Poisson’s ratio (metals 0.26–0.35, rubber near 0.5)",
+    "axial strain",
+    "lateral strain",
+    "original diameter and its change"
+   ],
+   "when": "Isotropic linear elasticity. In plastic deformation volume is nearly constant, so the apparent ratio approaches 0.5.",
+   "miss": "Sign (diameter shrinks in tension); treating diameter change as radius change.",
+   "ex": "Load that reduces the diameter of a brass rod (d₀ = 10 mm, ν = 0.34, E = 97 GPa) by 2.5 µm: ε_x = −2.5 × 10⁻⁴, ε_z = −ε_x/ν = 7.35 × 10⁻⁴, σ = Eε_z = 71.3 MPa, F = σπd₀²/4 = 5602 N (same numbers as the Callister Ch. 6 example).",
+   "kw": "Poisson ratio lateral strain diameter change"
+  },
+  "elastic-constants": {
+   "name": "Elastic constants and generalised Hooke’s law",
+   "l": [
+    "",
+    "",
+    "generalised Hooke’s law"
+   ],
+   "m": [
+    "Young’s modulus",
+    "shear modulus",
+    "bulk modulus",
+    "Poisson’s ratio",
+    "normal stresses",
+    "strain in x"
+   ],
+   "when": "Isotropic solids only (two independent constants). Not valid for single crystals or fibre composites. Add αΔT for thermal strain. As ν → 0.5, K → ∞ (incompressible).",
+   "miss": "Applying it to anisotropic materials (Si wafers, CFRP). Handbook G values that disagree with E/(2(1 + ν)) reflect texture or measurement differences.",
+   "ex": "Al (E = 69 GPa, ν = 0.33): G = 69/(2 × 1.33) = 25.9 GPa, K = 69/(3 × 0.34) = 67.6 GPa. Steel plate (E = 200 GPa, ν = 0.30) under equibiaxial σ_x = σ_y = 100 MPa: ε_x = (100 − 0.30 × 100)/200000 = 3.5 × 10⁻⁴, ε_z = −0.30 × 200/200000 = −3.0 × 10⁻⁴.",
+   "kw": "shear modulus bulk modulus generalized Hooke elastic constants"
+  },
+  "true-stress": {
+   "name": "True stress and true strain",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "true stress",
+    "instantaneous area",
+    "load",
+    "engineering stress",
+    "engineering strain",
+    "true strain",
+    "instantaneous and original length"
+   ],
+   "when": "The (1 + ε) forms assume constant volume and hold only up to necking (uniform elongation). After necking use σ_T = F/A_i with the measured minimum area (Bridgman’s triaxiality correction applies further).",
+   "miss": "Using σ(1 + ε) after necking; in compression ε is negative and σ_T smaller; computing true strain with log₁₀.",
+   "ex": "Engineering stress 400 MPa at engineering strain 0.20 (before necking): σ_T = 400 × 1.20 = 480 MPa, ε_T = ln 1.20 = 0.182.",
+   "kw": "true stress true strain engineering stress logarithmic strain"
+  },
+  "ductility": {
+   "name": "Ductility: elongation and reduction of area",
+   "l": [
+    "",
+    "",
+    "true fracture strain"
+   ],
+   "m": [
+    "elongation at fracture (%)",
+    "reduction of area (%)",
+    "final and original gauge length",
+    "fracture and original area",
+    "true fracture strain"
+   ],
+   "when": "%EL depends on gauge length (the neck takes a different share), so state the specimen standard (e.g. 50 mm ASTM, JIS 14A). %RA does not.",
+   "miss": "Using the diameter ratio for %RA (area goes with the square); computing true fracture stress with the original area.",
+   "ex": "A 12.8 mm steel specimen breaks at an engineering stress of 460 MPa with a 10.7 mm neck: %RA = (128.7 − 89.9)/128.7 × 100 = 30.1 %, true fracture strain ln(A₀/A_f) = 0.358, true fracture stress = 460 × A₀/A_f = 658 MPa (same numbers as the Callister Ch. 6 example).",
+   "kw": "elongation reduction of area ductility fracture"
+  },
+  "hollomon": {
+   "name": "Strain hardening (Hollomon)",
+   "l": [
+    "",
+    "onset of necking (Considère)"
+   ],
+   "m": [
+    "true stress",
+    "strength coefficient",
+    "true (plastic) strain",
+    "strain-hardening exponent (0.1–0.5)"
+   ],
+   "when": "Uniform plastic deformation between yield and necking; fit n and K where log σ_T vs log ε_T is straight. Necking (dσ_T/dε_T = σ_T) gives ε_T = n.",
+   "miss": "Fitting engineering values; thinking n depends on log base (it does not, the ratio is the same).",
+   "ex": "An alloy with K = 1035 MPa shows a true stress of 415 MPa at a true strain of 0.10: n = ln(415/1035)/ln 0.10 = 0.40. Necking begins at ε_T = n ≈ 0.40.",
+   "kw": "strain hardening exponent n value Hollomon strength coefficient necking"
+  },
+  "resilience": {
+   "name": "Modulus of resilience",
+   "l": [
+    ""
+   ],
+   "m": [
+    "modulus of resilience (elastic energy stored per volume up to yield)",
+    "yield strength",
+    "Young’s modulus"
+   ],
+   "when": "Linear elastic up to yield. Springs need high U_r (high σ_y, low E). Not the same as toughness (area to fracture).",
+   "miss": "Missing that 1 J/m³ = 1 Pa; confusing it with toughness.",
+   "ex": "Steel with σ_y = 350 MPa, E = 207 GPa: U_r = (350 × 10⁶)²/(2 × 207 × 10⁹) = 2.96 × 10⁵ J/m³ (= 296 kJ/m³).",
+   "kw": "resilience elastic energy strain energy spring"
+  },
+  "hall-petch": {
+   "name": "Hall–Petch relation",
+   "l": [
+    ""
+   ],
+   "m": [
+    "yield strength",
+    "friction stress",
+    "Hall–Petch coefficient",
+    "mean grain diameter"
+   ],
+   "when": "Polycrystals with grains above about 10 nm (finer grains may soften: inverse Hall–Petch). Compare annealed states with the same precipitation and texture.",
+   "miss": "Using d in µm with k_y in MPa·√m (convert to m); plotting against d rather than 1/√d; confusing grain size number with diameter.",
+   "ex": "Steel with σ₀ = 70 MPa, k_y = 0.74 MPa·√m: d = 20 µm gives σ_y = 70 + 0.74/√(2 × 10⁻⁵) = 235.5 MPa; d = 5 µm gives 400.9 MPa. Quartering the grain size doubles the k_y term.",
+   "kw": "Hall Petch grain size refinement yield strength"
+  },
+  "schmid": {
+   "name": "Schmid’s law",
+   "l": [
+    "",
+    "yield"
+   ],
+   "m": [
+    "resolved shear stress",
+    "tensile stress",
+    "angle between tensile axis and slip-plane normal",
+    "angle between tensile axis and slip direction",
+    "critical resolved shear stress",
+    "yield stress"
+   ],
+   "when": "Single crystals under uniaxial load. The system with the largest Schmid factor cos φ cos λ (max 0.5) slips first. In cubic crystals cos is the normalised dot product of the indices.",
+   "miss": "Assuming φ + λ = 90° (not true in general); choosing a direction that does not lie in the slip plane; using sin.",
+   "ex": "A BCC Fe single crystal pulled along [010] at 52 MPa, slip system (110)[−111]: cos φ = 1/√2 = 0.7071 (φ = 45°), cos λ = 1/√3 = 0.5774 (λ = 54.7°), τ_R = 52 × 0.7071 × 0.5774 = 21.2 MPa. With τ_CRSS = 30 MPa the yield stress is 30/0.4082 = 73.5 MPa (same numbers as the Callister Ch. 7 example).",
+   "kw": "Schmid resolved shear stress slip system CRSS single crystal"
+  },
+  "performance-index": {
+   "name": "Material performance indices",
+   "l": [
+    "stiff tie",
+    "stiff beam",
+    "stiff panel",
+    "strong beam"
+   ],
+   "m": [
+    "performance index (higher is lighter for the same duty; units per index)",
+    "Young’s modulus",
+    "failure strength",
+    "density"
+   ],
+   "when": "Minimum mass when the section size may change freely; the index depends on geometry, loading and what is fixed. On the material selection chart, candidates lie above the line of constant index (slopes 1, 2, 3).",
+   "miss": "Using E/ρ for a beam (beams use √E/ρ); comparing indices with inconsistent units.",
+   "ex": "Light, stiff beam (index √E/ρ, E in GPa, ρ in g/cm³): Al alloy √70/2.70 = 3.10, steel √210/7.85 = 1.85. For equal bending stiffness the Al beam weighs 1/1.68 of the steel one. For a tie (E/ρ) they are almost equal (25.9 vs 26.8).",
+   "kw": "performance index material selection Ashby specific stiffness lightweight"
+  },
+  "stress-concentration": {
+   "name": "Stress concentration at an elliptical hole (Inglis)",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "maximum stress at the crack (notch) tip",
+    "remote nominal stress",
+    "surface crack depth (half length of an internal crack)",
+    "tip radius of curvature",
+    "stress concentration factor"
+   ],
+   "when": "Elliptical hole in an infinite plate loaded normal to the major axis, linear elastic. For sharp cracks (ρ_t → 0) the stress diverges, so use the stress intensity factor K. Use design charts for real geometries.",
+   "miss": "Using the full internal crack length for a (use half); mixing mm and µm for a and ρ_t.",
+   "ex": "Surface crack of depth a = 0.5 mm with tip radius ρ_t = 5 µm under σ₀ = 100 MPa: a/ρ_t = 100, K_t = 1 + 2√100 = 21.0, σ_max = 2100 MPa (the approximation 2σ₀√(a/ρ_t) gives 2000 MPa).",
+   "kw": "stress concentration factor notch elliptical hole Inglis"
+  },
+  "griffith": {
+   "name": "Griffith equation",
+   "l": [
+    "plane stress",
+    "plane strain"
+   ],
+   "m": [
+    "fracture stress",
+    "Young’s modulus",
+    "surface energy",
+    "surface crack depth (half length of internal crack)",
+    "Poisson’s ratio"
+   ],
+   "when": "Ideally brittle solids such as glass. In metals plastic work γ_p is thousands of times γ_s, so 2γ_s is replaced by G_c (the K_IC form).",
+   "miss": "Using only γ_s for metals (far too low); dropping the 2 in 2γ_s.",
+   "ex": "Glass plate (E = 69 GPa, surface energy γ_s = 0.3 J/m²) under 40 MPa tension: largest tolerable surface flaw a = 2Eγ_s/(πσ²) = 8.2 µm.",
+   "kw": "Griffith brittle fracture surface energy crack"
+  },
+  "stress-intensity": {
+   "name": "Stress intensity factor and fracture toughness",
+   "l": [
+    "",
+    "fracture condition",
+    "critical crack size"
+   ],
+   "m": [
+    "stress intensity factor (mode I)",
+    "geometry factor (centre crack in infinite plate 1.0, surface crack ≈ 1.12)",
+    "nominal stress",
+    "surface crack depth or half internal length",
+    "plane-strain fracture toughness",
+    "critical crack size"
+   ],
+   "when": "Linear elastic fracture mechanics: plastic zone small compared with crack and section (small-scale yielding). If the fracture stress approaches yield, the part yields first. K_IC is measured in plane strain (E399).",
+   "miss": "Using the full internal crack length; a in mm under the root (use m with MPa·√m); assuming Y = 1 always.",
+   "ex": "Surface crack (Y = 1.12) in steel with K_IC = 60 MPa·√m: at 300 MPa the critical depth is a_c = (1/π)(60/(1.12 × 300))² = 10.2 mm. With a 5 mm crack the fracture stress is σ_c = 60/(1.12√(π × 0.005)) = 427 MPa.",
+   "kw": "stress intensity factor fracture toughness KIC LEFM critical crack"
+  },
+  "energy-release": {
+   "name": "Energy release rate and K",
+   "l": [
+    "plane stress",
+    "plane strain"
+   ],
+   "m": [
+    "energy release rate",
+    "stress intensity factor",
+    "Young’s modulus",
+    "Poisson’s ratio"
+   ],
+   "when": "Linear elastic, mode I. Crack grows when G ≥ G_c (the generalised Griffith criterion). For mixed modes G = (K_I² + K_II²)(1 − ν²)/E + K_III²(1 + ν)/E.",
+   "miss": "Mixing plane stress and plane strain; using K in MPa·√m without converting to Pa·√m.",
+   "ex": "K_IC = 50 MPa·√m, E = 210 GPa, ν = 0.3 (plane strain): G_IC = K²(1 − ν²)/E = 10.8 kJ/m².",
+   "kw": "energy release rate G fracture toughness plane strain"
+  },
+  "plastic-zone": {
+   "name": "Crack-tip plastic zone and plane-strain condition",
+   "l": [
+    "plane-stress plastic zone (Irwin)",
+    "plane-strain validity"
+   ],
+   "m": [
+    "crack-tip plastic zone size",
+    "stress intensity factor, plane-strain fracture toughness",
+    "yield strength",
+    "specimen thickness, crack length"
+   ],
+   "when": "Irwin’s first-order estimate (about one third in plane strain). 2.5(K_IC/σ_y)² is the ASTM E399 validity requirement; thinner specimens approach plane stress and show higher apparent toughness.",
+   "miss": "Treating r_p as a diameter; calling a thin-sheet value K_IC.",
+   "ex": "K = 50 MPa·√m, σ_y = 500 MPa: plane-stress plastic zone r_p = (1/2π)(50/500)² = 1.59 mm (about one third in plane strain). A valid K_IC test needs thickness and crack length ≥ 2.5(K_IC/σ_y)² = 25.0 mm.",
+   "kw": "plastic zone plane strain plane stress specimen thickness E399"
+  },
+  "paris": {
+   "name": "Paris law (fatigue crack growth)",
+   "l": [
+    "",
+    "",
+    "constant Y, m ≠ 2"
+   ],
+   "m": [
+    "crack growth per cycle",
+    "material constant (units depend on m)",
+    "stress-intensity range",
+    "Paris exponent (2–4 for metals)",
+    "stress range (compressive part usually ignored)",
+    "geometry factor",
+    "crack size (initial, critical)",
+    "cycles to failure"
+   ],
+   "when": "Stage II growth: above the threshold ΔK and well below K_IC. This form ignores mean-stress (R) effects. Integrate numerically when Y varies with a.",
+   "miss": "Using C without checking its unit basis (MPa·√m and m?); using K_max for ΔK; applying the formula at m = 2 (it becomes logarithmic).",
+   "ex": "Δσ = 100 MPa (compressive part ignored), initial surface crack 2.0 mm, K_IC = 25 MPa·√m, Y = 1.0, C = 1.0 × 10⁻¹², m = 3 (MPa·√m and m units): final crack a_c = (1/π)(25/100)² = 19.9 mm, N_f = [a_c^(−1/2) − a₀^(−1/2)]/[C(Δσ√π)³(−1/2)] = 5.48 × 10⁶ cycles (same conditions as the Callister Ch. 8 example).",
+   "kw": "Paris law fatigue crack growth delta K life"
+  },
+  "fatigue-life": {
+   "name": "Fatigue life (Basquin, Coffin–Manson)",
+   "l": [
+    "Basquin (high cycle)",
+    "with Coffin–Manson (low cycle)"
+   ],
+   "m": [
+    "stress amplitude",
+    "fatigue strength coefficient",
+    "reversals to failure (twice the cycles)",
+    "fatigue strength exponent (−0.05 to −0.12)",
+    "strain amplitude",
+    "Young’s modulus",
+    "fatigue ductility coefficient",
+    "fatigue ductility exponent (−0.5 to −0.7)"
+   ],
+   "when": "Fully reversed constant amplitude on smooth specimens. The elastic term dominates at high cycles and the plastic term below about 10⁴ cycles. Correct for mean stress (e.g. Morrow) and combine with Miner’s rule for variable loads.",
+   "miss": "Confusing reversals 2N_f with cycles N_f; amplitude vs range (factor 2).",
+   "ex": "Assumed constants σ_f′ = 1000 MPa, b = −0.09, ε_f′ = 0.6, c = −0.6, E = 200 GPa: at N_f = 10⁴ cycles the strain amplitude is elastic 2.05 × 10⁻³ + plastic 1.58 × 10⁻³ = 3.63 × 10⁻³. Transition life (elastic = plastic): N_t = 5968 cycles. A stress amplitude of 400 MPa (high-cycle) gives N_f = (400/1000)^(1/b)/2 = 1.32 × 10⁴ cycles by Basquin.",
+   "kw": "fatigue S-N curve Basquin Coffin Manson low cycle strain life"
+  },
+  "goodman": {
+   "name": "Mean-stress effect (modified Goodman)",
+   "l": [
+    "modified Goodman",
+    "mean stress",
+    "amplitude",
+    "stress ratio"
+   ],
+   "m": [
+    "stress amplitude",
+    "mean stress",
+    "fully reversed fatigue limit (or strength at N)",
+    "tensile strength",
+    "maximum and minimum stress",
+    "stress ratio"
+   ],
+   "when": "Conservative straight-line estimate of how tensile mean stress lowers fatigue strength. For ductile metals Gerber’s parabola ((σ_m/σ_u)²) fits better; Soderberg uses σ_y. Compressive mean stress is usually not credited.",
+   "miss": "Using the range as amplitude (halve it); confusing R = −1 (fully reversed) and R = 0 (zero to tension).",
+   "ex": "Fatigue limit σ_e = 300 MPa (fully reversed), tensile strength σ_u = 800 MPa, mean stress 200 MPa: allowable amplitude σ_a = 300(1 − 200/800) = 225 MPa; σ_max = 200 + 225 = 425 MPa, σ_min = −25 MPa, R = −0.059.",
+   "kw": "Goodman mean stress amplitude stress ratio fatigue diagram"
+  },
+  "miner": {
+   "name": "Miner’s rule (linear damage)",
+   "l": [
+    "",
+    "failure"
+   ],
+   "m": [
+    "cumulative damage",
+    "cycles applied at level i",
+    "life at level i alone"
+   ],
+   "when": "Ignores load-sequence effects: high-then-low loading tends to fail at D < 1, low-then-high may exceed 1. Designs sometimes limit D to 0.3–0.5.",
+   "miss": "Ignoring cycles below the fatigue limit or taking N_i = ∞ (once a crack grows, low stresses also damage).",
+   "ex": "2 × 10⁴ cycles at a stress with life 10⁵ (0.2) and 3 × 10⁵ cycles at life 10⁶ (0.3): damage D = 0.50. At a stress with life 10⁷ the remaining life is (1 − 0.50) × 10⁷ = 5.0 × 10⁶ cycles.",
+   "kw": "Miner rule cumulative damage variable amplitude fatigue"
+  },
+  "weibull": {
+   "name": "Weibull statistics of brittle strength",
+   "l": [
+    "",
+    "size effect"
+   ],
+   "m": [
+    "probability of failure",
+    "stressed and reference volume",
+    "stress",
+    "scale parameter (63.2 % failure at V₀)",
+    "Weibull modulus (ceramics 5–20)"
+   ],
+   "when": "Weakest-link brittle materials, written for uniform tension; for bending use the effective volume. m is the slope of ln ln[1/(1 − P_f)] against ln σ.",
+   "miss": "Using bend strengths directly for tensile parts (different effective volume); confusing P_f with survival probability P_s = 1 − P_f.",
+   "ex": "Ceramic with Weibull modulus m = 10 and σ₀ = 300 MPa (specimen volume V₀) at 200 MPa: P_f = 1 − exp[−(200/300)¹⁰] = 0.0172. A part ten times larger reaches the same probability at (1/10)^(1/10) = 0.794 times the stress.",
+   "kw": "Weibull brittle ceramic strength scatter size effect"
+  },
+  "thermal-expansion": {
+   "name": "Thermal expansion",
+   "l": [
+    "",
+    "volumetric (isotropic)"
+   ],
+   "m": [
+    "change in length and original length",
+    "linear expansion coefficient",
+    "temperature change (T₂ − T₁)",
+    "volumetric expansion coefficient"
+   ],
+   "when": "When α can be taken as constant over the range (otherwise integrate α(T)). The 3α relation is for isotropic materials only (anisotropic crystals and composites differ by direction).",
+   "miss": "Dropping the 10⁻⁶; multiplying by an absolute temperature instead of a difference. A difference in °C equals a difference in K.",
+   "ex": "Brass wire (α = 20 × 10⁻⁶ K⁻¹), 15 m, cooled from 40 °C to −9 °C: ΔL = 20 × 10⁻⁶ × 15 × (−49) = −1.47 × 10⁻² m = −14.7 mm (contraction). The volume decreases by 3α: 0.29 %.",
+   "kw": "thermal expansion linear expansion coefficient volumetric"
+  },
+  "thermal-stress": {
+   "name": "Thermal stress under constraint",
+   "l": [
+    "uniaxial constraint",
+    "equibiaxial constraint (plate)",
+    "triaxial constraint"
+   ],
+   "m": [
+    "thermal stress (tension positive)",
+    "Young’s modulus",
+    "linear expansion coefficient",
+    "temperature change from the stress-free state",
+    "Poisson’s ratio"
+   ],
+   "when": "Full constraint (zero net strain), linear elastic. Heating gives compression, cooling tension. For partial constraint or temperature gradients, see the thermal stress lab.",
+   "miss": "Sign errors; using the uniaxial formula for a plate; using values above yield.",
+   "ex": "Brass rod fixed at both ends (E = 100 GPa, α = 20 × 10⁻⁶ K⁻¹) heated from 20 °C: to keep the compressive stress below 172 MPa, ΔT = 172/(100000 × 20 × 10⁻⁶) = 86.0 K, T = 106 °C. A biaxially constrained plate (ν = 0.35) would see 1/(1 − ν) = 1.54 times the stress for the same ΔT.",
+   "kw": "thermal stress constraint biaxial triaxial"
+  },
+  "film-stress": {
+   "name": "Thermal stress in a thin film on a substrate",
+   "l": [
+    ""
+   ],
+   "m": [
+    "film thermal stress (equibiaxial, tension positive)",
+    "biaxial modulus of the film",
+    "expansion coefficients of substrate and film",
+    "change from the stress-free temperature (negative on cooling)"
+   ],
+   "when": "Film much thinner than the substrate (substrate undeformed), in-plane isotropic, linear elastic. Take the deposition temperature as stress-free (add intrinsic growth stress separately).",
+   "miss": "Order of (α_f − α_s) vs (α_s − α_f); dropping 1 − ν (uniaxial form); ignoring anisotropy of single-crystal films.",
+   "ex": "Al film (E_f = 70 GPa, ν_f = 0.33, α_f = 23.1 × 10⁻⁶ K⁻¹) on Si (α_s = 2.6 × 10⁻⁶ K⁻¹), stress-free at 400 °C, cooled to 25 °C: σ_f = (70000/0.67) × (2.6 − 23.1) × 10⁻⁶ × (−375) = 803 MPa (tensile). In practice Al yields long before reaching this elastic value.",
+   "kw": "thin film thermal stress biaxial modulus mismatch"
+  },
+  "stoney": {
+   "name": "Stoney equation",
+   "l": [
+    "",
+    "curvature"
+   ],
+   "m": [
+    "mean film stress",
+    "biaxial modulus of the substrate",
+    "substrate and film thickness",
+    "curvature (change on deposition)",
+    "radius of curvature"
+   ],
+   "when": "t_f ≪ t_s, deflection smaller than substrate thickness, isotropic substrate (use 180 GPa biaxial modulus for Si(100)). The film’s elastic constants are not needed.",
+   "miss": "Swapping t_s and t_f (t_s is squared); not subtracting the pre-deposition curvature; diameter vs radius of curvature.",
+   "ex": "A (100) Si wafer (biaxial modulus E_s/(1 − ν_s) = 180 GPa, 0.525 mm thick) with a 1 µm film bows to a 50 m radius: σ_f = 180 × 10⁹ × (0.525 × 10⁻³)²/(6 × 10⁻⁶ × 50) = 165 MPa.",
+   "kw": "Stoney thin film stress wafer bow curvature"
+  },
+  "composite-bar": {
+   "name": "Thermal stress in a two-bar assembly",
+   "l": [
+    "force balance",
+    "equal elongation",
+    "solution"
+   ],
+   "m": [
+    "stress in each bar",
+    "cross-sectional areas",
+    "expansion coefficients",
+    "Young’s moduli",
+    "temperature change"
+   ],
+   "when": "Two parallel bars joined at both ends, no external load, uniform temperature, linear elastic, no bending. With an external load, put it on the right-hand side of the force balance.",
+   "miss": "Using the fully constrained value (EαΔT) for one bar; ignoring different areas.",
+   "ex": "Steel (E = 200 GPa, α = 12 × 10⁻⁶) and Al (70 GPa, 23 × 10⁻⁶) bars of equal section (100 mm²) joined at both ends and heated by 100 K: σ_steel = −(12 − 23) × 10⁻⁶ × 100/(1/200000 + 1/70000) = 57.0 MPa (tension), σ_Al = −57.0 MPa (compression).",
+   "kw": "compound bar bimetal thermal stress compatibility"
+  },
+  "bimetal-curvature": {
+   "name": "Bimetal curvature (Timoshenko)",
+   "l": [
+    "",
+    "t₁ = t₂, E₁ = E₂",
+    "definitions",
+    "total thickness"
+   ],
+   "m": [
+    "curvature",
+    "thermal strain mismatch (α₂ − α₁)ΔT",
+    "layer thicknesses and total",
+    "thickness and modulus ratios",
+    "moduli of the layers"
+   ],
+   "when": "Two-layer beam, free in the width direction, linear elastic, uniform temperature. For wide plates replace E by E/(1 − ν).",
+   "miss": "Wrong sense (the higher-expansion layer is on the convex side); taking h as one layer thickness.",
+   "ex": "Two layers of 0.5 mm each with equal moduli, expansion mismatch 18 × 10⁻⁶ K⁻¹, heated by 50 K (Δε = 9.0 × 10⁻⁴): with m = n = 1, κ = 3Δε/(2h) = 1.35 m⁻¹ (radius 0.741 m).",
+   "kw": "bimetal curvature Timoshenko thermostat"
+  },
+  "thermal-shock": {
+   "name": "Thermal shock resistance",
+   "l": [
+    "thermal shock resistance (quench)",
+    "constant heat flux",
+    "Biot number",
+    "Manson’s relation"
+   ],
+   "m": [
+    "critical quench ΔT for β → ∞",
+    "fracture strength",
+    "Poisson’s ratio",
+    "Young’s modulus",
+    "expansion coefficient",
+    "thermal conductivity",
+    "second thermal shock parameter",
+    "Biot number",
+    "half thickness",
+    "heat transfer coefficient",
+    "critical temperature difference"
+   ],
+   "when": "Onset of cracking when a brittle plate is suddenly cooled (or heated) at the surface. Large β (severe quench, thick, low conductivity) approaches R. Strength scatter and crack-propagation parameters (R‴ etc.) are separate.",
+   "miss": "Using the full thickness for a (use half); dropping 10⁻⁶ in α; forgetting the surface stress reverses between heating and cooling.",
+   "ex": "Alumina (data from the thermal expansion lab: σ_f = 310 MPa, ν = 0.23, E = 360 GPa, α = 7.2 × 10⁻⁶ K⁻¹, κ = 29 W/(m·K)): R = 92.1 K, R′ = κR = 2671 W/m. A 10 mm plate (a = 5 mm) quenched in water (h ≈ 10⁴ W/(m²·K)): β = ah/κ = 1.72, critical ΔT_c ≈ R × (1.5 + 3.25/β − 0.5e^(−16/β)) = 312 K.",
+   "kw": "thermal shock resistance Biot number quench ceramic"
+  },
+  "conduction": {
+   "name": "Heat conduction (Fourier’s law)",
+   "l": [
+    "",
+    "flat slab (steady)"
+   ],
+   "m": [
+    "heat flux",
+    "thermal conductivity",
+    "temperature, difference across slab",
+    "position, slab thickness"
+   ],
+   "when": "Steady state with κ independent of T. For layered walls add thermal resistances L/κ; with surface convection add 1/h.",
+   "miss": "Thickness in mm; confusing conductivity with diffusivity.",
+   "ex": "Steel plate (κ = 50 W/(m·K)), 10 mm thick, 100 K across it (steady): q = 50 × 100/0.010 = 5.0 × 10⁵ W/m².",
+   "kw": "heat conduction Fourier heat flux thermal conductivity"
+  },
+  "thermal-diffusivity": {
+   "name": "Thermal diffusivity",
+   "l": [
+    "",
+    "transient conduction"
+   ],
+   "m": [
+    "thermal diffusivity",
+    "thermal conductivity",
+    "density",
+    "specific heat",
+    "temperature",
+    "time",
+    "position"
+   ],
+   "when": "Governs the speed of transient conduction; the heat equation has the same form as Fick’s second law, so erfc solutions apply. Laser flash measures a, then κ = aρc_p.",
+   "miss": "Using c_p per mole (use per kg); ρ in g/cm³.",
+   "ex": "Cu (κ = 398 W/(m·K), ρ = 8960 kg/m³, c_p = 385 J/(kg·K)): a = 1.15 × 10⁻⁴ m²/s. Heat penetrates roughly √(at) = 10.7 mm in 1 s.",
+   "kw": "thermal diffusivity laser flash transient specific heat"
+  },
+  "heat-capacity": {
+   "name": "Lattice heat capacity (Dulong–Petit, Debye)",
+   "l": [
+    "T ≫ θ_D (Dulong–Petit)",
+    "T ≪ θ_D (Debye T³ law)"
+   ],
+   "m": [
+    "molar heat capacity at constant volume (lattice)",
+    "gas constant",
+    "temperature",
+    "Debye temperature"
+   ],
+   "when": "Per mole of atoms in an element; multiply by atoms per formula for compounds. Metals add an electronic term (∝ T) at low temperature. C_p − C_v is small for solids.",
+   "miss": "Per mole vs per kg; forgetting atoms per formula unit for compounds.",
+   "ex": "Al (Debye temperature θ_D = 428 K): at 20 K, C_v = (12π⁴/5)R(20/428)³ = 0.198 J/(mol·K). The high-temperature limit 3R = 24.94 J/(mol·K), per mass 3R/M = 924 J/(kg·K) (measured c_p 897 J/(kg·K)).",
+   "kw": "heat capacity Dulong Petit Debye temperature specific heat"
+  },
+  "wiedemann-franz": {
+   "name": "Wiedemann–Franz law",
+   "l": [
+    "",
+    "Lorenz number"
+   ],
+   "m": [
+    "electronic thermal conductivity",
+    "electrical conductivity",
+    "temperature",
+    "Lorenz number",
+    "Boltzmann constant",
+    "elementary charge"
+   ],
+   "when": "Electronic conduction in metals; good at room temperature and above and at very low T (lower in between due to inelastic scattering). Excludes phonon conduction: κ = κ_e + κ_ph in alloys and semiconductors.",
+   "miss": "Confusing resistivity with conductivity; applying it to insulators and ceramics.",
+   "ex": "Cu (σ = 5.96 × 10⁷ S/m, 293 K): κ_e = L₀σT = 2.443 × 10⁻⁸ × 5.96 × 10⁷ × 293 = 427 W/(m·K) (measured 401 W/(m·K)).",
+   "kw": "Wiedemann Franz Lorenz number thermal electrical conductivity"
+  },
+  "shrink-fit": {
+   "name": "Shrink-fit pressure (Lamé)",
+   "l": [
+    "",
+    "hoop stress at the hub bore",
+    "heating needed for assembly"
+   ],
+   "m": [
+    "interface pressure",
+    "diametral interference",
+    "interface diameter",
+    "outer diameter of the hub",
+    "bore of the inner member (0 if solid)",
+    "moduli of hub and shaft",
+    "Poisson’s ratios of hub and shaft",
+    "hoop stress",
+    "assembly clearance",
+    "expansion coefficient of the hub",
+    "temperature rise"
+   ],
+   "when": "Thick-walled cylinders in plane stress, linear elastic, uniform pressure along the fit. Yielding lowers the pressure. The hoop stress at the hub bore is the largest.",
+   "miss": "Using radial interference in the diametral formula (factor 2); the sign of ν in the shaft term (− ν_i).",
+   "ex": "Steel hub (outer diameter 100 mm) shrunk onto a solid 50 mm steel shaft with 0.05 mm diametral interference (E = 200 GPa, ν = 0.3): p = 75.0 MPa; hoop stress at the hub bore p(D² + d²)/(D² − d²) = 125 MPa (tension). To assemble with 0.02 mm clearance, heat the hub by ΔT = (0.05 + 0.02)/(12 × 10⁻⁶ × 50) = 117 K.",
+   "kw": "shrink fit interference Lame thick cylinder press fit"
+  },
+  "rom": {
+   "name": "Rule of mixtures (longitudinal)",
+   "l": [
+    "longitudinal (isostrain, Voigt)",
+    "load sharing",
+    "no voids"
+   ],
+   "m": [
+    "longitudinal modulus of the composite",
+    "fibre and matrix moduli",
+    "fibre and matrix volume fractions",
+    "loads carried by fibre and matrix"
+   ],
+   "when": "Continuous aligned fibres, perfect bonding so both phases share the same strain. Upper bound (Voigt). Use volume fractions (convert mass fractions first). Voids count as a phase of zero stiffness.",
+   "miss": "Plugging in mass fractions; using it transverse to the fibres (use the inverse rule); confusing the load ratio with the load fraction F_f/(F_f + F_m).",
+   "ex": "Unidirectional glass fibre 40 vol% (E_f = 69 GPa) in polyester (E_m = 3.4 GPa), the same numbers as the Callister chapter 16 example: E_cl = 0.40 × 69 + 0.60 × 3.4 = 29.6 GPa. Load sharing F_f/F_m = (0.40 × 69)/(0.60 × 3.4) = 13.5 (fibres carry 93.1 %).",
+   "kw": "rule of mixtures Voigt upper bound unidirectional load sharing volume fraction"
+  },
+  "inverse-rom": {
+   "name": "Inverse rule of mixtures (transverse)",
+   "l": [
+    "transverse (isostress, Reuss)",
+    ""
+   ],
+   "m": [
+    "transverse modulus",
+    "fibre and matrix moduli",
+    "volume fractions"
+   ],
+   "when": "Lower bound (Reuss), assuming both phases carry the same stress. Real transverse moduli are somewhat higher; Halpin–Tsai fits better. Carbon fibres are much softer radially (about 15 GPa for T300), so use the radial modulus for E_f.",
+   "miss": "Forgetting to invert; using the axial modulus of carbon fibre for E_f.",
+   "ex": "The same glass 40 vol%/polyester, transverse to the fibres: 1/E_ct = 0.40/69 + 0.60/3.4 → E_ct = 5.49 GPa (19 % of the longitudinal value).",
+   "kw": "inverse rule of mixtures Reuss lower bound transverse modulus isostress"
+  },
+  "halpin-tsai": {
+   "name": "Halpin–Tsai equations",
+   "l": [
+    "",
+    ""
+   ],
+   "m": [
+    "composite modulus (E₂ or G₁₂)",
+    "the same modulus of fibre and matrix",
+    "shape factor (2 for E₂, 1 for G₁₂ with round fibres)",
+    "auxiliary ratio",
+    "fibre volume fraction"
+   ],
+   "when": "Practical estimate of E₂ and G₁₂ for unidirectional plies. ξ = 0 gives the inverse rule, ξ → ∞ the rule of mixtures. May underestimate above V_f ≈ 0.6.",
+   "miss": "Using the same ξ for E₂ and G₁₂; using E_m instead of G_m = E_m/[2(1 + ν_m)] for G₁₂.",
+   "ex": "Transverse modulus of the same glass 40 vol%/polyester with ξ = 2: η = (69/3.4 − 1)/(69/3.4 + 2) = 0.8654, E₂ = 3.4 × (1 + 2 × 0.8654 × 0.40)/(1 − 0.8654 × 0.40) = 8.80 GPa (above the inverse rule’s 5.49 GPa).",
+   "kw": "Halpin Tsai transverse modulus shear modulus micromechanics"
+  },
+  "fiber-fraction": {
+   "name": "Volume and mass fractions",
+   "l": [
+    "mass to volume fraction",
+    "volume to mass fraction",
+    "density (rule of mixtures)"
+   ],
+   "m": [
+    "fibre and matrix volume fractions",
+    "fibre and matrix mass fractions",
+    "densities of fibre, matrix and composite"
+   ],
+   "when": "No voids. With voids V_f + V_m + V_v = 1; V_v follows from the measured density and the mass fraction (e.g. burn-off). Units of density cancel, so g/cm³ is fine.",
+   "miss": "Using mass fractions in the rule of mixtures; using 1 − V_f instead of w_m = 1 − w_f.",
+   "ex": "Carbon fibre (ρ_f = 1.76 g/cm³) at 65 wt% in epoxy (ρ_m = 1.20 g/cm³): V_f = (0.65/1.76)/(0.65/1.76 + 0.35/1.20) = 0.3693/(0.3693 + 0.2917) = 0.559. ρ_c = 0.559 × 1.76 + 0.441 × 1.20 = 1.51 g/cm³.",
+   "kw": "fibre volume fraction mass fraction density void content"
+  },
+  "fiber-strength": {
+   "name": "Longitudinal strength of unidirectional composites",
+   "l": [
+    "fibres fail first (ε_f* < ε_m*)",
+    "matrix stress at fibre failure",
+    "minimum fraction for fibre control"
+   ],
+   "m": [
+    "longitudinal tensile strength",
+    "fibre and matrix strengths",
+    "matrix stress at the fibre failure strain",
+    "fibre failure strain σ_f*/E_f",
+    "matrix modulus",
+    "volume fractions",
+    "minimum volume fraction"
+   ],
+   "when": "Continuous fibres whose failure strain is below the matrix’s (carbon or glass/epoxy). Fibre strength scatter and misalignment usually bring measured values to 70–90 %. For matrix-first failure (ceramic matrices) another expression applies.",
+   "miss": "Using the matrix strength σ_m* for σ_m′; applying it transverse to the fibres (governed by matrix and interface).",
+   "ex": "T300 carbon fibre (σ_f* = 3530 MPa, E_f = 230 GPa) in 8552 epoxy (E_m = 4.67 GPa, σ_m* = 121 MPa, failure strain 1.7 %), V_f = 0.60 (values from the composite designer): the fibre failure strain 3530/230000 = 1.53 % is below the matrix’s, so fibres break first. σ_m′ = 4670 × 0.0153 = 71.7 MPa, σ_cl* = 0.60 × 3530 + 0.40 × 71.7 = 2147 MPa. V_min = 1.4 × 10⁻², so at any practical fraction the fibres govern.",
+   "kw": "tensile strength unidirectional fibre failure strain minimum volume fraction"
+  },
+  "short-fiber": {
+   "name": "Critical fibre length and short-fibre strength (Kelly–Tyson)",
+   "l": [
+    "critical fibre length",
+    "l > l_c",
+    "l < l_c"
+   ],
+   "m": [
+    "critical fibre length",
+    "fibre length",
+    "fibre strength",
+    "fibre diameter",
+    "interfacial shear strength (or matrix shear yield stress)",
+    "strength of aligned short-fibre composite",
+    "volume fractions",
+    "matrix stress"
+   ],
+   "when": "Fibres aligned with the load; interfacial shear stress constant from the fibre ends (rigid-plastic). For random orientation multiply by an orientation efficiency (Krenchel, 3/8 for 2D random). With l above about 15 l_c the fibres behave as continuous.",
+   "miss": "Using the radius for d (factor 2); mixing µm and mm; using the long-fibre formula for l < l_c.",
+   "ex": "Carbon fibre (σ_f* = 3500 MPa, d = 7 µm) with interfacial shear strength τ_c = 40 MPa: l_c = 3500 × 0.007/(2 × 40) = 0.306 mm. Aligned 3 mm fibres at 30 vol% with σ_m′ = 50 MPa: σ_cd* = 0.30 × 3500 × (1 − 0.306/6) + 0.70 × 50 = 1031 MPa. With 0.2 mm fibres (l < l_c): 0.30 × 40 × 0.2/0.007 + 35 = 378 MPa.",
+   "kw": "critical fibre length short fibre Kelly Tyson interfacial shear strength"
+  },
+  "schapery": {
+   "name": "Thermal expansion of unidirectional composites (Schapery)",
+   "l": [
+    "longitudinal",
+    "transverse",
+    "major Poisson’s ratio"
+   ],
+   "m": [
+    "longitudinal and transverse expansion coefficients",
+    "fibre and matrix expansion coefficients",
+    "fibre and matrix moduli",
+    "Poisson’s ratios",
+    "volume fractions"
+   ],
+   "when": "Isotropic fibre and matrix (glass, basalt). Carbon and aramid fibres are anisotropic, so replace (1 + ν_f)α_f by α_f2 + ν_f α_f1 (as in the composite designer). α₁ is dominated by the stiff fibres and lies far below the volume average.",
+   "miss": "Using a plain volume average for α₁; forgetting that carbon fibre has negative axial α.",
+   "ex": "E-glass (E_f = 72.3 GPa, α_f = 5.4 × 10⁻⁶ K⁻¹, ν_f = 0.2) in epoxy (2.73 GPa, 83.4 × 10⁻⁶ K⁻¹, ν_m = 0.35), V_f = 0.60 (values from the composite designer): α₁ = (72.3 × 5.4 × 0.6 + 2.73 × 83.4 × 0.4)/(72.3 × 0.6 + 2.73 × 0.4) = 7.32 × 10⁻⁶ K⁻¹ (a plain average would give 36.6 × 10⁻⁶). ν₁₂ = 0.260, α₂ = 47.0 × 10⁻⁶ K⁻¹.",
+   "kw": "thermal expansion Schapery unidirectional expansion coefficient composite"
+  },
+  "off-axis": {
+   "name": "Off-axis modulus of a ply",
+   "l": [
+    ""
+   ],
+   "m": [
+    "modulus at angle θ from the fibres",
+    "longitudinal and transverse ply moduli",
+    "in-plane shear modulus",
+    "major Poisson’s ratio",
+    "angle between load and fibres"
+   ],
+   "when": "A single orthotropic ply in plane stress pulled uniaxially at θ to the fibres. Laminates need classical laminate theory (A matrix). Because of the G₁₂ term the value near 45° can drop close to or below E₂.",
+   "miss": "Rotating E with cos²θ (it needs fourth powers and the shear term); forgetting to invert; degrees vs radians.",
+   "ex": "T300/5208 ply (E₁ = 181 GPa, E₂ = 10.3 GPa, G₁₂ = 7.17 GPa, ν₁₂ = 0.28, values from the composite designer): E_x = 28.8 GPa at θ = 30° and 16.7 GPa at 45°. A 30° misalignment already drops the stiffness to 1/6.3 of the fibre direction.",
+   "kw": "off-axis ply transformation orthotropic laminate"
+  },
+  "tsai-hill": {
+   "name": "Tsai–Hill failure criterion",
+   "l": [
+    "failure condition",
+    "strength ratio (proportional loading; I_TH is the left-hand side)"
+   ],
+   "m": [
+    "stresses in the ply axes",
+    "longitudinal and transverse strengths (tension or compression by sign)",
+    "in-plane shear strength",
+    "value of the left-hand side (failure index)",
+    "strength ratio (load multiplier to failure)"
+   ],
+   "when": "In-plane (plane stress) loading of a unidirectional ply. For materials with different tension and compression strengths pick X and Y by the sign of the stress. For proportional loading the strength ratio is one over the square root of the left-hand side.",
+   "miss": "Using global stresses without rotating them to the ply axes; taking the strength ratio as one over the left-hand side (needs a square root).",
+   "ex": "T300/5208 (X = 1500, Y = 40, S = 68 MPa) pulled at 100 MPa, 30° from the fibres: σ₁ = 75.0, σ₂ = 25.0, τ₁₂ = −43.3 MPa. The left-hand side is 0.798 < 1, so no failure. Strength ratio R = 1/√0.798 = 1.12 (off-axis strength 112 MPa).",
+   "kw": "Tsai Hill failure criterion strength ratio laminate ply"
+  },
+  "resistivity": {
+   "name": "Resistance and temperature coefficient of resistivity",
+   "l": [
+    "resistance of a wire",
+    "temperature dependence",
+    "conductivity"
+   ],
+   "m": [
+    "resistance",
+    "resistivity, at 20 °C",
+    "length",
+    "cross-section πd²/4",
+    "temperature coefficient of resistivity (20 °C reference)",
+    "temperature, 20 °C reference",
+    "conductivity"
+   ],
+   "when": "Metals near room temperature (about −50 to 150 °C) where resistivity is linear in T. α_R depends on the reference temperature (0 °C vs 20 °C).",
+   "miss": "Using πd² (diameter as radius); skipping the temperature correction; confusing resistivity with resistance.",
+   "ex": "Annealed copper (IEC 60028: ρ₂₀ = 1.7241 × 10⁻⁸ Ω·m, α_R = 0.00393 K⁻¹), 1 mm diameter, 100 m long, at 75 °C: ρ = 1.7241 × 10⁻⁸ × (1 + 0.00393 × 55) = 2.097 × 10⁻⁸ Ω·m, A = π(0.001)²/4 = 7.854 × 10⁻⁷ m², R = 2.67 Ω (2.20 Ω at 20 °C).",
+   "kw": "resistance resistivity temperature coefficient wire copper"
+  },
+  "matthiessen": {
+   "name": "Matthiessen’s rule",
+   "l": [
+    "Matthiessen’s rule",
+    "solute term (Nordheim)"
+   ],
+   "m": [
+    "total resistivity",
+    "thermal, impurity and deformation contributions",
+    "constant for the solute–solvent pair",
+    "solute atom fraction"
+   ],
+   "when": "Metals where the scattering mechanisms are independent. Only ρ_t depends on temperature; ρ_i and ρ_d remain at low temperature (residual resistivity). The Nordheim form is for solid-solution alloys.",
+   "miss": "Adding conductivities instead of resistivities; using at% instead of a fraction.",
+   "ex": "Cu with 3 at% Ni in solid solution (room-temperature ρ_t of Cu 1.72 × 10⁻⁸ Ω·m; A for Cu–Ni read from the Callister figure, about 1.2 × 10⁻⁶ Ω·m): ρ_i = 1.2 × 10⁻⁶ × 0.03 × 0.97 = 3.49 × 10⁻⁸ Ω·m, ρ ≈ 5.21 × 10⁻⁸ Ω·m (3.03 times pure copper).",
+   "kw": "Matthiessen residual resistivity Nordheim solid solution resistivity"
+  },
+  "conductivity": {
+   "name": "Conductivity of semiconductors",
+   "l": [
+    "",
+    "n-type (all donors ionised)",
+    "resistivity"
+   ],
+   "m": [
+    "conductivity",
+    "electron and hole concentrations",
+    "donor concentration",
+    "elementary charge",
+    "electron and hole mobilities",
+    "resistivity"
+   ],
+   "when": "Near room temperature with all dopants ionised (extrinsic regime). Mobility falls with doping, so use a value for that concentration (empirical fits differ by a few per cent: this site’s drill uses the Caughey–Thomas form and the diffusion simulator the Arora fit, which differ by up to about 8 % for electrons in n-type Si at 10¹⁷–10¹⁸ cm⁻³).",
+   "miss": "Not converting cm⁻³ and cm²/(V·s) to SI (or converting only one); confusing conductivity with resistivity.",
+   "ex": "n-type Si with 10¹⁶ cm⁻³ donors (= 10²² m⁻³), electron mobility 1200 cm²/(V·s) = 0.12 m²/(V·s): σ = 10²² × 1.602 × 10⁻¹⁹ × 0.12 = 192 S/m, ρ = 1/σ = 5.20 × 10⁻³ Ω·m = 0.520 Ω·cm.",
+   "kw": "conductivity mobility carrier concentration n-type p-type silicon donor"
+  },
+  "intrinsic": {
+   "name": "Intrinsic carrier concentration",
+   "l": [
+    "",
+    "temperature dependence",
+    "mass-action law"
+   ],
+   "m": [
+    "intrinsic carrier concentration",
+    "effective densities of states",
+    "band gap (use k in eV/K for eV)",
+    "Boltzmann constant",
+    "temperature",
+    "electron and hole concentrations"
+   ],
+   "when": "Non-degenerate semiconductors (Fermi level several kT from the band edges). N_c and N_v scale as T^{3/2}; E_g also varies slightly with T (1.12 eV for Si at 300 K).",
+   "miss": "Dropping the factor 2 (E_g/kT); mixing eV and J.",
+   "ex": "Si (E_g = 1.12 eV, ignoring the temperature dependence of E_g) from 300 K to 350 K: n_i(350)/n_i(300) = (350/300)^(1.5) × exp[−1.12/(2 × 8.617 × 10⁻⁵) × (1/350 − 1/300)] = 27.8. n_i at 300 K is about 10¹⁰ cm⁻³ (Sze).",
+   "kw": "intrinsic carrier concentration band gap effective density of states mass action"
+  },
+  "sheet-resistance": {
+   "name": "Sheet resistance of a diffused layer",
+   "l": [
+    "sheet resistance",
+    "with a doping profile",
+    "uniform layer"
+   ],
+   "m": [
+    "sheet resistance (Ω/□)",
+    "layer resistivity",
+    "junction depth (layer thickness)",
+    "elementary charge",
+    "carrier mobility (depends on N)",
+    "net dopant concentration",
+    "depth"
+   ],
+   "when": "Thin layers with current parallel to the surface. The four-point probe value R_s = 4.53 V/I holds for samples much wider than the probe spacing and thin. N is the net concentration (N − N_B) for a layer of opposite type to the substrate.",
+   "miss": "Using one mobility regardless of doping (it falls at high N); x_j in µm.",
+   "ex": "An n-type layer uniformly doped to 10¹⁹ cm⁻³ (= 10²⁵ m⁻³), 0.5 µm deep (electron mobility 114 cm²/(V·s) from Arora, as in the diffusion lab): R_s = 1/(qμNx_j) = 1/(1.602 × 10⁻¹⁹ × 0.0114 × 10²⁵ × 0.5 × 10⁻⁶) = 109 Ω/□.",
+   "kw": "sheet resistance four point probe junction depth diffused layer mobility"
+  },
+  "faraday": {
+   "name": "Corrosion from Faraday’s law",
+   "l": [
+    "dissolved mass",
+    "penetration rate"
+   ],
+   "m": [
+    "mass of metal dissolved",
+    "current",
+    "time",
+    "molar mass",
+    "valence (electrons per atom)",
+    "Faraday constant",
+    "corrosion penetration rate",
+    "corrosion current density",
+    "metal density"
+   ],
+   "when": "All charge goes to metal dissolution (100 % current efficiency) and attack is uniform. Localised attack such as pitting goes much deeper than the average rate.",
+   "miss": "Dropping n; converting µA/cm² (1 µA/cm² = 10⁻² A/m²); mixing cm and µm with g/cm³.",
+   "ex": "Iron (M = 55.845 g/mol, ρ = 7.87 g/cm³) dissolving uniformly as Fe²⁺ at 1 µA/cm²: per cm² and second 10⁻⁶ × 55.845/(2 × 96485) = 2.89 × 10⁻¹⁰ g, divided by density 3.68 × 10⁻¹¹ cm/s, so 11.6 µm per year (365 days). A current of 0.5 A for 30 days removes m = 0.5 × 2.592 × 10⁶ × 55.845/(2 × 96485) = 375 g.",
+   "kw": "Faraday corrosion rate corrosion current penetration electrochemistry"
+  },
+  "nernst": {
+   "name": "Nernst equation",
+   "l": [
+    "",
+    "25 °C (V)"
+   ],
+   "m": [
+    "cell potential, standard potential",
+    "gas constant",
+    "temperature",
+    "electrons transferred",
+    "Faraday constant",
+    "reaction quotient"
+   ],
+   "when": "Equilibrium potential (no net current). In dilute solutions use concentrations (mol/L) for activities. 0.0592 is (RT/F) ln 10 at 25 °C.",
+   "miss": "Inverting Q relative to the reaction direction; mixing log₁₀ and ln; dropping n.",
+   "ex": "Cell of Ni (Ni²⁺ 10⁻³ M) and Cd (Cd²⁺ 0.5 M) at 25 °C, the same numbers as the Callister chapter 17 example: for Ni²⁺ + Cd → Ni + Cd²⁺, E° = −0.250 − (−0.403) = 0.153 V. E = 0.153 − (RT/2F) ln(0.5/10⁻³) = 0.153 − 0.01285 × 6.215 = 0.073 V. Still positive, so the reaction runs as in the standard cell (Cd dissolves).",
+   "kw": "Nernst electrode potential standard potential emf corrosion"
+  },
+  "pilling-bedworth": {
+   "name": "Pilling–Bedworth ratio",
+   "l": [
+    ""
+   ],
+   "m": [
+    "Pilling–Bedworth ratio (oxide/metal volume)",
+    "molar masses of oxide and metal",
+    "densities of oxide and metal",
+    "metal atoms per oxide formula unit"
+   ],
+   "when": "A rough guide to whether an oxide scale protects. Below 1 the scale is porous; 1–2 tends to be protective; well above 2 compressive stress causes spalling. Many exceptions (adhesion, diffusivity), so use as a guide only.",
+   "miss": "Dropping n (2 for Al₂O₃); swapping the oxide and metal molar masses.",
+   "ex": "Al₂O₃ (M = 101.96 g/mol, ρ = 3.95 g/cm³) on Al (26.982, 2.70): PBR = 101.96 × 2.70/(2 × 26.982 × 3.95) = 1.29 (between 1 and 2, protective). MgO (40.304, 3.58) on Mg (24.305, 1.74): 0.81 (below 1, porous and non-protective).",
+   "kw": "Pilling Bedworth oxide scale high temperature oxidation protective"
+  },
+  "oxidation-rate": {
+   "name": "Oxidation kinetics (parabolic and linear)",
+   "l": [
+    "parabolic (diffusion-controlled)",
+    "linear (non-protective scale)",
+    "temperature dependence"
+   ],
+   "m": [
+    "scale thickness (or mass gain per area)",
+    "time",
+    "parabolic rate constant",
+    "linear rate constant",
+    "pre-exponential factor",
+    "activation energy",
+    "gas constant",
+    "temperature"
+   ],
+   "when": "Parabolic for high-temperature oxidation limited by ionic diffusion through a dense scale; not for very thin early films or cracking/spalling scales. In mass-gain form x becomes Δm/A and k_p changes units.",
+   "miss": "Assuming doubling the time doubles the thickness (√2 for parabolic); mixing thickness and mass-gain rate constants.",
+   "ex": "Parabolic oxidation giving 2.0 µm in 10 h: k_p = 2.0²/10 = 0.40 µm²/h. After 100 h, x = √(0.40 × 100) = 6.32 µm (ten times the time, only √10 times the thickness).",
+   "kw": "oxidation parabolic linear rate constant high temperature oxidation"
+  },
+  "larson-miller": {
+   "name": "Larson–Miller parameter",
+   "l": [
+    "",
+    "two conditions at the same stress"
+   ],
+   "m": [
+    "Larson–Miller parameter (a function of stress)",
+    "absolute temperature",
+    "material constant (about 20 for many metals)",
+    "rupture time (the number in hours goes into the log)",
+    "1 h (log₁₀t_r means log₁₀(t_r/t₀))"
+   ],
+   "when": "Trading temperature against time for creep rupture at the same stress (estimating long low-temperature lives from short hot tests). C refers to time in hours; 20 is typical (15–25). Keep extrapolations within about ten times the test duration.",
+   "miss": "Using °C; using ln instead of log₁₀; time in seconds (C = 20 is for hours).",
+   "ex": "An alloy that ruptured in 50 h at 900 °C under a given stress, used at 800 °C under the same stress (C = 20): P = 1173.15 × (20 + log₁₀50) = 25456 K, t_r = 10^(25456/1073.15 − 20) = 5260 h. Lowering the temperature by 100 K extends the life about 105 times.",
+   "kw": "Larson Miller creep rupture life extrapolation heat resistant alloy"
+  },
+  "creep": {
+   "name": "Power-law creep (steady state)",
+   "l": [
+    ""
+   ],
+   "m": [
+    "steady-state creep rate",
+    "material constant",
+    "stress",
+    "stress exponent (3–8 for dislocation creep)",
+    "activation energy for creep",
+    "gas constant",
+    "temperature"
+   ],
+   "when": "Above about 0.4 T_m where dislocation creep dominates. At low stress and fine grains diffusion creep (n ≈ 1) takes over; at high stress the power law breaks down. Deformation-mechanism maps show which applies.",
+   "miss": "Assuming doubling the stress doubles the rate (2ⁿ); mixing eV and J/mol for Q.",
+   "ex": "A material with n = 5 and Q = 300 kJ/mol: raising the stress by 1.2 times multiplies the strain rate by 1.2⁵ = 2.49; going from 900 K to 950 K multiplies it by exp[(300000/8.314)(1/900 − 1/950)] = 8.25.",
+   "kw": "creep power law stress exponent activation energy steady state"
+  }
+ }
+}
