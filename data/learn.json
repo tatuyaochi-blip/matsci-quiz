@@ -1,0 +1,10 @@
+{
+ "series": [
+  {
+   "id": "everyday-materials",
+   "name": { "ja": "身近な材料のふしぎ", "en": "Everyday materials", "zh-hant": "身邊材料的奧祕" },
+   "desc": { "ja": "錆び、割れ、硬さなど、身の回りの材料で起きることのしくみです。", "en": "Why everyday materials rust, break or harden.", "zh-hant": "生鏽、破裂、變硬等身邊材料現象的原理。" }
+  }
+ ],
+ "extra": []
+}
