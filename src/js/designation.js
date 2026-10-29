@@ -406,6 +406,12 @@ export function decode(raw) {
 }
 
 // ---- 表示
+// 小数点がコンマの言語(de など)では、表の数値(0.45 → 0,45)を書き換える。記号(A5052-H32 など)には「数字.数字」がないので変わらない
+const decimalComma = /^(de|nl|fr|es|pt)/.test(document.documentElement.lang);
+function commaDecimals(root) {
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  for (let n = w.nextNode(); n; n = w.nextNode()) if (/\d\.\d/.test(n.data)) n.data = n.data.replace(/(\d)\.(\d)/g, '$1,$2');
+}
 const el = (tag, attrs = {}, ...kids) => {
   const e = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
@@ -458,6 +464,7 @@ function render(r) {
       ...terms.map(t => el('a', { class: 'chip', href: `${home}term/${t}/` }, T.term_names[t]))));
   }
   box.append(examples());
+  if (decimalComma) commaDecimals(box);
 }
 
 // URL の ?code= で記号を受け取り、入力に合わせて書き換える(言語の切り替え先にも渡す)

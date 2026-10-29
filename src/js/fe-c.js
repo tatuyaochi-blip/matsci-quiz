@@ -170,7 +170,7 @@ if (form) {
     <polyline class="dash" points="${pts(curve(L.liqR, TE, TD))}"/>
     ${labels}${keys}${temps0}${tl}${mark}
   </g>
-  ${xt.map(x => `<text class="sm m" x="${X(x).toFixed(1)}" y="${Hh - m.b + 16}" text-anchor="middle">${x}</text>`).join('')}
+  ${xt.map(x => `<text class="sm m" x="${X(x).toFixed(1)}" y="${Hh - m.b + 16}" text-anchor="middle">${num(x)}</text>`).join('')}
   ${steel ? '' : `<text class="sm a" x="${X(CM).toFixed(1)}" y="${Hh - m.b + 16}" text-anchor="end">Fe₃C</text>`}
   ${yt.map(y => `<text class="sm m" x="${m.l - 4}" y="${Y(y) + 4}" text-anchor="end">${y}</text>`).join('')}
   <text class="sm" x="${m.l + pw / 2}" y="${Hh - 8}" text-anchor="middle">${esc(T.axis_c)}</text>
