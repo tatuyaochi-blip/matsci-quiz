@@ -35,7 +35,7 @@ function update() {
     seen.add(m);
     list.push([m, `(${H}${K}${L}) ${num(2 * Math.asin(x) * 180 / Math.PI, 4)}°`]);
   }
-  out('peaks').textContent = list.sort((p, q) => p[0] - q[0]).slice(0, 6).map(p => p[1]).join(', ') || '–';
+  out('peaks').textContent = list.sort((p, q) => p[0] - q[0]).slice(0, 6).map(p => p[1]).join('; ') || '–';
 }
 form.addEventListener('input', update);
 form.addEventListener('submit', e => e.preventDefault());
