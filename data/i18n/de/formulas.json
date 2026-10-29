@@ -1,0 +1,1783 @@
+{
+  "title": "Formelsammlung Materialwissenschaft (Formelzeichen, Einheiten, Gültigkeit, Beispiele)",
+  "description": "Netzebenenabstand, Bragg-Gleichung, Hebelgesetz, Ficksche Gesetze, Hall-Petch, Spannungsintensitätsfaktor, Paris-Gesetz, Wärmespannung, Mischungsregel, Larson-Miller u. a.: 85 Formeln der Materialwissenschaft mit Formelzeichen, SI-Einheiten, Gültigkeitsbereich, typischen Fehlern und Zahlenbeispiel. Ausgewählte Formeln auf A4 drucken.",
+  "h1": "Formelsammlung",
+  "lead": "Die Formeln aus Vorlesungen, Klausuren und Aufnahmeprüfungen der Materialwissenschaft, nach Gebieten geordnet. Zu jeder Formel finden Sie die Formelzeichen mit ihrer Bedeutung und SI-Einheit, Gültigkeitsbedingungen und -bereich, typische Fehler und ein Zahlenbeispiel; die Dimensionen beider Seiten wurden durchweg maschinell geprüft. Über die Links zu den Aufgabentypen des Rechentrainers und zu den Rechnern können Sie mit derselben Formel üben und rechnen.",
+  "note": "Die Zahlen in den Beispielen stammen aus den Daten der Rechner dieser Website oder entsprechen Beispielaufgaben aus Lehrbüchern (die Quelle ist bei jeder Formel angegeben). Für die Auslegung von Bauteilen verwenden Sie Werte aus Normen und Werkstoffdatenblättern.",
+  "groups": {
+    "crystal": "Kristallstruktur",
+    "phase": "Zustandsdiagramme",
+    "diffusion": "Diffusion und Gitterfehler",
+    "mechanical": "Mechanische Eigenschaften",
+    "fracture": "Bruch",
+    "thermal": "Thermische Eigenschaften",
+    "composite": "Verbundwerkstoffe",
+    "other": "Elektrische Eigenschaften, Korrosion, Hochtemperatur"
+  },
+  "guide": [
+    {
+      "h": "Bedienung",
+      "p": [
+        "Geben Sie oben in das Suchfeld den Namen einer Formel, ein Formelzeichen oder einen Begriff ein (etwa „Bragg“, „K_IC“ oder „Diffusionslänge“); dann bleiben nur die passenden Formeln stehen. Mit den Schaltflächen der Gebiete können Sie ebenfalls eingrenzen. Über den Link in der Überschrift einer Formel (#f-…) gelangen Sie direkt zu dieser Formel.",
+        "Setzen Sie oben rechts bei einer Formel das Häkchen „Auswählen“, um sie in Ihre eigene Formelsammlung aufzunehmen. „Nur Ausgewählte drucken“ druckt die Formeln und Symboltabellen der ausgewählten Einträge zweispaltig auf A4 (10–15 Formeln passen auf ein bis zwei Seiten). Ist „Auch Bedingungen und Beispiele drucken“ aktiviert, werden Gültigkeitsbereich, typische Fehler und Beispiel mitgedruckt.",
+        "„Link zur Auswahl kopieren“ liefert eine URL (?f=…), mit der Sie die ausgewählten Formeln weitergeben können. Die Auswahl wird außerdem in diesem Browser gespeichert (localStorage) und nie an einen Server gesendet. Blockiert Ihr Browser das Speichern, lässt sich die Auswahl über die URL wiederherstellen."
+      ]
+    },
+    {
+      "h": "Die passende Formel wählen",
+      "p": [
+        "Diffusion: Ändert sich das Konzentrationsprofil nicht mit der Zeit (stationärer Strom durch eine Membran), gilt das 1. Ficksche Gesetz; die Diffusionsstromdichte J ist konstant und die Konzentration verläuft über die Dicke linear. Beim Aufkohlen und bei der Dotierstoffdiffusion ändert sich die Konzentration mit der Zeit, hier gilt das 2. Ficksche Gesetz: bei konstanter Oberflächenkonzentration die erfc-Lösung, bei konstanter eingebrachter Gesamtmenge (Eintreiben nach kurzer Vorbelegung) die Gauß-Lösung. Beide setzen voraus, dass die Diffusionslänge √(Dt) klein gegenüber der Probendicke ist (halbunendlicher Körper).",
+        "Spannung und Dehnung: Technische Spannung F/A₀ und technische Dehnung Δl/l₀ aus dem Zugversuch dienen der Auslegung (Streckgrenze, Zugfestigkeit). Für die Verfestigungsgleichung (Hollomon) und große Verformungen braucht man die wahre Spannung σ(1 + ε) und die wahre Dehnung ln(1 + ε). Diese Umrechnung setzt konstantes Volumen und gleichmäßige Verformung voraus und gilt daher nur bis zur Einschnürung (Höchstkraft); danach muss der Querschnitt gemessen werden.",
+        "Mischungsregel: Der E-Modul in Faserrichtung folgt näherungsweise der Mischungsregel für gleiche Dehnung (obere Schranke, Voigt), der E-Modul quer zur Faser der inversen Mischungsregel für gleiche Spannung (untere Schranke, Reuss). Der tatsächliche Quermodul liegt etwas über der unteren Schranke; das erfassen die Halpin-Tsai-Gleichungen. Bei teilchengefüllten Werkstoffen liegt der tatsächliche Wert zwischen oberer und unterer Schranke.",
+        "Bruch: Die Spannung am Rand von Bohrungen und Kerben erhält man mit der Kerbformzahl K_t; bei einem scharfen Riss wird K_t jedoch unbegrenzt groß und ist nicht mehr brauchbar. Für Risse verwendet man den Spannungsintensitätsfaktor K = Yσ√(πa) und vergleicht ihn mit der Bruchzähigkeit K_IC. Das Risswachstum unter wiederholter Belastung beschreibt das Paris-Gesetz; die Ermüdung rissfreier Bauteile behandelt man mit Wöhlerlinie und Miner-Regel.",
+        "Wärmespannung: Ein in einer Richtung eingespannter Stab ergibt EαΔT, eine in beiden Richtungen der Ebene behinderte Platte oder dünne Schicht EαΔT/(1 − ν). Bei unvollständiger Behinderung (zwei verbundene Stäbe, Bimetall) löst man aus dem Kräftegleichgewicht und der Verträglichkeit der Längenänderungen."
+      ]
+    },
+    {
+      "h": "So wurden die Dimensionen geprüft",
+      "p": [
+        "Für alle 85 Formeln wurden die SI-Einheiten der Symboltabellen auf Basiseinheiten (kg, m, s, K, mol, A) zurückgeführt, und ein Programm hat geprüft, dass beide Seiten jeder Gleichung dieselbe Dimension haben und dass die Argumente von exp, ln, erf und Winkelfunktionen sowie Exponenten aus Formelzeichen dimensionslos sind. Die [ ] rechts neben jeder Zeile zeigen die Dimension beider Seiten dieser Zeile.",
+        "Bei Formeln, in die Zahlen in einer festgelegten Einheit einzusetzen sind, etwa log₁₀t_r (Larson-Miller), die ASTM-Korngrößenkennzahl oder die Konstante C des Paris-Gesetzes, ist diese Einheit in der Symboltabelle angegeben. Mit einer anderen Einheit ändern sich die Werte der Konstanten."
+      ]
+    }
+  ],
+  "units_h": "Einheitenumrechnung",
+  "units_lead": "Umrechnungen, um Werte vor dem Einsetzen in eine Formel in SI-Einheiten umzuwandeln (nach NIST SP 811).",
+  "units": [
+    {
+      "a": "1 MPa",
+      "b": "10⁶ Pa = 1 N/mm²",
+      "q": "Spannung"
+    },
+    {
+      "a": "1 ksi",
+      "b": "6,8948 MPa",
+      "q": "Spannung (1000 lbf/in²)"
+    },
+    {
+      "a": "1 ksi√in",
+      "b": "1,0988 MPa√m",
+      "q": "Bruchzähigkeit"
+    },
+    {
+      "a": "1 Å",
+      "b": "0,1 nm = 10⁻¹⁰ m",
+      "q": "Länge (Gitterkonstante, Wellenlänge)"
+    },
+    {
+      "a": "1 eV",
+      "b": "1,602176634 × 10⁻¹⁹ J",
+      "q": "Energie"
+    },
+    {
+      "a": "1 eV/Atom",
+      "b": "96,485 kJ/mol",
+      "q": "Aktivierungsenergie"
+    },
+    {
+      "a": "1 cal",
+      "b": "4,184 J",
+      "q": "Wärme (thermochemische Kalorie)"
+    },
+    {
+      "a": "T [K]",
+      "b": "t [°C] + 273,15",
+      "q": "Temperatur (eine Temperaturdifferenz von 1 K entspricht 1 °C)"
+    },
+    {
+      "a": "1 g/cm³",
+      "b": "10³ kg/m³",
+      "q": "Dichte"
+    },
+    {
+      "a": "1 cm²/s",
+      "b": "10⁻⁴ m²/s",
+      "q": "Diffusionskoeffizient"
+    },
+    {
+      "a": "1 cm⁻³",
+      "b": "10⁶ m⁻³",
+      "q": "Ladungsträger- oder Dotierstoffkonzentration"
+    },
+    {
+      "a": "1 cm²/(V·s)",
+      "b": "10⁻⁴ m²/(V·s)",
+      "q": "Beweglichkeit"
+    },
+    {
+      "a": "1 Ω·cm",
+      "b": "10⁻² Ω·m",
+      "q": "spezifischer Widerstand (1 µΩ·cm = 10⁻⁸ Ω·m)"
+    },
+    {
+      "a": "1 µA/cm²",
+      "b": "10⁻² A/m²",
+      "q": "Stromdichte"
+    },
+    {
+      "a": "1 atm",
+      "b": "101325 Pa",
+      "q": "Druck (1 bar = 10⁵ Pa; 1 Torr = 133,322 Pa)"
+    },
+    {
+      "a": "1 in",
+      "b": "25,4 mm",
+      "q": "Länge"
+    },
+    {
+      "a": "1 lbf",
+      "b": "4,448222 N",
+      "q": "Kraft"
+    },
+    {
+      "a": "1 Jahr (365 d)",
+      "b": "3,1536 × 10⁷ s",
+      "q": "Zeit (Korrosionsgeschwindigkeit)"
+    }
+  ],
+  "const_h": "Physikalische Konstanten",
+  "const_lead": "Empfohlene Werte nach CODATA 2022 (Mohr u. a., Rev. Mod. Phys. 97, 025002 (2025); physics.nist.gov/cuu). „Exakt“ kennzeichnet Konstanten, deren Wert im SI von 2019 festgelegt ist, und daraus berechnete Konstanten; sie haben keine Unsicherheit. Die Zahlen in Klammern sind die Standardunsicherheit in den letzten Stellen. Die Beispiele rechnen mit diesen Werten (der Rechentrainer verwendet gerundete Werte wie R = 8,314).",
+  "constants": [
+    "Avogadro-Konstante",
+    "Boltzmann-Konstante",
+    "Boltzmann-Konstante (eV)",
+    "molare Gaskonstante N_A k",
+    "Elementarladung",
+    "Faraday-Konstante N_A e",
+    "Planck-Konstante",
+    "Lichtgeschwindigkeit im Vakuum",
+    "Stefan-Boltzmann-Konstante",
+    "elektrische Feldkonstante",
+    "magnetische Feldkonstante",
+    "Elektronenmasse",
+    "atomare Massenkonstante (1 u)"
+  ],
+  "faq": [
+    [
+      "Was bedeuten die [ ] rechts neben jeder Formel?",
+      "Die Dimension beider Seiten der Gleichung in dieser Zeile, ausgedrückt in SI-Basiseinheiten (kg, m, s, K, mol, A). Eine Spannung ist zum Beispiel kg·m⁻¹·s⁻² (= Pa), dimensionslose Größen zeigen 1. So können Sie prüfen, ob die Einheit Ihres Ergebnisses stimmt. Bei allen Formeln hat ein Programm geprüft, dass beide Seiten dieselbe Dimension haben."
+    ],
+    [
+      "Wie viele Seiten ergibt der Druck der ausgewählten Formeln?",
+      "Nur mit Formeln und Symboltabellen passen 10–15 Formeln zweispaltig auf etwa ein bis zwei A4-Seiten. Mit „Auch Bedingungen und Beispiele drucken“ wird es länger. Kopfzeile, Anzeigen und Suchfeld werden nicht gedruckt, und die Seite bleibt auch lesbar, wenn in den Druckeinstellungen des Browsers die Hintergrundgrafiken ausgeschaltet sind."
+    ],
+    [
+      "Die Zahlen in den Beispielen weichen manchmal leicht vom Rechentrainer oder von den Rechnern ab.",
+      "Das liegt an unterschiedlich gerundeten Konstanten. Die Beispiele dieser Formelsammlung verwenden die Werte nach CODATA 2022 (R = 8,314462618 J/(mol·K) usw.), die Aufgaben des Rechentrainers nennen gerundete Werte wie R = 8,314. Der Unterschied liegt in der vierten Stelle oder dahinter. Die Stoffwerte sind dieselben wie in den Daten der Rechner."
+    ],
+    [
+      "Kann ich das als Formelblatt für eine Prüfung verwenden?",
+      "Ja. Wählen Sie die benötigten Formeln aus und drucken Sie sie mit „Nur Ausgewählte drucken“. Was Sie mitbringen dürfen (etwa ob Beispiele und Erklärungen erlaubt sind), hängt von der Prüfung ab; prüfen Sie daher die Regeln."
+    ],
+    [
+      "Fehlen Formeln?",
+      "Diese Sammlung enthält die Formeln der Aufgabentypen des Rechentrainers und der Rechner sowie häufig verwendete Lehrbuchformeln. Für Kristallsymmetrie, die Elastizitätstheorie der Versetzungen oder ausführliche Formeln zur Kinetik von Phasenumwandlungen ziehen Sie ein Lehrbuch heran."
+    ]
+  ],
+  "sources_h": "Wichtige Quellen",
+  "refs": {
+    "callister": "Callister (10. Aufl.)",
+    "cullity": "Cullity (3. Aufl.)",
+    "askeland": "Askeland (7. Aufl.)",
+    "wh1953": "Williamson & Hall 1953",
+    "porter": "Porter (3. Aufl.)",
+    "scheil1942": "Scheil 1942",
+    "shewmon": "Shewmon (2. Aufl.)",
+    "crank": "Crank (2. Aufl.)",
+    "sze": "Sze (3. Aufl.)",
+    "hullbacon": "Hull & Bacon (5. Aufl.)",
+    "e112": "ASTM E112",
+    "dowling": "Dowling (4. Aufl.)",
+    "ashby": "Ashby (5. Aufl.)",
+    "anderson": "Anderson (4. Aufl.)",
+    "e399": "ASTM E399",
+    "paris1963": "Paris & Erdogan 1963",
+    "weibull1951": "Weibull 1951",
+    "tg": "Timoshenko & Goodier (3. Aufl.)",
+    "stoney": "Stoney 1909",
+    "tim1925": "Timoshenko 1925",
+    "kingery": "Kingery (2. Aufl.)",
+    "manson": "Manson 1966",
+    "kittel": "Kittel (8. Aufl.)",
+    "hullclyne": "Hull & Clyne (2. Aufl.)",
+    "halpin1976": "Halpin & Kardos 1976",
+    "rmjones": "Jones (2. Aufl.)",
+    "kt1965": "Kelly & Tyson 1965",
+    "schapery1968": "Schapery 1968",
+    "iec60028": "IEC 60028",
+    "pb1923": "Pilling & Bedworth 1923",
+    "birks": "Birks u. a. (2. Aufl.)",
+    "lm1952": "Larson & Miller 1952"
+  },
+  "formulas": {
+    "d-cubic": {
+      "name": "Netzebenenabstand (kubisch)",
+      "l": [
+        ""
+      ],
+      "m": [
+        "Netzebenenabstand der (hkl)-Ebenen",
+        "Gitterkonstante (Kantenlänge des Würfels)",
+        "Millersche Indizes (ganze Zahlen)"
+      ],
+      "when": "Nur für kubische Gitter (kubisch primitiv, BCC, FCC, Diamantstruktur, NaCl-Typ usw.). Für tetragonale, hexagonale und andere Gitter gilt die nachfolgende Formel „Netzebenenabstand (tetragonal, orthorhombisch, hexagonal)“. Die Formel gibt den Abstand der Ebenenschar an und gilt rechnerisch auch für (hkl), deren Reflex nach den Auslöschungsregeln fehlt.",
+      "miss": "Die Wurzel vergessen oder durch h + k + l teilen. (100) und (200) verwechseln: Im BCC-Gitter ist der (100)-Reflex ausgelöscht und erscheint als (200) mit d/2. nm und Å verwechseln (1 Å = 0,1 nm).",
+      "ex": "Cu (FCC, a = 0,36146 nm), (111)-Ebenen: d = 0,36146/√3 = 0,2087 nm. Für BCC-Fe (a = 0,28665 nm), (110): 0,28665/√2 = 0,2027 nm.",
+      "kw": "Netzebenenabstand Millersche Indizes kubisch d-Wert"
+    },
+    "d-noncubic": {
+      "name": "Netzebenenabstand (tetragonal, orthorhombisch, hexagonal)",
+      "l": [
+        "tetragonal, orthorhombisch",
+        "hexagonal"
+      ],
+      "m": [
+        "Netzebenenabstand",
+        "Gitterkonstanten (orthorhombisch a ≠ b ≠ c, tetragonal a = b)",
+        "Millersche Indizes (hexagonal: h, k, l der vierstelligen Indizes (hkil), i = −(h + k))"
+      ],
+      "when": "Die erste Form gilt für Gitter mit rechtwinkligen Achsen (kubisch, tetragonal, orthorhombisch), die zweite für hexagonale Gitter (a-Achsen unter 120°, c-Achse senkrecht dazu). Monokline und trikline Gitter erfordern die allgemeine Formel mit den Achsenwinkeln (Metrik des reziproken Gitters). In der hexagonalen Form sind h, k, l die drei Indizes von (hkil) ohne i.",
+      "miss": "Das i der vierstelligen Indizes (10−11) in die Formel einsetzen (i ergibt sich aus h und k). Die kubische Form 1/d² = (h² + k² + l²)/a² auf hexagonale Kristalle anwenden. In einer tetragonalen Zelle a und c vertauschen.",
+      "ex": "Tetragonales β-Sn (a = 0,58318 nm; c = 0,31818 nm), (101): aus 1/d² = 1/a² + 1/c² folgt d = 0,2793 nm. Hexagonales Mg (a = 0,32094 nm; c = 0,52107 nm), (101) (vierstellig (10−11)): aus 1/d² = 4/(3a²) + 1/c² folgt d = 0,2452 nm.",
+      "kw": "Netzebenenabstand hexagonal tetragonal orthorhombisch allgemeine Formel hdP hcp"
+    },
+    "bragg": {
+      "name": "Bragg-Gleichung",
+      "l": [
+        ""
+      ],
+      "m": [
+        "Beugungsordnung (meist n = 1; die n-te Ordnung wird als erste Ordnung an Ebenen mit d/n behandelt)",
+        "Wellenlänge der Röntgenstrahlung",
+        "Netzebenenabstand",
+        "Bragg-Winkel (zwischen Strahl und Netzebenen; gemessen wird 2θ)"
+      ],
+      "when": "Bedingung für konstruktive Interferenz der an den Netzebenen gestreuten Wellen (kinematische Beugung). Ein Reflex existiert nur für λ ≤ 2d. Die Gleichung legt nur die Lage der Reflexe fest; die Intensitäten ergeben sich aus Strukturfaktor und LP-Faktor.",
+      "miss": "θ und 2θ verwechseln (Diffraktometer geben 2θ aus). Grad und Bogenmaß verwechseln. Kα1 mit der gemittelten Kα-Wellenlänge verwechseln. Einen Reflex einem nach den Auslöschungsregeln fehlenden (hkl) zuordnen.",
+      "ex": "Cu-Kα1 (λ = 0,15406 nm) an Cu (111) (d = 0,2087 nm): sinθ = λ/(2d) = 0,3691; θ = 21,66°; Reflexlage 2θ = 43,32°.",
+      "kw": "Bragg Beugungswinkel 2θ 2theta XRD Röntgenbeugung Wellenlänge"
+    },
+    "density": {
+      "name": "Theoretische Dichte",
+      "l": [
+        "",
+        "kubisch"
+      ],
+      "m": [
+        "theoretische Dichte",
+        "Zahl der Atome je Elementarzelle (kubisch primitiv 1, BCC 2, FCC 4, Diamant 8, HCP-Sechseckprisma 6)",
+        "molare Masse (Atommasse × 10⁻³ kg/mol)",
+        "Avogadro-Konstante",
+        "Volumen der Elementarzelle",
+        "Gitterkonstante"
+      ],
+      "when": "Dichte eines fehlerfreien Kristalls; reale Werkstoffe weichen durch Leerstellen, Poren und Verunreinigungen etwas ab. Bei Verbindungen ist n die Zahl der Formeleinheiten und M die Formelmasse (NaCl-Typ: 4 Paare Na⁺ und Cl⁻).",
+      "miss": "a in nm in die dritte Potenz erheben (für g/cm³ nm → cm mit × 10⁻⁷ umrechnen). M in g/mol mit m³ kombinieren (für kg/m³ muss M in kg/mol stehen). n für BCC und FCC vertauschen.",
+      "ex": "BCC-Fe (n = 2; M = 55,845 g/mol; a = 0,28665 nm = 0,28665 × 10⁻⁷ cm): V_c = a³ = 2,355 × 10⁻²³ cm³; ρ = 2 × 55,845/(6,02214 × 10²³ × 2,355 × 10⁻²³) = 7,874 g/cm³ (Tabellenwert 7,87 g/cm³).",
+      "kw": "theoretische Dichte Elementarzelle Avogadro"
+    },
+    "atomic-radius": {
+      "name": "Gitterkonstante und Atomradius",
+      "l": [
+        "SC",
+        "BCC",
+        "FCC",
+        "HCP",
+        "ideales HCP"
+      ],
+      "m": [
+        "Gitterkonstante",
+        "Atomradius (harte Kugel)",
+        "Länge der c-Achse im HCP-Gitter"
+      ],
+      "when": "Harte Kugeln berühren sich entlang der Würfelkante (kubisch primitiv), der Raumdiagonalen (BCC), der Flächendiagonalen (FCC) oder in der Basisebene (HCP). Der „Radius“ hängt von der Bindungsart ab (metallische Radien beziehen sich auf die Koordinationszahl 12).",
+      "miss": "Radius und Durchmesser verwechseln (4r in √3a = 4r sind zwei Durchmesser). Die Beziehungen für BCC und FCC vertauschen.",
+      "ex": "BCC-Fe (a = 0,28665 nm): r = √3a/4 = 0,1241 nm. FCC-Cu (a = 0,36146 nm): r = √2a/4 = 0,1278 nm.",
+      "kw": "Atomradius Gitterkonstante BCC FCC HCP krz kfz hdP c/a"
+    },
+    "apf": {
+      "name": "Packungsdichte (Metalle und Ionenkristalle)",
+      "l": [
+        ""
+      ],
+      "m": [
+        "Packungsdichte (atomic packing factor)",
+        "Zahl der Atome (Ionen) mit dem Radius r_i je Elementarzelle",
+        "Atom- bzw. Ionenradius",
+        "Volumen der Elementarzelle"
+      ],
+      "when": "Modell harter Kugeln. Metalle: kubisch primitiv 0,524; BCC 0,680; FCC und HCP 0,740; Diamant 0,340. In Ionenkristallen ergibt sich a aus der Richtung, in der sich Kation und Anion berühren (NaCl-Typ entlang der Kante, CsCl-Typ entlang der Raumdiagonalen).",
+      "miss": "In Ionenkristallen a aus der Berührung der Anionen untereinander bestimmen (nur bei kleinem Radienverhältnis richtig). Beim NaCl-Typ nur 1 Ionenpaar je Zelle zählen statt 4.",
+      "ex": "BCC: 2 × (4/3)π(√3a/4)³/a³ = √3π/8 = 0,6802; FCC: π/(3√2) = 0,7405. NaCl-Typ (Na⁺ 0,102 nm; Cl⁻ 0,181 nm; Kation und Anion berühren sich entlang der Würfelkante): a = 2(r₊ + r₋) = 0,5660 nm; Packungsdichte = 4 × (4/3)π(r₊³ + r₋³)/a³ = 0,646.",
+      "kw": "Packungsdichte APF Raumerfüllung Ionenkristall NaCl CsCl"
+    },
+    "planar-density": {
+      "name": "Flächenbelegung und Linienbelegung",
+      "l": [
+        "",
+        ""
+      ],
+      "m": [
+        "Flächenbelegung (Atome je Fläche)",
+        "Linienbelegung (Atome je Länge)",
+        "Zahl der Atome mit Mittelpunkt auf der Ebene bzw. Linie (nach dem Anteil innerhalb des Schnitts gezählt)",
+        "Fläche der Ebene",
+        "Länge der Linie"
+      ],
+      "when": "Gezählt werden nur Atome, deren Mittelpunkt auf der Ebene (Linie) liegt. Zählt man im Schnitt einer Elementarzelle, werden Eck- und Kantenatome mit dem Anteil addiert, der im Schnitt liegt. Gleitebenen sind die am dichtesten belegten Ebenen, Gleitrichtungen die am dichtesten belegten Richtungen (FCC: {111}⟨110⟩; BCC: {110}⟨111⟩).",
+      "miss": "Auch Atome mitzählen, die die Ebene nur anschneiden. Für jede Ebene die Würfelfläche a² verwenden ((110) hat √2a², das (111)-Dreieck (√3/2)a²).",
+      "ex": "FCC-Al (a = 0,40496 nm), (111): Der Schnitt durch die Elementarzelle ist ein gleichseitiges Dreieck mit der Seitenlänge √2a (Fläche (√3/2)a² = 0,1420 nm²) und enthält 3 × 1/6 + 3 × 1/2 = 2 Atome. Flächenbelegung PD = 14,08 nm⁻². Linienbelegung in [110]: 2/(√2a) = 3,492 nm⁻¹.",
+      "kw": "Flächenbelegung Linienbelegung Flächendichte Gleitsystem planar density"
+    },
+    "hcp-cell": {
+      "name": "HCP: Zellvolumen und Zahl der Atome",
+      "l": [
+        "",
+        "Sechseckprisma"
+      ],
+      "m": [
+        "Volumen des Sechseckprismas",
+        "Gitterkonstanten",
+        "Zahl der Atome im Prisma"
+      ],
+      "when": "Gezählt wird im Sechseckprisma (drei primitive Elementarzellen): 12 Ecken × 1/6; 2 Grundflächen × 1/2; 3 im Inneren, zusammen 6 Atome. Die primitive Elementarzelle (Parallelepiped, (√3/2)a²c) enthält 2. Beides lässt sich direkt in die Formel der theoretischen Dichte einsetzen. Ideales c/a = √(8/3) = 1,633 (Mg 1,624; Zn 1,856; Ti 1,587).",
+      "miss": "Das Volumen des Prismas mit 2 Atomen oder die primitive Zelle mit 6 Atomen kombinieren (die Dichte ist dann um den Faktor 3 falsch).",
+      "ex": "Mg (a = 0,32094 nm; c = 0,52107 nm): c/a = 1,624 (nahe am Idealwert 1,633). Das Sechseckprisma (3√3/2)a²c = 1,394 × 10⁻²² cm³ enthält 6 Atome; mit M = 24,305 g/mol folgt ρ = 1,737 g/cm³ (Tabellenwert 1,74 g/cm³).",
+      "kw": "HCP hdP hexagonal dichteste Packung c/a Elementarzelle"
+    },
+    "interstitial": {
+      "name": "Größe der Gitterlücken und Radienverhältnis",
+      "l": [
+        "Oktaederlücke",
+        "Tetraederlücke",
+        "Würfellücke"
+      ],
+      "m": [
+        "Radius der Kugel, die in die Lücke passt",
+        "Radius der umgebenden Atome (Anionen)"
+      ],
+      "when": "Oktaeder- und Tetraederlücken dichtester Packungen (FCC, HCP) und die Würfelmitte des kubisch primitiven Gitters. In Ionenkristallen ist es das kleinste Radienverhältnis, bei dem das Kation die Anionen noch berührt, und ein Anhaltspunkt für die Koordinationszahl (0,225–0,414: 4; 0,414–0,732: 6; ab 0,732: 8). Die Lücken im BCC-Gitter sind verzerrt: Oktaederlücke 0,155; Tetraederlücke 0,291.",
+      "miss": "Für die Oktaederlücke im BCC-Gitter den FCC-Wert 0,414 verwenden. Die Radienverhältnisregel ist nur ein Anhaltspunkt und versagt bei Verbindungen mit stark kovalentem Bindungsanteil.",
+      "ex": "γ-Fe (FCC, a ≈ 0,3647 nm): R = √2a/4 = 0,1289 nm; die Kugel, die in die Oktaederlücke passt, hat r = (√2 − 1)R = 0,0534 nm. Ein Kohlenstoffatom (Radius etwa 0,071 nm) ist größer und drückt die umgebenden Atome auseinander.",
+      "kw": "Gitterlücke Zwischengitterplatz Oktaederlücke Tetraederlücke Radienverhältnis Koordinationszahl"
+    },
+    "structure-factor": {
+      "name": "Strukturfaktor und Beugungsintensität",
+      "l": [
+        "",
+        ""
+      ],
+      "m": [
+        "Strukturfaktor (in Einheiten der Streuung eines Elektrons)",
+        "Atomformfaktor des Atoms j (nimmt mit sinθ/λ ab)",
+        "Millersche Indizes",
+        "Lage des Atoms j (fraktionelle Koordinaten, Gitterkonstante = 1)",
+        "integrale Intensität (relativ)",
+        "Multiplizität (Zahl der Ebenen mit gleichem d)",
+        "Bragg-Winkel"
+      ],
+      "when": "Kinematische Intensitäten für ein regellos orientiertes Pulver in Bragg-Brentano-Geometrie mit unendlich dicker Probe, ohne Absorption und Extinktion. Der LP-Faktor (1 + cos²2θ)/(sin²θ cosθ) fasst Polarisations- und Lorentz-Faktor zusammen (mit Monochromator ändert sich seine Form). Der Temperaturfaktor exp(−2B sin²θ/λ²) schwächt hohe Winkel ab. Auslöschungsregeln: BCC bei ungeradem h + k + l, FCC bei gemischt geraden und ungeraden h, k, l ist F = 0.",
+      "miss": "Intensitäten mit F statt mit |F|² vergleichen. Die Multiplizität weglassen. Reflexe mit gleichem d (z. B. BCC (411) und (330)) getrennt zählen.",
+      "ex": "Für FCC ist F = 4f, wenn h, k, l alle gerade oder alle ungerade sind, sonst 0. Al mit Cu-Kα1: (111) bei 2θ = 38,47°; f = 8,96; F = 35,8; LP = 15,7; Multiplizität 8. (200) bei 2θ = 44,72°; f = 8,51; F = 34,0; LP = 11,2; Multiplizität 6. Intensitätsverhältnis I(200)/I(111) = 0,48 (ohne Temperaturfaktor und anomale Dispersion).",
+      "kw": "Strukturfaktor Auslöschungsregeln Beugungsintensität LP-Faktor Lorentz-Polarisationsfaktor Flächenhäufigkeitsfaktor Multiplizität Atomformfaktor"
+    },
+    "scherrer": {
+      "name": "Scherrer-Gleichung",
+      "l": [
+        ""
+      ],
+      "m": [
+        "Kristallitgröße (volumengewichtetes Mittel senkrecht zu den Netzebenen)",
+        "Scherrer-Konstante (Formfaktor; 0,89–0,94; meist 0,9)",
+        "Wellenlänge der Röntgenstrahlung",
+        "Verbreiterung durch die Kristallitgröße (Halbwertsbreite nach Abzug der Gerätebreite)",
+        "Bragg-Winkel"
+      ],
+      "when": "Wenn die Verbreiterung allein von der Kristallitgröße herrührt (den Beitrag der Dehnung trennt man mit Williamson-Hall). Brauchbar bis etwa 100 nm; darüber geht die Größenverbreiterung in der Gerätebreite unter. Die Gerätebreite β_i zieht man bei Gauß-Profilen als β² = β_m² − β_i², bei Lorentz-Profilen als β = β_m − β_i ab.",
+      "miss": "β in Grad einsetzen (in Bogenmaß umrechnen). Den 2θ-Wert als θ in den Kosinus einsetzen. Die Gerätebreite nicht abziehen. Das Ergebnis ist die Größe der kohärent streuenden Bereiche (Kristallite), nicht unbedingt die Korngröße.",
+      "ex": "Cu-Kα1; 2θ = 44,5°; gemessene Halbwertsbreite 0,55°; Gerätebreite 0,08° (Gauß-Profil: β = √(0,55² − 0,08²) = 0,5442° = 0,009497 rad); K = 0,9: D = 0,9 × 0,15406/(0,009497 × cos 22,25°) = 15,8 nm.",
+      "kw": "Scherrer Scherrer-Konstante Kristallitgröße Halbwertsbreite FWHM Linienverbreiterung Reflexbreite"
+    },
+    "williamson-hall": {
+      "name": "Williamson-Hall-Auftragung",
+      "l": [
+        ""
+      ],
+      "m": [
+        "Reflexbreite (Halbwertsbreite nach Abzug der Gerätebreite)",
+        "Bragg-Winkel",
+        "Scherrer-Konstante",
+        "Wellenlänge",
+        "Kristallitgröße",
+        "inhomogene Gitterdehnung (Mikrodehnung)"
+      ],
+      "when": "Setzt voraus, dass die Verbreiterung durch die Größe (1/cosθ) und durch die Dehnung (tanθ) beide Lorentz-förmig sind und sich einfach addieren. Man trägt β cosθ über 4 sinθ auf: Der Achsenabschnitt liefert D, die Steigung ε. Bei elastisch stark anisotropen Werkstoffen streuen die Punkte; dann verwendet man das modifizierte W-H-Verfahren.",
+      "miss": "Über sinθ auftragen und vergessen, die Steigung durch 4 zu teilen (4ε statt ε). D angeben, obwohl der Achsenabschnitt negativ oder nahe null ist (keine messbare Größenverbreiterung).",
+      "ex": "Mit den fünf Ni-Reflexen aus dem Beispiel der XRD-Analyse-Werkbank (2θ = 44,5°–98,4°; Gerätebreite 0,08° als Gauß-Profil abgezogen) ergibt die Ausgleichsgerade von β cosθ über 4 sinθ den Achsenabschnitt 6,924 × 10⁻³ rad und die Steigung ε = 1,50 × 10⁻³ (= 0,150 %). D = Kλ/Achsenabschnitt = 0,9 × 0,15406/6,924 × 10⁻³ = 20,0 nm.",
+      "kw": "Williamson Hall Mikrodehnung Linienverbreiterung Reflexbreite"
+    },
+    "peak-shift": {
+      "name": "Reflexverschiebung und Gitterdehnung",
+      "l": [
+        ""
+      ],
+      "m": [
+        "Verschiebung der Reflexlage",
+        "ursprünglicher Bragg-Winkel",
+        "relative Änderung des Netzebenenabstands (Gitterdehnung)"
+      ],
+      "when": "Differenzierte Bragg-Gleichung, gültig für kleine Δd/d. Gleichmäßige Dehnung (Eigenspannungen, gelöste Atome, Wärmeausdehnung) verschiebt die Reflexe, ungleichmäßige Dehnung verbreitert sie. Bei gleichem Δd/d wächst die Verschiebung mit dem Winkel; genaue Gitterkonstanten bestimmt man daher an Reflexen bei hohen Winkeln.",
+      "miss": "Vorzeichen: Ein aufgeweitetes Gitter verschiebt 2θ zu kleineren Werten. Das Ergebnis ist im Bogenmaß (für Grad × 180/π). 2θ statt θ einsetzen. Auch ein Höhenfehler der Probe (Nullpunktfehler) verschiebt die Reflexe.",
+      "ex": "Cu (111) (2θ = 43,32°; θ = 21,66°), Gitter um 0,1 % aufgeweitet (Δd/d = 1,0 × 10⁻³): Δ(2θ) ≈ −2 × 1,0 × 10⁻³ × tan 21,66° = −7,94 × 10⁻⁴ rad = −0,0455° (Verschiebung zu kleineren Winkeln).",
+      "kw": "Reflexverschiebung Peakverschiebung Gitterdehnung Eigenspannung 2θ 2theta"
+    },
+    "vegard": {
+      "name": "Vegardsche Regel",
+      "l": [
+        ""
+      ],
+      "m": [
+        "Gitterkonstante des Mischkristalls",
+        "Stoffmengenanteil (Atomanteil) von B",
+        "Gitterkonstanten der reinen Stoffe A und B (gleiche Struktur)"
+      ],
+      "when": "Erfahrungsregel für lückenlose Mischkristallreihen gleicher Kristallstruktur. Viele Legierungen weichen davon ab (nach oben oder unten gekrümmt); für eine genaue Bestimmung der Zusammensetzung verwendet man den gemessenen Zusammenhang des jeweiligen Systems. x ist ein Stoffmengenanteil, nicht wt%.",
+      "miss": "Für x wt% verwenden. Gitterkonstanten von Phasen mit unterschiedlicher Struktur verwenden.",
+      "ex": "Mischkristall aus Si (a = 0,54306 nm) und Ge (a = 0,56574 nm), gemessen a = 0,5500 nm: x_Ge = (0,5500 − 0,54306)/(0,56574 − 0,54306) = 0,306. Si–Ge weicht leicht nach unten von der Vegardschen Regel ab; für genaue Zusammensetzungen verwendet man eine korrigierte Beziehung.",
+      "kw": "Vegard Vegardsche Regel Mischkristall Gitterkonstante Zusammensetzung"
+    },
+    "phase-rule": {
+      "name": "Gibbssche Phasenregel",
+      "l": [
+        "",
+        "konstanter Druck (kondensierte Systeme)"
+      ],
+      "m": [
+        "Zahl der Freiheitsgrade (intensive Variablen, die sich im Gleichgewicht unabhängig ändern lassen)",
+        "Zahl der Komponenten",
+        "Zahl der koexistierenden Phasen"
+      ],
+      "when": "Nur im Gleichgewicht. Zustandsdiagramme von Metallen und Keramiken gelten meist für konstanten Druck; dann verwendet man die Form mit +1. Die Mengen der Phasen zählen nicht zu den Freiheitsgraden.",
+      "miss": "Gefügebestandteile (z. B. Perlit) als Phasen zählen. Für ein Diagramm bei konstantem Druck +2 verwenden. Die Regel auf Nichtgleichgewichtsgefüge (Martensit) anwenden.",
+      "ex": "Eutektischer Punkt von Pb–Sn bei konstantem Druck (C = 2; Phasen α, β und Schmelze, P = 3): F = 2 − 3 + 1 = 0, Temperatur und alle drei Zusammensetzungen liegen fest (183 °C). Im Zweiphasengebiet ist F = 1 (legt man die Temperatur fest, sind beide Zusammensetzungen bestimmt). Tripelpunkt des Wassers (Druck variabel, C = 1, P = 3): F = 1 − 3 + 2 = 0.",
+      "kw": "Phasenregel Gibbs Freiheitsgrade nonvarianter Punkt"
+    },
+    "lever": {
+      "name": "Hebelgesetz",
+      "l": [
+        "",
+        ""
+      ],
+      "m": [
+        "Massenanteile der Phasen α und β",
+        "Zusammensetzung der Legierung insgesamt (wt%)",
+        "Enden der Konode (Zusammensetzungen der Phasen bei dieser Temperatur, wt%)"
+      ],
+      "when": "Innerhalb eines Zweiphasengebiets im Gleichgewicht. Mit wt% erhält man Massenanteile, mit at% Stoffmengenanteile; für Volumenanteile rechnet man mit den Dichten der Phasen um. Auch die Anteile von Eutektikum oder voreutektoiden Gefügebestandteilen ergeben sich aus dem Hebelgesetz knapp über oder unter der Dreiphasenlinie.",
+      "miss": "Im Zähler den Hebelarm auf der Seite der gesuchten Phase verwenden (richtig ist der gegenüberliegende Arm). wt% und at% mischen. Die Zusammensetzung der Legierung statt des Konodenendes als Zusammensetzung einer Phase verwenden.",
+      "ex": "Cu–35 wt% Ni bei 1250 °C gehalten (Konodenenden C_L = 31,5 wt%; C_α = 42,5 wt%): W_L = (42,5 − 35)/(42,5 − 31,5) = 0,682; W_α = 0,318.",
+      "kw": "Hebelgesetz Konode Phasenanteil Massenanteil"
+    },
+    "eutectic-fraction": {
+      "name": "Anteile von Primärkristallen und Eutektikum",
+      "l": [
+        "untereutektisch",
+        "primäres α"
+      ],
+      "m": [
+        "Massenanteil des Eutektikums (Gefügebestandteil)",
+        "Massenanteil des primären α",
+        "Zusammensetzung der Legierung (wt%)",
+        "maximale Löslichkeit in α bei der eutektischen Temperatur (wt%)",
+        "eutektische Zusammensetzung (wt%)"
+      ],
+      "when": "Knapp unter der eutektischen Temperatur nach Erstarrung im Gleichgewicht. Bei übereutektischen Legierungen ersetzt man α durch β und C_α durch C_β. Auch das Eutektikum selbst enthält α; die Menge der Phase α insgesamt ergibt sich daher aus einem eigenen Hebelgesetz mit C_β.",
+      "miss": "Anteile der Gefügebestandteile (Primärkristalle, Eutektikum) mit Anteilen der Phasen (α, β) verwechseln. Bei schneller Erstarrung (nahe Scheil) entsteht Eutektikum auch bei Zusammensetzungen, bei denen es im Gleichgewicht fehlt.",
+      "ex": "Pb–40 wt% Sn (untereutektisch) knapp unter 183 °C: Eutektikum W_e = (40 − 18,3)/(61,9 − 18,3) = 0,498; primäres α 0,502. Als Phasen gezählt: β = (40 − 18,3)/(97,8 − 18,3) = 0,273; α = 0,727 (einschließlich des α im Eutektikum).",
+      "kw": "Eutektikum Primärkristalle Gefügebestandteil untereutektisch übereutektisch"
+    },
+    "proeutectoid": {
+      "name": "Voreutektoide Phase und Perlit (Fe–C)",
+      "l": [
+        "untereutektoid",
+        "untereutektoid",
+        "übereutektoid"
+      ],
+      "m": [
+        "Massenanteil des Perlits",
+        "Massenanteile von voreutektoidem Ferrit und voreutektoidem Zementit",
+        "Kohlenstoffgehalt des Stahls (wt%)"
+      ],
+      "when": "System Fe–Fe₃C, langsam bis knapp unter 727 °C abgekühlt. Werte: eutektoider Punkt 0,76 wt% C; Löslichkeitsgrenze des Ferrits 0,022 wt%; Fe₃C 6,70 wt% (wie im Zustandsdiagramm und in den Fragen dieser Website; manche Lehrbücher verwenden 0,77 und 6,67).",
+      "miss": "Den Anteil des voreutektoiden Ferrits mit dem des gesamten Ferrits (einschließlich des Ferrits im Perlit) verwechseln. Die Formeln für unter- und übereutektoide Stähle vertauschen. Die Formeln auf schnelle Abkühlung wie beim Härten anwenden.",
+      "ex": "Stahl mit 0,40 wt% C (untereutektoid) knapp unter 727 °C: Perlit W_P = (0,40 − 0,022)/(0,76 − 0,022) = 0,512; voreutektoider Ferrit 0,488. Ferrit als Phase (einschließlich des Ferrits im Perlit): (6,70 − 0,40)/(6,70 − 0,022) = 0,943. Bei 1,00 wt% C (übereutektoid) beträgt der voreutektoide Zementit (1,00 − 0,76)/(6,70 − 0,76) = 0,0404.",
+      "kw": "voreutektoider Ferrit voreutektoider Zementit Perlit Eisen Kohlenstoff Fe-C untereutektoid übereutektoid"
+    },
+    "wt-at": {
+      "name": "Umrechnung zwischen wt% und at%",
+      "l": [
+        "",
+        ""
+      ],
+      "m": [
+        "Stoffmengenanteile (× 100 ergibt at%)",
+        "Massenanteile (× 100 ergibt wt%)",
+        "molare Massen (Atommassen)"
+      ],
+      "when": "Für zwei Komponenten; bei mehr Komponenten steht im Nenner die Summe über alle Komponenten. Eignet sich auch zur Kontrolle der Zusammensetzung von Verbindungen (Fe₃C: 6,70 wt% C = 25 at% C).",
+      "miss": "Die Atommassen von A und B vertauschen. wt% direkt als Verhältnis der Atomzahlen verwenden.",
+      "ex": "Pb–Sn-Eutektikum mit 61,9 wt% Sn (Pb 207,2 g/mol; Sn 118,71 g/mol): x_Sn = (61,9/118,71)/(61,9/118,71 + 38,1/207,2) = 73,9 at%.",
+      "kw": "wt% at% Massenprozent Atomprozent Umrechnung Stoffmengenanteil Molenbruch"
+    },
+    "scheil": {
+      "name": "Scheil-Gleichung (Erstarrung im Ungleichgewicht)",
+      "l": [
+        "",
+        ""
+      ],
+      "m": [
+        "Zusammensetzung des an der Phasengrenze erstarrenden Festkörpers (wt%)",
+        "Zusammensetzung der Schmelze (wt%)",
+        "Verteilungskoeffizient C_s/C_L (Verhältnis von Soliduslinie zu Liquiduslinie)",
+        "Zusammensetzung der Legierung (wt%)",
+        "Anteile von Festkörper und Schmelze"
+      ],
+      "when": "Keine Diffusion im Festkörper, vollständige Durchmischung der Schmelze, lokales Gleichgewicht an der Phasengrenze und konstantes k (gerade Solidus- und Liquiduslinie). Damit schätzt man Seigerungen in Gussstücken und die Menge an Eutektikum, das im Gleichgewicht nicht entstünde. Für k < 1 ist die zuletzt erstarrende Schmelze am stärksten angereichert.",
+      "miss": "f_s und f_L vertauschen. k als Kehrwert (Liquidus zu Solidus) ansetzen. Das Ergebnis des Hebelgesetzes im Gleichgewicht erwarten (das Gleichgewicht setzt einen homogenen Festkörper voraus).",
+      "ex": "Al–4 wt% Cu (Zustandsdiagramm mit geraden Linien, k = 5,65/33,2 = 0,170): Bei halber Erstarrung (f_s = 0,5) hat der Festkörper an der Phasengrenze C_s = 0,170 × 4 × 0,5^(−0,830) = 1,21 wt%. Die Schmelze erreicht die eutektische Zusammensetzung 33,2 wt% bei f_L = (33,2/4)^(1/(k − 1)) = 0,0781: Etwa 7,8 % erstarren als Eutektikum, obwohl im Gleichgewicht keines entstünde.",
+      "kw": "Scheil Seigerung Erstarrung Verteilungskoeffizient Ungleichgewicht"
+    },
+    "regular-solution": {
+      "name": "Reguläre Lösung und Mischungsentropie",
+      "l": [
+        "",
+        "",
+        "obere Grenze der Mischungslücke"
+      ],
+      "m": [
+        "freie Mischungsenthalpie je Mol (Gibbs-Energie)",
+        "ideale Mischungsentropie",
+        "Wechselwirkungsparameter (0: ideale Lösung; positiv: Neigung zur Entmischung)",
+        "Stoffmengenanteile",
+        "Gaskonstante",
+        "Temperatur",
+        "kritische Temperatur"
+      ],
+      "when": "Statistische Verteilung der Atome, wobei sich nur die Mischungswärme als Ωx_A x_B schreiben lässt (reguläre Lösung). Für Ω > 2RT hat ΔG_mix zwei Minima, und es kommt zur Entmischung in zwei Phasen (Mischungslücke, spinodale Entmischung).",
+      "miss": "log₁₀ statt ln verwenden. T in °C einsetzen. Das Minuszeichen von ΔS_mix vergessen (ΔS_mix ist positiv).",
+      "ex": "Ideale Lösung (Ω = 0), x_B = 0,5; T = 1000 K: ΔG_mix = RT(0,5 ln 0,5 × 2) = −5763 J/mol; ΔS_mix = 5,763 J/(mol·K). Mit Ω = 20 kJ/mol beginnt die Entmischung in zwei Phasen unterhalb der kritischen Temperatur T_c = Ω/(2R) = 1203 K.",
+      "kw": "reguläre Lösung Mischungsentropie ideale Lösung Wechselwirkungsparameter Mischungslücke spinodal"
+    },
+    "nucleation": {
+      "name": "Homogene Keimbildung: kritischer Keim",
+      "l": [
+        "",
+        "",
+        ""
+      ],
+      "m": [
+        "Triebkraft je Volumeneinheit (Betrag)",
+        "Schmelzwärme je Volumeneinheit (positiver Wert)",
+        "Unterkühlung T_m − T",
+        "Schmelztemperatur",
+        "Grenzflächenenergie fest–flüssig",
+        "kritischer Keimradius",
+        "Keimbildungsbarriere (Arbeit zur Bildung des kritischen Keims)"
+      ],
+      "when": "Kugelförmiger Keim, isotrope Grenzflächenenergie, kleines ΔT (ΔG_v nahe T_m linear angenähert). Bei heterogener Keimbildung wird ΔG* mit der Funktion des Benetzungswinkels S(θ) = (2 + cosθ)(1 − cosθ)²/4 multipliziert und damit kleiner.",
+      "miss": "Unterschiedliche Vorzeichenkonventionen (Callister setzt ΔH_f negativ an: r* = −2γT_m/(ΔH_f ΔT)). Die Schmelzwärme je Mol unverändert verwenden (durch das Molvolumen teilen). r* und Durchmesser verwechseln.",
+      "ex": "Reines Gold (Schmelzwärme L_v = 1,16 × 10⁹ J/m³; γ = 0,132 J/m²; T_m = 1337 K), um ΔT = 230 K unterkühlt: r* = 2 × 0,132 × 1337/(1,16 × 10⁹ × 230) = 1,32 nm; ΔG* = 9,68 × 10⁻¹⁹ J (dieselben Zahlen wie im Beispiel in Kapitel 10 von Callister).",
+      "kw": "Keimbildung kritischer Keimradius Unterkühlung Erstarrung"
+    },
+    "avrami": {
+      "name": "Avrami-Gleichung (JMAK)",
+      "l": [
+        ""
+      ],
+      "m": [
+        "umgewandelter Anteil",
+        "Geschwindigkeitskonstante (temperaturabhängig; die Einheit hängt von n ab)",
+        "Zeit",
+        "Avrami-Exponent (1–4, je nach Art von Keimbildung und Wachstum)"
+      ],
+      "when": "Isotherme Umwandlungen durch regellose Keimbildung und Wachstum (Rekristallisation, Perlitumwandlung usw.). Trägt man log(ln(1/(1 − y))) über log t auf, ist die Steigung n. Die Umwandlungsgeschwindigkeit wird oft als 1/t₀.₅ angegeben.",
+      "miss": "Für k die Einheit s⁻¹ annehmen (sie hängt von n ab). Die Gleichung unverändert auf eine Abkühlung mit veränderlicher Temperatur anwenden.",
+      "ex": "Mit n = 3 und der Halbwertszeit der Umwandlung t₀.₅ = 100 s ist k = ln 2/t₀.₅³ = 6,93 × 10⁻⁷ s⁻³. Nach 150 s ist y = 1 − exp(−k × 150³) = 0,904.",
+      "kw": "Avrami JMAK Johnson-Mehl Umwandlungskinetik Rekristallisation isotherm"
+    },
+    "arrhenius": {
+      "name": "Temperaturabhängigkeit des Diffusionskoeffizienten (Arrhenius-Gleichung)",
+      "l": [
+        "",
+        "Arrhenius-Diagramm (Steigung −Q/R)",
+        "aus zwei Messpunkten"
+      ],
+      "m": [
+        "Diffusionskoeffizient",
+        "Frequenzfaktor (präexponentieller Faktor; temperaturunabhängige Konstante)",
+        "Aktivierungsenergie je Mol (je Atom: R durch k ersetzen)",
+        "Gaskonstante 8,314",
+        "absolute Temperatur"
+      ],
+      "when": "Innerhalb eines Temperaturbereichs, in dem ein einziger Mechanismus (z. B. Volumendiffusion) bestimmend ist. Bei tiefen Temperaturen wirkt Diffusion entlang von Korngrenzen und Versetzungen, und das Arrhenius-Diagramm knickt ab. Über magnetische Umwandlungen oder Phasenumwandlungen hinweg (Fe) ändern sich D₀ und Q.",
+      "miss": "T in °C einsetzen. Q in kJ/mol durch R in J/(mol·K) teilen (Faktor 1000). eV/Atom und kJ/mol verwechseln (1 eV/Atom = 96,49 kJ/mol). Steigungen mit ln und log₁₀ verwechseln (mit log₁₀ ist die Steigung −Q/(2,303R)).",
+      "ex": "Kohlenstoff in γ-Fe (D₀ = 2,3 × 10⁻⁵ m²/s; Q = 148 kJ/mol) bei 1000 °C = 1273,15 K: Q/RT = 13,98; D = 1,95 × 10⁻¹¹ m²/s. Umgekehrt ergeben D = 5,92 × 10⁻¹² bei 900 °C und 5,39 × 10⁻¹¹ m²/s bei 1100 °C wieder Q = R ln(D₂/D₁)/(1/T₁ − 1/T₂) = 148,0 kJ/mol. Je Atom ist Q/N_A = 1,53 eV.",
+      "kw": "Arrhenius Diffusionskoeffizient Aktivierungsenergie Frequenzfaktor D0 Q"
+    },
+    "fick1": {
+      "name": "1. Ficksches Gesetz (stationäre Diffusion)",
+      "l": [
+        "",
+        "linearer Konzentrationsverlauf"
+      ],
+      "m": [
+        "Diffusionsstromdichte (Menge je Flächen- und Zeiteinheit)",
+        "Diffusionskoeffizient",
+        "Konzentration (auch mol/m³ oder Atome/m³ möglich; die Einheit von J ändert sich entsprechend)",
+        "Ort"
+      ],
+      "when": "Stationärer Zustand, in dem sich das Konzentrationsprofil nicht mit der Zeit ändert (z. B. Permeation von Wasserstoff durch eine Membran), mit konzentrationsunabhängigem D. Der Strom fließt von hoher zu niedriger Konzentration (Minuszeichen).",
+      "miss": "mm nicht in m umrechnen. Mit wt% rechnen (in Menge je Volumen umrechnen). Das Gesetz auf instationäre Aufgaben anwenden.",
+      "ex": "Stahlplatte bei 700 °C mit 1,2 kg/m³ Kohlenstoff in 5 mm und 0,8 kg/m³ in 10 mm Tiefe, D = 3 × 10⁻¹¹ m²/s (stationär): J = 3 × 10⁻¹¹ × (1,2 − 0,8)/(5 × 10⁻³) = 2,4 × 10⁻⁹ kg/(m²·s) (dieselben Zahlen wie im Beispiel in Kapitel 5 von Callister).",
+      "kw": "Fick 1. Ficksches Gesetz erstes Diffusionsstromdichte stationäre Diffusion Konzentrationsgradient"
+    },
+    "fick2": {
+      "name": "2. Ficksches Gesetz (instationäre Diffusion)",
+      "l": [
+        "",
+        "D abhängig von C",
+        "dreidimensional"
+      ],
+      "m": [
+        "Konzentration",
+        "Zeit",
+        "Diffusionskoeffizient",
+        "Ort"
+      ],
+      "when": "Allgemeine Gleichung, wenn sich das Konzentrationsprofil mit der Zeit ändert. Die Lösung hängt von den Randbedingungen ab: erfc für einen halbunendlichen Körper mit konstanter Oberflächenkonzentration, Gauß-Verteilung für eine feste Menge an der Oberfläche, erf für ein Diffusionspaar, Fourier-Reihen oder numerische Verfahren für eine Platte endlicher Dicke. Bei konzentrationsabhängigem D (Interdiffusion) braucht man die zweite Form.",
+      "miss": "Die erste Form mit vor die Ableitung gezogenem D verwenden, obwohl sich D stark ändert. Zwischen erfc- und Gauß-Lösung wählen, ohne die Randbedingungen zu prüfen.",
+      "ex": "Die Zeit, um Konzentrationsunterschiede über L = 50 µm (z. B. den Dendritenarmabstand) mit D = 1 × 10⁻¹³ m²/s auszugleichen, liegt in der Größenordnung L²/D = 2,5 × 10⁴ s (etwa 6,9 h). Nach der Form der Gleichung braucht die doppelte Strecke die vierfache Zeit.",
+      "kw": "Fick 2. Ficksches Gesetz zweites instationär Diffusionsgleichung"
+    },
+    "erfc": {
+      "name": "Lösungen mit der Fehlerfunktion (Aufkohlen, Diffusionspaar)",
+      "l": [
+        "konstante Oberflächenkonzentration",
+        "Diffusionspaar (Grenzfläche bei x = 0)"
+      ],
+      "m": [
+        "Konzentration in der Tiefe x zur Zeit t",
+        "gleichmäßige Anfangskonzentration",
+        "Oberflächenkonzentration (konstant)",
+        "Anfangskonzentrationen links (x < 0) und rechts im Diffusionspaar",
+        "Abstand von der Oberfläche (Grenzfläche)",
+        "Diffusionskoeffizient (konstant)",
+        "Zeit"
+      ],
+      "when": "Halbunendlicher Körper (Diffusionslänge √(Dt) viel kleiner als die Dicke), konstantes D, konstante Oberflächenkonzentration (bzw. konstante Konzentrationen weit beiderseits der Grenzfläche eines Diffusionspaars). Da die Gleichung ein Verhältnis enthält, kann man die Kohlenstoffgehalte beim Aufkohlen auch in wt% einsetzen.",
+      "miss": "erf und erfc (= 1 − erf) verwechseln. Die 2 in 2√(Dt) vergessen. Die Zeit in Stunden einsetzen. C_s − C_x als Nenner des Verhältnisses verwenden.",
+      "ex": "Ein Stahl mit 0,25 wt% C wird bei 950 °C (D = 1,10 × 10⁻¹¹ m²/s; dieselben Daten wie im Simulator für Diffusion und Oberflächenbehandlung) mit 1,20 wt% an der Oberfläche aufgekohlt, bis in 0,5 mm Tiefe 0,80 wt% erreicht sind: (0,80 − 0,25)/(1,20 − 0,25) = 0,5789 = 1 − erf z, also erf z = 0,4211; z = 0,3924; t = x²/(4z²D) = 3,69 × 10⁴ s = 10,2 h. Im Diffusionspaar ist an der Stelle x = √(Dt) (z = 0,5) C = (C_A + C_B)/2 − (C_A − C_B)/2 × erf 0,5, also ein Wert, der von C_A aus um das 0,760-Fache der Differenz C_A − C_B in Richtung C_B verschoben ist.",
+      "kw": "Fehlerfunktion erf erfc Aufkohlen Aufkohlung Diffusionspaar halbunendlich"
+    },
+    "diffusion-length": {
+      "name": "Diffusionslänge und Umrechnung von Zeit und Temperatur",
+      "l": [
+        "",
+        "gleiches Konzentrationsprofil",
+        "bei geänderter Temperatur"
+      ],
+      "m": [
+        "Tiefe, in der eine bestimmte Konzentration erreicht wird",
+        "Diffusionskoeffizient",
+        "Zeit",
+        "Aktivierungsenergie",
+        "Gaskonstante",
+        "Temperaturen"
+      ],
+      "when": "Bei gleichen Randbedingungen (z. B. gleicher Oberflächenkonzentration), wenn das Konzentrationsprofil wie bei der Fehlerfunktions- oder der Gauß-Lösung nur von x/√(Dt) abhängt. Für die doppelte Tiefe braucht man die vierfache Zeit.",
+      "miss": "Die Tiefe proportional zur Zeit ansetzen (die Wurzel vergessen). Bei der Umrechnung T₁ und T₂ vertauschen (bei höherer Temperatur ist die Zeit kürzer).",
+      "ex": "Cu in Al (D₀ = 6,5 × 10⁻⁵ m²/s; Q = 136 kJ/mol): D = 4,22 × 10⁻¹⁴ bei 500 °C und 4,75 × 10⁻¹³ m²/s bei 600 °C. Um dieselbe Tiefe wie nach 10 h bei 500 °C zu erreichen, braucht man bei 600 °C t = 10 h × D₅₀₀/D₆₀₀ = 0,887 h. Für 10 h bei 500 °C ist √(Dt) = 39,0 µm.",
+      "kw": "Diffusionslänge Diffusionsweg Wurzel Dt Zeit Temperatur Umrechnung"
+    },
+    "gaussian": {
+      "name": "Diffusion aus einer festen Oberflächenmenge (Gauß-Verteilung)",
+      "l": [
+        "",
+        "Übergangstiefe"
+      ],
+      "m": [
+        "Konzentration (Teilchenzahldichte; auch kg/m³ möglich)",
+        "anfangs an der Oberfläche aufgebrachte Menge je Flächeneinheit (bleibt erhalten)",
+        "Diffusionskoeffizient",
+        "Zeit",
+        "Tiefe unter der Oberfläche",
+        "Tiefe, in der C gleich der Grundkonzentration C_B ist",
+        "Grundkonzentration (Substrat)"
+      ],
+      "when": "Eine feste, anfangs dünn an der Oberfläche aufgebrachte Menge M, die weder zu- noch abnimmt (kein Strom durch die Oberfläche) und sich in einen halbunendlichen Körper ausbreitet: Eintreiben (Drive-in) in der Halbleitertechnik, Tracerdiffusion. Für eine dünne Schicht im Inneren eines unendlichen Körpers, die sich nach beiden Seiten ausbreitet, gilt M/(2√(πDt)).",
+      "miss": "Die Vorfaktoren für den halbunendlichen und den unendlichen Körper verwechseln (1/√(πDt) und 1/(2√(πDt))). cm und m verwechseln (10¹⁴ cm⁻² = 10¹⁸ m⁻²; 1 cm²/s = 10⁻⁴ m²/s).",
+      "ex": "Bor in Si (D₀ = 0,76 cm²/s; E_a = 3,46 eV), 1 h bei 1100 °C eingetrieben (D = 1,52 × 10⁻¹⁷ m²/s), Menge M = 5 × 10¹⁸ m⁻² (5 × 10¹⁴ cm⁻²): Oberflächenkonzentration M/√(πDt) = 1,21 × 10²⁵ m⁻³. Die Tiefe, in der die Konzentration der Grundkonzentration 10²¹ m⁻³ gleich ist (Übergangstiefe), beträgt x_j = √(4Dt ln(C(0)/C_B)) = 1,43 µm.",
+      "kw": "Gauß-Verteilung Gaußverteilung Eintreiben Drive-in Dünnschichtquelle Übergangstiefe Halbleiter"
+    },
+    "ftcs": {
+      "name": "Explizites Differenzenverfahren für die Diffusionsgleichung (FTCS)",
+      "l": [
+        "",
+        "Stabilitätsbedingung"
+      ],
+      "m": [
+        "Konzentration am Gitterpunkt i zum Zeitschritt n",
+        "Gitter-Fourier-Zahl",
+        "Diffusionskoeffizient",
+        "Zeitschritt",
+        "Gitterabstand"
+      ],
+      "when": "Löst das 2. Ficksche Gesetz in einer Dimension bei konstantem D mit Vorwärtsdifferenz in der Zeit und zentraler Differenz im Ort. Für r > 1/2 schwingt die Lösung und divergiert. Verwendet für Bedingungen ohne analytische Lösung (Platten endlicher Dicke, veränderliche Oberflächenkonzentration usw.).",
+      "miss": "Das Gitter verfeinern, ohne Δt zu verkleinern (bei halbem Δx braucht man ein Viertel von Δt).",
+      "ex": "D = 1 × 10⁻¹¹ m²/s; Δx = 10 µm: Δt ≤ Δx²/(2D) = 5,0 s. Der Simulator für Diffusion und Oberflächenbehandlung rechnet mit Sicherheitsabstand mit r = 0,4 (Δt = 4,0 s).",
+      "kw": "Differenzenverfahren FTCS numerische Lösung Stabilitätsbedingung"
+    },
+    "vacancy": {
+      "name": "Gleichgewichtskonzentration der Leerstellen",
+      "l": [
+        "",
+        ""
+      ],
+      "m": [
+        "Gleichgewichtszahl der Leerstellen je Volumen",
+        "Zahl der Atomplätze je Volumen",
+        "Bildungsenergie einer Leerstelle (je Leerstelle; oft in eV angegeben)",
+        "Boltzmann-Konstante (8,617 × 10⁻⁵ eV/K)",
+        "absolute Temperatur",
+        "Avogadro-Konstante",
+        "Dichte",
+        "molare Masse"
+      ],
+      "when": "Leerstellen im thermischen Gleichgewicht; der Faktor der Bildungsentropie exp(S_v/k) (etwa 1–10) ist weggelassen. In abgeschreckten Proben bleiben die Leerstellen der hohen Temperatur erhalten.",
+      "miss": "Q_v in eV durch k in J/K teilen (k in eV/K verwenden). T in °C einsetzen. Den Faktor 10⁶ bei der Umrechnung von ρ in g/cm³ auf m⁻³ vergessen.",
+      "ex": "Cu bei 1000 °C (ρ = 8,4 g/cm³; A = 63,5 g/mol; Q_v = 0,9 eV): N = N_A ρ/A = 7,97 × 10²⁸ m⁻³; Q_v/kT = 8,203; N_v = 2,2 × 10²⁵ m⁻³ (dieselben Zahlen wie im Beispiel in Kapitel 4 von Callister). Auf 3653 Atome kommt eine Leerstelle.",
+      "kw": "Leerstelle Punktfehler Bildungsenergie Gleichgewichtskonzentration"
+    },
+    "burgers": {
+      "name": "Betrag des Burgersvektors",
+      "l": [
+        "b = (a/n)[uvw]",
+        "FCC a/2⟨110⟩",
+        "BCC a/2⟨111⟩"
+      ],
+      "m": [
+        "Betrag des Burgersvektors",
+        "Gitterkonstante",
+        "Nenner des Vorfaktors (bei vollständigen Versetzungen in FCC und BCC 2)",
+        "Richtungsindizes"
+      ],
+      "when": "Bei vollständigen Versetzungen ist b die kürzeste Gittertranslation zwischen nächsten Nachbaratomen (FCC a/2⟨110⟩, BCC a/2⟨111⟩, HCP a/3⟨11−20⟩ mit |b| = a). Die Shockley-Partialversetzung a/6⟨112⟩ im FCC-Gitter hat |b| = a/√6.",
+      "miss": "Den Faktor 1/2 in a/2⟨110⟩ vergessen und √2a erhalten. Die Richtungen für BCC und FCC vertauschen.",
+      "ex": "FCC-Cu (a = 0,36146 nm), a/2⟨110⟩: |b| = a/√2 = 0,2556 nm (gleich dem Abstand nächster Nachbarn). BCC-Fe (a = 0,28665 nm), a/2⟨111⟩: |b| = √3a/2 = 0,2482 nm.",
+      "kw": "Burgersvektor Versetzung Gleitrichtung"
+    },
+    "grain-size": {
+      "name": "Korngrößenkennzahl (ASTM E112)",
+      "l": [
+        "",
+        ""
+      ],
+      "m": [
+        "Zahl der Körner je Flächeneinheit in Originalgröße",
+        "15,50 mm⁻² (entspricht 1 Korn je Quadratzoll bei 100-facher Vergrößerung)",
+        "ASTM-Korngrößenkennzahl",
+        "mittlere Sehnenlänge (Linienschnittverfahren)",
+        "0,320 mm (Sehnenlänge bei G = 0)"
+      ],
+      "when": "Umrechnungen nach ASTM E112. Die ursprüngliche Definition ist N = 2^{G−1} (Zahl der Körner je Quadratzoll im Bild bei 100-facher Vergrößerung). JIS G 0551 (ISO 643) verwendet m = 8 × 2^G je mm², was für dasselbe Gefüge eine um etwa 0,05 kleinere Kennzahl ergibt. Die Umrechnung der Korngröße in einen Durchmesser (etwa d ≈ ℓ̄) ist eine Konvention.",
+      "miss": "Eine größere Kennzahl bedeutet feinere Körner. Zählungen aus Bildern mit anderer als 100-facher Vergrößerung direkt verwenden (auf Originalgröße umrechnen).",
+      "ex": "Korngrößenkennzahl G = 6: bei 100-facher Vergrößerung 2⁵ = 32 Körner je Quadratzoll, in Originalgröße N_A = 15,50 × 32 = 496 mm⁻². Mittlere Sehnenlänge ℓ̄ = 0,3200 × 2^(−3) = 40,0 µm.",
+      "kw": "Korngrößenkennzahl Korngröße ASTM E112 JIS G0551 Linienschnittverfahren Sehnenlänge"
+    },
+    "hooke": {
+      "name": "Spannung, Dehnung und Hookesches Gesetz",
+      "l": [
+        "",
+        "",
+        "",
+        "Verlängerung eines Stabs"
+      ],
+      "m": [
+        "technische Spannung (Nennspannung)",
+        "Kraft",
+        "Anfangsquerschnitt (beim Rundstab πd²/4)",
+        "technische Dehnung",
+        "Verlängerung und Anfangslänge",
+        "Elastizitätsmodul"
+      ],
+      "when": "Linear-elastisches Verhalten (unterhalb der Proportionalitätsgrenze), kleine Dehnungen, einachsiger Zug oder Druck eines Stabs mit gleichbleibendem Querschnitt. Nach dem Fließbeginn gilt die Formel nicht mehr. Bei Stäben mit wechselndem Querschnitt berechnet man die Verlängerung abschnittsweise und addiert sie.",
+      "miss": "Den Durchmesser als Radius verwenden (πd² ist viermal zu groß). MPa und GPa verwechseln (N/mm² und kN/mm²). Die Formel bei Lasten oberhalb der Streckgrenze verwenden.",
+      "ex": "Ein Cu-Stab wird mit σ = 276 MPa gezogen (l₀ = 305 mm; E = 110 GPa; elastisch): ε = 276/110000 = 2,51 × 10⁻³; Δl = εl₀ = 0,765 mm. Bei einem Stab mit 10 mm Durchmesser ist F = σA = 276 × 78,54 = 21,68 kN.",
+      "kw": "Hookesches Gesetz Hooke Elastizitätsmodul E-Modul Spannung Dehnung Verlängerung elastisch"
+    },
+    "poisson": {
+      "name": "Querkontraktionszahl",
+      "l": [
+        "",
+        "Durchmesseränderung"
+      ],
+      "m": [
+        "Querkontraktionszahl (Metalle 0,26–0,35; Gummi nahe 0,5)",
+        "Dehnung in Lastrichtung",
+        "Querdehnung",
+        "Anfangsdurchmesser und seine Änderung"
+      ],
+      "when": "Isotropes, linear-elastisches Verhalten. Bei plastischer Verformung bleibt das Volumen nahezu konstant, sodass sich das scheinbare Verhältnis 0,5 nähert.",
+      "miss": "Vorzeichen (unter Zug nimmt der Durchmesser ab). Die Durchmesseränderung als Radiusänderung behandeln.",
+      "ex": "Kraft, die den Durchmesser eines Messingstabs (d₀ = 10 mm; ν = 0,34; E = 97 GPa) um 2,5 µm verringert: ε_x = −2,5 × 10⁻⁴; ε_z = −ε_x/ν = 7,35 × 10⁻⁴; σ = Eε_z = 71,3 MPa; F = σπd₀²/4 = 5602 N (dieselben Zahlen wie im Beispiel in Kapitel 6 von Callister).",
+      "kw": "Querkontraktionszahl Poissonzahl Poisson Querdehnung Durchmesseränderung"
+    },
+    "elastic-constants": {
+      "name": "Zusammenhang der elastischen Konstanten und verallgemeinertes Hookesches Gesetz",
+      "l": [
+        "",
+        "",
+        "verallgemeinertes Hookesches Gesetz"
+      ],
+      "m": [
+        "Elastizitätsmodul",
+        "Schubmodul (Gleitmodul)",
+        "Kompressionsmodul",
+        "Querkontraktionszahl",
+        "Normalspannungen",
+        "Dehnung in x-Richtung"
+      ],
+      "when": "Nur für isotrope Körper (zwei unabhängige Konstanten). Gilt nicht für anisotrope Körper wie Einkristalle oder faserverstärkte Werkstoffe. Bei Wärmedehnung addiert man αΔT. Für ν → 0,5 geht K → ∞ (inkompressibel).",
+      "miss": "Die Beziehungen auf anisotrope Werkstoffe anwenden (Si-Wafer, CFK). Weicht ein gemessener Tabellenwert G von E/(2(1 + ν)) ab, liegt das an Textur oder unterschiedlichen Messverfahren.",
+      "ex": "Al (E = 69 GPa; ν = 0,33): G = 69/(2 × 1,33) = 25,9 GPa; K = 69/(3 × 0,34) = 67,6 GPa. Stahlblech (E = 200 GPa; ν = 0,30) unter gleichmäßig zweiachsigem Zug σ_x = σ_y = 100 MPa: ε_x = (100 − 0,30 × 100)/200000 = 3,5 × 10⁻⁴; ε_z = −0,30 × 200/200000 = −3,0 × 10⁻⁴.",
+      "kw": "Schubmodul Gleitmodul Kompressionsmodul verallgemeinertes Hookesches Gesetz elastische Konstanten"
+    },
+    "true-stress": {
+      "name": "Wahre Spannung und wahre Dehnung",
+      "l": [
+        "",
+        ""
+      ],
+      "m": [
+        "wahre Spannung",
+        "momentaner Querschnitt",
+        "Kraft",
+        "technische Spannung",
+        "technische Dehnung",
+        "wahre Dehnung (Umformgrad)",
+        "momentane Länge und Anfangslänge"
+      ],
+      "when": "Die Formen mit (1 + ε) setzen konstantes Volumen voraus und gelten nur bis zum Beginn der Einschnürung (Gleichmaßdehnung). Nach der Einschnürung verwendet man σ_T = F/A_i mit dem tatsächlich gemessenen kleinsten Querschnitt (dazu kommt noch die Korrektur der Mehrachsigkeit nach Bridgman).",
+      "miss": "σ(1 + ε) auch nach der Einschnürung verwenden. Bei Druck ist ε negativ und σ_T kleiner. Die wahre Dehnung mit log₁₀ berechnen.",
+      "ex": "Technische Spannung 400 MPa bei einer technischen Dehnung von 0,20 (vor der Einschnürung): σ_T = 400 × 1,20 = 480 MPa; ε_T = ln 1,20 = 0,182.",
+      "kw": "wahre Spannung wahre Dehnung technische Spannung logarithmische Dehnung Umformgrad"
+    },
+    "ductility": {
+      "name": "Duktilität: Bruchdehnung und Brucheinschnürung",
+      "l": [
+        "",
+        "",
+        "wahre Bruchdehnung"
+      ],
+      "m": [
+        "Bruchdehnung (%)",
+        "Brucheinschnürung (Querschnittsabnahme, %)",
+        "Messlänge nach dem Bruch und Anfangsmesslänge",
+        "Querschnitt an der Bruchstelle und Anfangsquerschnitt",
+        "wahre Bruchdehnung"
+      ],
+      "when": "%EL hängt von der Messlänge ab (der Anteil des Einschnürbereichs ist unterschiedlich); man gibt daher die Probennorm an (z. B. japanische Norm JIS 14A, ASTM mit 50 mm). %RA hängt nicht von der Messlänge ab.",
+      "miss": "Die Brucheinschnürung aus dem Verhältnis der Durchmesser berechnen (die Fläche geht mit dem Quadrat). Die wahre Bruchspannung mit dem Anfangsquerschnitt berechnen.",
+      "ex": "Eine Stahlprobe mit 12,8 mm Durchmesser bricht bei einer technischen Spannung von 460 MPa; der Durchmesser an der Bruchstelle beträgt 10,7 mm: %RA = (128,7 − 89,9)/128,7 × 100 = 30,1 %; wahre Bruchdehnung ln(A₀/A_f) = 0,358; wahre Bruchspannung = 460 × A₀/A_f = 658 MPa (dieselben Zahlen wie im Beispiel in Kapitel 6 von Callister).",
+      "kw": "Bruchdehnung Brucheinschnürung Querschnittsabnahme Duktilität Bruch"
+    },
+    "hollomon": {
+      "name": "Verfestigungsgesetz (Hollomon)",
+      "l": [
+        "",
+        "Beginn der Einschnürung (Considère)"
+      ],
+      "m": [
+        "wahre Spannung",
+        "Festigkeitskoeffizient",
+        "wahre (plastische) Dehnung",
+        "Verfestigungsexponent (0,1–0,5)"
+      ],
+      "when": "Gleichmäßige plastische Verformung zwischen Fließbeginn und Einschnürung. n und K bestimmt man in dem Bereich, in dem die doppelt logarithmische Auftragung eine Gerade ergibt. Aus der Einschnürbedingung dσ_T/dε_T = σ_T folgt ε_T = n.",
+      "miss": "Mit technischer Spannung und Dehnung anpassen. Annehmen, n hänge davon ab, ob man log₁₀ oder ln verwendet (als Verhältnis ist es dasselbe).",
+      "ex": "Eine Legierung mit K = 1035 MPa zeigt bei einer wahren Dehnung von 0,10 eine wahre Spannung von 415 MPa: n = ln(415/1035)/ln 0,10 = 0,40. Die Einschnürung beginnt bei ε_T = n ≈ 0,40.",
+      "kw": "Verfestigungsexponent n-Wert Hollomon Festigkeitskoeffizient Einschnürung Kaltverfestigung"
+    },
+    "resilience": {
+      "name": "Elastische Formänderungsenergie (Resilienz)",
+      "l": [
+        ""
+      ],
+      "m": [
+        "Resilienzmodul (bis zur Streckgrenze je Volumen gespeicherte elastische Energie)",
+        "Streckgrenze",
+        "Elastizitätsmodul"
+      ],
+      "when": "Linear-elastisch bis zur Streckgrenze. Für Federn wählt man Werkstoffe mit großem U_r (hohe Streckgrenze σ_y, niedriger E-Modul). Nicht dasselbe wie die Zähigkeit (Fläche bis zum Bruch).",
+      "miss": "Übersehen, dass 1 J/m³ = 1 Pa ist. Mit der Zähigkeit verwechseln.",
+      "ex": "Stahl mit σ_y = 350 MPa und E = 207 GPa: U_r = (350 × 10⁶)²/(2 × 207 × 10⁹) = 2,96 × 10⁵ J/m³ (= 296 kJ/m³).",
+      "kw": "Resilienz elastische Energie Formänderungsenergie Federwerkstoff"
+    },
+    "hall-petch": {
+      "name": "Hall-Petch-Beziehung",
+      "l": [
+        ""
+      ],
+      "m": [
+        "Streckgrenze",
+        "Reibspannung (Wert ohne Korngrenzen)",
+        "Hall-Petch-Konstante",
+        "mittlerer Korndurchmesser"
+      ],
+      "when": "Vielkristalle mit Korngrößen über etwa 10 nm; feinere Körner können wieder weicher werden (inverse Hall-Petch-Beziehung). Verglichen werden geglühte Zustände mit gleicher Ausscheidung und Textur.",
+      "miss": "d in µm mit k_y in MPa·√m kombinieren (in m umrechnen). Über d statt über 1/√d auftragen. Die Korngrößenkennzahl mit dem Korndurchmesser verwechseln.",
+      "ex": "Stahl mit σ₀ = 70 MPa und k_y = 0,74 MPa·√m: Bei d = 20 µm ist σ_y = 70 + 0,74/√(2 × 10⁻⁵) = 235,5 MPa; bei d = 5 µm 400,9 MPa. Ein Viertel der Korngröße verdoppelt den k_y-Term.",
+      "kw": "Hall Petch Hall-Petch Korngröße Feinkornhärtung Kornfeinung Streckgrenze"
+    },
+    "schmid": {
+      "name": "Schmidsches Schubspannungsgesetz",
+      "l": [
+        "",
+        "Fließbeginn"
+      ],
+      "m": [
+        "Schubspannung im Gleitsystem (aufgelöste Schubspannung)",
+        "Zugspannung",
+        "Winkel zwischen Zugachse und Normale der Gleitebene",
+        "Winkel zwischen Zugachse und Gleitrichtung",
+        "kritische Schubspannung",
+        "Fließspannung"
+      ],
+      "when": "Einkristalle unter einachsigem Zug oder Druck. Von den Gleitsystemen beginnt dasjenige mit dem größten Schmid-Faktor cosφ cosλ (höchstens 0,5) als erstes zu gleiten. In kubischen Kristallen erhält man den Kosinus aus dem Skalarprodukt der Indizes: cosφ = (Achse · Normale)/(|Achse||Normale|).",
+      "miss": "φ + λ = 90° annehmen (gilt im Allgemeinen nicht). Eine Gleitrichtung wählen, die nicht in der Gleitebene liegt. Den Sinus verwenden.",
+      "ex": "Ein BCC-Fe-Einkristall wird in [010] mit 52 MPa gezogen; Gleitsystem (110)[−111]: cosφ = 1/√2 = 0,7071 (φ = 45°); cosλ = 1/√3 = 0,5774 (λ = 54,7°); τ_R = 52 × 0,7071 × 0,5774 = 21,2 MPa. Bei einer kritischen Schubspannung von 30 MPa beträgt die Fließspannung 30/0,4082 = 73,5 MPa (dieselben Zahlen wie im Beispiel in Kapitel 7 von Callister).",
+      "kw": "Schmid Schmid-Faktor Schubspannung Gleitsystem kritische Schubspannung CRSS Einkristall"
+    },
+    "performance-index": {
+      "name": "Materialindizes für die Werkstoffauswahl",
+      "l": [
+        "steifer Zugstab",
+        "steifer Biegebalken",
+        "steife Biegeplatte",
+        "fester Biegebalken"
+      ],
+      "m": [
+        "Materialindex (je größer, desto leichter bei gleicher Funktion; die Einheit hängt vom Index ab)",
+        "Elastizitätsmodul",
+        "Versagensfestigkeit (Bruch- bzw. Streckgrenze)",
+        "Dichte"
+      ],
+      "when": "Minimale Masse, wenn die Querschnittsabmessungen frei gewählt werden dürfen. Der Index hängt von Bauteilform, Belastungsart und den festgehaltenen Größen ab. Im Werkstoffschaubild sind die Werkstoffe oberhalb der Geraden konstanten Index (Steigungen 1; 2; 3) die Kandidaten.",
+      "miss": "Für einen Balken E/ρ verwenden (Balken: √E/ρ). Indizes mit uneinheitlichen Einheiten vergleichen.",
+      "ex": "Leichter, biegesteifer Balken (Index √E/ρ; E in GPa, ρ in g/cm³): Al-Legierung √70/2,70 = 3,10; Stahl √210/7,85 = 1,85. Bei gleicher Biegesteifigkeit wiegt der Al-Balken 1/1,68 des Stahlbalkens. Für einen Zugstab (E/ρ) sind beide fast gleich (25,9 und 26,8).",
+      "kw": "Materialindex Leistungsindex Werkstoffauswahl Ashby spezifische Steifigkeit Leichtbau"
+    },
+    "stress-concentration": {
+      "name": "Spannungskonzentration an einem elliptischen Loch oder einem Riss (Inglis)",
+      "l": [
+        "",
+        ""
+      ],
+      "m": [
+        "Höchstspannung an der Spitze des Risses (der Kerbe)",
+        "Nennspannung fern vom Riss",
+        "Tiefe eines Oberflächenrisses (bei einem inneren Riss die halbe Länge)",
+        "Krümmungsradius an der Spitze",
+        "Kerbformzahl (Formzahl)"
+      ],
+      "when": "Elliptisches Loch in einer unendlich ausgedehnten Platte, senkrecht zur großen Achse auf Zug belastet, linear-elastisch. Bei scharfen Rissen (ρ_t → 0) wird die Spannung unendlich; dann arbeitet man mit dem Spannungsintensitätsfaktor K. Für K_t realer Bauteile verwendet man die Diagramme für die jeweilige Geometrie.",
+      "miss": "Bei einem inneren Riss die ganze Länge für a einsetzen (halbe Länge verwenden). a und ρ_t nicht in derselben Einheit einsetzen (mm und µm).",
+      "ex": "Oberflächenriss der Tiefe a = 0,5 mm mit dem Spitzenradius ρ_t = 5 µm unter σ₀ = 100 MPa: a/ρ_t = 100; K_t = 1 + 2√100 = 21,0; σ_max = 2100 MPa (die Näherung 2σ₀√(a/ρ_t) ergibt 2000 MPa).",
+      "kw": "Spannungskonzentration Kerbformzahl Formzahl Kerbe elliptisches Loch elliptische Bohrung Inglis"
+    },
+    "griffith": {
+      "name": "Griffith-Gleichung",
+      "l": [
+        "ebener Spannungszustand",
+        "ebener Dehnungszustand"
+      ],
+      "m": [
+        "Bruchspannung",
+        "Elastizitätsmodul",
+        "Oberflächenenergie",
+        "Tiefe eines Oberflächenrisses (bei einem inneren Riss die halbe Länge)",
+        "Querkontraktionszahl"
+      ],
+      "when": "Ideal spröde Werkstoffe wie Glas. In Metallen ist die plastische Arbeit γ_p tausendfach größer als γ_s; man verwendet daher die Form, in der 2γ_s durch G_c (Bruchzähigkeit) ersetzt ist (die Form mit K_IC).",
+      "miss": "Bei Metallen nur mit γ_s rechnen (die Bruchspannung wird viel zu klein). Die 2 in 2γ_s vergessen.",
+      "ex": "Glasplatte (E = 69 GPa; Oberflächenenergie γ_s = 0,3 J/m²) unter 40 MPa Zug: größter zulässiger Oberflächenriss a = 2Eγ_s/(πσ²) = 8,2 µm.",
+      "kw": "Griffith Sprödbruch Oberflächenenergie Riss"
+    },
+    "stress-intensity": {
+      "name": "Spannungsintensitätsfaktor und Bruchzähigkeit",
+      "l": [
+        "",
+        "Bruchbedingung",
+        "kritische Rissgröße"
+      ],
+      "m": [
+        "Spannungsintensitätsfaktor (Modus I)",
+        "Geometriefaktor (Mittenriss in unendlicher Platte 1,0; Oberflächenriss ≈ 1,12)",
+        "Nennspannung",
+        "Tiefe eines Oberflächenrisses bzw. halbe Länge eines inneren Risses",
+        "Bruchzähigkeit im ebenen Dehnungszustand",
+        "kritische Rissgröße"
+      ],
+      "when": "Linear-elastische Bruchmechanik (LEBM): Die plastische Zone an der Rissspitze ist klein gegenüber Riss und Bauteilquerschnitt (Kleinbereichsfließen). Liegt die Bruchspannung nahe der Streckgrenze, fließt das Bauteil zuerst (Fließen vor Bruch). K_IC ist der Wert, der bei einer Dicke für den ebenen Dehnungszustand gemessen wurde (E399).",
+      "miss": "Bei einem inneren Riss die ganze Länge für a einsetzen. a in mm unter die Wurzel setzen (für MPa·√m in m). Y stets gleich 1 annehmen.",
+      "ex": "Oberflächenriss (Y = 1,12) in Stahl mit K_IC = 60 MPa·√m: Bei 300 MPa beträgt die kritische Risstiefe a_c = (1/π)(60/(1,12 × 300))² = 10,2 mm. Mit einem 5 mm tiefen Riss ist die Bruchspannung σ_c = 60/(1,12√(π × 0,005)) = 427 MPa.",
+      "kw": "Spannungsintensitätsfaktor Bruchzähigkeit KIC K_IC linear-elastische Bruchmechanik LEBM kritische Rissgröße"
+    },
+    "energy-release": {
+      "name": "Energiefreisetzungsrate und K",
+      "l": [
+        "ebener Spannungszustand",
+        "ebener Dehnungszustand"
+      ],
+      "m": [
+        "Energiefreisetzungsrate (frei werdende Energie je Flächeneinheit Rissfortschritt)",
+        "Spannungsintensitätsfaktor",
+        "Elastizitätsmodul",
+        "Querkontraktionszahl"
+      ],
+      "when": "Linear-elastisch, Modus I. Der Riss wächst, wenn G ≥ G_c (die verallgemeinerte Griffith-Bedingung). Bei gemischten Modi gilt G = (K_I² + K_II²)(1 − ν²)/E + K_III²(1 + ν)/E.",
+      "miss": "Ebenen Spannungs- und ebenen Dehnungszustand verwechseln. K in MPa·√m einsetzen, ohne in Pa·√m umzurechnen.",
+      "ex": "K_IC = 50 MPa·√m; E = 210 GPa; ν = 0,3 (ebener Dehnungszustand): G_IC = K²(1 − ν²)/E = 10,8 kJ/m².",
+      "kw": "Energiefreisetzungsrate G Bruchzähigkeit ebener Dehnungszustand"
+    },
+    "plastic-zone": {
+      "name": "Plastische Zone an der Rissspitze und Bedingung für den ebenen Dehnungszustand",
+      "l": [
+        "plastische Zone im ebenen Spannungszustand (Irwin)",
+        "Gültigkeit des ebenen Dehnungszustands"
+      ],
+      "m": [
+        "Größe der plastischen Zone an der Rissspitze",
+        "Spannungsintensitätsfaktor, Bruchzähigkeit im ebenen Dehnungszustand",
+        "Streckgrenze",
+        "Probendicke, Risslänge"
+      ],
+      "when": "Abschätzung erster Ordnung nach Irwin (im ebenen Dehnungszustand etwa ein Drittel). 2,5(K_IC/σ_y)² ist die Gültigkeitsbedingung nach ASTM E399; dünnere Proben nähern sich dem ebenen Spannungszustand und zeigen eine höhere scheinbare Zähigkeit.",
+      "miss": "r_p als Durchmesser behandeln. Einen an dünnem Blech gemessenen Wert als K_IC bezeichnen.",
+      "ex": "K = 50 MPa·√m; σ_y = 500 MPa: plastische Zone im ebenen Spannungszustand r_p = (1/2π)(50/500)² = 1,59 mm (im ebenen Dehnungszustand etwa ein Drittel). Für eine gültige K_IC-Messung müssen Dicke und Risslänge mindestens 2,5(K_IC/σ_y)² = 25,0 mm betragen.",
+      "kw": "plastische Zone ebener Dehnungszustand ebener Spannungszustand Probendicke E399"
+    },
+    "paris": {
+      "name": "Paris-Gesetz (Ermüdungsrisswachstum)",
+      "l": [
+        "",
+        "",
+        "Y konstant, m ≠ 2"
+      ],
+      "m": [
+        "Rissfortschritt je Lastwechsel",
+        "Werkstoffkonstante (die Einheit hängt von m ab)",
+        "Schwingbreite des Spannungsintensitätsfaktors",
+        "Paris-Exponent (bei Metallen 2–4)",
+        "Spannungsschwingbreite (der Druckanteil wird meist nicht gezählt)",
+        "Geometriefaktor",
+        "Rissgröße (Anfangs-, kritische)",
+        "Lastwechselzahl bis zum Bruch"
+      ],
+      "when": "Bereich II des Risswachstums: oberhalb des Schwellenwerts von ΔK, mit K_max deutlich unterhalb von K_IC. Diese Form enthält keinen Einfluss der Mittelspannung (R). Ändert sich Y mit der Risslänge, integriert man numerisch.",
+      "miss": "C verwenden, ohne zu prüfen, auf welche Einheiten es sich bezieht (MPa·√m und m?). K_max statt ΔK einsetzen. Den Fall m = 2 mit derselben Formel integrieren (er ergibt eine logarithmische Form).",
+      "ex": "Δσ = 100 MPa (Druckanteil nicht gezählt); Anfangsoberflächenriss 2,0 mm; K_IC = 25 MPa·√m; Y = 1,0; C = 1,0 × 10⁻¹²; m = 3 (Einheiten MPa·√m und m): kritische Risslänge a_c = (1/π)(25/100)² = 19,9 mm; N_f = [a_c^(−1/2) − a₀^(−1/2)]/[C(Δσ√π)³(−1/2)] = 5,48 × 10⁶ Lastwechsel (dieselben Bedingungen wie im Beispiel in Kapitel 8 von Callister).",
+      "kw": "Paris-Gesetz Paris Ermüdungsrisswachstum Rissfortschritt ΔK Delta K Lebensdauer"
+    },
+    "fatigue-life": {
+      "name": "Ermüdungslebensdauer (Basquin, Coffin-Manson)",
+      "l": [
+        "Basquin (hohe Lastwechselzahlen)",
+        "mit Coffin-Manson (niedrige Lastwechselzahlen)"
+      ],
+      "m": [
+        "Spannungsamplitude",
+        "Schwingfestigkeitskoeffizient",
+        "Umkehrpunkte bis zum Bruch (doppelte Lastwechselzahl)",
+        "Schwingfestigkeitsexponent (−0,05 bis −0,12)",
+        "Dehnungsamplitude",
+        "Elastizitätsmodul",
+        "zyklischer Duktilitätskoeffizient",
+        "zyklischer Duktilitätsexponent (−0,5 bis −0,7)"
+      ],
+      "when": "Wechselbeanspruchung ohne Mittelspannung mit konstanter Amplitude an glatten Proben. Bei hohen Lastwechselzahlen überwiegt der elastische Term, unterhalb von etwa 10⁴ Lastwechseln der plastische. Mittelspannungen berücksichtigt man mit Korrekturen wie der nach Morrow, veränderliche Lasten in Kombination mit der Miner-Regel.",
+      "miss": "Umkehrpunkte 2N_f und Lastwechsel N_f verwechseln. Amplitude und Schwingbreite (Faktor 2) verwechseln.",
+      "ex": "Angenommene Konstanten σ_f′ = 1000 MPa; b = −0,09; ε_f′ = 0,6; c = −0,6; E = 200 GPa: Bei N_f = 10⁴ Lastwechseln ist die Dehnungsamplitude elastisch 2,05 × 10⁻³ + plastisch 1,58 × 10⁻³ = 3,63 × 10⁻³. Übergangslebensdauer, bei der elastischer und plastischer Anteil gleich sind: N_t = 5968 Lastwechsel. Eine Spannungsamplitude von 400 MPa (hohe Lastwechselzahl) ergibt nach Basquin N_f = (400/1000)^(1/b)/2 = 1,32 × 10⁴ Lastwechsel.",
+      "kw": "Ermüdung Wöhlerlinie S-N-Kurve Basquin Coffin Manson Kurzzeitfestigkeit Low Cycle Fatigue Dehnungswöhlerlinie"
+    },
+    "goodman": {
+      "name": "Einfluss der Mittelspannung (modifiziertes Goodman-Diagramm)",
+      "l": [
+        "modifiziertes Goodman-Diagramm",
+        "Mittelspannung",
+        "Spannungsamplitude",
+        "Spannungsverhältnis"
+      ],
+      "m": [
+        "Spannungsamplitude",
+        "Mittelspannung",
+        "Dauerfestigkeit bei Wechselbeanspruchung (oder Schwingfestigkeit bei N Lastwechseln)",
+        "Zugfestigkeit",
+        "Ober- und Unterspannung",
+        "Spannungsverhältnis"
+      ],
+      "when": "Lineare Abschätzung auf der sicheren Seite dafür, wie eine Zugmittelspannung die Schwingfestigkeit senkt. Bei duktilen Werkstoffen passt die Parabel nach Gerber ((σ_m/σ_u)²) besser zu Messwerten; ist das Fließen maßgebend, verwendet man Soderberg (σ_y statt σ_u). Druckmittelspannungen werden meist nicht angerechnet.",
+      "miss": "Die Schwingbreite als Amplitude einsetzen (halbieren). R = −1 (Wechselbeanspruchung) und R = 0 (Zugschwellbeanspruchung) verwechseln.",
+      "ex": "Dauerfestigkeit σ_e = 300 MPa (wechselnd), Zugfestigkeit σ_u = 800 MPa, Mittelspannung 200 MPa: zulässige Spannungsamplitude σ_a = 300(1 − 200/800) = 225 MPa; σ_max = 200 + 225 = 425 MPa; σ_min = −25 MPa; R = −0,059.",
+      "kw": "Goodman Mittelspannung Spannungsamplitude Spannungsverhältnis Dauerfestigkeitsschaubild Haigh"
+    },
+    "miner": {
+      "name": "Miner-Regel (lineare Schadensakkumulation)",
+      "l": [
+        "",
+        "Bruch"
+      ],
+      "m": [
+        "Schadenssumme",
+        "Zahl der Lastwechsel auf Spannungsniveau i",
+        "Lebensdauer bei alleiniger Beanspruchung auf Niveau i"
+      ],
+      "when": "Näherung, die den Einfluss der Lastreihenfolge vernachlässigt. Werden zuerst hohe, dann niedrige Spannungen aufgebracht, tritt der Bruch eher bei D < 1 ein; bei umgekehrter Reihenfolge kann D > 1 werden. In der Auslegung begrenzt man D manchmal auf etwa 0,3–0,5.",
+      "miss": "Lastwechsel unterhalb der Dauerfestigkeit nicht zählen oder N_i = ∞ setzen (wächst ein Riss, schädigen auch niedrige Spannungen).",
+      "ex": "2 × 10⁴ Lastwechsel auf einem Niveau mit der Lebensdauer 10⁵ (0,2) und 3 × 10⁵ Lastwechsel auf einem Niveau mit 10⁶ (0,3): Schadenssumme D = 0,50. Auf einem Niveau mit der Lebensdauer 10⁷ verbleiben noch (1 − 0,50) × 10⁷ = 5,0 × 10⁶ Lastwechsel.",
+      "kw": "Miner-Regel Palmgren-Miner Schadensakkumulation Betriebsfestigkeit veränderliche Amplitude Ermüdung"
+    },
+    "weibull": {
+      "name": "Weibull-Verteilung (Streuung der Festigkeit spröder Werkstoffe)",
+      "l": [
+        "",
+        "Größeneinfluss"
+      ],
+      "m": [
+        "Bruchwahrscheinlichkeit",
+        "beanspruchtes Volumen und Bezugsvolumen",
+        "Spannung",
+        "Skalenparameter (Spannung, bei der im Volumen V₀ 63,2 % brechen)",
+        "Weibull-Modul (je größer, desto geringer die Streuung; Keramik 5–20)"
+      ],
+      "when": "Spröde Werkstoffe, die an der schwächsten Stelle versagen (Modell des schwächsten Glieds), hier für gleichmäßigen Zug über das Volumen geschrieben; bei ungleichmäßiger Spannung wie unter Biegung verwendet man das effektive Volumen. m ist die Steigung der Geraden von ln ln(1/(1 − P_f)) über ln σ.",
+      "miss": "Biegefestigkeiten unverändert auf zugbeanspruchte Bauteile übertragen (das effektive Volumen ist anders). P_f mit der Überlebenswahrscheinlichkeit P_s = 1 − P_f verwechseln.",
+      "ex": "Keramik mit dem Weibull-Modul m = 10 und σ₀ = 300 MPa (Probenvolumen V₀) bei 200 MPa: P_f = 1 − exp[−(200/300)¹⁰] = 0,0172. Bei einem Bauteil mit zehnfachem Volumen sinkt die Spannung für dieselbe Bruchwahrscheinlichkeit auf das (1/10)^(1/10) = 0,794-Fache.",
+      "kw": "Weibull Weibull-Modul spröde Keramik Festigkeitsstreuung Größeneinfluss"
+    },
+    "thermal-expansion": {
+      "name": "Wärmeausdehnung",
+      "l": [
+        "",
+        "Volumenausdehnung (isotrop)"
+      ],
+      "m": [
+        "Längenänderung und Anfangslänge",
+        "Längenausdehnungskoeffizient",
+        "Temperaturänderung (T₂ − T₁)",
+        "Volumenausdehnungskoeffizient"
+      ],
+      "when": "Wenn α im betrachteten Temperaturbereich als konstant gelten kann (über einen weiten Bereich α(T) integrieren). Die Beziehung 3α für das Volumen gilt nur für isotrope Werkstoffe (bei anisotropen Kristallen und Faserverbunden je nach Richtung verschieden).",
+      "miss": "Den Faktor 10⁻⁶ in 10⁻⁶ K⁻¹ vergessen. Mit einer absoluten Temperatur statt einer Temperaturdifferenz multiplizieren. Eine Differenz in °C ist gleich einer Differenz in K (ΔT darf in beiden Einheiten stehen).",
+      "ex": "Messingdraht (α = 20 × 10⁻⁶ K⁻¹), 15 m lang, von 40 °C auf −9 °C abgekühlt: ΔL = 20 × 10⁻⁶ × 15 × (−49) = −1,47 × 10⁻² m = −14,7 mm (Verkürzung). Das Volumen nimmt mit 3α um 0,29 % ab.",
+      "kw": "Wärmeausdehnung thermische Ausdehnung Längenausdehnungskoeffizient Volumenausdehnung"
+    },
+    "thermal-stress": {
+      "name": "Wärmespannung bei behinderter Ausdehnung",
+      "l": [
+        "einachsig behindert",
+        "gleichmäßig zweiachsig behindert (Platte)",
+        "dreiachsig behindert"
+      ],
+      "m": [
+        "Wärmespannung (Zug positiv)",
+        "Elastizitätsmodul",
+        "Längenausdehnungskoeffizient",
+        "Temperaturänderung gegenüber dem spannungsfreien Zustand",
+        "Querkontraktionszahl"
+      ],
+      "when": "Vollständig behinderte Ausdehnung (Gesamtdehnung null), linear-elastisch. Erwärmen erzeugt Druck-, Abkühlen Zugspannungen. Bei teilweiser Behinderung oder ortsabhängiger Temperatur siehe die Formeln im Labor für Wärmeausdehnung und Wärmespannung.",
+      "miss": "Vorzeichen verwechseln. Für eine Platte (zweiachsig) die einachsige Formel verwenden. Werte oberhalb der Streckgrenze unverändert verwenden.",
+      "ex": "Messingstab, an beiden Enden eingespannt (E = 100 GPa; α = 20 × 10⁻⁶ K⁻¹), von 20 °C aus erwärmt: Damit die Druckspannung höchstens 172 MPa erreicht, darf ΔT = 172/(100000 × 20 × 10⁻⁶) = 86,0 K betragen, also T = 106 °C. In einer zweiachsig behinderten Platte (ν = 0,35) ist die Spannung bei gleichem ΔT um den Faktor 1/(1 − ν) = 1,54 größer.",
+      "kw": "Wärmespannung thermische Spannung Behinderung Einspannung zweiachsig dreiachsig"
+    },
+    "film-stress": {
+      "name": "Wärmespannung in einer dünnen Schicht auf einem Substrat",
+      "l": [
+        ""
+      ],
+      "m": [
+        "Wärmespannung in der Schicht (gleichmäßig zweiachsig, Zug positiv)",
+        "biaxialer Modul der Schicht",
+        "Längenausdehnungskoeffizienten von Substrat und Schicht",
+        "Temperaturänderung gegenüber der spannungsfreien Temperatur (beim Abkühlen negativ)"
+      ],
+      "when": "Schicht viel dünner als das Substrat (das Substrat verformt sich nicht), in der Schichtebene isotrop, linear-elastisch. Die Beschichtungstemperatur gilt als spannungsfrei (Eigenspannungen aus dem Schichtwachstum werden gesondert addiert).",
+      "miss": "Die Reihenfolge in (α_f − α_s) und (α_s − α_f) verwechseln. 1 − ν weglassen (einachsige Form). Die Anisotropie einkristalliner Substrate und Schichten vernachlässigen.",
+      "ex": "Al-Schicht (E_f = 70 GPa; ν_f = 0,33; α_f = 23,1 × 10⁻⁶ K⁻¹) auf einem Si-Substrat (α_s = 2,6 × 10⁻⁶ K⁻¹), bei 400 °C spannungsfrei, auf 25 °C abgekühlt: σ_f = (70000/0,67) × (2,6 − 23,1) × 10⁻⁶ × (−375) = 803 MPa (Zug). Tatsächlich fließt das Al, sodass dieser elastische Wert nicht erreicht wird.",
+      "kw": "Dünnschicht dünne Schicht Wärmespannung biaxialer Modul Fehlpassung der Wärmeausdehnung"
+    },
+    "stoney": {
+      "name": "Stoney-Gleichung",
+      "l": [
+        "",
+        "Krümmung"
+      ],
+      "m": [
+        "mittlere Spannung in der Schicht",
+        "biaxialer Modul des Substrats",
+        "Dicke von Substrat und Schicht",
+        "Krümmung (Änderung durch die Beschichtung)",
+        "Krümmungsradius"
+      ],
+      "when": "t_f ≪ t_s, Durchbiegung kleiner als die Substratdicke, isotropes Substrat (für Si(100) den biaxialen Modul 180 GPa verwenden). Die elastischen Konstanten der Schicht werden nicht benötigt.",
+      "miss": "t_s und t_f vertauschen (t_s geht quadratisch ein). Die Krümmung vor der Beschichtung nicht abziehen. Durchmesser und Radius verwechseln (Krümmungsradius).",
+      "ex": "Ein (100)-Si-Wafer (biaxialer Modul E_s/(1 − ν_s) = 180 GPa; Dicke 0,525 mm) mit einer 1 µm dicken Schicht verbiegt sich auf einen Krümmungsradius von 50 m: σ_f = 180 × 10⁹ × (0,525 × 10⁻³)²/(6 × 10⁻⁶ × 50) = 165 MPa.",
+      "kw": "Stoney Dünnschicht Schichtspannung Wafer Durchbiegung Krümmung"
+    },
+    "composite-bar": {
+      "name": "Wärmespannung in einem Verbundstab (zwei verbundene Stäbe)",
+      "l": [
+        "Kräftegleichgewicht",
+        "gleiche Längenänderung",
+        "Lösung"
+      ],
+      "m": [
+        "Spannung in jedem Stab",
+        "Querschnittsflächen",
+        "Längenausdehnungskoeffizienten",
+        "Elastizitätsmoduln",
+        "Temperaturänderung"
+      ],
+      "when": "Zwei parallele Stäbe, an beiden Enden verbunden, ohne äußere Kraft, mit gleichmäßiger Temperatur, linear-elastisch und ohne Biegung. Wirkt zusätzlich eine äußere Last, setzt man sie auf die rechte Seite des Kräftegleichgewichts.",
+      "miss": "Für einen der Stäbe einfach den Wert bei vollständiger Behinderung (EαΔT) verwenden. Unterschiedliche Querschnitte vernachlässigen.",
+      "ex": "Ein Stahlstab (E = 200 GPa; α = 12 × 10⁻⁶) und ein Al-Stab (70 GPa; 23 × 10⁻⁶) mit gleichem Querschnitt (100 mm²), an beiden Enden verbunden und um 100 K erwärmt: Spannung im Stahl σ₁ = −(12 − 23) × 10⁻⁶ × 100/(1/200000 + 1/70000) = 57,0 MPa (Zug), Spannung im Al σ₂ = −57,0 MPa (Druck).",
+      "kw": "Verbundstab Bimetall Wärmespannung Verträglichkeitsbedingung"
+    },
+    "bimetal-curvature": {
+      "name": "Krümmung eines Bimetalls (Timoshenko)",
+      "l": [
+        "",
+        "t₁ = t₂, E₁ = E₂",
+        "Bezeichnungen",
+        "Gesamtdicke"
+      ],
+      "m": [
+        "Krümmung",
+        "Differenz der Wärmedehnungen (α₂ − α₁)ΔT",
+        "Dicken der Schichten und Gesamtdicke",
+        "Dickenverhältnis, Verhältnis der E-Moduln",
+        "E-Moduln der Schichten"
+      ],
+      "when": "Zweischichtiger Balken ohne Behinderung in Breitenrichtung (Balken im ebenen Spannungszustand), linear-elastisch, gleichmäßige Temperatur. Bei breiten Platten ersetzt man E durch E/(1 − ν).",
+      "miss": "Die Krümmungsrichtung verwechseln (die Schicht mit der größeren Ausdehnung liegt auf der konvexen Seite). Für h die Dicke nur einer Schicht verwenden.",
+      "ex": "Zwei Schichten zu je 0,5 mm mit gleichem E-Modul, Unterschied der Ausdehnungskoeffizienten 18 × 10⁻⁶ K⁻¹, um 50 K erwärmt (Δε = 9,0 × 10⁻⁴): mit m = n = 1 ist κ = 3Δε/(2h) = 1,35 m⁻¹ (Krümmungsradius 0,741 m).",
+      "kw": "Bimetall Krümmung Timoshenko Thermostat Thermobimetall"
+    },
+    "thermal-shock": {
+      "name": "Thermoschockbeständigkeit",
+      "l": [
+        "Thermoschockparameter (Abschrecken)",
+        "bei konstantem Wärmestrom",
+        "Biot-Zahl",
+        "Beziehung nach Manson"
+      ],
+      "m": [
+        "Temperaturdifferenz, bei der das Abschrecken Risse erzeugt (β → ∞)",
+        "Bruchfestigkeit",
+        "Querkontraktionszahl",
+        "Elastizitätsmodul",
+        "Längenausdehnungskoeffizient",
+        "Wärmeleitfähigkeit",
+        "zweiter Thermoschockparameter",
+        "Biot-Zahl",
+        "halbe Plattendicke",
+        "Wärmeübergangskoeffizient",
+        "kritische Temperaturdifferenz"
+      ],
+      "when": "Beginn der Rissbildung, wenn eine Platte aus sprödem Werkstoff an der Oberfläche plötzlich abgekühlt (oder erwärmt) wird. Je größer β (scharfes Abschrecken, dicke Platte, geringe Wärmeleitfähigkeit), desto näher liegt der Wert an R. Festigkeitsstreuung und Rissausbreitung (R‴ usw.) werden gesondert betrachtet.",
+      "miss": "Für a die ganze Plattendicke einsetzen (die Hälfte verwenden). Den Faktor 10⁻⁶ in α vergessen. Vergessen, dass sich die Richtung der Oberflächenspannung zwischen Erwärmen und Abkühlen umkehrt.",
+      "ex": "Aluminiumoxid (Daten aus dem Labor für Wärmeausdehnung und Wärmespannung: σ_f = 310 MPa; ν = 0,23; E = 360 GPa; α = 7,2 × 10⁻⁶ K⁻¹; κ = 29 W/(m·K)): R = 92,1 K; R′ = κR = 2671 W/m. Eine 10 mm dicke Platte (a = 5 mm) wird in Wasser abgeschreckt (h ≈ 10⁴ W/(m²·K)): β = ah/κ = 1,72; kritische Temperaturdifferenz ΔT_c ≈ R × (1,5 + 3,25/β − 0,5e^(−16/β)) = 312 K.",
+      "kw": "Thermoschock Thermoschockbeständigkeit Temperaturwechselbeständigkeit Biot-Zahl Abschrecken Keramik"
+    },
+    "conduction": {
+      "name": "Wärmeleitung (Fouriersches Gesetz)",
+      "l": [
+        "",
+        "ebene Platte (stationär)"
+      ],
+      "m": [
+        "Wärmestromdichte",
+        "Wärmeleitfähigkeit",
+        "Temperatur, Temperaturdifferenz zwischen beiden Plattenseiten",
+        "Ort, Plattendicke"
+      ],
+      "when": "Stationärer Zustand mit temperaturunabhängigem κ. Bei geschichteten Wänden addiert man die Wärmewiderstände L/κ, bei Wärmeübergang an der Oberfläche (Konvektion) zusätzlich 1/h.",
+      "miss": "Die Dicke in mm einsetzen. Wärmeleitfähigkeit und Temperaturleitfähigkeit verwechseln.",
+      "ex": "Stahlplatte (κ = 50 W/(m·K)), 10 mm dick, Temperaturdifferenz zwischen beiden Seiten 100 K (stationär): q = 50 × 100/0,010 = 5,0 × 10⁵ W/m².",
+      "kw": "Wärmeleitung Fourier Wärmestromdichte Wärmeleitfähigkeit"
+    },
+    "thermal-diffusivity": {
+      "name": "Temperaturleitfähigkeit",
+      "l": [
+        "",
+        "instationäre Wärmeleitung"
+      ],
+      "m": [
+        "Temperaturleitfähigkeit",
+        "Wärmeleitfähigkeit",
+        "Dichte",
+        "spezifische Wärmekapazität (bei konstantem Druck)",
+        "Temperatur",
+        "Zeit",
+        "Ort"
+      ],
+      "when": "Bestimmt die Geschwindigkeit der instationären Wärmeleitung; die Wärmeleitungsgleichung hat dieselbe Form wie das 2. Ficksche Gesetz, sodass sich z. B. erfc-Lösungen direkt übertragen lassen. Mit dem Laser-Flash-Verfahren misst man a und erhält die Wärmeleitfähigkeit aus κ = aρc_p.",
+      "miss": "c_p in J/(mol·K) einsetzen (je Masse verwenden). ρ in g/cm³ einsetzen.",
+      "ex": "Cu (κ = 398 W/(m·K); ρ = 8960 kg/m³; c_p = 385 J/(kg·K)): a = 1,15 × 10⁻⁴ m²/s. In 1 s dringt die Wärme größenordnungsmäßig √(at) = 10,7 mm weit ein.",
+      "kw": "Temperaturleitfähigkeit Laser-Flash instationär spezifische Wärmekapazität"
+    },
+    "heat-capacity": {
+      "name": "Wärmekapazität des Gitters (Dulong-Petit und Debye)",
+      "l": [
+        "T ≫ θ_D (Dulong-Petit)",
+        "T ≪ θ_D (Debyesches T³-Gesetz)"
+      ],
+      "m": [
+        "molare Wärmekapazität bei konstantem Volumen (Gitteranteil)",
+        "Gaskonstante",
+        "Temperatur",
+        "Debye-Temperatur"
+      ],
+      "when": "Je Mol Atome eines Elements; bei Verbindungen mit der Zahl der Atome je Formeleinheit multiplizieren. Bei Metallen kommt bei tiefen Temperaturen der Elektronenanteil (proportional zu T) hinzu. Bei Festkörpern ist der Unterschied zwischen C_p und C_v klein.",
+      "miss": "Werte je Mol und je Masse verwechseln. Bei Verbindungen vergessen, mit der Zahl der Atome je Formeleinheit zu multiplizieren.",
+      "ex": "Al (Debye-Temperatur θ_D = 428 K): bei 20 K C_v = (12π⁴/5)R(20/428)³ = 0,198 J/(mol·K). Grenzwert bei hohen Temperaturen 3R = 24,94 J/(mol·K), je Masse 3R/M = 924 J/(kg·K) (gemessenes c_p 897 J/(kg·K)).",
+      "kw": "Wärmekapazität spezifische Wärme Dulong Petit Debye-Temperatur Debye"
+    },
+    "wiedemann-franz": {
+      "name": "Wiedemann-Franzsches Gesetz",
+      "l": [
+        "",
+        "Lorenz-Zahl"
+      ],
+      "m": [
+        "elektronischer Anteil der Wärmeleitfähigkeit",
+        "elektrische Leitfähigkeit",
+        "Temperatur",
+        "Lorenz-Zahl",
+        "Boltzmann-Konstante",
+        "Elementarladung"
+      ],
+      "when": "Elektronische Leitung in Metallen; gute Übereinstimmung bei Raumtemperatur und darüber sowie bei sehr tiefen Temperaturen (dazwischen kleiner durch inelastische Streuung). Die Wärmeleitung durch das Gitter (Phononen) ist nicht enthalten; in Legierungen und Halbleitern gilt κ = κ_e + κ_ph.",
+      "miss": "Spezifischen Widerstand ρ und Leitfähigkeit σ verwechseln. Das Gesetz auf Isolatoren und Keramiken anwenden.",
+      "ex": "Cu (σ = 5,96 × 10⁷ S/m; 293 K): κ_e = L₀σT = 2,443 × 10⁻⁸ × 5,96 × 10⁷ × 293 = 427 W/(m·K) (gemessen 401 W/(m·K)).",
+      "kw": "Wiedemann Franz Lorenz-Zahl Wärmeleitfähigkeit elektrische Leitfähigkeit"
+    },
+    "shrink-fit": {
+      "name": "Fugendruck eines Schrumpfverbands (Lamé)",
+      "l": [
+        "",
+        "Tangentialspannung an der Bohrung der Nabe",
+        "zum Fügen nötige Erwärmung"
+      ],
+      "m": [
+        "Fugendruck",
+        "Durchmesserübermaß",
+        "Fugendurchmesser",
+        "Außendurchmesser des Außenteils (Nabe)",
+        "Bohrungsdurchmesser des Innenteils (bei Vollwelle 0)",
+        "E-Moduln von Außen- und Innenteil",
+        "Querkontraktionszahlen von Außen- und Innenteil",
+        "Tangentialspannung",
+        "Fügespiel",
+        "Längenausdehnungskoeffizient des Außenteils",
+        "Temperaturerhöhung"
+      ],
+      "when": "Dickwandige Zylinder im ebenen Spannungszustand, linear-elastisch, mit gleichmäßigem Druck über die ganze Fugenlänge. Plastisches Fließen senkt den Druck. Die Tangentialspannung an der Bohrung der Nabe ist am größten.",
+      "miss": "Ein radiales Übermaß in die Formel für das Durchmesserübermaß einsetzen (Faktor 2). Das Vorzeichen von ν im Term des Innenteils (− ν_i).",
+      "ex": "Stahlnabe (Außendurchmesser 100 mm) auf eine Stahlvollwelle mit 50 mm Durchmesser aufgeschrumpft, Durchmesserübermaß 0,05 mm (E = 200 GPa; ν = 0,3): p = 75,0 MPa; Tangentialspannung an der Nabenbohrung p(D² + d²)/(D² − d²) = 125 MPa (Zug). Um mit 0,02 mm Fügespiel zu fügen, wird die Nabe um ΔT = (0,05 + 0,02)/(12 × 10⁻⁶ × 50) = 117 K erwärmt.",
+      "kw": "Schrumpfverband Schrumpfverbindung Pressverband Übermaß Fugendruck Lamé dickwandiger Zylinder"
+    },
+    "rom": {
+      "name": "Mischungsregel (Faserrichtung)",
+      "l": [
+        "Faserrichtung (gleiche Dehnung, Voigt)",
+        "Lastaufteilung",
+        "ohne Poren"
+      ],
+      "m": [
+        "E-Modul des Verbundwerkstoffs in Faserrichtung",
+        "E-Moduln von Faser und Matrix",
+        "Volumenanteile von Faser und Matrix",
+        "von Faser und Matrix getragene Kräfte"
+      ],
+      "when": "Ausgerichtete Endlosfasern mit idealer Haftung, sodass Faser und Matrix dieselbe Dehnung erfahren. Obere Schranke des Moduls (Voigt). Volumenanteile einsetzen (Massenanteile vorher umrechnen). Poren zählen als Phase ohne Steifigkeit in V mit.",
+      "miss": "Massenanteile direkt einsetzen. Die Regel auch quer zur Faser verwenden (dort gilt die inverse Mischungsregel). Das Lastverhältnis mit dem Lastanteil F_f/(F_f + F_m) verwechseln.",
+      "ex": "Unidirektionaler Verbund aus 40 vol% Glasfasern (E_f = 69 GPa) in Polyester (E_m = 3,4 GPa), dieselben Zahlen wie im Beispiel in Kapitel 16 von Callister: E_cl = 0,40 × 69 + 0,60 × 3,4 = 29,6 GPa. Lastaufteilung F_f/F_m = (0,40 × 69)/(0,60 × 3,4) = 13,5 (die Fasern tragen 93,1 %).",
+      "kw": "Mischungsregel Voigt obere Schranke unidirektional Lastaufteilung Volumenanteil"
+    },
+    "inverse-rom": {
+      "name": "Inverse Mischungsregel (quer zur Faser)",
+      "l": [
+        "quer zur Faser (gleiche Spannung, Reuss)",
+        ""
+      ],
+      "m": [
+        "E-Modul quer zur Faser",
+        "E-Moduln von Faser und Matrix",
+        "Volumenanteile"
+      ],
+      "when": "Untere Schranke des Moduls (Reuss) unter der Annahme, dass Faser und Matrix dieselbe Spannung tragen. Der tatsächliche Quermodul liegt etwas höher; die Halpin-Tsai-Gleichungen passen besser. Kohlenstofffasern sind in radialer Richtung viel weicher als in Faserrichtung (T300 etwa 15 GPa); für E_f ist daher der radiale Modul einzusetzen.",
+      "miss": "Vergessen, den Kehrwert zu bilden (bei V_f/E_f + V_m/E_m stehen bleiben). Für Kohlenstofffasern den Modul in Faserrichtung als E_f einsetzen.",
+      "ex": "Derselbe Verbund aus 40 vol% Glasfasern und Polyester, quer zur Faser: 1/E_ct = 0,40/69 + 0,60/3,4 → E_ct = 5,49 GPa (19 % des Werts in Faserrichtung).",
+      "kw": "inverse Mischungsregel Reuss untere Schranke Quermodul gleiche Spannung"
+    },
+    "halpin-tsai": {
+      "name": "Halpin-Tsai-Gleichungen",
+      "l": [
+        "",
+        ""
+      ],
+      "m": [
+        "Modul des Verbundwerkstoffs (E₂ oder G₁₂)",
+        "entsprechender Modul von Faser und Matrix",
+        "Formfaktor (bei runden Fasern 2 für E₂, 1 für G₁₂)",
+        "Hilfsgröße",
+        "Faservolumenanteil"
+      ],
+      "when": "Praktische Näherung für den Quermodul E₂ und den Schubmodul in der Ebene G₁₂ unidirektionaler Schichten. ξ = 0 ergibt die inverse Mischungsregel, ξ → ∞ die Mischungsregel. Oberhalb von V_f ≈ 0,6 können die Werte unter den Messwerten liegen.",
+      "miss": "Für E₂ und G₁₂ dasselbe ξ verwenden. Für G₁₂ als P_m E_m statt G_m = E_m/[2(1 + ν_m)] einsetzen.",
+      "ex": "Quermodul desselben Verbunds aus 40 vol% Glasfasern und Polyester mit ξ = 2: η = (69/3,4 − 1)/(69/3,4 + 2) = 0,8654; E₂ = 3,4 × (1 + 2 × 0,8654 × 0,40)/(1 − 0,8654 × 0,40) = 8,80 GPa (größer als 5,49 GPa nach der inversen Mischungsregel).",
+      "kw": "Halpin Tsai Halpin-Tsai Quermodul Schubmodul Mikromechanik"
+    },
+    "fiber-fraction": {
+      "name": "Volumenanteil und Massenanteil",
+      "l": [
+        "Massenanteil → Volumenanteil",
+        "Volumenanteil → Massenanteil",
+        "Dichte (Mischungsregel)"
+      ],
+      "m": [
+        "Volumenanteile von Faser und Matrix",
+        "Massenanteile von Faser und Matrix",
+        "Dichten von Faser, Matrix und Verbundwerkstoff"
+      ],
+      "when": "Ohne Poren. Mit Poren gilt V_f + V_m + V_v = 1; den Porenanteil V_v erhält man aus der gemessenen Dichte und dem Massenanteil (z. B. aus der Veraschung). Da Verhältnisse gebildet werden, kann die Dichte in g/cm³ stehen bleiben.",
+      "miss": "Massenanteile als Volumenanteile in die Mischungsregel einsetzen. 1 − V_f statt w_m = 1 − w_f verwenden.",
+      "ex": "Epoxidharz (ρ_m = 1,20 g/cm³) mit 65 wt% Kohlenstofffasern (ρ_f = 1,76 g/cm³): V_f = (0,65/1,76)/(0,65/1,76 + 0,35/1,20) = 0,3693/(0,3693 + 0,2917) = 0,559. ρ_c = 0,559 × 1,76 + 0,441 × 1,20 = 1,51 g/cm³.",
+      "kw": "Faservolumenanteil Massenanteil Dichte Porengehalt Faseranteil"
+    },
+    "fiber-strength": {
+      "name": "Zugfestigkeit unidirektionaler Verbundwerkstoffe in Faserrichtung",
+      "l": [
+        "Fasern versagen zuerst (ε_f* < ε_m*)",
+        "Matrixspannung beim Faserbruch",
+        "kleinster Volumenanteil, ab dem die Fasern die Festigkeit bestimmen"
+      ],
+      "m": [
+        "Zugfestigkeit in Faserrichtung",
+        "Zugfestigkeiten von Faser und Matrix",
+        "Spannung in der Matrix bei der Bruchdehnung der Faser",
+        "Bruchdehnung der Faser σ_f*/E_f",
+        "E-Modul der Matrix",
+        "Volumenanteile",
+        "kleinster Volumenanteil"
+      ],
+      "when": "Endlosfasern, deren Bruchdehnung kleiner ist als die der Matrix (Kohlenstoff- oder Glasfasern in Epoxidharz). Durch die Streuung der Faserfestigkeit (Weibull) und Fehlausrichtung der Fasern erreichen Messwerte meist 70–90 %. Für Kombinationen, bei denen die Matrix zuerst versagt (keramische Matrix), gilt eine andere Formel.",
+      "miss": "Für σ_m′ die Zugfestigkeit der Matrix σ_m* einsetzen. Die Formel auch quer zur Faser verwenden (dort bestimmen Matrix und Grenzfläche die Festigkeit).",
+      "ex": "T300-Kohlenstofffasern (σ_f* = 3530 MPa; E_f = 230 GPa) in 8552-Epoxidharz (E_m = 4,67 GPa; σ_m* = 121 MPa; Bruchdehnung 1,7 %), V_f = 0,60 (Werte aus dem Verbundwerkstoff-Designer): Die Bruchdehnung der Faser 3530/230000 = 1,53 % ist kleiner als die der Matrix, die Fasern brechen also zuerst. σ_m′ = 4670 × 0,0153 = 71,7 MPa; σ_cl* = 0,60 × 3530 + 0,40 × 71,7 = 2147 MPa. V_min = 1,4 × 10⁻²; bei üblichen Volumenanteilen bestimmen also die Fasern die Festigkeit.",
+      "kw": "Zugfestigkeit unidirektional Bruchdehnung der Faser kleinster Volumenanteil"
+    },
+    "short-fiber": {
+      "name": "Kritische Faserlänge und Festigkeit kurzfaserverstärkter Werkstoffe (Kelly-Tyson)",
+      "l": [
+        "kritische Faserlänge",
+        "l > l_c",
+        "l < l_c"
+      ],
+      "m": [
+        "kritische Faserlänge",
+        "Faserlänge",
+        "Zugfestigkeit der Faser",
+        "Faserdurchmesser",
+        "Grenzflächenscherfestigkeit (oder Schubfließspannung der Matrix)",
+        "Festigkeit des Verbunds mit ausgerichteten Kurzfasern",
+        "Volumenanteile",
+        "Spannung in der Matrix"
+      ],
+      "when": "Fasern in Lastrichtung ausgerichtet; die Schubspannung an der Grenzfläche wird ab dem Faserende als konstant angenommen (starr-plastisch). Bei regelloser Faserorientierung multipliziert man mit einem Orientierungsfaktor (Krenchel; 3/8 für ebene regellose Orientierung). Ist l etwa 15-mal so groß wie l_c, verhalten sich die Fasern fast wie Endlosfasern.",
+      "miss": "Für d den Radius einsetzen (Faktor 2). µm und mm mischen. Die obere Formel verwenden, obwohl l < l_c ist.",
+      "ex": "Kohlenstofffaser (σ_f* = 3500 MPa; d = 7 µm) mit der Grenzflächenscherfestigkeit τ_c = 40 MPa: l_c = 3500 × 0,007/(2 × 40) = 0,306 mm. Bei 30 vol% ausgerichteten Fasern mit 3 mm Länge und σ_m′ = 50 MPa: σ_cd* = 0,30 × 3500 × (1 − 0,306/6) + 0,70 × 50 = 1031 MPa. Bei 0,2 mm Länge (l < l_c): 0,30 × 40 × 0,2/0,007 + 35 = 378 MPa.",
+      "kw": "kritische Faserlänge Kurzfaser Kelly Tyson Grenzflächenscherfestigkeit"
+    },
+    "schapery": {
+      "name": "Wärmeausdehnung unidirektionaler Verbundwerkstoffe (Schapery)",
+      "l": [
+        "Faserrichtung",
+        "quer zur Faser",
+        "große Querkontraktionszahl"
+      ],
+      "m": [
+        "Längenausdehnungskoeffizienten des unidirektionalen Verbunds (in Faserrichtung, quer dazu)",
+        "Längenausdehnungskoeffizienten von Faser und Matrix",
+        "E-Moduln von Faser und Matrix",
+        "Querkontraktionszahlen",
+        "Volumenanteile"
+      ],
+      "when": "Isotrope Fasern und Matrix (Glas, Basalt). Kohlenstoff- und Aramidfasern haben in radialer und axialer Richtung unterschiedliche α; dann ersetzt man in α₂ den Ausdruck (1 + ν_f)α_f durch α_f2 + ν_f α_f1 (so rechnet der Verbundwerkstoff-Designer). α₁ wird von den steifen Fasern bestimmt und liegt weit unter dem einfachen volumengewichteten Mittel.",
+      "miss": "α₁ als einfaches volumengewichtetes Mittel berechnen. Vergessen, dass α der Kohlenstofffaser in Achsrichtung negativ ist.",
+      "ex": "E-Glas (E_f = 72,3 GPa; α_f = 5,4 × 10⁻⁶ K⁻¹; ν_f = 0,2) in Epoxidharz (2,73 GPa; 83,4 × 10⁻⁶ K⁻¹; ν_m = 0,35), V_f = 0,60 (Werte aus dem Verbundwerkstoff-Designer): α₁ = (72,3 × 5,4 × 0,6 + 2,73 × 83,4 × 0,4)/(72,3 × 0,6 + 2,73 × 0,4) = 7,32 × 10⁻⁶ K⁻¹ (das einfache Mittel ergäbe 36,6 × 10⁻⁶). ν₁₂ = 0,260; α₂ = 47,0 × 10⁻⁶ K⁻¹.",
+      "kw": "Wärmeausdehnung Schapery unidirektional Längenausdehnungskoeffizient Verbundwerkstoff"
+    },
+    "off-axis": {
+      "name": "E-Modul einer Einzelschicht unter einem Winkel zur Faser",
+      "l": [
+        ""
+      ],
+      "m": [
+        "E-Modul unter dem Winkel θ zur Faser",
+        "E-Moduln der Einzelschicht in Faserrichtung und quer dazu",
+        "Schubmodul in der Ebene",
+        "große Querkontraktionszahl",
+        "Winkel zwischen Last und Faser"
+      ],
+      "when": "Eine orthotrope unidirektionale Einzelschicht im ebenen Spannungszustand, einachsig unter dem Winkel θ zur Faser gezogen. Die Steifigkeit von Laminaten erhält man mit der klassischen Laminattheorie (A-Matrix). Wegen des G₁₂-Terms liegt der Wert bei Werkstoffen mit G₁₂ unter etwa E₂/2 zwischen 45° und 90° unter E₂ (beim Werkstoff im Beispiel bei keinem Winkel unter E₂).",
+      "miss": "E mit cos²θ drehen (nötig sind vierte Potenzen und der Schubterm). Vergessen, den Kehrwert von 1/E_x zu bilden. Grad und Bogenmaß verwechseln.",
+      "ex": "Einzelschicht T300/5208 (E₁ = 181 GPa; E₂ = 10,3 GPa; G₁₂ = 7,17 GPa; ν₁₂ = 0,28; Werte aus dem Verbundwerkstoff-Designer): E_x = 28,8 GPa bei θ = 30° und 16,7 GPa bei 45°. Schon 30° Abweichung senken die Steifigkeit auf 1/6,3 des Werts in Faserrichtung.",
+      "kw": "Off-Axis Winkel Einzelschicht Koordinatentransformation orthotrop Laminat"
+    },
+    "tsai-hill": {
+      "name": "Tsai-Hill-Bruchkriterium",
+      "l": [
+        "Bruchbedingung",
+        "Reservefaktor (proportionale Belastung; I_TH ist der Wert der linken Seite)"
+      ],
+      "m": [
+        "Spannungen im Achsensystem der Schicht",
+        "Festigkeiten in Faserrichtung und quer dazu (Zug oder Druck je nach Vorzeichen der Spannung)",
+        "Schubfestigkeit in der Ebene",
+        "Wert der linken Seite (Anstrengung)",
+        "Reservefaktor (Faktor, um den die Last bis zum Bruch gesteigert werden kann)"
+      ],
+      "when": "Spannungen in der Ebene (ebener Spannungszustand) einer unidirektionalen Schicht. Bei Werkstoffen mit unterschiedlicher Zug- und Druckfestigkeit wählt man X und Y nach dem Vorzeichen der Spannung. Wird die Last bei gleichbleibendem Spannungsverhältnis gesteigert, ist der Reservefaktor R der Kehrwert der Quadratwurzel der linken Seite.",
+      "miss": "Spannungen im globalen Koordinatensystem (σ_x) unverändert einsetzen (in das Achsensystem der Schicht drehen). Den Reservefaktor als Kehrwert der linken Seite ansetzen (die Quadratwurzel ist nötig).",
+      "ex": "T300/5208 (X = 1500; Y = 40; S = 68 MPa) unter 30° zur Faser mit 100 MPa auf Zug belastet: σ₁ = 75,0; σ₂ = 25,0; τ₁₂ = −43,3 MPa. Die linke Seite ist 0,798 < 1, es tritt also kein Bruch ein. Reservefaktor R = 1/√0,798 = 1,12 (Festigkeit unter 30°: 112 MPa).",
+      "kw": "Tsai Hill Tsai-Hill Bruchkriterium Versagenskriterium Reservefaktor Laminat Einzelschicht"
+    },
+    "resistivity": {
+      "name": "Elektrischer Widerstand und Temperaturkoeffizient des spezifischen Widerstands",
+      "l": [
+        "Widerstand eines Drahts",
+        "Temperaturabhängigkeit",
+        "elektrische Leitfähigkeit"
+      ],
+      "m": [
+        "elektrischer Widerstand",
+        "spezifischer Widerstand, bei 20 °C",
+        "Länge",
+        "Querschnittsfläche πd²/4",
+        "Temperaturkoeffizient des spezifischen Widerstands (Bezug 20 °C)",
+        "Temperatur, Bezugstemperatur 20 °C",
+        "elektrische Leitfähigkeit"
+      ],
+      "when": "Metalle in der Nähe der Raumtemperatur (etwa −50 bis 150 °C), wo sich der spezifische Widerstand linear mit der Temperatur ändert. α_R hängt von der Bezugstemperatur ab (Bezug 0 °C oder 20 °C).",
+      "miss": "Den Durchmesser als Radius verwenden (πd²). Die Temperaturkorrektur vergessen. Spezifischen Widerstand und Widerstand verwechseln.",
+      "ex": "Weichgeglühtes Kupfer (IEC 60028: ρ₂₀ = 1,7241 × 10⁻⁸ Ω·m; α_R = 0,00393 K⁻¹), Draht mit 1 mm Durchmesser und 100 m Länge bei 75 °C: ρ = 1,7241 × 10⁻⁸ × (1 + 0,00393 × 55) = 2,097 × 10⁻⁸ Ω·m; A = π(0,001)²/4 = 7,854 × 10⁻⁷ m²; R = 2,67 Ω (bei 20 °C 2,20 Ω).",
+      "kw": "elektrischer Widerstand spezifischer Widerstand Temperaturkoeffizient Draht Kupfer"
+    },
+    "matthiessen": {
+      "name": "Matthiessensche Regel",
+      "l": [
+        "Matthiessensche Regel",
+        "Anteil gelöster Atome (Nordheim)"
+      ],
+      "m": [
+        "gesamter spezifischer Widerstand",
+        "Anteile durch Gitterschwingungen, Fremdatome und Gitterfehler (Verformung)",
+        "Konstante für das Paar aus gelöstem Element und Grundmetall",
+        "Atomanteil des gelösten Elements"
+      ],
+      "when": "Metalle, bei denen die Streumechanismen als unabhängig gelten können. Nur ρ_t hängt von der Temperatur ab; ρ_i und ρ_d sind temperaturunabhängig (Restwiderstand bei tiefen Temperaturen). Die Nordheim-Beziehung gilt für Legierungen mit lückenloser Mischkristallbildung bei niedrigen bis mittleren Konzentrationen.",
+      "miss": "Leitfähigkeiten (σ) statt spezifischer Widerstände addieren. Die Konzentration in at% statt als Anteil einsetzen.",
+      "ex": "Cu mit 3 at% Ni im Mischkristall (ρ_t von Cu bei Raumtemperatur 1,72 × 10⁻⁸ Ω·m; A für Cu–Ni nach dem Diagramm bei Callister etwa 1,2 × 10⁻⁶ Ω·m): ρ_i = 1,2 × 10⁻⁶ × 0,03 × 0,97 = 3,49 × 10⁻⁸ Ω·m; ρ ≈ 5,21 × 10⁻⁸ Ω·m (das 3,03-Fache von reinem Kupfer).",
+      "kw": "Matthiessen Matthiessensche Regel Restwiderstand Nordheim Mischkristall spezifischer Widerstand"
+    },
+    "conductivity": {
+      "name": "Elektrische Leitfähigkeit von Halbleitern",
+      "l": [
+        "",
+        "n-leitend (alle Donatoren ionisiert)",
+        "spezifischer Widerstand"
+      ],
+      "m": [
+        "elektrische Leitfähigkeit",
+        "Elektronen- und Löcherkonzentration",
+        "Donatorkonzentration",
+        "Elementarladung",
+        "Beweglichkeit der Elektronen und Löcher",
+        "spezifischer Widerstand"
+      ],
+      "when": "In der Nähe der Raumtemperatur, wenn alle Donatoren und Akzeptoren ionisiert sind (Störstellenerschöpfung). Die Beweglichkeit nimmt mit der Dotierung ab; man verwendet daher den Wert für die jeweilige Konzentration (empirische Formeln unterscheiden sich um einige Prozent: Der Rechentrainer dieser Website verwendet die Form nach Caughey-Thomas, der Simulator für Diffusion und Oberflächenbehandlung die Formel nach Arora; für Elektronen in n-Si bei 10¹⁷–10¹⁸ cm⁻³ weichen sie um bis zu etwa 8 % voneinander ab).",
+      "miss": "cm⁻³ und cm²/(V·s) nicht in SI-Einheiten umrechnen (oder nur eines von beiden). Leitfähigkeit und spezifischen Widerstand verwechseln.",
+      "ex": "n-Si mit einer Donatorkonzentration von 10¹⁶ cm⁻³ (= 10²² m⁻³), Elektronenbeweglichkeit 1200 cm²/(V·s) = 0,12 m²/(V·s): σ = 10²² × 1,602 × 10⁻¹⁹ × 0,12 = 192 S/m; ρ = 1/σ = 5,20 × 10⁻³ Ω·m = 0,520 Ω·cm.",
+      "kw": "Leitfähigkeit Beweglichkeit Ladungsträgerkonzentration n-leitend p-leitend Silizium Donator"
+    },
+    "intrinsic": {
+      "name": "Intrinsische Ladungsträgerdichte",
+      "l": [
+        "",
+        "Temperaturabhängigkeit",
+        "Massenwirkungsgesetz"
+      ],
+      "m": [
+        "intrinsische Ladungsträgerdichte",
+        "effektive Zustandsdichten von Leitungs- und Valenzband",
+        "Bandlücke (in eV mit k in eV/K)",
+        "Boltzmann-Konstante",
+        "Temperatur",
+        "Elektronen- und Löcherkonzentration"
+      ],
+      "when": "Nichtentartete Halbleiter (Fermi-Niveau mehrere kT von den Bandkanten entfernt). N_c und N_v sind proportional zu T^{3/2}. Auch E_g ändert sich etwas mit der Temperatur (Si bei 300 K: 1,12 eV).",
+      "miss": "Den Faktor 2 im Exponenten vergessen (E_g/kT). eV und J verwechseln.",
+      "ex": "Si (E_g = 1,12 eV; Temperaturabhängigkeit von E_g vernachlässigt) von 300 K auf 350 K: n_i(350)/n_i(300) = (350/300)^(1,5) × exp[−1,12/(2 × 8,617 × 10⁻⁵) × (1/350 − 1/300)] = 27,8-fach. n_i bei 300 K beträgt etwa 10¹⁰ cm⁻³ (Sze).",
+      "kw": "intrinsische Ladungsträgerdichte Eigenleitungsdichte Bandlücke effektive Zustandsdichte Massenwirkungsgesetz"
+    },
+    "sheet-resistance": {
+      "name": "Schichtwiderstand einer Diffusionsschicht",
+      "l": [
+        "Schichtwiderstand",
+        "mit Dotierprofil",
+        "gleichmäßig dotierte Schicht"
+      ],
+      "m": [
+        "Schichtwiderstand (Ω/□)",
+        "spezifischer Widerstand der Schicht",
+        "Übergangstiefe (Schichtdicke)",
+        "Elementarladung",
+        "Beweglichkeit der Ladungsträger (abhängig von N)",
+        "Netto-Dotierstoffkonzentration",
+        "Tiefe"
+      ],
+      "when": "Dünne Schichten, in denen der Strom parallel zur Oberfläche fließt. Der Wert der Vierspitzenmessung R_s = 4,53 V/I gilt, wenn die Probe viel breiter als der Spitzenabstand und dünn ist. Bei einer Schicht vom entgegengesetzten Leitungstyp wie das Substrat ist N die Nettokonzentration (N − N_B).",
+      "miss": "Unabhängig von der Dotierung eine einzige Beweglichkeit verwenden (bei hoher Konzentration ist sie kleiner). x_j in µm einsetzen.",
+      "ex": "n-Schicht, bis 0,5 µm Tiefe gleichmäßig mit 10¹⁹ cm⁻³ (= 10²⁵ m⁻³) Donatoren dotiert (Elektronenbeweglichkeit nach Arora 114 cm²/(V·s), wie im Simulator für Diffusion und Oberflächenbehandlung): R_s = 1/(qμNx_j) = 1/(1,602 × 10⁻¹⁹ × 0,0114 × 10²⁵ × 0,5 × 10⁻⁶) = 109 Ω/□.",
+      "kw": "Schichtwiderstand Flächenwiderstand Vierspitzenmessung Übergangstiefe Diffusionsschicht Beweglichkeit"
+    },
+    "faraday": {
+      "name": "Korrosionsabtrag nach dem Faradayschen Gesetz",
+      "l": [
+        "gelöste Masse",
+        "Abtragsgeschwindigkeit der Oberfläche"
+      ],
+      "m": [
+        "Masse des gelösten Metalls",
+        "Stromstärke",
+        "Zeit",
+        "molare Masse (Atommasse)",
+        "Wertigkeit der Ionen (Zahl der Elektronen je Atom)",
+        "Faraday-Konstante",
+        "Korrosionsgeschwindigkeit (Dickenabtrag)",
+        "Korrosionsstromdichte",
+        "Dichte des Metalls"
+      ],
+      "when": "Die gesamte Ladung dient der Auflösung des Metalls (Stromausbeute 100 %), und der Angriff ist gleichmäßig. Bei örtlicher Korrosion wie Lochkorrosion entstehen viel tiefere Löcher, als es der mittleren Geschwindigkeit entspricht.",
+      "miss": "Die Wertigkeit n vergessen. µA/cm² und A/m² umrechnen (1 µA/cm² = 10⁻² A/m²). Mit g/cm³ rechnen und dabei cm und µm mischen.",
+      "ex": "Eisen (M = 55,845 g/mol; ρ = 7,87 g/cm³) löst sich gleichmäßig als Fe²⁺ bei einer Korrosionsstromdichte von 1 µA/cm²: je cm² und Sekunde 10⁻⁶ × 55,845/(2 × 96485) = 2,89 × 10⁻¹⁰ g, geteilt durch die Dichte 3,68 × 10⁻¹¹ cm/s, also 11,6 µm in einem Jahr (365 Tage). Bei 0,5 A über 30 Tage ist m = 0,5 × 2,592 × 10⁶ × 55,845/(2 × 96485) = 375 g.",
+      "kw": "Faraday Faradaysches Gesetz Korrosionsgeschwindigkeit Korrosionsstrom Abtrag Elektrochemie"
+    },
+    "nernst": {
+      "name": "Nernst-Gleichung",
+      "l": [
+        "",
+        "25 °C (V)"
+      ],
+      "m": [
+        "Zellspannung, Standardzellspannung",
+        "Gaskonstante",
+        "Temperatur",
+        "Zahl der übertragenen Elektronen",
+        "Faraday-Konstante",
+        "Reaktionsquotient (Produkt der Aktivitäten der Produkte / Produkt der Aktivitäten der Edukte)"
+      ],
+      "when": "Gleichgewichtspotential (kein Nettostrom). In verdünnten Lösungen nähert man die Aktivitäten durch Konzentrationen (mol/L) an. 0,0592 ist (RT/F) ln 10 bei 25 °C.",
+      "miss": "Zähler und Nenner von Q gegenüber der Reaktionsrichtung vertauschen. log₁₀ und ln verwechseln. n vergessen.",
+      "ex": "Zelle aus einer Ni-Elektrode (Ni²⁺ 10⁻³ M) und einer Cd-Elektrode (Cd²⁺ 0,5 M) bei 25 °C, dieselben Zahlen wie im Beispiel in Kapitel 17 von Callister: Für Ni²⁺ + Cd → Ni + Cd²⁺ ist E° = −0,250 − (−0,403) = 0,153 V. E = 0,153 − (RT/2F) ln(0,5/10⁻³) = 0,153 − 0,01285 × 6,215 = 0,073 V. Der Wert ist positiv, die Reaktion läuft also in derselben Richtung wie im Standardzustand (Cd löst sich auf).",
+      "kw": "Nernst Nernst-Gleichung Elektrodenpotential Standardelektrodenpotential Zellspannung EMK Korrosion"
+    },
+    "pilling-bedworth": {
+      "name": "Pilling-Bedworth-Verhältnis",
+      "l": [
+        ""
+      ],
+      "m": [
+        "Pilling-Bedworth-Verhältnis (Volumenverhältnis von Oxid zu Metall)",
+        "Formelmasse des Oxids, Atommasse des Metalls",
+        "Dichten von Oxid und Metall",
+        "Zahl der Metallatome je Formeleinheit des Oxids"
+      ],
+      "when": "Grober Anhaltspunkt dafür, ob eine Oxidschicht bei der Hochtemperaturoxidation schützt. Unter 1 ist die Schicht porös, zwischen 1 und 2 wirkt sie meist schützend, deutlich über 2 platzt sie durch Druckspannungen leicht ab. Es gibt viele Ausnahmen (Haftung der Schicht, Diffusionsgeschwindigkeit); der Wert ist nur ein Anhaltspunkt.",
+      "miss": "n vergessen (bei Al₂O₃ 2). Formelmasse des Oxids und Atommasse des Metalls vertauschen.",
+      "ex": "Al₂O₃ (M = 101,96 g/mol; ρ = 3,95 g/cm³) auf Al (26,982; 2,70): PBR = 101,96 × 2,70/(2 × 26,982 × 3,95) = 1,29 (zwischen 1 und 2, schützend). MgO (40,304; 3,58) auf Mg (24,305; 1,74): 0,81 (unter 1, porös und nicht schützend).",
+      "kw": "Pilling Bedworth Pilling-Bedworth-Verhältnis Oxidschicht Zunder Hochtemperaturoxidation Schutzschicht"
+    },
+    "oxidation-rate": {
+      "name": "Oxidationskinetik (parabolisches und lineares Zeitgesetz)",
+      "l": [
+        "parabolisch (diffusionskontrolliert)",
+        "linear (nicht schützende Schicht)",
+        "Temperaturabhängigkeit"
+      ],
+      "m": [
+        "Schichtdicke (oder Massenzunahme je Fläche)",
+        "Zeit",
+        "parabolische Geschwindigkeitskonstante",
+        "lineare Geschwindigkeitskonstante",
+        "präexponentieller Faktor",
+        "Aktivierungsenergie",
+        "Gaskonstante",
+        "Temperatur"
+      ],
+      "when": "Das parabolische Zeitgesetz gilt für Hochtemperaturoxidation, die durch Ionendiffusion durch eine dichte Schicht fortschreitet. Es passt nicht für die Anfangsphase mit sehr dünnen Schichten oder für Schichten, die reißen oder abplatzen. Schreibt man es mit der Massenzunahme, wird x zu Δm/A, und auch die Einheit von k_p ändert sich.",
+      "miss": "Annehmen, die doppelte Zeit ergebe die doppelte Dicke (beim parabolischen Gesetz das √2-Fache). k_p für die Dicke und für die Massenzunahme mischen.",
+      "ex": "Parabolische Oxidation, die in 10 h eine 2,0 µm dicke Schicht ergibt: k_p = 2,0²/10 = 0,40 µm²/h. Nach 100 h ist x = √(0,40 × 100) = 6,32 µm (zehnfache Zeit, aber nur √10-fache Dicke).",
+      "kw": "Oxidation parabolisches Zeitgesetz lineares Zeitgesetz Geschwindigkeitskonstante Hochtemperaturoxidation Zunderung"
+    },
+    "larson-miller": {
+      "name": "Larson-Miller-Parameter",
+      "l": [
+        "",
+        "zwei Bedingungen bei gleicher Spannung"
+      ],
+      "m": [
+        "Larson-Miller-Parameter (abhängig von der Spannung)",
+        "absolute Temperatur",
+        "Werkstoffkonstante (bei vielen Metallen etwa 20)",
+        "Bruchzeit (die Zahl in Stunden geht in den Logarithmus ein)",
+        "1 h (log₁₀t_r bedeutet log₁₀(t_r/t₀))"
+      ],
+      "when": "Austausch von Temperatur und Zeit beim Zeitstandbruch unter gleicher Spannung (Abschätzung langer Lebensdauern bei tieferer Temperatur aus kurzen Versuchen bei hoher Temperatur). C bezieht sich auf die Zeit in Stunden; 20 ist ein Richtwert (15–25). Extrapolationen sollten etwa das Zehnfache der Versuchsdauer nicht überschreiten.",
+      "miss": "°C einsetzen. ln statt log₁₀ verwenden. Die Zeit in Sekunden einsetzen (C = 20 gilt für Stunden).",
+      "ex": "Eine Legierung, die unter einer bestimmten Spannung bei 900 °C nach 50 h gebrochen ist, wird unter derselben Spannung bei 800 °C eingesetzt (C = 20): P = 1173,15 × (20 + log₁₀50) = 25456 K; t_r = 10^(25456/1073,15 − 20) = 5260 h. Eine um 100 K tiefere Temperatur verlängert die Lebensdauer etwa auf das 105-Fache.",
+      "kw": "Larson Miller Larson-Miller Zeitstandbruch Kriechbruch Lebensdauer Extrapolation warmfeste Legierung"
+    },
+    "creep": {
+      "name": "Potenzgesetz-Kriechen (stationäres Kriechen)",
+      "l": [
+        ""
+      ],
+      "m": [
+        "stationäre Kriechgeschwindigkeit (Dehnrate)",
+        "Werkstoffkonstante",
+        "Spannung",
+        "Spannungsexponent (beim Versetzungskriechen 3–8)",
+        "Aktivierungsenergie des Kriechens",
+        "Gaskonstante",
+        "Temperatur"
+      ],
+      "when": "Oberhalb von etwa dem 0,4-Fachen der Schmelztemperatur, wenn Versetzungskriechen überwiegt. Bei niedriger Spannung und feinem Korn übernimmt Diffusionskriechen (n ≈ 1), bei hoher Spannung bricht das Potenzgesetz zusammen. Welcher Mechanismus vorliegt, zeigt die Verformungsmechanismuskarte.",
+      "miss": "Annehmen, die doppelte Spannung ergebe die doppelte Geschwindigkeit (das 2ⁿ-Fache). Q in eV und J/mol mischen.",
+      "ex": "Werkstoff mit n = 5 und Q = 300 kJ/mol: Bei 1,2-facher Spannung steigt die Dehnrate um den Faktor 1,2⁵ = 2,49. Von 900 K auf 950 K steigt sie um den Faktor exp[(300000/8,314)(1/900 − 1/950)] = 8,25.",
+      "kw": "Kriechen Potenzgesetz Norton Spannungsexponent Aktivierungsenergie stationäres Kriechen"
+    }
+  }
+}

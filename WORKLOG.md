@@ -65,3 +65,4 @@
 - 04:40 新サービス「材料データ集」/materials/ を公開(ja・en)
 - 05:15 新サービス「公式集」/formulas/ を公開(ja・en)
 - 05:48 材料データ集を繁体字・韓国語・ドイツ語に(材料資料集・재료 데이터 모음・Werkstoffdatensammlung)
+- 05:57 公式集を繁体字・韓国語・ドイツ語に(公式集・공식집・Formelsammlung)
