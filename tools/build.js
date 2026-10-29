@@ -234,6 +234,57 @@ function atlasText(code) {
     sources: Object.fromEntries(Object.entries(d.sources).map(([k, v]) => [k, { ...v, name: T.sources?.[k] ?? v.name }])),
   };
 }
+// 計算ドリル(/drill/)。data/drill.json(既定言語の文章・数値の範囲・データ)と、訳 data/i18n/{言語}/drill.json(文章だけ)。
+// 問題を作る計算と判定は src/js/drill.js(物性値は計算ツールのデータ集をそのまま読む)。build は型がそろっていることと文章の {…} を確かめる。
+// その言語の src/i18n に nav_drill があり、文章の訳もある言語でだけ作る。ファイルがなければ何も作らない
+const drillBase = readOpt('data/drill.json', null);
+const drillTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/drill.json`, null));
+const drillOn = code => !!drillBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_drill') && (code === defLang || !!drillTr(code)?.types);
+// 訳を既定言語のデータに重ねる。足りない訳、場合分けや {…} の違う訳があれば止める(埋まらない文を出さない)
+function drillText(code) {
+  const d = drillBase;
+  const T = drillTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/drill.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  const same = (a, b, k) => {
+    if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+    return b;
+  };
+  const keysOf = s => [...new Set([...s.matchAll(/\{(\w+)\}/g)].map(m => m[1]))].sort().join(', ');
+  // 既定言語の a と同じ形(文字・配列・{ 場合: … })で、同じ {…} を使う訳 b
+  const like = (a, b, k) => {
+    need(b, k);
+    if (typeof a === 'string') {
+      if (typeof b !== 'string') throw new Error(`${where}: ${k} は文字で書いてください`);
+      if (keysOf(a) !== keysOf(b)) throw new Error(`${where}: ${k} の {…} が既定言語と違います(既定言語: ${keysOf(a)} / 訳: ${keysOf(b)})`);
+      return b;
+    }
+    if (Array.isArray(a)) return same(a, b, k).map((x, i) => like(x, b[i], `${k}[${i}]`));
+    const ka = Object.keys(a).sort().join(', '), kb = Object.keys(b).sort().join(', ');
+    if (ka !== kb) throw new Error(`${where}: ${k} の場合分け(${kb})を既定言語(${ka})とそろえてください`);
+    return Object.fromEntries(Object.keys(a).map(x => [x, like(a[x], b[x], `${k}.${x}`)]));
+  };
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note'].map(k => [k, need(T[k], k)])),
+    lowerNames: !!T.lowerNames, mat: T.mat ?? {}, units: T.units ?? {},
+    groups: d.groups.map(g => ({ ...g, name: need(T.groups?.[g.id], `groups.${g.id}`) })),
+    names: { x: like(d.names.x, T.names?.x, 'names.x'), diff: like(d.names.diff, T.names?.diff, 'names.diff') },
+    guide: same(d.guide, T.guide, 'guide').map((s, i) => ({ ...s, h: need(T.guide[i].h, `guide[${i}].h`), p: like(s.p, T.guide[i].p, `guide[${i}].p`) })),
+    faq: T.faq ?? [],
+    sources: same(d.sources, T.sources, 'sources').map((s, i) => ({ ...s, name: need(T.sources[i].name, `sources[${i}].name`), text: need(T.sources[i].text, `sources[${i}].text`) })),
+    types: d.types.map(x => {
+      const tt = need(T.types?.[x.id], `types.${x.id}`);
+      const k = y => `types.${x.id}.${y}`;
+      return { ...x, name: need(tt.name, k('name')), short: need(tt.short, k('short')), formula: need(tt.formula, k('formula')),
+        q: like(x.q, tt.q, k('q')), steps: like(x.steps, tt.steps, k('steps')), mistakes: like(x.mistakes, tt.mistakes, k('mistakes')) };
+    }),
+  };
+}
 // ニュースに出た用語(/news-terms/)。用語集の語に「なぜ今話題なのか」などを足す。訳は data/i18n/{言語}/news-terms.json
 const newsTerms = readOpt('data/news-terms.json', []);
 const figs = figures();
@@ -365,6 +416,8 @@ function buildLang(L) {
   const fail = failureOn(code) ? failureText(code) : null;
   // 組織の見分け方アトラス(この言語で作るときだけ。訳を重ねた文章)
   const atl = atlasOn(code) ? atlasText(code) : null;
+  // 計算ドリル(この言語で作るときだけ。訳を重ねた文章)
+  const drl = drillOn(code) ? drillText(code) : null;
   // ニュース用語: 日付・問題・リンク先は既定言語のファイルのものを使い、文章だけ訳で置き換える(訳がなければその言語では出さない)
   const nwT = tr('news-terms');
   const news = newsTerms.filter(e => isDef || nwT[e.term]).map(e => {
@@ -515,7 +568,7 @@ function buildLang(L) {
     ${interviewText[code] ? feature(`${home}interview-questions/`, interviewText[code].nav, interviewText[code].card, 'home_feat_interview') : ''}
     ${beyondText[code] && pageNames(code).includes('beyond-scaling') ? feature(`${home}beyond-scaling/`, beyondText[code].nav, beyondText[code].card, 'home_feat_beyond') : ''}
     ${compares.some(e => isDef || tr('compare')[e.slug]) ? feature(`${home}compare/`, S.nav_compare, t('home_feat_compare_desc'), 'home_feat_compare') : ''}
-    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}${atl ? feature(`${home}atlas/`, S.nav_atlas, t('home_feat_atlas_desc'), 'home_feat_atlas') : ''}
+    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}${atl ? feature(`${home}atlas/`, S.nav_atlas, t('home_feat_atlas_desc'), 'home_feat_atlas') : ''}${drl ? feature(`${home}drill/`, S.nav_drill, t('home_feat_drill_desc'), 'home_feat_drill') : ''}
     ${Object.keys(figs).length ? feature(`${home}figures/`, S.footer_figures, t('home_feat_figures_desc'), 'home_feat_figures') : ''}
     ${toolsIn(code).length ? feature(`${home}tools/`, S.nav_tools, t('home_feat_tools_desc'), 'home_feat_tools') : ''}
     ${news.length ? feature(`${home}news-terms/`, S.news_title, t('home_feat_news_desc'), 'home_feat_news') : ''}
@@ -746,13 +799,15 @@ function buildLang(L) {
     ...(atl ? [{ t: 'a', n: atl.h1, u: 'atlas/', x: atl.description },
       ...atl.structures.map(e => ({ t: 'a', n: e.name, u: `atlas/?s=${e.id}#s-${e.id}`, x: e.short })),
       { t: 'a', n: t('atlas_grain_h'), u: 'atlas/#grain', x: atl.grain.lead }] : []),
+    ...(drl ? [{ t: 'd', n: drl.h1, u: 'drill/', x: drl.description },
+      ...drl.types.map(x => ({ t: 'd', n: x.name, u: `drill/?t=${x.id}`, x: x.short }))] : []),
     ...terms.map(g => ({ t: 't', n: g.term, u: `term/${termSlug[g.key]}/`, x: g.desc, ...(isDef ? {} : { k: g.key }) })),
     ...live.map(c => ({ t: 'k', n: c.name, u: `c/${c.id}/`, x: c.description })),
     ...figList.map(x => ({ t: 'f', n: x.title, u: figPage(x.id) ? `figures/${x.id}/` : `figures/#fig-${x.id}`, x: '' })),
     ...live.flatMap(c => qs[c.id].map(q => ({ t: 'q', n: q.question, u: `q/${c.id}/${q.id}/`, x: c.name }))),
   ];
   write(`data/${code}/search.json`, JSON.stringify({
-    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}), ...(fail ? { search_g_x: S.nav_failure } : {}), ...(atl ? { search_g_a: S.nav_atlas } : {}) },
+    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}), ...(fail ? { search_g_x: S.nav_failure } : {}), ...(atl ? { search_g_a: S.nav_atlas } : {}), ...(drl ? { search_g_d: S.nav_drill } : {}) },
     items: searchItems,
   }));
 
@@ -798,6 +853,7 @@ function buildLang(L) {
     aboutCompare: cmp.length ? `  <li><strong><a href="${home}compare/">${esc(S.nav_compare)}</a></strong>${itemSep}${esc(t('about_compare'))}</li>\n` : '',
     aboutFailure: fail ? `  <li><strong><a href="${home}failure/">${esc(S.nav_failure)}</a></strong>${itemSep}${esc(t('about_failure'))}</li>\n` : '',
     aboutAtlas: atl ? `  <li><strong><a href="${home}atlas/">${esc(S.nav_atlas)}</a></strong>${itemSep}${esc(t('about_atlas'))}</li>\n` : '',
+    aboutDrill: drl ? `  <li><strong><a href="${home}drill/">${esc(S.nav_drill)}</a></strong>${itemSep}${esc(t('about_drill'))}</li>\n` : '',
     aboutFigures: figList.length ? `  <li><strong><a href="${home}figures/">${esc(S.footer_figures)}</a></strong>${itemSep}${esc(t('about_figures'))}</li>\n` : '',
     // トップの開始ボタンの下: 学習コースへの案内(コースの一覧は分野の一覧より下にある)
     courseHint: liveCourses.length ? `<p class="hero-note"><a href="#courses">${esc(t('home_course_hint'))} → ${esc(t('course_heading'))}</a></p>` : '',
@@ -867,7 +923,7 @@ function buildLang(L) {
     // PC: Topics / 用語集 / 比較 / 図解 / 計算ツール / Progress。スマートフォン: ホームを加えて Menu に縦に並べる
     const navLink = ([sub, label]) => `<a href="${home}${sub}"${p === L.path + sub ? ' aria-current="page"' : ''}>${esc(label)}</a>`;
     const resources = [...(learnArts.length ? [['learn/', LT.nav]] : []), ['glossary/', S.nav_glossary], ...(cmp.length ? [['compare/', S.nav_compare]] : []),
-      ...(fail ? [['failure/', S.nav_failure]] : []), ...(atl ? [['atlas/', S.nav_atlas]] : []), ...(figList.length ? [['figures/', S.footer_figures]] : []),
+      ...(fail ? [['failure/', S.nav_failure]] : []), ...(atl ? [['atlas/', S.nav_atlas]] : []), ...(drl ? [['drill/', S.nav_drill]] : []), ...(figList.length ? [['figures/', S.footer_figures]] : []),
       ...(numbers.length && code === numbersLang ? [['numbers/', 'Key numbers']] : []),
       ...(toolsIn(code).length ? [['tools/', S.nav_tools]] : [])];
     // 用語集・比較・図解・計算ツールはそれぞれ独立した項目として並べる(PC ではホームはロゴから戻る)
@@ -2992,6 +3048,173 @@ ${relCats.length ? `<section>
     });
   }
 
+  // 計算ドリル: /drill/(問題を選ぶ・解く・判定と途中式・記録。動きは drill.js)
+  if (drl) buildDrill();
+  function buildDrill() {
+    const D = drl;
+    const where = 'data/drill.json';
+    // drill.js の TYPES に型があるか(計算は drill.js にだけ書く)
+    const js = read('src/js/drill.js');
+    const typesSrc = js.slice(js.indexOf('export const TYPES = {'));
+    const gIds = new Set(D.groups.map(g => g.id));
+    for (const g of D.groups) if (!catOf(g.cat) && isDef) throw new Error(`${where}: 分野 ${g.id} の存在しない分類 ${g.cat}`);
+    const seen = new Set();
+    for (const x of D.types) {
+      if (!/^[a-z0-9-]+$/.test(x.id) || seen.has(x.id)) throw new Error(`${where}: 型の id「${x.id}」は英小文字・数字・ハイフンで、重ならないように`);
+      seen.add(x.id);
+      if (!new RegExp(`\\n  (?:'${x.id}'|${x.id}): \\{`).test(typesSrc)) throw new Error(`${where}: 型 ${x.id} の計算が src/js/drill.js の TYPES にありません`);
+      if (!gIds.has(x.group)) throw new Error(`${where}: 型 ${x.id} の存在しない分野 ${x.group}`);
+      if (!(x.tol > 0 && x.tol <= 0.05) || !(x.sig >= 2 && x.sig <= 5)) throw new Error(`${where}: 型 ${x.id} の tol(0〜0.05)か sig(2〜5)がおかしい`);
+      for (const k of x.terms ?? []) if (!glossary.some(g => g.term === k)) throw new Error(`${where}: 型 ${x.id} の用語集にない語 ${k}`);
+      for (const id of x.tools ?? []) if (!tools.some(y => y.id === id)) throw new Error(`${where}: 型 ${x.id} の存在しないツール ${id}`);
+      if (isDef) for (const s of x.learn ?? []) if (!learnArts.some(a => a.slug === s)) throw new Error(`${where}: 型 ${x.id} の存在しない記事 ${s}`);
+      for (const [k, v] of Object.entries(x.v ?? {})) {
+        const ok = Array.isArray(v) ? v.length === 3 && v[0] <= v[1] && v[2] > 0 : (v.sig >= 1 && Array.isArray(v.log ?? v.lin) && (v.log ?? v.lin)[0] < (v.log ?? v.lin)[1]);
+        if (!ok) throw new Error(`${where}: 型 ${x.id} の範囲 ${k} は [下限, 上限, 刻み] か { sig, log|lin: [下限, 上限] } で`);
+      }
+    }
+    // 名前: 元素は周期表ツール、材料は材料選びチャートの文言(言語ごと)。英語などは文の途中に入るので頭を小文字にできる
+    const low = s => (D.lowerNames && /^[A-Z][a-z]/.test(s) ? s[0].toLowerCase() + s.slice(1) : s);
+    const toolText = id => tools.find(y => y.id === id)?.text[code] ?? {};
+    const pick = (o, pre) => Object.fromEntries(Object.entries(o).filter(([k]) => k.startsWith(pre)).map(([k, v]) => [k.slice(pre.length), v]));
+    const names = {
+      el: Object.fromEntries(Object.entries(pick(toolText('ptable'), 'el_')).map(([k, v]) => [k, low(v.replace(/^\d+\s+\S+\s+/, ''))])),
+      mat: Object.fromEntries(Object.entries({ ...pick(toolText('ashby'), 'mat_'), ...D.mat }).map(([k, v]) => [k, low(v)])),
+      x: D.names.x, diff: D.names.diff,
+    };
+    for (const x of D.types) for (const [k, list] of Object.entries(x.pick ?? {})) {
+      const book = { mat: /^[A-Z]/.test(list[0]) ? names.el : names.mat, film: names.mat, sub: names.mat, matrix: names.mat }[k];
+      if (book) for (const id of list) if (!book[id]) throw new Error(`${where}: 型 ${x.id} の ${id} の名前がツールの文言(${code})にありません`);
+    }
+    for (const p of D.data.diff) if (!names.diff[p.id]) throw new Error(`${where}: 拡散の系 ${p.id} の名前がありません`);
+    const dHome = `${home}drill/`;
+    const dPath = l => `${l.path}drill/`;
+    const dAlt = Object.fromEntries(langs.filter(x => drillOn(x.code)).map(x => [x.code, dPath(x)]));
+    const typeTools = x => Object.fromEntries((x.tools ?? []).map(id => tools.find(y => y.id === id)).filter(y => y?.text[code])
+      .map(y => [y.id, { n: y.text[code].nav, u: `${home}tools/${y.slug}/` }]));
+    const typeTerms = x => (x.terms ?? []).map(k => terms.find(g => g.key === k)).filter(Boolean).map(g => ({ n: g.term, u: `${home}term/${termSlug[g.key]}/` }));
+    const typeLearn = x => (x.learn ?? []).map(s => learnArts.find(a => a.slug === s)).filter(Boolean).map(a => ({ n: a.title, u: `${home}learn/${a.slug}/` }));
+    const pct = tol => String(+(tol * 100).toPrecision(2));
+    const tolText = x => t('drill_tol', { tol: [pct(x.tol), ...Object.values(x.tolv ?? {}).map(pct)].filter((v, i, a) => a.indexOf(v) === i).join(' / ') });
+    // drill.js に渡すデータ(型・数値のデータ・名前・画面の文言)
+    const jsData = {
+      t: Object.fromEntries(['drill_all_types', 'drill_n_of', 'drill_answer_in', 'drill_unit_none', 'drill_bad_input', 'drill_bad_unit', 'drill_correct', 'drill_incorrect', 'drill_shown',
+        'drill_answer_is', 'drill_you', 'drill_h_sign', 'drill_h_unit', 'drill_h_pow', 'drill_h_close', 'drill_h_either', 'drill_steps', 'drill_tool_lead', 'drill_related', 'drill_next', 'drill_to_summary',
+        'drill_score', 'drill_retry_type', 'drill_rec_empty', 'drill_rec_group', 'drill_rec_done', 'drill_rec_rate', 'drill_rec_weak', 'drill_rec_clear_q'].map(k => [k, need(k)])),
+      data: D.data, names,
+      groups: D.groups.map(g => ({ id: g.id, name: g.name })),
+      unitLabels: D.units,
+      types: D.types.map(x => ({ id: x.id, group: x.group, name: x.name, q: x.q, steps: x.steps, mistakes: x.mistakes, tol: x.tol, tolv: x.tolv, sig: x.sig,
+        v: x.v, pick: x.pick, data: x.data, tools: typeTools(x), terms: typeTerms(x), learn: typeLearn(x) })),
+    };
+    function need(k) { if (S[k] == null) throw new Error(`src/i18n/${code}.json: ${k} がありません`); return S[k]; }
+    const relCats = [...new Set(D.groups.map(g => g.cat))].map(catOf).filter(c => c && live.includes(c));
+    const opt = (v, label, sel) => `<option value="${esc(v)}"${sel ? ' selected' : ''}>${esc(label)}</option>`;
+    const guideIds = D.guide.map(g => g.id);
+    page({
+      path: dPath(L),
+      alt: dAlt,
+      title: D.title,
+      fullTitle: `${D.title} | ${siteName}`,
+      description: D.description,
+      scripts: ['drill.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_drill, dHome]),
+        { '@context': 'https://schema.org', '@type': 'WebApplication', name: D.h1, description: D.description, url: abs(dHome), inLanguage: L.htmlLang,
+          applicationCategory: 'EducationalApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+        ...(D.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: D.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(D.h1)}</h1>
+<p class="lead">${esc(D.lead)}</p>
+<p class="fn-caution">${esc(D.note)}</p>
+<noscript><p class="muted">${esc(t('drill_noscript'))}</p></noscript>
+<nav class="at-toc" aria-label="${esc(t('drill_toc'))}"><a class="chip" href="#types">${esc(t('drill_types_h', { n: D.types.length }))}</a>${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')}${D.faq.length ? ` <a class="chip" href="#faq">${esc(t('compare_faq'))}</a>` : ''}</nav>
+<div id="dr-app" class="dr-app" hidden>
+  <form id="dr-pick" class="dr-pick" autocomplete="off">
+    <h2>${esc(t('drill_pick_h'))}</h2>
+    <div class="dr-pick-row">
+      <label>${esc(t('drill_group'))}<select name="group">${opt('', t('drill_all_groups'))}${D.groups.map(g => opt(g.id, g.name)).join('')}</select></label>
+      <label>${esc(t('drill_type'))}<select name="type">${opt('', t('drill_all_types'))}</select></label>
+      <label>${esc(t('drill_count'))}<select name="n">${opt(1, t('drill_n1'))}${opt(5, t('drill_n5'), true)}${opt(10, t('drill_n10'))}</select></label>
+    </div>
+    <div class="dr-pick-go">
+      <label class="dr-weak"><input type="checkbox" name="weak"> ${esc(t('drill_weak'))}</label>
+      <button type="submit" class="btn btn-primary">${esc(t('drill_start'))}</button>
+    </div>
+  </form>
+  <section id="dr-card" class="dr-card" hidden>
+    <p class="dr-meta"></p>
+    <p class="dr-q"></p>
+    <form id="dr-ans" class="dr-ans" autocomplete="off">
+      <label for="dr-input">${esc(t('drill_answer_label'))}</label>
+      <div class="dr-ans-row">
+        <input id="dr-input" name="ans" type="text" inputmode="text" enterkeyhint="done" spellcheck="false" autocomplete="off" autocapitalize="off">
+        <select name="unit" aria-label="${esc(t('drill_unit_label'))}"></select><span class="dr-unit-one"></span>
+        <button type="submit" class="btn btn-primary">${esc(t('drill_check'))}</button>
+      </div>
+      <p class="dr-ask muted"></p>
+      <p class="dr-msg" role="alert" hidden></p>
+    </form>
+    <div class="dr-res" aria-live="polite" hidden>
+      <p class="dr-verdict"></p>
+      <p class="dr-hint" hidden></p>
+      <div class="dr-steps"></div>
+      <div class="dr-links"></div>
+    </div>
+    <div class="cmp-tools dr-actions">
+      <button type="button" class="btn btn-ghost" data-give>${esc(t('drill_give_up'))}</button>
+      <button type="button" class="btn btn-primary" data-next hidden>${esc(t('drill_next'))}</button>
+      <button type="button" class="btn btn-ghost" data-again>${esc(t('drill_again'))}</button>
+      <button type="button" class="btn btn-ghost" data-share data-done="${esc(t('compare_link_copied'))}">${esc(t('drill_share'))}</button>
+    </div>
+    <p class="muted fn-note">${esc(t('drill_url_note'))}</p>
+  </section>
+  <section id="dr-sum" class="dr-sum" hidden>
+    <h2>${esc(t('drill_sum_h'))}</h2>
+    <p class="dr-score"></p>
+    <h3 class="dr-miss-h" hidden>${esc(t('drill_miss_h'))}</h3>
+    <ul class="dr-miss"></ul>
+    <p><button type="button" class="btn btn-primary" data-sum-again>${esc(t('drill_sum_again'))}</button></p>
+  </section>
+  <section class="dr-rec">
+    <h2>${esc(t('drill_rec_h'))}</h2>
+    <div class="dr-rec-body"></div>
+    <p><button type="button" class="btn btn-ghost btn-small" data-clear hidden>${esc(t('drill_rec_clear'))}</button></p>
+  </section>
+</div>
+<script type="application/json" id="dr-data">${JSON.stringify(jsData).replace(/</g, '\\u003c')}</script>
+<section id="types" class="dr-types">
+  <h2>${esc(t('drill_types_h', { n: D.types.length }))}</h2>
+  <p class="muted">${esc(t('drill_types_lead'))}</p>${D.groups.map(g => `
+  <h3 id="g-${g.id}"><a href="?g=${g.id}#dr-pick">${esc(g.name)}</a></h3>
+  <ul class="dr-type-list">${D.types.filter(x => x.group === g.id).map(x => `
+    <li><a href="?t=${x.id}" data-drill-type="${x.id}">${esc(x.name)}</a> <span class="dr-tol">${esc(tolText(x))}</span><span class="dr-short">${esc(x.short)}</span><code class="dr-formula">${esc(x.formula)}</code></li>`).join('')}
+  </ul>`).join('')}
+</section>
+${D.guide.map(g => `<section id="${g.id}" class="dr-guide">
+  <h2>${esc(g.h)}</h2>${g.p.map(p => `
+  <p>${linked(p)}</p>`).join('')}
+</section>`).join('\n')}
+<section class="fn-sources dr-sources">
+  <h2>${esc(t('drill_sources_h'))}</h2>
+  <dl>${D.sources.map(s => `<div><dt>${esc(s.name)}</dt><dd>${esc(s.text)}</dd></div>`).join('')}</dl>
+</section>
+<div data-ad="compare"></div>
+${D.faq.length ? `<section class="faq" id="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${D.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+${relCats.length ? `<section>
+  <h2>${esc(t('drill_rel_cats'))}</h2>
+  ${catCards(relCats)}
+</section>` : ''}`,
+    });
+    if (guideIds.some(id => ['types', 'faq', 'dr-pick', 'dr-card'].includes(id))) throw new Error(`${where}: guide の id が重なります`);
+  }
+
   // 破損解析: 診断ナビ /failure/ と事故事例 /failure/{slug}/(動きは failure.js)
   if (fail) buildFailure();
   function buildFailure() {
@@ -3420,7 +3643,7 @@ fs.writeFileSync(lastmodFile, '{\n' + Object.entries(lastmod).map(([k, v]) => ` 
 // /sitemap.xml の場所は変えないので、Search Console と robots.txt はそのままでよい
 const SITEMAP_MAX = 40000;
 const langOfUrl = url => [...langs].sort((a, b) => b.path.length - a.path.length).find(x => pageKey(url).startsWith(x.path)).code; // 既定言語(path が空)は最後に当たる
-const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools', 'failure', 'atlas']; // これ以外(トップ・分野・図解集など)は other にまとめる
+const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools', 'failure', 'atlas', 'drill']; // これ以外(トップ・分野・図解集など)は other にまとめる
 const typeOfUrl = url => {
   const L = langs.find(x => x.code === langOfUrl(url));
   const first = pageKey(url).slice(L.path.length).split('/')[0];

@@ -1,0 +1,922 @@
+{
+ "title": "Materials science calculation drill with worked steps",
+ "description": "Practice 38 standard materials science calculations with new numbers each time: interplanar spacing, Bragg angle, density, lever rule, diffusion, stress and strain, fracture toughness, thermal stress and the rule of mixtures. Answers are marked with units, with worked steps and common mistakes.",
+ "h1": "Calculation drill",
+ "lead": "Standard calculation problems from materials science courses and exams, with new numbers every time. Solve each one yourself and enter the answer with its unit: you will see whether it is right, the worked steps showing which values go into which formula, and the common mistake your number points to. You can also open the related calculator with the same numbers to check.",
+ "note": "The numbers are practice values drawn from ranges each time. Property values come from the data of this site’s calculators (sources below) or are stated in the problem as assumptions. For real design work, use values from standards and material data sheets.",
+ "lowerNames": true,
+ "mat": {
+  "al": "aluminum alloy",
+  "cu": "copper alloy",
+  "mg": "magnesium alloy",
+  "ti": "titanium alloy",
+  "ni": "nickel alloy",
+  "w": "tungsten alloy",
+  "pb": "lead alloy",
+  "epoxy": "epoxy resin"
+ },
+ "groups": {
+  "crystal": "Crystals",
+  "phase": "Phase diagrams",
+  "diffusion": "Diffusion and defects",
+  "mechanical": "Mechanical properties",
+  "fracture": "Fracture",
+  "thermal": "Thermal",
+  "composite": "Composites",
+  "other": "Electrical, corrosion, creep"
+ },
+ "units": {
+  "µm/y": "µm/year",
+  "mm/y": "mm/year",
+  "h": "h (hours)",
+  "d": "d (days)"
+ },
+ "names": {
+  "x": {
+   "src_cu": "Cu Kα1 radiation",
+   "src_co": "Co Kα1 radiation",
+   "src_cr": "Cr Kα1 radiation",
+   "src_mo": "Mo Kα1 radiation",
+   "st_nacl": "rock-salt (NaCl) structure",
+   "st_cscl": "CsCl structure",
+   "touch_bcc": "In BCC the atoms touch along the body diagonal, so √3a = 4r",
+   "touch_fcc": "In FCC the atoms touch along the face diagonal, so √2a = 4r",
+   "ph_L": "liquid ({p})",
+   "ph_S": "{p} phase",
+   "tension": "tension",
+   "compression": "compression",
+   "fib_carbon": "carbon fiber",
+   "fib_glass": "glass fiber",
+   "fib_aramid": "aramid fiber",
+   "cond_cu": "annealed copper (100 % IACS)",
+   "cond_al": "electrical aluminum (61 % IACS)"
+  },
+  "diff": {
+   "c_g": "carbon in γ-iron",
+   "fe_a": "iron in α-iron (self-diffusion)",
+   "fe_g": "iron in γ-iron (self-diffusion)",
+   "cu": "copper in copper (self-diffusion)",
+   "zn_cu": "zinc in copper",
+   "al": "aluminum in aluminum (self-diffusion)",
+   "cu_al": "copper in aluminum",
+   "mg_al": "magnesium in aluminum",
+   "cu_ni": "copper in nickel"
+  }
+ },
+ "guide": [
+  {
+   "id": "how",
+   "h": "How to use",
+   "p": [
+    "Choose a field or a problem type and start a set of 5 or 10 problems. With “More of my weak types” on, types you have got wrong more often come up more often. Clicking a type name in the list below gives one problem of that type.",
+    "Type the answer as a number and choose its unit from the menu. 1.23e-5, 1.23×10^-5 and 1.23 × 10⁻⁵ are all read. When there is a unit menu, you can answer in mm or µm or any unit listed, as long as the number matches the unit you choose (it is converted by the unit’s factor).",
+    "“Check” shows whether you are right and opens the worked steps. If you are wrong, it tells you which common mistake your number points to (radius vs diameter, °C vs K, wt% vs at%, 2θ vs θ and so on). “Show answer” opens the steps without answering.",
+    "“Copy link to this problem” gives a URL that opens the same problem with the same numbers. The URL only holds the problem type and a seed number, never the answer. Your record is kept only in this browser (localStorage) and is never sent anywhere. If your browser blocks storage, the problems still work; only the record is not kept."
+   ]
+  },
+  {
+   "id": "tips",
+   "h": "Tips for solving calculation problems",
+   "p": [
+    "Start by writing down the given values and the unknown, with symbols and units. Words such as “diameter”, “total length 2a” and “mass fraction” often differ from what the formula needs (radius, a, volume fraction), so fix them here.",
+    "Converting everything to SI (m, kg, s, K, J, Pa) before substituting is the safest habit. MPa with mm (1 MPa = 1 N/mm²) is also handy in mechanics, but with fracture toughness in MPa·√m the length must be in meters. A temperature difference ΔT is the same number in °C and K, but the T in exp(−Q/RT) or T(C + log t) must be absolute.",
+    "Check the size of your answer. Metal interplanar spacings are 0.1–0.3 nm, densities 2–22 g/cm³, the stress in a constrained steel bar heated by 100 K is a few hundred MPa, and carburized depths are 0.1 to a few mm. If you are off by a factor of 10 or more, suspect a unit conversion or a power of ten.",
+    "Keep one or two more digits in intermediate values than in the answer (storing them in the calculator memory is safest). Rounding to three digits midway and reusing the rounded value can magnify errors in subtractions, exponentials and powers enough to fall outside the tolerance."
+   ]
+  },
+  {
+   "id": "units",
+   "h": "Units",
+   "p": [
+    "The unit menu offers other units of the same quantity (nm and Å, MPa and GPa, m²/s and cm²/s, h and s, and so on). A correct value in the chosen unit is accepted. If there is only one unit shown, answer in that unit.",
+    "Fractions can be answered as a decimal from 0 to 1 or in % (0.25 and 25 % are the same). For mass or volume fractions, either is fine.",
+    "Temperatures are answered in °C or K. Converting between them adds or subtracts 273.15 rather than multiplying, so a °C value typed with K selected is wrong. If you give a K value as °C, you will be told you left it as an absolute temperature.",
+    "Useful conversions: 1 nm = 10 Å = 10⁻⁹ m, 1 µm = 10⁻⁶ m, 1 MPa = 1 N/mm² = 10⁶ Pa, 1 GPa = 1000 MPa, 1 cm²/s = 10⁻⁴ m²/s, 1 g/cm³ = 1000 kg/m³, 1 eV = 1.602 × 10⁻¹⁹ J, 1 kJ/mol = 1000 J/mol."
+   ]
+  },
+  {
+   "id": "sig",
+   "h": "Significant figures and marking",
+   "p": [
+    "The numbers in each problem are already rounded to the digits shown, and the reference answer is calculated from those rounded numbers. So if you use the numbers as written, rounding of the data can never make you wrong.",
+    "Answers are marked by relative error. Most types accept ±1 %. Types that go through an exponential (diffusion coefficients, carburizing, vacancy concentration, Larson–Miller time) accept ±2 %, because intermediate rounding matters more there, and types that need many digits, such as angles and lattice parameters, accept ±0.5 %. Types answered as a temperature (the highest temperature of a constrained bar, the Larson–Miller temperature) are marked by the relative error of the absolute temperature in K (±0.3 % and ±0.5 %, roughly ±1 to 6 K between 300 and 1200 K). The tolerance is shown with each problem.",
+    "Giving the answer to the number of significant figures stated (usually 3) is enough; more digits are fine. For example, if the exact value is 0.2867 nm, both 0.287 and 0.2867 are accepted. Two digits such as 0.29 may be more than 1 % off and marked wrong.",
+    "If you are just outside the tolerance (within 5 %), you will be told it is probably rounding or a different constant. The method is usually right: check that you did not round intermediate values too much and that you used the constants (N_A, R, k and so on) given in the problem."
+   ]
+  }
+ ],
+ "faq": [
+  [
+   "My answer should be right, but it is marked wrong.",
+   "First check the unit menu. If the unit you chose does not match the number you typed, a correct value is marked wrong (usually with a “unit mix-up” hint). If the units match and you are slightly off, you probably rounded intermediate values too much or used a different constant. Use the numbers and constants in the problem and keep at least four digits along the way."
+  ],
+  [
+   "How are the numbers chosen?",
+   "Each type has ranges that are realistic for real materials, and values are drawn from them every time. Property values such as lattice parameters, densities, Young’s moduli and expansion coefficients come from the same data as this site’s periodic table, material selection chart and lever rule tools. For properties listed as a range (such as Young’s modulus), a value inside the range is chosen and the problem says “take … as”."
+  ],
+  [
+   "Can I solve the same problem again, or give a friend the same problem?",
+   "Yes. Open the URL from “Copy link to this problem” (?t=type&s=seed) and you get the same problem with the same numbers. The URL does not contain the answer, so you can use it to set problems for each other."
+  ],
+  [
+   "Where is my record stored? Can I delete it?",
+   "Only in this browser’s localStorage; nothing is sent to a server, and it is not shared with other devices or browsers. “Clear record” at the bottom of the page deletes it. In private browsing or when storage is blocked, no record is kept, but the problems work normally."
+  ],
+  [
+   "How does “More of my weak types” choose?",
+   "For each type, the more often you have got it wrong compared with right, the more likely it is to be chosen. Types you have not tried yet still come up at a fair rate. Within a set, the same type does not come up twice in a row."
+  ],
+  [
+   "What do I get by opening the calculator?",
+   "The related calculator opens with the same numbers filled in, so you can check the answer another way or see what happens when you change a condition. For example, the XRD tool shows the whole diffraction pattern for a Bragg-angle problem, and the diffusion tool shows the concentration profile for a carburizing problem. For types no tool covers, links to related terms and articles are shown instead."
+  ],
+  [
+   "The textbook answer is slightly different.",
+   "Textbooks often round intermediate values or use shortened constants (N_A = 6.02 × 10²³, R = 8.31), so the third digit can differ. The answers here are calculated without intermediate rounding from the numbers and constants given in the problem. Anything within the tolerance is accepted either way."
+  ],
+  [
+   "Do I need to remember which elements are BCC and which are FCC?",
+   "In this drill the crystal structure is given in the problem. Exams may not tell you, so it helps to remember that Fe (α), Cr, Mo, W, V, Nb and Ta are BCC, and Al, Cu, Ni, Ag, Au, Pt, Pb and Pd are FCC."
+  ]
+ ],
+ "sources": [
+  {
+   "name": "Lattice parameters, densities, crystal structures and atomic weights",
+   "text": "Data of the periodic table tool (lattice parameters and densities from the CRC Handbook of Chemistry and Physics; IUPAC/CIAAW standard atomic weights)."
+  },
+  {
+   "name": "Ranges of Young’s modulus, expansion coefficient, thermal conductivity and fracture toughness",
+   "text": "Data of the material selection chart (ranges from M. F. Ashby, “Material property data for engineering materials”, 5th ed., 2021). A value inside the range is chosen, and the problem states it as “take … as”."
+  },
+  {
+   "name": "Phase diagram values (Cu–Ni, Pb–Sn, Ag–Cu, Al–Si, Al–Cu, Pt–Ag) and the Fe–C eutectoid",
+   "text": "Data of the lever rule and iron–carbon diagram tools (values from Callister’s Materials Science and Engineering and others; each tool page lists the source for every system). Fe–C uses eutectoid 0.76 wt% C, ferrite solubility 0.022 wt% C and Fe₃C 6.70 wt% C."
+  },
+  {
+   "name": "X-ray wavelengths",
+   "text": "The same Kα1 values as the XRD tool (λ = hc/E from the photon energies in the X-ray Data Booklet)."
+  },
+  {
+   "name": "Diffusion D₀ and Q, error function",
+   "text": "The same values as the diffusion simulator’s data set (Table 5.2 of W. D. Callister, Jr. and D. G. Rethwisch, Materials Science and Engineering: An Introduction, 9th ed.). The error function and its inverse are also computed as in that tool. Temperatures are chosen where the tool gives no warning (inside the phase field; above 0.75 of the melting point for substitutional diffusion), and the carburizing surface concentration is kept below the Acm line at that temperature."
+  },
+  {
+   "name": "Conductor resistivities",
+   "text": "Annealed copper standard (IEC 60028: 1.7241 × 10⁻⁸ Ω·m at 20 °C, temperature coefficient 0.00393 K⁻¹) and electrical-grade aluminum (61 % IACS: 2.8264 × 10⁻⁸ Ω·m, temperature coefficient 0.00403 K⁻¹)."
+  },
+  {
+   "name": "Physical constants",
+   "text": "CODATA values rounded to 3–4 digits (N_A = 6.022 × 10²³ mol⁻¹, R = 8.314 J/(mol·K), k = 8.617 × 10⁻⁵ eV/K, e = 1.602 × 10⁻¹⁹ C, F = 96485 C/mol)."
+  },
+  {
+   "name": "Assumed values",
+   "text": "Vacancy formation energies, Poisson’s ratios, Hall–Petch constants, critical resolved shear stresses, fiber moduli, ionic radii and the Larson–Miller constant C = 20 are practice values chosen from ranges plausible for the material. The electron mobility of n-type silicon is within ±5 % of the Caughey–Thomas estimate from the donor concentration N, µ = 52.2 + 1365/[1 + (N/9.68 × 10¹⁶ cm⁻³)^0.68] cm²/(V·s) (300 K, coefficients of Jacoboni et al. 1977)."
+  }
+ ],
+ "types": {
+  "d-spacing": {
+   "name": "Interplanar spacing (cubic)",
+   "short": "Find the spacing of (hkl) planes from the lattice parameter and Miller indices",
+   "formula": "d = a/√(h² + k² + l²)",
+   "q": "Find the interplanar spacing d of the {hkl} planes of {mat} ({st}, lattice parameter a = {a} nm).",
+   "steps": [
+    "For a cubic crystal, d = a/√(h² + k² + l²).",
+    "h² + k² + l² = {N}, √{N} = {sq}.",
+    "d = {a} nm / {sq} = {d} nm."
+   ],
+   "mistakes": {
+    "sum": "You divided by h + k + l instead of the square root of h² + k² + l². Square the indices, add them, then take the square root.",
+    "nosqrt": "You divided by h² + k² + l² without taking the square root.",
+    "times": "You multiplied a by √(h² + k² + l²). The spacing is smaller than the lattice parameter, so you divide."
+   }
+  },
+  "bragg-angle": {
+   "name": "Diffraction angle 2θ (Bragg’s law)",
+   "short": "Find the 2θ angle at which an (hkl) reflection of a cubic metal appears",
+   "formula": "2d sinθ = λ, d = a/√(h² + k² + l²)",
+   "q": "A sample of {mat} ({st}, a = {a} nm) is measured with {src} (λ = {lam} nm). Find the diffraction angle 2θ of the first-order {hkl} reflection.",
+   "steps": [
+    "d = a/√(h² + k² + l²) = {a}/√{N} = {d} nm.",
+    "From Bragg’s law 2d sinθ = λ: sinθ = λ/(2d) = {lam}/(2 × {d}) = {s}.",
+    "θ = {th}°, 2θ = {tt}°."
+   ],
+   "mistakes": {
+    "theta": "This is θ. The XRD axis is 2θ, so double it.",
+    "sum": "You used h + k + l instead of √(h² + k² + l²).",
+    "no2": "You used sinθ = λ/d. Bragg’s law is 2d sinθ = nλ (do not drop the 2)."
+   }
+  },
+  "lattice-from-peak": {
+   "name": "Lattice parameter from a peak position",
+   "short": "Find the lattice parameter a of a cubic crystal from the 2θ of an (hkl) XRD peak",
+   "formula": "d = λ/(2 sinθ), a = d√(h² + k² + l²)",
+   "q": "{st} {mat} is measured with {src} (λ = {lam} nm), and the {hkl} peak appears at 2θ = {tt}°. Find the lattice parameter a.",
+   "steps": [
+    "θ = 2θ/2 = {th}°.",
+    "From Bragg’s law, d = λ/(2 sinθ) = {d} nm.",
+    "a = d√(h² + k² + l²) = {d} × √{N} = {a} nm (the periodic table tool lists {a0} nm)."
+   ],
+   "mistakes": {
+    "twotheta": "You put 2θ into the sine as if it were θ. Halve it first.",
+    "donly": "You stopped at the spacing d. For a cubic crystal, a = d√(h² + k² + l²)."
+   }
+  },
+  "density": {
+   "name": "Theoretical density (cubic metal)",
+   "short": "Find the density of a crystal from the lattice parameter, atomic weight and atoms per unit cell",
+   "formula": "ρ = nM/(N_A a³)",
+   "q": "The metal {mat} has the {st} structure with lattice parameter a = {a} nm and atomic weight M = {M} g/mol. Find its theoretical density ρ. Take Avogadro’s number as N_A = {NA} mol⁻¹.",
+   "steps": [
+    "The {st} unit cell contains n = {n} atoms.",
+    "a = {a} nm = {a} × 10⁻⁷ cm, so a³ = {V} cm³.",
+    "Mass of one unit cell nM/N_A = {m} g.",
+    "ρ = nM/(N_A a³) = {rho} g/cm³ (measured density {d} g/cm³)."
+   ],
+   "mistakes": {
+    "n": "You used the wrong number of atoms per unit cell (BCC has 2, FCC has 4).",
+    "n1": "You did not multiply by the number of atoms per cell n (you used n = 1)."
+   }
+  },
+  "atomic-radius": {
+   "name": "Lattice parameter and atomic radius",
+   "short": "For BCC and FCC, find the atomic radius from the lattice parameter, or the reverse",
+   "formula": "BCC: √3a = 4r, FCC: √2a = 4r",
+   "q": {
+    "a2r": "The lattice parameter of {mat} ({st}) is a = {a} nm. Treating atoms as hard spheres that touch their nearest neighbors, find the atomic radius r.",
+    "r2a": "Treat the atoms of {mat} ({st}) as hard spheres of radius r = {rr} nm that touch their nearest neighbors. Find the lattice parameter a."
+   },
+   "steps": {
+    "a2r": [
+     "{touch}.",
+     "r = ({f}) × a = ({f}) × {a} nm = {r} nm."
+    ],
+    "r2a": [
+     "{touch}.",
+     "a = ({f}) × r = ({f}) × {rr} nm = {a} nm."
+    ]
+   },
+   "mistakes": {
+    "diam": "You mixed up the diameter (2r) and the radius.",
+    "other": "You swapped the BCC and FCC relations (BCC touches along the body diagonal, √3a = 4r; FCC along the face diagonal, √2a = 4r).",
+    "half": "You used a = 2r (simple cubic, where atoms touch along the cube edge)."
+   }
+  },
+  "planar-density": {
+   "name": "Planar density (BCC, FCC)",
+   "short": "Find the number of atoms per unit area on the (100), (110) and (111) planes",
+   "formula": "planar density = atoms centered on the plane / plane area",
+   "q": "Find the planar density (atoms per nm²) of the {hkl} plane of {mat} ({st}, a = {a} nm).",
+   "steps": [
+    "The section of the unit cell cut by the {hkl} plane has area {af} × a² = {A} nm².",
+    "Count the atoms centered on the section, sharing them with neighboring cells: {cnt}.",
+    "Planar density = {n} / {A} nm² = {pd} nm⁻²."
+   ],
+   "mistakes": {
+    "area": "You used a² as the area for every plane. The (110) section is √2·a² and the (111) section is (√3/2)·a².",
+    "whole": "You counted atoms on the corners or edges of the section as whole atoms. Count only the share inside the section (corners by angle, edges 1/2)."
+   }
+  },
+  "ionic-apf": {
+   "name": "Packing fraction of an ionic crystal",
+   "short": "For rock-salt and CsCl structures, find the packing fraction from the ionic radii",
+   "formula": "packing fraction = n·(4/3)π(r₊³ + r₋³)/a³",
+   "q": "A compound has the {st}, with cation radius r₊ = {rc} nm and anion radius r₋ = {ra} nm. Assuming cations and anions touch, find the ionic packing fraction (the fraction of the unit-cell volume occupied by ions).",
+   "steps": {
+    "nacl": [
+     "In rock salt the ions touch along the cube edge, so a = 2(r₊ + r₋) = {a} nm.",
+     "The cell contains 4 cations and 4 anions (n = {n} pairs).",
+     "Volume of one pair (4/3)π(r₊³ + r₋³) = {Vi} nm³, a³ = {V} nm³.",
+     "Packing fraction = {n} × {Vi} / {V} = {apf}."
+    ],
+    "cscl": [
+     "In CsCl the ions touch along the body diagonal, so √3a = 2(r₊ + r₋), a = {a} nm.",
+     "The cell contains 1 cation and 1 anion (n = {n} pair).",
+     "Volume of one pair (4/3)π(r₊³ + r₋³) = {Vi} nm³, a³ = {V} nm³.",
+     "Packing fraction = {n} × {Vi} / {V} = {apf}."
+    ]
+   },
+   "mistakes": {
+    "contact": "You used the wrong contact direction (rock salt: cube edge; CsCl: body diagonal).",
+    "n": "You used the wrong number of ion pairs per cell (rock salt 4, CsCl 1)."
+   }
+  },
+  "lever": {
+   "name": "Lever rule (phase mass fractions)",
+   "short": "At a point in a two-phase field, find the phase mass fractions from the tie-line ends",
+   "formula": "W = (C_other end − C₀)/(C_other end − C_phase)",
+   "q": "An alloy of the {A}–{B} system with {c0} wt% {B} is held at {t} °C. Reading the tie line on the phase diagram, the {p1} has {c1} wt% {B} and the {p2} has {c2} wt% {B}. Find the mass fraction of the {pa}.",
+   "steps": [
+    "Lever rule: the mass fraction of a phase is the length from the alloy composition to the opposite end of the tie line, divided by the whole tie-line length.",
+    "W = |{co} − {c0}| / |{co} − {ca}| = {num} / {den} = {w}.",
+    "The other phase is 1 − W = {w2}."
+   ],
+   "mistakes": {
+    "swap": "This is the fraction of the other phase. The lever rule uses the length from the alloy composition to the opposite end."
+   }
+  },
+  "proeutectoid": {
+   "name": "Proeutectoid ferrite and cementite",
+   "short": "Find the microconstituent fractions just below 727 °C in hypo- and hypereutectoid steels",
+   "formula": "hypo: W_α′ = (0.76 − C₀)/(0.76 − 0.022); hyper: W_Fe₃C′ = (C₀ − 0.76)/(6.70 − 0.76)",
+   "q": {
+    "hypo-pro": "A hypoeutectoid steel of {c0} wt% C is cooled slowly from austenite. Find the mass fraction of proeutectoid ferrite just below 727 °C. Take the eutectoid composition as {S} wt% C and the carbon solubility of ferrite as {P} wt% C.",
+    "hypo-pearl": "A hypoeutectoid steel of {c0} wt% C is cooled slowly from austenite. Find the mass fraction of pearlite just below 727 °C. Take the eutectoid composition as {S} wt% C and the carbon solubility of ferrite as {P} wt% C.",
+    "hyper-pro": "A hypereutectoid steel of {c0} wt% C is cooled slowly from austenite. Find the mass fraction of proeutectoid cementite just below 727 °C. Take the eutectoid composition as {S} wt% C and cementite (Fe₃C) as {CM} wt% C.",
+    "hyper-pearl": "A hypereutectoid steel of {c0} wt% C is cooled slowly from austenite. Find the mass fraction of pearlite just below 727 °C. Take the eutectoid composition as {S} wt% C and cementite (Fe₃C) as {CM} wt% C."
+   },
+   "steps": {
+    "hypo": [
+     "Just above 727 °C there are two phases: proeutectoid ferrite (α, {P} wt% C) and austenite (γ, {S} wt% C). All of this austenite becomes pearlite by the eutectoid reaction.",
+     "Proeutectoid ferrite W_α′ = ({S} − {c0})/({S} − {P}) = {wpro}.",
+     "Pearlite W_P = ({c0} − {P})/({S} − {P}) = {wp}."
+    ],
+    "hyper": [
+     "Just above 727 °C there are two phases: proeutectoid cementite (Fe₃C, {CM} wt% C) and austenite (γ, {S} wt% C). All of this austenite becomes pearlite.",
+     "Proeutectoid cementite W_Fe₃C′ = ({c0} − {S})/({CM} − {S}) = {wpro}.",
+     "Pearlite W_P = ({CM} − {c0})/({CM} − {S}) = {wp}."
+    ]
+   },
+   "mistakes": {
+    "swap": "You swapped the proeutectoid constituent and pearlite (the two add up to 1).",
+    "total": "You found the fraction of the phase (all ferrite or all cementite, including the part inside pearlite) instead of the microconstituent. Proeutectoid constituents use the tie line just above 727 °C (ending at the eutectoid point {S} wt% C).",
+    "noP": "You took the carbon solubility of ferrite, {P} wt% C, as zero."
+   }
+  },
+  "eutectic": {
+   "name": "Primary phase and eutectic fractions",
+   "short": "In a eutectic alloy, find the primary, eutectic and total phase fractions just below the eutectic temperature",
+   "formula": "hypoeutectic: W_E = (C₀ − C_α)/(C_E − C_α)",
+   "q": {
+    "prim": "In the {A}–{B} phase diagram, the eutectic reaction L ({ce} wt% {B}) → {pa} ({ca} wt% {B}) + {pb} ({cb} wt% {B}) occurs at {TE} °C. An alloy of {c0} wt% {B} is cooled slowly from the liquid. Find the mass fraction of primary {pp} just below the eutectic temperature.",
+    "eut": "In the {A}–{B} phase diagram, the eutectic reaction L ({ce} wt% {B}) → {pa} ({ca} wt% {B}) + {pb} ({cb} wt% {B}) occurs at {TE} °C. An alloy of {c0} wt% {B} is cooled slowly from the liquid. Find the mass fraction of eutectic microconstituent just below the eutectic temperature.",
+    "phase": "In the {A}–{B} phase diagram, the eutectic reaction L ({ce} wt% {B}) → {pa} ({ca} wt% {B}) + {pb} ({cb} wt% {B}) occurs at {TE} °C. An alloy of {c0} wt% {B} is cooled slowly from the liquid. Find the total mass fraction of the {pp} phase (primary plus the {pp} inside the eutectic) just below the eutectic temperature."
+   },
+   "steps": {
+    "hypo": [
+     "Just above the eutectic temperature there are two phases: primary {pa} ({ca} wt% {B}) and liquid ({ce} wt% {B}). All of this liquid becomes eutectic.",
+     "Eutectic W_E = ({c0} − {ca})/({ce} − {ca}) = {we}; primary {pa} = 1 − W_E = {wprim}.",
+     "The total {pa} phase uses the tie line just below the eutectic temperature ({ca} to {cb} wt% {B}): W = ({cb} − {c0})/({cb} − {ca}) = {wph}."
+    ],
+    "hyper": [
+     "Just above the eutectic temperature there are two phases: primary {pb} ({cb} wt% {B}) and liquid ({ce} wt% {B}). All of this liquid becomes eutectic.",
+     "Eutectic W_E = ({cb} − {c0})/({cb} − {ce}) = {we}; primary {pb} = 1 − W_E = {wprim}.",
+     "The total {pb} phase uses the tie line just below the eutectic temperature ({ca} to {cb} wt% {B}): W = ({c0} − {ca})/({cb} − {ca}) = {wph}."
+    ]
+   },
+   "mistakes": {
+    "prim": "This is the fraction of primary {pp}. Primary and eutectic fractions use the tie line just above the eutectic temperature; total phase fractions use the one just below.",
+    "eut": "This is the fraction of eutectic. Primary and eutectic fractions use the tie line just above the eutectic temperature; total phase fractions use the one just below.",
+    "phase": "This is the total fraction of the {pp} phase (including the {pp} inside the eutectic). Primary and eutectic fractions use the tie line just above the eutectic temperature."
+   }
+  },
+  "wt-at": {
+   "name": "Converting wt% and at%",
+   "short": "Convert mass percent and atomic percent in a binary alloy using atomic weights",
+   "formula": "x_B = (w_B/M_B)/(w_A/M_A + w_B/M_B)",
+   "q": {
+    "w2a": "An alloy of the {A}–{B} system contains {x} wt% {nB} ({B}). Find the {B} content in atomic percent (at%). Atomic weights: {A} {MA}, {B} {MB}.",
+    "a2w": "An alloy of the {A}–{B} system contains {x} at% {nB} ({B}). Find the {B} content in mass percent (wt%). Atomic weights: {A} {MA}, {B} {MB}."
+   },
+   "steps": {
+    "w2a": [
+     "Amounts in 100 g of alloy: {B} {x}/{MB} = {a} mol, {A} {xa}/{MA} = {b} mol.",
+     "x_B = {a}/({a} + {b}) × 100 = {y} at%."
+    ],
+    "a2w": [
+     "Masses in 100 mol of atoms: {B} {x} × {MB} = {a} g, {A} {xa} × {MA} = {b} g.",
+     "w_B = {a}/({a} + {b}) × 100 = {y} wt%."
+    ]
+   },
+   "mistakes": {
+    "same": "You gave the starting value without converting.",
+    "inv": "You converted in the wrong direction. From wt% to at% divide by atomic weights; from at% to wt% multiply."
+   }
+  },
+  "arrhenius": {
+   "name": "Diffusion coefficient (Arrhenius)",
+   "short": "Find the diffusion coefficient at a temperature from D₀ and the activation energy Q",
+   "formula": "D = D₀ exp(−Q/RT)",
+   "q": "The diffusion coefficient of {pair} follows D = D₀exp(−Q/RT) with D₀ = {D0} m²/s and Q = {Q} kJ/mol. Find D at {tc} °C. Take R = {R} J/(mol·K).",
+   "steps": [
+    "Convert to absolute temperature: T = {tc} + 273.15 = {T} K.",
+    "Q/(RT) = {Q} × 10³ / ({R} × {T}) = {e}.",
+    "exp(−{e}) = {x}.",
+    "D = {D0} × {x} = {D} m²/s."
+   ],
+   "mistakes": {
+    "celsius": "You used the temperature in °C. T in the Arrhenius equation is absolute (K).",
+    "kj": "You used Q in kJ/mol. R is in J/(mol·K), so Q must be in J/mol (× 1000)."
+   }
+  },
+  "carb-depth": {
+   "name": "Carburizing depth (error function)",
+   "short": "Find the depth that reaches a given carbon content when the surface concentration is held constant",
+   "formula": "(Cₓ − C₀)/(Cₛ − C₀) = 1 − erf(x/(2√(Dt)))",
+   "q": "A steel of {c0} wt% C is carburized at {tc} °C for {hours} h with the surface held at {cs} wt% C. Find the depth x where the carbon content is {cx} wt%. Compute the diffusion coefficient of carbon in γ-iron from D₀ = {D0} m²/s, Q = {Q} kJ/mol and R = {R} J/(mol·K).",
+   "steps": [
+    "T = {T} K, D = D₀exp(−Q/RT) = {D} m²/s.",
+    "(Cₓ − C₀)/(Cₛ − C₀) = ({cx} − {c0})/({cs} − {c0}) = {ratio}, so erf(z) = 1 − {ratio} = {er}.",
+    "From an error-function table (or its inverse), z = x/(2√(Dt)) = {z}.",
+    "t = {hours} h = {s} s, √(Dt) = {sq} m.",
+    "x = 2z√(Dt) = {x} mm."
+   ],
+   "mistakes": {
+    "erf": "You set erf(z) equal to (Cₓ − C₀)/(Cₛ − C₀). That ratio is 1 − erf(z).",
+    "no2": "You used x = z√(Dt). Since z = x/(2√(Dt)), multiply by 2.",
+    "hours": "You did not convert hours to seconds (1 h = 3600 s)."
+   }
+  },
+  "carb-time": {
+   "name": "Carburizing time (error function)",
+   "short": "Find how long carburizing takes for a depth to reach a target carbon content",
+   "formula": "(Cₓ − C₀)/(Cₛ − C₀) = 1 − erf(x/(2√(Dt)))",
+   "q": "A steel of {c0} wt% C is carburized at {tc} °C with the surface held at {cs} wt% C. Find the time t for the carbon content at a depth of {x} mm to reach {cx} wt%. Compute the diffusion coefficient of carbon in γ-iron from D₀ = {D0} m²/s, Q = {Q} kJ/mol and R = {R} J/(mol·K).",
+   "steps": [
+    "T = {T} K, D = D₀exp(−Q/RT) = {D} m²/s.",
+    "(Cₓ − C₀)/(Cₛ − C₀) = ({cx} − {c0})/({cs} − {c0}) = {ratio}, so erf(z) = 1 − {ratio} = {er}.",
+    "From an error-function table (or its inverse), z = x/(2√(Dt)) = {z}.",
+    "x = {xm} m, so √(Dt) = x/(2z) = {q} m.",
+    "t = (√(Dt))²/D = {ts} s = {th} h."
+   ],
+   "mistakes": {
+    "erf": "You set erf(z) equal to (Cₓ − C₀)/(Cₛ − C₀). That ratio is 1 − erf(z).",
+    "no2": "You used z = x/√(Dt) (the 2 is missing), which makes the time 4 times too large."
+   }
+  },
+  "time-temp": {
+   "name": "Diffusion time at another temperature",
+   "short": "Since equal Dt gives the same profile, find the time needed at a different temperature",
+   "formula": "t₂ = t₁·D₁/D₂ = t₁ exp[(Q/R)(1/T₂ − 1/T₁)]",
+   "q": "A treatment controlled by diffusion of {pair} gives the desired concentration profile after {h1} h at {t1c} °C. The diffusion coefficient follows the Arrhenius form with D₀ = {D0} m²/s and Q = {Q} kJ/mol. How long is needed to get the same profile at {t2c} °C? Take R = {R} J/(mol·K).",
+   "steps": [
+    "The same profile is obtained when Dt is the same (D₁t₁ = D₂t₂).",
+    "T₁ = {T1} K, T₂ = {T2} K. D₁ = {D1} m²/s, D₂ = {D2} m²/s.",
+    "t₂ = t₁·D₁/D₂ = t₁·exp[(Q/R)(1/T₂ − 1/T₁)], with exponent {e}.",
+    "t₂ = {h2} h."
+   ],
+   "mistakes": {
+    "inv": "You multiplied by D₂/D₁. Lower temperature means slower diffusion and a longer time (higher means shorter).",
+    "celsius": "You used temperatures in °C."
+   }
+  },
+  "fick1": {
+   "name": "Steady-state flux (Fick’s first law)",
+   "short": "Find the steady-state diffusion flux from concentrations at two positions in a plate",
+   "formula": "J = −D dC/dx ≈ D(C₁ − C₂)/(x₂ − x₁)",
+   "q": "Carbon diffuses through a metal plate from one side and has reached steady state. The carbon concentration is {c1} kg/m³ at {x1} mm below the surface and {c2} kg/m³ at {x2} mm. With D = {D} m²/s, find the diffusion flux J of carbon.",
+   "steps": [
+    "Concentration difference C₁ − C₂ = {dc} kg/m³, distance x₂ − x₁ = {dx} m.",
+    "Gradient magnitude (C₁ − C₂)/(x₂ − x₁) = {g} kg/m⁴.",
+    "J = D × {g} = {J} kg/(m²·s)."
+   ],
+   "mistakes": {
+    "x2": "You used x₂ itself as the distance instead of x₂ − x₁."
+   }
+  },
+  "vacancy": {
+   "name": "Equilibrium vacancy concentration",
+   "short": "Find the number of vacancies per cubic meter from the formation energy and temperature",
+   "formula": "N_v = N exp(−Q_v/kT), N = N_A ρ/M",
+   "q": "Find the equilibrium number of vacancies per cubic meter, N_v, in {mat} (density {d} g/cm³, atomic weight {M} g/mol) at {tc} °C. Take the vacancy formation energy as Q_v = {Qv} eV, N_A = {NA} mol⁻¹ and Boltzmann’s constant k = {kB} eV/K.",
+   "steps": [
+    "Atoms per cubic meter N = N_A ρ/M = {NA} × {d} × 10⁶ / {M} = {N} m⁻³ (ρ in g/m³).",
+    "T = {T} K, Q_v/(kT) = {e}.",
+    "exp(−{e}) = {f} (fraction of lattice sites that are vacant).",
+    "N_v = N × {f} = {Nv} m⁻³."
+   ],
+   "mistakes": {
+    "celsius": "You used the temperature in °C.",
+    "frac": "This is the vacancy fraction N_v/N. Multiply by N to get the number per cubic meter."
+   }
+  },
+  "elongation": {
+   "name": "Elastic elongation",
+   "short": "Find the elastic elongation of a round bar from load, diameter, length and Young’s modulus",
+   "formula": "Δl = Fl₀/(AE), A = πd²/4",
+   "q": "A round bar of {mat} (Young’s modulus E = {E} GPa), {d} mm in diameter and {L} mm long, is pulled with {F} kN. The deformation is elastic. Find the elongation Δl.",
+   "steps": [
+    "Cross-section A = πd²/4 = {A} mm².",
+    "Stress σ = F/A = {F} × 10³ N / {A} mm² = {s} MPa (1 N/mm² = 1 MPa).",
+    "Strain ε = σ/E = {s} / ({E} × 10³) = {e}.",
+    "Δl = εl₀ = {dl} mm."
+   ],
+   "mistakes": {
+    "radius": "You treated the diameter as the radius and used πd² for the area.",
+    "diam2": "You used πd²/2 for the area. It is πd²/4."
+   }
+  },
+  "poisson": {
+   "name": "Poisson’s ratio and diameter change",
+   "short": "Find the decrease in diameter of a round bar from stress, Young’s modulus and Poisson’s ratio",
+   "formula": "Δd = ν(σ/E)d₀",
+   "q": "A round bar of {mat} (take E = {E} GPa and Poisson’s ratio ν = {nu}), {d} mm in diameter, carries an elastic tensile stress of {s} MPa. Find the decrease in diameter Δd.",
+   "steps": [
+    "Axial strain ε_z = σ/E = {s} / ({E} × 10³) = {ez}.",
+    "Lateral strain ε_x = −νε_z = {ex}.",
+    "Δd = |ε_x| × d₀ = {dd} µm (the bar gets thinner)."
+   ],
+   "mistakes": {
+    "nonu": "You did not multiply by Poisson’s ratio (you used axial strain × diameter).",
+    "radius": "You found the change in radius, not diameter."
+   }
+  },
+  "true-stress": {
+   "name": "True stress and true strain",
+   "short": "Convert engineering stress and strain before necking to true stress and strain",
+   "formula": "σ_T = σ(1 + ε), ε_T = ln(1 + ε)",
+   "q": {
+    "stress": "In a tensile test, before necking, an engineering stress of {s} MPa and engineering strain of {e} were measured. Assuming constant volume during plastic deformation, find the true stress at this point.",
+    "strain": "In a tensile test, before necking, an engineering stress of {s} MPa and engineering strain of {e} were measured. Find the true strain at this point."
+   },
+   "steps": [
+    "At constant volume A = A₀/(1 + ε), so σ_T = F/A = σ(1 + ε).",
+    "σ_T = {s} × (1 + {e}) = {st} MPa.",
+    "True strain ε_T = ln(l/l₀) = ln(1 + ε) = {et}."
+   ],
+   "mistakes": {
+    "minus": "You multiplied by (1 − ε). Stretching narrows the section, so true stress is larger than engineering stress.",
+    "same": "This is the engineering value.",
+    "log10": "You used the common logarithm log₁₀. True strain uses the natural logarithm ln."
+   }
+  },
+  "reduction-area": {
+   "name": "Reduction in area and true fracture stress",
+   "short": "From diameters before and after fracture, find reduction in area, true fracture strain and true fracture stress",
+   "formula": "RA = (A₀ − A_f)/A₀, ε_T = ln(A₀/A_f), σ_T = F/A_f",
+   "q": {
+    "ra": "A round tensile specimen {d0} mm in diameter breaks with a diameter of {df} mm at the fracture. Find the reduction in area (%).",
+    "strain": "A round tensile specimen {d0} mm in diameter breaks with a diameter of {df} mm at the fracture. Find the true strain at fracture.",
+    "tsf": "A round tensile specimen {d0} mm in diameter breaks at an engineering stress of {sf} MPa, with a diameter of {df} mm at the fracture. Find the true fracture stress."
+   },
+   "steps": {
+    "ra": [
+     "A₀ = π × {d0}²/4 = {A0} mm², A_f = π × {df}²/4 = {Af} mm².",
+     "Reduction in area = (A₀ − A_f)/A₀ = {rap} %."
+    ],
+    "strain": [
+     "A₀ = π × {d0}²/4 = {A0} mm², A_f = π × {df}²/4 = {Af} mm².",
+     "True fracture strain ε_T = ln(A₀/A_f) = {et} (= 2 ln(d₀/d_f))."
+    ],
+    "tsf": [
+     "A₀ = π × {d0}²/4 = {A0} mm², A_f = π × {df}²/4 = {Af} mm².",
+     "Load at fracture F = σ_f × A₀ = {F} N.",
+     "True fracture stress σ_T = F/A_f = {st} MPa."
+    ]
+   },
+   "mistakes": {
+    "diam": "You used the ratio of diameters instead of areas (area goes as the square of the diameter).",
+    "af": "You divided by A_f instead of A₀.",
+    "eng": "You used (A₀ − A_f)/A_f. True strain is ln(A₀/A_f).",
+    "same": "This is the engineering fracture stress. True fracture stress divides by the area at the fracture."
+   }
+  },
+  "hall-petch": {
+   "name": "Hall–Petch relation",
+   "short": "Find σ₀ and k from yield stresses at two grain sizes, then the yield stress at another grain size",
+   "formula": "σ_y = σ₀ + k/√d",
+   "q": "A metal has a yield stress of {s1} MPa at a mean grain size of {d1} µm and {s2} MPa at {d2} µm. Assuming the Hall–Petch relation σ_y = σ₀ + k/√d, find the yield stress at a mean grain size of {d3} µm.",
+   "steps": [
+    "With d in meters, 1/√d is {x1} for {d1} µm, {x2} for {d2} µm and {x3} for {d3} µm (unit m^(−1/2)).",
+    "k = ({s1} − {s2})/({x1} − {x2}) = {k} MPa·√m.",
+    "σ₀ = {s1} − k × {x1} = {s0} MPa.",
+    "σ_y = σ₀ + k × {x3} = {s3} MPa."
+   ],
+   "mistakes": {
+    "linear": "You assumed yield stress is linear in d. The Hall–Petch relation is linear in 1/√d.",
+    "inv": "You used 1/d instead of 1/√d."
+   }
+  },
+  "schmid": {
+   "name": "Resolved shear stress (Schmid’s law)",
+   "short": "From the tensile axis and slip system of a single crystal, find the resolved shear stress or the stress to start slip",
+   "formula": "τ_R = σ cosφ cosλ",
+   "q": {
+    "tau": "A single crystal with the {st} structure is pulled along {ax} with {s} MPa. Find the resolved shear stress τ_R on the slip system {pl}{b}.",
+    "sigma": "A single crystal with the {st} structure is pulled along {ax}. If the critical resolved shear stress is {tc} MPa, find the tensile stress at which slip starts on the slip system {pl}{b}."
+   },
+   "steps": {
+    "tau": [
+     "cosφ = |tensile axis · slip-plane normal| / (product of lengths) = {dp} / {lp} = {cp} (φ is the angle between the axis and the plane normal).",
+     "cosλ = |tensile axis · slip direction| / (product of lengths) = {dl} / {ll} = {cl} (λ is the angle between the axis and the slip direction).",
+     "Schmid factor m = cosφ cosλ = {m}.",
+     "τ_R = σm = {tau} MPa."
+    ],
+    "sigma": [
+     "cosφ = |tensile axis · slip-plane normal| / (product of lengths) = {dp} / {lp} = {cp}.",
+     "cosλ = |tensile axis · slip direction| / (product of lengths) = {dl} / {ll} = {cl}.",
+     "Schmid factor m = cosφ cosλ = {m}.",
+     "Slip starts when τ_R = τ_crss: σ_y = τ_crss/m = {sy} MPa."
+    ]
+   },
+   "mistakes": {
+    "onep": "You used only one of cosφ and cosλ. The Schmid factor is their product.",
+    "onel": "You used only one of cosφ and cosλ. The Schmid factor is their product.",
+    "sin": "You used sines instead of cosines.",
+    "mult": "You multiplied τ_crss by m instead of dividing."
+   }
+  },
+  "stress-conc": {
+   "name": "Stress concentration at a crack tip",
+   "short": "Find the maximum stress at a crack tip from the nominal stress, crack length and tip radius",
+   "formula": "σ_max = σ₀(1 + 2√(a/ρ))",
+   "q": {
+    "surface": "A plate has a surface crack of depth a = {a} mm whose tip radius is ρ = {rho} µm. With a tensile stress of {s0} MPa on the plate, estimate the maximum stress at the crack tip using σ_max = σ₀(1 + 2√(a/ρ)).",
+    "internal": "A plate has an internal crack of total length 2a = {a2} mm whose tip radius is ρ = {rho} µm. With a tensile stress of {s0} MPa on the plate, estimate the maximum stress at the crack tip using σ_max = σ₀(1 + 2√(a/ρ))."
+   },
+   "steps": [
+    "Use the same units for a and ρ: a = {a} mm (half the length for an internal crack), a/ρ = {q}.",
+    "√(a/ρ) = {sq}, stress concentration factor K_t = 1 + 2√(a/ρ) = {kt}.",
+    "σ_max = σ₀K_t = {s0} × {kt} = {sm} MPa."
+   ],
+   "mistakes": {
+    "approx": "This is the approximation σ_max ≈ 2σ₀√(a/ρ). This problem uses 1 + 2√(a/ρ) (the difference shrinks as a/ρ grows).",
+    "unit": "You did not put a (mm) and ρ (µm) in the same units.",
+    "full": "You used the full length 2a of the internal crack as a. For an internal crack, a is half the length."
+   }
+  },
+  "kic-stress": {
+   "name": "Fracture toughness and fracture stress",
+   "short": "From K_IC and crack size, find the stress that causes fracture with K = Yσ√(πa)",
+   "formula": "σ_c = K_IC/(Y√(πa))",
+   "q": {
+    "surface": "A part made of {mat} (fracture toughness K_IC = {K} MPa·√m) has a surface crack of depth a = {a} mm. With a geometry factor Y = {Y}, find the tensile stress at which it fractures.",
+    "internal": "A part made of {mat} (fracture toughness K_IC = {K} MPa·√m) has an internal crack of total length 2a = {a2} mm. With a geometry factor Y = {Y}, find the tensile stress at which it fractures."
+   },
+   "steps": [
+    "Convert a to meters: a = {am} m (half the length for an internal crack).",
+    "√(πa) = {sq} m^(1/2).",
+    "σ_c = K_IC/(Y√(πa)) = {K} / ({Y} × {sq}) = {s} MPa."
+   ],
+   "mistakes": {
+    "mm": "You used a in mm. With K_IC in MPa·√m, a must be in meters.",
+    "nopi": "The π in √(πa) is missing.",
+    "full": "You used the full length 2a of the internal crack as a."
+   }
+  },
+  "kic-crack": {
+   "name": "Critical crack size",
+   "short": "From K_IC and the working stress, find the crack length that causes fracture",
+   "formula": "a_c = (1/π)(K_IC/(Yσ))²",
+   "q": {
+    "surface": "A part made of {mat} (fracture toughness K_IC = {K} MPa·√m) is used at a tensile stress of {s} MPa. With a geometry factor Y = {Y}, find the critical surface-crack depth a_c.",
+    "internal": "A part made of {mat} (fracture toughness K_IC = {K} MPa·√m) is used at a tensile stress of {s} MPa. With a geometry factor Y = {Y}, find the critical total length 2a_c of an internal crack."
+   },
+   "steps": {
+    "surface": [
+     "K_IC/(Yσ) = {K} / ({Y} × {s}) = {r} m^(1/2).",
+     "a_c = (1/π)(K_IC/(Yσ))² = {a} mm (converting m to mm)."
+    ],
+    "internal": [
+     "K_IC/(Yσ) = {K} / ({Y} × {s}) = {r} m^(1/2).",
+     "a_c = (1/π)(K_IC/(Yσ))² = {a} mm (converting m to mm).",
+     "The total length of the internal crack is 2a_c = {a2} mm."
+    ]
+   },
+   "mistakes": {
+    "full": "You mixed up the surface-crack depth a and the internal-crack total length 2a.",
+    "nosq": "You did not square K_IC/(Yσ).",
+    "nopi": "You did not divide by π."
+   }
+  },
+  "thermal-expansion": {
+   "name": "Thermal expansion",
+   "short": "Find the free change in length from the expansion coefficient and temperature change",
+   "formula": "ΔL = αL₀ΔT",
+   "q": "A rod of {mat}, {L} mm long, with a linear expansion coefficient α = {al} × 10⁻⁶ K⁻¹, is heated from {t1} °C to {t2} °C. If it expands freely, find the change in length ΔL.",
+   "steps": [
+    "ΔT = {t2} − {t1} = {dT} K (a temperature difference has the same number in °C and K).",
+    "Thermal strain ε = αΔT = {e}.",
+    "ΔL = εL₀ = {dl} mm."
+   ],
+   "mistakes": {
+    "abs": "You used the final absolute temperature instead of ΔT.",
+    "final": "You gave the final length L₀ + ΔL."
+   }
+  },
+  "thermal-stress": {
+   "name": "Thermal stress in a constrained bar",
+   "short": "Find the thermal stress in a bar fixed between rigid walls, or the temperature it can be heated to",
+   "formula": "σ = −EαΔT",
+   "q": {
+    "stress": "A bar of {mat} (E = {E} GPa, α = {al} × 10⁻⁶ K⁻¹) is fixed between rigid walls at {t1} °C with no stress and heated to {t2} °C. Find the magnitude of the compressive stress in the bar.",
+    "temp": "A bar of {mat} (E = {E} GPa, α = {al} × 10⁻⁶ K⁻¹) is fixed between rigid walls at {t1} °C with no stress. To keep the compressive stress at or below {sa} MPa, find the highest temperature it can be heated to."
+   },
+   "steps": {
+    "stress": [
+     "The walls push back the αΔT the bar would expand freely: σ = −EαΔT.",
+     "Eα = {E} × 10³ MPa × {al} × 10⁻⁶ K⁻¹ = {Ea} MPa/K, ΔT = {dT} K.",
+     "|σ| = {Ea} × {dT} = {s} MPa (compressive)."
+    ],
+    "temp": [
+     "|σ| = EαΔT ≤ {sa} MPa.",
+     "Eα = {Ea} MPa/K, so ΔT = {sa} / {Ea} = {dT} K.",
+     "Highest temperature = {t1} + {dT} = {t2} °C."
+    ]
+   },
+   "mistakes": {
+    "abs": "You used the final temperature (K) instead of ΔT.",
+    "gpa": "You used the GPa value of E as if it were MPa (1 GPa = 1000 MPa).",
+    "dt": "This is the temperature rise ΔT. The highest temperature adds ΔT to the starting temperature.",
+    "kelvin": "You gave the absolute temperature (K) as if it were °C."
+   }
+  },
+  "film-stress": {
+   "name": "Thermal stress in a thin film (equibiaxial)",
+   "short": "Find the stress in a film on a substrate after cooling from the deposition temperature",
+   "formula": "σ = −E(α_f − α_s)ΔT/(1 − ν)",
+   "q": "A thin film of {film} (E = {E} GPa, ν = {nu}, α_f = {af} × 10⁻⁶ K⁻¹) is deposited stress-free at {t1} °C on a thick {sub} substrate and cooled to {t2} °C. The substrate expansion coefficient is α_s = {as} × 10⁻⁶ K⁻¹. Find the in-plane stress in the film, with tension positive and compression negative.",
+   "steps": [
+    "ΔT = {t2} − {t1} = {dT} K, α_f − α_s = {da} K⁻¹.",
+    "The film is held by the substrate in both in-plane directions (equibiaxial), so use the biaxial modulus E/(1 − ν) = {b} MPa.",
+    "σ = −E(α_f − α_s)ΔT/(1 − ν) = {s} MPa ({st})."
+   ],
+   "mistakes": {
+    "nonu": "You did not multiply by 1/(1 − ν) (this is the uniaxial σ = EΔαΔT). A thin film is constrained in both in-plane directions.",
+    "onlyf": "You did not subtract the substrate expansion (this is the value for a substrate that does not expand)."
+   }
+  },
+  "conduction": {
+   "name": "Heat flux through a plate",
+   "short": "Find the steady heat flux from the temperature difference and thermal conductivity",
+   "formula": "q = κΔT/L",
+   "q": "One face of a plate of {mat}, {L} mm thick, with thermal conductivity κ = {k} W/(m·K), is held at {th} °C and the other at {tl} °C. Find the steady heat flux q through the plate.",
+   "steps": [
+    "ΔT = {th} − {tl} = {dT} K, L = {Lm} m.",
+    "q = κΔT/L = {k} × {dT} / {Lm} = {q} W/m²."
+   ],
+   "mistakes": {
+    "inv": "The formula is inverted (you computed L/(κΔT))."
+   }
+  },
+  "bimetal": {
+   "name": "Thermal stress in a compound bar",
+   "short": "Find the stress in each of two different metal bars joined at both ends and heated",
+   "formula": "σ₁A₁ + σ₂A₂ = 0, α₁ΔT + σ₁/E₁ = α₂ΔT + σ₂/E₂",
+   "q": "A bar of {m1} (α = {a1} × 10⁻⁶ K⁻¹, E = {E1} GPa, cross-section {A1} mm²) and a bar of {m2} (α = {a2} × 10⁻⁶ K⁻¹, E = {E2} GPa, cross-section {A2} mm²) of the same length are joined at both ends by rigid plates (no bending). Starting stress-free, they are heated by {dT} K. Find the magnitude of the stress in the {mq} bar.",
+   "steps": [
+    "Bar 1 = {m1}, bar 2 = {m2}. Force balance σ₁A₁ + σ₂A₂ = 0; equal elongation α₁ΔT + σ₁/E₁ = α₂ΔT + σ₂/E₂.",
+    "The mismatch (α₁ − α₂)ΔT = {da} is shared by the two bars: σ₁ = −(α₁ − α₂)ΔT / (1/E₁ + A₁/(A₂E₂)) = {s1} MPa.",
+    "σ₂ = −σ₁A₁/A₂ = {s2} MPa (the bar with larger expansion is in compression, the other in tension).",
+    "In the {mq} bar: |σ| = {s} MPa."
+   ],
+   "mistakes": {
+    "rigid": "This treats the other bar as a rigid wall (EΔαΔT). The other bar also deforms, so the stress is smaller.",
+    "noA": "You ignored the difference in cross-sections."
+   }
+  },
+  "rom": {
+   "name": "Rule of mixtures (longitudinal modulus)",
+   "short": "Find the longitudinal Young’s modulus of a continuous aligned-fiber composite with the isostrain equation",
+   "formula": "E₁ = V_f E_f + V_m E_m",
+   "q": {
+    "vol": "A composite has {fib} (E_f = {ef} GPa) aligned in one direction at a volume fraction of {f} % in a matrix of {mx} with E_m = {em} GPa. Find the Young’s modulus E₁ along the fibers.",
+    "mass": "A composite has {fib} (E_f = {ef} GPa, density {rf} g/cm³) aligned in one direction at a mass fraction of {f} % in a matrix of {mx} with E_m = {em} GPa and density {rm} g/cm³. Assuming no voids, find the Young’s modulus E₁ along the fibers."
+   },
+   "steps": {
+    "vol": [
+     "V_f = {vf}, V_m = 1 − V_f = {vm}.",
+     "Along the fibers, fiber and matrix have equal strain (isostrain), so E₁ = V_f E_f + V_m E_m.",
+     "E₁ = {vf} × {ef} + {vm} × {em} = {e1} GPa."
+    ],
+    "mass": [
+     "Convert mass fractions to volume fractions: V_f = (W_f/ρ_f)/(W_f/ρ_f + W_m/ρ_m) = {a} / ({a} + {b}) = {vf}, V_m = {vm}.",
+     "Along the fibers, fiber and matrix have equal strain (isostrain), so E₁ = V_f E_f + V_m E_m.",
+     "E₁ = {vf} × {ef} + {vm} × {em} = {e1} GPa."
+    ]
+   },
+   "mistakes": {
+    "reuss": "You used the isostress equation (the transverse E₂). Along the fibers it is isostrain.",
+    "wf": "You used the mass fraction as the volume fraction. Convert with the densities."
+   }
+  },
+  "rom-trans": {
+   "name": "Inverse rule of mixtures (transverse)",
+   "short": "Find the transverse Young’s modulus of an aligned composite with the isostress equation",
+   "formula": "1/E₂ = V_f/E_f + V_m/E_m",
+   "q": {
+    "vol": "A composite has {fib} (E_f = {ef} GPa) aligned in one direction at a volume fraction of {f} % in a matrix of {mx} with E_m = {em} GPa. Find the Young’s modulus E₂ transverse to the fibers with the isostress equation.",
+    "mass": "A composite has {fib} (E_f = {ef} GPa, density {rf} g/cm³) aligned in one direction at a mass fraction of {f} % in a matrix of {mx} with E_m = {em} GPa and density {rm} g/cm³. Assuming no voids, find the Young’s modulus E₂ transverse to the fibers with the isostress equation."
+   },
+   "steps": {
+    "vol": [
+     "V_f = {vf}, V_m = 1 − V_f = {vm}.",
+     "Transverse to the fibers, fiber and matrix carry the same stress (isostress), so 1/E₂ = V_f/E_f + V_m/E_m = {i} GPa⁻¹.",
+     "E₂ = {e2} GPa."
+    ],
+    "mass": [
+     "Convert mass fractions to volume fractions: V_f = (W_f/ρ_f)/(W_f/ρ_f + W_m/ρ_m) = {a} / ({a} + {b}) = {vf}, V_m = {vm}.",
+     "Transverse to the fibers, fiber and matrix carry the same stress (isostress), so 1/E₂ = V_f/E_f + V_m/E_m = {i} GPa⁻¹.",
+     "E₂ = {e2} GPa."
+    ]
+   },
+   "mistakes": {
+    "voigt": "You used the isostrain equation (the longitudinal E₁). Transverse loading is isostress.",
+    "wf": "You used the mass fraction as the volume fraction. Convert with the densities."
+   }
+  },
+  "load-share": {
+   "name": "Load sharing between fiber and matrix",
+   "short": "Under longitudinal loading, find the fraction of load carried by the fibers or the fiber-to-matrix load ratio",
+   "formula": "F_f/F_m = V_f E_f/(V_m E_m)",
+   "q": {
+    "ratio": "A composite has {fib} (E_f = {ef} GPa) aligned in one direction at a volume fraction of {f} % in a matrix of {mx} with E_m = {em} GPa and is loaded along the fibers. Find the ratio of the loads carried by fiber and matrix, F_f/F_m.",
+    "frac": "A composite has {fib} (E_f = {ef} GPa) aligned in one direction at a volume fraction of {f} % in a matrix of {mx} with E_m = {em} GPa and is loaded along the fibers. Find the fraction of the load carried by the fibers, F_f/F."
+   },
+   "steps": [
+    "Under isostrain each stress is σ = Eε; load is stress × area, and the area ratio equals the volume-fraction ratio.",
+    "F_f ∝ V_f E_f = {a}, F_m ∝ V_m E_m = {b}.",
+    "F_f/F_m = {r}, F_f/F = F_f/(F_f + F_m) = {fr}."
+   ],
+   "mistakes": {
+    "inv": "You gave F_m/F_f.",
+    "noV": "You did not include the volume fractions (this is E_f/E_m).",
+    "vf": "This is the fiber volume fraction itself. Load sharing follows V_f E_f.",
+    "ratio": "You gave the ratio F_f/F_m. The fraction is F_f/(F_f + F_m)."
+   }
+  },
+  "wire-resistance": {
+   "name": "Wire resistance and temperature",
+   "short": "Find the resistance of a wire at a temperature using the temperature coefficient of resistivity",
+   "formula": "R = ρ(T)L/A, ρ(T) = ρ₂₀[1 + α_R(T − 20 °C)]",
+   "q": "A wire of {cond} is {d} mm in diameter and {L} m long. Take its resistivity at 20 °C as ρ₂₀ = {r20} Ω·m and its temperature coefficient of resistivity as α_R = {aR} K⁻¹. Find its resistance at {tc} °C.",
+   "steps": [
+    "ρ(T) = ρ₂₀[1 + α_R(T − 20)] = {rt} Ω·m.",
+    "Cross-section A = πd²/4 = {A} m² (d in meters).",
+    "R = ρL/A = {R} Ω."
+   ],
+   "mistakes": {
+    "noT": "You ignored the change of resistivity with temperature (this is the 20 °C value).",
+    "radius": "You treated the diameter as the radius and used πd² for the area."
+   }
+  },
+  "semiconductor": {
+   "name": "Resistivity of n-type silicon",
+   "short": "Find the conductivity and resistivity of n-type silicon from donor concentration and electron mobility",
+   "formula": "σ = n e µ_e, ρ = 1/σ",
+   "q": {
+    "rho": "Find the resistivity of n-type silicon with a donor concentration of {Nd} cm⁻³ (room temperature, all donors ionized). Take the electron mobility as µ_e = {mu} cm²/(V·s) and the elementary charge e = {e} C, and neglect holes.",
+    "sigma": "Find the conductivity of n-type silicon with a donor concentration of {Nd} cm⁻³ (room temperature, all donors ionized). Take the electron mobility as µ_e = {mu} cm²/(V·s) and the elementary charge e = {e} C, and neglect holes."
+   },
+   "steps": [
+    "Convert to SI: n = {n} m⁻³, µ_e = {muSI} m²/(V·s).",
+    "σ = n e µ_e = {s} S/m.",
+    "ρ = 1/σ = {rho} Ω·m (= {rcm} Ω·cm)."
+   ],
+   "mistakes": {
+    "recip": "You mixed up conductivity and resistivity (ρ = 1/σ)."
+   }
+  },
+  "faraday": {
+   "name": "Corrosion amount (Faraday’s law)",
+   "short": "From the corrosion current, find the mass of metal dissolved or the rate at which the surface recedes",
+   "formula": "m = ItM/(nF)",
+   "q": {
+    "mass": "A piece of {mat} corrodes by dissolving as {ion}, with an average corrosion current of {I} A flowing for {days} days. Find the mass of {mat} dissolved. Atomic weight {M} g/mol; Faraday constant F = {F} C/mol.",
+    "rate": "The surface of {mat} (density {d} g/cm³) dissolves uniformly as {ion}, at a corrosion current density of {i} µA/cm². Find the rate at which the surface recedes (µm per year). Atomic weight {M} g/mol, F = {F} C/mol, 1 year = 365 days."
+   },
+   "steps": {
+    "mass": [
+     "t = {days} × 86400 = {t} s, charge Q = It = {Q} C.",
+     "m = QM/(nF) = {Q} × {M} / ({n} × {F}) = {m} g."
+    ],
+    "rate": [
+     "Mass dissolved from 1 cm² per second iM/(nF) = {g} g/(cm²·s).",
+     "Dividing by density gives a recession rate of {c} cm/s.",
+     "Over a year (3.1536 × 10⁷ s): {um} µm/year."
+    ]
+   },
+   "mistakes": {
+    "n1": "You did not divide by the ion charge n.",
+    "hours": "You used the time in hours (convert to seconds).",
+    "days": "You used the time in days (convert to seconds; 1 day = 86400 s)."
+   }
+  },
+  "larson-miller": {
+   "name": "Larson–Miller parameter",
+   "short": "From one creep-rupture test, find the rupture time at another temperature or the temperature for a target life",
+   "formula": "P = T(C + log₁₀t_r)",
+   "q": {
+    "time": "A heat-resistant alloy ruptured in creep after {h1} h at {t1c} °C under a certain stress. Find the rupture time at {t2c} °C under the same stress, assuming the Larson–Miller parameter P = T(C + log₁₀t_r) is constant (T absolute, t_r in hours, C = {C}).",
+    "temp": "A heat-resistant alloy ruptured in creep after {h1} h at {t1c} °C under a certain stress. For a rupture life of {h2} h under the same stress, find the highest usable temperature, assuming the Larson–Miller parameter P = T(C + log₁₀t_r) is constant (T absolute, t_r in hours, C = {C})."
+   },
+   "steps": {
+    "time": [
+     "T₁ = {T1} K, log₁₀t₁ = {lg}.",
+     "P = T₁(C + log₁₀t₁) = {P} (do not round intermediate values too much).",
+     "At T₂ = {T2} K, log₁₀t₂ = P/T₂ − C = {e}.",
+     "t₂ = 10^{e} = {h2} h."
+    ],
+    "temp": [
+     "T₁ = {T1} K, log₁₀t₁ = {lg}, P = T₁(C + log₁₀t₁) = {P}.",
+     "log₁₀t₂ = {lg2}, T₂ = P/(C + log₁₀t₂) = {T2} K.",
+     "T₂ = {t2} °C."
+    ]
+   },
+   "mistakes": {
+    "celsius": "You put the temperature into P in °C. T in P is absolute.",
+    "ln": "You used the natural logarithm ln instead of log₁₀.",
+    "kelvin": "You gave the absolute temperature (K) as if it were °C."
+   }
+  }
+ }
+}
