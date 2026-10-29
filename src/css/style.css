@@ -1363,6 +1363,7 @@ html:lang(en) .fn-facts div { grid-template-columns: 8em 1fr; }
 .dr-rec-table td { text-align: right; font-variant-numeric: tabular-nums; }
 .dr-rec-table thead th { color: var(--muted); font-weight: 600; }
 .dr-rec-table thead th + th { text-align: right; }
+.dr-rec-table td, .dr-rec-table thead th + th { white-space: nowrap; }
 .dr-weak .chip { margin: 0 4px 6px 0; }
 p.dr-weak { margin-top: 10px; }
 .dr-types h3 { font-size: 1rem; margin: 1.2rem 0 .3rem; }

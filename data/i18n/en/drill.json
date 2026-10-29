@@ -90,7 +90,7 @@
    "p": [
     "The unit menu offers other units of the same quantity (nm and Å, MPa and GPa, m²/s and cm²/s, h and s, and so on). A correct value in the chosen unit is accepted. If there is only one unit shown, answer in that unit.",
     "Fractions can be answered as a decimal from 0 to 1 or in % (0.25 and 25 % are the same). For mass or volume fractions, either is fine.",
-    "Temperatures are answered in °C or K. Converting between them adds or subtracts 273.15 rather than multiplying, so a °C value typed with K selected is wrong. If you give a K value as °C, you will be told you left it as an absolute temperature.",
+    "Temperatures are answered in °C or K. Converting between them adds or subtracts 273.15 rather than multiplying, so a °C value typed with K selected is wrong. If you give a K value as °C, you will be told that you gave the absolute temperature (K) as if it were °C.",
     "Useful conversions: 1 nm = 10 Å = 10⁻⁹ m, 1 µm = 10⁻⁶ m, 1 MPa = 1 N/mm² = 10⁶ Pa, 1 GPa = 1000 MPa, 1 cm²/s = 10⁻⁴ m²/s, 1 g/cm³ = 1000 kg/m³, 1 eV = 1.602 × 10⁻¹⁹ J, 1 kJ/mol = 1000 J/mol."
    ]
   },
@@ -101,7 +101,7 @@
     "The numbers in each problem are already rounded to the digits shown, and the reference answer is calculated from those rounded numbers. So if you use the numbers as written, rounding of the data can never make you wrong.",
     "Answers are marked by relative error. Most types accept ±1 %. Types that go through an exponential (diffusion coefficients, carburizing, vacancy concentration, Larson–Miller time) accept ±2 %, because intermediate rounding matters more there, and types that need many digits, such as angles and lattice parameters, accept ±0.5 %. Types answered as a temperature (the highest temperature of a constrained bar, the Larson–Miller temperature) are marked by the relative error of the absolute temperature in K (±0.3 % and ±0.5 %, roughly ±1 to 6 K between 300 and 1200 K). The tolerance is shown with each problem.",
     "Giving the answer to the number of significant figures stated (usually 3) is enough; more digits are fine. For example, if the exact value is 0.2867 nm, both 0.287 and 0.2867 are accepted. Two digits such as 0.29 may be more than 1 % off and marked wrong.",
-    "If you are just outside the tolerance (within 5 %), you will be told it is probably rounding or a different constant. The method is usually right: check that you did not round intermediate values too much and that you used the constants (N_A, R, k and so on) given in the problem."
+    "If you are just outside the tolerance (within 5 %), you will get a “Close” hint about rounding or a different constant. The method is usually right: check that you did not round intermediate values too much and that you used the constants (N_A, R, k and so on) given in the problem."
    ]
   }
  ],
@@ -112,7 +112,7 @@
   ],
   [
    "How are the numbers chosen?",
-   "Each type has ranges that are realistic for real materials, and values are drawn from them every time. Property values such as lattice parameters, densities, Young’s moduli and expansion coefficients come from the same data as this site’s periodic table, material selection chart and lever rule tools. For properties listed as a range (such as Young’s modulus), a value inside the range is chosen and the problem says “take … as”."
+   "Each type has ranges that are realistic for real materials, and values are drawn from them every time. Property values such as lattice parameters, densities, Young’s moduli and expansion coefficients come from the same data as this site’s Periodic Table for Materials, Material Selection Chart and Binary Phase Diagram Lab. For properties listed as a range (such as Young’s modulus), a value inside the range is chosen and the problem says “take … as”."
   ],
   [
    "Can I solve the same problem again, or give a friend the same problem?",
@@ -128,7 +128,7 @@
   ],
   [
    "What do I get by opening the calculator?",
-   "The related calculator opens with the same numbers filled in, so you can check the answer another way or see what happens when you change a condition. For example, the XRD tool shows the whole diffraction pattern for a Bragg-angle problem, and the diffusion tool shows the concentration profile for a carburizing problem. For types no tool covers, links to related terms and articles are shown instead."
+   "The related calculator opens with the same numbers filled in, so you can check the answer another way or see what happens when you change a condition. For example, the XRD Analysis Workbench shows the whole diffraction pattern for a Bragg-angle problem, and the Diffusion and Surface-Treatment Simulator shows the concentration profile for a carburizing problem. For types no tool covers, links to related terms and articles are shown instead."
   ],
   [
    "The textbook answer is slightly different.",
@@ -142,7 +142,7 @@
  "sources": [
   {
    "name": "Lattice parameters, densities, crystal structures and atomic weights",
-   "text": "Data of the periodic table tool (lattice parameters and densities from the CRC Handbook of Chemistry and Physics; IUPAC/CIAAW standard atomic weights)."
+   "text": "Data of the Periodic Table for Materials (lattice parameters and densities from the CRC Handbook of Chemistry and Physics; IUPAC/CIAAW standard atomic weights)."
   },
   {
    "name": "Ranges of Young’s modulus, expansion coefficient, thermal conductivity and fracture toughness",
@@ -150,15 +150,15 @@
   },
   {
    "name": "Phase diagram values (Cu–Ni, Pb–Sn, Ag–Cu, Al–Si, Al–Cu, Pt–Ag) and the Fe–C eutectoid",
-   "text": "Data of the lever rule and iron–carbon diagram tools (values from Callister’s Materials Science and Engineering and others; each tool page lists the source for every system). Fe–C uses eutectoid 0.76 wt% C, ferrite solubility 0.022 wt% C and Fe₃C 6.70 wt% C."
+   "text": "Data of the Binary Phase Diagram Lab and the Iron–Carbon Phase Diagram Viewer (values from Callister’s Materials Science and Engineering and others; each tool page lists the source for every system). Fe–C uses eutectoid 0.76 wt% C, ferrite solubility 0.022 wt% C and Fe₃C 6.70 wt% C."
   },
   {
    "name": "X-ray wavelengths",
-   "text": "The same Kα1 values as the XRD tool (λ = hc/E from the photon energies in the X-ray Data Booklet)."
+   "text": "The same Kα1 values as the XRD Analysis Workbench (λ = hc/E from the photon energies in the X-ray Data Booklet)."
   },
   {
    "name": "Diffusion D₀ and Q, error function",
-   "text": "The same values as the diffusion simulator’s data set (Table 5.2 of W. D. Callister, Jr. and D. G. Rethwisch, Materials Science and Engineering: An Introduction, 9th ed.). The error function and its inverse are also computed as in that tool. Temperatures are chosen where the tool gives no warning (inside the phase field; above 0.75 of the melting point for substitutional diffusion), and the carburizing surface concentration is kept below the Acm line at that temperature."
+   "text": "The same values as the Diffusion and Surface-Treatment Simulator’s data set (Table 5.2 of W. D. Callister, Jr. and D. G. Rethwisch, Materials Science and Engineering: An Introduction, 9th ed.). The error function and its inverse are also computed as in that tool. Temperatures are chosen where the tool gives no warning (inside the phase field; above 0.75 of the melting point for substitutional diffusion), and the carburizing surface concentration is kept below the Acm line at that temperature."
   },
   {
    "name": "Conductor resistivities",
@@ -214,7 +214,7 @@
    "steps": [
     "θ = 2θ/2 = {th}°.",
     "From Bragg’s law, d = λ/(2 sinθ) = {d} nm.",
-    "a = d√(h² + k² + l²) = {d} × √{N} = {a} nm (the periodic table tool lists {a0} nm)."
+    "a = d√(h² + k² + l²) = {d} × √{N} = {a} nm (the Periodic Table for Materials lists {a0} nm)."
    ],
    "mistakes": {
     "twotheta": "You put 2θ into the sine as if it were θ. Halve it first.",

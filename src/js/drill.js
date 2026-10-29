@@ -15,6 +15,9 @@ import { matById as xrdMat } from './xrd.js';
 
 // ---- 数の書き方(言語の小数点。桁区切りは使わない) ----
 let LANG = typeof document !== 'undefined' ? document.documentElement.lang || 'en' : 'en';
+// 見出しのあとのコロンと、箇条書きの印(中国語は全角のコロン、日本語だけ中点)
+const colon = () => (/^zh/.test(LANG) ? '：' : ': ');
+const bullet = () => (/^ja/.test(LANG) ? '・' : '• ');
 export const setLang = l => { LANG = l; };
 const nf = o => new Intl.NumberFormat(LANG, { useGrouping: false, ...o });
 const minus = t => (/^-0(?:[.,]0*)?$/.test(t) ? t.slice(1) : t.replace(/^-/, '−'));
@@ -102,18 +105,18 @@ export const UNITS = {
 const nUnit = s => s.normalize('NFKC').replace(/[\s·⋅*.^]/g, '').replace(/[−–]/g, '-').replace(/[µμ]/g, 'u').replace(/Ω/g, 'ohm').replace(/[Å]/g, 'A').toLowerCase();
 const ALIAS = {
   len: { um: 'µm', 'μm': 'µm', a: 'Å', ang: 'Å', angstrom: 'Å' },
-  ang: { deg: '°', '度': '°', '°': '°', degree: '°', degrees: '°' },
+  ang: { deg: '°', '度': '°', '도': '°', '°': '°', degree: '°', degrees: '°', grad: '°' },
   dens: { 'g/cm3': 'g/cm³', 'g/cc': 'g/cm³', 'kg/m3': 'kg/m³' },
   diff: { 'm2/s': 'm²/s', 'cm2/s': 'cm²/s', 'mm2/s': 'mm²/s' },
-  time: { hr: 'h', hrs: 'h', hour: 'h', hours: 'h', '時間': 'h', sec: 's', '秒': 's', '分': 'min', day: 'd', days: 'd', '日': 'd' },
+  time: { hr: 'h', hrs: 'h', hour: 'h', hours: 'h', '時間': 'h', '小時': 'h', '시간': 'h', std: 'h', stunde: 'h', stunden: 'h', sec: 's', '秒': 's', '초': 's', sekunde: 's', sekunden: 's', '分': 'min', '分鐘': 'min', '분': 'min', minute: 'min', minuten: 'min', day: 'd', days: 'd', '日': 'd', '天': 'd', '일': 'd', tag: 'd', tage: 'd' },
   flux: { 'kg/(m2s)': 'kg/(m²·s)', 'kg/m2s': 'kg/(m²·s)', 'kg/m2/s': 'kg/(m²·s)', 'kgm-2s-1': 'kg/(m²·s)', 'g/(m2s)': 'g/(m²·s)', 'g/m2s': 'g/(m²·s)' },
   vol: { 'm-3': 'm⁻³', '/m3': 'm⁻³', '1/m3': 'm⁻³', 'cm-3': 'cm⁻³', '/cm3': 'cm⁻³', '1/cm3': 'cm⁻³' },
-  area: { 'nm-2': 'nm⁻²', '/nm2': 'nm⁻²', '1/nm2': 'nm⁻²', 'atoms/nm2': 'nm⁻²', '個/nm2': 'nm⁻²', 'm-2': 'm⁻²', '/m2': 'm⁻²', 'atoms/m2': 'm⁻²', 'cm-2': 'cm⁻²', '/cm2': 'cm⁻²', 'a-2': 'Å⁻²', '/a2': 'Å⁻²' },
+  area: { 'nm-2': 'nm⁻²', '/nm2': 'nm⁻²', '1/nm2': 'nm⁻²', 'atoms/nm2': 'nm⁻²', '個/nm2': 'nm⁻²', '개/nm2': 'nm⁻²', 'm-2': 'm⁻²', '/m2': 'm⁻²', 'atoms/m2': 'm⁻²', 'cm-2': 'cm⁻²', '/cm2': 'cm⁻²', 'a-2': 'Å⁻²', '/a2': 'Å⁻²' },
   ohm: { ohm: 'Ω', mohm: 'mΩ', kohm: 'kΩ' },
   rho: { ohmm: 'Ω·m', ohmcm: 'Ω·cm', mohmcm: 'mΩ·cm', uohmcm: 'µΩ·cm' },
-  rate: { 'um/y': 'µm/y', 'um/yr': 'µm/y', 'um/year': 'µm/y', 'um/年': 'µm/y', 'mm/yr': 'mm/y', 'mm/year': 'mm/y', 'mm/年': 'mm/y' },
+  rate: { 'um/y': 'µm/y', 'um/yr': 'µm/y', 'um/year': 'µm/y', 'um/年': 'µm/y', 'um/년': 'µm/y', 'um/a': 'µm/y', 'um/jahr': 'µm/y', 'mm/yr': 'mm/y', 'mm/year': 'mm/y', 'mm/年': 'mm/y', 'mm/년': 'mm/y', 'mm/a': 'mm/y', 'mm/jahr': 'mm/y' },
   heat: { 'w/m2': 'W/m²', 'kw/m2': 'kW/m²' },
-  temp: { c: '°C', degc: '°C', '°c': '°C', '度': '°C', kelvin: 'K' },
+  temp: { c: '°C', degc: '°C', '°c': '°C', '度': '°C', '도': '°C', grad: '°C', kelvin: 'K' },
 };
 export function unitOf(fam, s) {
   const k = nUnit(s);
@@ -924,7 +927,7 @@ function ui(D) {
     if (H?.kind === 'alt') {
       // 同じ値になる間違いが複数あるときは、文の違うものを並べる
       const texts = [...new Set((H.ids ?? [H.id]).map(id => fillText(T.mistakes[id] ?? '', { ...p.show, ...p.sol.k })).filter(Boolean))];
-      hint = texts.length > 1 ? [S.drill_h_either, ...texts.map(t => `・${t}`)].join('\n') : texts[0] ?? '';
+      hint = texts.length > 1 ? [S.drill_h_either, ...texts.map(t => `${bullet()}${t}`)].join('\n') : texts[0] ?? '';
     }
     else if (H?.kind === 'sign') hint = S.drill_h_sign;
     else if (H?.kind === 'unit') hint = fmtS('drill_h_unit', { u: ulabel(H.u), a: fs(convert(sol.fam, sol.ans, sol.unit, u), 4), uu: ulabel(u) });
@@ -950,7 +953,7 @@ function ui(D) {
     }
     if (T.terms?.length || T.learn?.length) {
       const p2 = el('p', 'term-chips');
-      p2.append(el('span', 'muted', `${S.drill_related}: `));
+      p2.append(el('span', 'muted', `${S.drill_related}${colon()}`));
       for (const x of [...(T.learn ?? []), ...(T.terms ?? [])]) { const a = el('a', 'chip', x.n); a.href = x.u; p2.append(a, ' '); }
       linksEl.append(p2);
     }
@@ -1037,7 +1040,7 @@ function ui(D) {
     const weak = rows.flatMap(r => r.weak);
     if (weak.length) {
       const p = el('p', 'dr-weak');
-      p.append(el('span', 'muted', `${S.drill_rec_weak}: `));
+      p.append(el('span', 'muted', `${S.drill_rec_weak}${colon()}`));
       for (const id of weak) {
         const b = el('button', 'chip', byId[id].name);
         b.type = 'button';

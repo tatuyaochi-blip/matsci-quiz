@@ -3094,7 +3094,7 @@ ${relCats.length ? `<section>
       .map(y => [y.id, { n: y.text[code].nav, u: `${home}tools/${y.slug}/` }]));
     const typeTerms = x => (x.terms ?? []).map(k => terms.find(g => g.key === k)).filter(Boolean).map(g => ({ n: g.term, u: `${home}term/${termSlug[g.key]}/` }));
     const typeLearn = x => (x.learn ?? []).map(s => learnArts.find(a => a.slug === s)).filter(Boolean).map(a => ({ n: a.title, u: `${home}learn/${a.slug}/` }));
-    const pct = tol => String(+(tol * 100).toPrecision(2));
+    const pct = tol => { const s = String(+(tol * 100).toPrecision(2)); return /^de/.test(code) ? s.replace('.', ',') : s; };
     const tolText = x => t('drill_tol', { tol: [pct(x.tol), ...Object.values(x.tolv ?? {}).map(pct)].filter((v, i, a) => a.indexOf(v) === i).join(' / ') });
     // drill.js に渡すデータ(型・数値のデータ・名前・画面の文言)
     const jsData = {
