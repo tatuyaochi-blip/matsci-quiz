@@ -2885,7 +2885,7 @@ ${cmpSection(t('compare_more'), relatedCmp(e))}`,
     const aHome = `${home}atlas/`;
     const aPath = l => `${l.path}atlas/`;
     const aAlt = Object.fromEntries(langs.filter(x => atlasOn(x.code)).map(x => [x.code, aPath(x)]));
-    const num = (v, d = 2) => Number(v.toFixed(d)).toLocaleString(L.htmlLang);
+    const num = (v, d = 2) => Number(v.toFixed(d)).toLocaleString(L.htmlLang, { useGrouping: !/^de/.test(L.htmlLang) });
     const width = um => (um >= 1000 ? `${num(um / 1000)} mm` : `${num(um)} µm`);
     const termChips = keys => keys.map(k => terms.find(x => x.key === k)).filter(Boolean).map(x => `<a class="chip" href="${home}term/${termSlug[x.key]}/">${esc(x.term)}</a>`).join(' ');
     const fill = (q, s) => (s.lever ? q.replaceAll(`{${s.lever.param}}`, String(s.lever.def)) : q);

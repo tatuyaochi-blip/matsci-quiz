@@ -77,7 +77,7 @@ if (form && dataEl) {
     const p = el('p', 'fn-why');
     p.append(el('b', '', `${label}: `));
     items.sort((x, y) => Math.abs(y.n) - Math.abs(x.n)).forEach((x, i) => {
-      if (i) p.append(lang.startsWith('ja') ? '、' : ', ');
+      if (i) p.append(/^(ja|zh)/.test(lang) ? '、' : ', ');
       p.append(`${x.label} `, el('span', x.n > 0 ? 'fn-p' : 'fn-n', pts(x.n)));
     });
     return p;

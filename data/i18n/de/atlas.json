@@ -1,0 +1,713 @@
+{
+  "title": "Gefügeatlas: Stahl- und Gusseisengefüge erkennen, Korngröße, Übung",
+  "description": "19 Metallgefüge wie Ferrit, Perlit, Bainit, Martensit, Graphit im Gusseisen, Dendriten und Eutektika als Gefügeskizzen vergleichen: Merkmale, Entstehung, Aussehen nach dem Ätzen und Unterscheidung ähnlicher Gefüge. Mit Umrechnung der Korngrößenkennzahl (JIS G 0551, ASTM E112) und Erkennungsübung.",
+  "h1": "Gefügeatlas: Gefüge erkennen",
+  "lead": "Auf dieser Seite sehen Sie Metallgefüge, wie sie im Mikroskop erscheinen, als Gefügeskizzen, lernen ihre Merkmale und üben, sie zu unterscheiden. Die Skizzen fallen bei jedem Zeichnen etwas anders aus.",
+  "note": "Alle Bilder sind prozedural gezeichnete Gefügeskizzen, keine Schliffbilder. Welche Phase hell und welche dunkel erscheint, entspricht dem typischen Aussehen nach dem Ätzen (etwa mit Nital); echte Schliffbilder unterscheiden sich aber je nach Ätzmittel, Ätzdauer, Beleuchtung und Vergrößerung stark in Farbe, Kontrast und Kornform. Die ungefähre Vergrößerung gilt für eine Betrachtung der Skizze in 10 cm Breite. In den Skizzen mit geringer Vergrößerung (×100, ×200) zeigen die Streifen im Perlit nur an, dass er lamellar ist; die tatsächlichen Lamellen lassen sich bei diesen Vergrößerungen meist nicht auflösen. In der dunklen Darstellung werden die Skizzen nur etwas abgedunkelt; Hell und Dunkel werden nicht vertauscht.",
+  "groups": {
+    "slow": "Langsam abgekühlte und geglühte Stähle",
+    "quench": "Gehärtete, isotherm umgewandelte und angelassene Stähle",
+    "cast": "Gusseisen",
+    "solid": "Erstarrungsgefüge",
+    "grain": "Kornform, Korngröße und Ausscheidungen"
+  },
+  "structures": {
+    "ferrite": {
+      "name": "Ferrit (Reineisen, Stahl mit sehr wenig Kohlenstoff)",
+      "short": "Helle, gleichachsige Körner mit dünnen dunklen Korngrenzen",
+      "see": [
+        "Helle, kantige Körner etwa gleicher Größe (gleichachsige Körner) füllen das Bildfeld, und die Korngrenzen erscheinen als dünne dunkle Linien.",
+        "Bei etwas Kohlenstoff sitzen kleine dunkle Perlitinseln an einzelnen Kornecken (Beispiel: warmgewalztes Eisen mit etwa 0,05 % C)."
+      ],
+      "shade": [
+        "An den Korngrenzen ist die Atomanordnung gestört, deshalb werden sie schneller angegriffen als das Korninnere; sie werden zu Furchen, die kein Licht zurückwerfen, und erscheinen als dunkle Linien.",
+        "Bei längerem Ätzen hängt der Angriff von der Kristallorientierung ab: Körner gleicher Orientierung sind gleich hell, sodass benachbarte Körner etwas unterschiedlich hell aussehen."
+      ],
+      "etch": [
+        "Nital (alkoholische Salpetersäure) macht die Ferritkorngrenzen sichtbar. Pikral (alkoholische Pikrinsäure) entwickelt die Ferritkorngrenzen nicht; zur Beurteilung der Korngröße wird daher Nital verwendet."
+      ],
+      "forms": [
+        "Eisen mit sehr wenig Kohlenstoff (Reineisen oder Stahl mit sehr niedrigem Kohlenstoffgehalt) wird aus dem Austenitgebiet abgekühlt oder geglüht. Im Eisen-Kohlenstoff-Diagramm ist dies das α-Gebiet (krz), das bei 727 °C höchstens 0,022 % C löst.",
+        "Rekristallisation nach Kaltverformung stellt wieder verzerrungsfreie, gleichachsige Körner her."
+      ],
+      "props": [
+        "Je feiner das Korn, desto härter und fester der Werkstoff (Hall-Petch-Beziehung). Die Korngröße wird als Korngrößenkennzahl angegeben (siehe Korngröße auf dieser Seite)."
+      ],
+      "confuse": [
+        "Glühzwillinge (Bänder zwischen zwei geraden, parallelen Linien quer durch ein Korn) sind typisch für kfz-Metalle wie austenitische nichtrostende Stähle und Kupferlegierungen. Ferritkörner (krz) zeigen normalerweise keine.",
+        "Nimmt dunkler Perlit einen nennenswerten Teil der Fläche ein, handelt es sich um einen untereutektoiden Stahl. Nur wenige dunkle Punkte bedeuten ein ferritisches Gefüge eines kohlenstoffarmen Stahls.",
+        "Bei Mischkorn schwankt die Korngröße von Ort zu Ort stark. Ferritkörner sind ungefähr gleich groß."
+      ],
+      "clues": [
+        "Nur helle, gleichachsige, vieleckige Körner",
+        "Keine geraden parallelen Bänder (Zwillinge) in den Körnern",
+        "Kaum dunkler Perlit"
+      ]
+    },
+    "ferrite-pearlite": {
+      "name": "Ferrit + Perlit (untereutektoider Stahl)",
+      "short": "Weißer Ferrit und dunkler Perlit; je mehr Kohlenstoff, desto mehr dunkle Fläche",
+      "see": [
+        "Weiße (helle) Körner aus voreutektoidem Ferrit wechseln mit dunklen Perlitinseln. Bei höherer Vergrößerung zeigt der Perlit Lamellen.",
+        "Je mehr Kohlenstoff, desto mehr Perlit. Mit dem Schieberegler unter der Skizze ändern Sie den Kohlenstoffgehalt; die Skizze wird mit dem Anteil nach dem Hebelgesetz neu gezeichnet."
+      ],
+      "shade": [
+        "Perlit besteht aus feinen Lamellen von Ferrit und Zementit; beim Ätzen entstehen Stufen zwischen den Lamellen, deren Schatten ihn insgesamt dunkel erscheinen lassen. Voreutektoider Ferrit wird gleichmäßig abgetragen und bleibt eben, deshalb erscheint er hell."
+      ],
+      "etch": [
+        "Nital zeigt sowohl die Ferritkorngrenzen als auch den Perlit (die übliche Wahl). Pikral löst die Perlitlamellen gut auf, entwickelt aber die Ferritkorngrenzen nicht."
+      ],
+      "forms": [
+        "Stahl mit 0,022–0,76 % C wird aus dem Austenitgebiet langsam im Ofen (Glühen) oder an Luft (Normalglühen) abgekühlt.",
+        "Ferrit bildet sich zuerst an den ehemaligen Austenitkorngrenzen; der restliche Austenit reichert sich mit Kohlenstoff an und wandelt bei Erreichen von 0,76 % bei 727 °C in Perlit um.",
+        "Knapp unterhalb von 727 °C beträgt der Massenanteil des Perlits nach dem Hebelgesetz (C − 0,022)/(0,76 − 0,022); bei 0,40 % C etwa 0,51. Die Skizze verwendet diesen Massenanteil als Flächenanteil."
+      ],
+      "props": [
+        "Normalglühen (Luftabkühlung) kühlt schneller ab als Glühen mit Ofenabkühlung und ergibt daher weniger Ferrit und feineren Perlit (Beispiel: ein Stahl mit 0,35 % C)."
+      ],
+      "confuse": [
+        "Widmanstätten-Ferrit wächst als parallele weiße Keile von den Korngrenzen in die Körner hinein. Im geglühten untereutektoiden Stahl bildet der weiße Ferrit ungefähr gleichachsige Körner.",
+        "Sind weiße Ferritkörner deutlich vorhanden, handelt es sich um einen untereutektoiden Stahl. Ist fast die ganze Fläche lamellar, ist es eutektoider Perlit.",
+        "Gusseisen mit Kugelgraphit hat ebenfalls weißen Ferrit und dunklen Perlit, enthält aber dunkle Graphitkugeln. Stahl enthält keinen Graphit."
+      ],
+      "clues": [
+        "Weiße gleichachsige Körner wechseln mit dunklen Inseln",
+        "Die dunklen Inseln sind bei höherer Vergrößerung lamellar",
+        "Keine Graphitkugeln oder -lamellen"
+      ]
+    },
+    "pearlite": {
+      "name": "Perlit (eutektoider Stahl)",
+      "short": "Kolonien aus dünnen, gleich ausgerichteten Lamellen füllen das Bildfeld",
+      "see": [
+        "Abwechselnde Lamellen aus Ferrit und Zementit. Die Lamellenrichtung wechselt von Kolonie zu Kolonie, sodass ein fingerabdruckartiges Streifenmuster entsteht.",
+        "In derselben Probe zeigen schräg angeschnittene Kolonien einen größeren scheinbaren Abstand und fast senkrecht angeschnittene einen kleineren. Zu feine, nicht auflösbare Kolonien erscheinen gleichmäßig dunkel."
+      ],
+      "shade": [
+        "Beim Ätzen wird zuerst der Ferrit gelöst, sodass der Zementit leicht erhaben stehen bleibt. Im Lichtmikroskop sind beide Phasen weiß, doch die Zementitlamellen sind dünn, und die Schatten der Stufen werden zu dunklen Linien; deshalb erscheint Perlit insgesamt dunkel."
+      ],
+      "etch": [
+        "Pikral entwickelt die Ferritkorngrenzen kaum, hebt aber den Zementit (die Perlitlamellen) deutlich hervor und eignet sich daher gut zum Auflösen der Perlitlamellen. Auch nach Nitalätzung erscheint Perlit dunkel."
+      ],
+      "forms": [
+        "Eutektoider Stahl mit etwa 0,76 % C wird aus dem Austenitgebiet langsam unter 727 °C abgekühlt (γ → α + Fe₃C).",
+        "Langsamere Abkühlung (geringe Unterkühlung) ergibt groben Perlit mit großem Lamellenabstand, schnellere Abkühlung feinen Perlit. Bei feinem Perlit aus Luftabkühlung (Normalglühen) lassen sich die Lamellen im Lichtmikroskop oft kaum auflösen."
+      ],
+      "props": [
+        "Je feiner der Lamellenabstand, desto härter und fester der Perlit. Die Härte nimmt in der Reihenfolge feiner Perlit > grober Perlit > kugeliger Zementit ab.",
+        "Das Lichtmikroskop löst bis etwa 500 nm auf; sehr feiner Perlit mit einem Lamellenabstand von etwa 50 nm erfordert daher ein Elektronenmikroskop."
+      ],
+      "confuse": [
+        "Ein Eutektikum (etwa Pb–Sn) ist ebenfalls lamellar, doch seine beiden Lamellenarten sind ähnlich dick. Im Perlit sind die Zementitlamellen viel dünner als die Ferritlamellen (nach dem Hebelgesetz beträgt der Zementitanteil (0,76 − 0,022)/(6,70 − 0,022) ≈ 0,11).",
+        "Oberer Bainit wächst als federartige Garben von den Korngrenzen aus, mit Karbiden in unterbrochenen Teilchenreihen statt langer durchgehender Streifen wie im Perlit.",
+        "Sind Gruppen aus weißem voreutektoidem Ferrit vorhanden, handelt es sich um einen untereutektoiden Stahl."
+      ],
+      "clues": [
+        "Lamellare Streifen über die ganze Fläche",
+        "Die Streifenrichtung wechselt von Kolonie zu Kolonie",
+        "Keine weißen Körner und kein weißes Netz"
+      ]
+    },
+    "cementite-pearlite": {
+      "name": "Voreutektoider Zementit + Perlit (übereutektoider Stahl)",
+      "short": "Ein weißes Zementitnetz umrandet die Perlitkörner",
+      "see": [
+        "Ein dünnes weißes Netz (voreutektoider Zementit) umgibt Körner aus lamellarem Perlit (die ehemaligen Austenitkörner).",
+        "Mehr Kohlenstoff macht das Netz dicker. Mit dem Schieberegler unter der Skizze ändern Sie den Kohlenstoffgehalt; die Skizze wird mit der Dicke nach dem Hebelgesetz neu gezeichnet."
+      ],
+      "shade": [
+        "Voreutektoider Zementit wird von Nital oder Pikral kaum angegriffen und bleibt weiß; die Stufen an den Rändern des Netzes erscheinen als dünne dunkle Linien."
+      ],
+      "etch": [
+        "Nach Nital- oder Pikralätzung ist voreutektoider Zementit weiß und leicht mit weißem Ferrit zu verwechseln. Heißätzen in alkalischer Kaliumhexacyanoferrat(III)-Lösung (rotes Blutlaugensalz) färbt Zementit schwarz und Perlit braun und unterscheidet beide so."
+      ],
+      "forms": [
+        "Stahl mit mehr als 0,76 % C (übereutektoider Stahl) wird aus dem Austenitgebiet langsam abgekühlt. Beim Unterschreiten der Acm-Linie scheidet sich voreutektoider Zementit netzförmig an den Austenitkorngrenzen aus, und der restliche Austenit wandelt bei 727 °C in Perlit um.",
+        "Knapp unterhalb von 727 °C beträgt der Massenanteil des voreutektoiden Zementits nach dem Hebelgesetz (C − 0,76)/(6,70 − 0,76); bei 1,2 % C etwa 0,074. Die Skizze verwendet diesen Anteil als Fläche des Netzes."
+      ],
+      "props": [
+        "Beispiel: Ein Stahl mit 1,3 % C, aus 970 °C im Ofen abgekühlt, zeigt voreutektoiden Zementit an den Korngrenzen und deutlich sichtbare Perlitlamellen."
+      ],
+      "confuse": [
+        "Weißer Ferrit im untereutektoiden Stahl bildet ganze Körner mit großer Fläche. Weißer voreutektoider Zementit im übereutektoiden Stahl ist ein dünnes Netz entlang der Korngrenzen. Im Zweifel färben Sie den Zementit mit alkalischer Hexacyanoferrat-Lösung dunkel.",
+        "Im sensibilisierten nichtrostenden Stahl sind die Korngrenzen dunkle Gräben, und in den Körnern gibt es keine Lamellen. Das Netz im übereutektoiden Stahl ist weiß und enthält Perlitlamellen.",
+        "Ohne weißes Korngrenzennetz ist es eutektoider Perlit."
+      ],
+      "clues": [
+        "Ein dünnes weißes Netz um Perlitkörner",
+        "Das Netz folgt den Korngrenzen",
+        "Im Inneren Perlitlamellen"
+      ]
+    },
+    "widmanstatten": {
+      "name": "Widmanstätten-Ferrit",
+      "short": "Parallele weiße Keile wachsen von den Korngrenzen in die Körner hinein",
+      "see": [
+        "Auf den ehemaligen Austenitkorngrenzen liegt ein weißes Ferritband, von dem viele gleich ausgerichtete weiße, keilförmige Platten in das Korn hineinwachsen. Zwischen den Platten liegt dunkler Perlit."
+      ],
+      "shade": [
+        "Widmanstätten-Ferrit hat kaum eine innere Struktur und bleibt beim Ätzen sauber weiß. Bainit, ein Aggregat aus feinen Platten und Karbiden, wird dunkel geätzt."
+      ],
+      "etch": [
+        "Nital ergibt einen starken Kontrast zwischen den weißen Platten und dem dunklen Perlit."
+      ],
+      "forms": [
+        "Wenn die Abkühlung weit vom Gleichgewicht abweicht, etwa bei unlegiertem Stahl im Gusszustand (Beispiel: 0,40–0,50 % C), wächst keilförmiger Ferrit von den Korngrenzen aus. Ein Teil wächst sekundär aus einer Schicht von Korngrenzenferrit.",
+        "Glühen, Normalglühen oder Warmwalzen beseitigen ihn."
+      ],
+      "props": [
+        "Nadelförmiger Ferrit senkt die Zähigkeit; Stahl mit diesem Gefüge sollte daher nicht für wichtige Bauteile verwendet werden (Beispiel: Stahl im Gusszustand)."
+      ],
+      "confuse": [
+        "Beide wachsen parallel von den Korngrenzen aus, doch Widmanstätten-Ferrit bildet saubere weiße Keile mit dunklem Perlit dazwischen, während die Garben des oberen Bainits insgesamt dunkel sind und zwischen feinen Platten Karbidreihen enthalten.",
+        "Ferrit in geglühtem untereutektoidem Stahl ist gleichachsig, ohne Reihen paralleler Keile (durch Normalglühen kann der Ferrit allerdings nadelförmig werden)."
+      ],
+      "clues": [
+        "Parallele weiße Keile wachsen in die Körner hinein",
+        "Ein weißes Band auf den Korngrenzen",
+        "Dunkler Perlit zwischen den Keilen"
+      ]
+    },
+    "spheroidized": {
+      "name": "Kugeliger Zementit (weichgeglühtes Gefüge)",
+      "short": "Runde Zementitteilchen, verstreut in hellem Ferrit",
+      "see": [
+        "Runde Zementitteilchen sind gleichmäßig in einer Matrix aus gleichachsigem Ferrit verteilt, viele davon auf den Ferritkorngrenzen.",
+        "Keine Lamellen und keine Nadeln."
+      ],
+      "shade": [
+        "Zementitteilchen werden nicht angegriffen und stehen leicht erhaben, sodass die Stufe um jedes Teilchen einen Schatten wirft: Sie erscheinen als Punkte mit dunklem Rand."
+      ],
+      "etch": [
+        "Pikral ist das Standardätzmittel für Gefüge mit kugeligem Zementit und für die Verteilung von Anlasskarbiden. Um auch die Ferritkorngrenzen zu sehen, wird es mit Nital kombiniert."
+      ],
+      "forms": [
+        "Perlit, Bainit oder gehärteter Stahl wird lange knapp unterhalb von A1 (727 °C) gehalten (Weichglühen). Beispiel: Ein Stahl mit 0,40–0,50 % C wird von 830–850 °C in Wasser abgeschreckt, 72 h bei 710 °C gehalten und langsam abgekühlt.",
+        "Auch langes Anlassen gehärteten Stahls bei 600 °C (über Tage) vergröbert die Zementitteilchen, und nadelförmiger Ferrit wird allmählich gleichachsig."
+      ],
+      "props": [
+        "Die Härte nimmt in der Reihenfolge feiner Perlit > grober Perlit > kugeliger Zementit ab; das Gefüge mit kugeligem Zementit ist am weichsten.",
+        "Ein Werkzeugstahl mit etwa 0,85 % C hat vor der Wärmebehandlung (Ferrit mit Karbiden von einigen µm Größe) etwa 165 HV."
+      ],
+      "confuse": [
+        "Auch angelassener Martensit enthält Karbidteilchen, doch die ursprünglichen Latten- oder Nadelformen und eine dunklere Matrix bleiben erhalten. Beim kugeligen Zementit ist der Ferrit gleichachsig und hell, und die Teilchen sind rund und größer.",
+        "Graphitkugeln im Gusseisen mit Kugelgraphit sind schon bei geringer Vergrößerung zu sehen und von weißen Ferrithöfen umgeben. Kugelige Zementitteilchen erfordern eine hohe Vergrößerung.",
+        "Korngrenzenausscheidungen reihen sich durchgehend entlang der Korngrenzen auf. Kugelige Zementitteilchen sind auch im Korninneren gleichmäßig verteilt."
+      ],
+      "clues": [
+        "Überall verstreute runde Teilchen",
+        "Keine Lamellen und keine Nadeln",
+        "Gleichachsige, helle Ferritmatrix"
+      ]
+    },
+    "upper-bainite": {
+      "name": "Oberer Bainit",
+      "short": "Federartige Garben, die von den Korngrenzen wachsen, mit Karbidreihen zwischen den Platten",
+      "see": [
+        "Garben aus parallelen dünnen Ferritplatten (Latten) wachsen federartig von den ehemaligen Austenitkorngrenzen aus.",
+        "Zementitteilchen liegen in unterbrochenen Reihen zwischen den Platten. Das Lichtmikroskop löst die einzelnen Platten nicht auf; man sieht Gruppen von Garben.",
+        "Die Skizze zeigt eine Probe, die teilweise umgewandelt und dann abgeschreckt wurde: Die wachsenden Garben sind dunkel, der Rest ist heller Martensit."
+      ],
+      "shade": [
+        "Das Ätzmittel greift rund um die Zementitteilchen an, deshalb erscheint Bainit insgesamt dunkel."
+      ],
+      "etch": [
+        "Nital ätzt ihn dunkel. Für einzelne Platten und Karbide ist ein Elektronenmikroskop nötig."
+      ],
+      "forms": [
+        "Austenit wird schnell bis knapp unterhalb des Perlitgebiets (meist unter 500 °C) abgekühlt und dort gehalten (isotherme Umwandlung).",
+        "Ist die Abschreckung etwas langsamer als die kritische Abkühlgeschwindigkeit, kann federartiger oberer Bainit nur an den Korngrenzen auftreten (Beispiel: ein Stahl mit 0,35 % C, in Wasser abgeschreckt)."
+      ],
+      "props": [
+        "Beispiel: Stahl 4340, isotherm zu überwiegend oberem Bainit umgewandelt, 32 HRC.",
+        "Seine Karbide sind grob und liegen zwischen den Platten, deshalb ist er weniger zäh als unterer Bainit."
+      ],
+      "confuse": [
+        "Unterer Bainit besteht aus dunklen Nadeln in regelloser Richtung; oberer Bainit wächst als parallele Garben von den Korngrenzen aus. Die Lage der Karbide (beim oberen Bainit zwischen den Platten, beim unteren in den Platten unter etwa 60°) ist nur im Elektronenmikroskop zu erkennen.",
+        "Perlit bildet lange durchgehende Streifen. Oberer Bainit hat unterbrochene Reihen von Karbidteilchen in federartigen Garben.",
+        "Widmanstätten-Ferrit bildet saubere weiße Keile mit dunklem Perlit dazwischen; die Garben des oberen Bainits sind insgesamt dunkel."
+      ],
+      "clues": [
+        "Parallele Garben wachsen federartig von den Korngrenzen aus",
+        "Unterbrochene Reihen dunkler Punkte in den Garben",
+        "Insgesamt dunkel geätzt"
+      ]
+    },
+    "lower-bainite": {
+      "name": "Unterer Bainit",
+      "short": "Dünne dunkle Nadeln (Platten) in regelloser Richtung",
+      "see": [
+        "Dünne dunkle Nadeln (eigentlich Platten) liegen in vielen Richtungen, nicht parallel zueinander (nadelig).",
+        "In einer teilweise umgewandelten und dann abgeschreckten Probe erscheinen sie als dunkle Nadeln in einer hellen Martensitmatrix (wie in dieser Skizze)."
+      ],
+      "shade": [
+        "Das Ätzmittel greift rund um die feinen Karbide in den Platten an, deshalb werden sie dunkel geätzt."
+      ],
+      "etch": [
+        "Nach Nitalätzung erscheinen sie als dunkle Nadeln. Die Karbide in den Platten (parallele Reihen unter etwa 60° zur Plattenachse) sind nur im Elektronenmikroskop zu sehen."
+      ],
+      "forms": [
+        "Austenit wird auf eine tiefere Temperatur als beim oberen Bainit (typischerweise 200–350 °C) abgeschreckt und dort gehalten."
+      ],
+      "props": [
+        "Beispiel: Stahl 4340, bei 280 °C und 330 °C isotherm zu überwiegend unterem Bainit umgewandelt, 50 HRC bzw. 44 HRC.",
+        "Zwischen den Platten liegen weniger und feinere Karbide, deshalb ist er zäher als oberer Bainit."
+      ],
+      "confuse": [
+        "Im Lichtmikroskop sehen beide sehr ähnlich aus. Angelassener Martensit hat Karbide in mehreren Orientierungen (Widmanstätten-Anordnung), unterer Bainit oft nur in einer (im Elektronenmikroskop zu sehen). Auch die Wärmebehandlungsgeschichte ist ein Merkmal.",
+        "Plattenmartensit im Härtezustand hat dickere Platten mit einer Mittelrippe (Midrib) und weißem Restaustenit dazwischen. Die Nadeln des unteren Bainits sind dünn und dunkel.",
+        "Oberer Bainit wächst als parallele Garben von den Korngrenzen aus; die Nadeln des unteren Bainits zeigen in regellose Richtungen."
+      ],
+      "clues": [
+        "Dünne dunkle Nadeln in regelloser Richtung",
+        "Keine Mittelrippe",
+        "Keine parallelen Garben von den Korngrenzen aus"
+      ]
+    },
+    "lath-martensite": {
+      "name": "Lattenmartensit (gehärteter Stahl mit niedrigem Kohlenstoffgehalt)",
+      "short": "Bereiche aus feinen, gleich ausgerichteten Streifen in den ursprünglichen Körnern",
+      "see": [
+        "Die Grenzen der ursprünglichen Austenitkörner (ehemalige Austenitkorngrenzen) bleiben erhalten, und jedes Korn ist in Bereiche mit feinen, gleich ausgerichteten Streifen unterteilt. In einem Bereich reihen sich Bänder von etwas unterschiedlicher Helligkeit (Blöcke) auf.",
+        "Die einzelnen Latten sind zu fein, um im Lichtmikroskop aufgelöst zu werden."
+      ],
+      "shade": [
+        "Martensit im Härtezustand ergibt mit Nital nur schwachen Kontrast; Orientierungsunterschiede zwischen den Bereichen zeigen sich nur als geringe Helligkeitsunterschiede."
+      ],
+      "etch": [
+        "Mit Nital ätzen (der Kontrast ist eher schwach). Auch Pikral greift Martensit an."
+      ],
+      "forms": [
+        "Stahl mit weniger als etwa 0,6 % C wird aus dem Austenitgebiet schneller als mit der kritischen Abkühlgeschwindigkeit abgeschreckt (in Wasser oder Öl). Zwischen etwa 0,6 und 1 % C liegen Latten und Platten gemischt vor."
+      ],
+      "props": [
+        "Die Härte im Härtezustand hängt fast nur vom Kohlenstoffgehalt ab; Legierungselemente ändern nicht die Härte, sondern die Einhärtungstiefe.",
+        "Martensit erreicht seine Höchsthärte von 66 HRC bei 0,8–1,0 % C."
+      ],
+      "confuse": [
+        "Die Form ist sehr ähnlich, doch durch Anlassen erscheint die Matrix dunkler. Martensit im Härtezustand ist heller und kontrastarm.",
+        "Oberer Bainit wächst als federartige Garben von den Korngrenzen aus und zeigt Reihen dunkler Karbidpunkte. Die Streifen des Lattenmartensits sind fein und gleichmäßig, und die Bereiche füllen das ganze Korn aus.",
+        "Im Plattenmartensit ist jede Platte einzeln zu sehen, mit einer Mittelrippe und weißem Restaustenit."
+      ],
+      "clues": [
+        "Ehemalige Austenitkorngrenzen bleiben erhalten",
+        "Körner in Bereiche mit feinen parallelen Streifen unterteilt",
+        "Insgesamt hell und kontrastarm"
+      ]
+    },
+    "plate-martensite": {
+      "name": "Platten- bzw. Linsenmartensit (gehärteter Stahl mit hohem Kohlenstoffgehalt)",
+      "short": "Linsenförmige Platten mit Mittelrippe kreuzen eine weiße Matrix",
+      "see": [
+        "Linsenförmige Platten liegen in vielen Richtungen, jede mit einer dünnen Linie in der Mitte (Mittelrippe, Midrib). Die zuerst gebildeten großen Platten durchqueren das ganze Korn; spätere füllen die Räume dazwischen und sind kleiner.",
+        "Zwischen den Platten bleibt weißer Restaustenit zurück. Wo Platten aufeinandertreffen, können Mikrorisse entstehen."
+      ],
+      "shade": [
+        "Restaustenit wird kaum angegriffen und bleibt weiß; die Martensitplatten erscheinen dunkler."
+      ],
+      "etch": [
+        "Mit Nital ätzen. In Werkzeugstahl, der von zu hoher Temperatur gehärtet wurde, erscheint viel weißes Gefüge, das als Restaustenit gilt."
+      ],
+      "forms": [
+        "Oberhalb von etwa 0,6 % C treten erste Platten auf, oberhalb von etwa 1 % C überwiegen sie. Stahl mit hohem Kohlenstoffgehalt (etwa Werkzeugstahl) wird von hoher Temperatur abgeschreckt.",
+        "Oberhalb von etwa 0,4 % C bleibt auch nach dem Abkühlen auf Raumtemperatur zunehmend Restaustenit erhalten."
+      ],
+      "props": [
+        "Martensit erreicht seine Höchsthärte von 66 HRC bei 0,8–1,0 % C. Bei mehr Kohlenstoff nimmt der Restaustenit zu, und die Härte steigt nicht weiter.",
+        "Wegen der Mikrorisse, die beim Aufeinandertreffen von Platten entstehen, wird Plattenmartensit für die meisten Anwendungen vermieden."
+      ],
+      "confuse": [
+        "Die Nadeln des unteren Bainits sind dünn und dunkel, ohne Mittelrippe und ohne weißen Restaustenit.",
+        "Lattenmartensit besteht aus Bereichen mit Streifen, die einzeln nicht zu erkennen sind. Im Plattenmartensit ist jede Platte einzeln zu sehen.",
+        "Glühzwillinge im Austenit sind Bänder mit geraden, parallelen Seiten, keine Linsen."
+      ],
+      "clues": [
+        "Linsenförmige Platten mit Mittelrippe",
+        "Weißer Restaustenit zwischen den Platten",
+        "Große und kleine Platten gemischt"
+      ]
+    },
+    "tempered-martensite": {
+      "name": "Angelassener Martensit",
+      "short": "Die Martensitformen bleiben, doch die Matrix erscheint dunkler",
+      "see": [
+        "Die ursprünglichen Latten- oder Plattenformen und die ehemaligen Austenitkorngrenzen bleiben erhalten, doch die Matrix erscheint dunkler als im Härtezustand.",
+        "Je höher die Anlasstemperatur und je länger die Dauer, desto größer werden die Karbidteilchen; die Nadelformen verschwinden allmählich, und der Ferrit nähert sich gleichachsigen Körnern (600 °C über 2 h im Vergleich zu 4 Tagen)."
+      ],
+      "shade": [
+        "Beim Anlassen zerfällt der Martensit (der übersättigte Kohlenstoff scheidet sich als feine Karbide aus), und die Matrix erscheint zunehmend dunkler."
+      ],
+      "etch": [
+        "Pikral dient dazu, die Karbidverteilung in vergütetem Stahl sichtbar zu machen. Auch Nital ist geeignet."
+      ],
+      "forms": [
+        "Gehärteter Stahl wird auf eine Temperatur unterhalb von A1 (727 °C) wiedererwärmt (Anlassen). Je höher die Temperatur und je länger die Dauer, desto weicher wird der Stahl."
+      ],
+      "props": [
+        "Beispiel: Stahl 4340, in Öl abgeschreckt und bei 200 °C angelassen, 52 HRC.",
+        "Beispiel: Ein Werkzeugstahl mit etwa 0,85 % C (SK85), von 780 °C gehärtet, behält beim Anlassen bis 200 °C 700 HV oder mehr und hat nach Anlassen bei 400 °C etwa 400 HV."
+      ],
+      "confuse": [
+        "Martensit im Härtezustand ist heller und kontrastarm; Anlassen dunkelt die Matrix ab.",
+        "Im Lichtmikroskop sehen beide sehr ähnlich aus. Prüfen Sie die Karbidorientierung im Elektronenmikroskop (beim angelassenen Martensit mehrere Orientierungen, beim unteren Bainit oft nur eine) oder ziehen Sie die Wärmebehandlungsgeschichte heran.",
+        "Sehr langes Anlassen bei hoher Temperatur nähert das Gefüge dem kugeligen Zementit an, doch bei üblichem Anlassen bleiben die ursprünglichen Nadel- oder Lattenformen erhalten."
+      ],
+      "clues": [
+        "Martensitstreifen noch erkennbar",
+        "Insgesamt dunkler",
+        "Ehemalige Austenitkorngrenzen sichtbar"
+      ]
+    },
+    "gray-iron": {
+      "name": "Gusseisen mit Lamellengraphit (Grauguss)",
+      "short": "Gekrümmte schwarze Graphitlamellen, verstreut in einer grauen Matrix",
+      "see": [
+        "Lange, dünne schwarze Graphitlamellen sind verstreut, gekrümmt und teilweise verzweigt. Lamellen gleichmäßiger Größe in regelloser Orientierung sind Graphit der Form A.",
+        "Die Matrix (Grundmasse) ist perlitisch, ferritisch oder gemischt."
+      ],
+      "shade": [
+        "Graphit ist auch ungeätzt zu sehen. Durch Ätzen mit Nital wird die perlitische Matrix sichtbar."
+      ],
+      "etch": [
+        "Zuerst Form und Verteilung des Graphits im ungeätzten Zustand beurteilen, dann die Matrix mit Nital (2 %, 10–30 s) entwickeln."
+      ],
+      "forms": [
+        "Ein kohlenstoffreiches Eisen (im Eisen-Kohlenstoff-Diagramm über 2,14 % C) mit relativ hohem Siliziumgehalt (in einem Beispiel 2,5–2,7 %) wird vergossen und langsam bis mittelschnell durch das Temperaturgebiet der eutektischen Reaktion abgekühlt; bei der Erstarrung scheidet sich der Kohlenstoff dann als Lamellengraphit aus. Bei wenig Silizium oder schneller Abkühlung bildet sich Graphit nur schwer.",
+        "Graphit der Form D – kleine Lamellen oder Punkte in den Räumen zwischen den ehemaligen Austenitdendriten – verschlechtert die mechanischen Eigenschaften und ist unerwünscht."
+      ],
+      "props": [
+        "Beispiel aus einer Spezifikation für Grauguss im Automobilbau: Sorte G3000 mit perlitischer Matrix 187–241 HB, Sorte G1800 mit ferritisch-perlitischer Matrix höchstens 187 HB.",
+        "Grauguss hat mehrere technisch nützliche Eigenschaften: Er ist gut zerspanbar, schmilzt bei niedriger Temperatur, ist verschleißbeständig und gibt die Form gut wieder."
+      ],
+      "confuse": [
+        "Runde Graphitkugeln bedeuten Gusseisen mit Kugelgraphit. Gekrümmte schwarze Lamellen bedeuten Grauguss.",
+        "Ein Dendrit hat einen regelmäßigen Stamm mit rechtwinklig abgehenden Seitenarmen. Graphitlamellen sind dünne schwarze Lamellen, die regellos gekrümmt sind."
+      ],
+      "clues": [
+        "Verstreute gekrümmte schwarze Lamellen",
+        "Spitze Enden der Lamellen",
+        "Graphit auch ungeätzt sichtbar"
+      ]
+    },
+    "ductile-iron": {
+      "name": "Gusseisen mit Kugelgraphit (Sphäroguss)",
+      "short": "Schwarze Kugeln, umgeben von weißen Ferrithöfen (Ochsenauge)",
+      "see": [
+        "Runde schwarze Graphitkugeln sind verstreut.",
+        "Weißer Ferrit umgibt jede Kugel wie ein Ring (Ochsenaugengefüge, Bull’s-Eye), außen liegt dunkler Perlit. Die Matrix ist häufig ein Gemisch aus Ferrit und Perlit."
+      ],
+      "shade": [
+        "Graphit ist auch ungeätzt schwarz. Nach Nitalätzung erscheint Perlit als dunkle Inseln und Ferrit als heller Untergrund."
+      ],
+      "etch": [
+        "Zuerst die Graphitform (wie rund die Kugeln sind) im ungeätzten Zustand beurteilen, dann die Matrix mit Nital (2 %) entwickeln."
+      ],
+      "forms": [
+        "Wird der Gusseisenschmelze vor dem Vergießen eine kleine Menge Magnesium zugesetzt, wird der Graphit kugelig.",
+        "Im Gusszustand ist die Matrix oft ferritisch-perlitisch. Glühen ergibt eine vollständig ferritische, Normalglühen eine überwiegend perlitische Matrix."
+      ],
+      "props": [
+        "Im Gusszustand steigen Festigkeit und Härte mit zunehmendem Perlitanteil.",
+        "Die Zugfestigkeit ist am geringsten, wenn die Matrix vollständig ferritisch ist. In der japanischen Norm JIS G 5502 geben die drei Ziffern nach FCD die Zugfestigkeit (N/mm²) an."
+      ],
+      "confuse": [
+        "Lamellenförmiger Graphit bedeutet Grauguss.",
+        "Die Kombination aus weißem Ferrit und dunklem Perlit ist dieselbe, doch schwarze Graphitkugeln bedeuten Gusseisen. Stahl enthält keinen Graphit.",
+        "Kugelige Zementitteilchen sind so klein, dass sie eine hohe Vergrößerung erfordern, und sie sind nicht von weißen Höfen umgeben."
+      ],
+      "clues": [
+        "Runde schwarze Kugeln",
+        "Ein weißer Hof um jede Kugel",
+        "Dunkler Perlit außerhalb der Höfe"
+      ]
+    },
+    "dendrite": {
+      "name": "Dendriten",
+      "short": "Ein baumartiges Muster aus Stämmen mit rechtwinkligen Seitenarmen",
+      "see": [
+        "Stämme (Primärarme) mit Reihen von Sekundärarmen in nahezu rechtem Winkel, wie Äste oder Farnwedel.",
+        "Die Kerne der Arme und die Räume dazwischen (die zuletzt erstarrten) unterscheiden sich in der Helligkeit."
+      ],
+      "shade": [
+        "Kühlt ein Gussstück schnell ab, kommt die Diffusion im Festkörper nicht nach, und die Zusammensetzung ändert sich vom Kern zum Rand (Seigerung, Kristallseigerung). Bereiche unterschiedlicher Zusammensetzung werden unterschiedlich schnell geätzt, deshalb unterscheiden sich Kerne und interdendritische Räume in der Helligkeit."
+      ],
+      "etch": [
+        "In einer Bronze Cu–4 % Sn macht alkoholische Eisen(III)-chlorid-Lösung die Sn-Seigerung deutlich sichtbar."
+      ],
+      "forms": [
+        "Beim Gießen einer Legierung während der Erstarrung aus der Schmelze. Legierungen mit großem Erstarrungsintervall seigern leichter (Cu–4 % Sn erstarrt über mehr als 100 °C).",
+        "Glühen verringert die Seigerung und ergibt ein Gefüge aus gleichachsigen Körnern (Beispiel: Cu–4 % Sn, 2 h bei 700 °C geglüht)."
+      ],
+      "props": [
+        "Die Volumenschrumpfung bei der Erstarrung kann feine Porosität (Mikroporosität) hinterlassen."
+      ],
+      "confuse": [
+        "Widmanstätten-Platten sind Keile, die parallel von den Korngrenzen aus wachsen, keine Stämme mit Seitenarmen.",
+        "Graphitlamellen sind dünne schwarze Lamellen, kein regelmäßiger Stamm mit rechtwinkligen Armen."
+      ],
+      "clues": [
+        "Seitenarme im rechten Winkel zu einem Stamm",
+        "Kerne und interdendritische Räume unterschiedlich hell",
+        "Gusszustand"
+      ]
+    },
+    "eutectic": {
+      "name": "Eutektikum (Pb–Sn und andere)",
+      "short": "Abwechselnd dunkle und helle Lamellen ähnlicher Dicke",
+      "see": [
+        "Dunkle und helle Lamellen wechseln sich ab, und die Lamellenrichtung ändert sich von Kolonie zu Kolonie.",
+        "Wo Lamellen schräg angeschnitten sind, erscheinen sie als gekrümmte Linien oder Punkte."
+      ],
+      "shade": [
+        "Im Eutektikum Pb–Sn sind die dunklen Lamellen die Pb-reiche α-Phase und die hellen Lamellen die Sn-reiche β-Phase.",
+        "Bei der eutektischen Temperatur beträgt der Massenanteil von α nach dem Hebelgesetz (97,8 − 61,9)/(97,8 − 18,3) ≈ 0,45; deshalb sind die beiden Lamellenarten ähnlich dick."
+      ],
+      "etch": [
+        "Das Ätzmittel hängt von der Legierung ab (in einem Beispiel eines Bi–Cd-Eutektikums alkoholische Eisen(III)-chlorid-Lösung)."
+      ],
+      "forms": [
+        "Kühlt eine Legierung eutektischer Zusammensetzung (bei Pb–Sn 61,9 Gew.-% Sn) aus der Schmelze ab, wandelt sich die Schmelze bei der eutektischen Temperatur (183 °C) gleichzeitig in zwei feste Phasen um (L → α + β), und die beiden Phasen wachsen gekoppelt als Lamellen.",
+        "In einer nichteutektischen Legierung (zum Beispiel Pb–30 Gew.-% Sn) füllt das Eutektikum die Räume um zuvor gebildete Körner aus primärem α."
+      ],
+      "props": [
+        "Eine Legierung eutektischer Zusammensetzung erstarrt vollständig bei einer einzigen Temperatur, der eutektischen Temperatur."
+      ],
+      "confuse": [
+        "Perlit ist ein im festen Stahl gebildetes Eutektoid, und seine Zementitlamellen sind viel dünner als seine Ferritlamellen (Massenanteil etwa 0,11). Die beiden Phasen des Eutektikums Pb–Sn bilden Lamellen ähnlicher Dicke.",
+        "Oberer Bainit besteht aus federartigen Garben, die von den Korngrenzen aus wachsen, nicht aus regelmäßig abwechselnden Lamellen."
+      ],
+      "clues": [
+        "Dunkle und helle Lamellen wechseln sich ab",
+        "Beide Lamellenarten ähnlich dick",
+        "Lamellenrichtung wechselt von Kolonie zu Kolonie"
+      ]
+    },
+    "austenite-twins": {
+      "name": "Austenit (Glühzwillinge)",
+      "short": "Bänder mit zwei geraden, parallelen Seiten durchqueren gleichachsige Körner",
+      "see": [
+        "In den gleichachsigen Körnern liegen Bänder zwischen zwei geraden, parallelen Grenzen (Glühzwillinge). Die Bänder durchqueren oft das ganze Korn.",
+        "Die Helligkeit unterscheidet sich von Korn zu Korn."
+      ],
+      "shade": [
+        "Die Helligkeitsunterschiede entstehen durch unterschiedliche Ätzgeschwindigkeiten bei unterschiedlicher Kristallorientierung. Ein Zwillingsband hat eine andere Orientierung als der Rest des Korns und sieht deshalb anders aus."
+      ],
+      "etch": [
+        "Für austenitischen nichtrostenden Stahl verwendet man Glyceregia (ein allgemeines Ätzmittel, das Korngrenzen und Zwillinge sichtbar macht) oder elektrolytisches Ätzen mit 10-prozentiger Oxalsäure. Kupferlegierungen wie Messing werden mit Eisen(III)-chlorid-Lösungen oder Ammoniumpersulfat geätzt."
+      ],
+      "forms": [
+        "Ein kfz-Metall (austenitischer nichtrostender Stahl wie SUS304, Kupfer, Messing) wird kaltverformt und dann geglüht, sodass es rekristallisiert und die Körner wachsen.",
+        "SUS304 enthält Ni, das den Stahl bis Raumtemperatur austenitisch hält; er bleibt beim Abkühlen Austenit (durch Abschrecken wird er nicht hart)."
+      ],
+      "props": [
+        "Austenitische nichtrostende Stähle lassen sich durch Wärmebehandlung nicht härten und sind nach schnellem Abkühlen von hoher Temperatur am weichsten; ihre Festigkeit wird durch Kaltverformung eingestellt."
+      ],
+      "confuse": [
+        "Ferritkörner (krz) haben normalerweise keine Glühzwillinge. Bänder mit geraden, parallelen Seiten deuten auf ein kfz-Metall hin.",
+        "Kaltverformung streckt die Körner, verbiegt die Zwillinge und erzeugt Gleitbänder. Glühzwillinge sind gerade.",
+        "Bei sensibilisiertem nichtrostendem Stahl werden die Korngrenzen durch elektrolytisches Ätzen mit Oxalsäure zu breiten dunklen Gräben."
+      ],
+      "clues": [
+        "Bänder mit zwei geraden, parallelen Seiten in den Körnern",
+        "Gleichachsige Körner",
+        "Dünne Korngrenzen"
+      ]
+    },
+    "precipitates": {
+      "name": "Ausscheidungen (an Korngrenzen und im Korninneren)",
+      "short": "Korngrenzen, umrandet von Reihen dunkler Teilchen oder Gräben, mit Punkten in den Körnern",
+      "see": [
+        "Säumen Ausscheidungen die Korngrenzen, werden diese zu dicken dunklen Linien (Gräben). Auch in den Körnern können vereinzelt Teilchen erscheinen.",
+        "Sensibilisierter austenitischer nichtrostender Stahl zeigt nach elektrolytischem Ätzen in Oxalsäure ein Grabengefüge (Ditch), bei dem die Körner vollständig von Gräben umgeben sind. Ein Stufengefüge (Step, keine Gräben an den Korngrenzen) gilt als nicht sensibilisiert, ein Mischgefüge (Dual, Gräben an einigen Korngrenzen, aber kein Korn vollständig umschlossen) liegt dazwischen. Die Skizze zeigt ein Grabengefüge."
+      ],
+      "shade": [
+        "Ausscheidungen und ihre Umgebung werden anders schnell geätzt als die Matrix, deshalb treten die Korngrenzen als Linien oder Punktreihen hervor."
+      ],
+      "etch": [
+        "Elektrolytisches Ätzen mit 10-prozentiger Oxalsäure (ASTM A262 Practice A) dient zur Einstufung als Step-, Dual- oder Ditch-Gefüge. Es macht auch Sigma-Phase und Karbide sichtbar."
+      ],
+      "forms": [
+        "Wird ein übersättigter Mischkristall erwärmt und gehalten, scheidet sich eine zweite Phase an den Korngrenzen und im Korninneren aus.",
+        "Wird austenitischer nichtrostender Stahl auf etwa 500–800 °C erwärmt (etwa in der Wärmeeinflusszone einer Schweißnaht), scheiden sich Chromkarbide an den Korngrenzen aus, und der Stahl wird sensibilisiert.",
+        "Das Lichtmikroskop löst nur Strukturen über etwa 500 nm auf; die feinen Ausscheidungen, die für die Ausscheidungshärtung verantwortlich sind, werden deshalb im Elektronenmikroskop untersucht."
+      ],
+      "props": [
+        "Ein Grabengefüge, bei dem die Körner vollständig von Gräben umgeben sind, gilt als sensibilisiert und ist anfällig für interkristalline Korrosion und interkristalline Spannungsrisskorrosion."
+      ],
+      "confuse": [
+        "In nicht sensibilisiertem nichtrostendem Stahl sind die Korngrenzen dünne Linien, und Glühzwillinge sind sichtbar.",
+        "Beim kugeligen Zementit sind runde Zementitteilchen auch im Korninneren gleichmäßig verteilt, und die Korngrenzen werden nicht zu durchgehenden Gräben.",
+        "Das Netz im übereutektoiden Stahl besteht aus weißem Zementit, mit Perlitlamellen in den Körnern."
+      ],
+      "clues": [
+        "Dicke dunkle Gräben oder Teilchenreihen an den Korngrenzen",
+        "Vereinzelte Punkte in den Körnern",
+        "Keine Lamellen oder Nadeln in den Körnern"
+      ]
+    },
+    "duplex": {
+      "name": "Mischkorn (ungleichmäßige Korngröße)",
+      "short": "Große Körner, gemischt mit Gruppen kleiner Körner",
+      "see": [
+        "Körner sehr unterschiedlicher Größe sind gemischt: grobe Körner verstreut zwischen feinen, feine Körner, die grobe Körner wie eine Kette umgeben (Halskettengefüge), oder abwechselnde Bänder unterschiedlicher Korngröße (oft in Verformungsrichtung gestreckt)."
+      ],
+      "shade": [
+        "Korngrenzen und Helligkeitsunterschiede von Korn zu Korn sind dieselben wie bei gewöhnlichen gleichachsigen Körnern."
+      ],
+      "etch": [
+        "Das für das Metall übliche Korngrenzenätzmittel verwenden (bei Stahl Nital)."
+      ],
+      "forms": [
+        "Wenn die Korngrößenverteilung sich von Bereich zu Bereich unterscheidet. Beschrieben wird es entweder als regellose Mischung der Größen oder als Muster (Halskette, Bänder, Änderung über den Querschnitt)."
+      ],
+      "props": [
+        "Eine einzige mittlere Korngrößenkennzahl beschreibt eine Mischkornprobe nicht richtig und kann sogar eine Größe angeben, die in der Probe gar nicht vorkommt. ASTM E1181 beschreibt Art und Anteile des Mischkorns."
+      ],
+      "confuse": [
+        "Ein gewöhnliches gleichachsiges Gefüge hat eine ungefähr einheitliche Korngröße, die sich mit einer Korngrößenkennzahl beschreiben lässt.",
+        "Im kaltverformten Gefüge sind die Körner in einer Richtung gestreckt. Im Mischkorngefüge können die Körner gleichachsig sein, unterscheiden sich aber in der Größe."
+      ],
+      "clues": [
+        "Grobe Körner, gemischt mit Gruppen feiner Körner",
+        "Gleichachsige Kornformen",
+        "Die Korngröße ändert sich von Ort zu Ort stark"
+      ]
+    },
+    "cold-worked": {
+      "name": "Kaltverformtes Gefüge (gestreckte Körner)",
+      "short": "In Verformungsrichtung gestreckte Körner mit parallelen Gleitbändern",
+      "see": [
+        "Die Körner sind in Walz- oder Ziehrichtung gestreckt, und in ihnen erscheinen parallele Linien (Gleitbänder). Stellenweise kreuzen sich Gleitbänder unterschiedlicher Richtung.",
+        "Vor der Verformung vorhandene Zwillinge werden verbogen (Beispiel: Messing)."
+      ],
+      "shade": [
+        "Gleitbänder sind Bereiche, in denen sich die Verformung konzentriert hat; sie erscheinen als dünne parallele Linien."
+      ],
+      "etch": [
+        "Kupferlegierungen werden mit alkoholischer Eisen(III)-chlorid-Lösung geätzt, Stahl mit Nital."
+      ],
+      "forms": [
+        "Plastische Umformung (Walzen, Ziehen, Stauchen) unterhalb der Rekristallisationstemperatur (Kaltumformung).",
+        "Glühen nach der Umformung stellt durch Erholung und Rekristallisation wieder verzerrungsfreie, gleichachsige Körner her."
+      ],
+      "props": [
+        "Plastische Verformung erhöht die Versetzungsdichte und verringert die Beweglichkeit der Versetzungen, was zur Kaltverfestigung führt (etwa 10¹⁰ m⁻² im geglühten, etwa 10¹⁶ m⁻² im kaltverformten Zustand)."
+      ],
+      "confuse": [
+        "Ein Mischkorngefüge hat gleichachsige Körner, auch wenn ihre Größe verschieden ist.",
+        "Glühzwillinge sind Bänder mit geraden, parallelen Seiten. Im kaltverformten Gefüge sind die Zwillinge verbogen, und Gleitbänder sind dünne parallele Linien in den Körnern.",
+        "Die Streifen des Lattenmartensits sind bereichsweise in den ursprünglichen Körnern ausgerichtet, und die Körner selbst sind nicht gestreckt."
+      ],
+      "clues": [
+        "Körner in einer Richtung gestreckt",
+        "Parallele Gleitbänder in den Körnern",
+        "Korngrenzen noch sichtbar"
+      ]
+    }
+  },
+  "grain": {
+    "lead": "Die Korngröße wird durch die genormte Korngrößenkennzahl G angegeben. Steigt die Kennzahl um eins, verdoppelt sich die Zahl der Körner auf derselben Fläche (feineres Korn, größere Kennzahl). Wenn Sie G mit dem Schieberegler ändern, werden die Körner in dieser Größe neu gezeichnet und die umgerechneten Werte angezeigt.",
+    "methods": [
+      [
+        "Vergleichsverfahren",
+        "Die geätzte Probe wird bei 100-facher Vergrößerung betrachtet und mit einem Satz Richtreihenbilder unterschiedlicher Korngröße verglichen; gewählt wird die nächstliegende Kennzahl. Das Verfahren ist schnell, doch die Bewertungen schwanken je nach Person um etwa ±0,5 und fallen eher zu grob aus. Wird bei einer anderen Vergrößerung M als 100-fach verglichen, ist zur abgelesenen Kennzahl Q = 6,6439 × log₁₀(M/100) zu addieren."
+      ],
+      [
+        "Flächenzählverfahren (Jeffries)",
+        "Gezählt werden die Körner in einer bekannten Fläche: Körner vollständig innerhalb des Rahmens zählen als 1, vom Rahmen geschnittene Körner als 1/2 und die Eckkörner zusammen als 1; daraus ergibt sich die Zahl der Körner je mm²."
+      ],
+      [
+        "Linienschnittverfahren",
+        "Es werden Messlinien gezogen und die Punkte P gezählt, an denen sie Korngrenzen schneiden. Aus der Zahl der Schnittpunkte je Millimeter Messlinie P_L = P/L ergibt sich die mittlere Sehnenlänge ℓ̄ = 1/P_L, die in eine Korngrößenkennzahl umgerechnet wird."
+      ]
+    ],
+    "formulas": [
+      "ASTM E112: N = 2^(G−1) (N ist die Zahl der Körner je Quadratzoll bei 100-facher Vergrößerung)",
+      "ASTM E112: G = 3,321928 × log₁₀ N_A − 2,954 (N_A ist die Zahl der Körner je mm² bei 1-facher Vergrößerung)",
+      "ASTM E112, Linienschnittverfahren: G = −6,643856 × log₁₀ ℓ̄ − 3,288 (ℓ̄ ist die mittlere Sehnenlänge in mm)",
+      "JIS G 0551 (ISO 643): m = 8 × 2^G, also G = log₂ m − 3 (m ist die Zahl der Körner je mm²)"
+    ],
+    "note": "Die japanische Norm JIS G 0551 beruht auf ISO 643 und legt m = 8 × 2^G Körner je mm² fest. Nach ASTM E112 sind es 15,50 × 2^(G−1) = 7,75 × 2^G Körner je mm²; zählt man dasselbe Gefüge, ist die JIS-Kennzahl daher etwa 0,05 kleiner als die ASTM-Kennzahl. Die Umrechnung beim Linienschnittverfahren (ℓ̄ = 0,320 mm bei G = 0) ist in beiden Normen gleich. Die Körner in der Skizze sind in der Ebene erzeugte Vielecke (Voronoi-Zerlegung), die über den Rahmen hinaus fortgesetzt sind. Die Kennzahl aus dem Flächenzählverfahren streut umso stärker, je weniger Körner gezählt werden. Die Umrechnung der mittleren Sehnenlänge in eine Kennzahl setzt die Schnittformen räumlicher gleichachsiger Körner voraus; bei diesen recht gleichmäßigen Vielecken kann das Linienschnittverfahren daher eine etwas größere Kennzahl ergeben.",
+    "methods_note": ""
+  },
+  "faq": [
+    [
+      "Sind diese Bilder Schliffbilder?",
+      "Nein. Es sind durchweg prozedural gezeichnete Gefügeskizzen: Die Korngrenzen sind eine Voronoi-Zerlegung, Perlit und Eutektika sind Lamellen, Martensit besteht aus Latten oder Platten, und Graphit wird als einfache Lamellen oder Kugeln dargestellt, die sich bei jedem Zeichnen zufällig etwas ändern. Hell und Dunkel entsprechen dem typischen Aussehen nach dem Ätzen, doch echte Schliffbilder können sich in Farbe, Kontrast und Form unterscheiden."
+    ],
+    [
+      "Warum erscheint Perlit dunkel?",
+      "Beim Ätzen wird zuerst der Ferrit gelöst, sodass die dünnen Lamellen des harten Zementits leicht erhaben stehen bleiben. Im Lichtmikroskop sind beide Phasen weiß, doch die Schatten der Stufen werden zu dunklen Linien, und je feiner die Lamellen, desto dunkler erscheint der Perlit insgesamt."
+    ],
+    [
+      "Wann verwendet man Nital und wann Pikral?",
+      "Nital macht die Ferritkorngrenzen sichtbar und wird daher verwendet, um Korngröße oder Ferritanteil zu beurteilen. Pikral entwickelt die Ferritkorngrenzen kaum, hebt aber den Zementit deutlich hervor und eignet sich daher für Perlitlamellen sowie für die Verteilung von kugeligem Zementit und Anlasskarbiden. Um beides zu sehen, werden die Ätzmittel kombiniert."
+    ],
+    [
+      "Lassen sich unterer Bainit und angelassener Martensit im Lichtmikroskop unterscheiden?",
+      "Oft nicht. Beide sind nadelige Gefüge, die dunkel geätzt werden; der Unterschied liegt in der Orientierung der Karbide in den Platten (beim unteren Bainit oft eine, beim angelassenen Martensit mehrere), die nur im Elektronenmikroskop zu erkennen ist. Auch die Wärmebehandlung (isotherme Umwandlung oder Härten mit anschließendem Anlassen) ist ein wichtiges Merkmal."
+    ],
+    [
+      "Wo werden meine Übungsergebnisse gespeichert?",
+      "Ihre Serie richtiger Antworten und die falsch erkannten Gefüge werden nur in diesem Browser (localStorage) gespeichert und nie an einen Server gesendet. Frage und Antwort bleiben in der URL erhalten; wenn Sie den Link weitergeben, öffnen sich dieselbe Frage und dasselbe Ergebnis."
+    ]
+  ],
+  "sources": {
+    "campbell15": "F. C. Campbell (Hrsg.), Phase Diagrams—Understanding the Basics, Kapitel 15: Nonequilibrium Reactions—Martensitic and Bainitic Structures, ASM International (2012)",
+    "thermal-mu": "D. S. MacKenzie, Metal Urgency: Martensitgefüge, Thermal Processing (2025)",
+    "bhadeshia-sg": "H. K. D. H. Bhadeshia, Study guide: interpretation of steel microstructures (University of Cambridge)",
+    "bhadeshia-lb": "H. K. D. H. Bhadeshia, Lower bainite (University of Cambridge)",
+    "brearley-wid": "University of Cambridge Phase Transformations Group: Widmanstätten ferrite",
+    "bhadeshia-posco": "H. K. D. H. Bhadeshia, POSCO Bainite Notes (2007)",
+    "astm-e112": "ASTM E112 Standard Test Methods for Determining Average Grain Size",
+    "totalmateria-di": "Total Materia: Specifications for Ductile Iron",
+    "uw-l11": "University of Washington, Vorlesungsunterlagen MSE 170, Lecture 11: Dislocations and strengthening mechanisms (2008)",
+    "uw-l17": "University of Washington, Vorlesungsunterlagen MSE 170, Lecture 17: Phase Diagrams II (2008)",
+    "uw-l18": "University of Washington, Vorlesungsunterlagen MSE 170, Lecture 18: The Fe–C system (2008)",
+    "uw-l19": "University of Washington, Vorlesungsunterlagen MSE 170, Lecture 19: Phase Transformations (2008)",
+    "doitpoms-262": "DoITPoMS Micrograph 262: Eutectoid steel, normalised (University of Cambridge)",
+    "doitpoms-15": "DoITPoMS Micrograph 15: Fe-0.8C, pearlite (coarse) (University of Cambridge)",
+    "doitpoms-214": "DoITPoMS Micrograph 214: Normalised carbon steel (0.15C) (University of Cambridge)",
+    "doitpoms-338": "DoITPoMS Micrograph 338: Fe-1.35C steel, quenched (University of Cambridge)",
+    "doitpoms-381": "DoITPoMS Micrograph 381: Grey cast iron (University of Cambridge)",
+    "doitpoms-783": "DoITPoMS Micrograph 783: Ductile iron, as cast (University of Cambridge)",
+    "doitpoms-433": "DoITPoMS Micrograph 433: Cu-10Zn, recrystallised - annealing twins (University of Cambridge)",
+    "doitpoms-7": "DoITPoMS Micrograph 7: Bi-40Cd eutectic alloy (University of Cambridge)",
+    "doitpoms-763": "DoITPoMS Micrograph 763: Bi-30Sn near-eutectic (University of Cambridge)",
+    "doitpoms-wh": "DoITPoMS: Work hardening of polycrystals, background (University of Cambridge)",
+    "ucm-x28": "UCM Metallographic Atlas X28: Iron (0.05%C) hot rolled (Universidad Complutense de Madrid)",
+    "ucm-x19": "UCM Metallographic Atlas X19: Carbon steel (0.35%C) annealed (Universidad Complutense de Madrid)",
+    "ucm-x24": "UCM Metallographic Atlas X24: Carbon steel (0.35%C) normalized (Universidad Complutense de Madrid)",
+    "ucm-x17": "UCM Metallographic Atlas X17: Carbon steel (0.8%C) annealed (Universidad Complutense de Madrid)",
+    "ucm-x18": "UCM Metallographic Atlas X18: Carbon steel (0.8%C) normalized (Universidad Complutense de Madrid)",
+    "ucm-x20": "UCM Metallographic Atlas X20: Carbon steel (1.3%C) annealed (Universidad Complutense de Madrid)",
+    "ucm-x25": "UCM Metallographic Atlas X25: Carbon steel (0.35%C) quenched (Universidad Complutense de Madrid)",
+    "ucm-x26": "UCM Metallographic Atlas X26: Carbon steel (0.35%C) quenched and tempered 600 °C-2h (Universidad Complutense de Madrid)",
+    "ucm-x27": "UCM Metallographic Atlas X27: Carbon steel (0.35%C) quenched and tempered 600 °C-4 days (Universidad Complutense de Madrid)",
+    "ucm-ac1": "UCM Metallographic Atlas AC1: F114 steel, as cast (Universidad Complutense de Madrid)",
+    "ucm-ac7": "UCM Metallographic Atlas AC7: F114 steel, spheroidizing (Universidad Complutense de Madrid)",
+    "ucm-f1": "UCM Metallographic Atlas F1: Gray cast iron, pearlitic matrix (Universidad Complutense de Madrid)",
+    "ucm-f2": "UCM Metallographic Atlas F2: Gray cast iron, graphite types A and D (Universidad Complutense de Madrid)",
+    "ucm-ductil": "UCM Metallographic Atlas F8: Ductile iron, ferritic-pearlitic matrix (Universidad Complutense de Madrid)",
+    "ucm-x2": "UCM Metallographic Atlas X2: Tin bronze (4%Sn) sand casting (Universidad Complutense de Madrid)",
+    "ucm-x3": "UCM Metallographic Atlas X3: Tin bronze (4%Sn) sand casting and annealing (Universidad Complutense de Madrid)",
+    "ucm-x31": "UCM Metallographic Atlas X31: Brass (20%Zn) (Universidad Complutense de Madrid)",
+    "ucm-xd": "UCM Metallographic Atlas XD: Tin bronze (4%Sn) cold work (Universidad Complutense de Madrid)",
+    "btu-etch": "Bursa Technical University, Praktikumsunterlage des Instituts für Metallurgie: Etching and Microscopical Examination",
+    "pace-nital": "PACE Technologies: 2% Nital (Erläuterung des Ätzmittels)",
+    "pace-picral": "PACE Technologies: Picral (Erläuterung des Ätzmittels)",
+    "pace-highc": "PACE Technologies: High carbon steel etching (Erläuterung der Ätzmittel)",
+    "pace-ss": "PACE Technologies: Stainless steel etching (Erläuterung der Ätzmittel)",
+    "pace-oxalic": "PACE Technologies: 10% oxalic acid electrolytic (Erläuterung des Ätzmittels)",
+    "corrosionpedia-a262": "Corrosionpedia: ASTM A262 Practice A (Step-, Dual- und Ditch-Gefüge bei der Oxalsäureätzprüfung)",
+    "astm-e1181": "ASTM E1181-02(2023) Standard Test Methods for Characterizing Duplex Grain Sizes (Zusammenfassung der Norm)",
+    "astm-a159": "ASTM A159-83 Standard Specification for Automotive Gray Iron Castings (Zusammenfassung der Norm)",
+    "iso-643": "ISO 643 Steels — Micrographic determination of the apparent grain size (Leseprobe der Norm)",
+    "niigata-g0551": "Industrieforschungsinstitut der Präfektur Niigata, technisches Thema: Erkennung der Korngröße von Metallgefügen mit Deep Learning (2020, japanisch)",
+    "hiroshima-g0551": "A. Terayama u. a., Automatisierung der Gefügeprüfung durch Bildverarbeitung, Hiroshima Prefectural Technology Research Institute, Forschungsbericht des Western Region Industrial Research Center Nr. 65 (2022, japanisch)",
+    "niigata-sk85": "Industrieforschungsinstitut der Präfektur Niigata, technisches Thema: Härte und Gefüge von Messerstahl (unlegierter Werkzeugstahl SK85) (2016, japanisch)",
+    "niigata-fcd": "Industrieforschungsinstitut der Präfektur Niigata, technisches Thema: Gefüge und Festigkeit von Gusseisen mit Kugelgraphit (2013, japanisch)",
+    "nsc-austenite": "Nippon Steel: austenitische nichtrostende Stähle, Produktübersicht (japanisch)",
+    "princeton-pbsn": "Princeton University MAE labs: materials (Gefüge des Pb–Sn-Eutektikums nach dem Lehrbuch von Callister)"
+  }
+}

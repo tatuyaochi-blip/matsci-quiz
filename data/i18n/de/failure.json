@@ -1,0 +1,950 @@
+{
+  "navi": {
+    "title": "Schadensanalyse-Navigator: Ursachen eines Bauteilbruchs eingrenzen",
+    "description": "Fragen zu Bruchfläche, Verformung, Belastung, Temperatur, Umgebung, Werkstoff und Einsatzdauer beantworten: 13 mögliche Schadensarten wie Ermüdung, Sprödbruch, Spannungsrisskorrosion, Wasserstoffversprödung und Kriechen, nach Punkten geordnet, jeweils mit den Merkmalen. Dazu Erkennung, Prüfung, Verwechslungen, Abhilfe.",
+    "h1": "Schadensanalyse-Navigator",
+    "lead": "Liegt ein gebrochenes Bauteil vor, sehen Sie sich zuerst die Bruchfläche und die Einsatzbedingungen genau an. Wenn Sie die Fragen unten beantworten, werden die möglichen Schadensarten nach Punkten geordnet, jeweils mit den Merkmalen, auf denen die Einstufung beruht. Fragen, die Sie nicht beantworten können, lassen Sie einfach auf „Weiß nicht“. Ihre Antworten bleiben in der URL erhalten, sodass Sie sie als Link weitergeben können.",
+    "note": "Dieser Navigator ordnet die Kandidaten nur anhand einer festen Punktetabelle, die Merkmale den Schadensarten zuordnet; er stellt keine Ursache fest. Die Punkte sind keine Wahrscheinlichkeiten und steigen mit der Zahl der gewählten Merkmale. Eine echte Schadensanalyse kombiniert Fraktografie, Metallografie, chemische Analyse, Härteprüfung und Spannungsanalyse und prüft auch, ob mehrere Schadensarten zusammengewirkt haben.",
+    "faq": [
+      [
+        "Zeigt die Bruchfläche Rastlinien – handelt es sich dann sicher um Ermüdung?",
+        "Rastlinien sind ein starkes Indiz, aber allein noch kein Beweis. Sie treten auch bei Schwingungsrisskorrosion und thermischer Ermüdung auf, und Spannungsrisskorrosion kann ähnlich aussehen wie Ermüdung. Berücksichtigen Sie, ob die Last wechselnd war und welche Umgebung vorlag, und suchen Sie im Rasterelektronenmikroskop nach Schwingstreifen. Fehlende Schwingstreifen schließen Ermüdung allerdings nicht aus."
+      ],
+      [
+        "Lässt sich die Ursache allein an einer interkristallinen Bruchfläche erkennen?",
+        "Nein. Interkristalline Brüche durch Wasserstoffversprödung, Spannungsrisskorrosion, Flüssigmetallversprödung, Kriechen und Anlassversprödung sehen oft sehr ähnlich aus. Unterscheiden lassen sie sich über die Festigkeit des Werkstoffs, Temperatur und Zeit, das korrosive Medium, einen Kontakt mit geschmolzenem Metall und die Fertigungsgeschichte (Galvanisieren, Schweißen)."
+      ],
+      [
+        "Warum sehen Ausgangsstelle und Restbruch oft so verschieden aus?",
+        "Weil der Mechanismus, der einen Riss entstehen und langsam wachsen lässt, oft ein anderer ist als der, durch den der Restquerschnitt zuletzt schlagartig bricht. So kann ein durch Spannungsrisskorrosion gewachsener Riss von einigen Millimetern in einem Stahl geringer Zähigkeit bei tiefer Temperatur die kritische Größe erreichen und schließlich als Sprödbruch enden. Urteilen Sie nicht allein nach dem Restbruch, sondern untersuchen Sie die Ausgangsstelle bei hoher Vergrößerung."
+      ],
+      [
+        "Kann ich das Ergebnis dieses Navigators als Ursache in einem Unfall- oder Schadensbericht verwenden?",
+        "Nein. Der Navigator ist ein Lernwerkzeug, um Beobachtungen zu ordnen und zu überlegen, was als Nächstes zu prüfen ist. Um eine Ursache festzustellen, müssen die Proben sachgerecht gesichert und Bruchflächenuntersuchung, Gefügeuntersuchung am Querschliff, chemische Analyse, mechanische Prüfungen und Spannungsanalyse durchgeführt werden; die Ergebnisse werden von Fachleuten zusammenfassend bewertet."
+      ]
+    ],
+    "questions": {
+      "f": {
+        "label": "Aussehen von Bruchfläche und Rissen",
+        "help": "Wählen Sie alles Zutreffende aus: was mit bloßem Auge, mit Lupe oder Stereomikroskop zu sehen ist und was die Untersuchung im Rasterelektronenmikroskop (REM) oder am Querschliff ergeben hat.",
+        "options": {
+          "bm": "Rastlinien (muschelartige Linien, die sich von der Ausgangsstelle ausbreiten)",
+          "rm": "Ratchet Marks (Stufen am Rand der Bruchfläche; mehrere Ausgangsstellen)",
+          "ch": "Chevron-Muster (V-förmig) oder radiale Linien, die zur Ausgangsstelle zeigen",
+          "dm": "Im REM überall Waben (kleine Grübchen)",
+          "cl": "Flache, glänzende Facetten (Spaltbruch) oder Flusslinien",
+          "st": "Im REM Schwingstreifen (feine parallele Linien)",
+          "ig": "Interkristalline Bruchfläche, auf der die Kornform zu erkennen ist",
+          "br": "Im Querschliff feine, verzweigte Risse",
+          "mc": "Viele netzartig angeordnete Oberflächenrisse, mit Oxid gefüllt",
+          "cv": "Im Querschliff nahe dem Bruch viele Poren oder keilförmige Risse an Korngrenzen",
+          "pit": "Korrosionsgrübchen (Lochfraß) oder Korrosionsprodukte an der Ausgangsstelle",
+          "wr": "Kein Riss, aber Kratzer, abgetragene Flächen oder übertragener Werkstoff des Gegenkörpers",
+          "thin": "Innenfläche schuppen- oder orangenhautartig ausgewaschen und dünner geworden",
+          "cz": "Feine Crazes (Fließzonen) oder Weißbruch in einem Kunststoff",
+          "lm": "Fremdmetall (Zink, Lot …) auf der Bruchfläche oder an den Korngrenzen"
+        }
+      },
+      "d": {
+        "label": "Verformung an der Bruchstelle",
+        "help": "Fügen Sie die Bruchstücke zusammen und achten Sie auf Spalte, Einschnürung, Biegung oder Dehnung.",
+        "options": {
+          "lg": "Groß (Einschnürung, Biegung oder Dehnung)",
+          "sm": "Gering",
+          "no": "Fast keine (die Bruchstücke passen genau zusammen)",
+          "sw": "Über lange Zeit langsam aufgebläht oder gedehnt",
+          "lost": "Vor dem Bruch ging Werkstoff verloren (Wanddickenabnahme oder Verschleiß)"
+        }
+      },
+      "l": {
+        "label": "Belastung",
+        "help": "Wählen Sie, was dem Einsatz des Bauteils am nächsten kommt.",
+        "options": {
+          "st": "Konstante Last (Eigengewicht, Innendruck, Schraubenvorspannung …)",
+          "cy": "Wechselnde Last (Schwingung, Rotation, schwankender Druck oder Lastwechsel)",
+          "im": "Schlag oder plötzliche große Last",
+          "th": "Wiederholtes Erwärmen und Abkühlen (An- und Abfahren, Abschrecken)",
+          "rs": "Kaum äußere Last (Eigenspannungen aus Schweißen, Biegen oder Einpressen)",
+          "sl": "Gleiten, Reiben oder Rollen gegen eine andere Fläche"
+        }
+      },
+      "t": {
+        "label": "Einsatztemperatur",
+        "help": "Berücksichtigen Sie die Temperatur beim Bruch und die übliche Betriebstemperatur.",
+        "options": {
+          "lo": "Tief (unter etwa 0 °C)",
+          "rt": "Etwa Raumtemperatur",
+          "md": "Mittel (etwa 60–300 °C; Heißwasser- oder Dampfleitungen)",
+          "hi": "Hoch (über etwa 0,4 der absoluten Schmelztemperatur; bei Stahl etwa ab 450 °C)"
+        }
+      },
+      "e": {
+        "label": "Umgebung",
+        "help": "Wählen Sie alles aus, womit das Bauteil im Betrieb und bei der Fertigung (Galvanisieren, Schweißen usw.) in Berührung kam.",
+        "options": {
+          "dry": "Trockene Luft",
+          "wet": "Wasser, Feuchtigkeit oder Kondenswasser",
+          "cl": "Chloride (Meerwasser, Salz, Streusalz)",
+          "h2": "Wasserstoffquellen (Beizen, galvanisches Beschichten, Schweißen, kathodischer Korrosionsschutz, Wasserstoffgas)",
+          "alk": "Starke Laugen oder Ammoniak",
+          "gas": "Heiße Gase (Verbrennungsgase, heiße Luft)",
+          "lmet": "Geschmolzenes Metall (Feuerverzinken, Weichlot, Hartlot, Quecksilber)",
+          "flow": "Schnelle Strömung, Tropfen oder partikelbeladene Strömung",
+          "chem": "Öle, Lösemittel oder Reinigungsmittel (Tenside)"
+        }
+      },
+      "m": {
+        "label": "Werkstoff",
+        "help": "Wählen Sie, was dem Werkstoff des geschädigten Bauteils am nächsten kommt.",
+        "options": {
+          "hss": "Hochfester Stahl (vergütete hochfeste Schrauben, Federn …)",
+          "cs": "Üblicher unlegierter oder niedriglegierter Stahl",
+          "ss": "Austenitischer nichtrostender Stahl",
+          "al": "Aluminiumlegierung",
+          "cu": "Kupferlegierung (Messing …)",
+          "ni": "Warmfeste Legierung (Nickelbasis-Superlegierung …)",
+          "pl": "Kunststoff",
+          "rb": "Gummi oder Elastomer (Dichtungen, O-Ringe …)",
+          "cer": "Keramik oder Glas"
+        }
+      },
+      "p": {
+        "label": "Zeit bis zum Versagen",
+        "help": "Die Zeit vom Beginn des Einsatzes (oder von der Herstellung) bis zum Bruch.",
+        "options": {
+          "new": "Sofort, während der Fertigung oder bei der ersten großen Last",
+          "mid": "Stunden bis Monate",
+          "long": "Jahre oder länger"
+        }
+      }
+    },
+    "combos": {
+      "e.cl+m.ss": "Chloride × austenitischer nichtrostender Stahl",
+      "e.alk+m.cu": "Ammoniak oder Lauge × Kupferlegierung (Season Cracking)",
+      "e.alk+m.cs": "Starke Lauge × unlegierter Stahl (Laugensprödigkeit)",
+      "e.h2+m.hss": "Wasserstoffquelle × hochfester Stahl",
+      "l.cy+e.cl": "Wechselnde Last × Chloride",
+      "l.cy+e.wet": "Wechselnde Last × Wasser oder Feuchtigkeit",
+      "e.flow+m.cs": "Schnelle Strömung × unlegierter Stahl",
+      "e.lmet+p.new": "Geschmolzenes Metall × während der Fertigung oder kurz nach Einsatzbeginn",
+      "m.rb+t.lo": "Gummi oder Elastomer × tiefe Temperatur",
+      "m.pl+e.chem": "Kunststoff × Öle, Lösemittel oder Reinigungsmittel",
+      "m.pl+t.lo": "Kunststoff × tiefe Temperatur",
+      "m.pl+d.sw": "Kunststoff × langsame Dehnung über lange Zeit (Kunststoffe kriechen schon bei Raumtemperatur)"
+    },
+    "modes": {
+      "ductile": {
+        "name": "Duktiler Gewaltbruch (Überlast)",
+        "abbr": "Duktil",
+        "short": "Eine Last oberhalb der Werkstofffestigkeit wirkt auf einmal, und das Bauteil verformt sich stark, bevor es reißt. Im Werkstoff entstehen kleine Poren (Hohlräume), die wachsen und sich vereinigen.",
+        "look": [
+          "Die Bruchstelle zeigt große plastische Verformung wie Einschnürung oder Biegung. Ein Rundstab im Zugversuch ergibt einen Teller-Tassen-Bruch mit Scherlippen, die am Rand um etwa 45° geneigt sind.",
+          "Im Rasterelektronenmikroskop (REM) ist die Bruchfläche ganz mit kleinen Grübchen, den Waben, bedeckt. Zug erzeugt runde, gleichachsige Waben, Schub in einer Richtung gestreckte Waben."
+        ],
+        "tests": [
+          "Messen Sie Abmessungen und Härte des gebrochenen Bauteils und vergleichen Sie die aufgebrachte Last mit der Festigkeit des Bauteils (Zugfestigkeit oder 0,2-%-Dehngrenze).",
+          "Führen Sie an Werkstoff derselben Charge Zug- und Härteprüfungen durch, um zu bestätigen, dass die vorgeschriebene Festigkeit erreicht war (keine Werkstoffverwechslung, keine fehlerhafte Wärmebehandlung).",
+          "Prüfen Sie mit einer Spannungsanalyse, ob eine in der Auslegung nicht vorgesehene Last gewirkt hat."
+        ],
+        "confusions": [
+          "Auch der Restbruch eines weit fortgeschrittenen Ermüdungsrisses ist duktil und zeigt Waben. Schließen Sie nicht allein aus dieser letzten Zone auf Überlast, sondern suchen Sie um die Ausgangsstelle nach Rastlinien oder Schwingstreifen."
+        ],
+        "measures": {
+          "material": "Wählen Sie Werkstoff und Wärmebehandlung mit der erforderlichen Festigkeit und Duktilität.",
+          "design": "Sehen Sie eine Reserve gegenüber der größten zu erwartenden Last vor und vermeiden Sie Spannungskonzentrationen wie abrupte Querschnittsänderungen.",
+          "environment": "Überprüfen Sie die Nutzung des Bauteils und sehen Sie Schutzeinrichtungen vor, die Überlasten verhindern.",
+          "manufacturing": "Verhindern Sie zu geringe Festigkeit durch Werkstoffverwechslung oder fehlerhafte Wärmebehandlung mit Eingangs- und Fertigungsprüfungen."
+        }
+      },
+      "brittle": {
+        "name": "Sprödbruch",
+        "abbr": "Spröd",
+        "short": "Ein Riss läuft schnell, und das Bauteil bricht fast ohne Verformung. Bei Stahl wird er durch tiefe Temperatur, Kerben oder Risse, Schlagbeanspruchung und Gefüge geringer Zähigkeit begünstigt, besonders wenn diese zusammentreffen; Keramik und Glas versagen normalerweise auf diese Weise.",
+        "look": [
+          "Die Bruchfläche ist eben und steht etwa senkrecht zur Last. Eine deutliche Verformung fehlt, und die Bruchstücke passen gut zusammen.",
+          "Auf Bruchflächen von Blechen und Wänden erscheinen Chevron-Muster (V-förmig) oder radiale Linien; folgt man ihrer Richtung, gelangt man zur Ausgangsstelle.",
+          "Im REM sind ebene Spaltflächen, an denen der Kristall entlang bestimmter Ebenen getrennt wurde, und Flusslinien zu sehen. Der Bruch kann auch den Korngrenzen folgen, etwa bei der Anlassversprödung, bei der Verunreinigungen an den Korngrenzen seigern.",
+          "Bei Keramik und Glas bildet sich um die Ausgangsstelle eine glatte Zone, der Bruchspiegel; aus seiner Größe lässt sich die Bruchspannung abschätzen (ASTM C1678)."
+        ],
+        "tests": [
+          "Bestimmen Sie mit dem Kerbschlagbiegeversuch nach Charpy die Kerbschlagarbeit bei Einsatztemperatur und die Übergangstemperatur vom duktilen zum spröden Verhalten.",
+          "Messen Sie die Bruchzähigkeit K_IC und berechnen Sie aus der gefundenen Rissgröße und der Spannung K = Yσ√(πa), um zu prüfen, ob die Bruchbedingung erreicht war.",
+          "Untersuchen Sie Gefüge und chemische Zusammensetzung auf zähigkeitsmindernde Faktoren: grobes Korn, an Korngrenzen geseigerte Verunreinigungen oder Aufhärtung in der Wärmeeinflusszone einer Schweißnaht."
+        ],
+        "confusions": [
+          "Auch wenn der Restbruch spröde ist, kann an der Ausgangsstelle ein kleiner Riss aus Ermüdung oder Spannungsrisskorrosion liegen, der lediglich die kritische Größe erreicht hat (wie beim Einsturz der Silver Bridge). Untersuchen Sie die Ausgangsstelle bei hoher Vergrößerung.",
+          "Ferritische Stähle (kubisch-raumzentriert) verspröden bei tiefer Temperatur sprunghaft, Aluminium-, Kupfer- und Nickellegierungen sowie austenitische nichtrostende Stähle (kubisch-flächenzentriert) zeigen dagegen keinen ausgeprägten Übergang."
+        ],
+        "measures": {
+          "material": "Wählen Sie einen Stahl mit ausreichender Zähigkeit (Kerbschlagarbeit, Bruchzähigkeit) bei Einsatztemperatur und sorgen Sie für feines Korn.",
+          "design": "Vermeiden Sie Kerben und abrupte Querschnittsänderungen und legen Sie so aus, dass das ganze Bauteil fließt, bevor ein Riss zum Bruch führt (Fließen vor Bruch).",
+          "environment": "Vermeiden Sie Schlagbeanspruchung unterhalb der Übergangstemperatur vom duktilen zum spröden Verhalten.",
+          "manufacturing": "Prüfen Sie Schweißnähte auf Fehler und Aufhärtung und steuern Sie die Schweißbedingungen so, dass keine Wärmeeinflusszone geringer Zähigkeit entsteht."
+        }
+      },
+      "fatigue": {
+        "name": "Ermüdung",
+        "abbr": "Ermüdung",
+        "short": "Schon bei Spannungen unterhalb der Streckgrenze erzeugt wiederholte Belastung einen Riss, der schrittweise wächst, bis der Restquerschnitt plötzlich bricht. Ermüdung ist eine der häufigsten Ursachen für das Versagen von Maschinenteilen.",
+        "look": [
+          "Mit bloßem Auge sind Rastlinien (muschelartige Linien) zu sehen, die sich von der Ausgangsstelle ausbreiten. Sie markieren Betriebsunterbrechungen und Laständerungen.",
+          "Gibt es mehrere Ausgangsstellen, liegen zwischen ihnen Ratchet Marks (Stufen am Rand).",
+          "Die Zone des Rissfortschritts ist glatt, hat keine Scherlippe und kann verfärbt sein. Der Restbruch ist rau.",
+          "Im REM sind Schwingstreifen zu sehen, von denen jeder etwa den Rissfortschritt eines Lastwechsels markiert. In Aluminiumlegierungen sind sie deutlich, in hochfesten Stählen oft undeutlich.",
+          "Die Ausgangsstellen liegen häufig dort, wo sich Spannungen konzentrieren: an Kratzern und Kerben der Oberfläche, an Schweißnahtübergängen und an Einschlüssen."
+        ],
+        "tests": [
+          "Halten Sie unter dem Stereomikroskop Lage und Größe von Ausgangsstelle, Rastlinien und Restbruch fest und suchen Sie im REM nach Schwingstreifen.",
+          "Schätzen Sie aus dem Abstand der Schwingstreifen die Rissfortschrittsrate und die Schwingbreite des Spannungsintensitätsfaktors ΔK ab und schließen Sie daraus auf die wirkende Spannung zurück.",
+          "Messen Sie an der Ausgangsstelle Rauheit, Härte und Eigenspannungen (mit Röntgenbeugung).",
+          "Schätzen Sie Höhe und Anzahl der Spannungsspiele durch Lastmessungen oder Schwingungsanalysen ab."
+        ],
+        "confusions": [
+          "Fehlende Schwingstreifen schließen Ermüdung nicht aus. Wo der Riss langsam gewachsen ist, sind sie schwer zu erkennen, und Reiben der Bruchflächen aneinander oder Korrosion kann sie auslöschen.",
+          "Spannungsrisskorrosion kann ähnlich aussehen wie Ermüdung. Entscheiden Sie danach, ob die Last wechselnd war und ob ein bestimmtes korrosives Medium vorlag.",
+          "Schließen Sie nicht allein aus Waben oder Spaltflächen im Restbruch auf Überlast oder Sprödbruch."
+        ],
+        "measures": {
+          "material": "Wählen Sie Werkstoffe mit hoher Schwingfestigkeit, etwa Stähle mit hohem Reinheitsgrad und wenigen Einschlüssen.",
+          "design": "Verringern Sie Spannungskonzentrationen durch Kerben und abrupte Querschnittsänderungen und senken Sie Spannungsamplitude und Zugmittelspannung (Bewertung mit dem modifizierten Goodman-Diagramm).",
+          "environment": "Korrosion senkt die Schwingfestigkeit; schützen Sie das Bauteil deshalb vor Korrosion.",
+          "manufacturing": "Bringen Sie durch Kugelstrahlen, Aufkohlen oder Nitrieren Druckeigenspannungen in die Oberfläche ein, verringern Sie Oberflächenbeschädigungen und gestalten Sie Schweißnahtübergänge günstiger."
+        }
+      },
+      "corrfat": {
+        "name": "Schwingungsrisskorrosion",
+        "abbr": "SwRK",
+        "short": "Wechselnde Spannung und korrosive Umgebung wirken zusammen, sodass Ermüdungsrisse bei niedrigeren Spannungen und nach weniger Lastwechseln entstehen und wachsen als an Luft. Anders als bei der Spannungsrisskorrosion ist keine bestimmte Kombination aus Werkstoff und Medium nötig.",
+        "look": [
+          "Wie bei der Ermüdung erscheinen Rastlinien und Ratchet Marks, an der Ausgangsstelle finden sich Korrosionsgrübchen oder Korrosionsprodukte.",
+          "Von Korrosionsgrübchen können viele kleine Risse ausgehen, die sich zu einem größeren Riss vereinigen.",
+          "Die Bruchfläche kann mit Korrosionsprodukten bedeckt sein, die die Schwingstreifen verdecken, oder spröde Schwingstreifen zeigen: Linien auf ebenen Facetten."
+        ],
+        "tests": [
+          "Analysieren Sie die Korrosionsprodukte an der Ausgangsstelle und auf der Bruchfläche (etwa mit EDX) auf Bestandteile des Mediums wie Chlorid.",
+          "Führen Sie Ermüdungsversuche im tatsächlichen Medium durch. In Meerwasser und ähnlichen Medien kann die Lebensdauer bei niedrigerer Lastwechselfrequenz stark abnehmen; prüfen Sie daher mit praxisnahen Frequenzen."
+        ],
+        "confusions": [
+          "In korrosiver Umgebung gibt es keine ausgeprägte Dauerfestigkeit mehr; auch ein Bauteil, das unterhalb seiner Dauerfestigkeit an Luft ausgelegt ist, kann daher versagen.",
+          "Spannungsrisskorrosion kann unter konstanter Last fortschreiten, Schwingungsrisskorrosion dagegen braucht wechselnde Last. Unterscheiden Sie beide über die Art der Belastung."
+        ],
+        "measures": {
+          "material": "Wählen Sie einen Werkstoff, der in diesem Medium gut korrosionsbeständig ist, oder verwenden Sie eine schützende Beschichtung.",
+          "design": "Vermeiden Sie Spalte und Taschen, in denen sich Wasser sammelt, und senken Sie die Spannungsamplitude.",
+          "environment": "Begrenzen Sie die Korrosion durch Anstrich, metallische Überzüge, kathodischen Korrosionsschutz oder Überwachung der Wasserchemie.",
+          "manufacturing": "Bringen Sie durch Kugelstrahlen Druckeigenspannungen in die Oberfläche ein und stellen Sie durch Prüfungen sicher, dass Beschichtungen unbeschädigt sind."
+        }
+      },
+      "scc": {
+        "name": "Spannungsrisskorrosion",
+        "abbr": "SpRK",
+        "short": "Rissbildung, die bei Spannungen unterhalb der Streckgrenze fortschreitet, wenn ein anfälliger Werkstoff unter Zugspannung (Eigenspannung genügt) einem bestimmten korrosiven Medium ausgesetzt ist. Sie tritt nur auf, wenn alle drei zusammenkommen: Werkstoff, Spannung und Medium.",
+        "look": [
+          "Feine Risse wachsen verzweigt. Von außen ist kaum Korrosion zu sehen, und an der Oberfläche zeigt sich nur ein kleiner Riss; der Schaden ist daher schwer zu finden.",
+          "Chloridinduzierte Risse in austenitischem nichtrostendem Stahl verlaufen meist durch die Körner (transkristallin), Season Cracking von Messing in Ammoniak und Risse in sensibilisiertem nichtrostendem Stahl dagegen meist entlang der Korngrenzen (interkristallin); der Rissverlauf ist also ein Merkmal.",
+          "An der Bruchstelle gibt es keine große Verformung, und Risse oder Bruchfläche können durch Korrosionsprodukte verfärbt sein."
+        ],
+        "tests": [
+          "Schleifen, polieren und ätzen Sie einen Querschliff und prüfen Sie im Lichtmikroskop, ob die Risse verzweigt sind und ob sie trans- oder interkristallin verlaufen.",
+          "Prüfen Sie die Anfälligkeit im Medium mit U-Bügel-Proben, Versuchen unter konstanter Last oder Langsamzugversuchen (SSRT). Austenitische nichtrostende Stähle werden häufig in siedender 42-prozentiger Magnesiumchloridlösung geprüft.",
+          "Messen Sie Zugeigenspannungen aus Schweißen oder Biegen mit Röntgenbeugung."
+        ],
+        "confusions": [
+          "Sie kann ähnlich aussehen wie Ermüdung. Unterscheiden Sie danach, ob die Last wechselnd war und ob ein bestimmtes Medium vorlag.",
+          "Interkristalline Brüche durch Wasserstoffversprödung, Flüssigmetallversprödung und Kriechen sehen ähnlich aus.",
+          "Wird die Rissbildung durch bei der Korrosion entstehenden Wasserstoff angetrieben, kann kathodischer Korrosionsschutz sie sogar verstärken; die Abhilfe ist dann umgekehrt wie bei Rissen, die durch Auflösung des Metalls wachsen."
+        ],
+        "measures": {
+          "material": "Möglich sind ein Wechsel zu Stahlsorten mit höherem Nickelgehalt oder zu Duplexstählen oder eine rissbeständige Wärmebehandlung, etwa der überalterte Zustand T73 der Aluminiumlegierung 7075.",
+          "design": "Verringern Sie Zugeigenspannungen und Spannungskonzentrationen und vermeiden Sie Spalte und Taschen, in denen sich Chlorid anreichern kann.",
+          "environment": "Senken Sie Chloridgehalt und gelösten Sauerstoff, verringern Sie die Temperatur und setzen Sie Inhibitoren ein. Chloridinduzierte Risse in austenitischem nichtrostendem Stahl gelten oberhalb von etwa 60 °C als wahrscheinlich.",
+          "manufacturing": "Senken Sie Zugeigenspannungen durch Spannungsarmglühen oder Kugelstrahlen. Spannungsarmglühen ist bei unlegiertem Stahl weit verbreitet, bei austenitischem nichtrostendem Stahl aber oft wenig wirksam."
+        }
+      },
+      "hydrogen": {
+        "name": "Wasserstoffversprödung",
+        "abbr": "Wasserstoff",
+        "short": "In Stahl oder ein anderes Metall eingedrungener Wasserstoff sammelt sich an Stellen hoher Zugspannung und versprödet den Werkstoff, sodass er einige Zeit nach dem Aufbringen der Last reißt (verzögerter Bruch). Je höher die Festigkeit des Stahls, desto wahrscheinlicher ist sie.",
+        "look": [
+          "An der Bruchstelle gibt es fast keine Verformung, und bei hochfestem Stahl verläuft der Bruch oft entlang der Korngrenzen.",
+          "Das Bauteil bricht unter konstanter Last oder Schraubenvorspannung nach einiger Zeit plötzlich.",
+          "An Schweißnähten können einige Zeit nach dem Schweißen Kaltrisse (wasserstoffinduzierte Risse) in der Wärmeeinflusszone auftreten."
+        ],
+        "tests": [
+          "Messen Sie Härte oder Festigkeit. Stähle mit einer Streckgrenze unter etwa 600 MPa gelten als wenig gefährdet, oberhalb von etwa 1000 MPa wird Wasserstoffversprödung leicht zu einem ernsten Problem.",
+          "Untersuchen Sie die Fertigungsgeschichte (Beizen, galvanisches Beschichten, Schweißen) und Wasserstoffquellen im Betrieb (Korrosion, kathodischer Korrosionsschutz).",
+          "Vergleichen Sie in Versuchen unter Dauerlast oder in Langsamzugversuchen mit Wasserstoff beladene und unbeladene Proben."
+        ],
+        "confusions": [
+          "Es gibt Überschneidungen mit der Spannungsrisskorrosion, doch Wasserstoffversprödung kann auch ohne korrosives Medium auftreten, durch Wasserstoff aus dem Galvanisieren oder Schweißen.",
+          "Bei Rissen nach dem Feuerverzinken stehen sowohl Flüssigmetallversprödung als auch Wasserstoff im Verdacht; prüfen Sie daher beides."
+        ],
+        "measures": {
+          "material": "Erhöhen Sie die Festigkeit (Härte) nicht mehr als nötig. In austenitischen Stählen diffundiert Wasserstoff langsam, sodass es viel länger dauert, bis sie verspröden.",
+          "design": "Überprüfen Sie Vorspannkräfte hochfester Schrauben und Spannungskonzentrationen, um anhaltende Zugspannungen zu senken.",
+          "environment": "Überwachen Sie das Potential des kathodischen Korrosionsschutzes, damit kein Überschutz Wasserstoff erzeugt.",
+          "manufacturing": "Treiben Sie nach dem Beizen oder galvanischen Beschichten den Wasserstoff durch Tempern bei etwa 200 °C über einige Stunden aus. Beim Schweißen verlangsamen Vorwärmen und Nachwärmen die Abkühlung, damit Wasserstoff entweichen kann."
+        }
+      },
+      "creep": {
+        "name": "Kriechbruch",
+        "abbr": "Kriechen",
+        "short": "Bei hoher Temperatur (über etwa 0,4 der absoluten Schmelztemperatur) lässt eine lange wirkende konstante Last das Bauteil fortschreitend verformen, bis sich Poren und Risse an den Korngrenzen vereinigen und es bricht.",
+        "look": [
+          "Querschliffe nahe dem Bruch zeigen viele Korngrenzenporen (Kavitäten) und keilförmige Risse, die von Korngrenzentripelpunkten ausgehen.",
+          "An den Korngrenzen schreiten Kriechverformung und Schädigung am schnellsten fort, deshalb verlaufen die Risse oft entlang der Korngrenzen.",
+          "Da Kriechen eine mit der Zeit zunehmende Verformung ist, kann es sich vor dem Bruch als Aufbauchen eines Rohres oder als Längung eines Bauteils zeigen."
+        ],
+        "tests": [
+          "Führen Sie Zeitstandversuche bei Einsatztemperatur und -spannung durch und schätzen Sie die Lebensdauer ab, indem Sie Temperatur und Zeit mit dem Larson-Miller-Parameter ineinander umrechnen.",
+          "Ermitteln Sie aus den Betriebsaufzeichnungen die tatsächliche Metalltemperatur (gab es Überhitzung?) und schließen Sie auch aus Gefügeänderungen wie der Vergröberung von Ausscheidungen auf die Temperaturgeschichte."
+        ],
+        "confusions": [
+          "Ein interkristalliner Bruch allein ist schwer von Wasserstoffversprödung oder Spannungsrisskorrosion zu unterscheiden; Temperatur und Zeit sind daher die wichtigsten Merkmale.",
+          "Schwankt auch die Temperatur, kommen thermische Ermüdung und das Zusammenwirken von Kriechen und Ermüdung (thermomechanische Ermüdung) in Betracht.",
+          "Kunststoffe haben niedrige Schmelztemperaturen und können daher schon bei Raumtemperatur unter Langzeitlast kriechen, sich dehnen und schließlich reißen. Dieser Navigator behandelt hauptsächlich das Hochtemperaturkriechen von Metallen; hat sich ein Kunststoffteil jedoch über lange Zeit langsam gedehnt, ist an Kriechen zu denken."
+        ],
+        "measures": {
+          "material": "Wählen Sie Werkstoffe mit hoher Warmfestigkeit wie Nickelbasis-Superlegierungen. Da Korngrenzen beim Kriechen eine Schwachstelle sind, lassen sich mit gerichtet erstarrten Stängelkristallen oder Einkristallen Korngrenzen senkrecht zur Spannung vermeiden.",
+          "design": "Senken Sie Einsatztemperatur und Spannung und sehen Sie mit dem Larson-Miller-Parameter oder ähnlichen Verfahren eine Lebensdauerreserve vor.",
+          "environment": "Verhindern Sie Überhitzung und senken Sie die Metalltemperatur, etwa mit Wärmedämmschichten.",
+          "manufacturing": "Führen Sie Lösungsglühen und Auslagern korrekt durch, um das angestrebte Ausscheidungsgefüge zu erhalten."
+        }
+      },
+      "thermfat": {
+        "name": "Thermische Ermüdung",
+        "abbr": "Therm. Erm.",
+        "short": "Ermüdung durch wiederholtes Erwärmen und Abkühlen: In Bereichen, die behindert sind und sich nicht frei ausdehnen und zusammenziehen können, entstehen wechselnde Wärmespannungen, und von der Oberfläche gehen viele Risse aus und wachsen.",
+        "look": [
+          "Auf der schroff abgekühlten Fläche bilden sich viele Risse, die ein netzartiges Muster (Brandrisse) ergeben.",
+          "Die Risse sind breit, beginnen an der Oberfläche und sind oft mit Oxid aus der Hochtemperaturbeanspruchung gefüllt. Sie sind keilförmig und verlaufen durch die Körner.",
+          "Risse folgen häufig Schweißnahtübergängen und Stellen, an denen sich die Wanddicke ändert."
+        ],
+        "tests": [
+          "Ermitteln Sie aus den Betriebsaufzeichnungen die Zahl der An- und Abfahrvorgänge und die Geschwindigkeit der Temperaturänderungen und schätzen Sie die Wärmespannung aus Unterschieden der Wärmedehnung und der Temperatur ab.",
+          "Da die Risse meist zur Oberfläche offen sind, suchen Sie sie mit Magnetpulver- oder Eindringprüfung."
+        ],
+        "confusions": [
+          "Viele flache Risse werden leicht mit Korrosionsrissen verwechselt. Prüfen Sie, ob sie sich auf der schroff abgekühlten Fläche häufen und senkrecht zur Wärmespannung verlaufen."
+        ],
+        "measures": {
+          "material": "Verringern Sie den Unterschied der Wärmeausdehnung zwischen verbundenen Werkstoffen und wählen Sie Werkstoffe mit geringer Wärmeausdehnung und guter Wärmeleitfähigkeit.",
+          "design": "Verwenden Sie nachgiebige Lagerungen, die Ausdehnung und Schrumpfung zulassen, und gestalten Sie Schweißnähte und Querschnittsänderungen mit sanften Übergängen.",
+          "environment": "Begrenzen Sie die Aufheiz- und Abkühlgeschwindigkeit beim An- und Abfahren und verhindern Sie, dass kaltes Wasser auf heiße Bauteile trifft.",
+          "manufacturing": "Schleifen Sie Schweißnahtübergänge glatt, um die Spannungskonzentration zu verringern."
+        }
+      },
+      "lme": {
+        "name": "Flüssigmetallversprödung",
+        "abbr": "LME",
+        "short": "Ein festes Metall, das von einem geschmolzenen Metall (Zink, Kupfer, Zinn, Quecksilber, Gallium …) benetzt wird, verliert unter Zugspannung einen großen Teil seiner Duktilität oder Bruchspannung und reißt entlang der Korngrenzen. Sie ist eine bekannte Ursache für Risse beim Feuerverzinken.",
+        "look": [
+          "Das Bauteil reißt bei Kontakt mit dem geschmolzenen Metall fast ohne Verformung. Bei feuerverzinktem Stahl entstehen unter der Zinkschicht interkristalline Risse.",
+          "Die Korngrenzen auf der Bruchfläche sind mit Zink oder einem anderen versprödenden Metall bedeckt.",
+          "Bekannte Paarungen sind Aluminium mit Gallium oder Quecksilber, Stahl mit Zink, Kupfer oder Zinn und Kupferlegierungen mit Quecksilber."
+        ],
+        "tests": [
+          "Analysieren Sie Bruchfläche und Rissinneres mit REM und EDX oder ESMA, um das versprödende Metall nachzuweisen.",
+          "Prüfen Sie am Querschliff, ob die Risse den Korngrenzen folgen und wie tief das Metall eingedrungen ist.",
+          "Überprüfen Sie Verzinkungs- und Schweißbedingungen, Umformbedingungen, Eigenspannungen und die chemische Zusammensetzung des Stahls."
+        ],
+        "confusions": [
+          "Da der Bruch interkristallin ist, wird sie leicht mit Spannungsrisskorrosion oder Wasserstoffversprödung verwechselt. Prüfen Sie, ob das Bauteil mit geschmolzenem Metall in Berührung kam.",
+          "Risse nach dem Verzinken oder Beschichten können auch durch vom Stahl aufgenommenen Wasserstoff entstehen; untersuchen Sie daher beides."
+        ],
+        "measures": {
+          "material": "Achten Sie bei der Stahlauswahl auf Elemente wie Kupfer und Zinn, die an den Korngrenzen seigern und die Rissbildung fördern.",
+          "design": "Wählen Sie Formen, in denen sich Zugeigenspannungen aus Kaltbiegen oder Schweißen nicht konzentrieren.",
+          "environment": "Halten Sie geschmolzene Metalle wie Lot oder Quecksilber im Betrieb vom Bauteil fern.",
+          "manufacturing": "Überwachen Sie Umformen und Schweißen vor dem Verzinken sowie die Bedingungen beim Verzinken selbst."
+        }
+      },
+      "wear": {
+        "name": "Verschleiß",
+        "abbr": "Verschleiß",
+        "short": "Schädigung, bei der von gegeneinander gleitenden, rollenden oder reibenden Flächen allmählich Werkstoff verloren geht. Dazu gehören adhäsiver Verschleiß, abrasiver Verschleiß, Reibkorrosion (Fretting) und Wälzermüdung.",
+        "look": [
+          "Schneiden harte Partikel oder Rauheitsspitzen in die Oberfläche (abrasiver Verschleiß), reihen sich Kratzer in Gleitrichtung auf.",
+          "Verschweißen Metalle miteinander und werden die Verbindungen abgeschert (adhäsiver Verschleiß), wird Werkstoff auf den Gegenkörper übertragen oder aus der Oberfläche herausgerissen.",
+          "Das Bauteil reißt nicht; seine Abmessungen nehmen ab."
+        ],
+        "tests": [
+          "Untersuchen Sie die verschlissenen Flächen auf die Richtung der Kratzer sowie Form und Zusammensetzung der Verschleißpartikel und vergleichen Sie die Oberflächenhärte mit der des Gegenkörpers und eingedrungener Fremdpartikel.",
+          "Messen Sie das Verschleißvolumen im Stift-Scheibe-Versuch oder ähnlichen Versuchen und vergleichen Sie Werkstoffe und Bedingungen mit der Archard-Gleichung V = KWL/H."
+        ],
+        "confusions": [
+          "Ein durch Verschleiß geschwächter Querschnitt kann zuletzt reißen; prüfen Sie daher nicht nur den Riss, sondern auch, ob die Abmessungen schon vorher abgenommen hatten.",
+          "Wanddickenabnahme von Rohrleitungen in strömenden Medien (Erosionskorrosion) ist ein anderer Mechanismus ohne Gegenkörper und erfordert andere Maßnahmen."
+        ],
+        "measures": {
+          "material": "Machen Sie die Oberfläche mindestens so hart wie die abrasiven Partikel (Aufkohlen, Nitrieren, Hartstoffschichten …).",
+          "design": "Senken Sie Flächenpressung und Gleitgeschwindigkeit.",
+          "environment": "Verschieben Sie die Schmierung in Richtung Flüssigkeitsreibung (siehe Stribeck-Kurve) und halten Sie Sand und andere Verunreinigungen fern.",
+          "manufacturing": "Überwachen Sie Rauheit und Oberflächengüte, damit Rauheitsspitzen den Schmierfilm seltener durchdringen."
+        }
+      },
+      "fac": {
+        "name": "Strömungsbedingte Wanddickenabnahme (Erosionskorrosion)",
+        "abbr": "Wandabtrag",
+        "short": "In schnell strömendem Wasser oder Dampf löst sich die schützende Oxidschicht auf unlegiertem Stahl auf und wird von der Strömung abgetragen, sodass die Wand allmählich dünner wird. In der Kerntechnik spricht man auch von strömungsbeschleunigter Korrosion (FAC). Schließlich hält das Rohr dem Innendruck nicht mehr stand und platzt.",
+        "look": [
+          "Die Innenfläche ist schuppen- oder orangenhautartig ausgewaschen und örtlich dünner.",
+          "Die Wanddicke nimmt dort ab, wo die Strömung gestört ist, etwa hinter Messblenden, Bögen und T-Stücken.",
+          "Um die Bruchöffnung ist die Wand sehr dünn, und der geschwächte Bereich reißt unter dem Innendruck auf."
+        ],
+        "tests": [
+          "Messen Sie die Wanddicke mit einem Ultraschall-Dickenmessgerät und schätzen Sie aus der Änderung seit der letzten Messung die Abtragsrate und die Restlebensdauer ab.",
+          "Analysieren Sie den Chromgehalt des Stahls (schon wenig Chrom verlangsamt den Abtrag).",
+          "Überprüfen Sie die Wasserchemie (pH-Wert, gelöster Sauerstoff) sowie die Aufzeichnungen von Temperatur und Strömung. In einphasiger Wasserströmung soll der Abtrag bei etwa 140–160 °C am schnellsten sein."
+        ],
+        "confusions": [
+          "Der Abtrag ist örtlich begrenzt und lässt sich, anders als bei gleichmäßiger Flächenkorrosion, nicht aus einer mittleren Korrosionsrate vorhersagen.",
+          "Auch Tropfenschlagerosion durch Tropfen im Dampf verringert die Wanddicke, tritt aber an anderen Stellen auf und erfordert andere Maßnahmen."
+        ],
+        "measures": {
+          "material": "Ersetzen Sie den Werkstoff durch chromhaltigen niedriglegierten Stahl (Cr-Mo-Stahl mit mindestens 1,25 % Cr) oder nichtrostenden Stahl.",
+          "design": "Vermeiden Sie verwinkelte Geometrien, die die Strömung stören.",
+          "environment": "Halten Sie den pH-Wert schwach alkalisch und überwachen Sie den gelösten Sauerstoff.",
+          "manufacturing": "Erfassen Sie lückenlos alle zu prüfenden Stellen und messen Sie die Wanddicke vorrangig dort, wo die Strömung gestört ist."
+        }
+      },
+      "polycold": {
+        "name": "Verlust der Elastizität und Versprödung von Polymeren bei tiefer Temperatur",
+        "abbr": "Polymer/Kälte",
+        "short": "Kühlt ein Polymer bis in die Nähe seiner Glasübergangstemperatur und darunter ab, friert die Molekülbewegung ein, und es verliert seine gummiartige Weichheit. Eine Gummidichtung stellt sich dann nach dem Zusammendrücken nur langsam zurück und dichtet einen Spalt unter Umständen nicht mehr ab; ein Kunststoff wird spröde und bricht leicht.",
+        "look": [
+          "Eine Gummidichtung kann auch ohne Riss Spuren von Leckage durch den Spalt oder Wärmeschäden (Verkohlung, Erosion) zeigen.",
+          "Ein Kunststoffteil kann unterhalb seiner Glasübergangstemperatur, wo seine Moleküle kaum noch beweglich sind, fast ohne Verformung brechen (Polypropylen hat zum Beispiel einen Glasübergang bei etwa −20 bis 0 °C)."
+        ],
+        "tests": [
+          "Messen Sie bei Einsatztemperatur, wie schnell der Gummi nach dem Zusammendrücken in seine ursprüngliche Form zurückkehrt (elastische Rückstellung).",
+          "Messen Sie die Glasübergangstemperatur und vergleichen Sie sie mit der tiefsten Einsatztemperatur.",
+          "Prüfen Sie über den gesamten Einsatzbereich einschließlich der tiefsten Temperatur unter Bedingungen, die dem realen Bauteil möglichst nahekommen."
+        ],
+        "confusions": [
+          "Ein Dichtungsversagen hinterlässt weder Riss noch Bruchfläche und wird daher womöglich nicht als Werkstoffproblem erkannt.",
+          "Die Eigenschaften von Polymeren hängen von Zeit und Temperatur ab: Eine Absenkung der Temperatur wirkt wie eine Messung über kürzere Zeit (schnellere Verformung). Schnellen Bewegungen zu folgen, wird bei tiefer Temperatur noch schwieriger."
+        ],
+        "measures": {
+          "material": "Wählen Sie einen Werkstoff, dessen Glasübergangstemperatur deutlich unter der tiefsten Einsatztemperatur liegt.",
+          "design": "Legen Sie die Konstruktion unempfindlich gegen Schwankungen von Temperatur und Abmessungen aus, damit die Dichtung einem sich bewegenden Spalt folgen kann.",
+          "environment": "Halten Sie das Bauteil mit Heizungen warm oder legen Sie Temperaturgrenzen für Start oder Betrieb fest.",
+          "manufacturing": "Qualifizieren Sie das Bauteil mit praxisnahen Prüfungen über den gesamten Einsatzbereich einschließlich tiefer Temperatur."
+        }
+      },
+      "esc": {
+        "name": "Umgebungsbedingte Spannungsrissbildung von Kunststoffen",
+        "abbr": "ESC",
+        "short": "Kommt ein Kunststoff unter Zugspannung (Eigenspannung genügt) mit einer Flüssigkeit wie Öl, Lösemittel oder Reinigungsmittel (Tensid) in Berührung, entstehen Crazes und Risse bei Spannungen weit unter den üblichen. Die Erscheinung ähnelt der Spannungsrisskorrosion von Metallen und ist besonders bei amorphen (glasartigen) Kunststoffen wie Polycarbonat ein Problem.",
+        "look": [
+          "An Stellen hoher Spannung durch Biegen, Klemmen oder Einpressen entstehen mehrere feine Crazes oder Risse, von denen einer zum Bruch wächst.",
+          "Der Bereich nahe dem Riss kann weißlich werden (Weißbruch).",
+          "Der Kunststoff bricht spröde mit geringer Verformung."
+        ],
+        "tests": [
+          "Biegen und fixieren Sie eine Probe, bringen Sie die Flüssigkeit auf und halten Sie fest, nach welcher Zeit oder bei welcher Dehnung Risse oder Crazes auftreten (für Polyethylen gibt es Normen wie ASTM D1693).",
+          "Bestimmen Sie Flüssigkeiten, Reinigungs- und Schmiermittel auf dem Bauteil, um seine Einsatzumgebung festzustellen."
+        ],
+        "confusions": [
+          "Sie kann auftreten, ohne dass der Kunststoff quillt oder sich löst; ziehen Sie sie daher auch in Betracht, wenn die Flüssigkeit harmlos erscheint.",
+          "Eine Flüssigkeit in unbedenklicher Konzentration kann Risse verursachen, sobald sie sich anreichert, zum Beispiel durch Verdunsten."
+        ],
+        "measures": {
+          "material": "Wählen Sie einen Kunststoff, der in den Flüssigkeiten, mit denen er in Berührung kommt, rissbeständig ist.",
+          "design": "Senken Sie die Zugspannungen durch Klemmen, Einpressen und Biegen.",
+          "environment": "Halten Sie das Bauteil von rissauslösenden Flüssigkeiten wie Lösemitteln und Tensiden fern.",
+          "manufacturing": "Verringern Sie die bei der Formgebung entstehenden Eigenspannungen."
+        }
+      }
+    }
+  },
+  "cases": {
+    "aloha-243": {
+      "title": "Aloha-Flug 243 (1988): Ermüdung und Korrosion an Überlappungsstößen",
+      "description": "Der Unfall von Aloha-Airlines-Flug 243 im Jahr 1988, bei dem sich der obere Rumpf einer Boeing 737 im Flug löste, aus werkstofftechnischer Sicht: wie Klebeablösungen, Korrosion und viele Ermüdungsrisse an Nietlöchern zusammenwirkten, auf Grundlage des NTSB-Berichts und der Unterlagen der FAA.",
+      "lead": "Am 28. April 1988 verlor die Boeing 737-200 von Aloha-Airlines-Flug 243 auf einem Inselflug in Hawaii in 24000 ft (etwa 7300 m) Höhe einen Teil des oberen Rumpfes, und es kam zu einer explosionsartigen Dekompression. Das Flugzeug landete auf der nahen Insel Maui, eine Flugbegleiterin kam jedoch ums Leben. Versagt hatte ein Überlappungsstoß der Rumpfbeplankung: Die Klebung hatte sich gelöst, und von den Nietlöchern waren viele Ermüdungsrisse ausgegangen. Als wahrscheinliche Ursache nannte das NTSB, dass das Instandhaltungsprogramm diese Schäden nicht entdeckt hatte.",
+      "facts": [
+        [
+          "Datum",
+          "28. April 1988"
+        ],
+        [
+          "Ort",
+          "Nahe Maui, Hawaii, USA (Flug von Hilo nach Honolulu)"
+        ],
+        [
+          "Flugzeug",
+          "Boeing 737-200 (Fertigungsnummer 152), bis dahin 35496 Flugstunden und 89680 Flüge"
+        ],
+        [
+          "Opfer",
+          "Von 89 Passagieren und 6 Besatzungsmitgliedern wurde eine Flugbegleiterin aus dem Flugzeug gerissen und gilt als tot; 8 Personen wurden schwer verletzt"
+        ],
+        [
+          "Schaden",
+          "Etwa 18 ft (etwa 5,5 m) Beplankung und Struktur hinter der Kabineneingangstür oberhalb des Fußbodens lösten sich"
+        ],
+        [
+          "Untersuchung",
+          "U.S. National Transportation Safety Board (NTSB), Bericht NTSB/AAR-89/03"
+        ]
+      ],
+      "happened": [
+        "Flug 243 war ein Inselflug von Hilo auf der Insel Hawaii nach Honolulu. Als das Flugzeug 24000 ft erreichte, lösten sich Beplankung und Struktur des oberen Rumpfes auf etwa 18 ft Länge hinter der Kabineneingangstür, und es kam zu einer explosionsartigen Dekompression. Die Besatzung leitete einen Notabstieg ein und landete auf dem Flughafen Kahului auf Maui.",
+        "Das NTSB stellte als wahrscheinliche Ursache fest, dass das Instandhaltungsprogramm von Aloha Airlines erhebliche Klebeablösungen und Ermüdungsschäden nicht entdeckt hatte; dies führte schließlich zum Versagen des Überlappungsstoßes an der als S-10L bezeichneten Stelle und zur Ablösung des oberen Rumpfes. Als beitragende Faktoren wurden genannt: unzureichende Überwachung der Instandhaltung, dass die FAA (US-Luftfahrtbehörde) in der Lufttüchtigkeitsanweisung AD 87-21-08 nicht die von Boeing vorgeschlagene Prüfung aller Überlappungsstöße vorschrieb, und dass es für die Probleme der kaltgeklebten Überlappungsstöße früher 737 (geringe Dauerhaftigkeit der Klebung, Korrosion, frühzeitige Ermüdungsrisse) keine vollständige abschließende Abhilfe gab."
+      ],
+      "chainTitle": "Aloha-Flug 243: die Ursachenkette aus werkstofftechnischer Sicht",
+      "chain": [
+        {
+          "lines": [
+            "Mangelhafte Klebung bei der Fertigung"
+          ],
+          "sub": [
+            "Kalthärtend geklebte Überlappungsstöße"
+          ]
+        },
+        {
+          "lines": [
+            "Feuchte dringt in Ablösungen ein"
+          ],
+          "sub": [
+            "Korrosion, Ablösungen breiten sich aus"
+          ]
+        },
+        {
+          "lines": [
+            "Niete tragen die Drucklasten"
+          ],
+          "sub": [
+            "Messerkanten der Senkungen erhöhen",
+            "die Spannung"
+          ]
+        },
+        {
+          "lines": [
+            "Druckwechsel bei jedem Flug"
+          ],
+          "sub": [
+            "Ermüdungsrisse an vielen Nieten",
+            "der oberen Reihe"
+          ]
+        },
+        {
+          "lines": [
+            "Risse wachsen zu einem langen Riss",
+            "zusammen"
+          ],
+          "sub": [
+            "Der Überlappungsstoß S-10L versagt"
+          ]
+        },
+        {
+          "lines": [
+            "Oberer Rumpf löst sich im Flug"
+          ]
+        }
+      ],
+      "mechanism": [
+        "Bei frühen 737 (bis zur Fertigungsnummer 291) wurden die Überlappungsstöße der Rumpfbeplankung mit einem Gewebe (Scrim) geklebt, das mit einem bei Raumtemperatur aushärtenden Klebstoff getränkt war (Kaltklebung). Fertigungsprobleme führten zu zufällig verteilten schwachen und teils gar nicht geklebten Stellen und machten die Verbindungen korrosionsanfällig. Drang Feuchtigkeit in abgelöste Bereiche ein, breitete sich die Ablösung weiter aus.",
+        "Nach dem Versagen der Klebung trugen die Niete die Lasten aus dem Kabinendruck. Die Senkungen für die Nietköpfe reichten durch die gesamte Blechdicke, sodass am Loch eine dünne Messerkante und eine höhere Spannungskonzentration als üblich entstanden. Deshalb bildeten sich an vielen benachbarten Nietlöchern Ermüdungsrisse (Multiple Site Damage, MSD), und kleine Risse wuchsen zu einem langen, kritischen Riss zusammen. Bei der Sichtprüfung wurden Risse gefunden, die von den Löchern der obersten Nietreihe ausgingen.",
+        "Entstehung und Wachstum von Ermüdungsrissen hängen von der Zahl der Flüge (Druckwechsel) ab, nicht von den Flugstunden, und die Flugzeuge von Aloha flogen etwa doppelt so viele Zyklen pro Zeit, wie Boeing angenommen hatte. Korrosion an Überlappungsstößen war erstmals 1970 gemeldet worden, und bei Prüfungen der Flotte nach dem Unfall wurden entlang der Überlappungsstöße Aufwölbungen, gelockerte Niete und Blasen im Lack gefunden."
+      ],
+      "note": "Zur Deutung der Ursache: Eine studentische Arbeit (Hashmi) vermutet, dass Chloride aus der küstennahen Einsatzumgebung wahrscheinlich Lochkorrosion auslösten und Korrosion und Schwingungsrisskorrosion vorantrieben. Die wahrscheinliche Ursache nach dem NTSB ist, dass das Instandhaltungsprogramm die Klebeablösungen und Ermüdungsschäden nicht entdeckte.",
+      "clues": [
+        "Risse wachsen mit der Zahl der Flüge (Druckwechsel), nicht mit den Flugstunden, und dieses Flugzeug flog etwa doppelt so häufig wie angenommen",
+        "An vielen benachbarten Nietlöchern waren Ermüdungsrisse entstanden (Multiple Site Damage)",
+        "Korrosion der Überlappungsstöße und durchfeuchtete Klebeablösungen",
+        "Die Beplankung bestand aus Aluminium, 0,036 in (etwa 0,9 mm) dick",
+        "Das Flugzeug hatte 89680 Flüge hinter sich"
+      ],
+      "presetNote": "Öffnet man den Navigator mit diesen Merkmalen, stehen Schwingungsrisskorrosion und Ermüdung an der Spitze. Schwingungsrisskorrosion steht wegen der Merkmale Feuchtigkeit und Korrosion vorn; die wahrscheinliche Ursache nach dem NTSB ist jedoch, dass Klebeablösungen und Ermüdungsschäden nicht entdeckt wurden – Schwingungsrisskorrosion als solche wird dort nicht festgestellt.",
+      "changes": [
+        "Programme zur Korrosionsverhütung und -überwachung wurden Pflicht.",
+        "Die Lufttüchtigkeitsanweisungen AD 2002-07-08 und AD 2002-07-11 schrieben vor, bestimmte Beplankungsbereiche an Überlappungsstößen der Boeing 737 auszubauen und zu ersetzen.",
+        "Die Bauvorschrift für Verkehrsflugzeuge 14 CFR 25.571 (Amendment 96) verlangte fortan die Berücksichtigung von Widespread Fatigue Damage (WFD, großflächige Ermüdungsschäden) und Nachweise aus Ermüdungsversuchen in Originalgröße.",
+        "Eine Vorschrift zur Bewertung von Reparaturen an Druckrümpfen und eine endgültige Vorschrift zu großflächigen Ermüdungsschäden wurden erlassen."
+      ],
+      "lessons": [
+        "Eine Struktur, die auf Klebung beruht, bleibt nur sicher, wenn Prüfung und Instandhaltung den Zustand der Klebung bestätigen.",
+        "Prüfprogramme müssen auf einem gründlichen Verständnis des Ermüdungsverhaltens der Konstruktion beruhen: wo, nach wie vielen Zyklen und welche Art von Rissen auftreten.",
+        "Ein bekanntes Ermüdungsproblem allein mit wiederholten Prüfungen zu beherrschen, hat Grenzen; eine abschließende Abhilfe wie der Austausch von Teilen ist vorzuziehen.",
+        "Die Auslegungsannahme „ein Riss wird an einem Rissstoppband (Tear Strap) aufgehalten, die Beplankung klappt auf, und der Schaden ist offensichtlich“ gilt nicht mehr, wenn viele Risse gleichzeitig wachsen.",
+        "Nach dem Unfall wurden an vielen Flugzeugen desselben Typs Risse an Überlappungsstößen gemeldet: Das Problem betraf nicht nur ein einzelnes Flugzeug."
+      ],
+      "sources": [
+        "NTSB, Aircraft Accident Report NTSB/AAR-89/03: Aloha Airlines, Flight 243, Boeing 737-200, N73711, near Maui, Hawaii, April 28, 1988 (Zusammenfassung; archivierte NTSB-Website bei den UNT Libraries)",
+        "FAA, Lessons Learned from Transport Airplane Accidents: Boeing 737-200 N73711",
+        "N. Hashmi, Revisiting Aloha Airline Flight 243: Corrosion Engineer’s Stand point (Arbeit, die Seiten des NTSB-Berichts zitiert)"
+      ]
+    },
+    "silver-bridge": {
+      "title": "Silver Bridge (1967): Sprödbruch aus einem kleinen Riss im Augenstab",
+      "description": "Der Einsturz der Silver Bridge über den Ohio River 1967 mit 46 Toten aus werkstofftechnischer Sicht: wie ein Spannungsrisskorrosionsriss von unter etwa 3 mm Tiefe im Auge eines Augenstabs einen Spaltbruch auslöste und wie sich danach die Prüfvorschriften für Brücken änderten, nach dem NTSB-Bericht und weiteren Quellen.",
+      "lead": "Am Abend des 15. Dezember 1967 stürzte die Brücke der U.S. 35 über den Ohio River (die Silver Bridge) ein, 46 Menschen starben. Der Einsturz begann, als ein Augenstab – ein Stab mit einem Auge an jedem Ende, aus denen die Tragkette der Brücke bestand – im Auge brach. An der Ausgangsstelle lag ein kleiner Riss von weniger als etwa 3 mm Tiefe, der über etwa 40 Jahre durch Spannungsrisskorrosion und verwandte Vorgänge gewachsen war.",
+      "facts": [
+        [
+          "Datum",
+          "15. Dezember 1967, gegen 17 Uhr (EST)"
+        ],
+        [
+          "Ort",
+          "Brücke der U.S. 35 über den Ohio River zwischen Point Pleasant, West Virginia, und Kanauga, Ohio, USA"
+        ],
+        [
+          "Bauwerk",
+          "Kettenhängebrücke mit Augenstabketten, entworfen 1927, eröffnet 1928. Jedes Kettenglied bestand aus einem Paar wärmebehandelter Stäbe von 2 × 12 in"
+        ],
+        [
+          "Opfer",
+          "31 der 37 Fahrzeuge auf der Brücke stürzten mit ihr ab; 46 Menschen starben, 9 wurden verletzt"
+        ],
+        [
+          "Ausgangsstelle",
+          "Unterer Schenkel des Auges von Augenstab 330 am Knoten C13N der Nordkette, Feld auf der Ohio-Seite"
+        ],
+        [
+          "Untersuchung",
+          "U.S. National Transportation Safety Board (NTSB), Bericht NTSB-HAR-71-1; metallkundlicher Bericht des National Bureau of Standards (NBS)"
+        ]
+      ],
+      "happened": [
+        "Der Einsturz ereignete sich gegen 17 Uhr. Nach Angaben des NTSB breitete er sich, nachdem die Nordkette getrennt war, in etwa einer Minute über die ganze Brücke aus.",
+        "Das NTSB stellte fest, dass der Einsturz durch einen Spaltbruch im unteren Schenkel des Auges von Augenstab 330 am Knoten C13N verursacht wurde. Der Bruch ging von einem Fehler kritischer Größe aus, der während der 40-jährigen Nutzungsdauer durch das Zusammenwirken von Spannungsrisskorrosion und Schwingungsrisskorrosion entstanden war. Die Fehlstelle war der Sichtprüfung nicht zugänglich und hätte nach Angabe des NTSB mit keinem damals bekannten Prüfverfahren entdeckt werden können, ohne den Augenstabknoten zu zerlegen."
+      ],
+      "chainTitle": "Silver Bridge: die Ursachenkette aus werkstofftechnischer Sicht",
+      "chain": [
+        {
+          "lines": [
+            "Wärmebehandelter Augenstab",
+            "aus unlegiertem Stahl"
+          ],
+          "sub": [
+            "Etwa 0,6 % C, vergütet"
+          ]
+        },
+        {
+          "lines": [
+            "Zugspannung an der Lochwand",
+            "des Auges"
+          ],
+          "sub": [
+            "Eine Stelle, die nicht prüfbar war"
+          ]
+        },
+        {
+          "lines": [
+            "Riss wächst durch",
+            "Spannungsrisskorrosion u. a."
+          ],
+          "sub": [
+            "Unter etwa 3 mm tief in 40 Jahren"
+          ]
+        },
+        {
+          "lines": [
+            "Nacht nahe dem Gefrierpunkt,",
+            "geringe Zähigkeit"
+          ],
+          "sub": [
+            "Der Riss erreicht die kritische Größe"
+          ]
+        },
+        {
+          "lines": [
+            "Spaltbruch im Auge"
+          ],
+          "sub": [
+            "Keine deutliche Verformung"
+          ]
+        },
+        {
+          "lines": [
+            "Kette trennt sich,",
+            "die Brücke stürzt ein"
+          ]
+        }
+      ],
+      "mechanism": [
+        "Der Stahl der Augenstäbe war ein unlegierter Stahl mit etwa 0,6 % Kohlenstoff ohne nennenswerte Legierungselemente außer Mangan; er war in Wasser abgeschreckt und bei etwa 1150–1200 °F (etwa 620–650 °C) angelassen.",
+        "Bei der metallkundlichen Untersuchung des National Bureau of Standards (NBS) zeigte sich, dass der Bruch der Unterseite des Auges von bereits vorhandenen Rissen an der Lochwand ausging, die weniger als 1/8 in (etwa 3,2 mm) tief waren. Alle Rissausgänge lagen in stark korrodierten Bereichen, und viele weitere Risse in der Nähe, die nicht am Bruch beteiligt waren, waren mit Oxid gefüllt – ein Zeichen, dass sie lange Zeit durch Zugspannung offen gehalten worden waren. Die Unterseite des Auges brach ohne nennenswerte plastische Verformung, die Oberseite versagte danach durch Überlast unter starker Biegung.",
+        "Lehrmaterial einer Universität (Open University) erklärt, dass der Stahl der Augenstäbe bei den Temperaturen nahe dem Gefrierpunkt in der Unglücksnacht eine geringe Zähigkeit hatte und daher zum Sprödbruch neigte; bei geringer Zähigkeit ist schon ein kleiner Riss kritisch. Jedes Kettenglied bestand aus zwei Stäben, und als einer brach, rutschte der andere vom Bolzen: Die Struktur ohne Redundanz stürzte vollständig ein."
+      ],
+      "note": "Zur Deutung der Ursache: Das NTSB führt das Risswachstum auf „das Zusammenwirken von Spannungsrisskorrosion und Schwingungsrisskorrosion“ zurück, während Teil I des Berichts des National Bureau of Standards die Risse als ähnlich zu Spannungsrisskorrosionsrissen in anderen Stählen beschreibt und folgert, dass die Befunde eher auf Spannungsrisskorrosion als auf Ermüdung hindeuten.",
+      "clues": [
+        "Die Unterseite des Auges brach ohne deutliche plastische Verformung",
+        "Der Bruch an der Ausgangsstelle war ein Spaltbruch (NTSB)",
+        "An der Ausgangsstelle lagen bereits vorhandene Risse von weniger als etwa 3 mm Tiefe, und viele Risse in der Nähe waren mit Oxid gefüllt",
+        "Die Augenstabketten trugen die Brücke und standen ständig unter Zug (Lehrmaterial einer Universität)",
+        "Die Augenstäbe bestanden aus wärmebehandeltem unlegiertem Stahl",
+        "In der Nacht des Einsturzes lag die Temperatur nahe dem Gefrierpunkt (Lehrmaterial einer Universität)",
+        "Am Grund des Auges konnte sich Wasser sammeln, sodass Zugeigenspannungen und ein korrosives Medium zusammentrafen (Lehrmaterial einer Universität)",
+        "Das Bauwerk war etwa 40 Jahre in Betrieb"
+      ],
+      "presetNote": "Öffnet man den Navigator mit diesen Merkmalen, steht der Sprödbruch – die letzte Versagensart – an der Spitze, gefolgt von Wasserstoffversprödung und Spannungsrisskorrosion. Äußere Merkmale allein können diese beiden nicht trennen; erst die Untersuchung des Ausgangsrisses selbst zeigt den Mechanismus. Bei diesem Unfall kam die Untersuchung des National Bureau of Standards zu dem Schluss, dass die Befunde eher auf Spannungsrisskorrosion als auf Ermüdung hindeuten.",
+      "changes": [
+        "Der Federal-Aid Highway Act vom 23. August 1968 verpflichtete den Verkehrsminister, landesweite Prüfvorschriften für Brücken festzulegen, die Prüfverfahren, Höchstabstände zwischen Prüfungen und die Qualifikation der Prüfer regeln.",
+        "Am 27. April 1971 traten die National Bridge Inspection Standards (NBIS) als Verordnung in Kraft; Brücken und ihre Bauteile mussten nun mindestens alle 2 Jahre geprüft werden.",
+        "1988 kamen Anforderungen an die Prüfung von Brücken mit bruchkritischen Bauteilen (Fracture-Critical Members) hinzu, deren Versagen eine Brücke zum Einsturz bringen kann.",
+        "Das NTSB empfahl die Erforschung der Versagensmechanismen, die Ausweitung der Sicherheitsanforderungen des Gesetzes von 1968 auf alle Straßenbrücken und Bundesmittel für Instandsetzungen."
+      ],
+      "lessons": [
+        "Die Ursache wird erst klar, wenn man nicht nur den spröden Restbruch, sondern den Mechanismus des kleinen Risses an seiner Ausgangsstelle untersucht (hier Spannungsrisskorrosion und verwandte Vorgänge).",
+        "In einem Werkstoff geringer Zähigkeit kann schon ein Riss von wenigen Millimetern fatal sein. Die Sicherheit hängt von Rissgröße und Zähigkeit gemeinsam ab.",
+        "In einer Struktur ohne Redundanz, in der das Versagen eines Bauteils alles zum Einsturz bringt, darf auch ein kleiner Riss nicht übersehen werden.",
+        "Schäden an Stellen, die der Sichtprüfung nicht zugänglich sind, werden auch durch häufigere Prüfungen nicht gefunden. Prüfbarkeit herzustellen, gehört zur Konstruktion.",
+        "Als die Brücke 1927 entworfen wurde, war nicht bekannt, dass diese Art von Brückenwerkstoff in ländlicher Atmosphäre Spannungsrisskorrosion und Schwingungsrisskorrosion erleiden kann. Alte Bauwerke müssen im Licht neuer Erkenntnisse neu bewertet werden."
+      ],
+      "sources": [
+        "NTSB, Highway Accident Report NTSB-HAR-71-1: Collapse of U.S. 35 Highway Bridge, Point Pleasant, West Virginia, December 15, 1967 (Zusammenfassung, Ursache und Empfehlungen)",
+        "J. A. Bennett, NBS Report 9981: Metallurgical Examination and Mechanical Tests of Material from the Point Pleasant, W. Va. Bridge, Part I (U.S. National Bureau of Standards)",
+        "West Virginia Department of Transportation: Silver Bridge",
+        "The Open University, OpenLearn: The Silver Bridge disaster: the collapse",
+        "FHWA, Happy 50th Anniversary, National Bridge Inspection Standards"
+      ]
+    },
+    "challenger-o-ring": {
+      "title": "Challenger (1986): kalte O-Ringe, die sich zu langsam zurückstellten",
+      "description": "Der Unfall der Raumfähre Challenger im Jahr 1986 aus werkstofftechnischer Sicht: wie die Gummi-O-Ringe in einer Verbindung einer Feststoffrakete an einem kalten Morgen zu langsam in ihre Form zurückkehrten, um den Spalt abzudichten, auf Grundlage des Berichts der Präsidentenkommission.",
+      "lead": "Am 28. Januar 1986 brach die Raumfähre Challenger etwa 73 Sekunden nach dem Start auseinander, alle sieben Besatzungsmitglieder kamen ums Leben. Die Präsidentenkommission stellte als Ursache das Versagen der Druckdichtung in einer Verbindung der rechten Feststoffrakete fest. Der Morgen des Starts war der kälteste bis dahin, und die kalten Gummi-O-Ringe kehrten nur langsam in ihre ursprüngliche Form zurück.",
+      "facts": [
+        [
+          "Datum",
+          "28. Januar 1986, 11:38 Uhr (EST)"
+        ],
+        [
+          "Fahrzeug",
+          "Raumfähre Challenger (Mission 51-L)"
+        ],
+        [
+          "Opfer",
+          "Etwa 73 Sekunden nach dem Start brach das Fahrzeug in etwa 46000 ft (etwa 14 km) Höhe auseinander; alle sieben Besatzungsmitglieder starben"
+        ],
+        [
+          "Temperatur",
+          "36 °F (etwa 2 °C) beim Start, 15 °F kälter als beim kältesten früheren Start"
+        ],
+        [
+          "Verbindung",
+          "Hintere Montageverbindung (Field Joint) der rechten Feststoffrakete; an der 300-Grad-Position der Verbindung auf 28 ± 5 °F (etwa −2 °C) geschätzt"
+        ],
+        [
+          "Untersuchung",
+          "Report of the Presidential Commission on the Space Shuttle Challenger Accident (1986)"
+        ]
+      ],
+      "happened": [
+        "Bereits 0,678 Sekunden nach dem Abheben trat nahe der hinteren Montageverbindung der rechten Feststoffrakete ein kräftiger grauer Rauchstoß aus, und die folgenden Rauchstöße wurden immer schwärzer. Nach 58,788 Sekunden erschien an derselben Rakete ein flackernder Flammenschein, der nach 59,262 Sekunden zu einer stetigen Flamme wurde. Nach 73,124 Sekunden zeigte sich am unteren Ende des Außentanks ein ringförmiges weißes Dampfmuster, das als Beginn des strukturellen Versagens des Wasserstofftanks gilt. Nach etwa 73 Sekunden begann das Fahrzeug auseinanderzubrechen.",
+        "Die Kommission kam zu dem Schluss, dass die Unfallursache das Versagen der Druckdichtung in der hinteren Montageverbindung des rechten Feststoffraketenmotors war, bedingt durch eine fehlerhafte Konstruktion, die unannehmbar empfindlich auf eine Reihe von Faktoren reagierte, darunter Temperatur, Abmessungen, Werkstoffe, die Folgen der Wiederverwendung, die Verarbeitung und das Verhalten der Verbindung unter dynamischer Last."
+      ],
+      "chainTitle": "Challenger: die Ursachenkette aus werkstofftechnischer Sicht",
+      "chain": [
+        {
+          "lines": [
+            "Ein kalter Morgen (etwa 2 °C)"
+          ],
+          "sub": [
+            "Verbindung auf etwa −2 °C geschätzt"
+          ]
+        },
+        {
+          "lines": [
+            "Die Gummi-O-Ringe kühlen ab"
+          ],
+          "sub": [
+            "Langsame Rückstellung nach dem",
+            "Zusammendrücken"
+          ]
+        },
+        {
+          "lines": [
+            "Zünddruck öffnet die Verbindung"
+          ],
+          "sub": [
+            "Der Spalt in der Verbindung weitet sich"
+          ]
+        },
+        {
+          "lines": [
+            "Die O-Ringe folgen dem Spalt nicht"
+          ],
+          "sub": [
+            "Verzögerter Druckaufbau durch den",
+            "Kitt trägt ebenfalls bei"
+          ]
+        },
+        {
+          "lines": [
+            "Heißgas strömt durch die Verbindung"
+          ],
+          "sub": [
+            "Rauch nach 0,678 s, Flamme nach 58,788 s"
+          ]
+        },
+        {
+          "lines": [
+            "Zerbrechen nach etwa 73 Sekunden"
+          ]
+        }
+      ],
+      "mechanism": [
+        "Die Verbindung der Rakete war mit zwei Gummi-O-Ringen mit einem Schnurdurchmesser von 0,280 in (etwa 7,1 mm) abgedichtet. Die Dichtwirkung beruht hauptsächlich darauf, dass der Gasdruck auf die stromaufwärts gelegene Seite des O-Rings drückt. Der Kitt in der Verbindung sollte als Wärmeschutz verhindern, dass Verbrennungsgas die O-Ringe unmittelbar berührt; seine Wirkung als Druckdichtung ist stark schwankend.",
+        "Unmittelbar nach der Zündung öffnet sich der Spalt der Verbindung (Joint Rotation), und dynamische Effekte vergrößern die Öffnung. Die Kommission stellte fest, dass die Rückstellfähigkeit der O-Ringe unmittelbar von der Temperatur abhängt, dass ein warmer zusammengedrückter O-Ring viel schneller in seine ursprüngliche Form zurückkehrt als ein kalter und dass der O-Ring bei der kalten Starttemperatur sehr langsam in seine runde Form zurückgekehrt und der Spaltöffnung wahrscheinlich nicht gefolgt ist. Ferner könnten Temperatur, Feuchte und andere Einflüsse auf den Kitt den Druckaufbau am O-Ring verzögert und so zum anfänglichen Versagen der Verbindung beigetragen haben; außerdem könnte Wasser in der Verbindung gefroren sein und die Wirkung des zweiten O-Rings beeinträchtigt haben.",
+        "Bei früheren Flügen hatten nur vier Starts bei 61 °F oder darüber Wärmeschäden an den O-Ringen gezeigt, während bei jedem Start unter 61 °F mindestens ein O-Ring Wärmeschäden aufwies."
+      ],
+      "note": "Zur Deutung der Ursache: Manches Lehrmaterial von Universitäten (University of Michigan) erklärt, die Temperatur am Starttag habe unter der Glasübergangstemperatur des Gummis gelegen, sodass die O-Ringe spröde geworden seien. Der Bericht der Präsidentenkommission stellt fest, dass sich die Rückstellung der O-Ringe mit sinkender Temperatur verlangsamte und dass sie der Spaltöffnung wahrscheinlich nicht folgten.",
+      "clues": [
+        "Die Starttemperatur war die tiefste bis dahin",
+        "Die Dichtungen waren O-Ringe aus Gummi (Elastomer)",
+        "Bei der Zündung wurde die Verbindung schlagartig mit Druck beaufschlagt, und ihr Spalt öffnete sich",
+        "Zahlreiche Versuche hatten gezeigt, dass die Rückstellfähigkeit der O-Ringe mit sinkender Temperatur abnimmt",
+        "Jeder Start unter 61 °F hatte Wärmeschäden an den O-Ringen gezeigt"
+      ],
+      "presetNote": "Öffnet man den Navigator mit diesen Merkmalen, steht der Verlust der Elastizität und die Versprödung von Polymeren bei tiefer Temperatur an der Spitze.",
+      "changes": [
+        "Die Kommission empfahl, die fehlerhafte Verbindung und Dichtung des Feststoffraketenmotors zu ändern. Die Unversehrtheit der Verbindung sollte unempfindlich gegen Maßtoleranzen, Montage, Umwelteinflüsse und weiteres sein, und die Qualifizierung sollte mit Versuchen erfolgen, die die Startbedingungen über den gesamten Betriebsbereich einschließlich der Temperatur möglichst genau nachbilden. Außerdem sollte ein unabhängiger Ausschuss des National Research Council die Konstruktion überwachen.",
+        "Empfohlen wurden auch Regeln für das Verhängen und Aufheben von Startbeschränkungen (Launch Constraints) und Maßnahmen, die sicherstellen, dass technische Informationen die Entscheidungsträger vollständig erreichen.",
+        "Die neu konstruierte Verbindung erhielt eine Fangvorrichtung (Capture Feature), die durch Metall-auf-Metall-Überdeckung die Spaltöffnung begrenzt, einen dritten O-Ring, eine Gestaltung, die die O-Ringe stets zusammengedrückt hält (der zusammengedrückte O-Ring füllt nie mehr als 90 % seiner Nut), und einen zusätzlichen Anschluss für Dichtheitsprüfungen nach der Montage; die innere Isolierung wurde statt mit Kitt mit einer Klappe zum Ausgleich von Verformungen (Deflection Relief Flap) abgedichtet.",
+        "An den Montageverbindungen wurden äußere Heizungen mit integrierten Wetterdichtungen angebracht, die die Dichtungen auf mindestens 75 °F (etwa 24 °C) halten."
+      ],
+      "lessons": [
+        "Werkstoffeigenschaften ändern sich stark mit der Temperatur. Bauteile müssen bei der ungünstigsten Temperatur unter praxisnahen Bedingungen geprüft werden.",
+        "Entscheidend für eine Dichtung ist, ob sie unter realen Bedingungen mit einem sich bewegenden Spalt funktioniert, nicht im Ruhezustand.",
+        "Die Tendenz, dass kältere Starts mehr Wärmeschäden an den O-Ringen zeigten, war in den Aufzeichnungen früherer Flüge bereits erkennbar.",
+        "Eine Konstruktion, die auf viele Bedingungen empfindlich reagiert, versagt, sobald eine davon nicht stimmt. Anzustreben sind Konstruktionen, die gegenüber den Bedingungen unempfindlich sind.",
+        "Organisationen brauchen Verfahren, die sicherstellen, dass die Informationen der Ingenieure die Entscheidungsträger vollständig und rechtzeitig erreichen."
+      ],
+      "sources": [
+        "Report of the Presidential Commission on the Space Shuttle Challenger Accident, Volume 1, Chapter III: The Accident (NASA History)",
+        "Derselbe Bericht, Chapter IV: The Cause of the Accident",
+        "Derselbe Bericht, Recommendations",
+        "NASA, Implementation of the Recommendations of the Presidential Commission (1987), Chapter 1",
+        "University of Michigan, Materials Science and Engineering: The Glass Transition of Polymers (Erläuterung eines Demonstrationsversuchs)"
+      ]
+    },
+    "mihama-3": {
+      "title": "Rohrbruch in Mihama Block 3 (2004): Wandabtrag hinter einer Messblende",
+      "description": "Der Rohrbruch im Sekundärkreis von Block 3 des Kraftwerks Mihama (Kansai Electric) 2004 mit fünf Toten aus werkstofftechnischer Sicht: wie Erosionskorrosion die Wand einer Rohrleitung aus unlegiertem Stahl von 10 mm auf 0,4 mm abtrug, nach dem Abschlussbericht der japanischen Atomaufsicht NISA und weiteren Quellen.",
+      "lead": "Am 9. August 2004 brach im Turbinengebäude von Block 3 des Kraftwerks Mihama von Kansai Electric Power eine Kondensatleitung des Sekundärkreises; fünf in der Nähe arbeitende Personen wurden durch austretenden Dampf und heißes Wasser getötet, sechs verletzt. Die Bruchstelle lag hinter einer Durchflussmessblende, wo die Wand der Rohrleitung aus unlegiertem Stahl durch Erosionskorrosion von ursprünglich 10 mm an der dünnsten Stelle auf 0,4 mm abgenommen hatte. Diese Stelle hatte von Anfang an in der Liste der Wanddickenprüfungen gefehlt.",
+      "facts": [
+        [
+          "Datum",
+          "9. August 2004, gegen 15:28 Uhr"
+        ],
+        [
+          "Ort",
+          "Turbinengebäude von Block 3 des Kraftwerks Mihama, Kansai Electric Power Co., Japan"
+        ],
+        [
+          "Rohrleitung",
+          "Kondensatleitung des Sekundärkreises (Strang A, vom Niederdruck-Speisewasservorwärmer Nr. 4 zum Entgaser), hinter einer Durchflussmessblende. Unlegierter Stahl (SB42), Außendurchmesser 558,8 mm, Nennwanddicke 10 mm"
+        ],
+        [
+          "Betriebszustand",
+          "Etwa 140 °C, 0,93 MPa, Durchfluss 1700 m³/h (Auslegungsbedingungen 195 °C, 1,27 MPa)"
+        ],
+        [
+          "Wanddicke",
+          "0,4 mm an der dünnsten Stelle der Bruchstelle (nach technischer Norm erforderliche Mindestwanddicke: 4,7 mm)"
+        ],
+        [
+          "Opfer",
+          "5 Tote, 6 Verletzte"
+        ],
+        [
+          "Untersuchung",
+          "Nuclear and Industrial Safety Agency (NISA), Abschlussbericht zum Bruch der Sekundärkreisleitung in Block 3 des Kraftwerks Mihama, 30. März 2005"
+        ]
+      ],
+      "happened": [
+        "Der Unfall ereignete sich während der Vorbereitungen zur 21. wiederkehrenden Prüfung des Blocks, als insgesamt 105 Personen im Gebäude arbeiteten. Arbeiter in der Nähe der gebrochenen Leitung wurden von austretendem Dampf und heißem Wasser getroffen. Der Reaktor schaltete sich wegen des Lecks im Sekundärkreis automatisch ab.",
+        "Die Bruchöffnung maß in Achsrichtung etwa 515 mm und in Umfangsrichtung etwa 930 mm. Der Riss soll zuerst in Achsrichtung und danach in Umfangsrichtung gewachsen sein. Nach einer Information Notice der U.S. Nuclear Regulatory Commission (NRC) war die Leitung von Strang B an derselben Stelle 1,8 mm dick."
+      ],
+      "chainTitle": "Mihama Block 3: die Ursachenkette aus werkstofftechnischer Sicht",
+      "chain": [
+        {
+          "lines": [
+            "Eine Messblende schnürt die",
+            "Strömung ein"
+          ],
+          "sub": [
+            "Turbulente Strömung dahinter"
+          ]
+        },
+        {
+          "lines": [
+            "Wasser mit 140 °C strömt über",
+            "unlegierten Stahl"
+          ],
+          "sub": [
+            "Die schützende Oxidschicht löst sich"
+          ]
+        },
+        {
+          "lines": [
+            "Erosionskorrosion"
+          ],
+          "sub": [
+            "10 mm → an der dünnsten Stelle 0,4 mm"
+          ]
+        },
+        {
+          "lines": [
+            "Fehlt in der Prüfliste"
+          ],
+          "sub": [
+            "Die Wanddickenabnahme bleibt",
+            "unbemerkt"
+          ]
+        },
+        {
+          "lines": [
+            "Weit unter den erforderlichen",
+            "4,7 mm"
+          ],
+          "sub": [
+            "Die Leitung hält den Druck nicht"
+          ]
+        },
+        {
+          "lines": [
+            "Die Leitung bricht, Dampf tritt aus"
+          ]
+        }
+      ],
+      "mechanism": [
+        "Der Abschlussbericht kam zu dem Schluss, dass die Rohrwand im Betrieb durch sogenannte Erosionskorrosion allmählich dünner wurde, bis die Festigkeit nicht mehr ausreichte und sie brach. Die Messblende schnürte die Strömung ein, sodass die Rohrwand dahinter turbulenter Strömung ausgesetzt war. In der Kerntechnik wird diese Erscheinung auch strömungsbeschleunigte Korrosion (FAC) genannt. Die NRC stellte fest, dass die Innenfläche der Bruchstelle ein fischschuppenartiges Muster zeigte, während der Rohrboden seine Nenndicke behalten hatte, und bezeichnete dies als typisch für strömungsbeschleunigte Korrosion.",
+        "Strömungsbeschleunigte Korrosion schreitet fort, indem sich Eisenoxid auf der Oberfläche von unlegiertem Stahl im strömenden Wasser löst und von der turbulenten Strömung abtransportiert wird. Nach einem vom britischen Institute of Corrosion veröffentlichten Vortrag ändert sich die Abtragsrate glockenförmig mit der Temperatur (Maximum bei etwa 140–160 °C in einphasiger Wasserströmung), ist bei niedrigerem pH-Wert höher und nimmt mit steigendem Chromgehalt des Stahls ab.",
+        "Die Bruchstelle fehlte bereits in der Liste, die Mitsubishi Heavy Industries 1990 nach den PWR-Richtlinien für das Wanddickenmanagement als Prüfplan erstellt hatte; deshalb blieb unbemerkt, dass die Wanddicke über die zulässige Grenze hinaus abgenommen hatte. Solche Registrierungslücken gab es in Block 3 von Mihama an 3 Stellen und in den 11 Blöcken von Kansai Electric an 42 Stellen. Das japanische Weißbuch zur Kernenergie nennt als grundlegende Ursache einen Fehler im Wanddickenmanagement der wichtigsten Sekundärkreisleitungen, an dem drei Unternehmen (Kansai Electric, Mitsubishi Heavy Industries und Nihon Arm) beteiligt waren: Zu überwachende Stellen fehlten in der ursprünglichen Liste und wurden bis zum Unfall nicht nachgetragen."
+      ],
+      "clues": [
+        "Die Wand an der Bruchstelle war örtlich auf 0,4 mm abgetragen",
+        "Die Innenfläche zeigte ein fischschuppenartiges Muster (NRC)",
+        "Hinter der Messblende war die Strömung gestört",
+        "Die Rohrleitung bestand aus unlegiertem Stahl",
+        "Es strömte Wasser mit etwa 140 °C",
+        "Der Block war seit 1976 in Betrieb"
+      ],
+      "presetNote": "Öffnet man den Navigator mit diesen Merkmalen, steht die strömungsbedingte Wanddickenabnahme an der Spitze.",
+      "changes": [
+        "Die Richtlinien für das Wanddickenmanagement von Rohrleitungen in Druckwasserreaktoranlagen (PWR-Richtlinien) wurden überarbeitet und die Verfahren präzisiert.",
+        "Die Regierung beauftragte die Japan Society of Mechanical Engineers (JSME), eine Norm für das Wanddickenmanagement von Rohrleitungen zu erarbeiten, und wollte diese zügig als Grundlage der Sicherheitsaufsicht nutzen. Die JSME gab die Rules on Pipe Wall Thinning Management (JSME S CA1-2005) und 2006 technische Regeln für das Wanddickenmanagement in Druck- und Siedewasserreaktoranlagen (JSME S NG1-2006, JSME S NH1-2006) heraus.",
+        "Die Durchführungsverordnung zum Elektrizitätswirtschaftsgesetz wurde geändert, um Umfang und Verfahren der wiederkehrenden Prüfungen durch den Betreiber zu präzisieren.",
+        "Der Betreiber ergriff Maßnahmen gegen eine Wiederholung, etwa die Verankerung seiner Unternehmensgrundsätze und eine Umorganisation, und der Hersteller überarbeitete seine Maßnahmen gegen Registrierungslücken und sein Qualitätssicherungssystem."
+      ],
+      "lessons": [
+        "Wanddickenabnahme ist örtlich begrenzt und schwer vorherzusagen. Messen Sie vorrangig dort, wo die Strömung gestört ist, etwa hinter Messblenden und T-Stücken.",
+        "Jede zu prüfende Stelle muss erfasst sein, und es braucht ein Verfahren, um Lücken zu finden und zu beheben. Hier blieb die ursprüngliche Lücke über mehr als ein Jahrzehnt bis zum Unfall bestehen.",
+        "Schon ein geringer Chromgehalt im Stahl verlangsamt die strömungsbeschleunigte Korrosion. Der Austausch einer Rohrleitung ist eine Gelegenheit, den Werkstoff neu zu wählen.",
+        "Derselbe Schaden tritt auch in Wärmekraftwerken und petrochemischen Anlagen auf; Gegenmaßnahmen müssen daher branchenübergreifend ausgetauscht werden."
+      ],
+      "sources": [
+        "Nuclear and Industrial Safety Agency, Abschlussbericht zum Bruch der Sekundärkreisleitung in Block 3 des Kraftwerks Mihama von Kansai Electric Power, 30. März 2005 (japanisch; Sitzungsunterlage der Atomenergiekommission)",
+        "Atomenergiekommission Japans, Weißbuch zur Kernenergie (Abschnitt zum Unfall in Block 3 von Mihama; japanisch)",
+        "U.S. NRC, Information Notice 2006-08: Secondary Piping Rupture at the Mihama Power Station in Japan",
+        "JSME, Geschichte des Normenprogramms für Kraftwerksanlagen (japanisch)",
+        "Failure Knowledge Database: Steam Eruption from Nuclear Power Plant Cooling System",
+        "R. Beheshty, Flow Accelerated Corrosion: Synergistic effects of the influencing parameters (Institute of Corrosion)"
+      ]
+    }
+  }
+}
