@@ -1,0 +1,693 @@
+{
+  "navi": {
+    "title": "Failure Analysis Guide: Narrow Down Why a Part Broke",
+    "description": "Answer questions about the fracture surface, deformation, loading, temperature, environment, material and service life to rank 13 candidate failure modes, from fatigue and brittle fracture to SCC, hydrogen embrittlement and creep, with the clues behind each.",
+    "h1": "Failure Analysis Guide",
+    "lead": "Faced with a broken part, start by looking closely at the fracture surface and at how the part was used. Answer the questions below and the candidate failure modes are ranked, each with the clues that support it. Leave any question you cannot answer as “Don’t know”. Your answers are kept in the URL, so you can share them as a link.",
+    "note": "This guide only ranks candidates with a fixed scoring table that links clues to failure modes; it does not diagnose the cause. Points are not probabilities and grow with the number of clues you select. A real failure analysis combines fractography, metallography, chemical analysis, hardness and stress analysis, and checks whether several modes acted together.",
+    "faq": [
+      ["If the fracture surface shows beach marks, is it definitely fatigue?", "Beach marks are a strong clue, but not proof on their own. They also appear in corrosion fatigue and thermal fatigue, and stress corrosion cracking can look similar to fatigue. Consider whether the load was cyclic and what the environment was, and look for striations in the scanning electron microscope. Bear in mind that the absence of striations does not rule out fatigue."],
+      ["Can an intergranular fracture surface alone identify the cause?", "No. Intergranular fractures from hydrogen embrittlement, stress corrosion cracking, liquid metal embrittlement, creep and temper embrittlement often look very similar. Tell them apart using the material’s strength, the temperature and time, the corrosive environment, any contact with molten metal and the manufacturing history such as plating or welding."],
+      ["Why can the origin and the final fracture look so different?", "Because the mechanism that starts a crack and grows it slowly is often different from the one that finally breaks the remaining section. A few-millimetre crack grown by stress corrosion, for example, can reach critical size in a low-toughness steel at low temperature and finish as a brittle fracture. Do not judge from the final fracture alone; examine the origin at high magnification."],
+      ["Can I use this guide’s result as the cause in an incident report?", "No. The guide is a learning tool for organizing what you observe and deciding what to check next. Determining a cause requires properly preserved specimens, fractography, metallography, chemical analysis, mechanical testing and stress analysis, brought together by specialists."]
+    ],
+    "questions": {
+      "f": {
+        "label": "Fracture surface and crack features",
+        "help": "Select everything that applies, from what you can see by eye, with a magnifier or stereo microscope, and from scanning electron microscope (SEM) or cross-section observations.",
+        "options": {
+          "bm": "Beach marks (shell-like bands spreading from the origin)",
+          "rm": "Ratchet marks (steps along the edge; several origins)",
+          "ch": "Chevrons (V-shaped marks) or radial marks pointing to the origin",
+          "dm": "Dimples (tiny cups) all over the surface in the SEM",
+          "cl": "Flat, shiny facets (cleavage) or river patterns",
+          "st": "Striations (fine parallel lines) in the SEM",
+          "ig": "Intergranular surface showing the shapes of grains",
+          "br": "Fine, branching cracks in cross section",
+          "mc": "Many surface cracks in a network, filled with oxide",
+          "cv": "Many grain-boundary voids or wedge cracks near the fracture",
+          "pit": "Pits or corrosion products at the origin",
+          "wr": "No crack, but scratches, worn surfaces or transferred material",
+          "thin": "Inner surface scalloped like fish scales or orange peel, and thinned",
+          "cz": "Fine crazes or whitening in a plastic",
+          "lm": "Another metal (zinc, solder…) on the fracture surface or grain boundaries"
+        }
+      },
+      "d": {
+        "label": "Deformation at the fracture",
+        "help": "Fit the pieces together and look for gaps, necking, bending or stretching.",
+        "options": {
+          "lg": "Large (necking, bending or stretching)",
+          "sm": "Slight",
+          "no": "Almost none (the pieces fit together closely)",
+          "sw": "Slow bulging or stretching over a long time",
+          "lost": "Material was lost before it broke (wall thinning or wear)"
+        }
+      },
+      "l": {
+        "label": "Loading",
+        "help": "Choose the closest description of how the part was used.",
+        "options": {
+          "st": "Steady load (self-weight, internal pressure, bolt preload…)",
+          "cy": "Cyclic load (vibration, rotation, changing pressure or load)",
+          "im": "Impact or a sudden large load",
+          "th": "Repeated heating and cooling (start-ups and shutdowns, quenching)",
+          "rs": "Little external load (residual stress from welding, bending or press fits)",
+          "sl": "Sliding, rubbing or rolling against another surface"
+        }
+      },
+      "t": {
+        "label": "Service temperature",
+        "help": "Consider both the temperature when it broke and its usual operating temperature.",
+        "options": {
+          "lo": "Low (below about 0 °C)",
+          "rt": "Around room temperature",
+          "md": "Moderate (about 60–300 °C; hot-water or steam piping)",
+          "hi": "High (above about 0.4 of the absolute melting point; roughly 450 °C or more for steel)"
+        }
+      },
+      "e": {
+        "label": "Environment",
+        "help": "Select everything the part was exposed to, in service and during manufacture (plating, welding and so on).",
+        "options": {
+          "dry": "Dry air",
+          "wet": "Water, humidity or condensation",
+          "cl": "Chlorides (seawater, salt, de-icing salts)",
+          "h2": "Hydrogen sources (pickling, electroplating, welding, cathodic protection, hydrogen gas)",
+          "alk": "Strong alkalis or ammonia",
+          "gas": "Hot gases (combustion gases, hot air)",
+          "lmet": "Molten metal (hot-dip galvanizing, solder, braze, mercury)",
+          "flow": "Fast flow, droplets or particle-laden flow",
+          "chem": "Oils, solvents or detergents (surfactants)"
+        }
+      },
+      "m": {
+        "label": "Material",
+        "help": "Choose the closest match to the material of the failed part.",
+        "options": {
+          "hss": "High-strength steel (quenched-and-tempered high-strength bolts, springs…)",
+          "cs": "Ordinary carbon or low-alloy steel",
+          "ss": "Austenitic stainless steel",
+          "al": "Aluminum alloy",
+          "cu": "Copper alloy (brass…)",
+          "ni": "Heat-resistant alloy (nickel-base superalloy…)",
+          "pl": "Plastic",
+          "rb": "Rubber or elastomer (seals, O-rings…)",
+          "cer": "Ceramic or glass"
+        }
+      },
+      "p": {
+        "label": "Time to failure",
+        "help": "How long it lasted from the start of service (or manufacture) until it broke.",
+        "options": {
+          "new": "Immediately, during manufacture or at the first large load",
+          "mid": "Hours to months",
+          "long": "Years or more"
+        }
+      }
+    },
+    "combos": {
+      "e.cl+m.ss": "Chlorides × austenitic stainless steel",
+      "e.alk+m.cu": "Ammonia or alkali × copper alloy (season cracking)",
+      "e.alk+m.cs": "Strong alkali × carbon steel (caustic embrittlement)",
+      "e.h2+m.hss": "Hydrogen source × high-strength steel",
+      "l.cy+e.cl": "Cyclic load × chlorides",
+      "l.cy+e.wet": "Cyclic load × water or humidity",
+      "e.flow+m.cs": "Fast flow × carbon steel",
+      "e.lmet+p.new": "Molten metal × during manufacture or early service",
+      "m.rb+t.lo": "Rubber or elastomer × low temperature",
+      "m.pl+e.chem": "Plastic × oils, solvents or detergents",
+      "m.pl+t.lo": "Plastic × low temperature",
+      "m.pl+d.sw": "Plastic × slow stretching over a long time (plastics creep even at room temperature)"
+    },
+    "modes": {
+      "ductile": {
+        "name": "Ductile overload fracture",
+        "abbr": "Ductile",
+        "short": "A load beyond the material’s strength is applied at once, and the part deforms heavily before tearing apart. Tiny voids form inside the material, grow and link up.",
+        "look": [
+          "The fracture shows large plastic deformation such as necking or bending. A round bar pulled in tension gives a cup-and-cone fracture with shear lips slanted at about 45° at the edge.",
+          "In the scanning electron microscope (SEM), the surface is covered with tiny cups called dimples. Tension produces round, equiaxed dimples; shear produces dimples elongated in one direction."
+        ],
+        "tests": [
+          "Measure the dimensions and hardness of the broken part and compare the applied load with the part’s strength (tensile strength or 0.2% proof stress).",
+          "Run tensile and hardness tests on material from the same lot to confirm it met the specified strength, ruling out mixed-up material or faulty heat treatment.",
+          "Use stress analysis to check whether a load beyond the design assumptions was applied."
+        ],
+        "confusions": [
+          "The final fracture zone of a fatigue failure that has grown large is also ductile and dimpled. Do not conclude overload from the last zone alone; look for beach marks or striations around the origin."
+        ],
+        "measures": {
+          "material": "Choose a material and heat treatment with the required strength and ductility.",
+          "design": "Provide a margin against the largest expected load and avoid stress concentrations such as abrupt changes in section.",
+          "environment": "Review how the part is used, and add protective devices that stop overloads.",
+          "manufacturing": "Prevent low strength from mixed-up material or faulty heat treatment through incoming and in-process inspection."
+        }
+      },
+      "brittle": {
+        "name": "Brittle fracture",
+        "abbr": "Brittle",
+        "short": "A crack runs fast and the part breaks with almost no deformation. In steel it is favored by low temperature, notches or cracks, impact and low-toughness microstructures; ceramics and glass normally fail this way.",
+        "look": [
+          "The fracture surface is flat and roughly perpendicular to the load. There is no obvious deformation, and the pieces fit back together well.",
+          "Fractures of plates and walls show chevrons (V-shaped marks) or radial marks; following their direction leads back to the origin.",
+          "In the SEM you see flat cleavage facets, where the crystal split along specific planes, and river patterns. Fracture can also follow grain boundaries, for example in temper embrittlement, where impurities segregate to the boundaries.",
+          "In ceramics and glass, a smooth area called the fracture mirror forms around the origin, and its size can be used to estimate the fracture stress (ASTM C1678)."
+        ],
+        "tests": [
+          "Use Charpy impact tests to find the absorbed energy at the service temperature and the ductile-to-brittle transition temperature.",
+          "Measure the fracture toughness K_IC and calculate K = Yσ√(πa) from the crack size found and the stress to check whether the fracture condition was reached.",
+          "Examine the microstructure and chemistry for factors that lower toughness: coarse grains, impurities segregated to grain boundaries, or hardening in a weld heat-affected zone."
+        ],
+        "confusions": [
+          "Even when the final fracture is brittle, the origin may be a small crack grown by fatigue or stress corrosion that simply reached critical size (as in the Silver Bridge collapse). Examine the origin at high magnification.",
+          "Ferritic (body-centered cubic) steels become brittle abruptly at low temperature, but aluminum, copper and nickel alloys and austenitic stainless steels (face-centered cubic) show no clear transition."
+        ],
+        "measures": {
+          "material": "Choose steel with enough toughness (Charpy energy, fracture toughness) at the service temperature, and refine its grain size.",
+          "design": "Avoid notches and abrupt changes in section, and design so that the whole member yields before a crack can cause fracture (yield before fracture).",
+          "environment": "Avoid impact loading below the ductile-to-brittle transition temperature.",
+          "manufacturing": "Inspect welds for defects and hardening, and control welding conditions to avoid low-toughness heat-affected zones."
+        }
+      },
+      "fatigue": {
+        "name": "Fatigue",
+        "abbr": "Fatigue",
+        "short": "Even at stresses below the yield stress, repeated loading starts a crack that grows a little at a time until the remaining section breaks suddenly. It is one of the most common ways machine parts fail.",
+        "look": [
+          "To the eye, beach marks (shell-like bands) spread out from the origin. They record stops in operation and changes in load.",
+          "When there are several origins, ratchet marks (steps along the edge) appear between them.",
+          "The region where the crack grew is smooth, has no shear lip and may be discolored. The final fracture zone is rough.",
+          "In the SEM you see striations, each marking roughly one cycle of crack advance. They are clear in aluminum alloys and may be indistinct in high-strength steels.",
+          "Origins are often at places where stress concentrates: surface scratches and notches, weld toes and inclusions."
+        ],
+        "tests": [
+          "Record the location and size of the origin, beach marks and final fracture zone under a stereo microscope, and look for striations in the SEM.",
+          "Estimate the crack growth rate and the stress intensity range ΔK from striation spacing, and work back to the stress the part saw.",
+          "Measure surface roughness, hardness and residual stress (by X-ray diffraction) at the origin.",
+          "Estimate the size and number of stress cycles by measuring loads or analyzing vibration."
+        ],
+        "confusions": [
+          "Missing striations do not rule out fatigue. They are hard to see where the crack grew slowly, and rubbing between the fracture faces or corrosion can erase them.",
+          "Stress corrosion cracking can look similar to fatigue. Decide by whether the load was cyclic and whether a specific corrosive environment was present.",
+          "Do not judge overload or brittle fracture from dimples or cleavage in the final fracture zone alone."
+        ],
+        "measures": {
+          "material": "Choose materials with high fatigue strength, such as clean steels with few inclusions.",
+          "design": "Reduce stress concentrations from notches and abrupt changes in section, and lower the stress amplitude and tensile mean stress (assessed with a modified Goodman diagram).",
+          "environment": "Corrosion lowers fatigue strength, so protect against it.",
+          "manufacturing": "Introduce compressive residual stress at the surface by shot peening, carburizing or nitriding, reduce surface damage, and improve the shape of weld toes."
+        }
+      },
+      "corrfat": {
+        "name": "Corrosion fatigue",
+        "abbr": "Corr. fatigue",
+        "short": "Cyclic stress and a corrosive environment act together, so fatigue cracks start and grow at lower stresses and in fewer cycles than in air. Unlike stress corrosion cracking, it does not need a specific material–environment combination.",
+        "look": [
+          "Beach marks and ratchet marks appear as in fatigue, with pits or corrosion products at the origin.",
+          "Many small cracks can start from pits and join into a larger crack.",
+          "The fracture surface may be covered with corrosion products that hide the striations, or show brittle striations: lines across flat facets."
+        ],
+        "tests": [
+          "Analyze the corrosion products at the origin and on the fracture surface (by EDS, for example) for constituents of the environment such as chloride.",
+          "Run fatigue tests in the actual environment. In seawater and similar environments, life can drop sharply at lower cycling frequencies, so test at realistic frequencies."
+        ],
+        "confusions": [
+          "A fatigue limit no longer appears in a corrosive environment, so a part designed below its fatigue limit in air can still fail.",
+          "Stress corrosion cracking can grow under a steady load, whereas corrosion fatigue needs cyclic loading. Use the type of load to tell them apart."
+        ],
+        "measures": {
+          "material": "Choose a material with good corrosion resistance in that environment, or use a protective coating.",
+          "design": "Avoid crevices and pockets where water collects, and lower the stress amplitude.",
+          "environment": "Control corrosion with paint, plating, cathodic protection or water chemistry control.",
+          "manufacturing": "Introduce compressive surface residual stress by shot peening, and inspect to keep coatings free of damage."
+        }
+      },
+      "scc": {
+        "name": "Stress corrosion cracking",
+        "abbr": "SCC",
+        "short": "Cracking that grows at stresses below the yield stress when a susceptible material under tensile stress (residual stress is enough) is exposed to a specific corrosive environment. It needs all three: material, stress and environment.",
+        "look": [
+          "Fine cracks grow with branches. From outside there is little sign of corrosion and only a small crack shows at the surface, so it is hard to find.",
+          "Chloride cracking of austenitic stainless steel usually runs through the grains (transgranular), while season cracking of brass in ammonia and cracking of sensitized stainless steel usually follow grain boundaries (intergranular); the crack path is a clue.",
+          "There is no large deformation at the fracture, and the cracks or the fracture surface may be discolored by corrosion products."
+        ],
+        "tests": [
+          "Polish and etch a cross section and look under an optical microscope for branching and for a transgranular or intergranular path.",
+          "Check susceptibility in the environment with U-bend, constant-load or slow strain rate tests (SSRT). Austenitic stainless steels are often tested in boiling 42% magnesium chloride.",
+          "Measure tensile residual stress from welding or bending by X-ray diffraction."
+        ],
+        "confusions": [
+          "It can look similar to fatigue. Tell them apart by whether the load was cyclic and whether a specific environment was present.",
+          "Intergranular fractures from hydrogen embrittlement, liquid metal embrittlement and creep look similar.",
+          "When cracking is driven by hydrogen produced by corrosion, cathodic protection can make it worse, the opposite of cracking that grows by dissolving metal."
+        ],
+        "measures": {
+          "material": "Switch to higher-nickel grades or duplex stainless steels, or use a crack-resistant heat treatment such as the overaged T73 temper of aluminum alloy 7075.",
+          "design": "Reduce tensile residual stress and stress concentrations, and avoid crevices and pockets where chloride can concentrate.",
+          "environment": "Reduce chloride and dissolved oxygen, lower the temperature, and use inhibitors. Chloride cracking of austenitic stainless steel is generally considered likely above about 60 °C.",
+          "manufacturing": "Lower tensile residual stress with stress-relief annealing or shot peening. Stress-relief annealing is widely used for carbon steel but is often ineffective for austenitic stainless steel."
+        }
+      },
+      "hydrogen": {
+        "name": "Hydrogen embrittlement",
+        "abbr": "Hydrogen",
+        "short": "Hydrogen that has entered steel or another metal gathers where tensile stress is high and makes the material brittle, so it cracks some time after being loaded (delayed fracture). The stronger the steel, the more likely it is.",
+        "look": [
+          "There is almost no deformation at the fracture, and in high-strength steel the fracture often follows grain boundaries.",
+          "It breaks suddenly after some time under a steady load or bolt preload.",
+          "In welds, cold cracking (hydrogen cracking) can appear in the heat-affected zone some time after welding."
+        ],
+        "tests": [
+          "Measure hardness or strength. Steels with a yield strength below about 600 MPa are considered unlikely to suffer, while above about 1000 MPa it is likely to be a major problem.",
+          "Investigate the manufacturing history (pickling, electroplating, welding) and hydrogen sources in service (corrosion, cathodic protection).",
+          "Compare charged and uncharged specimens in sustained-load or slow strain rate tests."
+        ],
+        "confusions": [
+          "It overlaps with stress corrosion cracking, but hydrogen embrittlement can occur without a corrosive environment, from hydrogen introduced by plating or welding.",
+          "Cracking after hot-dip galvanizing raises the suspicion of both liquid metal embrittlement and hydrogen, so check for both."
+        ],
+        "measures": {
+          "material": "Do not raise strength (hardness) more than needed. Austenitic steels take up hydrogen more slowly by diffusion, so they take much longer to become embrittled.",
+          "design": "Review high-strength bolt preloads and stress concentrations to reduce sustained tensile stress.",
+          "environment": "Control the potential of cathodic protection so that overprotection does not generate hydrogen.",
+          "manufacturing": "After pickling or electroplating, bake at about 200 °C for a few hours to drive out hydrogen. When welding, slow the cooling with preheating and post-heating to let hydrogen escape."
+        }
+      },
+      "creep": {
+        "name": "Creep rupture",
+        "abbr": "Creep",
+        "short": "At high temperature (above about 0.4 of the absolute melting point), a steady load applied for a long time makes the part deform progressively until grain-boundary voids and cracks join up and it ruptures.",
+        "look": [
+          "Cross sections near the fracture show many grain-boundary voids (cavities) and wedge cracks growing from grain triple points.",
+          "Grain boundaries are where creep deformation and damage progress fastest, so cracks often follow them.",
+          "Because creep is deformation that increases with time, it may show as bulging of a tube or stretching of a member before rupture."
+        ],
+        "tests": [
+          "Run creep rupture tests at the service temperature and stress, and estimate life by trading temperature against time with the Larson–Miller parameter.",
+          "Use operating records to find the actual metal temperature (was there overheating?), and infer the temperature history from microstructural changes such as precipitate coarsening."
+        ],
+        "confusions": [
+          "An intergranular fracture alone is hard to distinguish from hydrogen embrittlement or stress corrosion cracking, so treat temperature and time as the most important clues.",
+          "If the temperature also cycles, consider thermal fatigue and combined creep and fatigue (thermomechanical fatigue).",
+          "Plastics have low melting points, so they can creep, stretch and eventually crack under long-term load even at room temperature. This guide mainly covers high-temperature creep of metals, but suspect creep if a plastic part stretched slowly over a long time."
+        ],
+        "measures": {
+          "material": "Choose materials with high high-temperature strength such as nickel-base superalloys. Because grain boundaries are a weak point in creep, directionally solidified columnar grains or single crystals can remove boundaries perpendicular to the stress.",
+          "design": "Lower the service temperature and stress, and allow a life margin using the Larson–Miller parameter or similar.",
+          "environment": "Prevent overheating, and lower metal temperatures with thermal barrier coatings and the like.",
+          "manufacturing": "Carry out solution and aging heat treatments correctly to obtain the intended precipitate structure."
+        }
+      },
+      "thermfat": {
+        "name": "Thermal fatigue",
+        "abbr": "Thermal fat.",
+        "short": "Fatigue caused by repeated heating and cooling: parts that are constrained and cannot expand and contract freely see cyclic thermal stress, and many cracks start at the surface and grow.",
+        "look": [
+          "Many cracks form on the surface that is quenched, giving a crazed, networked look.",
+          "The cracks are wide, start at the surface and are often filled with oxide from high-temperature exposure. They are dagger-shaped and run through the grains.",
+          "Cracks often follow weld toes and places where the section thickness changes."
+        ],
+        "tests": [
+          "Use operating records to count start-ups and shutdowns and the rates of temperature change, and estimate the thermal stress from differences in expansion and temperature.",
+          "Because the cracks usually connect to the surface, look for them by magnetic particle or penetrant testing."
+        ],
+        "confusions": [
+          "Many shallow cracks are easily mistaken for corrosion cracking. Check whether they concentrate on the quenched surface and run perpendicular to the thermal stress."
+        ],
+        "measures": {
+          "material": "Reduce the difference in thermal expansion between joined materials, and choose materials with low expansion and good thermal conductivity.",
+          "design": "Use flexible supports that allow expansion and contraction, and make welds and changes in section smooth.",
+          "environment": "Control heating and cooling rates during start-ups and shutdowns, and keep cold water off hot components.",
+          "manufacturing": "Grind weld toes smooth to reduce stress concentration."
+        }
+      },
+      "lme": {
+        "name": "Liquid metal embrittlement",
+        "abbr": "LME",
+        "short": "A solid metal wetted by a molten metal (zinc, copper, tin, mercury, gallium…) loses much of its ductility or fracture stress under tensile stress and cracks along grain boundaries. It is a well-known cause of cracking during hot-dip galvanizing.",
+        "look": [
+          "The part cracks with almost no deformation while in contact with molten metal. In hot-dip galvanized steel, intergranular cracks form beneath the zinc layer.",
+          "Grain boundaries on the fracture surface are covered with zinc or another embrittling metal.",
+          "Well-known couples include aluminum with gallium or mercury, steel with zinc, copper or tin, and copper alloys with mercury."
+        ],
+        "tests": [
+          "Analyze the fracture surface and the inside of cracks with SEM and EDS or EPMA to find the embrittling metal.",
+          "Check in cross section whether the cracks follow grain boundaries and how far the metal has penetrated.",
+          "Review plating and welding conditions, forming conditions, residual stress and the steel’s chemical composition."
+        ],
+        "confusions": [
+          "Because the fracture is intergranular, it is easily mistaken for stress corrosion cracking or hydrogen embrittlement. Check the history of contact with molten metal.",
+          "Cracking after plating can also be caused by hydrogen absorbed by the steel, so investigate both."
+        ],
+        "measures": {
+          "material": "When choosing steel, watch for elements such as copper and tin that segregate to grain boundaries and promote cracking.",
+          "design": "Use shapes that do not concentrate tensile residual stress from cold bending or welding.",
+          "environment": "Keep molten metals such as solder or mercury away from the part in service.",
+          "manufacturing": "Control forming and welding before plating, and the conditions of the plating operation itself."
+        }
+      },
+      "wear": {
+        "name": "Wear",
+        "abbr": "Wear",
+        "short": "Damage in which material is gradually lost from surfaces that slide, roll or rub against each other. Types include adhesive wear, abrasive wear, fretting and rolling contact fatigue.",
+        "look": [
+          "When hard particles or asperities cut the surface (abrasive wear), scratches line up in the sliding direction.",
+          "When metals bond and the junctions shear (adhesive wear), material is transferred to the counterface or torn from the surface.",
+          "The part does not crack; its dimensions shrink."
+        ],
+        "tests": [
+          "Examine the worn surfaces for the direction of scratches and the shape and composition of wear debris, and compare the surface hardness with that of the counterface and any contaminating particles.",
+          "Measure wear volume in pin-on-disk or similar tests and compare materials and conditions with Archard’s equation V = KWL/H."
+        ],
+        "confusions": [
+          "A section thinned by wear may finally crack, so check not just the crack but whether the dimensions had already shrunk.",
+          "Wall thinning of piping in flowing fluid (erosion–corrosion) is a different mechanism with no contacting counterpart, and needs different countermeasures."
+        ],
+        "measures": {
+          "material": "Make the surface at least as hard as the abrasive particles (carburizing, nitriding, hard coatings…).",
+          "design": "Lower the contact pressure and sliding speed.",
+          "environment": "Move lubrication toward the hydrodynamic regime (see the Stribeck curve) and keep sand and other contaminants out.",
+          "manufacturing": "Control surface roughness and finish so that asperities are less likely to touch through the oil film."
+        }
+      },
+      "fac": {
+        "name": "Flow-induced wall thinning (erosion–corrosion)",
+        "abbr": "Thinning",
+        "short": "In fast-flowing water or steam, the protective oxide film on carbon steel dissolves and is carried away by the flow, so the wall gets gradually thinner. The nuclear industry also calls it flow-accelerated corrosion (FAC). Eventually the pipe cannot hold its internal pressure and bursts.",
+        "look": [
+          "The inner surface is scalloped like fish scales or orange peel and thinned locally.",
+          "Thinning occurs where flow is disturbed, such as downstream of orifices, elbows and tees.",
+          "The area around the rupture is very thin, and the thinned wall tears open under internal pressure."
+        ],
+        "tests": [
+          "Measure wall thickness with an ultrasonic gauge and estimate the thinning rate and remaining life from the change since the previous measurement.",
+          "Analyze the chromium content of the steel (even a little chromium slows thinning).",
+          "Review water chemistry (pH, dissolved oxygen) and records of temperature and flow. In single-phase water flow, thinning is reported to be fastest at about 140–160 °C."
+        ],
+        "confusions": [
+          "Thinning is local and, unlike general corrosion, cannot be predicted from an average corrosion rate.",
+          "Liquid droplet impingement erosion from droplets in steam also thins walls, but it occurs in different places and needs different countermeasures."
+        ],
+        "measures": {
+          "material": "Replace with chromium-containing low-alloy steel (Cr–Mo steel with at least 1.25% Cr) or stainless steel.",
+          "design": "Reduce complex geometry that disturbs the flow.",
+          "environment": "Keep the pH mildly alkaline and control dissolved oxygen.",
+          "manufacturing": "Register every location to be inspected, with no omissions, and measure the thickness first where flow is disturbed."
+        }
+      },
+      "polycold": {
+        "name": "Loss of elasticity and embrittlement of polymers at low temperature",
+        "abbr": "Cold polymer",
+        "short": "As a polymer cools toward and below its glass transition temperature, molecular motion freezes and it loses its rubbery softness. A rubber seal then recovers slowly after being squeezed and may fail to close a gap; a plastic becomes brittle and cracks easily.",
+        "look": [
+          "A rubber seal may show traces of leakage through the gap or heat damage (charring, erosion) even without cracking.",
+          "A plastic part may break with almost no deformation below its glass transition temperature, where its molecules can barely move (polypropylene, for example, has a glass transition at about −20 to 0 °C)."
+        ],
+        "tests": [
+          "Measure how fast the rubber returns to its original shape after compression (resilience) at the service temperature.",
+          "Measure the glass transition temperature and compare it with the lowest service temperature.",
+          "Test over the full service range, including the lowest temperature, in conditions as close to the real part as possible."
+        ],
+        "confusions": [
+          "A seal failure leaves no crack or fracture surface, so it may not be recognized as a materials problem.",
+          "Polymer properties depend on time and temperature: lowering the temperature has the same effect as measuring over a shorter time (faster deformation). Following fast movements becomes even harder at low temperature."
+        ],
+        "measures": {
+          "material": "Choose a material whose glass transition temperature is well below the lowest service temperature.",
+          "design": "Make the design insensitive to variations in temperature and dimensions, so the seal can follow a moving gap.",
+          "environment": "Keep the part warm with heaters, or set temperature limits for launch or operation.",
+          "manufacturing": "Qualify the part with tests close to real use across the whole service range, including low temperature."
+        }
+      },
+      "esc": {
+        "name": "Environmental stress cracking of plastics",
+        "abbr": "ESC",
+        "short": "When a plastic under tensile stress (residual stress is enough) contacts a liquid such as an oil, solvent or detergent (surfactant), crazes and cracks form at stresses far below normal. It resembles stress corrosion cracking of metals and is a particular problem for amorphous (glassy) plastics such as polycarbonate.",
+        "look": [
+          "Several fine crazes or cracks start where stress is high, from bending, clamping or press fits, and one of them grows into the failure.",
+          "The area near the crack may turn whitish (stress whitening).",
+          "The plastic breaks in a brittle way with little deformation."
+        ],
+        "tests": [
+          "Bend and hold a specimen, apply the liquid, and record the time or strain at which cracks or crazes appear (standards such as ASTM D1693 exist for polyethylene).",
+          "Identify the liquids, detergents and lubricants on the part to establish its service environment."
+        ],
+        "confusions": [
+          "It can occur without the plastic swelling or dissolving, so suspect it even when the liquid looks harmless.",
+          "A liquid at a harmless concentration can cause cracking once it concentrates, for example by evaporation."
+        ],
+        "measures": {
+          "material": "Choose a plastic that resists cracking in the liquids it will contact.",
+          "design": "Lower the tensile stress from clamping, press fits and bending.",
+          "environment": "Keep the part away from liquids that cause cracking, such as solvents and surfactants.",
+          "manufacturing": "Reduce molding residual stress."
+        }
+      }
+    }
+  },
+  "cases": {
+    "aloha-243": {
+      "title": "Aloha Airlines Flight 243 (1988): Fatigue and Corrosion in Lap Joints",
+      "description": "The materials story of the 1988 Aloha Airlines Flight 243 accident, in which the upper fuselage of a Boeing 737 tore away in flight: how disbonding, corrosion and many fatigue cracks at rivet holes linked up, based on the NTSB report and FAA lessons learned.",
+      "lead": "On April 28, 1988, Aloha Airlines Flight 243, a Boeing 737-200 on an inter-island flight in Hawaii, lost part of its upper fuselage at 24,000 ft (about 7,300 m) and suffered an explosive decompression. The airplane landed on nearby Maui, but one flight attendant was lost. The failure was in a fuselage skin lap joint, where the bond had come apart and many fatigue cracks had grown from rivet holes; the NTSB found the probable cause to be the maintenance program’s failure to detect this damage.",
+      "facts": [
+        ["Date", "April 28, 1988"],
+        ["Location", "Near Maui, Hawaii, USA (flight from Hilo to Honolulu)"],
+        ["Airplane", "Boeing 737-200 (line number 152), with 35,496 flight hours and 89,680 flight cycles"],
+        ["Casualties", "Of 89 passengers and 6 crew, one flight attendant was swept overboard and presumed killed, and 8 people were seriously injured"],
+        ["Damage", "About 18 ft (about 5.5 m) of cabin skin and structure aft of the cabin entrance door, above the floor line, separated"],
+        ["Investigation", "U.S. National Transportation Safety Board (NTSB), report NTSB/AAR-89/03"]
+      ],
+      "happened": [
+        "Flight 243 was an inter-island flight from Hilo on the island of Hawaii to Honolulu. As it reached 24,000 ft, the upper fuselage skin and structure separated over about 18 ft aft of the cabin entrance door, causing an explosive decompression. The crew made an emergency descent and landed at Kahului Airport on Maui.",
+        "The NTSB determined that the probable cause was the failure of Aloha Airlines’ maintenance program to detect significant disbonding and fatigue damage, which ultimately led to the failure of the lap joint at the location called S-10L and the separation of the upper fuselage. Contributing factors included inadequate supervision of maintenance, the FAA’s failure to require inspection of all the lap joints proposed by Boeing in airworthiness directive AD 87-21-08, and the lack of a complete terminating action for problems with the early 737 cold-bonded lap joints (low bond durability, corrosion and premature fatigue cracking)."
+      ],
+      "chainTitle": "Aloha Flight 243: the chain of causes from the materials side",
+      "chain": [
+        { "lines": ["Poor bonding in manufacture"], "sub": ["Lap joints bonded at room temperature"] },
+        { "lines": ["Moisture wicks into disbonds"], "sub": ["Corrosion and spreading disbonds"] },
+        { "lines": ["Rivets carry pressurization loads"], "sub": ["Knife-edge countersinks raise stress"] },
+        { "lines": ["Pressurization cycles every flight"], "sub": ["Fatigue cracks at many upper-row rivets"] },
+        { "lines": ["Cracks link into a long crack"], "sub": ["The S-10L lap joint fails"] },
+        { "lines": ["Upper fuselage separates in flight"] }
+      ],
+      "mechanism": [
+        "Early 737s (up to line number 291) bonded the fuselage skin lap joints with a scrim cloth impregnated with an adhesive that cures at room temperature (a cold bond). Manufacturing problems left randomly weak bonds and some areas not bonded at all, and made the joints susceptible to corrosion. Moisture wicking into disbonded areas caused further disbonding.",
+        "Once the bond failed, the rivets carried the pressurization loads. The rivet countersinks went through the full skin thickness, leaving a thin knife edge at the hole and a higher-than-usual stress concentration. Fatigue cracks therefore formed at many adjacent rivet holes (multiple site damage, MSD), and small cracks linked up into a long, critical crack. Visual inspection showed cracks growing from the holes of the top row of rivets.",
+        "Fatigue crack initiation and growth are driven by the number of flights (pressurization cycles), not flight hours, and Aloha’s airplanes flew about twice the cycle rate that Boeing had assumed. Lap joint corrosion had first been reported in 1970, and inspections of the fleet after the accident found swelling, bulging, popped rivets and blistered paint along lap joints."
+      ],
+      "note": "On interpretations of the cause: a university student paper (Hashmi) suggests that chlorides in the marine operating environment probably caused pitting and drove the corrosion and corrosion fatigue. The NTSB’s probable cause is the maintenance program’s failure to detect the disbonding and fatigue damage.",
+      "clues": [
+        "Cracks grow with the number of flights (pressurization cycles), not flight hours, and this airplane flew about twice the assumed cycle rate",
+        "Fatigue cracks had started at many adjacent rivet holes (multiple site damage)",
+        "Corrosion of the lap joints and disbonds wetted by moisture",
+        "The skin was aluminum, 0.036 in (about 0.9 mm) thick",
+        "The airplane had made 89,680 flights"
+      ],
+      "presetNote": "Opening the guide with these clues ranks corrosion fatigue and fatigue at the top. Corrosion fatigue comes first because of the moisture and corrosion clues, but the NTSB’s probable cause is the failure to detect disbonding and fatigue damage; it does not identify corrosion fatigue as such.",
+      "changes": [
+        "Corrosion prevention and control programs became mandatory.",
+        "Airworthiness directives AD 2002-07-08 and AD 2002-07-11 required removal and replacement of certain lap splice skin areas on the Boeing 737.",
+        "The transport airplane design rule 14 CFR 25.571 (Amendment 96) began to require consideration of widespread fatigue damage (WFD) and evidence from full-scale fatigue tests.",
+        "A rule on repair assessment for pressurized fuselages and a final rule on widespread fatigue damage were issued."
+      ],
+      "lessons": [
+        "A structure that relies on bonding cannot stay safe without inspection and maintenance that verify the bond.",
+        "Inspection programs must rest on a thorough understanding of the design’s fatigue behavior: where, after how many cycles and what kind of cracks will appear.",
+        "Relying on repeated inspections for a known fatigue problem has limits; a terminating action such as replacing parts is preferable.",
+        "The design assumption that “a crack will be arrested at a tear strap, the skin will flap open and the damage will be obvious” fails when many cracks grow at once.",
+        "After the accident, lap joint cracks were reported across many airplanes of the same type: the problem was not confined to one airplane."
+      ],
+      "sources": [
+        "NTSB, Aircraft Accident Report NTSB/AAR-89/03: Aloha Airlines, Flight 243, Boeing 737-200, N73711, near Maui, Hawaii, April 28, 1988 (summary, archived NTSB site at UNT Libraries)",
+        "FAA, Lessons Learned from Transport Airplane Accidents: Boeing 737-200 N73711",
+        "N. Hashmi, Revisiting Aloha Airline Flight 243: Corrosion Engineer’s Stand point (paper citing pages of the NTSB report)"
+      ]
+    },
+    "silver-bridge": {
+      "title": "Silver Bridge Collapse (1967): Brittle Fracture from an Eyebar Crack",
+      "description": "The materials story of the 1967 Silver Bridge collapse over the Ohio River, which killed 46 people: how a stress corrosion crack less than about 3 mm deep in an eyebar became the origin of a cleavage fracture, and how bridge inspection standards changed, based on the NTSB report and other sources.",
+      "lead": "On the evening of December 15, 1967, the U.S. 35 bridge over the Ohio River (the Silver Bridge) collapsed and 46 people died. The collapse began when one eyebar, a bar with an eye at each end that formed the bridge’s suspension chain, fractured at its eye. At the origin was a small crack, less than about 3 mm deep, that had grown by stress corrosion and related processes over about 40 years.",
+      "facts": [
+        ["Date", "December 15, 1967, at about 5 p.m. (EST)"],
+        ["Location", "U.S. 35 bridge over the Ohio River between Point Pleasant, West Virginia, and Kanauga, Ohio, USA"],
+        ["Structure", "Eyebar chain suspension bridge designed in 1927 and opened in 1928. Each chain link was a pair of heat-treated 2 × 12 in bars"],
+        ["Casualties", "31 of the 37 vehicles on the bridge fell with it; 46 people died and 9 were injured"],
+        ["Origin", "Lower limb of the eye of eyebar 330 at joint C13N of the north chain, Ohio side span"],
+        ["Investigation", "U.S. National Transportation Safety Board (NTSB), report NTSB-HAR-71-1; metallurgical report of the National Bureau of Standards (NBS)"]
+      ],
+      "happened": [
+        "The collapse happened at about 5 p.m. According to the NTSB, once the north chain separated, the collapse spread across the whole bridge in about one minute.",
+        "The NTSB found that the collapse was caused by a cleavage fracture in the lower limb of the eye of eyebar 330 at joint C13N. The fracture resulted from a critical-size flaw that developed over the 40-year life of the structure through the joint action of stress corrosion and corrosion fatigue. The flaw was inaccessible to visual inspection and, the NTSB said, could not have been detected by any inspection method then known without disassembling the eyebar joint."
+      ],
+      "chainTitle": "Silver Bridge: the chain of causes from the materials side",
+      "chain": [
+        { "lines": ["Heat-treated carbon steel eyebar"], "sub": ["About 0.6% C, quenched and tempered"] },
+        { "lines": ["Tensile stress at the eye’s bore"], "sub": ["A spot that could not be inspected"] },
+        { "lines": ["Crack grows by stress corrosion etc."], "sub": ["Under about 3 mm deep in 40 years"] },
+        { "lines": ["Near-freezing night, low toughness"], "sub": ["The crack reaches critical size"] },
+        { "lines": ["Cleavage fracture at the eye"], "sub": ["No obvious deformation"] },
+        { "lines": ["Chain separates; bridge collapses"] }
+      ],
+      "mechanism": [
+        "The eyebar steel was a carbon steel with about 0.6% carbon and no significant alloying element other than manganese, water-quenched and tempered at about 1150–1200 °F (about 620–650 °C).",
+        "In the National Bureau of Standards (NBS) metallurgical examination, the fracture of the lower side of the eye started from pre-existing cracks at the surface of the hole, less than 1/8 in (about 3.2 mm) deep. All the crack origins were in severely corroded areas, and many other cracks nearby that were not part of the fracture were filled with oxide, showing that they had been held open by tensile stress for a long time. The lower side of the eye broke without appreciable plastic deformation, and the upper side then failed by excessive load with extensive bending.",
+        "University teaching material (the Open University) explains that the eyebar steel had low toughness at the near-freezing temperatures on the night of the disaster, making it susceptible to brittle fracture; with low toughness, even a small crack is critical. Each link was a pair of bars, and when one broke, the remaining bar slipped off the pin: the non-redundant structure collapsed completely."
+      ],
+      "note": "On interpretations of the cause: the NTSB attributes the crack growth to “the joint action of stress corrosion and corrosion fatigue”, while Part I of the National Bureau of Standards report finds the cracks similar to those caused by stress corrosion in other steels and says the evidence suggests stress corrosion rather than fatigue.",
+      "clues": [
+        "The lower side of the eye broke without obvious plastic deformation",
+        "The origin fracture was a cleavage fracture (NTSB)",
+        "At the origin were pre-existing cracks less than about 3 mm deep, and many cracks nearby were filled with oxide",
+        "The eyebar chains held the bridge up and were always in tension (university course material)",
+        "The eyebars were heat-treated carbon steel",
+        "The night of the collapse was near freezing (university teaching material)",
+        "Water could pool at the bottom of the eye, combining tensile residual stress with a corrosive environment (university teaching material)",
+        "The structure had been in service for about 40 years"
+      ],
+      "presetNote": "Opening the guide with these clues ranks brittle fracture, the final mode of failure, at the top, followed by hydrogen embrittlement and stress corrosion cracking. External clues alone cannot separate these two; only examining the origin crack itself reveals the mechanism. In this accident, the National Bureau of Standards examination found that the evidence suggested stress corrosion rather than fatigue.",
+      "changes": [
+        "The Federal-Aid Highway Act of August 23, 1968, directed the Secretary of Transportation to establish national bridge inspection standards covering inspection methods, maximum intervals and inspector qualifications.",
+        "The National Bridge Inspection Standards (NBIS) became a regulation on April 27, 1971, requiring bridges and their components to be inspected at least once every 2 years.",
+        "In 1988, requirements were added for inspecting bridges with fracture-critical members, whose failure could bring a bridge down.",
+        "The NTSB recommended research into the failure mechanisms, extending the 1968 Act’s bridge safety requirements to all highway bridges, and federal aid for repairs."
+      ],
+      "lessons": [
+        "The cause becomes clear only when you examine not just the brittle final fracture but the mechanism of the small crack at its origin (here, stress corrosion and related processes).",
+        "In a low-toughness material, a crack of a few millimetres can be fatal. Safety depends on both crack size and toughness.",
+        "In a non-redundant structure, where one member’s failure brings everything down, even small cracks cannot be overlooked.",
+        "Damage in places that cannot be inspected visually will not be found by inspecting more often. Making a structure inspectable is part of design.",
+        "When the bridge was designed in 1927, stress corrosion and corrosion fatigue of this kind of bridge material under rural atmospheric exposure were not known. Old structures need to be reassessed in the light of new knowledge."
+      ],
+      "sources": [
+        "NTSB, Highway Accident Report NTSB-HAR-71-1: Collapse of U.S. 35 Highway Bridge, Point Pleasant, West Virginia, December 15, 1967 (summary, cause and recommendations)",
+        "J. A. Bennett, NBS Report 9981: Metallurgical Examination and Mechanical Tests of Material from the Point Pleasant, W. Va. Bridge, Part I (U.S. National Bureau of Standards)",
+        "West Virginia Department of Transportation: Silver Bridge",
+        "The Open University, OpenLearn: The Silver Bridge disaster: the collapse",
+        "FHWA, Happy 50th Anniversary, National Bridge Inspection Standards"
+      ]
+    },
+    "challenger-o-ring": {
+      "title": "The Challenger Accident (1986): Cold O-Rings That Recovered Too Slowly",
+      "description": "The materials story of the 1986 Space Shuttle Challenger accident: how, on a cold morning, the rubber O-rings in a solid rocket booster joint returned to shape too slowly to seal the gap, based on the report of the Presidential Commission.",
+      "lead": "On January 28, 1986, the Space Shuttle Challenger broke apart about 73 seconds after launch and all seven crew members died. The Presidential Commission found that the cause was the failure of the pressure seal in a joint of the right solid rocket booster. The launch morning was the coldest to date, and the cold rubber O-rings were slow to return to their original shape.",
+      "facts": [
+        ["Date", "January 28, 1986, 11:38 a.m. (EST)"],
+        ["Vehicle", "Space Shuttle Challenger (mission 51-L)"],
+        ["Casualties", "The vehicle broke apart about 73 seconds after launch at about 46,000 ft (about 14 km); all seven crew members died"],
+        ["Temperature", "36 °F (about 2 °C) at launch, 15 °F colder than the next coldest previous launch"],
+        ["Joint", "Aft field joint of the right solid rocket booster; estimated at 28 ± 5 °F (about −2 °C) at the joint’s 300-degree location"],
+        ["Investigation", "Report of the Presidential Commission on the Space Shuttle Challenger Accident (1986)"]
+      ],
+      "happened": [
+        "At 0.678 seconds after liftoff, a strong puff of gray smoke was already coming from near the aft field joint of the right solid rocket booster, and the puffs that followed grew blacker. A flicker of flame appeared on the same booster at 58.788 seconds and became a continuous plume at 59.262 seconds. At 73.124 seconds a circumferential white vapor pattern appeared on the bottom of the external tank, regarded as the beginning of the structural failure of the hydrogen tank. Structural breakup of the vehicle began at about 73 seconds.",
+        "The Commission concluded that the cause of the accident was the failure of the pressure seal in the aft field joint of the right solid rocket motor, due to a faulty design that was unacceptably sensitive to a number of factors, including temperature, physical dimensions, materials, the effects of reusability, processing and the joint’s reaction to dynamic loading."
+      ],
+      "chainTitle": "Challenger: the chain of causes from the materials side",
+      "chain": [
+        { "lines": ["A cold morning (about 2 °C)"], "sub": ["Joint estimated at about −2 °C"] },
+        { "lines": ["The rubber O-rings get cold"], "sub": ["Slow to recover after being squeezed"] },
+        { "lines": ["Ignition pressure opens the joint"], "sub": ["The gap in the joint widens"] },
+        { "lines": ["The O-rings cannot follow the gap"], "sub": ["Delayed pressure from putty also a factor"] },
+        { "lines": ["Hot gas leaks through the joint"], "sub": ["Smoke at 0.678 s, flame at 58.788 s"] },
+        { "lines": ["Breakup at about 73 seconds"] }
+      ],
+      "mechanism": [
+        "The booster joint was sealed by two rubber O-rings with a cross-section diameter of 0.280 in (about 7.1 mm). The primary sealing mechanism is gas pressure pressing on the upstream side of the O-ring. The putty in the joint was meant as a thermal barrier to keep combustion gas from touching the O-rings directly, and its performance as a pressure seal is highly variable.",
+        "Right after ignition the joint gap opens (joint rotation), and dynamic effects increase the opening. The Commission found that O-ring resiliency is directly related to temperature, that a warm compressed O-ring returns to its original shape much more quickly than a cold one, and that at the cold launch temperature the O-ring would be very slow to return to its rounded shape and probably did not follow the opening gap. It also found that the putty’s temperature, humidity and other variables could delay the application of pressure to the O-ring and could have been a factor in the initial joint failure, and that water in the joint may have frozen, impeding the secondary seal.",
+        "In earlier flights, only four launches at 61 °F or above showed thermal distress of the O-rings, whereas every launch below 61 °F showed thermal distress in one or more O-rings."
+      ],
+      "note": "On interpretations of the cause: some university teaching material (the University of Michigan) explains that the launch-day temperature was below the rubber’s glass transition temperature, so the O-rings became brittle. The Presidential Commission’s report states that the O-rings’ resilience slowed with temperature and that they probably did not follow the opening of the gap.",
+      "clues": [
+        "The launch temperature was the lowest to date",
+        "The seals were rubber (elastomer) O-rings",
+        "At ignition the joint was pressurized suddenly and its gap opened",
+        "Numerous tests had shown O-ring resiliency degrading with lower temperature",
+        "Every launch below 61 °F had shown thermal distress of the O-rings"
+      ],
+      "presetNote": "Opening the guide with these clues ranks loss of elasticity and embrittlement of polymers at low temperature at the top.",
+      "changes": [
+        "The Commission recommended that the faulty solid rocket motor joint and seal be changed. Joint integrity should be insensitive to dimensional tolerances, assembly, environmental effects and more, and certification should use tests that duplicate launch conditions as closely as possible over the full operating range, including temperature. It also asked for an independent committee of the National Research Council to oversee the design.",
+        "It also recommended a policy governing the imposition and removal of launch constraints, and steps to ensure that technical information reaches decision-makers fully.",
+        "The redesigned joint added a capture feature that gives metal-to-metal interference to limit gap opening, a third O-ring, a design that keeps the O-rings always compressed (the compressed O-ring never fills more than 90% of its groove), and an extra port for leak checks after assembly; the internal insulation was sealed with a deflection relief flap instead of the putty.",
+        "External heaters with integral weather seals were fitted to the field joints to keep the seal temperatures at or above 75 °F (about 24 °C)."
+      ],
+      "lessons": [
+        "Material properties change greatly with temperature. Verify parts by testing at the most severe temperature, in conditions close to real use.",
+        "What matters for a seal is whether it works under real conditions, with a moving gap, not in a static state.",
+        "The trend that colder launches showed more O-ring heat damage was already visible in earlier flight records.",
+        "A design sensitive to many conditions fails when any one of them is off. Aim for designs that are insensitive to conditions.",
+        "Organizations need ways to make sure the information engineers hold reaches decision-makers fully and in time."
+      ],
+      "sources": [
+        "Report of the Presidential Commission on the Space Shuttle Challenger Accident, Volume 1, Chapter III: The Accident (NASA History)",
+        "Same report, Chapter IV: The Cause of the Accident",
+        "Same report, Recommendations",
+        "NASA, Implementation of the Recommendations of the Presidential Commission (1987), Chapter 1",
+        "University of Michigan, Materials Science and Engineering: The Glass Transition of Polymers (demonstration notes)"
+      ]
+    },
+    "mihama-3": {
+      "title": "Mihama Unit 3 Pipe Rupture (2004): Thinning Downstream of an Orifice",
+      "description": "The materials story of the 2004 pipe rupture at Kansai Electric’s Mihama Unit 3, which killed five workers: how a carbon steel condensate pipe thinned from 10 mm to 0.4 mm by erosion–corrosion, based on the final report of Japan’s Nuclear and Industrial Safety Agency and other sources.",
+      "lead": "On August 9, 2004, a secondary-system condensate pipe in the turbine building of Kansai Electric Power’s Mihama Unit 3 ruptured; five people working nearby were killed by the escaping steam and hot water and six were injured. The rupture was downstream of a flow-measuring orifice, where erosion–corrosion had thinned the carbon steel wall from its original 10 mm to 0.4 mm at the thinnest point. The location had been missing from the wall-thickness inspection list from the start.",
+      "facts": [
+        ["Date", "August 9, 2004, at about 15:28"],
+        ["Location", "Turbine building of Mihama Unit 3, Kansai Electric Power Co., Japan"],
+        ["Pipe", "Secondary condensate pipe (loop A, from the No. 4 low-pressure feedwater heater to the deaerator), downstream of a flow-measuring orifice. Carbon steel (SB42), outside diameter 558.8 mm, nominal wall 10 mm"],
+        ["Conditions", "About 140 °C, 0.93 MPa, flow 1,700 m³/h (design conditions 195 °C, 1.27 MPa)"],
+        ["Wall thickness", "0.4 mm at the thinnest point of the rupture (minimum required by the technical standard: 4.7 mm)"],
+        ["Casualties", "5 killed, 6 injured"],
+        ["Investigation", "Nuclear and Industrial Safety Agency (NISA), final report on the secondary piping rupture at Mihama Unit 3, March 30, 2005"]
+      ],
+      "happened": [
+        "The accident occurred during preparations for the unit’s 21st periodic inspection, when a total of 105 people were working in the building. Workers near the ruptured pipe were exposed to the escaping steam and hot water. The reactor shut down automatically in response to the secondary-system leak.",
+        "The rupture opening measured about 515 mm in the axial direction and about 930 mm around the circumference. The crack is reported to have grown first in the axial direction and then around the circumference. According to an information notice of the U.S. Nuclear Regulatory Commission (NRC), the same location on the loop B pipe was 1.8 mm thick."
+      ],
+      "chainTitle": "Mihama Unit 3: the chain of causes from the materials side",
+      "chain": [
+        { "lines": ["An orifice constricts the flow"], "sub": ["Turbulent flow downstream"] },
+        { "lines": ["140 °C water flows over carbon steel"], "sub": ["The protective oxide film dissolves"] },
+        { "lines": ["Erosion–corrosion"], "sub": ["10 mm → 0.4 mm at the thinnest"] },
+        { "lines": ["Missing from the inspection list"], "sub": ["The thinning goes unnoticed"] },
+        { "lines": ["Far below the 4.7 mm required"], "sub": ["The pipe cannot hold the pressure"] },
+        { "lines": ["The pipe ruptures; steam escapes"] }
+      ],
+      "mechanism": [
+        "The final report concluded that the pipe wall gradually thinned during operation by so-called erosion–corrosion until it lacked strength and ruptured. The orifice constricted the flow, exposing the pipe wall downstream to turbulent flow. The nuclear industry also calls this phenomenon flow-accelerated corrosion (FAC). The NRC noted that the inner surface of the rupture showed a fish-scale-like pattern while the bottom of the pipe kept its nominal thickness, which it described as characteristic of flow-accelerated corrosion.",
+        "Flow-accelerated corrosion proceeds as iron oxide on the surface of carbon steel dissolves into the flowing water and is carried away by the turbulent flow. According to a presentation published by the UK Institute of Corrosion, the thinning rate varies with temperature in a bell-shaped curve (peaking at about 140–160 °C in single-phase water flow), is faster at lower pH, and slows as the chromium content of the steel increases.",
+        "The rupture location had already been left off the list when Mitsubishi Heavy Industries prepared the inspection list under the PWR management guidelines in 1990, so the thinning beyond the usable limit went unnoticed. Registration omissions numbered 3 at Mihama Unit 3 and 42 across Kansai Electric’s 11 units. Japan’s White Paper on Nuclear Energy identified the root cause as a wall-thinning management error involving three companies (Kansai Electric, Mitsubishi Heavy Industries and Nihon Arm), in which locations needing management were missing from the original list and were not corrected before the accident."
+      ],
+      "clues": [
+        "The wall at the rupture had thinned locally to 0.4 mm",
+        "The inner surface showed a fish-scale-like pattern (NRC)",
+        "The flow was disturbed downstream of the orifice",
+        "The pipe was carbon steel",
+        "Water at about 140 °C was flowing",
+        "The unit had operated since 1976"
+      ],
+      "presetNote": "Opening the guide with these clues ranks flow-induced wall thinning at the top.",
+      "changes": [
+        "The guidelines for managing pipe wall thinning at pressurized water reactor plants (the PWR management guidelines) were revised and the management methods clarified.",
+        "The government asked the Japan Society of Mechanical Engineers (JSME) to develop a standard for pipe wall thickness management and to use it promptly as a basis for safety regulation. The JSME issued the Rules on Pipe Wall Thinning Management (JSME S CA1-2005) and, in 2006, technical rules for pipe wall thinning management at PWR and BWR plants (JSME S NG1-2006, JSME S NH1-2006).",
+        "The ordinance under the Electricity Business Act was revised to clarify the scope and methods of periodic licensee inspections.",
+        "The utility took measures against recurrence, such as spreading its management policy and reorganizing, and the manufacturer revised its measures against registration omissions and its quality assurance system."
+      ],
+      "lessons": [
+        "Wall thinning is local and hard to predict. Measure first where flow is disturbed, such as downstream of orifices and tees.",
+        "Every location to be inspected must be registered, with a system for finding and correcting omissions. Here the original omission went uncorrected for more than a decade, until the accident.",
+        "Even a small amount of chromium in steel slows flow-accelerated corrosion. Replacing a pipe is an opportunity to reconsider the material.",
+        "The same damage occurs in thermal power and petrochemical plants, so countermeasures need to be shared across industries."
+      ],
+      "sources": [
+        "Nuclear and Industrial Safety Agency, final report on the secondary piping rupture at Kansai Electric Power’s Mihama Unit 3, March 30, 2005 (Japanese; Atomic Energy Commission meeting material)",
+        "Atomic Energy Commission of Japan, White Paper on Nuclear Energy (section on the Mihama Unit 3 accident; Japanese)",
+        "U.S. NRC, Information Notice 2006-08: Secondary Piping Rupture at the Mihama Power Station in Japan",
+        "JSME, history of the power generation equipment codes program (Japanese)",
+        "Failure Knowledge Database: Steam Eruption from Nuclear Power Plant Cooling System",
+        "R. Beheshty, Flow Accelerated Corrosion: Synergistic effects of the influencing parameters (Institute of Corrosion)"
+      ]
+    }
+  }
+}
