@@ -1,0 +1,6 @@
+{
+  "main": {
+    "name": "재료과학",
+    "groups": { "basic": "기초", "phases": "조직과 상변태", "classes": "재료의 종류", "analysis": "평가·첨단" }
+  }
+}
