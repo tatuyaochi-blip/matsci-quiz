@@ -1,9 +1,66 @@
 {
  "learnText": {
-  "ja": { "nav": "やさしい解説", "card": "「鉄はなぜ錆びる?」など、身近な疑問から読む材料の解説記事", "title": "やさしい解説: 身近な疑問から材料科学を",
+  "ja": {
+   "nav": "やさしい解説",
+   "card": "「鉄はなぜ錆びる?」など、身近な疑問から読む材料の解説記事",
+   "title": "やさしい解説: 身近な疑問から材料科学を",
    "description": "鉄・ステンレス・セラミックス・プラスチックなど身近な材料のふしぎを、予備知識の少ない人向けに素朴な疑問から解説します。しくみ、身近な使われ方、よくある誤解まで。",
    "lead": "「鉄はなぜ錆びるの?」「金属はなぜ曲がるのに、ガラスは割れるの?」といった素朴な疑問から、材料のしくみと身近な使われ方までを、予備知識が少なくても読めるように解説します。",
-   "minutes": "約{n}分", "updated": "更新: {d}", "quizLine": "この分野の問題:",
-   "next": "次に読む", "inSeries": "シリーズ「{name}」の記事", "sources": "参考にした資料", "all": "やさしい解説の一覧へ", "termLink": "やさしい解説で読む", "catLink": "はじめて学ぶ人へ", "search": "やさしい解説", "courseFirst": "まず読む: やさしい解説" }
+   "minutes": "約{n}分",
+   "updated": "更新: {d}",
+   "quizLine": "この分野の問題:",
+   "next": "次に読む",
+   "inSeries": "シリーズ「{name}」の記事",
+   "sources": "参考にした資料",
+   "all": "やさしい解説の一覧へ",
+   "termLink": "やさしい解説で読む",
+   "catLink": "はじめて学ぶ人へ",
+   "search": "やさしい解説",
+   "courseFirst": "まず読む: やさしい解説"
+  }
+ },
+ "dictText": {
+  "ja": {
+   "h1": "材料科学用語 日英中対訳表",
+   "nav": "日英中対訳表",
+   "card": "材料の用語を日本語・英語・繁体字中国語で引ける対訳表",
+   "title": "材料科学用語の日英中対訳表({n}語):英語・繁体字中国語",
+   "description": "材料科学の用語{n}語を、日本語・英語・繁体字中国語(台湾)の対訳表にまとめました。分野ごとに並べ、キーワードで絞り込めます。各用語は解説ページにリンクしています。",
+   "lead": "材料科学の用語{n}語を、日本語・英語・繁体字中国語(台湾で使われる表記)で並べました。英語の論文や規格、海外の材料メーカーの資料を読むときや、台湾の技術者とやりとりするときに使えます。用語を押すと、その言語の解説ページに移ります。",
+   "search": "用語を検索(日本語・英語・中国語)",
+   "cols": {
+    "ja": "日本語",
+    "en": "英語",
+    "zh-hant": "繁体字中国語"
+   }
+  },
+  "en": {
+   "h1": "Materials Science Terms in English, Japanese and Chinese",
+   "nav": "Trilingual glossary",
+   "card": "Look up materials terms in English, Japanese and Chinese",
+   "title": "Materials Science Terms in English, Japanese and Chinese ({n} terms)",
+   "description": "{n} materials science terms side by side in English, Japanese and Traditional Chinese (Taiwan), grouped by field and searchable. Each term links to an explanation.",
+   "lead": "{n} materials science terms in English, Japanese and Traditional Chinese as used in Taiwan, grouped by field. Useful when reading Japanese standards and supplier datasheets or working with colleagues in Japan and Taiwan. Click a term to open its explanation in that language.",
+   "search": "Search terms (English, Japanese or Chinese)",
+   "cols": {
+    "en": "English",
+    "ja": "Japanese",
+    "zh-hant": "Chinese (Traditional)"
+   }
+  },
+  "zh-hant": {
+   "h1": "材料科學術語 中英日對照表",
+   "nav": "中英日對照表",
+   "card": "以中文、英文、日文查詢材料科學術語",
+   "title": "材料科學術語中英日對照表（{n}詞）",
+   "description": "將{n}個材料科學術語整理成繁體中文、英文、日文對照表，依領域分類並可搜尋。每個術語都連到解說頁面。",
+   "lead": "將{n}個材料科學術語以繁體中文、英文、日文並列，並依領域分類。閱讀英文論文、日本規格或材料廠商的技術資料，或與日本工程師溝通時可以使用。點選術語即可開啟該語言的解說頁面。",
+   "search": "搜尋術語（中文、英文、日文）",
+   "cols": {
+    "zh-hant": "繁體中文",
+    "en": "英文",
+    "ja": "日文"
+   }
+  }
  }
 }
