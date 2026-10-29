@@ -1,0 +1,1510 @@
+{
+  "title": "Werkstoffdatensammlung: Kennwerte mit Quellen",
+  "description": "Dichte, E-Modul, Festigkeit, Wärmeleitfähigkeit, Wärmeausdehnung, Schmelzpunkt, Gitterkonstanten und Diffusionsdaten von über 160 Metallen, Legierungen, Keramiken, Polymeren, Fasern und Halbleitern, jeder Wert mit Quelle und Bedingungen. Einheiten umschalten, 2–4 Werkstoffe vergleichen und als CSV exportieren.",
+  "h1": "Werkstoffdatensammlung",
+  "lead": "Eine Seite, um Werkstoffkennwerte mit Quellen und Bedingungen zu finden, zu vergleichen und zu exportieren. Die Werte stammen aus den geprüften Datensammlungen, die die Rechner dieser Website verwenden; zu jedem Wert ist angegeben, aus welcher Quelle er stammt und welcher Rechner ihn verwendet. Gesucht wird nach dem Namen (deutsch, englisch oder japanisch, auch weitere Namen) oder nach Symbolen; Werkstoffart und Eigenschaft lassen sich filtern, die Einheiten umschalten und die Tabelle sortieren.",
+  "note": "Die Werte desselben Werkstoffs ändern sich mit Sorte, Wärmebehandlung, Temperatur und Richtung. Prüfen Sie vor der Verwendung eines Wertes die Bedingung (markierte Zellen) und die Quelle. Für die Auslegung von Bauteilen sind die garantierten Werte der Normen oder die Angaben des Herstellers zu verwenden.",
+  "lowerNames": false,
+  "classes": {
+    "metal": "Reine Metalle (Elemente)",
+    "alloy": "Legierungen",
+    "ceramic": "Keramiken",
+    "glass": "Gläser",
+    "polymer": "Polymere",
+    "elastomer": "Elastomere",
+    "fiber": "Fasern für Verbundwerkstoffe",
+    "composite": "Verbundwerkstoffe",
+    "semi": "Halbleiter",
+    "nonmetal": "Nichtmetalle und Halbmetalle",
+    "foam": "Schaumstoffe",
+    "natural": "Naturwerkstoffe"
+  },
+  "props": {
+    "rho": {
+      "name": "Dichte",
+      "sym": "ρ"
+    },
+    "E": {
+      "name": "Elastizitätsmodul",
+      "sym": "E"
+    },
+    "G": {
+      "name": "Schubmodul",
+      "sym": "G"
+    },
+    "nu": {
+      "name": "Querkontraktionszahl",
+      "sym": "ν"
+    },
+    "s": {
+      "name": "Festigkeit",
+      "sym": "σ"
+    },
+    "K": {
+      "name": "Bruchzähigkeit",
+      "sym": "K_IC"
+    },
+    "eu": {
+      "name": "Bruchdehnung",
+      "sym": "ε_u"
+    },
+    "k": {
+      "name": "Wärmeleitfähigkeit",
+      "sym": "κ"
+    },
+    "a": {
+      "name": "Längenausdehnungskoeffizient",
+      "sym": "α"
+    },
+    "mp": {
+      "name": "Schmelzpunkt",
+      "sym": "T_m"
+    },
+    "tg": {
+      "name": "Glasübergangstemperatur",
+      "sym": "T_g"
+    },
+    "sp": {
+      "name": "Unterer Kühlpunkt",
+      "sym": "T_st"
+    },
+    "curie": {
+      "name": "Curie-Temperatur",
+      "sym": "T_C"
+    },
+    "dT": {
+      "name": "Thermoschock-Temperaturdifferenz",
+      "sym": "ΔT"
+    },
+    "la": {
+      "name": "Gitterkonstante a",
+      "sym": "a"
+    },
+    "lb": {
+      "name": "Gitterkonstante b",
+      "sym": "b"
+    },
+    "lc": {
+      "name": "Gitterkonstante c",
+      "sym": "c"
+    },
+    "lal": {
+      "name": "Rhomboederwinkel",
+      "sym": "α"
+    },
+    "struct": {
+      "name": "Kristallstruktur",
+      "sym": ""
+    },
+    "rm": {
+      "name": "Metallradius",
+      "sym": "r"
+    },
+    "aw": {
+      "name": "Atommasse",
+      "sym": "A_r"
+    },
+    "hf": {
+      "name": "Schmelzwärme",
+      "sym": "ΔH_f"
+    },
+    "res": {
+      "name": "Spezifischer elektrischer Widerstand",
+      "sym": "ρ_e"
+    },
+    "aR": {
+      "name": "Temperaturkoeffizient des spezifischen Widerstands",
+      "sym": "α_R"
+    },
+    "D0": {
+      "name": "Frequenzfaktor der Diffusion",
+      "sym": "D₀"
+    },
+    "Q": {
+      "name": "Aktivierungsenergie der Diffusion",
+      "sym": "Q"
+    },
+    "df": {
+      "name": "Faserdurchmesser",
+      "sym": "d"
+    },
+    "comp": {
+      "name": "Chemische Zusammensetzung",
+      "sym": ""
+    },
+    "tr": {
+      "name": "Umwandlungen (1 atm)",
+      "sym": ""
+    }
+  },
+  "kinds": {
+    "y": "Streckgrenze (0,2-%-Dehngrenze)",
+    "t": "Zugfestigkeit",
+    "f": "Biegefestigkeit",
+    "c": "Druckfestigkeit",
+    "sh": "Scherfestigkeit",
+    "A": "Festigkeit σf nach Ashby (bei Metallen und Polymeren die Streckgrenze, bei Keramiken und Gläsern nahe der Zugfestigkeit)"
+  },
+  "conds": {
+    "rt": "Raumtemperatur",
+    "c25": "25 °C",
+    "k300": "300 K",
+    "mean": "Mittelwert {a}–{b} °C",
+    "at": "bei {a} °C",
+    "liq25": "flüssig bei 25 °C",
+    "atm1": "1 atm",
+    "orient": "abhängig von der Kristallrichtung (Min.–Max.)",
+    "c25atm": "25 °C, 1 atm",
+    "cn12": "Koordinationszahl 12",
+    "calc_cij": "aus den elastischen Konstanten berechnet",
+    "wq": "Abschreckversuch in Wasser",
+    "dsc": "DSC",
+    "ashc": "geometrisches Mittel des Bereichs nach Ashby",
+    "inplane": "in der Ebene (XY)",
+    "fax": "in Richtung der Faserachse",
+    "ftr": "quer zur Faser",
+    "g12": "Schub in der Ebene (1–2)",
+    "nu12": "ν₁₂ (Hauptquerkontraktionszahl)",
+    "l1": "Faserrichtung (1)",
+    "l2": "quer zur Faser (2)",
+    "l12": "Schub in der Ebene (1–2)",
+    "ge": "Quelle nennt „mehr als 50 %“ (Untergrenze)",
+    "mid": "Mitte des in der Quelle angegebenen Bereichs {a}–{b}",
+    "k300c": "300 K",
+    "meta": "bei Raumtemperatur und Normaldruck metastabil",
+    "eut": "eutektische Temperatur",
+    "wt": "Massen-%",
+    "jis": "Bereich nach der japanischen Norm JIS",
+    "ann": "geglüht",
+    "rtc": "Raumtemperatur",
+    "mrange": "Schmelzbereich (Solidus–Liquidus)",
+    "dself": "Selbstdiffusion",
+    "dsolute": "Diffusion von {el}",
+    "ph_a": "in der α-Phase (krz)",
+    "ph_g": "in der γ-Phase (kfz)",
+    "dk_int": "interstitiell",
+    "dk_sub": "substitutionell (in der Tabelle von Callister unter Interdiffusion aufgeführt)",
+    "dk_imp": "Fremddiffusion",
+    "dk_dop": "Dotierstoff"
+  },
+  "structs": {
+    "s_bcc": "Kubisch-raumzentriert (krz, BCC)",
+    "s_dia": "Diamantstruktur",
+    "s_fcc": "Kubisch-flächenzentriert (kfz, FCC)",
+    "s_hcp": "Hexagonal dichteste Packung (hdP, HCP)",
+    "st_I2": "orthorhombisch (I₂-Moleküle)",
+    "st_In": "tetragonal-raumzentriert",
+    "st_P": "viele Modifikationen (weißer, schwarzer Phosphor u. a.)",
+    "st_Sm": "rhomboedrisch (Samarium-Typ, dichteste Packung mit neun Lagen)",
+    "st_alphaAs": "rhomboedrisch (Arsen-Typ)",
+    "st_alphaGa": "orthorhombisch (α-Gallium)",
+    "st_alphaMn": "kubisch (α-Mangan, 58 Atome je Elementarzelle)",
+    "st_alphaS": "orthorhombisch (α-Schwefel, S₈-Moleküle)",
+    "st_betaSn": "tetragonal-raumzentriert (weißes Zinn, β-Sn)",
+    "st_dhcp": "doppelt hexagonal dichteste Packung (dhcp, Stapelfolge ABAC)",
+    "st_gammaSe": "trigonal (schraubenförmige Ketten)",
+    "st_graphite": "hexagonal (Graphit)",
+    "st_rhombB": "rhomboedrisch (β-Bor)",
+    "st_sc": "kubisch-primitiv",
+    "type_diamond": "Diamantstruktur",
+    "type_fluorite": "Fluoritstruktur (CaF₂-Typ)",
+    "type_nacl": "Steinsalzstruktur (NaCl-Typ)",
+    "type_wurtzite": "Wurtzitstruktur",
+    "type_zb": "Zinkblendestruktur (ZnS-Typ)"
+  },
+  "mpNotes": {
+    "mp_he": "— (erstarrt bei 1 atm nicht)",
+    "mp_c": "— (sublimiert bei 1 atm, ohne zu schmelzen)",
+    "mp_as": "— (sublimiert bei 1 atm bei 615 °C; 817 °C ist der Tripelpunkt bei 3,70 MPa)"
+  },
+  "tr": {
+    "up": "Oberhalb {t} °C: {p}-Phase ({s})",
+    "down": "Unterhalb {t} °C: {p}-Phase ({s})",
+    "meta": "Diamant (Diamantstruktur) ist bei Raumtemperatur und Normaldruck metastabil",
+    "st": {
+      "hcp": "hdP",
+      "bcc": "krz",
+      "cP20": "kubisch, 20 Atome je Elementarzelle",
+      "fcc": "kfz",
+      "dia": "Diamantstruktur",
+      "orth": "orthorhombisch",
+      "rhomb": "rhomboedrisch",
+      "mono": "monoklin"
+    }
+  },
+  "units": {
+    "gcc": "g/cm³",
+    "kgm3": "kg/m³",
+    "GPa": "GPa",
+    "MPa": "MPa",
+    "none": "",
+    "MPam": "MPa·m¹ᐟ²",
+    "pct": "%",
+    "Wm": "W/(m·K)",
+    "Wcm": "W/(cm·K)",
+    "ppmK": "10⁻⁶ K⁻¹",
+    "mK": "10⁻³ K⁻¹",
+    "perK": "K⁻¹",
+    "C": "°C",
+    "K": "K",
+    "dC": "°C",
+    "dK": "K",
+    "nm": "nm",
+    "A": "Å",
+    "pm": "pm",
+    "deg": "°",
+    "kJmol": "kJ/mol",
+    "Jmol": "J/mol",
+    "eV": "eV",
+    "calmol": "cal/mol",
+    "uOcm": "µΩ·cm",
+    "Om": "Ω·m",
+    "nOm": "nΩ·m",
+    "m2s": "m²/s",
+    "cm2s": "cm²/s",
+    "um": "µm"
+  },
+  "sources": {
+    "pt:LAT_ASM": "P. Villars (Hrsg.), „Crystal Structures and Cell Parameters of Allotropes of the Chemical Elements“, ASM Alloy Phase Diagram Database (ASM International, 2007), Werte bei 25 °C",
+    "pt:LAT_WEL": "WebElements, Seiten zur Kristallstruktur der Elemente (Zn: Jette 1935; Tc: Mooney 1948)",
+    "pt:RHO_CRC": "Dichten aus dem CRC Handbook of Chemistry and Physics (Zeile CRC in Wikipedia „Densities of the elements (data page)“)",
+    "pt:RHO_ED": "Dichten aus Wolfram ElementData (Liste auf periodictable.com)",
+    "pt:RHO_WP": "Wikipedia „Densities of the elements (data page)“, übernommener Wert",
+    "pt:MP_CRC": "Schmelzpunkte aus dem CRC Handbook (Zeile CRC in Wikipedia „Melting points of the elements (data page)“)",
+    "pt:MP_WEL": "Wikipedia „Melting points of the elements (data page)“, Zeile WebElements bzw. übernommener Wert",
+    "pt:E_WEL": "Elastizitätsmoduln aus WebElements (Zeile WEL in Wikipedia „Elastic properties of the elements (data page)“)",
+    "pt:E_CRC": "Elastizitätsmoduln aus dem CRC Handbook (Zeile CRC in Wikipedia „Elastic properties of the elements (data page)“)",
+    "pt:RM": "Wikipedia „Atomic radii of the elements (data page)“, Metallradius (Koordinationszahl 12, nach WebElements)",
+    "pt:TR": "Tabelle der Allotrope in der ASM Alloy Phase Diagram Database (Umwandlungstemperaturen bei 1 atm)",
+    "aw:CIAAW": "CIAAW/IUPAC, gekürzte Standardatomgewichte (2021)",
+    "th:WPa": "Wikipedia „Thermal expansion coefficients of the elements (data page)“ (Werte aus dem CRC Handbook, Lange und WebElements, um 25 °C)",
+    "th:WPe": "Wikipedia „Elastic properties of the elements (data page)“ (Querkontraktionszahlen nach WebElements)",
+    "th:WPk": "Wikipedia „Thermal conductivities of the elements (data page)“ (um 300 K)",
+    "th:A": "M. F. Ashby, Material property data for engineering materials, 5. Aufl. (Ansys Granta, 2021) (dieselben Bereiche wie im Werkstoffschaubild; repräsentativer Wert = geometrisches Mittel des Bereichs)",
+    "th:EC3": "EN 1993-1-1 (E = 210 GPa, ν = 0,3, α = 12×10⁻⁶ K⁻¹) und EN 1993-1-2 (Gleichungen für Wärmedehnung und Wärmeleitfähigkeit von Baustahl, 20–1200 °C)",
+    "th:RA": "Rolled Alloys, Datenblatt Invar 36 (mittlerer Ausdehnungskoeffizient ab 70 °F, 0,2-%-Dehngrenze)",
+    "th:HTI": "High Temp Metals, technische Daten Invar 36 (E im geglühten Zustand, Dichte, Wärmeleitfähigkeit, Curie-Temperatur)",
+    "th:HTK": "High Temp Metals, technische Daten Kovar (mittlerer Ausdehnungskoeffizient ab 25 °C, E, Dichte, Wärmeleitfähigkeit, Streckgrenze)",
+    "th:KY": "Kyocera, Werkstoffeigenschaften der Feinkeramik (Datenblätter; Biegefestigkeit im Dreipunkt-Biegeversuch nach JIS R 1601, Thermoschockbeständigkeit im Abschreckversuch in Wasser nach JIS R 1648)",
+    "th:ISO": "ISO 16293-1:2008 (allgemeine physikalische Eigenschaften von Kalk-Natron-Silicatglas für das Bauwesen)",
+    "th:SCH": "SCHOTT, technische Daten BOROFLOAT 33 (α 20–300 °C, E, ν, Biegefestigkeit, unterer Kühlpunkt)",
+    "th:COR": "Corning, Daten zu Quarzglas HPFS 7980 (E, ν, Dichte, Wärmeleitfähigkeit, mittlerer Ausdehnungskoeffizient, unterer Kühlpunkt, Biegefestigkeit abgeschliffener Proben)",
+    "th:WSL": "Wikipedia „Soda–lime glass“ (Tabelle: Tg von Floatglas 564 °C)",
+    "th:ISOLA": "Isola, Datenblatt 370HR (Laminat der FR-4-Klasse: Ausdehnungskoeffizient x/y, E, ν, Wärmeleitfähigkeit, Biegefestigkeit, Tg)",
+    "th:H10": "M. A. Hopcroft, W. D. Nix, T. W. Kenny, J. Microelectromech. Syst. 19 (2010) 229 (E und ν von Si, biaxialer Modul von (100) 180 GPa, C11 = 165,7, C12 = 63,9, C44 = 79,6 GPa)",
+    "as:A": "M. F. Ashby, „Material property data for engineering materials“, 5. Aufl., Okt. 2021, Lehrmaterial zu Ansys Granta EduPack (Tabellen A2 Dichte, A3 Elastizitätsmodul und Streckgrenze, A4 Zugfestigkeit und Bruchzähigkeit, A6 Wärmeleitfähigkeit und Wärmeausdehnung)",
+    "as:C": "CoorsTek, Werkstoffeigenschaften „Advanced Alumina“ (94–99,9 % Al₂O₃)",
+    "as:W": "Wikipedia „Soda–lime glass“, Tabelle der Eigenschaften (zitiert Seward & Vascott (Hrsg.), High temperature glass melt property database, ACerS 2005, und Janssen & Warmoeskerken, Transport phenomena data companion, 2006)",
+    "as:Q": "Corning, Produktdaten Quarzglas HPFS 7980 (wiedergegeben von UQG Optics)",
+    "as:N": "NIST Structural Ceramics Database, Aluminiumoxid (AD-999 3,96, gesintert 99,6 % 3,98 g/cm³)",
+    "as:L": "A. F. Liu, Mechanics and Mechanisms of Fracture, ASM International 2005, Anhang 7 (veröffentlicht vom NIST); K_IC von 2124-T351 L-T 47,9",
+    "as:P": "Aircraft Materials, 17-4PH (AMS 5643/5604): 0,2-%-Dehngrenze im Zustand H900 170 ksi (= 1170 MPa)",
+    "as:T": "ASM Aerospace Specification Metals, Ti-6Al-4V (Grade 5) geglüht: Wärmeleitfähigkeit 6,7 W/(m·K)",
+    "as:I": "Special Metals, technisches Merkblatt INCONEL alloy 718: Wärmeleitfähigkeit bei Raumtemperatur 77 Btu·in/(ft²·h·°F) (= 11,1 W/(m·K))",
+    "as:R": "Natural Stone Institute, R-Value for Natural Stone (Granit 1,73–3,98, Kalkstein 1,26–2,15, Marmor 2,07–2,94, Sandstein 1,83–2,90, Quarzit 5,38 W/(m·K))",
+    "as:Z": "NETZSCH Polymers, CR: Chloroprenkautschuk (linearer Ausdehnungskoeffizient 185–250 ×10⁻⁶/K, Wärmeleitfähigkeit 0,18–0,20 W/(m·K))",
+    "cp:TOR_T300": "Toray Composite Materials America, TORAYCA T300 Technical Data Sheet (Nr. CFA-001)",
+    "cp:TOR_T700S": "Toray Composite Materials America, TORAYCA T700S Technical Data Sheet (Nr. CFA-005)",
+    "cp:TOR_T800S": "Toray Composite Materials America, TORAYCA T800S Technical Data Sheet",
+    "cp:TOR_M40J": "Toray Composite Materials America, TORAYCA M40J Technical Data Sheet (Nr. CFA-014)",
+    "cp:TOR_M55J": "Toray Composite Materials America, TORAYCA M55J Technical Data Sheet (Nr. CFA-017)",
+    "cp:TEI_HTS40": "Teijin Tenax HTS40 (Roving 12K/24K), Werte nach Angabe des Händlers compositeshop.de",
+    "cp:WWFE": "P. D. Soden, M. J. Hinton, A. S. Kaddour, Compos. Sci. Technol. 58 (1998) 1011 (WWFE), tabelliert im NPTEL-Kurs 101104010, Vorlesung 25 (IIT Kanpur), Tabellen 7.1–7.2",
+    "cp:AGY": "AGY, „S-Series High Performance Materials for Automotive Applications“ (Eigenschaftstabelle E-Glass / S-2 Glass)",
+    "cp:OC": "Owens Corning, Produktblatt „Higher Performance Composites“, Pub. 10023976 (2021), Advantex-E-CR-Glas",
+    "cp:DUP": "DuPont, Kevlar Aramid Fiber Technical Guide, Tabellen II-1 und II-4 (Kevlar 49)",
+    "cp:DUP_TR": "Querkennwerte von Kevlar 49 aus dem DuPont Kevlar 49 Data Manual (1986), wie im Autodesk Helius PFA Material Manager, Anhang A, aufgeführt",
+    "cp:MAFIC": "Mafic, technische Daten Basalt Direct Roving 17 µm (imprägnierter Strang, ASTM D2343)",
+    "cp:ZHU": "J. Zhu, H. Zhu, J. Njuguna, H. Abhyankar, Materials 6 (2013) 5171, Tabelle 2 (nach Sparnins 2009; Symington et al. 2009)",
+    "cp:HEX8552": "Hexcel, HexPly 8552 Product Data Sheet (Reinharz)",
+    "cp:ASHBY": "M. F. Ashby, Material property data for engineering materials, 5. Aufl. (Ansys Granta, 2021) – Mitte des Bereichs, wie im Werkstoffschaubild dieser Website",
+    "cp:DER": "Ashland, DERAKANE MOMENTUM 411-350 Technical Datasheet (ausgehärteter Gießling)",
+    "cp:VIC": "Victrex, VICTREX PEEK 450G Typical Properties",
+    "cp:BASF": "BASF, Datenblatt Ultramid B3S (PA6) (ISO 527, ISO 11359)",
+    "cp:LYB": "LyondellBasell, Datenblatt Moplen HP500N (ISO 527)",
+    "cp:ASM6061": "ASM Aerospace Specification Metals, Datenblatt Aluminum 6061-T6",
+    "cp:UC3M": "T300/5208 (Tsai & Hahn), wie angegeben in Universidad Carlos III de Madrid, Mecánica de Materiales Compuestos, Ejercicios Tema 5",
+    "cp:NTNU": "N. P. Vedvik, TMM4175 Lightweight Design, NTNU, „Material properties“, Tabelle 1 (V_f = 0,55)",
+    "cp:EC3": "EN 1993-1-1 §3.2.6 (E = 210 GPa, ν = 0,3) und EN 10025-2 S355 (f_y = 355 MPa, t ≤ 16 mm); ρ = 7,85 g/cm³",
+    "df:C9": "W. D. Callister, D. G. Rethwisch, Materials Science and Engineering: An Introduction, 9. Aufl. (Wiley, 2014), Tabelle 5.2",
+    "df:C7": "W. D. Callister, Materials Science and Engineering: An Introduction, 7. Aufl. (Wiley, 2007), Tabelle 5.2",
+    "df:ASK": "D. R. Askeland, The Science and Engineering of Materials, Tabelle 5-1 (C in kfz-Eisen: D0 = 0,23 cm²/s, Q = 32900 cal/mol)",
+    "df:FUJ": "S. Fujikawa, K. Hirano, Y. Fukushima, Metall. Trans. A 9 (1978) 1811 (753–893 K)",
+    "df:FAIR": "R. B. Fair (1981), intrinsische Diffusivität, tabelliert in S. W. Jones, Diffusion in Silicon (IC Knowledge, 2000), Tabelle 1.4",
+    "df:CEX": "Callister & Rethwisch, 9. Aufl., Abschnitt 5.6, Beispiel zur Diffusion von Bor in Silizium (D0 = 2,4 × 10⁻³ m²/s, Qd = 3,87 eV/Atom)",
+    "xr:HOM": "Handbook of Mineralogy (Datenblätter: Halite, Sylvite, Griceite, Periclase, Fluorite, Sphalerite, Zincite)",
+    "xr:VMR": "I. Vurgaftman, J. R. Meyer, L. R. Ram-Mohan, J. Appl. Phys. 89 (2001) 5815 (Gitterkonstanten bei 300 K)",
+    "xr:KE": "S. Kisi, M. M. Elcombe, Acta Cryst. C45 (1989) 1867 (a, c und u von Wurtzit-ZnS; u von ZnO)",
+    "lv:UW": "University of Washington, MSE 170, Vorlesung 16 (Diagramme und Beispiele nach Callister: Pb–Sn 183 °C, 61,9 Massen-% Sn; Cu–Ag 779 °C, 71,9 Massen-% Ag)",
+    "lv:AFS": "Modern Casting (AFS), das Zustandsdiagramm Al–Si (Eutektikum 577 °C, 12,6 Massen-% Si)",
+    "lv:PRIN": "Princeton MAE 324 09mae_45 (Al–Cu: Eutektikum 548 °C, eutektische Schmelze 33,2 Massen-% Cu)",
+    "lv:HF": "Wikipedia „Heats of fusion of the elements“, Spalte Lange’s Handbook",
+    "dr:IEC": "IEC 60028 (weichgeglühtes Normkupfer: 1,7241 × 10⁻⁸ Ω·m bei 20 °C, Temperaturkoeffizient 0,00393 K⁻¹)",
+    "dr:EC": "Leitaluminium, 61 % IACS (Leitfähigkeit bezogen auf 1,7241 µΩ·cm: 2,8264 × 10⁻⁸ Ω·m, Temperaturkoeffizient 0,00403 K⁻¹)",
+    "dg:JSSA": "Japan Stainless Steel Association, Rohrleitungshandbuch (Grundlagen): Tabelle der Zusammensetzungen (Bereiche nach der japanischen Norm JIS)",
+    "dg:NBK": "Nabeya Bi-tech, chemische Zusammensetzung von Aluminiumlegierungen (A6061 u. a.)",
+    "add:CLF304": "Cleveland-Cliffs, „304/304L Stainless Steel“ Product Data Bulletin (2021): physikalische Eigenschaften und Zeile 70 °F (21 °C) der Tabelle 3 (geglüht)",
+    "add:CLF316": "Cleveland-Cliffs, „316/316L Stainless Steel“ Product Data Bulletin (2021): physikalische Eigenschaften und typische Eigenschaften bei Raumtemperatur aus Tabelle 1"
+  },
+  "materials": {
+    "li": {
+      "name": "Lithium",
+      "al": []
+    },
+    "be": {
+      "name": "Beryllium",
+      "al": []
+    },
+    "na": {
+      "name": "Natrium",
+      "al": []
+    },
+    "mg": {
+      "name": "Magnesium",
+      "al": [],
+      "note": "Das Strukturmetall mit der geringsten Dichte (1,74 g/cm³); als Magnesiumlegierungen zur Gewichtseinsparung eingesetzt."
+    },
+    "al": {
+      "name": "Aluminium",
+      "al": [
+        "Reinaluminium",
+        "Alu"
+      ],
+      "note": "Ein kfz-Metall mit der geringen Dichte von 2,70 g/cm³; Aluminiumlegierungen werden für tragende Bauteile verwendet, bei denen es auf geringes Gewicht ankommt.",
+      "vars": {
+        "ec": "Leitaluminium (61 % IACS)"
+      }
+    },
+    "k": {
+      "name": "Kalium",
+      "al": []
+    },
+    "ca": {
+      "name": "Calcium",
+      "al": [
+        "Kalzium"
+      ]
+    },
+    "sc": {
+      "name": "Scandium",
+      "al": []
+    },
+    "ti": {
+      "name": "Titan",
+      "al": [
+        "Reintitan"
+      ],
+      "note": "Mit 4,51 g/cm³ etwa 60 % der Dichte von Eisen; Titanlegierungen wie Ti-6Al-4V werden für Flugzeugbauteile und als Biowerkstoffe verwendet."
+    },
+    "v": {
+      "name": "Vanadium",
+      "al": []
+    },
+    "cr": {
+      "name": "Chrom",
+      "al": [],
+      "note": "Ein Zusatz von etwa 11 % oder mehr (nach der Normdefinition 10,5 %) zum Stahl bildet an der Oberfläche eine passive Chromoxidschicht; so entsteht nichtrostender Stahl."
+    },
+    "mn": {
+      "name": "Mangan",
+      "al": []
+    },
+    "fe": {
+      "name": "Eisen",
+      "al": [
+        "Reineisen"
+      ],
+      "note": "Hauptbestandteil von Stahl und Gusseisen. Die Umwandlung zwischen krz und kfz bei 912 °C ist die Grundlage von Wärmebehandlungen wie dem Härten.",
+      "trn": "Bei der Curie-Temperatur um 770 °C (ferromagnetisch zu paramagnetisch) ändert sich die Kristallstruktur nicht."
+    },
+    "co": {
+      "name": "Cobalt",
+      "al": [
+        "Kobalt"
+      ],
+      "note": "Wird als Bindephase verwendet, die in WC-Co-Hartmetallen die WC-Körner zusammenhält, sowie in Superlegierungen und Magnetwerkstoffen.",
+      "trn": "Manche Quellen nennen 427 °C oder 450 °C. Die Phasenbezeichnungen folgen der ASM-Tabelle: Die hdP-Phase bei Raumtemperatur ist ε, die kfz-Phase bei hoher Temperatur α (manche Quellen nennen hdP α und kfz β)."
+    },
+    "ni": {
+      "name": "Nickel",
+      "al": [],
+      "note": "Ein Hauptelement der austenitischen nichtrostenden Stähle und der Superlegierungen auf Nickelbasis."
+    },
+    "cu": {
+      "name": "Kupfer",
+      "al": [
+        "Reinkupfer"
+      ],
+      "note": "Wegen seiner hohen elektrischen Leitfähigkeit das Metall für Drähte und Leiterbahnen. Seine Legierung mit Zink ist Messing.",
+      "vars": {
+        "iacs": "Normkupfer, weichgeglüht (IEC 60028)"
+      }
+    },
+    "zn": {
+      "name": "Zink",
+      "al": [],
+      "note": "Wird zum Verzinken von Stahl (liegt der Stahl an einem Kratzer frei, korrodiert zuerst das Zink und schützt ihn) und in Messing (Cu–Zn-Legierungen) verwendet."
+    },
+    "ga": {
+      "name": "Gallium",
+      "al": []
+    },
+    "rb": {
+      "name": "Rubidium",
+      "al": []
+    },
+    "sr": {
+      "name": "Strontium",
+      "al": []
+    },
+    "y": {
+      "name": "Yttrium",
+      "al": []
+    },
+    "zr": {
+      "name": "Zirconium",
+      "al": [
+        "Zirkonium"
+      ],
+      "trn": "Manche Lehrbücher nennen 872 °C."
+    },
+    "nb": {
+      "name": "Niob",
+      "al": []
+    },
+    "mo": {
+      "name": "Molybdän",
+      "al": [],
+      "note": "Ein krz-Metall mit dem hohen Schmelzpunkt von 2623 °C; verwendet als Legierungselement im Stahl und für Bauteile, die bei hoher Temperatur arbeiten."
+    },
+    "tc": {
+      "name": "Technetium",
+      "al": []
+    },
+    "ru": {
+      "name": "Ruthenium",
+      "al": []
+    },
+    "rh": {
+      "name": "Rhodium",
+      "al": []
+    },
+    "pd": {
+      "name": "Palladium",
+      "al": []
+    },
+    "ag": {
+      "name": "Silber",
+      "al": []
+    },
+    "cd": {
+      "name": "Cadmium",
+      "al": [
+        "Kadmium"
+      ]
+    },
+    "in": {
+      "name": "Indium",
+      "al": []
+    },
+    "sn": {
+      "name": "Zinn",
+      "al": [
+        "weißes Zinn"
+      ],
+      "trn": "Unterhalb von 13 °C ist graues Zinn (Diamantstruktur) stabil. Die Dichte sinkt dabei von 7,265 g/cm³ (weißes Zinn) auf 5,769 g/cm³, das Volumen nimmt um etwa 26 % zu (Dichten nach CRC)."
+    },
+    "cs": {
+      "name": "Caesium",
+      "al": [
+        "Cäsium"
+      ]
+    },
+    "ba": {
+      "name": "Barium",
+      "al": []
+    },
+    "la": {
+      "name": "Lanthan",
+      "al": []
+    },
+    "ce": {
+      "name": "Cer",
+      "al": []
+    },
+    "pr": {
+      "name": "Praseodym",
+      "al": []
+    },
+    "nd": {
+      "name": "Neodym",
+      "al": []
+    },
+    "pm": {
+      "name": "Promethium",
+      "al": []
+    },
+    "sm": {
+      "name": "Samarium",
+      "al": []
+    },
+    "eu": {
+      "name": "Europium",
+      "al": []
+    },
+    "gd": {
+      "name": "Gadolinium",
+      "al": []
+    },
+    "tb": {
+      "name": "Terbium",
+      "al": []
+    },
+    "dy": {
+      "name": "Dysprosium",
+      "al": []
+    },
+    "ho": {
+      "name": "Holmium",
+      "al": []
+    },
+    "er": {
+      "name": "Erbium",
+      "al": []
+    },
+    "tm": {
+      "name": "Thulium",
+      "al": []
+    },
+    "yb": {
+      "name": "Ytterbium",
+      "al": []
+    },
+    "lu": {
+      "name": "Lutetium",
+      "al": []
+    },
+    "hf": {
+      "name": "Hafnium",
+      "al": []
+    },
+    "ta": {
+      "name": "Tantal",
+      "al": []
+    },
+    "w": {
+      "name": "Wolfram",
+      "al": [],
+      "note": "Das Metall mit dem höchsten Schmelzpunkt (3422 °C). Wolframcarbid (WC) ist der Hauptbestandteil von Hartmetallen."
+    },
+    "re": {
+      "name": "Rhenium",
+      "al": []
+    },
+    "os": {
+      "name": "Osmium",
+      "al": []
+    },
+    "ir": {
+      "name": "Iridium",
+      "al": []
+    },
+    "pt": {
+      "name": "Platin",
+      "al": []
+    },
+    "au": {
+      "name": "Gold",
+      "al": []
+    },
+    "hg": {
+      "name": "Quecksilber",
+      "al": []
+    },
+    "tl": {
+      "name": "Thallium",
+      "al": []
+    },
+    "pb": {
+      "name": "Blei",
+      "al": []
+    },
+    "bi": {
+      "name": "Bismut",
+      "al": [
+        "Wismut"
+      ]
+    },
+    "po": {
+      "name": "Polonium",
+      "al": []
+    },
+    "low-carbon-steel": {
+      "name": "Kohlenstoffarmer Stahl",
+      "al": [
+        "unlegierter Stahl",
+        "Kohlenstoffstahl",
+        "weicher Stahl"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "low-alloy-steel": {
+      "name": "Niedriglegierter Stahl",
+      "al": [
+        "legierter Stahl"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "stainless-steel": {
+      "name": "Nichtrostender Stahl",
+      "al": [
+        "Edelstahl",
+        "Edelstahl rostfrei",
+        "rostfreier Stahl",
+        "VA-Stahl",
+        "Inox"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "gray-cast-iron": {
+      "name": "Grauguss",
+      "al": [
+        "Gusseisen",
+        "Gusseisen mit Lamellengraphit",
+        "GJL"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "al-alloys": {
+      "name": "Aluminiumlegierungen",
+      "al": [
+        "Alulegierung",
+        "Duralumin"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "cu-alloys": {
+      "name": "Kupferlegierungen",
+      "al": [
+        "Messing",
+        "Bronze"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "mg-alloys": {
+      "name": "Magnesiumlegierungen",
+      "al": [],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "ti-alloys": {
+      "name": "Titanlegierungen",
+      "al": [
+        "Ti-6Al-4V"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "ni-alloys": {
+      "name": "Nickellegierungen",
+      "al": [
+        "Inconel",
+        "Superlegierung",
+        "Nickelbasislegierung"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "pb-alloys": {
+      "name": "Bleilegierungen",
+      "al": [],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "w-alloys": {
+      "name": "Wolframlegierungen",
+      "al": [
+        "Wolframschwermetall"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "structural-steel": {
+      "name": "Baustahl (S235, S355)",
+      "al": [
+        "Stahl",
+        "unlegierter Baustahl",
+        "St37",
+        "St52"
+      ],
+      "vars": {
+        "s235": "S235",
+        "s355": "S355 (t ≤ 16 mm)"
+      }
+    },
+    "invar": {
+      "name": "Invar (Fe-36Ni)",
+      "al": []
+    },
+    "kovar": {
+      "name": "Kovar (Fe-29Ni-17Co)",
+      "al": []
+    },
+    "a6061-t6": {
+      "name": "Aluminiumlegierung 6061-T6",
+      "al": [
+        "Aluminium 6061",
+        "AlMg1SiCu"
+      ]
+    },
+    "pb-sn-eutectic": {
+      "name": "Eutektisches Pb–Sn-Lot",
+      "al": [
+        "Lot",
+        "Weichlot",
+        "Lötzinn",
+        "Zinn-Blei-Lot"
+      ]
+    },
+    "al-si-eutectic": {
+      "name": "Eutektische Al–Si-Legierung",
+      "al": [
+        "Silumin"
+      ]
+    },
+    "ag-cu-eutectic": {
+      "name": "Eutektische Ag–Cu-Legierung (Silberhartlot)",
+      "al": [
+        "Silberlot",
+        "Hartlot"
+      ]
+    },
+    "al-cu-eutectic": {
+      "name": "Al–Cu-Eutektikum (Al-Seite)",
+      "al": []
+    },
+    "sus304": {
+      "name": "Nichtrostender Stahl 304 (SUS304)",
+      "al": [
+        "austenitischer nichtrostender Stahl",
+        "Werkstoffnummer 1.4301",
+        "X5CrNi18-10",
+        "V2A",
+        "Edelstahl"
+      ]
+    },
+    "sus316": {
+      "name": "Nichtrostender Stahl 316 (SUS316)",
+      "al": [
+        "austenitischer nichtrostender Stahl",
+        "Werkstoffnummer 1.4401",
+        "X5CrNiMo17-12-2",
+        "V4A",
+        "Edelstahl"
+      ]
+    },
+    "alumina": {
+      "name": "Aluminiumoxid",
+      "al": [
+        "Aluminiumoxidkeramik",
+        "Korund",
+        "Al2O3"
+      ],
+      "vars": {
+        "ky": "Kyocera AO479O",
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "aln": {
+      "name": "Aluminiumnitrid",
+      "al": [
+        "AlN"
+      ],
+      "vars": {
+        "ky": "Kyocera AN216A",
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "sic": {
+      "name": "Siliziumcarbid",
+      "al": [
+        "SiC",
+        "Siliciumcarbid",
+        "Karborund"
+      ],
+      "vars": {
+        "ky": "Kyocera SC1000",
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "wc": {
+      "name": "Wolframcarbid",
+      "al": [
+        "WC",
+        "Hartmetall"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "brick": {
+      "name": "Ziegel",
+      "al": [
+        "Mauerziegel",
+        "Backstein"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "concrete": {
+      "name": "Beton",
+      "al": [],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "stone": {
+      "name": "Naturstein",
+      "al": [
+        "Gestein"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "si3n4": {
+      "name": "Siliziumnitrid Si₃N₄",
+      "al": [
+        "Si3N4",
+        "Siliciumnitrid"
+      ],
+      "vars": {
+        "ky": "Kyocera SN240"
+      }
+    },
+    "zro2": {
+      "name": "Zirkonoxid ZrO₂ (teilstabilisiert)",
+      "al": [
+        "ZrO2",
+        "PSZ",
+        "Zirkoniumdioxid"
+      ],
+      "vars": {
+        "ky": "Kyocera ZO201N"
+      }
+    },
+    "cordierite": {
+      "name": "Cordierit",
+      "al": [
+        "Kordierit"
+      ],
+      "vars": {
+        "ky": "Kyocera CO220O"
+      }
+    },
+    "nacl": {
+      "name": "Natriumchlorid (Halit)",
+      "al": [
+        "Kochsalz",
+        "Steinsalz",
+        "Halit"
+      ]
+    },
+    "kcl": {
+      "name": "Kaliumchlorid (Sylvin)",
+      "al": []
+    },
+    "lif": {
+      "name": "Lithiumfluorid",
+      "al": []
+    },
+    "mgo": {
+      "name": "Magnesiumoxid (Magnesia)",
+      "al": [
+        "Periklas"
+      ]
+    },
+    "caf2": {
+      "name": "Calciumfluorid (Fluorit)",
+      "al": [
+        "Flussspat"
+      ]
+    },
+    "soda-lime-glass": {
+      "name": "Kalk-Natron-Glas",
+      "al": [
+        "Floatglas",
+        "Fensterglas",
+        "Flachglas"
+      ],
+      "vars": {
+        "iso": "ISO 16293-1 (Flachglas für das Bauwesen)",
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "borosilicate-glass": {
+      "name": "Borosilikatglas",
+      "al": [
+        "Pyrex",
+        "Duran"
+      ],
+      "vars": {
+        "schott": "SCHOTT BOROFLOAT 33",
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "silica-glass": {
+      "name": "Quarzglas",
+      "al": [
+        "Kieselglas",
+        "SiO2"
+      ],
+      "vars": {
+        "hpfs": "Corning HPFS 7980",
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "pe": {
+      "name": "Polyethylen (PE)",
+      "al": [
+        "HDPE",
+        "LDPE",
+        "PE-HD",
+        "PE-LD"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "pp": {
+      "name": "Polypropylen (PP)",
+      "al": [],
+      "vars": {
+        "hp500n": "Moplen HP500N",
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "ps": {
+      "name": "Polystyrol (PS)",
+      "al": [
+        "Styrol"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "pvc": {
+      "name": "Polyvinylchlorid (PVC)",
+      "al": [
+        "Vinyl"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "pmma": {
+      "name": "Acrylglas (PMMA)",
+      "al": [
+        "Plexiglas",
+        "Polymethylmethacrylat"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "pa": {
+      "name": "Polyamid (Nylon, PA)",
+      "al": [
+        "Nylon",
+        "Perlon",
+        "PA6",
+        "PA66"
+      ],
+      "vars": {
+        "b3sc": "PA6 Ultramid B3S (konditioniert)",
+        "b3s": "PA6 Ultramid B3S (trocken)",
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "pc": {
+      "name": "Polycarbonat (PC)",
+      "al": [
+        "Makrolon"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "peek": {
+      "name": "Polyetheretherketon (PEEK)",
+      "al": [],
+      "vars": {
+        "vic450g": "Victrex 450G",
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "ptfe": {
+      "name": "Polytetrafluorethylen (PTFE)",
+      "al": [
+        "Teflon"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "epoxy": {
+      "name": "Epoxidharz",
+      "al": [
+        "Epoxid",
+        "EP-Harz"
+      ],
+      "vars": {
+        "hex8552": "Hexcel 8552 (Luftfahrt)",
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "vinyl-ester": {
+      "name": "Vinylesterharz (Derakane 411-350)",
+      "al": [],
+      "vars": {
+        "der": "Derakane Momentum 411-350"
+      }
+    },
+    "iir": {
+      "name": "Butylkautschuk",
+      "al": [
+        "IIR"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "nr": {
+      "name": "Naturkautschuk",
+      "al": [
+        "Gummi",
+        "Kautschuk",
+        "NR"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "cr-rubber": {
+      "name": "Chloroprenkautschuk (Neopren)",
+      "al": [
+        "CR",
+        "Neopren",
+        "Polychloropren"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "silicone-rubber": {
+      "name": "Silikonkautschuk",
+      "al": [
+        "Silikon",
+        "VMQ"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "cf-t300": {
+      "name": "Kohlenstofffaser T300 (Toray, Standardmodul)",
+      "al": [
+        "Kohlefaser",
+        "Carbonfaser",
+        "Torayca"
+      ]
+    },
+    "cf-t700s": {
+      "name": "Kohlenstofffaser T700S (Toray, hochfest)",
+      "al": [
+        "Kohlefaser",
+        "Carbonfaser",
+        "Torayca"
+      ]
+    },
+    "cf-t800s": {
+      "name": "Kohlenstofffaser T800S (Toray, mittlerer Modul)",
+      "al": [
+        "Kohlefaser",
+        "Carbonfaser",
+        "Torayca"
+      ]
+    },
+    "cf-m40j": {
+      "name": "Kohlenstofffaser M40J (Toray, Hochmodul)",
+      "al": [
+        "Kohlefaser",
+        "Carbonfaser",
+        "Torayca"
+      ]
+    },
+    "cf-m55j": {
+      "name": "Kohlenstofffaser M55J (Toray, Hochmodul)",
+      "al": [
+        "Kohlefaser",
+        "Carbonfaser",
+        "Torayca"
+      ]
+    },
+    "cf-hts40": {
+      "name": "Kohlenstofffaser HTS40 (Teijin Tenax)",
+      "al": [
+        "Kohlefaser",
+        "Carbonfaser",
+        "Tenax"
+      ]
+    },
+    "e-glass-fiber": {
+      "name": "E-Glas (AGY)",
+      "al": [
+        "Glasfaser"
+      ]
+    },
+    "ecr-glass-fiber": {
+      "name": "E-CR-Glas Advantex (Owens Corning)",
+      "al": [
+        "Glasfaser"
+      ]
+    },
+    "s2-glass-fiber": {
+      "name": "S-2-Glas (AGY)",
+      "al": [
+        "Glasfaser"
+      ]
+    },
+    "kevlar49": {
+      "name": "Aramid Kevlar 49 (DuPont)",
+      "al": [
+        "Kevlar",
+        "Aramidfaser"
+      ]
+    },
+    "basalt-fiber": {
+      "name": "Basaltfaser (Mafic)",
+      "al": []
+    },
+    "flax-fiber": {
+      "name": "Flachsfaser",
+      "al": [
+        "Leinen",
+        "Naturfaser"
+      ]
+    },
+    "hemp-fiber": {
+      "name": "Hanffaser",
+      "al": [
+        "Naturfaser"
+      ]
+    },
+    "cfrp": {
+      "name": "CFK (Epoxidmatrix, quasiisotrop)",
+      "al": [
+        "kohlenstofffaserverstärkter Kunststoff",
+        "Carbon"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "gfrp": {
+      "name": "GFK (Epoxidmatrix, quasiisotrop)",
+      "al": [
+        "glasfaserverstärkter Kunststoff",
+        "Fiberglas"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "fr4": {
+      "name": "Leiterplatte, FR-4-Typ (in der Ebene)",
+      "al": [
+        "Leiterplattenlaminat",
+        "Epoxid-Glashartgewebe"
+      ],
+      "vars": {
+        "isola": "Isola 370HR"
+      }
+    },
+    "ud-t300-5208": {
+      "name": "T300/5208 Kohlenstoff/Epoxid (Tsai-Hahn)",
+      "al": []
+    },
+    "ud-cf-standard": {
+      "name": "Kohlenstoff/Epoxid, Standardmodul (Tabelle der NTNU, Vf 55 %)",
+      "al": []
+    },
+    "ud-cf-high-modulus": {
+      "name": "Kohlenstoff/Epoxid, Hochmodul (Tabelle der NTNU)",
+      "al": []
+    },
+    "ud-e-glass": {
+      "name": "E-Glas/Epoxid (Tabelle der NTNU)",
+      "al": []
+    },
+    "ud-s-glass": {
+      "name": "S-Glas/Epoxid (Tabelle der NTNU)",
+      "al": []
+    },
+    "ud-kevlar49": {
+      "name": "Kevlar 49/Epoxid (Tabelle der NTNU)",
+      "al": []
+    },
+    "si": {
+      "name": "Silizium",
+      "al": [
+        "Silicium",
+        "Siliziumwafer"
+      ],
+      "note": "Der Werkstoff der Substrate von Halbleiterbauelementen (einkristalline Siliziumwafer). Sein Elastizitätsmodul liegt je nach Kristallrichtung zwischen 130 und 188 GPa.",
+      "vars": {
+        "poly": "polykristallin, isotroper Mittelwert",
+        "w100": "(100)-Wafer, in der Ebene",
+        "w111": "(111)-Wafer, in der Ebene"
+      }
+    },
+    "ge": {
+      "name": "Germanium",
+      "al": []
+    },
+    "zns": {
+      "name": "Zinksulfid (Zinkblende)",
+      "al": []
+    },
+    "gaas": {
+      "name": "Galliumarsenid",
+      "al": []
+    },
+    "alas": {
+      "name": "Aluminiumarsenid",
+      "al": []
+    },
+    "inas": {
+      "name": "Indiumarsenid",
+      "al": []
+    },
+    "inp": {
+      "name": "Indiumphosphid",
+      "al": []
+    },
+    "gap": {
+      "name": "Galliumphosphid",
+      "al": []
+    },
+    "zns-w": {
+      "name": "Zinksulfid (Wurtzit)",
+      "al": []
+    },
+    "zno": {
+      "name": "Zinkoxid",
+      "al": []
+    },
+    "b": {
+      "name": "Bor",
+      "al": []
+    },
+    "c": {
+      "name": "Kohlenstoff",
+      "al": [
+        "Graphit"
+      ]
+    },
+    "p": {
+      "name": "Phosphor",
+      "al": []
+    },
+    "s": {
+      "name": "Schwefel",
+      "al": []
+    },
+    "as": {
+      "name": "Arsen",
+      "al": []
+    },
+    "se": {
+      "name": "Selen",
+      "al": []
+    },
+    "br": {
+      "name": "Brom",
+      "al": []
+    },
+    "sb": {
+      "name": "Antimon",
+      "al": []
+    },
+    "te": {
+      "name": "Tellur",
+      "al": []
+    },
+    "i": {
+      "name": "Iod",
+      "al": [
+        "Jod"
+      ]
+    },
+    "diamond": {
+      "name": "Diamant",
+      "al": []
+    },
+    "flexible-foam": {
+      "name": "Weichschaum (niedrige Dichte)",
+      "al": [
+        "Polyurethanschaum",
+        "PU-Schaum",
+        "Schaumstoff"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "rigid-foam": {
+      "name": "Hartschaum (niedrige Dichte)",
+      "al": [
+        "expandiertes Polystyrol",
+        "EPS",
+        "Styropor"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "rigid-foam-hd": {
+      "name": "Hartschaum (hohe Dichte)",
+      "al": [],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "cork": {
+      "name": "Kork",
+      "al": [],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "paper": {
+      "name": "Papier und Pappe",
+      "al": [
+        "Karton"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "wood-along": {
+      "name": "Holz (in Faserrichtung)",
+      "al": [
+        "Bauholz",
+        "Schnittholz"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    },
+    "wood-across": {
+      "name": "Holz (quer zur Faser)",
+      "al": [
+        "Bauholz",
+        "Schnittholz"
+      ],
+      "vars": {
+        "ash": "Bereich der Werkstoffgruppe nach Ashby"
+      }
+    }
+  },
+  "guide": [
+    {
+      "id": "read",
+      "h": "Repräsentative Werte und Bereiche",
+      "p": [
+        "Es gibt zwei Arten von Werten: einen Einzelwert für eine Sorte oder eine Norm (zum Beispiel den Elastizitätsmodul von Kyocera AO479O, 360 GPa) und einen Bereich für eine Werkstoffgruppe (zum Beispiel 340–390 GPa für „Aluminiumoxid“ nach Ashby). Ein Bereich fasst viele Sorten mit unterschiedlicher Zusammensetzung und Herstellung zusammen; er bedeutet nicht, dass jede Sorte darin liegt.",
+        "Der repräsentative Wert eines Bereichs ist das geometrische Mittel seiner Grenzen, √(Untergrenze × Obergrenze), auf 3 signifikante Stellen. Er entspricht dem Mittelpunkt der Ellipse im Werkstoffschaubild und beschreibt bei Eigenschaften, die sich über eine Größenordnung oder mehr erstrecken (Festigkeit von Schaumstoffen, Wärmeleitfähigkeit von Polymeren), die Lage im Bereich besser als das arithmetische Mittel.",
+        "Hat ein Werkstoff mehrere Werte für eine Eigenschaft, zeigt die Tabelle den ersten (den Wert der Sorte, falls vorhanden, sonst den Bereich) und markiert die Anzahl der weiteren Werte mit „+n“. Die Karte zeigt alle Werte mit Bedingung und Quelle."
+      ]
+    },
+    {
+      "id": "vary",
+      "h": "Werte ändern sich mit Temperatur, Gefüge und Richtung",
+      "p": [
+        "Der Längenausdehnungskoeffizient hängt vom Temperaturbereich ab. Für den nichtrostenden Stahl 304 beträgt der Mittelwert über 0–100 °C 16,9 × 10⁻⁶ K⁻¹ und über 0–649 °C 18,7 × 10⁻⁶ K⁻¹. Auch Wärmeleitfähigkeit, Elastizitätsmodul und Festigkeit ändern sich mit der Temperatur; der Elastizitätsmodul der meisten Metalle sinkt mit steigender Temperatur. Vergleichen Sie Werte bei derselben Temperatur.",
+        "Die Festigkeit hängt stärker vom Gefüge (Wärmebehandlung, Umformung) ab als von der Zusammensetzung. Streckgrenze, Zugfestigkeit und Biegefestigkeit sind verschiedene Größen, und die Biegefestigkeit von Keramiken fällt höher aus als ihre Zugfestigkeit. Die Tabelle gibt immer an, welche Festigkeit sie zeigt. Polymere ändern sich auch mit der Feuchte: PA6 hat trocken einen Elastizitätsmodul von 3,5 GPa und konditioniert von 1,2 GPa.",
+        "Einkristalle, Fasern und unidirektionale Schichten unterscheiden sich je nach Richtung. Der Elastizitätsmodul von Silizium liegt je nach Kristallrichtung bei 130–188 GPa, und die Kohlenstofffaser T300 dehnt sich in Faserrichtung negativ und quer dazu positiv aus. Werte für Vielkristalle sind Mittelwerte über alle Richtungen."
+      ]
+    },
+    {
+      "id": "spec",
+      "h": "Normwerte, typische Werte und Messwerte",
+      "p": [
+        "Normen nennen garantierte Mindestwerte (die Streckgrenze von 355 MPa für S355 nach EN 10025-2 ist der garantierte Mindestwert für Dicken bis 16 mm) und festgelegte Bereiche der Zusammensetzung (zum Beispiel Cr 18,00–20,00 % nach der japanischen Norm JIS). Ein „typischer“ Wert des Herstellers ist ein Mittelwert von Messungen, keine Garantie.",
+        "Dass die Werte für denselben Werkstoffnamen von Quelle zu Quelle etwas abweichen, liegt meist an Probe, Prüfverfahren und Temperatur, nicht daran, dass eine Quelle falsch ist. Wo die Rechner unterschiedliche Werte verwenden, zeigt diese Seite beide mit Bedingungen und Quellen, statt einen davon zu korrigieren."
+      ]
+    },
+    {
+      "id": "cite",
+      "h": "Wenn Sie einen Wert zitieren",
+      "p": [
+        "Zitieren Sie die Quelle des Wertes (auf der Karte und im Quellenverzeichnis genannt), nicht diese Seite. Am sichersten ist es, die Quelle zu öffnen und die Bedingung (Temperatur, Zustand, Richtung, Prüfverfahren) zu prüfen, bevor Sie einen Wert verwenden.",
+        "Geben Sie Einheit und Bedingung zusammen mit dem Wert an. Umgerechnete Werte werden mit den signifikanten Stellen des Originalwerts angezeigt. Die CSV enthält sowohl den Wert in der angezeigten Einheit als auch den Wert in der Originaleinheit."
+      ]
+    },
+    {
+      "id": "how",
+      "h": "Wie diese Daten entstanden sind",
+      "p": [
+        "Die Werte werden per Skript aus den Datensammlungen der Rechner dieser Website entnommen (Periodensystem für Werkstoffe, Labor für Wärmeausdehnung und Wärmespannung, Werkstoffschaubild, Verbundwerkstoff-Designer, Simulator für Diffusion und Oberflächenbehandlung, XRD-Analyse-Werkbank, Labor für binäre Zustandsdiagramme, Rechentrainer und Werkstoffkurzzeichen lesen). Kein Wert eines Rechners wird von Hand abgeschrieben, und jeder entnommene Wert wird mit dem Rechner abgeglichen.",
+        "Die einzigen Werte, die nicht in den Rechnern stehen, sind die Eigenschaften der nichtrostenden Stähle 304 und 316 aus den Produktdaten von Cleveland-Cliffs (US-Merkblätter zu 304/304L und 316/316L). Sie sind aus den Tabellen dieser Merkblätter übernommen und noch einmal mit ihnen abgeglichen; Werte, bei denen die Angaben in US-Einheiten und in SI-Einheiten innerhalb des Merkblatts nicht übereinstimmen, sind weggelassen (stimmt nur die angegebene Temperatur nicht überein, gilt die Temperatur in °F). Werte, die der Verbundwerkstoff-Designer annimmt (ohne Quelle), und Werte, die unter der Annahme von Isotropie berechnet sind, sind weggelassen.",
+        "„Im Rechner öffnen“ auf einer Werkstoffkarte öffnet den Rechner mit den Werten dieses Werkstoffs, im selben Zustand, als hätte man den Werkstoff im Rechner gewählt."
+      ]
+    }
+  ],
+  "faq": [
+    [
+      "Ein Handbuch nennt einen etwas anderen Wert. Welcher ist richtig?",
+      "Meist beide: Probe, Prüfverfahren oder Temperatur unterscheiden sich. Jeder Wert hier steht mit Quelle und Bedingung, prüfen Sie also zuerst, ob die Bedingungen übereinstimmen. Stimmen sie überein und weichen die Werte trotzdem stark ab, prüfen Sie bitte die Quelle und geben Sie uns Bescheid."
+    ],
+    [
+      "Warum ist der repräsentative Wert eines Bereichs nicht die Mitte?",
+      "Bei Eigenschaften, die sich über ein Mehrfaches oder mehr erstrecken, beschreibt das geometrische Mittel, also die Mitte auf einer logarithmischen Skala, die Lage im Bereich besser. Es entspricht dem Mittelpunkt der Ellipse im Werkstoffschaubild. Zum Beispiel ist das arithmetische Mittel von 0,01–1 gleich 0,505, das geometrische Mittel dagegen 0,1."
+    ],
+    [
+      "Kann ich mit diesen Werten ein Bauteil auslegen?",
+      "Für die Vorauswahl und den Vergleich von Werkstoffen sind sie geeignet, für die Auslegung nicht. Verwenden Sie für die Auslegung garantierte Werte aus Normen oder Daten des Herstellers für die tatsächliche Sorte (Mindestwerte und Werte bei Betriebstemperatur)."
+    ],
+    [
+      "Soll ich auf die Streckgrenze oder die Zugfestigkeit schauen?",
+      "Die Streckgrenze (0,2-%-Dehngrenze) für Bauteile, die sich nicht plastisch verformen dürfen, und die Zugfestigkeit, um die Festigkeit bis zum Bruch zu vergleichen. Keramiken und Gläser fließen nicht; bei ihnen sind Biege- oder Zugfestigkeit maßgebend. Die Tabelle gibt immer an, welche Festigkeit sie zeigt."
+    ],
+    [
+      "Warum sind manche Eigenschaften leer?",
+      "Aufgenommen sind nur Werte, die in einer Quelle bestätigt sind. Werte, die nicht in den Daten der Rechner stehen oder in den Quellen nicht angegeben sind, werden nicht durch Schätzung ergänzt."
+    ],
+    [
+      "Wie viele Stellen enthält die CSV?",
+      "Werte, die in die angezeigte Einheit umgerechnet sind, werden auf die signifikanten Stellen des Originalwerts gerundet. Jede Zeile enthält außerdem den Wert in der Originaleinheit und die Quelle, sodass sich der Originalwert prüfen lässt."
+    ]
+  ]
+}

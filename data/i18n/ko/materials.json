@@ -1,0 +1,1533 @@
+{
+  "title": "재료 데이터 모음(물성값을 출처와 함께 찾고 비교하고 내보내기)",
+  "description": "금속·합금·세라믹스·유리·고분자·복합재료용 섬유·반도체 등 160종이 넘는 재료의 밀도·영률·강도·열전도율·선팽창 계수·융점·격자 상수·확산 계수 등을 값마다 출처와 조건(온도·상태·방향)을 붙여 찾아볼 수 있습니다. 단위 전환, 2~4개 재료의 나란히 비교, 출처 열이 붙은 CSV, 계산 도구로 가는 링크가 있습니다.",
+  "h1": "재료 데이터 모음",
+  "lead": "재료의 물성값을 출처·조건과 함께 찾고, 나란히 비교하고, 내보내기 위한 페이지입니다. 값은 이 사이트의 계산 도구가 쓰는 점검을 마친 데이터 모음에서 모은 것으로, 어느 값이든 어떤 자료의 값인지, 어느 도구의 데이터인지 알 수 있습니다. 재료명(한국어·영어·일본어 이름, 다른 이름, 기호)으로 찾고, 종류와 물성으로 좁히고, 단위를 바꾸어 표를 정렬할 수 있습니다.",
+  "note": "같은 재료라도 등급·열처리·온도·방향에 따라 값이 달라집니다. 표의 값은 조건(표시가 붙은 칸)과 출처를 확인하고 쓰십시오. 부재 설계에는 규격의 보증값이나 제조사 자료의 값을 쓰십시오.",
+  "lowerNames": false,
+  "classes": {
+    "metal": "순금속(원소)",
+    "alloy": "합금",
+    "ceramic": "세라믹스",
+    "glass": "유리",
+    "polymer": "고분자",
+    "elastomer": "엘라스토머",
+    "fiber": "섬유(복합재료용)",
+    "composite": "복합재료",
+    "semi": "반도체",
+    "nonmetal": "비금속·준금속 원소",
+    "foam": "발포체",
+    "natural": "천연 재료"
+  },
+  "props": {
+    "rho": {
+      "name": "밀도",
+      "sym": "ρ"
+    },
+    "E": {
+      "name": "영률",
+      "sym": "E"
+    },
+    "G": {
+      "name": "강성률(횡탄성 계수)",
+      "sym": "G"
+    },
+    "nu": {
+      "name": "푸아송비",
+      "sym": "ν"
+    },
+    "s": {
+      "name": "강도",
+      "sym": "σ"
+    },
+    "K": {
+      "name": "파괴 인성",
+      "sym": "K_IC"
+    },
+    "eu": {
+      "name": "파단 연신율",
+      "sym": "ε_u"
+    },
+    "k": {
+      "name": "열전도율",
+      "sym": "κ"
+    },
+    "a": {
+      "name": "선팽창 계수",
+      "sym": "α"
+    },
+    "mp": {
+      "name": "융점",
+      "sym": "T_m"
+    },
+    "tg": {
+      "name": "유리 전이 온도",
+      "sym": "T_g"
+    },
+    "sp": {
+      "name": "변형점",
+      "sym": "T_st"
+    },
+    "curie": {
+      "name": "퀴리 온도",
+      "sym": "T_C"
+    },
+    "dT": {
+      "name": "내열충격 온도차",
+      "sym": "ΔT"
+    },
+    "la": {
+      "name": "격자 상수 a",
+      "sym": "a"
+    },
+    "lb": {
+      "name": "격자 상수 b",
+      "sym": "b"
+    },
+    "lc": {
+      "name": "격자 상수 c",
+      "sym": "c"
+    },
+    "lal": {
+      "name": "능면체의 축각",
+      "sym": "α"
+    },
+    "struct": {
+      "name": "결정 구조",
+      "sym": ""
+    },
+    "rm": {
+      "name": "금속 결합 반지름",
+      "sym": "r"
+    },
+    "aw": {
+      "name": "원자량",
+      "sym": "A_r"
+    },
+    "hf": {
+      "name": "융해열",
+      "sym": "ΔH_f"
+    },
+    "res": {
+      "name": "전기 비저항",
+      "sym": "ρ_e"
+    },
+    "aR": {
+      "name": "비저항의 온도 계수",
+      "sym": "α_R"
+    },
+    "D0": {
+      "name": "확산의 진동수 인자",
+      "sym": "D₀"
+    },
+    "Q": {
+      "name": "확산의 활성화 에너지",
+      "sym": "Q"
+    },
+    "df": {
+      "name": "섬유의 지름",
+      "sym": "d"
+    },
+    "comp": {
+      "name": "화학 성분",
+      "sym": ""
+    },
+    "tr": {
+      "name": "변태(1기압)",
+      "sym": ""
+    }
+  },
+  "kinds": {
+    "y": "항복 강도(0.2 % 내력)",
+    "t": "인장 강도",
+    "f": "굽힘 강도",
+    "c": "압축 강도",
+    "sh": "전단 강도",
+    "A": "Ashby의 강도 σf(금속·고분자는 항복 강도, 세라믹스·유리는 인장 강도에 가까운 값)"
+  },
+  "conds": {
+    "rt": "실온",
+    "c25": "25 ℃",
+    "k300": "300 K",
+    "mean": "{a}–{b} ℃의 평균",
+    "at": "{a} ℃",
+    "liq25": "25 ℃의 액체",
+    "atm1": "1기압",
+    "orient": "결정 방위에 따라 다름(최소–최대)",
+    "c25atm": "25 ℃·1기압",
+    "cn12": "12배위",
+    "calc_cij": "탄성 상수로 계산한 값",
+    "wq": "수중 급랭법",
+    "dsc": "DSC법",
+    "ashc": "Ashby 범위의 기하 평균",
+    "inplane": "면내(XY 방향)",
+    "fax": "섬유의 축 방향",
+    "ftr": "섬유의 반경 방향",
+    "g12": "면내 전단(1–2)",
+    "nu12": "ν₁₂(주 푸아송비)",
+    "l1": "섬유 방향(1)",
+    "l2": "섬유에 직각(2)",
+    "l12": "면내 전단(1–2)",
+    "ge": "자료는 ‘50 %를 넘는다’(하한값)",
+    "mid": "자료의 {a}–{b}의 중앙",
+    "k300c": "300 K",
+    "meta": "상온·상압에서 준안정",
+    "eut": "공정 온도",
+    "wt": "질량%",
+    "jis": "일본 JIS의 규정 범위",
+    "ann": "풀림재",
+    "rtc": "실온",
+    "mrange": "용융 범위(고상선–액상선)",
+    "dself": "자기 확산",
+    "dsolute": "{el}의 확산",
+    "ph_a": "α상(BCC) 중",
+    "ph_g": "γ상(FCC) 중",
+    "dk_int": "침입형",
+    "dk_sub": "치환형(Callister 표의 ‘상호 확산’ 칸)",
+    "dk_imp": "불순물 확산",
+    "dk_dop": "도펀트"
+  },
+  "structs": {
+    "s_bcc": "체심 입방(BCC)",
+    "s_dia": "다이아몬드 구조",
+    "s_fcc": "면심 입방(FCC)",
+    "s_hcp": "조밀 육방(HCP)",
+    "st_I2": "사방정(I₂ 분자)",
+    "st_In": "체심 정방정",
+    "st_P": "동소체가 많음(백린·흑린 등)",
+    "st_Sm": "능면체정(사마륨형, 9층의 조밀 충전)",
+    "st_alphaAs": "능면체정(비소형)",
+    "st_alphaGa": "사방정(α-갈륨)",
+    "st_alphaMn": "입방정(α-망가니즈, 단위정에 58원자)",
+    "st_alphaS": "사방정(α-황, S₈ 분자)",
+    "st_betaSn": "체심 정방정(백색 주석, β-주석)",
+    "st_dhcp": "이중 조밀 육방(dhcp, ABAC 적층)",
+    "st_gammaSe": "삼방정(나선 모양의 사슬)",
+    "st_graphite": "육방정(흑연)",
+    "st_rhombB": "능면체정(β-붕소)",
+    "st_sc": "단순 입방",
+    "type_diamond": "다이아몬드 구조",
+    "type_fluorite": "형석형(CaF₂형)",
+    "type_nacl": "암염형(NaCl형)",
+    "type_wurtzite": "우르츠광형",
+    "type_zb": "섬아연석형(ZnS형)"
+  },
+  "mpNotes": {
+    "mp_he": "—(1기압에서는 고체가 되지 않음)",
+    "mp_c": "—(1기압에서는 녹지 않고 승화)",
+    "mp_as": "—(1기압에서는 615 ℃에서 승화. 융점 817 ℃는 3.70 MPa에서의 삼중점)"
+  },
+  "tr": {
+    "up": "{t} ℃ 이상: {p}상({s})",
+    "down": "{t} ℃ 이하: {p}상({s})",
+    "meta": "다이아몬드(다이아몬드 구조)는 상온·상압에서 준안정",
+    "st": {
+      "hcp": "HCP",
+      "bcc": "BCC",
+      "cP20": "단위정에 20원자인 입방정",
+      "fcc": "FCC",
+      "dia": "다이아몬드 구조",
+      "orth": "사방정",
+      "rhomb": "능면체정",
+      "mono": "단사정"
+    }
+  },
+  "units": {
+    "gcc": "g/cm³",
+    "kgm3": "kg/m³",
+    "GPa": "GPa",
+    "MPa": "MPa",
+    "none": "",
+    "MPam": "MPa·m¹ᐟ²",
+    "pct": "%",
+    "Wm": "W/(m·K)",
+    "Wcm": "W/(cm·K)",
+    "ppmK": "10⁻⁶ K⁻¹",
+    "mK": "10⁻³ K⁻¹",
+    "perK": "K⁻¹",
+    "C": "℃",
+    "K": "K",
+    "dC": "℃",
+    "dK": "K",
+    "nm": "nm",
+    "A": "Å",
+    "pm": "pm",
+    "deg": "°",
+    "kJmol": "kJ/mol",
+    "Jmol": "J/mol",
+    "eV": "eV",
+    "calmol": "cal/mol",
+    "uOcm": "µΩ·cm",
+    "Om": "Ω·m",
+    "nOm": "nΩ·m",
+    "m2s": "m²/s",
+    "cm2s": "cm²/s",
+    "um": "µm"
+  },
+  "sources": {
+    "pt:LAT_ASM": "P. Villars 편, “Crystal Structures and Cell Parameters of Allotropes of the Chemical Elements”, ASM Alloy Phase Diagram Database(ASM International, 2007)의 25 ℃ 값",
+    "pt:LAT_WEL": "WebElements의 원소별 결정 구조 페이지(Zn: Jette 1935, Tc: Mooney 1948)",
+    "pt:RHO_CRC": "CRC Handbook of Chemistry and Physics의 밀도(Wikipedia “Densities of the elements (data page)”의 CRC 행)",
+    "pt:RHO_ED": "Wolfram ElementData(periodictable.com의 목록)의 밀도",
+    "pt:RHO_WP": "Wikipedia “Densities of the elements (data page)”의 채택값",
+    "pt:MP_CRC": "CRC Handbook의 융점(Wikipedia “Melting points of the elements (data page)”의 CRC 행)",
+    "pt:MP_WEL": "Wikipedia “Melting points of the elements (data page)”의 WebElements·채택값 행",
+    "pt:E_WEL": "WebElements의 영률(Wikipedia “Elastic properties of the elements (data page)”의 WEL 행)",
+    "pt:E_CRC": "CRC Handbook의 영률(Wikipedia “Elastic properties of the elements (data page)”의 CRC 행)",
+    "pt:RM": "Wikipedia “Atomic radii of the elements (data page)”의 금속 결합 반지름(12배위, WebElements의 값)",
+    "pt:TR": "ASM Alloy Phase Diagram Database의 동소체 표(1기압에서의 변태 온도)",
+    "aw:CIAAW": "CIAAW/IUPAC의 표준 원자량(간략값, 2021)",
+    "th:WPa": "Wikipedia “Thermal expansion coefficients of the elements (data page)”(CRC Handbook·Lange·WebElements의 값, 25 ℃ 부근)",
+    "th:WPe": "Wikipedia “Elastic properties of the elements (data page)”(WebElements의 푸아송비)",
+    "th:WPk": "Wikipedia “Thermal conductivities of the elements (data page)”(300 K 부근)",
+    "th:A": "M. F. Ashby, Material property data for engineering materials, 5th ed. (Ansys Granta, 2021)(재료 선정 도표와 같은 범위. 대표값은 범위의 기하 평균)",
+    "th:EC3": "EN 1993-1-1(E = 210 GPa, ν = 0.3, α = 12×10⁻⁶ K⁻¹)·EN 1993-1-2(구조용강의 열변형률과 열전도율의 식, 20–1200 ℃)",
+    "th:RA": "Rolled Alloys, Invar 36 data sheet(70 °F부터의 평균 선팽창 계수, 0.2 % 내력)",
+    "th:HTI": "High Temp Metals, Invar 36 technical data(풀림재의 E, 밀도, 열전도율, 퀴리 온도)",
+    "th:HTK": "High Temp Metals, Kovar technical data(25 ℃부터의 평균 선팽창 계수, E, 밀도, 열전도율, 항복 강도)",
+    "th:KY": "교세라 파인 세라믹스의 재료 특성(데이터시트. 굽힘 강도는 3점 굽힘 JIS R 1601, 열충격은 수중 급랭법 JIS R 1648)",
+    "th:ISO": "ISO 16293-1:2008(건축용 소다석회 유리의 일반적인 물성값)",
+    "th:SCH": "SCHOTT BOROFLOAT 33 기술 자료(α 20–300 ℃, E, ν, 굽힘 강도, 변형점)",
+    "th:COR": "Corning HPFS 7980 용융 실리카의 데이터(E, ν, 밀도, 열전도율, 평균 CTE, 변형점, 흠집을 낸 시료의 굽힘 강도)",
+    "th:WSL": "Wikipedia “Soda–lime glass”의 표(판유리의 Tg 564 ℃)",
+    "th:ISOLA": "Isola 370HR 데이터시트(FR-4계 적층판. CTE x/y, E, ν, 열전도율, 굽힘 강도, Tg)",
+    "th:H10": "M. A. Hopcroft, W. D. Nix, T. W. Kenny, J. Microelectromech. Syst. 19 (2010) 229(Si의 E·ν, (100)의 2축 탄성률 180 GPa, C11 = 165.7, C12 = 63.9, C44 = 79.6 GPa)",
+    "as:A": "M. F. Ashby, \"Material property data for engineering materials\", 5th ed., Oct 2021, Ansys Granta EduPack의 교육 자료(표 A2 밀도, A3 영률·항복 강도, A4 인장 강도·파괴 인성, A6 열전도율·열팽창)",
+    "as:C": "CoorsTek, “Advanced Alumina” material properties(94–99.9 % Al₂O₃)",
+    "as:W": "Wikipedia “Soda–lime glass”의 성질 표(밀도·E·CTE는 Seward & Vascott eds., High temperature glass melt property database, ACerS 2005, 열전도율은 Janssen & Warmoeskerken, Transport phenomena data companion, 2006을 출처로 함)",
+    "as:Q": "Corning HPFS 7980 용융 실리카의 제품 데이터(UQG Optics가 전재한 Corning의 값)",
+    "as:N": "NIST Structural Ceramics Database, alumina(AD-999 3.96, 소결 99.6 % 3.98 g/cm³)",
+    "as:L": "A. F. Liu, Mechanics and Mechanisms of Fracture, ASM International 2005, Appendix 7(NIST가 공개). 2124-T351 L-T의 K_IC 47.9",
+    "as:P": "Aircraft Materials, 17-4PH(AMS 5643/5604)의 0.2 % 내력 H900 170 ksi(= 1170 MPa)",
+    "as:T": "ASM Aerospace Specification Metals, Ti-6Al-4V (Grade 5) 풀림재의 열전도율 6.7 W/(m·K)",
+    "as:I": "Special Metals, INCONEL alloy 718 technical bulletin의 실온 열전도율 77 Btu·in/(ft²·h·°F)(= 11.1 W/(m·K))",
+    "as:R": "Natural Stone Institute, R-Value for Natural Stone(화강암 1.73–3.98, 석회암 1.26–2.15, 대리석 2.07–2.94, 사암 1.83–2.90, 규암 5.38 W/(m·K))",
+    "as:Z": "NETZSCH Polymers, CR: Chloroprene rubber(선팽창 계수 185–250 ×10⁻⁶/K, 열전도율 0.18–0.20 W/(m·K))",
+    "cp:TOR_T300": "Toray Composite Materials America, TORAYCA T300 Technical Data Sheet (No. CFA-001)",
+    "cp:TOR_T700S": "Toray Composite Materials America, TORAYCA T700S Technical Data Sheet (No. CFA-005)",
+    "cp:TOR_T800S": "Toray Composite Materials America, TORAYCA T800S Technical Data Sheet",
+    "cp:TOR_M40J": "Toray Composite Materials America, TORAYCA M40J Technical Data Sheet (No. CFA-014)",
+    "cp:TOR_M55J": "Toray Composite Materials America, TORAYCA M55J Technical Data Sheet (No. CFA-017)",
+    "cp:TEI_HTS40": "Teijin Tenax HTS40(12K/24K 로빙), 판매점 compositeshop.de에 실린 값",
+    "cp:WWFE": "P. D. Soden, M. J. Hinton, A. S. Kaddour, Compos. Sci. Technol. 58 (1998) 1011 (WWFE), NPTEL course 101104010, Lecture 25 (IIT Kanpur), Tables 7.1–7.2에 정리된 값",
+    "cp:AGY": "AGY, “S-Series High Performance Materials for Automotive Applications”(E-Glass / S-2 Glass의 물성 표)",
+    "cp:OC": "Owens Corning, “Higher Performance Composites” sell sheet, Pub. 10023976 (2021), Advantex E-CR 유리",
+    "cp:DUP": "DuPont, Kevlar Aramid Fiber Technical Guide, Tables II-1·II-4 (Kevlar 49)",
+    "cp:DUP_TR": "DuPont Kevlar 49 Data Manual (1986)의 Kevlar 49 횡방향 상수(Autodesk Helius PFA Material Manager, Appendix A에 실린 값)",
+    "cp:MAFIC": "Mafic, Basalt Direct Roving 17 µm technical data(함침 스트랜드, ASTM D2343)",
+    "cp:ZHU": "J. Zhu, H. Zhu, J. Njuguna, H. Abhyankar, Materials 6 (2013) 5171, Table 2(Sparnins 2009, Symington et al. 2009에 따름)",
+    "cp:HEX8552": "Hexcel, HexPly 8552 Product Data Sheet(수지 단독)",
+    "cp:ASHBY": "M. F. Ashby, Material property data for engineering materials, 5th ed. (Ansys Granta, 2021) – 범위의 중앙(이 사이트의 재료 선정 도표와 같음)",
+    "cp:DER": "Ashland, DERAKANE MOMENTUM 411-350 Technical Datasheet(경화한 주형 시편)",
+    "cp:VIC": "Victrex, VICTREX PEEK 450G Typical Properties",
+    "cp:BASF": "BASF, Ultramid B3S (PA6) 데이터시트(ISO 527, ISO 11359)",
+    "cp:LYB": "LyondellBasell, Moplen HP500N 데이터시트(ISO 527)",
+    "cp:ASM6061": "ASM Aerospace Specification Metals, Aluminum 6061-T6 data sheet",
+    "cp:UC3M": "T300/5208 (Tsai & Hahn), Universidad Carlos III de Madrid, Mecánica de Materiales Compuestos, Ejercicios Tema 5에 실린 값",
+    "cp:NTNU": "N. P. Vedvik, TMM4175 Lightweight Design, NTNU, “Material properties”, Table 1 (V_f = 0.55)",
+    "cp:EC3": "EN 1993-1-1 §3.2.6 (E = 210 GPa, ν = 0.3)·EN 10025-2 S355 (f_y = 355 MPa, t ≤ 16 mm); ρ = 7.85 g/cm³",
+    "df:C9": "W. D. Callister, D. G. Rethwisch, Materials Science and Engineering: An Introduction, 9th ed. (Wiley, 2014), Table 5.2",
+    "df:C7": "W. D. Callister, Materials Science and Engineering: An Introduction, 7th ed. (Wiley, 2007), Table 5.2",
+    "df:ASK": "D. R. Askeland, The Science and Engineering of Materials, Table 5-1(FCC 철 중의 C: D0 = 0.23 cm²/s, Q = 32,900 cal/mol)",
+    "df:FUJ": "S. Fujikawa, K. Hirano, Y. Fukushima, Metall. Trans. A 9 (1978) 1811 (753–893 K)",
+    "df:FAIR": "R. B. Fair (1981)의 진성 확산 계수(S. W. Jones, Diffusion in Silicon (IC Knowledge, 2000), Table 1.4에 정리된 값)",
+    "df:CEX": "Callister & Rethwisch 9th ed., 5.6절의 실리콘 중 붕소 확산 예제(D0 = 2.4 × 10⁻³ m²/s, Qd = 3.87 eV/atom)",
+    "xr:HOM": "Handbook of Mineralogy(광물별 데이터시트: Halite·Sylvite·Griceite·Periclase·Fluorite·Sphalerite·Zincite)",
+    "xr:VMR": "I. Vurgaftman, J. R. Meyer, L. R. Ram-Mohan, J. Appl. Phys. 89 (2001) 5815(300 K의 격자 상수)",
+    "xr:KE": "S. Kisi, M. M. Elcombe, Acta Cryst. C45 (1989) 1867(우르츠광형 ZnS의 a·c·u, ZnO의 u)",
+    "lv:UW": "Univ. of Washington MSE 170 Lecture 16(Callister의 그림과 예제: Pb–Sn 183 ℃·61.9 wt% Sn, Cu–Ag 779 ℃·71.9 wt% Ag)",
+    "lv:AFS": "Modern Casting(AFS), ‘Al–Si 상태도’(공정 577 ℃·12.6 wt% Si)",
+    "lv:PRIN": "Princeton MAE 324 09mae_45(Al–Cu: 공정 548 ℃, 공정 액상 33.2 wt% Cu)",
+    "lv:HF": "Wikipedia “Heats of fusion of the elements”의 Lange’s Handbook 열",
+    "dr:IEC": "IEC 60028(표준 연동: 20 ℃에서 1.7241 × 10⁻⁸ Ω·m, 온도 계수 0.00393 K⁻¹)",
+    "dr:EC": "전기용 알루미늄 61 % IACS(1.7241 µΩ·cm를 100 %로 한 도전율로부터: 2.8264 × 10⁻⁸ Ω·m, 온도 계수 0.00403 K⁻¹)",
+    "dg:JSSA": "일본 스테인리스협회, ‘스테인리스강 배관 매뉴얼 기초편’의 성분표(일본 JIS의 규정 범위)",
+    "dg:NBK": "나베야 바이테크(Nabeya Bi-tech), ‘알루미늄 합금의 화학 성분’(A6061 등)",
+    "add:CLF304": "Cleveland-Cliffs, “304/304L Stainless Steel” Product Data Bulletin(2021): 물성값 표와 표 3의 풀림재 70 °F(21 ℃) 행",
+    "add:CLF316": "Cleveland-Cliffs, “316/316L Stainless Steel” Product Data Bulletin(2021): 물성값 표와 표 1의 실온 대표값(typical)"
+  },
+  "materials": {
+    "li": {
+      "name": "리튬",
+      "al": []
+    },
+    "be": {
+      "name": "베릴륨",
+      "al": []
+    },
+    "na": {
+      "name": "소듐(나트륨)",
+      "al": []
+    },
+    "mg": {
+      "name": "마그네슘",
+      "al": [],
+      "note": "구조용 금속 중 밀도가 가장 작으며(1.74 g/cm³), 마그네슘 합금으로서 경량화에 쓰입니다."
+    },
+    "al": {
+      "name": "알루미늄",
+      "al": [
+        "순알루미늄",
+        "알미늄"
+      ],
+      "note": "밀도가 2.70 g/cm³로 작은 FCC 금속으로, 알루미늄 합금으로서 가벼워야 하는 구조재에 쓰입니다.",
+      "vars": {
+        "ec": "전기용 알루미늄(61 % IACS)"
+      }
+    },
+    "k": {
+      "name": "포타슘(칼륨)",
+      "al": []
+    },
+    "ca": {
+      "name": "칼슘",
+      "al": []
+    },
+    "sc": {
+      "name": "스칸듐",
+      "al": []
+    },
+    "ti": {
+      "name": "타이타늄(티타늄)",
+      "al": [
+        "순티타늄",
+        "순타이타늄",
+        "티탄"
+      ],
+      "note": "밀도가 철의 약 60 %(4.51 g/cm³)로 작고, Ti-6Al-4V 등의 티타늄 합금이 항공기 부재와 생체 재료에 쓰입니다."
+    },
+    "v": {
+      "name": "바나듐",
+      "al": []
+    },
+    "cr": {
+      "name": "크로뮴(크롬)",
+      "al": [],
+      "note": "강에 약 11 %(규격의 정의로는 10.5 %) 이상 넣으면 표면에 Cr 산화물의 부동태 피막이 생겨 스테인리스강이 됩니다."
+    },
+    "mn": {
+      "name": "망가니즈(망간)",
+      "al": []
+    },
+    "fe": {
+      "name": "철",
+      "al": [
+        "순철"
+      ],
+      "note": "강과 주철의 주성분입니다. 912 ℃에서의 BCC와 FCC 사이의 변태가 담금질 등 열처리의 바탕이 됩니다.",
+      "trn": "770 ℃ 부근의 퀴리 온도(강자성에서 상자성으로)에서는 결정 구조가 바뀌지 않습니다."
+    },
+    "co": {
+      "name": "코발트",
+      "al": [],
+      "note": "WC-Co 초경합금에서 WC 입자를 잇는 결합상이나, 초내열합금·자성 재료에 쓰입니다.",
+      "trn": "427 ℃나 450 ℃로 적은 자료도 있습니다. 상의 이름은 ASM의 표에 맞추어 실온의 HCP를 ε, 고온의 FCC를 α로 했습니다(HCP를 α, FCC를 β로 부르는 자료도 있습니다)."
+    },
+    "ni": {
+      "name": "니켈",
+      "al": [],
+      "note": "오스테나이트계 스테인리스강과 Ni기 초내열합금의 주요 원소입니다."
+    },
+    "cu": {
+      "name": "구리",
+      "al": [
+        "순구리",
+        "동"
+      ],
+      "note": "전기 전도율이 높아 전선과 배선에 쓰입니다. 아연과의 합금이 황동입니다.",
+      "vars": {
+        "iacs": "표준 연동(IEC 60028)"
+      }
+    },
+    "zn": {
+      "name": "아연",
+      "al": [],
+      "note": "강의 아연 도금(흠집으로 강이 드러나도 아연이 먼저 녹아 강을 지킴)이나 황동(Cu–Zn 합금)에 쓰입니다."
+    },
+    "ga": {
+      "name": "갈륨",
+      "al": []
+    },
+    "rb": {
+      "name": "루비듐",
+      "al": []
+    },
+    "sr": {
+      "name": "스트론튬",
+      "al": []
+    },
+    "y": {
+      "name": "이트륨",
+      "al": []
+    },
+    "zr": {
+      "name": "지르코늄",
+      "al": [],
+      "trn": "872 ℃로 적은 교과서도 있습니다."
+    },
+    "nb": {
+      "name": "나이오븀",
+      "al": [
+        "니오븀",
+        "니오브"
+      ]
+    },
+    "mo": {
+      "name": "몰리브데넘(몰리브덴)",
+      "al": [],
+      "note": "융점이 2623 ℃로 높은 BCC 금속으로, 강에 넣는 합금 원소나 고온에서 쓰는 부재에 쓰입니다."
+    },
+    "tc": {
+      "name": "테크네튬",
+      "al": []
+    },
+    "ru": {
+      "name": "루테늄",
+      "al": []
+    },
+    "rh": {
+      "name": "로듐",
+      "al": []
+    },
+    "pd": {
+      "name": "팔라듐",
+      "al": []
+    },
+    "ag": {
+      "name": "은",
+      "al": []
+    },
+    "cd": {
+      "name": "카드뮴",
+      "al": []
+    },
+    "in": {
+      "name": "인듐",
+      "al": []
+    },
+    "sn": {
+      "name": "주석",
+      "al": [
+        "백색 주석"
+      ],
+      "trn": "13 ℃ 이하에서는 회색 주석(다이아몬드 구조)이 안정합니다. 밀도가 백색 주석의 7.265 g/cm³에서 5.769 g/cm³로 낮아져 부피가 약 26 % 늘어납니다(밀도는 CRC)."
+    },
+    "cs": {
+      "name": "세슘",
+      "al": []
+    },
+    "ba": {
+      "name": "바륨",
+      "al": []
+    },
+    "la": {
+      "name": "란타넘",
+      "al": [
+        "란탄"
+      ]
+    },
+    "ce": {
+      "name": "세륨",
+      "al": []
+    },
+    "pr": {
+      "name": "프라세오디뮴",
+      "al": []
+    },
+    "nd": {
+      "name": "네오디뮴",
+      "al": []
+    },
+    "pm": {
+      "name": "프로메튬",
+      "al": []
+    },
+    "sm": {
+      "name": "사마륨",
+      "al": []
+    },
+    "eu": {
+      "name": "유로퓸",
+      "al": []
+    },
+    "gd": {
+      "name": "가돌리늄",
+      "al": []
+    },
+    "tb": {
+      "name": "터븀",
+      "al": [
+        "테르븀"
+      ]
+    },
+    "dy": {
+      "name": "디스프로슘",
+      "al": []
+    },
+    "ho": {
+      "name": "홀뮴",
+      "al": []
+    },
+    "er": {
+      "name": "어븀",
+      "al": [
+        "에르븀"
+      ]
+    },
+    "tm": {
+      "name": "툴륨",
+      "al": []
+    },
+    "yb": {
+      "name": "이터븀",
+      "al": [
+        "이테르븀"
+      ]
+    },
+    "lu": {
+      "name": "루테튬",
+      "al": []
+    },
+    "hf": {
+      "name": "하프늄",
+      "al": []
+    },
+    "ta": {
+      "name": "탄탈럼",
+      "al": [
+        "탄탈"
+      ]
+    },
+    "w": {
+      "name": "텅스텐",
+      "al": [
+        "볼프람"
+      ],
+      "note": "금속 중 융점이 가장 높은 원소(3422 ℃)입니다. 탄화텅스텐(WC)은 초경합금의 주성분입니다."
+    },
+    "re": {
+      "name": "레늄",
+      "al": []
+    },
+    "os": {
+      "name": "오스뮴",
+      "al": []
+    },
+    "ir": {
+      "name": "이리듐",
+      "al": []
+    },
+    "pt": {
+      "name": "백금",
+      "al": [
+        "플래티넘"
+      ]
+    },
+    "au": {
+      "name": "금",
+      "al": []
+    },
+    "hg": {
+      "name": "수은",
+      "al": []
+    },
+    "tl": {
+      "name": "탈륨",
+      "al": []
+    },
+    "pb": {
+      "name": "납",
+      "al": []
+    },
+    "bi": {
+      "name": "비스무트",
+      "al": [
+        "비스무스"
+      ]
+    },
+    "po": {
+      "name": "폴로늄",
+      "al": []
+    },
+    "low-carbon-steel": {
+      "name": "저탄소강",
+      "al": [
+        "연강",
+        "탄소강"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "low-alloy-steel": {
+      "name": "저합금강",
+      "al": [
+        "합금강"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "stainless-steel": {
+      "name": "스테인리스강",
+      "al": [
+        "스테인리스",
+        "스텐",
+        "SUS",
+        "STS"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "gray-cast-iron": {
+      "name": "회주철",
+      "al": [
+        "주철",
+        "회색 주철"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "al-alloys": {
+      "name": "알루미늄 합금",
+      "al": [
+        "두랄루민"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "cu-alloys": {
+      "name": "구리 합금",
+      "al": [
+        "황동",
+        "청동",
+        "놋쇠"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "mg-alloys": {
+      "name": "마그네슘 합금",
+      "al": [],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "ti-alloys": {
+      "name": "티타늄 합금",
+      "al": [
+        "Ti-6Al-4V",
+        "타이타늄 합금"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "ni-alloys": {
+      "name": "니켈 합금",
+      "al": [
+        "인코넬",
+        "Ni기 초내열합금"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "pb-alloys": {
+      "name": "납 합금",
+      "al": [],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "w-alloys": {
+      "name": "텅스텐 합금",
+      "al": [
+        "텅스텐 중합금"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "structural-steel": {
+      "name": "구조용강(S235, S355)",
+      "al": [
+        "강",
+        "강재",
+        "스틸"
+      ],
+      "vars": {
+        "s235": "S235",
+        "s355": "S355(t ≤ 16 mm)"
+      }
+    },
+    "invar": {
+      "name": "인바(Fe-36Ni)",
+      "al": [
+        "인바",
+        "인바 합금"
+      ]
+    },
+    "kovar": {
+      "name": "코바르(Fe-29Ni-17Co)",
+      "al": [
+        "코바르",
+        "코바"
+      ]
+    },
+    "a6061-t6": {
+      "name": "알루미늄 합금 6061-T6",
+      "al": [
+        "알루미늄 6061"
+      ]
+    },
+    "pb-sn-eutectic": {
+      "name": "Pb–Sn 공정 솔더",
+      "al": [
+        "솔더",
+        "땜납",
+        "공정 솔더",
+        "유연 솔더"
+      ]
+    },
+    "al-si-eutectic": {
+      "name": "Al–Si 공정 합금",
+      "al": []
+    },
+    "ag-cu-eutectic": {
+      "name": "Ag–Cu 공정 합금(은납)",
+      "al": [
+        "은납",
+        "은 경납"
+      ]
+    },
+    "al-cu-eutectic": {
+      "name": "Al–Cu 공정(Al 쪽)",
+      "al": []
+    },
+    "sus304": {
+      "name": "스테인리스강 SUS304",
+      "al": [
+        "STS304",
+        "18-8 스테인리스강",
+        "오스테나이트계 스테인리스강"
+      ]
+    },
+    "sus316": {
+      "name": "스테인리스강 SUS316",
+      "al": [
+        "STS316",
+        "오스테나이트계 스테인리스강",
+        "몰리브데넘 함유 스테인리스강"
+      ]
+    },
+    "alumina": {
+      "name": "알루미나",
+      "al": [
+        "산화알루미늄",
+        "Al2O3",
+        "사파이어"
+      ],
+      "vars": {
+        "ky": "교세라 AO479O",
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "aln": {
+      "name": "질화알루미늄",
+      "al": [
+        "AlN"
+      ],
+      "vars": {
+        "ky": "교세라 AN216A",
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "sic": {
+      "name": "탄화규소",
+      "al": [
+        "SiC",
+        "실리콘 카바이드",
+        "카보런덤"
+      ],
+      "vars": {
+        "ky": "교세라 SC1000",
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "wc": {
+      "name": "탄화텅스텐",
+      "al": [
+        "WC",
+        "초경합금",
+        "텅스텐 카바이드"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "brick": {
+      "name": "벽돌",
+      "al": [],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "concrete": {
+      "name": "콘크리트",
+      "al": [],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "stone": {
+      "name": "석재",
+      "al": [],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "si3n4": {
+      "name": "질화규소 Si₃N₄",
+      "al": [
+        "Si3N4"
+      ],
+      "vars": {
+        "ky": "교세라 SN240"
+      }
+    },
+    "zro2": {
+      "name": "지르코니아 ZrO₂(부분 안정화)",
+      "al": [
+        "ZrO2",
+        "PSZ"
+      ],
+      "vars": {
+        "ky": "교세라 ZO201N"
+      }
+    },
+    "cordierite": {
+      "name": "코디어라이트",
+      "al": [
+        "2MgO·2Al2O3·5SiO2"
+      ],
+      "vars": {
+        "ky": "교세라 CO220O"
+      }
+    },
+    "nacl": {
+      "name": "염화나트륨(암염)",
+      "al": [
+        "염화소듐",
+        "소금",
+        "식염",
+        "암염"
+      ]
+    },
+    "kcl": {
+      "name": "염화칼륨",
+      "al": [
+        "염화포타슘",
+        "실바이트"
+      ]
+    },
+    "lif": {
+      "name": "불화리튬",
+      "al": [
+        "플루오린화리튬"
+      ]
+    },
+    "mgo": {
+      "name": "산화마그네슘(마그네시아)",
+      "al": [
+        "마그네시아",
+        "페리클레이스"
+      ]
+    },
+    "caf2": {
+      "name": "불화칼슘(형석)",
+      "al": [
+        "형석",
+        "플루오린화칼슘"
+      ]
+    },
+    "soda-lime-glass": {
+      "name": "소다석회 유리",
+      "al": [
+        "판유리",
+        "창유리",
+        "소다 유리"
+      ],
+      "vars": {
+        "iso": "ISO 16293-1(건축용 판유리)",
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "borosilicate-glass": {
+      "name": "붕규산 유리",
+      "al": [
+        "파이렉스",
+        "템팩스"
+      ],
+      "vars": {
+        "schott": "SCHOTT BOROFLOAT 33",
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "silica-glass": {
+      "name": "석영 유리",
+      "al": [
+        "용융 석영",
+        "용융 실리카",
+        "실리카 유리",
+        "SiO2"
+      ],
+      "vars": {
+        "hpfs": "Corning HPFS 7980",
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "pe": {
+      "name": "폴리에틸렌(PE)",
+      "al": [
+        "HDPE",
+        "LDPE"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "pp": {
+      "name": "폴리프로필렌(PP)",
+      "al": [],
+      "vars": {
+        "hp500n": "Moplen HP500N",
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "ps": {
+      "name": "폴리스타이렌(PS)",
+      "al": [
+        "폴리스티렌",
+        "스티롤"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "pvc": {
+      "name": "폴리염화비닐(PVC)",
+      "al": [
+        "염화비닐"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "pmma": {
+      "name": "아크릴 수지(PMMA)",
+      "al": [
+        "아크릴",
+        "메타크릴 수지",
+        "플렉시글라스"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "pa": {
+      "name": "폴리아미드(나일론, PA)",
+      "al": [
+        "나일론",
+        "PA6",
+        "PA66"
+      ],
+      "vars": {
+        "b3sc": "PA6 Ultramid B3S(조습)",
+        "b3s": "PA6 Ultramid B3S(건조)",
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "pc": {
+      "name": "폴리카보네이트(PC)",
+      "al": [
+        "폴리카"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "peek": {
+      "name": "폴리에테르 에테르 케톤(PEEK)",
+      "al": [],
+      "vars": {
+        "vic450g": "Victrex 450G",
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "ptfe": {
+      "name": "폴리테트라플루오로에틸렌(PTFE)",
+      "al": [
+        "테플론",
+        "불소 수지"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "epoxy": {
+      "name": "에폭시 수지",
+      "al": [
+        "에폭시"
+      ],
+      "vars": {
+        "hex8552": "Hexcel 8552(항공기용)",
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "vinyl-ester": {
+      "name": "비닐에스터(Derakane 411-350)",
+      "al": [],
+      "vars": {
+        "der": "Derakane Momentum 411-350"
+      }
+    },
+    "iir": {
+      "name": "부틸 고무",
+      "al": [
+        "IIR"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "nr": {
+      "name": "천연고무",
+      "al": [
+        "고무",
+        "NR"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "cr-rubber": {
+      "name": "클로로프렌 고무(네오프렌)",
+      "al": [
+        "CR",
+        "네오프렌"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "silicone-rubber": {
+      "name": "실리콘 고무",
+      "al": [
+        "실리콘",
+        "VMQ"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "cf-t300": {
+      "name": "탄소 섬유 T300(Toray, 표준 탄성률)",
+      "al": [
+        "탄소 섬유",
+        "도레이",
+        "토레카"
+      ]
+    },
+    "cf-t700s": {
+      "name": "탄소 섬유 T700S(Toray, 고강도)",
+      "al": [
+        "탄소 섬유",
+        "도레이",
+        "토레카"
+      ]
+    },
+    "cf-t800s": {
+      "name": "탄소 섬유 T800S(Toray, 중탄성률)",
+      "al": [
+        "탄소 섬유",
+        "도레이",
+        "토레카"
+      ]
+    },
+    "cf-m40j": {
+      "name": "탄소 섬유 M40J(Toray, 고탄성률)",
+      "al": [
+        "탄소 섬유",
+        "도레이",
+        "토레카"
+      ]
+    },
+    "cf-m55j": {
+      "name": "탄소 섬유 M55J(Toray, 고탄성률)",
+      "al": [
+        "탄소 섬유",
+        "도레이",
+        "토레카"
+      ]
+    },
+    "cf-hts40": {
+      "name": "탄소 섬유 HTS40(Teijin Tenax)",
+      "al": [
+        "탄소 섬유",
+        "데이진",
+        "테낙스"
+      ]
+    },
+    "e-glass-fiber": {
+      "name": "E 유리(AGY)",
+      "al": [
+        "유리 섬유"
+      ]
+    },
+    "ecr-glass-fiber": {
+      "name": "E-CR 유리 Advantex(Owens Corning)",
+      "al": [
+        "유리 섬유"
+      ]
+    },
+    "s2-glass-fiber": {
+      "name": "S-2 유리(AGY)",
+      "al": [
+        "유리 섬유"
+      ]
+    },
+    "kevlar49": {
+      "name": "아라미드 Kevlar 49(DuPont)",
+      "al": [
+        "케블라",
+        "아라미드 섬유"
+      ]
+    },
+    "basalt-fiber": {
+      "name": "현무암 섬유(Mafic)",
+      "al": [
+        "바잘트 섬유"
+      ]
+    },
+    "flax-fiber": {
+      "name": "아마(플랙스) 섬유",
+      "al": [
+        "리넨",
+        "천연 섬유"
+      ]
+    },
+    "hemp-fiber": {
+      "name": "헴프(대마) 섬유",
+      "al": [
+        "삼",
+        "천연 섬유"
+      ]
+    },
+    "cfrp": {
+      "name": "CFRP(에폭시 기지, 준등방성)",
+      "al": [
+        "탄소 섬유 강화 플라스틱",
+        "카본"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "gfrp": {
+      "name": "GFRP(에폭시 기지, 준등방성)",
+      "al": [
+        "유리 섬유 강화 플라스틱",
+        "FRP"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "fr4": {
+      "name": "FR-4계 인쇄 회로 기판(면내)",
+      "al": [
+        "PCB",
+        "인쇄 회로 기판",
+        "유리 에폭시"
+      ],
+      "vars": {
+        "isola": "Isola 370HR"
+      }
+    },
+    "ud-t300-5208": {
+      "name": "T300/5208 탄소/에폭시(Tsai–Hahn)",
+      "al": []
+    },
+    "ud-cf-standard": {
+      "name": "탄소/에폭시, 표준 탄성률(NTNU의 표, Vf 55 %)",
+      "al": []
+    },
+    "ud-cf-high-modulus": {
+      "name": "탄소/에폭시, 고탄성률(NTNU의 표)",
+      "al": []
+    },
+    "ud-e-glass": {
+      "name": "E 유리/에폭시(NTNU의 표)",
+      "al": []
+    },
+    "ud-s-glass": {
+      "name": "S 유리/에폭시(NTNU의 표)",
+      "al": []
+    },
+    "ud-kevlar49": {
+      "name": "Kevlar 49/에폭시(NTNU의 표)",
+      "al": []
+    },
+    "si": {
+      "name": "규소",
+      "al": [
+        "실리콘",
+        "실리콘 웨이퍼"
+      ],
+      "note": "반도체 소자 기판(단결정 실리콘 웨이퍼)의 재료입니다. 영률은 결정 방위에 따라 130~188 GPa로 달라집니다.",
+      "vars": {
+        "poly": "다결정·등방 평균",
+        "w100": "(100) 웨이퍼의 면내",
+        "w111": "(111) 웨이퍼의 면내"
+      }
+    },
+    "ge": {
+      "name": "저마늄(게르마늄)",
+      "al": []
+    },
+    "zns": {
+      "name": "황화아연(섬아연석형)",
+      "al": []
+    },
+    "gaas": {
+      "name": "갈륨비소",
+      "al": [
+        "비화갈륨"
+      ]
+    },
+    "alas": {
+      "name": "알루미늄비소",
+      "al": [
+        "비화알루미늄"
+      ]
+    },
+    "inas": {
+      "name": "인듐비소",
+      "al": [
+        "비화인듐"
+      ]
+    },
+    "inp": {
+      "name": "인화인듐",
+      "al": []
+    },
+    "gap": {
+      "name": "인화갈륨",
+      "al": []
+    },
+    "zns-w": {
+      "name": "황화아연(우르츠광형)",
+      "al": []
+    },
+    "zno": {
+      "name": "산화아연",
+      "al": []
+    },
+    "b": {
+      "name": "붕소",
+      "al": []
+    },
+    "c": {
+      "name": "탄소",
+      "al": [
+        "흑연",
+        "그래파이트"
+      ]
+    },
+    "p": {
+      "name": "인",
+      "al": []
+    },
+    "s": {
+      "name": "황",
+      "al": [
+        "유황"
+      ]
+    },
+    "as": {
+      "name": "비소",
+      "al": []
+    },
+    "se": {
+      "name": "셀레늄",
+      "al": [
+        "셀렌"
+      ]
+    },
+    "br": {
+      "name": "브로민",
+      "al": [
+        "브롬"
+      ]
+    },
+    "sb": {
+      "name": "안티모니",
+      "al": [
+        "안티몬"
+      ]
+    },
+    "te": {
+      "name": "텔루륨",
+      "al": [
+        "텔루르"
+      ]
+    },
+    "i": {
+      "name": "아이오딘",
+      "al": [
+        "요오드"
+      ]
+    },
+    "diamond": {
+      "name": "다이아몬드",
+      "al": []
+    },
+    "flexible-foam": {
+      "name": "연질 고분자 발포체(저밀도)",
+      "al": [
+        "우레탄 폼",
+        "폴리우레탄 폼",
+        "스펀지"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "rigid-foam": {
+      "name": "경질 고분자 발포체(저밀도)",
+      "al": [
+        "스티로폼",
+        "발포 폴리스타이렌",
+        "경질 우레탄 폼"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "rigid-foam-hd": {
+      "name": "경질 고분자 발포체(고밀도)",
+      "al": [],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "cork": {
+      "name": "코르크",
+      "al": [],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "paper": {
+      "name": "종이·판지",
+      "al": [],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "wood-along": {
+      "name": "목재(섬유 방향)",
+      "al": [
+        "나무"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    },
+    "wood-across": {
+      "name": "목재(섬유 직각 방향)",
+      "al": [
+        "나무"
+      ],
+      "vars": {
+        "ash": "Ashby의 재료군 범위"
+      }
+    }
+  },
+  "guide": [
+    {
+      "id": "read",
+      "h": "대표값과 범위를 읽는 법",
+      "p": [
+        "값에는 등급이나 규격의 단일 값(예: 교세라 AO479O의 영률 360 GPa)과 재료군의 범위(예: Ashby의 ‘알루미나’ 340–390 GPa)의 두 종류가 있습니다. 범위는 조성이나 제조법이 다른 많은 등급을 묶은 폭이며, 모든 등급이 이 안에 든다는 뜻은 아닙니다.",
+        "범위의 대표값은 하한과 상한의 기하 평균(√(하한×상한))을 유효 숫자 3자리로 나타낸 값입니다. 재료 선정 도표의 타원 중심과 같은 값이며, 범위가 한 자릿수 이상에 걸치는 성질(발포체의 강도, 고분자의 열전도율 등)에서는 산술 평균보다 범위 안의 위치를 잘 나타냅니다.",
+        "한 재료에 같은 성질의 값이 여러 개 있을 때는 표에 첫 번째 값(등급의 값이 있으면 그 값, 없으면 범위)을 표시하고, ‘+n’ 표시로 다른 값의 개수를 보여 줍니다. 카드에는 모든 값을 조건과 출처와 함께 표시합니다."
+      ]
+    },
+    {
+      "id": "vary",
+      "h": "온도·조직·방향에 따른 값의 변화",
+      "p": [
+        "선팽창 계수는 온도 범위에 따라 달라집니다. SUS304에서는 0–100 ℃의 평균이 16.9 × 10⁻⁶ K⁻¹, 0–649 ℃의 평균이 18.7 × 10⁻⁶ K⁻¹입니다. 열전도율·영률·강도도 온도에 따라 달라지며, 많은 금속의 영률은 온도가 오르면 낮아집니다. 비교할 때는 같은 온도의 값끼리 비교하십시오.",
+        "강도는 조성보다 조직(열처리·가공)에 따라 크게 달라집니다. 항복 강도·인장 강도·굽힘 강도는 서로 다른 양이며, 세라믹스의 굽힘 강도는 인장 강도보다 크게 나옵니다. 표의 강도에는 어떤 강도인지를 반드시 붙여 두었습니다. 고분자는 흡습으로도 달라지며, PA6에서는 건조 시 영률 3.5 GPa가 흡습 후에는 1.2 GPa가 됩니다.",
+        "단결정이나 섬유, 일방향재는 방향에 따라 값이 다릅니다. 규소의 영률은 결정 방위에 따라 130–188 GPa이고, 탄소 섬유 T300의 축 방향 선팽창 계수는 음이며 반경 방향은 양입니다. 다결정 재료의 값은 방향의 평균입니다."
+      ]
+    },
+    {
+      "id": "spec",
+      "h": "규격값·카탈로그값·측정값",
+      "p": [
+        "규격의 값에는 보증하는 최솟값(EN 10025-2의 S355 항복 강도 355 MPa는 판 두께 16 mm 이하에서 보증하는 최솟값)이나 성분의 규정 범위(일본 JIS의 Cr 18.00–20.00 % 등)가 있습니다. 제조사 자료의 ‘대표값(typical)’은 측정값의 평균적인 값이며 보증값이 아닙니다.",
+        "같은 재료명이라도 자료에 따라 값이 조금씩 다른 것은 흔한 일입니다. 시료·측정법·온도가 다르기 때문이며, 어느 한쪽이 틀렸다고 단정할 수는 없습니다. 이 데이터 모음에서는 도구에 따라 값이 다른 것을 고치지 않고, 조건과 출처를 붙여 양쪽을 모두 표시했습니다."
+      ]
+    },
+    {
+      "id": "cite",
+      "h": "값을 인용할 때의 주의",
+      "p": [
+        "인용할 때는 이 페이지가 아니라 값의 출처(카드와 출처 목록에 있는 자료)를 인용하십시오. 출처 자료를 열어 조건(온도·상태·방향·시험법)을 확인한 뒤 쓰는 것이 확실합니다.",
+        "값을 옮겨 적을 때는 단위와 조건을 함께 적으십시오. 환산한 값은 원래 값의 유효 숫자 자릿수로 표시합니다. CSV에는 표에 표시한 단위의 값과 원래 단위의 값을 모두 내보냅니다."
+      ]
+    },
+    {
+      "id": "how",
+      "h": "이 데이터 모음을 만든 방법",
+      "p": [
+        "값은 이 사이트의 계산 도구(재료를 위한 주기율표, 열팽창·열응력 랩, 재료 선정 도표, 복합재료 설계 도구, 확산·표면 처리 시뮬레이터, XRD 분석 워크벤치, 이원계 상태도 랩, 계산 연습, 재료 기호 읽는 법)가 쓰는 데이터 모음에서 스크립트로 뽑아냈습니다. 도구의 값은 손으로 옮겨 적지 않았습니다. 뽑아낸 값은 원래 도구의 값과 모두 대조하여 확인했습니다.",
+        "도구에 없는 값은 SUS304와 SUS316의 물성(Cleveland-Cliffs의 제품 데이터. 미국의 304/304L·316/316L 자료)뿐입니다. 이 값은 자료의 표에서 옮겨 적은 것으로, 옮겨 적은 값은 자료와 다시 한 번 대조했으며, 자료 안에서 미국 단위와 SI의 수치가 맞지 않는 값은 싣지 않았습니다(조건의 온도만 맞지 않는 것은 °F 온도에 맞추었습니다). 복합재료 설계 도구에서 가정으로 둔 값(자료가 없는 값)과 등방성을 가정하여 계산한 값은 싣지 않았습니다.",
+        "재료 카드의 ‘계산 도구에서 열기’는 그 재료의 값을 넣은 상태로 도구를 엽니다. 도구 쪽에서 재료를 고른 것과 같은 상태가 됩니다."
+      ]
+    }
+  ],
+  "faq": [
+    [
+      "편람의 값과 조금 다릅니다. 어느 쪽이 맞습니까?",
+      "대부분의 경우 양쪽 다 맞으며, 시료·측정법·온도의 차이입니다. 이 페이지의 값에는 출처와 조건을 붙여 두었으므로, 먼저 조건이 같은지 확인하십시오. 조건이 같은데도 크게 다르다면 출처 자료를 확인한 뒤 이 사이트에 알려 주십시오."
+    ],
+    [
+      "범위의 대표값은 왜 하한과 상한의 한가운데가 아닙니까?",
+      "범위가 여러 배에 걸치는 성질에서는 로그 눈금에서 한가운데에 해당하는 기하 평균이 범위 안의 위치를 더 잘 나타내기 때문입니다. 재료 선정 도표의 타원 중심과 같은 값으로 했습니다. 예를 들어 0.01–1 범위의 산술 평균은 0.505이지만 기하 평균은 0.1입니다."
+    ],
+    [
+      "이 값으로 부품을 설계해도 됩니까?",
+      "재료를 어림잡고 비교하는 데는 쓸 수 있지만, 설계에는 쓰지 마십시오. 설계에는 규격의 보증값이나 사용할 등급의 제조사 자료 값(최솟값이나 온도별 값)을 씁니다."
+    ],
+    [
+      "항복 강도와 인장 강도 중 어느 쪽을 보면 됩니까?",
+      "소성 변형이 일어나면 안 되는 부품은 항복 강도(0.2 % 내력), 파단까지의 강도를 비교할 때는 인장 강도를 봅니다. 세라믹스나 유리는 항복하지 않으므로 굽힘 강도나 인장 강도를 봅니다. 표의 강도에는 어떤 강도인지를 붙여 두었습니다."
+    ],
+    [
+      "빈칸인 성질이 있는 것은 왜입니까?",
+      "출처에서 확인된 값만 실었기 때문입니다. 도구의 데이터 모음에 없는 값이나 자료에 적혀 있지 않은 값은 추정으로 채우지 않았습니다."
+    ],
+    [
+      "CSV 값의 자릿수는 어떻게 됩니까?",
+      "표에 표시한 단위로 환산한 값을 원래 값의 유효 숫자 자릿수로 반올림하여 내보냅니다. 같은 행에 원래 단위의 값과 출처도 내보내므로 원래 값을 확인할 수 있습니다."
+    ]
+  ]
+}
