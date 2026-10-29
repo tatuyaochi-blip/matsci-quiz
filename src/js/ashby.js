@@ -133,7 +133,7 @@ if (form) {
   // 13px の文字列のおおよその幅(viewBox の単位)。太字を考えて、全角(ハングルを含む)は 13.5、半角は 8.2 とみなす
   // 括弧書き: 日本語・中国語・韓国語は前に空白を入れず、ほかの言語は空白を入れる
   const par = str => (/^(ja|zh|ko)/.test(document.documentElement.lang) ? `(${str})` : ` (${str})`);
-  const tw = str => [...str].reduce((w, c) => w + (/[\u2e80-\u9fff\uf900-\uffef]/.test(c) ? 13.5 : 8.2), 0);
+  const tw = str => [...str].reduce((w, c) => w + (/[\u1100-\u11ff\u2e80-\u9fff\uac00-\ud7af\uf900-\uffef]/.test(c) ? 13.5 : 8.2), 0);
   const rng = r => (r[0] === r[1] ? fmt(r[0]) : `${fmt(r[0])}–${fmt(r[1])}`);
   // 目盛の数字: 0.001〜1000 はそのまま、それ以外は 10 の累乗
   const SUP = { '-': '⁻', 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹' };
