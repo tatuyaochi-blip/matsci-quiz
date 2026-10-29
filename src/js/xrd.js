@@ -23,7 +23,7 @@ function update() {
   const d = n2 ? a / Math.sqrt(n2) : NaN;
   const s = lam / (2 * d);
   out('d').textContent = Number.isFinite(d) ? `${num(d, 4)} nm` : '–';
-  out('two-theta').textContent = s <= 1 ? `${num(2 * Math.asin(s) * 180 / Math.PI, 4)}°` : T.no_peak;
+  out('two-theta').textContent = !Number.isFinite(d) ? '–' : s <= 1 ? `${num(2 * Math.asin(s) * 180 / Math.PI, 4)}°` : T.no_peak;
   out('rule').textContent = n2 ? (allowed(type, h, k, l) ? T.rule_yes : T.rule_no) : '–';
   // 小さい角度から順に、出るピークを6本まで
   const seen = new Set(), list = [];

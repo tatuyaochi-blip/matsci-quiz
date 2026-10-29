@@ -120,7 +120,7 @@
         },
         {
           "h": "ピークの並びから結晶構造を見分ける",
-          "p": "立方晶では sin²θ が h² + k² + l² に比例するので、低角側から順にピークの sin²θ の比をとると、構造を見分けられます。BCCでは比が 2 : 4 : 6 : 8 …(1 : 2 : 3 : 4 …)、FCCでは 3 : 4 : 8 : 11 : 12 …と並びます。SCは 1 : 2 : 3 : 4 : 5 : 6 : 8 …で、7が抜けるのが特徴です。最初の2本の比が 1 : 2 ならBCC、3 : 4 ならFCCと見当がつきます。この計算機で構造を切り替えて、ピークの一覧がどう変わるかを確かめてみてください。"
+          "p": "立方晶では sin²θ が h² + k² + l² に比例するので、低角側から順にピークの sin²θ の比をとると、構造を見分けられます。BCCでは比が 2 : 4 : 6 : 8 …(1 : 2 : 3 : 4 …)、FCCでは 3 : 4 : 8 : 11 : 12 …と並びます。SCは 1 : 2 : 3 : 4 : 5 : 6 : 8 …で、7が抜けるのが特徴です。最初の2本の比が 3 : 4 ならFCC、1 : 2 ならBCCかSC(比の並びに7が抜けていればSC)と見当がつきます。この計算機で構造を切り替えて、ピークの一覧がどう変わるかを確かめてみてください。"
         },
         {
           "h": "計算と実測がずれるとき",
@@ -185,7 +185,7 @@
         },
         {
           "h": "Identifying the crystal structure from the peak sequence",
-          "p": "In cubic crystals sin²θ is proportional to h² + k² + l², so taking the ratios of sin²θ for the peaks in order from low angle identifies the structure. For BCC the ratios run 2 : 4 : 6 : 8 … (1 : 2 : 3 : 4 …), and for FCC 3 : 4 : 8 : 11 : 12 …. SC gives 1 : 2 : 3 : 4 : 5 : 6 : 8 …, characterized by the missing 7. If the first two peaks are in the ratio 1 : 2, it is likely BCC; if 3 : 4, FCC. Switch the structure in this calculator to see how the list of peaks changes."
+          "p": "In cubic crystals sin²θ is proportional to h² + k² + l², so taking the ratios of sin²θ for the peaks in order from low angle identifies the structure. For BCC the ratios run 2 : 4 : 6 : 8 … (1 : 2 : 3 : 4 …), and for FCC 3 : 4 : 8 : 11 : 12 …. SC gives 1 : 2 : 3 : 4 : 5 : 6 : 8 …, characterized by the missing 7. If the first two peaks are in the ratio 3 : 4, it is likely FCC; if 1 : 2, BCC or SC (SC if 7 is missing from the sequence). Switch the structure in this calculator to see how the list of peaks changes."
         },
         {
           "h": "When calculation and measurement disagree",
@@ -250,7 +250,7 @@
         },
         {
           "h": "由繞射峰的排列區分晶體結構",
-          "p": "在立方晶中 sin²θ 與 h² + k² + l² 成正比，因此從低角度側依序取繞射峰 sin²θ 的比，就能區分結構。BCC的比為 2 : 4 : 6 : 8 …（1 : 2 : 3 : 4 …），FCC則排列為 3 : 4 : 8 : 11 : 12 …。SC為 1 : 2 : 3 : 4 : 5 : 6 : 8 …，其特徵是缺少7。最初2條峰的比為 1 : 2 時可推測為BCC，為 3 : 4 時可推測為FCC。請在本計算工具中切換結構，確認繞射峰一覽如何變化。"
+          "p": "在立方晶中 sin²θ 與 h² + k² + l² 成正比，因此從低角度側依序取繞射峰 sin²θ 的比，就能區分結構。BCC的比為 2 : 4 : 6 : 8 …（1 : 2 : 3 : 4 …），FCC則排列為 3 : 4 : 8 : 11 : 12 …。SC為 1 : 2 : 3 : 4 : 5 : 6 : 8 …，其特徵是缺少7。最初2條峰的比為 3 : 4 時可推測為FCC，為 1 : 2 時可推測為BCC或SC（比的排列中缺少7則為SC）。請在本計算工具中切換結構，確認繞射峰一覽如何變化。"
         },
         {
           "h": "計算與實測有偏差時",
