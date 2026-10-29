@@ -189,6 +189,51 @@ function failureText(code) {
   });
   return { navi, cases };
 }
+// 組織の見分け方アトラス(/atlas/)。data/atlas.json(既定言語の文章・図の描き方・出典)と、訳 data/i18n/{言語}/atlas.json(文章だけ)。
+// 模式図は src/js/micro.js が描く(ページでは atlas.js がその場で描き、build はここで全種類が描けることを確かめる)。
+// その言語の src/i18n に nav_atlas があり、文章の訳もある言語でだけ作る。ファイルがなければ何も作らない(micro.js も読み込まない)
+const atlasBase = readOpt('data/atlas.json', null);
+const micro = atlasBase ? await import(pathToFileURL(path.join(root, 'src/js/micro.js')).href) : null;
+const atlasTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/atlas.json`, null));
+const atlasOn = code => !!atlasBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_atlas') && (code === defLang || !!atlasTr(code)?.structures);
+// 訳を既定言語のデータに重ねる。足りない訳・数の合わない訳があれば止める
+function atlasText(code) {
+  const d = atlasBase;
+  const T = atlasTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/atlas.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  const same = (a, b, k) => {
+    if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+    return b;
+  };
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note'].map(k => [k, need(T[k], k)])),
+    groups: d.groups.map(g => ({ ...g, name: need(T.groups?.[g.id], `groups.${g.id}`) })),
+    structures: d.structures.map(s => {
+      const ts = need(T.structures?.[s.id], `structures.${s.id}`);
+      const k = x => `structures.${s.id}.${x}`;
+      const list = x => same(s[x], need(ts[x], k(x)), k(x)).map((v, i) => need(v, k(`${x}[${i}]`)));
+      return {
+        ...s, name: need(ts.name, k('name')), short: need(ts.short, k('short')),
+        ...Object.fromEntries(['see', 'shade', 'etch', 'forms', 'clues'].map(x => [x, list(x)])),
+        props: same(s.props, ts.props, k('props')).map((v, i) => ({ ...s.props[i], t: need(v, k(`props[${i}]`)) })),
+        confuse: same(s.confuse, ts.confuse, k('confuse')).map((v, i) => ({ ...s.confuse[i], how: need(v, k(`confuse[${i}]`)) })),
+      };
+    }),
+    grain: {
+      ...d.grain, lead: need(T.grain?.lead, 'grain.lead'), note: need(T.grain?.note, 'grain.note'),
+      methods: same(d.grain.methods, T.grain.methods, 'grain.methods').map((m, i) => [need(m[0], `grain.methods[${i}][0]`), need(m[1], `grain.methods[${i}][1]`)]),
+      formulas: same(d.grain.formulas, T.grain.formulas, 'grain.formulas').map((f, i) => need(f, `grain.formulas[${i}]`)),
+    },
+    faq: T.faq ?? [],
+    sources: Object.fromEntries(Object.entries(d.sources).map(([k, v]) => [k, { ...v, name: T.sources?.[k] ?? v.name }])),
+  };
+}
 // ニュースに出た用語(/news-terms/)。用語集の語に「なぜ今話題なのか」などを足す。訳は data/i18n/{言語}/news-terms.json
 const newsTerms = readOpt('data/news-terms.json', []);
 const figs = figures();
@@ -318,6 +363,8 @@ function buildLang(L) {
   const figT = tr('figures');
   // 破損解析(この言語で作るときだけ。訳を重ねた文章)
   const fail = failureOn(code) ? failureText(code) : null;
+  // 組織の見分け方アトラス(この言語で作るときだけ。訳を重ねた文章)
+  const atl = atlasOn(code) ? atlasText(code) : null;
   // ニュース用語: 日付・問題・リンク先は既定言語のファイルのものを使い、文章だけ訳で置き換える(訳がなければその言語では出さない)
   const nwT = tr('news-terms');
   const news = newsTerms.filter(e => isDef || nwT[e.term]).map(e => {
@@ -468,7 +515,7 @@ function buildLang(L) {
     ${interviewText[code] ? feature(`${home}interview-questions/`, interviewText[code].nav, interviewText[code].card, 'home_feat_interview') : ''}
     ${beyondText[code] && pageNames(code).includes('beyond-scaling') ? feature(`${home}beyond-scaling/`, beyondText[code].nav, beyondText[code].card, 'home_feat_beyond') : ''}
     ${compares.some(e => isDef || tr('compare')[e.slug]) ? feature(`${home}compare/`, S.nav_compare, t('home_feat_compare_desc'), 'home_feat_compare') : ''}
-    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}
+    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}${atl ? feature(`${home}atlas/`, S.nav_atlas, t('home_feat_atlas_desc'), 'home_feat_atlas') : ''}
     ${Object.keys(figs).length ? feature(`${home}figures/`, S.footer_figures, t('home_feat_figures_desc'), 'home_feat_figures') : ''}
     ${toolsIn(code).length ? feature(`${home}tools/`, S.nav_tools, t('home_feat_tools_desc'), 'home_feat_tools') : ''}
     ${news.length ? feature(`${home}news-terms/`, S.news_title, t('home_feat_news_desc'), 'home_feat_news') : ''}
@@ -696,13 +743,16 @@ function buildLang(L) {
     ...cmp.map(e => ({ t: 'c', n: e.title, u: `compare/${e.slug}/`, x: `${e.description} ${e.items.join(' ')}` })),
     ...(fail ? [{ t: 'x', n: fail.navi.h1, u: 'failure/', x: `${fail.navi.description} ${fail.navi.modes.map(m => m.name).join(' ')}` },
       ...fail.cases.map(e => ({ t: 'x', n: e.title, u: `failure/${e.slug}/`, x: e.description }))] : []),
+    ...(atl ? [{ t: 'a', n: atl.h1, u: 'atlas/', x: atl.description },
+      ...atl.structures.map(e => ({ t: 'a', n: e.name, u: `atlas/?s=${e.id}#s-${e.id}`, x: e.short })),
+      { t: 'a', n: t('atlas_grain_h'), u: 'atlas/#grain', x: atl.grain.lead }] : []),
     ...terms.map(g => ({ t: 't', n: g.term, u: `term/${termSlug[g.key]}/`, x: g.desc, ...(isDef ? {} : { k: g.key }) })),
     ...live.map(c => ({ t: 'k', n: c.name, u: `c/${c.id}/`, x: c.description })),
     ...figList.map(x => ({ t: 'f', n: x.title, u: figPage(x.id) ? `figures/${x.id}/` : `figures/#fig-${x.id}`, x: '' })),
     ...live.flatMap(c => qs[c.id].map(q => ({ t: 'q', n: q.question, u: `q/${c.id}/${q.id}/`, x: c.name }))),
   ];
   write(`data/${code}/search.json`, JSON.stringify({
-    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}), ...(fail ? { search_g_x: S.nav_failure } : {}) },
+    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}), ...(fail ? { search_g_x: S.nav_failure } : {}), ...(atl ? { search_g_a: S.nav_atlas } : {}) },
     items: searchItems,
   }));
 
@@ -747,6 +797,7 @@ function buildLang(L) {
     // 項目名と説明の区切りは、日本語・中国語は全角のコロン、ほかの言語(韓国語も)は「: 」(固定ページの項目と同じ書き方)
     aboutCompare: cmp.length ? `  <li><strong><a href="${home}compare/">${esc(S.nav_compare)}</a></strong>${itemSep}${esc(t('about_compare'))}</li>\n` : '',
     aboutFailure: fail ? `  <li><strong><a href="${home}failure/">${esc(S.nav_failure)}</a></strong>${itemSep}${esc(t('about_failure'))}</li>\n` : '',
+    aboutAtlas: atl ? `  <li><strong><a href="${home}atlas/">${esc(S.nav_atlas)}</a></strong>${itemSep}${esc(t('about_atlas'))}</li>\n` : '',
     aboutFigures: figList.length ? `  <li><strong><a href="${home}figures/">${esc(S.footer_figures)}</a></strong>${itemSep}${esc(t('about_figures'))}</li>\n` : '',
     // トップの開始ボタンの下: 学習コースへの案内(コースの一覧は分野の一覧より下にある)
     courseHint: liveCourses.length ? `<p class="hero-note"><a href="#courses">${esc(t('home_course_hint'))} → ${esc(t('course_heading'))}</a></p>` : '',
@@ -816,7 +867,7 @@ function buildLang(L) {
     // PC: Topics / 用語集 / 比較 / 図解 / 計算ツール / Progress。スマートフォン: ホームを加えて Menu に縦に並べる
     const navLink = ([sub, label]) => `<a href="${home}${sub}"${p === L.path + sub ? ' aria-current="page"' : ''}>${esc(label)}</a>`;
     const resources = [...(learnArts.length ? [['learn/', LT.nav]] : []), ['glossary/', S.nav_glossary], ...(cmp.length ? [['compare/', S.nav_compare]] : []),
-      ...(fail ? [['failure/', S.nav_failure]] : []), ...(figList.length ? [['figures/', S.footer_figures]] : []),
+      ...(fail ? [['failure/', S.nav_failure]] : []), ...(atl ? [['atlas/', S.nav_atlas]] : []), ...(figList.length ? [['figures/', S.footer_figures]] : []),
       ...(numbers.length && code === numbersLang ? [['numbers/', 'Key numbers']] : []),
       ...(toolsIn(code).length ? [['tools/', S.nav_tools]] : [])];
     // 用語集・比較・図解・計算ツールはそれぞれ独立した項目として並べる(PC ではホームはロゴから戻る)
@@ -2735,6 +2786,212 @@ ${cmpSection(t('compare_more'), relatedCmp(e))}`,
     }
   }
 
+  // 組織の見分け方アトラス: /atlas/(一覧・組織ごとの見分け方・結晶粒度・見分ける練習。動きは atlas.js、図は micro.js)
+  if (atl) buildAtlas();
+  function buildAtlas() {
+    const A = atl;
+    const where = 'data/atlas.json';
+    const ids = new Set(A.structures.map(s => s.id));
+    const groupIds = new Set(A.groups.map(g => g.id));
+    // 既定言語のデータで決まる検査(どの言語でも同じ結果になる)
+    for (const [k, v] of Object.entries(A.sources)) if (!/^https:\/\//.test(v.url ?? '')) throw new Error(`${where}: 出典 ${k} の URL(https)がありません`);
+    for (const s of A.structures) {
+      const w = `${where}: 組織 ${s.id}`;
+      if (!/^[a-z0-9-]+$/.test(s.id)) throw new Error(`${w}: id は英小文字・数字・ハイフンだけにしてください`);
+      if (!groupIds.has(s.group)) throw new Error(`${w}: 存在しない区分 ${s.group}`);
+      if (!micro.kinds.includes(s.draw?.kind)) throw new Error(`${w}: micro.js に描き方のない図 ${s.draw?.kind}`);
+      // 倍率の目安は「図を幅10 cmで見たときの倍率」= 100 mm ÷ 図の幅
+      if (!(s.draw.field > 0) || Math.abs(s.draw.mag - 1e5 / s.draw.field) > s.draw.mag * 0.01) throw new Error(`${w}: 倍率 ×${s.draw.mag} が図の幅 ${s.draw.field} µm(×${1e5 / s.draw.field})と合いません`);
+      for (const x of ['see', 'shade', 'etch', 'forms', 'clues']) if (!s[x]?.length) throw new Error(`${w}: ${x} がありません`);
+      if (!s.confuse?.length) throw new Error(`${w}: 見まちがえやすい組織(confuse)がありません`);
+      for (const c of s.confuse) if (!ids.has(c.id) || c.id === s.id) throw new Error(`${w}: confuse の組織 ${c.id} がありません`);
+      for (const k of s.terms ?? []) if (!glossary.some(g => g.term === k)) throw new Error(`${w}: 用語集にない語 ${k}`);
+      for (const id of s.questions ?? []) if (isDef && !qById.has(id)) throw new Error(`${w}: 存在しない問題 ${id}`);
+      for (const x of s.tools ?? []) {
+        if (!tools.some(y => y.slug === x.slug)) throw new Error(`${w}: 存在しない計算ツール ${x.slug}`);
+        for (const [, p] of (x.q ?? '').matchAll(/\{(\w+)\}/g)) if (p !== s.lever?.param) throw new Error(`${w}: ツール ${x.slug} の {${p}} はつまみ(lever.param)にありません`);
+      }
+      const keys = [...s.src, ...s.props.flatMap(p => p.s)];
+      if (!s.src.length) throw new Error(`${w}: 出典(src)がありません`);
+      for (const k of keys) if (!A.sources[k]) throw new Error(`${w}: 出典の鍵 ${k} が sources にありません`);
+      if (s.lever) {
+        const v = s.lever;
+        if (!/^[a-z]+$/.test(v.param) || ['s', 'g', 'p', 'a', 'std'].includes(v.param)) throw new Error(`${w}: lever.param「${v.param}」は使えません`);
+        if (!(v.lo < v.min && v.min <= v.def && v.def <= v.max && v.max < v.hi) || !['hypo', 'hyper'].includes(v.kind)) throw new Error(`${w}: lever の値の並び(lo < min ≤ def ≤ max < hi)か kind が正しくありません`);
+        if (v.pmin != null && !(v.min <= v.pmin && v.pmin <= v.max)) throw new Error(`${w}: lever.pmin(練習で出す炭素量の下限)は min〜max の中にしてください`);
+      }
+      // 図が描けること(描けない図をページに出さない)
+      micro.drawMicro({ kind: s.draw.kind, seed: 1, field: s.draw.field, mag: s.draw.mag, f: s.lever ? micro.leverFrac(s.lever, s.lever.def) : undefined });
+    }
+    for (const k of A.grain.src) if (!A.sources[k]) throw new Error(`${where}: 結晶粒度の出典の鍵 ${k} が sources にありません`);
+    if (new Set(A.structures.map(s => s.lever?.param).filter(Boolean)).size !== A.structures.filter(s => s.lever).length) throw new Error(`${where}: lever.param が重なっています`);
+
+    const aHome = `${home}atlas/`;
+    const aPath = l => `${l.path}atlas/`;
+    const aAlt = Object.fromEntries(langs.filter(x => atlasOn(x.code)).map(x => [x.code, aPath(x)]));
+    const num = (v, d = 2) => Number(v.toFixed(d)).toLocaleString(L.htmlLang);
+    const width = um => (um >= 1000 ? `${num(um / 1000)} mm` : `${num(um)} µm`);
+    const termChips = keys => keys.map(k => terms.find(x => x.key === k)).filter(Boolean).map(x => `<a class="chip" href="${home}term/${termSlug[x.key]}/">${esc(x.term)}</a>`).join(' ');
+    const fill = (q, s) => (s.lever ? q.replaceAll(`{${s.lever.param}}`, String(s.lever.def)) : q);
+    const toolLink = (x, s) => {
+      const y = tools.find(z => z.slug === x.slug);
+      if (!y.text[code]) return '';
+      const href = `${home}tools/${x.slug}/${x.q ? `?${fill(x.q, s)}` : ''}`;
+      return `<a href="${esc(href)}"${x.q && s.lever ? ` data-tq="${esc(`${home}tools/${x.slug}/?${x.q}`)}"` : ''}>${esc(y.text[code].h1)}</a>`;
+    };
+    const fracText = (s, v) => t(s.lever.kind === 'hypo' ? 'atlas_frac_hypo' : 'atlas_frac_hyper', { c: num(v), p: num(micro.leverFrac(s.lever, v) * 100, 1) });
+    const thumb = s => `<span class="at-thumb fig" data-thumb="${s.id}" aria-hidden="true"></span>`;
+    const cards = list => `<ul class="at-gallery">${list.map(s => `
+  <li><a class="at-card" href="?s=${s.id}#s-${s.id}" data-s="${s.id}">${thumb(s)}<strong>${esc(s.name)}</strong><span>${esc(s.short)}</span></a></li>`).join('')}
+</ul>`;
+    const li = list => `<ul>${list.map(x => `<li>${linked(x)}</li>`).join('')}</ul>`;
+    const entry = s => {
+      const keys = [...new Set([...s.src, ...s.props.flatMap(p => p.s)])];
+      const ref = k => `<a class="at-ref" href="#src-${s.id}-${keys.indexOf(k) + 1}">[${keys.indexOf(k) + 1}]</a>`;
+      const qs2 = (s.questions ?? []).map(id => qById.get(id)).filter(Boolean);
+      const tl = (s.tools ?? []).map(x => toolLink(x, s)).filter(Boolean);
+      const byId = id => A.structures.find(x => x.id === id);
+      return `
+  <details class="at-entry" id="s-${s.id}" data-id="${s.id}">
+    <summary><strong>${esc(s.name)}</strong><span>${esc(s.short)}</span></summary>
+    <div class="at-body">
+    <figure class="fig at-fig">
+      <div class="at-svg" data-draw="${s.id}"></div>
+      <figcaption>${esc(t('atlas_fig_cap', { m: num(s.draw.mag, 0), w: width(s.draw.field) }))} <button type="button" class="btn btn-ghost btn-small" data-redraw="${s.id}">${esc(t('atlas_redraw'))}</button></figcaption>
+    </figure>${s.lever ? `
+    <div class="at-lever">
+      <label for="lv-${s.id}">${esc(t('atlas_c_label'))} <output id="lv-${s.id}-out" for="lv-${s.id}">${num(s.lever.def)}</output> %</label>
+      <input type="range" id="lv-${s.id}" data-lever="${s.id}" min="${s.lever.min}" max="${s.lever.max}" step="${s.lever.step}" value="${s.lever.def}">
+      <p class="at-frac" data-frac="${s.id}">${esc(fracText(s, s.lever.def))}</p>
+    </div>` : ''}
+    <h3>${esc(t('atlas_see'))}</h3>
+    ${li(s.see)}
+    <h3>${esc(t('atlas_shade'))}</h3>
+    ${li(s.shade)}
+    <h3>${esc(t('atlas_etch'))}</h3>
+    ${li(s.etch)}
+    <h3>${esc(t('atlas_forms'))}</h3>
+    ${li(s.forms)}
+    <h3>${esc(t('atlas_props'))}</h3>
+    <ul>${s.props.map(p => `<li>${linked(p.t)} ${p.s.map(ref).join('')}</li>`).join('')}</ul>
+    <h3>${esc(t('atlas_confuse'))}</h3>
+    <ul class="at-confuse">${s.confuse.map(c => `<li><a href="?s=${c.id}#s-${c.id}" data-s="${c.id}">${esc(byId(c.id).name)}</a>: ${linked(c.how)}</li>`).join('')}</ul>
+    <h3>${esc(t('atlas_clues'))}</h3>
+    <ul class="at-clues">${s.clues.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    ${s.terms?.length ? `<p class="term-chips"><span class="muted">${esc(t('atlas_terms'))}:</span> ${termChips(s.terms)}</p>` : ''}
+    ${tl.length ? `<p class="at-tools"><span class="muted">${esc(t('atlas_tools'))}:</span> ${tl.join(' / ')}</p>` : ''}
+    ${qs2.length ? `<p class="fn-qlinks"><span class="muted">${esc(t('atlas_check_q'))}:</span></p>${qLinks(qs2)}` : ''}
+    <div class="fn-sources at-sources"><h3>${esc(t('atlas_sources'))}</h3><ol>${keys.map((k, i) => `<li id="src-${s.id}-${i + 1}"><a href="${esc(A.sources[k].url)}" rel="noopener" target="_blank">${esc(A.sources[k].name)}</a></li>`).join('')}</ol></div>
+    <div class="cmp-tools"><button type="button" class="btn btn-ghost" data-copy="s=${s.id}" data-hash="s-${s.id}" data-done="${esc(t('compare_link_copied'))}">${esc(t('atlas_link'))}</button></div>
+    </div>
+  </details>`;
+    };
+    const G = A.grain;
+    const grainHtml = `<section class="at-grain" id="grain">
+  <h2>${esc(t('atlas_grain_h'))}</h2>
+  <p>${linked(G.lead)}</p>
+  <div class="at-grain-box">
+    <figure class="fig at-fig"><div class="at-svg" data-grain></div><figcaption class="at-gcap" aria-live="polite"></figcaption></figure>
+    <div class="at-gctl">
+      <fieldset class="at-std"><legend>${esc(t('atlas_grain_std'))}</legend>
+        <label><input type="radio" name="std" value="jis" checked> JIS G 0551</label>
+        <label><input type="radio" name="std" value="astm"> ASTM E112</label>
+      </fieldset>
+      <label for="g-num">${esc(t('atlas_grain_g'))} <output id="g-out" for="g-num">5</output></label>
+      <input type="range" id="g-num" min="0" max="12" step="0.5" value="5">
+      <dl class="at-gout" aria-live="polite"></dl>
+      <div class="cmp-tools">
+        <button type="button" class="btn btn-ghost" data-count aria-pressed="false">${esc(t('atlas_g_count'))}</button>
+        <button type="button" class="btn btn-ghost" data-redraw-grain>${esc(t('atlas_redraw'))}</button>
+        <button type="button" class="btn btn-ghost" data-copy="g" data-hash="grain" data-done="${esc(t('compare_link_copied'))}">${esc(t('atlas_link_grain'))}</button>
+      </div>
+      <div class="at-count" aria-live="polite" hidden></div>
+    </div>
+  </div>
+  <h3>${esc(t('atlas_grain_cmp'))}</h3>
+  <p class="muted">${esc(t('atlas_grain_cmp_lead'))}</p>
+  <div class="at-cmp" data-cmp></div>
+  <h3>${esc(t('atlas_grain_methods'))}</h3>
+  <dl class="fn-measures at-methods">${G.methods.map(([n, x]) => `<div><dt>${esc(n)}</dt><dd>${linked(x)}</dd></div>`).join('')}</dl>
+  <h3>${esc(t('atlas_grain_formulas'))}</h3>
+  <ul class="at-formulas">${G.formulas.map(f => `<li>${esc(f)}</li>`).join('')}</ul>
+  <p class="muted">${linked(G.note)}</p>
+  <div class="fn-sources"><h3>${esc(t('atlas_sources'))}</h3><ol>${G.src.map(k => `<li><a href="${esc(A.sources[k].url)}" rel="noopener" target="_blank">${esc(A.sources[k].name)}</a></li>`).join('')}</ol></div>
+</section>`;
+    const practiceHtml = `<section class="at-practice" id="practice">
+  <h2>${esc(t('atlas_practice_h'))}</h2>
+  <p>${esc(t('atlas_practice_lead'))}</p>
+  <div class="at-pbox">
+    <figure class="fig at-fig"><div class="at-svg" data-practice></div></figure>
+    <div class="at-pside">
+      <p class="at-pq"><strong>${esc(t('atlas_p_q'))}</strong></p>
+      <div class="at-opts" role="group" aria-label="${esc(t('atlas_p_q'))}"></div>
+      <div class="at-pres" aria-live="polite"></div>
+      <div class="cmp-tools">
+        <button type="button" class="btn btn-primary" data-next>${esc(t('atlas_p_next'))}</button>
+        <button type="button" class="btn btn-ghost" data-copy="p" data-hash="practice" data-done="${esc(t('compare_link_copied'))}">${esc(t('atlas_p_share'))}</button>
+      </div>
+      <label class="at-weak-mode"><input type="checkbox" data-weak> ${esc(t('atlas_p_weak_mode'))}</label>
+      <div class="at-stats" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="muted fn-note">${esc(t('atlas_url_note'))}</p>
+</section>`;
+    // atlas.js に渡すデータ(図の描き方・練習の手がかり・画面の文言)
+    const jsData = {
+      s: A.structures.map(s => ({ id: s.id, name: s.name, k: s.draw.kind, f: s.draw.field, m: s.draw.mag, lever: s.lever ?? null, clues: s.clues, conf: s.confuse })),
+      t: Object.fromEntries(['atlas_mag_label', 'atlas_fig_title', 'atlas_frac_hypo', 'atlas_frac_hyper', 'atlas_frac_fig', 'atlas_g_cap', 'atlas_g_na', 'atlas_g_area', 'atlas_g_d', 'atlas_g_l', 'atlas_g_n100',
+        'atlas_g_other', 'atlas_g_count', 'atlas_g_count_hide', 'atlas_g_jeff', 'atlas_g_icpt', 'atlas_g_count_note', 'atlas_g_cmp_item', 'atlas_p_fig', 'atlas_p_ok', 'atlas_p_ng', 'atlas_p_clues',
+        'atlas_p_diff', 'atlas_p_chosen', 'atlas_p_detail', 'atlas_p_streak', 'atlas_p_score', 'atlas_p_weak', 'atlas_p_weak_none', 'atlas_p_reset', 'atlas_p_shared', 'atlas_p_nostore'].map(k => [k, S[k]])),
+    };
+    const relCats = ['metals', 'phase-diagram', 'heat-treatment', 'characterization', 'crystal', 'mechanical'].map(catOf).filter(c => c && live.includes(c));
+    page({
+      path: aPath(L),
+      alt: aAlt,
+      title: A.title,
+      fullTitle: `${A.title} | ${siteName}`,
+      description: A.description,
+      scripts: ['atlas.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_atlas, aHome]),
+        { '@context': 'https://schema.org', '@type': 'WebApplication', name: A.h1, description: A.description, url: abs(aHome), inLanguage: L.htmlLang,
+          applicationCategory: 'EducationalApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+        ...(A.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: A.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(A.h1)}</h1>
+<p class="lead">${esc(A.lead)}</p>
+<p class="fn-caution">${esc(A.note)}</p>
+<noscript><p class="muted">${esc(t('atlas_noscript'))}</p></noscript>
+<nav class="at-toc" aria-label="${esc(t('atlas_toc'))}"><a class="chip" href="#list">${esc(t('atlas_list_h'))}</a> <a class="chip" href="#grain">${esc(t('atlas_grain_h'))}</a> <a class="chip" href="#practice">${esc(t('atlas_practice_h'))}</a></nav>
+<section id="list">
+  <h2>${esc(t('atlas_list_h'))}</h2>
+  <p class="muted">${esc(t('atlas_list_lead', { n: A.structures.length }))}</p>${A.groups.map(g => `
+  <h3>${esc(g.name)}</h3>
+  ${cards(A.structures.filter(s => s.group === g.id))}`).join('')}
+</section>
+<section class="at-entries" id="entries">
+  <h2>${esc(t('atlas_entries_h'))}</h2>
+  <p class="muted">${esc(t('atlas_entries_lead'))}</p>${A.groups.map(g => `
+  <h3 class="at-group">${esc(g.name)}</h3>${A.structures.filter(s => s.group === g.id).map(entry).join('')}`).join('')}
+</section>
+${grainHtml}
+${practiceHtml}
+<script type="application/json" id="at-data">${JSON.stringify(jsData).replace(/</g, '\\u003c')}</script>
+<div data-ad="compare"></div>
+${A.faq.length ? `<section class="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${A.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+${relCats.length ? `<section>
+  <h2>${esc(t('atlas_rel_cats'))}</h2>
+  ${catCards(relCats)}
+</section>` : ''}`,
+    });
+  }
+
   // 破損解析: 診断ナビ /failure/ と事故事例 /failure/{slug}/(動きは failure.js)
   if (fail) buildFailure();
   function buildFailure() {
@@ -3163,7 +3420,7 @@ fs.writeFileSync(lastmodFile, '{\n' + Object.entries(lastmod).map(([k, v]) => ` 
 // /sitemap.xml の場所は変えないので、Search Console と robots.txt はそのままでよい
 const SITEMAP_MAX = 40000;
 const langOfUrl = url => [...langs].sort((a, b) => b.path.length - a.path.length).find(x => pageKey(url).startsWith(x.path)).code; // 既定言語(path が空)は最後に当たる
-const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools', 'failure']; // これ以外(トップ・分野・図解集など)は other にまとめる
+const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools', 'failure', 'atlas']; // これ以外(トップ・分野・図解集など)は other にまとめる
 const typeOfUrl = url => {
   const L = langs.find(x => x.code === langOfUrl(url));
   const first = pageKey(url).slice(L.path.length).split('/')[0];
