@@ -573,6 +573,133 @@
           "a": "Fe–Fe₃C계에서는 오스테나이트의 최대 탄소 고용 한도인 2.14 wt%가 기준입니다. 이보다 적으면 고체 상태에서 전체를 오스테나이트로 만들 수 있고, 많으면 응고의 마지막에 공정 반응이 일어납니다. 자료에 따라 2.0~2.11 wt%로 하기도 합니다."
         }
       ]
+    },
+    "de": {
+      "nav": "Eisen-Kohlenstoff-Diagramm",
+      "card": "Einen Punkt im Zustandsdiagramm Fe–Fe₃C wählen und Phasen, Konode, Hebelgesetz und Gefüge bei Raumtemperatur anzeigen",
+      "title": "Eisen-Kohlenstoff-Diagramm interaktiv (Phasen im System Fe–Fe₃C, Hebelgesetz, Gefüge von Stahl und Gusseisen)",
+      "description": "Zeigt das Zustandsdiagramm des Systems Fe–Fe₃C (metastabiles System) als interaktives Diagramm. Klicken Sie in das Diagramm oder geben Sie Kohlenstoffgehalt und Temperatur ein: Angezeigt werden die Phasen an diesem Punkt, im Zweiphasengebiet die Konode mit Zusammensetzung und Massenanteil jeder Phase (Hebelgesetz) sowie ein Richtwert für Gefüge und Gefügeanteile bei Raumtemperatur nach langsamer Abkühlung.",
+      "h1": "Eisen-Kohlenstoff-Diagramm interaktiv",
+      "lead": "Zustandsdiagramm des Systems Fe–Fe₃C (metastabiles System) für 0 bis 6,70 Massen-% Kohlenstoff und 400 bis 1600 °C. Klicken oder tippen Sie in das Diagramm oder geben Sie Kohlenstoffgehalt und Temperatur als Zahlen ein: Angezeigt werden die Phasen an diesem Punkt; im Zweiphasengebiet wird die Konode gezogen, und die Zusammensetzungen der Phasen an ihren Enden sowie die Massenanteile nach dem Hebelgesetz werden berechnet. Zusätzlich erhalten Sie einen Richtwert für das Gefüge bei Raumtemperatur, das sich einstellt, wenn ein Stahl oder Gusseisen mit diesem Kohlenstoffgehalt aus hoher Temperatur langsam abgekühlt wird. Voreingestellt ist ein untereutektoider Stahl mit 0,40 Massen-% C bei 750 °C (Zweiphasengebiet α + γ).",
+      "in_heading": "Eingaben",
+      "c": "Kohlenstoffgehalt C₀ (Massen-% C)",
+      "t": "Temperatur (°C)",
+      "view": "Darstellungsbereich",
+      "view_full": "Gesamt 0–6,70 Massen-%",
+      "view_steel": "Ausschnitt 0–2,2 Massen-%",
+      "out_heading": "Zustandsdiagramm und Ergebnisse",
+      "phase": "Phasen an diesem Punkt",
+      "kind": "Einteilung nach dem Kohlenstoffgehalt",
+      "tie_heading": "Zusammensetzung und Massenanteil der Phasen an diesem Punkt",
+      "micro_heading": "Gefüge bei Raumtemperatur nach langsamer Abkühlung (Richtwert)",
+      "note": "Die wichtigsten Punkte (eutektoider Punkt 727 °C und 0,76 Massen-% C, eutektischer Punkt 1147 °C und 4,30 Massen-% C, Peritektikum 1495 °C usw.) entsprechen den gängigen Lehrbuchwerten; die Linien sind durch Geraden oder glatte Kurven durch diese Punkte angenähert. Gegenüber den tatsächlichen Linien sind Abweichungen von wenigen bis zu mehreren zehn Grad möglich, und bei legierten Gebrauchsstählen verschiebt sich die Lage der Linien selbst.",
+      "practice": "Aufgaben zu Zustandsdiagrammen lösen",
+      "related": "Verwandte Begriffe",
+      "js": {
+        "chart_title": "Zustandsdiagramm Fe–Fe₃C (metastabiles System, Näherung durch die Hauptpunkte)",
+        "axis_c": "Kohlenstoffgehalt (Massen-% C)",
+        "axis_t": "Temperatur (°C)",
+        "pt_eutectoid": "Eutektoid",
+        "pt_eutectic": "Eutektikum",
+        "pt_peritectic": "Peritektikum",
+        "tap": "Klicken oder tippen Sie in das Diagramm, um einen Punkt auszuwählen. Der farbig hinterlegte Bereich ist das Gebiet, in dem der gewählte Punkt liegt.",
+        "hidden": "Dieser Punkt liegt außerhalb des Ausschnitts (0–2,2 Massen-% C). Stellen Sie den Darstellungsbereich auf „Gesamt“, um ihn zu sehen.",
+        "out_range": "Geben Sie einen Kohlenstoffgehalt von 0 bis 6,70 Massen-% und eine Temperatur von 400 bis 1600 °C ein.",
+        "single": "Einphasengebiet. Da nur eine Phase vorliegt, beträgt ihr Massenanteil 100 %.",
+        "two": "Zweiphasengebiet. Die Enden der Konode (waagerechte Linie) bei dieser Temperatur geben die Zusammensetzungen der beiden koexistierenden Phasen an.",
+        "inv_peritectic": "Auf der waagerechten Linie genau bei der peritektischen Temperatur (1495 °C) koexistieren die drei Phasen δ, γ und L (beim Abkühlen δ + L → γ). Da drei Phasen koexistieren, lassen sich die Anteile mit dem Hebelgesetz allein nicht bestimmen.",
+        "inv_eutectic": "Auf der waagerechten Linie genau bei der eutektischen Temperatur (1147 °C) koexistieren die drei Phasen L, γ und Fe₃C (beim Abkühlen L → γ + Fe₃C). Da drei Phasen koexistieren, lassen sich die Anteile mit dem Hebelgesetz allein nicht bestimmen.",
+        "inv_eutectoid": "Auf der waagerechten Linie genau bei der eutektoiden Temperatur (727 °C) koexistieren die drei Phasen α, γ und Fe₃C (beim Abkühlen γ → α + Fe₃C). Da drei Phasen koexistieren, lassen sich die Anteile mit dem Hebelgesetz allein nicht bestimmen.",
+        "col_phase": "Phase",
+        "col_comp": "Kohlenstoffgehalt",
+        "col_frac": "Massenanteil",
+        "col_micro": "Gefügebestandteil",
+        "ph_alpha": "Ferrit α",
+        "ph_gamma": "Austenit γ",
+        "ph_delta": "δ-Ferrit δ",
+        "ph_L": "Schmelze L",
+        "ph_cem": "Zementit Fe₃C",
+        "kind_iron": "Nahezu reines Eisen (bis 0,022 Massen-% C)",
+        "kind_hypo": "Untereutektoider Stahl",
+        "kind_eut": "Eutektoider Stahl",
+        "kind_hyper": "Übereutektoider Stahl",
+        "kind_ci_hypo": "Untereutektisches Gusseisen",
+        "kind_ci_eut": "Eutektisches Gusseisen",
+        "kind_ci_hyper": "Übereutektisches Gusseisen",
+        "kind_cem": "Zementit (Fe₃C)",
+        "m_ferrite": "Ferrit",
+        "m_pro_a": "Voreutektoider Ferrit",
+        "m_pearlite": "Perlit",
+        "m_pro_c": "Voreutektoider Zementit",
+        "m_pearlite_g": "Perlit (aus primärem γ)",
+        "m_sec_c": "Sekundärzementit (aus primärem γ)",
+        "m_led": "Umgewandelter Ledeburit",
+        "m_pri_c": "Primärzementit",
+        "m_cem": "Zementit",
+        "m_total_a": "(Zum Vergleich) Ferritphase insgesamt",
+        "m_total_c": "(Zum Vergleich) Zementitphase insgesamt",
+        "mnote_iron": "Unterhalb von 727 °C nimmt die Löslichkeit von Kohlenstoff in α weiter ab, sodass sich je nach Kohlenstoffgehalt an den Korngrenzen eine sehr geringe Menge Zementit ausscheidet.",
+        "mnote_hypo": "Voreutektoider Ferrit ist der Ferrit, der sich bereits im Gebiet α + γ knapp oberhalb von 727 °C gebildet hat; der restliche Austenit γ (etwa 0,76 Massen-% C) wandelt sich bei 727 °C in Perlit um.",
+        "mnote_eut": "Der gesamte Werkstoff durchläuft bei 727 °C die eutektoide Reaktion γ → α + Fe₃C und wird zu lamellarem Perlit aus α und Fe₃C.",
+        "mnote_hyper": "Beim Unterschreiten der Acm-Linie scheidet sich voreutektoider Zementit netzförmig an den Korngrenzen von γ aus, und der restliche Austenit γ (etwa 0,76 Massen-% C) wandelt sich bei 727 °C in Perlit um.",
+        "mnote_ci_hypo": "Nach der Kristallisation von primärem γ erstarrt die Restschmelze (4,30 Massen-% C) bei 1147 °C zu Ledeburit (γ + Fe₃C), und bei 727 °C wandelt sich auch das darin enthaltene γ in Perlit um. Der aus dem primären γ ausgeschiedene Sekundärzementit verbindet sich oft mit dem eutektischen Zementit und ist dann schwer davon zu unterscheiden.",
+        "mnote_ci_eut": "Der gesamte Werkstoff wird bei 1147 °C durch die eutektische Reaktion L → γ + Fe₃C zu Ledeburit, und bei 727 °C wandelt sich das darin enthaltene γ in Perlit um.",
+        "mnote_ci_hyper": "Aus der Schmelze kristallisiert zuerst Primärzementit, und bei 1147 °C erstarrt die Restschmelze (4,30 Massen-% C) zu Ledeburit.",
+        "mnote_cem": "",
+        "mnote": "Die Anteile sind Richtwerte für die Massenanteile nach dem Hebelgesetz knapp unterhalb von 727 °C, berechnet für das metastabile System ohne Graphitbildung. Die beiden Vergleichszeilen geben die Anteile der α-Phase und der Fe₃C-Phase ohne Unterscheidung der Gefügebestandteile an."
+      },
+      "sections": [
+        {
+          "h": "So lesen Sie das Zustandsdiagramm Fe–Fe₃C",
+          "p": "Die senkrechte Achse ist die Temperatur, die waagerechte der Kohlenstoffgehalt (Massen-%); der rechte Rand bei 6,70 Massen-% C entspricht dem Zementit (Fe₃C) selbst, einer Verbindung aus Eisen und Kohlenstoff. Liegt ein Punkt des Diagramms in einem Einphasengebiet, ist im Gleichgewicht nur diese Phase stabil. Liegt er in einem Zweiphasengebiet, zieht man bei dieser Temperatur eine waagerechte Linie (Konode); ihre Schnittpunkte mit den Gebietsgrenzen an beiden Enden geben den Kohlenstoffgehalt der beiden koexistierenden Phasen an. Die Menge jeder Phase ergibt sich aus dem Hebelgesetz Wα = (Cβ − C₀)/(Cβ − Cα). Drei Phasen können nur auf den drei waagerechten Linien bei 1495 °C, 1147 °C und 727 °C koexistieren."
+        },
+        {
+          "h": "Die drei invarianten Reaktionen und die Umwandlungspunkte des reinen Eisens",
+          "p": "Bei 1495 °C läuft die peritektische Reaktion δ(0,09 Massen-% C) + L(0,53 Massen-% C) → γ(0,17 Massen-% C) ab, bei 1147 °C die eutektische Reaktion L(4,30 Massen-% C) → γ(2,14 Massen-% C) + Fe₃C; das eutektische Gefüge heißt Ledeburit. Bei 727 °C läuft die eutektoide Reaktion γ(0,76 Massen-% C) → α(0,022 Massen-% C) + Fe₃C ab, und es entsteht lamellarer Perlit. Kohlenstofffreies reines Eisen wandelt bei 912 °C zwischen α (krz) und γ (kfz) und bei 1394 °C zwischen γ und δ (krz) um und schmilzt bei 1538 °C. Die maximale Löslichkeit von Kohlenstoff in γ von 2,14 Massen-% ist der Richtwert für die Grenze zwischen Stahl und Gusseisen."
+        },
+        {
+          "h": "Bedeutung der Linien A1, A3 und Acm",
+          "p": "A1 ist die waagerechte Linie bei der eutektoiden Temperatur von 727 °C; unterhalb davon existiert Austenit im Gleichgewicht nicht. A3 ist die Temperatur, bei der sich in untereutektoidem Stahl aus dem Austenit Ferrit auszuscheiden beginnt; sie sinkt mit steigendem Kohlenstoffgehalt von 912 °C bei reinem Eisen auf 727 °C am eutektoiden Punkt. Acm ist die Temperatur, bei der sich in übereutektoidem Stahl aus dem Austenit Zementit auszuscheiden beginnt; sie gibt die Löslichkeit von Kohlenstoff im Austenit an und steigt von 727 °C bei 0,76 Massen-% auf 1147 °C bei 2,14 Massen-%. Die Erwärmungstemperaturen beim Glühen und Härten werden anhand dieser Linien festgelegt. Bei realem Erwärmen und Abkühlen weicht die Umwandlung von der Gleichgewichtstemperatur ab, weshalb man die Werte beim Erwärmen als Ac und beim Abkühlen als Ar bezeichnet."
+        },
+        {
+          "h": "Gefüge untereutektoider, eutektoider und übereutektoider Stähle",
+          "p": "Kühlt man langsam aus dem Austenitgebiet ab, bildet sich in untereutektoiden Stählen mit weniger als 0,76 Massen-% C zwischen dem Unterschreiten der A3-Linie und 727 °C voreutektoider Ferrit, und der restliche Austenit wandelt sich bei 727 °C in Perlit um. Bei 0,40 Massen-% C ergeben sich nach dem Hebelgesetz (0,76 − 0,40)/(0,76 − 0,022) ≈ 48,8 % voreutektoider Ferrit und etwa 51,2 % Perlit. Eutektoider Stahl mit 0,76 Massen-% C besteht nur aus Perlit. In übereutektoiden Stählen scheidet sich ab der Acm-Linie voreutektoider Zementit an den Korngrenzen aus; bei 1,2 Massen-% C ergeben sich etwa 7,4 % voreutektoider Zementit und etwa 92,6 % Perlit. Perlit selbst besteht, nach Masse gerechnet, zu etwa 89 % aus Ferrit und zu etwa 11 % aus Zementit."
+        },
+        {
+          "h": "Der Bereich des Gusseisens und Ledeburit",
+          "p": "Oberhalb von 2,14 Massen-% C läuft am Ende der Erstarrung bei 1147 °C die eutektische Reaktion ab. Eutektisches Gusseisen mit 4,30 Massen-% C erstarrt vollständig zu Ledeburit (einem Gemenge aus γ und Fe₃C); da sich bei 727 °C das darin enthaltene γ in Perlit umwandelt, liegt bei Raumtemperatur ein Gefüge vor, das als umgewandelter Ledeburit bezeichnet wird. Untereutektisches Gusseisen mit weniger als 4,30 Massen-% C besteht aus primärem γ und Ledeburit, übereutektisches Gusseisen mit mehr Kohlenstoff aus Primärzementit und Ledeburit. Gusseisen, in dem der gesamte Kohlenstoff auf diese Weise als Zementit erstarrt ist, ist weißes Gusseisen mit heller Bruchfläche, hart und spröde."
+        },
+        {
+          "h": "Metastabiles und stabiles System (Graphit)",
+          "p": "Zementit ist streng genommen eine metastabile Phase; das eigentliche Gleichgewicht von Eisen und Kohlenstoff besteht zwischen Fe und Graphit. Im stabilen System Fe–Graphit liegen der eutektische Punkt bei etwa 1153 °C und etwa 4,2 Massen-% C und der eutektoide Punkt bei etwa 738 bis 740 °C und etwa 0,65 bis 0,69 Massen-% C (je nach Quelle etwas unterschiedlich), also etwas höher in der Temperatur und niedriger im Kohlenstoffgehalt als im metastabilen System. Bei hohem Si-Gehalt oder langsamer Abkühlung bildet sich leicht Graphit, und es entsteht z. B. Grauguss (Gusseisen mit Lamellengraphit), dessen Gefüge Graphit enthält. Bei schneller Abkühlung oder hohen Gehalten an carbidbildenden Elementen wie Cr und Mo entsteht dagegen leichter Zementit. In Stählen bildet sich Graphit normalerweise kaum, daher betrachtet man sie im System Fe–Fe₃C."
+        },
+        {
+          "h": "Bei schneller Abkühlung gilt dieses Diagramm nicht",
+          "p": "Ein Zustandsdiagramm zeigt die Phasen, die sich bei ausreichend langsamem Erwärmen und Abkühlen im Gleichgewicht einstellen, und enthält keine Information über die Zeit, die die Umwandlung braucht. Kühlt man wie beim Härten schnell ab, verschiebt sich die Umwandlung zu tieferen Temperaturen als im Gleichgewicht, und weil die Diffusion nicht nachkommt, entstehen Nichtgleichgewichtsgefüge wie Martensit und Bainit. Diese erscheinen im Zustandsdiagramm nicht; um zu wissen, welches Gefüge entsteht, braucht man das isotherme ZTU-Schaubild (TTT-Diagramm) für die Umwandlung bei konstanter Temperatur oder das kontinuierliche ZTU-Schaubild (CCT-Diagramm) für die Umwandlung bei kontinuierlicher Abkühlung. Die mit diesem Diagramm und dem Hebelgesetz ermittelten Gefüge und Anteile sind als Richtwerte für langsam abgekühlte (geglühte) Zustände zu verstehen."
+        },
+        {
+          "h": "Zu den Näherungen in diesem Diagramm",
+          "p": "Die Werte der Hauptpunkte entsprechen den in Lehrbüchern häufig verwendeten Werten, und die Linien verbinden diese Punkte geradlinig. Nur die A3-Linie ist zwischen 912 °C und 727 °C als glatte Kurve T = 912 − 185·(C/0,76)^0,7 dargestellt. Diese Gleichung wurde so gewählt, dass sie durch beide Endpunkte verläuft; die Temperaturen dazwischen (z. B. etwa 794 °C bei 0,40 Massen-% C) sind eine an die Form des Diagramms angepasste Näherung. Da die tatsächliche A3-Temperatur um 10 bis 20 °C abweichen kann, prüfen Sie genaue Werte bei Bedarf in einem Zustandsdiagramm aus der Literatur. Die Löslichkeit von Kohlenstoff in α unterhalb von 727 °C ist schematisch dargestellt: Sie sinkt von 0,022 Massen-% auf nahezu 0. Die Liquiduslinie rechts von 4,30 Massen-% ist je nach Quelle sehr unterschiedlich und daher als gestrichelter Richtwert eingezeichnet. Der Kohlenstoffgehalt von Fe₃C ist in Übereinstimmung mit den übrigen Erläuterungen und Aufgaben dieser Website auf 6,70 Massen-% gesetzt. Je nach Quelle werden 6,67 bis 6,70 Massen-% angegeben (aus der Stöchiometrie von Fe₃C etwa 6,69 Massen-%), und manche Quellen nennen 1148 °C als eutektische und 1493 °C als peritektische Temperatur. Diese Unterschiede wirken sich bei der Berechnung der Anteile nur in den Nachkommastellen aus."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Warum darf man die Gefügeanteile bei Raumtemperatur mit den Werten knapp unterhalb von 727 °C berechnen?",
+          "a": "Weil unterhalb von 727 °C auch im Gleichgewicht nur die Löslichkeit von Kohlenstoff in der α-Phase geringfügig sinkt und sich die Mengen an voreutektoidem Ferrit und Perlit kaum ändern. Auch Lehrbuchrechnungen verwenden üblicherweise die Zusammensetzungen knapp unterhalb von 727 °C."
+        },
+        {
+          "q": "Worin unterscheiden sich der Anteil des voreutektoiden Ferrits und der Anteil der gesamten Ferritphase?",
+          "a": "Der voreutektoide Ferrit ist ein Anteil am Gefüge (an den im Mikroskop unterscheidbaren Bereichen) und beträgt bei 0,40 Massen-% C etwa 48,8 %. Die gesamte Ferritphase ist der Phasenanteil einschließlich des Ferrits im Perlit; mit den Enden 0,022 Massen-% und 6,70 Massen-% C ergeben sich etwa 94 %. Je nachdem, welchen Anteil man sucht, wählt man andere Enden der Konode."
+        },
+        {
+          "q": "Lässt sich mit diesem Diagramm auch das Gefüge gehärteter Stähle bestimmen?",
+          "a": "Nein. Martensit ist ein Nichtgleichgewichtsgefüge, das durch eine diffusionslose Umwandlung entsteht, und erscheint im Zustandsdiagramm nicht. Das Gefüge nach dem Härten beurteilt man anhand von ZTU-Schaubildern (TTT- oder CCT-Diagramm) und der Abkühlgeschwindigkeit. Bis zu welcher Temperatur man vor dem Härten erwärmen muss, um Austenit zu erhalten, lässt sich jedoch an den Linien A3 und Acm dieses Diagramms ablesen."
+        },
+        {
+          "q": "Bei wie viel Massen-% C liegt die Grenze zwischen Stahl und Gusseisen?",
+          "a": "Im System Fe–Fe₃C ist die maximale Löslichkeit von Kohlenstoff im Austenit von 2,14 Massen-% der Richtwert. Darunter lässt sich der gesamte Werkstoff im festen Zustand austenitisieren, darüber läuft am Ende der Erstarrung eine eutektische Reaktion ab. Je nach Quelle werden auch 2,0 bis 2,11 Massen-% angegeben."
+        }
+      ]
     }
   }
 }

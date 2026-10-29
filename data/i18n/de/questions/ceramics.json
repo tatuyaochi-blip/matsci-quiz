@@ -1,0 +1,110 @@
+{
+  "ceramics-001": {
+    "question": "Der Ionenradius von Na⁺ sei 0,102 nm, der von Cl⁻ 0,181 nm. Welche Koordinationszahl des Kations ergibt sich aus dem Radienverhältnis? Die Koordinationszahl sei 4 für ein Radienverhältnis von 0,225–0,414, 6 für 0,414–0,732 und 8 ab 0,732.",
+    "choices": [
+      "4",
+      "6",
+      "8"
+    ],
+    "explanation": "Das Radienverhältnis beträgt r₊/r₋ = 0,102/0,181 ≈ 0,564 und liegt im Bereich 0,414–0,732; erwartet wird daher eine oktaedrische Koordination, bei der das Kation von 6 Anionen umgeben ist (Koordinationszahl 6). Tatsächlich hat NaCl die Steinsalzstruktur, in der sowohl Na⁺ als auch Cl⁻ die Koordinationszahl 6 haben. Die Koordinationszahl 8 ist wie bei CsCl ab einem Radienverhältnis von 0,732 stabil, die Koordinationszahl 4 wie bei ZnS im Bereich 0,225–0,414. Der Gedanke hinter dieser Regel (erste Paulingsche Regel): Ist das Kation zu klein, stoßen die umgebenden Anionen aneinander und berühren das Kation nicht mehr, sodass die Koordinationszahl sinkt."
+  },
+  "ceramics-002": {
+    "question": "Welche Aussage über die CsCl-Struktur trifft zu?",
+    "choices": [
+      "Cs⁺ und Cl⁻ bilden je ein kubisch-primitives Gitter, die einander durchdringen; die Koordinationszahl ist 8",
+      "Eine Art krz-Gitter mit Ionen derselben Sorte auf Ecken und Raummitte, sodass die Elementarzelle 2 gleichartige Ionen enthält",
+      "Dieselbe Struktur wie Steinsalz, mit Cs⁺ und Cl⁻ abwechselnd auf einem kfz-Gitter; jedes Ion hat die Koordinationszahl 6"
+    ],
+    "explanation": "In der CsCl-Struktur sitzt Cl⁻ auf den Würfelecken und Cs⁺ in der Raummitte. Da das Radienverhältnis (etwa 0,94) über 0,732 liegt, ist jedes Cs⁺ von 8 Cl⁻ umgeben, und die Koordinationszahl ist 8. Die Struktur sieht wie krz aus, doch die Ionen auf den Ecken und in der Raummitte sind verschieden und lassen sich durch eine Translation nicht zur Deckung bringen; das Bravais-Gitter ist daher kubisch-primitiv. Es handelt sich also um zwei einander durchdringende kubisch-primitive Gitter, und die Bezeichnung krz ist ein häufiger Fehler. Zwei Ionensorten, die sich auf einem kfz-Gitter abwechseln, mit der Koordinationszahl 6 beschreiben die NaCl-Struktur (Steinsalzstruktur)."
+  },
+  "ceramics-003": {
+    "question": "Wie groß ist in der Perowskitstruktur (ABO₃), etwa bei BaTiO₃, die Sauerstoff-Koordinationszahl des Kations auf dem B-Platz (Ti⁴⁺)?",
+    "choices": [
+      "4",
+      "12",
+      "6"
+    ],
+    "explanation": "In der idealen Perowskitstruktur ist das kleine Kation auf dem B-Platz (Ti⁴⁺) von 6 Oxidionen umgeben und bildet TiO₆-Oktaeder, die über ihre Ecken dreidimensional miteinander verknüpft sind. Das große Kation auf dem A-Platz (Ba²⁺) sitzt in den Lücken zwischen den Oktaedern und ist von 12 Oxidionen umgeben. Der Wert 12 ist die Koordinationszahl des A-Platzes und wird leicht verwechselt. Der Wert 4 ist die Koordinationszahl der tetraedrischen Koordination in der Wurtzit- und der Zinkblendestruktur. In BaTiO₃ entsteht durch eine geringe Verschiebung des Ti aus der Oktaedermitte eine spontane Polarisation; sie ist die Ursache von Ferroelektrizität, hoher Permittivität und Piezoelektrizität."
+  },
+  "ceramics-004": {
+    "question": "Welche Aussage über das Sintern keramischer Pulver trifft zu?",
+    "choices": [
+      "Die Triebkraft des Sinterns ist die Abnahme der Oberflächenenergie, weil die Oberfläche der Partikel kleiner wird",
+      "Auch Oberflächendiffusion und Verdampfung–Kondensation nähern die Partikelmittelpunkte einander an und verdichten den Pressling stark",
+      "Je feiner die Partikel, desto höher ist die zum Sintern nötige Temperatur"
+    ],
+    "explanation": "Ein Pulverpressling hat eine große Oberfläche und besitzt überschüssige Oberflächenenergie. Bei hoher Temperatur wandert Material, die Sinterhälse zwischen den Partikeln wachsen, und durch die Abnahme der Oberfläche sinkt die Energie des Systems; dies ist die Triebkraft des Sinterns. Unter den Transportmechanismen verringern diejenigen, die Material durch Korngrenzendiffusion oder Volumendiffusion von den Korngrenzen heranführen, den Abstand der Partikelmittelpunkte und bewirken so Verdichtung (Schwindung). Oberflächendiffusion und Verdampfung–Kondensation verdicken dagegen nur die Hälse, ohne die Partikelmittelpunkte einander anzunähern, und tragen kaum zur Verdichtung bei. Feinere Partikel haben eine größere spezifische Oberfläche und kürzere Diffusionswege, sodass das Sintern bei niedrigeren Temperaturen abläuft."
+  },
+  "ceramics-005": {
+    "question": "Welche Aussage über die Glasübergangstemperatur Tg beim Abkühlen eines Glases aus der Schmelze trifft zu?",
+    "choices": [
+      "Sie ist für jeden Stoff ein fester Wert, unabhängig von der Abkühlgeschwindigkeit",
+      "Je größer die Abkühlgeschwindigkeit, desto niedriger ist Tg",
+      "Je größer die Abkühlgeschwindigkeit, desto höher ist Tg"
+    ],
+    "explanation": "Beim Abkühlen einer Schmelze steigt die Viskosität steil an; bei der Temperatur, bei der die Umlagerung der Atome mit der Abkühlung nicht mehr Schritt halten kann, friert die Struktur ein, und die Steigung des spezifischen Volumens über der Temperatur ändert sich. Diese Temperatur ist die Glasübergangstemperatur Tg; als Richtwert für die Viskosität gelten etwa 10¹² Pa·s. Je schneller abgekühlt wird, desto weniger Zeit haben die Atome zur Umlagerung, sodass die Struktur bei höherer Temperatur einfriert und Tg höher liegt; die eingefrorene Struktur hat dann eine geringere Dichte. Tg ist nicht die Temperatur eines thermodynamischen Phasenübergangs wie der Schmelzpunkt und daher nicht unabhängig von der Abkühlgeschwindigkeit. Diese Eigenschaft spielt auch beim Abbau von Eigenspannungen durch langsames Abkühlen (Feinkühlen) des Glases eine Rolle."
+  },
+  "ceramics-006": {
+    "question": "Die Festigkeit einer Keramik folge der Weibull-Verteilung Pf = 1 − exp[−(σ/σ₀) hoch m] mit dem Skalenparameter σ₀ = 400 MPa und dem Weibull-Modul m = 10. Welcher Wert kommt der Bruchwahrscheinlichkeit bei einer Belastung mit 300 MPa am nächsten?",
+    "choices": [
+      "ca. 5,5 %",
+      "ca. 53 %",
+      "ca. 95 %"
+    ],
+    "explanation": "σ/σ₀ = 300/400 = 0,75, und die zehnte Potenz davon ist 0,75¹⁰ ≈ 0,0563. Damit ist Pf = 1 − exp(−0,0563) ≈ 0,055, also etwa 5,5 %. Ca. 53 % vergisst die Potenz m und rechnet 1 − exp(−0,75). Ca. 95 % hält exp(−0,0563) ≈ 0,945 für die Bruchwahrscheinlichkeit; das ist jedoch die Überlebenswahrscheinlichkeit (Zuverlässigkeit). Da die Festigkeit von Keramiken von der Größe innerer Fehler bestimmt wird, streut sie stärker als bei Metallen; m liegt typischerweise bei etwa 5–20. Je größer m, desto geringer die Streuung und desto schneller sinkt die Bruchwahrscheinlichkeit bei Spannungen unterhalb von σ₀."
+  },
+  "ceramics-007": {
+    "question": "Bei einer Keramik mit dem Weibull-Modul m = 10 hatten Proben mit dem Volumen V eine charakteristische Festigkeit von 500 MPa. Welcher Wert kommt der charakteristischen Festigkeit eines Bauteils aus demselben Werkstoff mit dem Volumen 10V am nächsten, wenn der Weibullsche Volumeneffekt σ₂/σ₁ = (V₁/V₂) hoch 1/m verwendet wird?",
+    "choices": [
+      "ca. 50 MPa",
+      "ca. 500 MPa (unverändert)",
+      "ca. 397 MPa"
+    ],
+    "explanation": "Nach dem Modell des schwächsten Glieds enthält ein größeres Volumen mit höherer Wahrscheinlichkeit einen großen Fehler, sodass die Festigkeit sinkt. σ₂ = 500 × (1/10) hoch 0,1 = 500 × 0,794 ≈ 397 MPa. Ca. 50 MPa nimmt an, dass die Festigkeit umgekehrt proportional zum Volumen ist; tatsächlich wirkt das Volumen über die m-te Wurzel, sodass der Abfall gering ausfällt. Ca. 500 MPa betrachtet die Festigkeit wie bei Metallen als größenunabhängige Werkstoffkonstante. Wird die Biegefestigkeit kleiner Proben unverändert für die Auslegung eines großen Bauteils verwendet, liegt man auf der unsicheren Seite; bei der Auslegung keramischer Bauteile wird die Festigkeit deshalb um den Unterschied im effektiven Volumen korrigiert."
+  },
+  "ceramics-008": {
+    "question": "Eine Keramik hat eine Biegefestigkeit von 300 MPa, einen Elastizitätsmodul von 380 GPa, eine Querkontraktionszahl von 0,22 und einen Längenausdehnungskoeffizienten von 8,0×10⁻⁶ K⁻¹. Welcher Wert kommt dem Richtwert ΔTc = σf(1 − ν)/(Eα) für die Temperaturdifferenz am nächsten, ab der beim Abschrecken durch Thermoschock Risse entstehen?",
+    "choices": [
+      "ca. 77 K",
+      "ca. 99 K",
+      "ca. 127 K"
+    ],
+    "explanation": "Eα = 380×10⁹ × 8,0×10⁻⁶ = 3,04×10⁶ Pa/K und σf(1 − ν) = 300×10⁶ × 0,78 = 2,34×10⁸ Pa, also ΔTc = 2,34×10⁸/(3,04×10⁶) ≈ 77 K. Ca. 99 K vergisst die Multiplikation mit (1 − ν), ca. 127 K teilt stattdessen durch (1 − ν). Die Thermoschockbeständigkeit ist umso größer, je höher die Festigkeit und je kleiner Elastizitätsmodul und Wärmeausdehnungskoeffizient sind. Quarzglas mit dem sehr kleinen Wärmeausdehnungskoeffizienten von etwa 0,5×10⁻⁶ K⁻¹ ist äußerst thermoschockbeständig. Günstig ist auch eine hohe Wärmeleitfähigkeit, weil sie den Temperaturunterschied zwischen Oberfläche und Innerem klein hält."
+  },
+  "ceramics-009": {
+    "question": "Warum leitet stabilisiertes Zirkonoxid (YSZ), also ZrO₂ mit darin gelöstem Y₂O₃, Oxidionen?",
+    "choices": [
+      "Y³⁺ besetzt Zwischengitterplätze und liefert freie Elektronen",
+      "Y³⁺ ersetzt Zr⁴⁺, und auf je zwei Y³⁺ entsteht eine Sauerstoffleerstelle",
+      "Y³⁺ ersetzt Zr⁴⁺, und auf jedes Y³⁺ entstehen zwei Sauerstoffleerstellen"
+    ],
+    "explanation": "Besetzt das dreiwertige Y³⁺ einen Platz des vierwertigen Zr⁴⁺, fehlt pro Ion eine positive Ladung. Zur Wahrung der Elektroneutralität entsteht auf je zwei Y³⁺ eine Leerstelle des zweiwertigen Oxidions (in Kröger-Vink-Notation Y₂O₃ → 2Y′_Zr + V_O•• + 3O_O). Bei hoher Temperatur wandert O²⁻ über diese Sauerstoffleerstellen, sodass YSZ als Festelektrolyt in Sauerstoffsensoren und Festoxid-Brennstoffzellen (SOFC) eingesetzt wird. Zwei Leerstellen pro Y³⁺ gleichen die Ladung nicht aus, und Y besetzt auch keine Zwischengitterplätze, um Elektronen abzugeben. Der Zusatz von Y₂O₃ dient außerdem dazu, die kubische oder tetragonale Phase bis Raumtemperatur zu stabilisieren."
+  },
+  "ceramics-010": {
+    "question": "Welche Aussage über den Zusammenhang zwischen Piezoelektrizität und Ferroelektrizität trifft zu?",
+    "choices": [
+      "Alle Piezoelektrika sind Ferroelektrika",
+      "Alle Ferroelektrika sind piezoelektrisch, es gibt aber Piezoelektrika wie Quarz, die nicht ferroelektrisch sind",
+      "Auch Kristalle mit Symmetriezentrum werden in einem ausreichend starken elektrischen Feld piezoelektrisch"
+    ],
+    "explanation": "Piezoelektrizität ist die Eigenschaft, unter mechanischer Spannung eine Polarisation zu entwickeln und sich umgekehrt im elektrischen Feld zu verformen; Voraussetzung ist ein Kristall ohne Symmetriezentrum. Ferroelektrika sind Kristalle mit einer spontanen Polarisation, deren Richtung sich durch ein elektrisches Feld umkehren lässt; sie haben kein Symmetriezentrum und sind daher stets auch piezoelektrisch. Quarz (α-Quarz) hat dagegen kein Symmetriezentrum und ist piezoelektrisch, besitzt aber keine spontane Polarisation und ist daher kein Ferroelektrikum. In Kristallen mit Symmetriezentrum tritt auch bei noch so starkem Feld kein piezoelektrischer Effekt erster Ordnung auf (die Elektrostriktion, die proportional zum Quadrat der Feldstärke ist, ist ein anderer Effekt). Ferroelektrische Keramiken wie PZT und BaTiO₃ werden vor dem Einsatz als Piezoelemente gepolt, um die Polarisationsrichtungen auszurichten."
+  },
+  "ceramics-011": {
+    "question": "Welcher Wert kommt der Kapazität eines Plattenkondensators am nächsten, bei dem eine dielektrische Schicht mit der relativen Permittivität 3000 und der Dicke 2,0 µm zwischen Elektroden mit der Fläche 1,0 mm² liegt? Die elektrische Feldkonstante sei 8,85×10⁻¹² F/m.",
+    "choices": [
+      "ca. 13 pF",
+      "ca. 13 nF",
+      "ca. 13 µF"
+    ],
+    "explanation": "In C = ε₀εᵣA/d wird in SI-Einheiten eingesetzt. Mit A = 1,0 mm² = 1,0×10⁻⁶ m² und d = 2,0 µm = 2,0×10⁻⁶ m ist C = 8,85×10⁻¹² × 3000 × 1,0×10⁻⁶ / (2,0×10⁻⁶) ≈ 1,3×10⁻⁸ F, also etwa 13 nF. Ca. 13 pF und ca. 13 µF weichen um den Faktor 1000 ab, weil bei der Umrechnung von mm² oder µm ein Fehler unterlaufen ist. Dielektrika auf BaTiO₃-Basis haben relative Permittivitäten von mehreren Tausend; in keramischen Vielschichtkondensatoren (MLCC) werden Hunderte solcher dünnen Schichten gestapelt und parallel geschaltet, um auf kleinem Volumen eine große Kapazität zu erreichen."
+  },
+  "ceramics-012": {
+    "question": "Was ist der Hauptgrund für die hohe Bruchzähigkeit von teilstabilisiertem Zirkonoxid?",
+    "choices": [
+      "Die Zugspannung an der Rissspitze wandelt monoklin in tetragonal um, und die Volumenabnahme von etwa 4 % baut die Spannung ab",
+      "Die an den Korngrenzen verbliebene Glasphase fließt bei hoher Temperatur viskos, rundet die Rissspitze ab und mildert die Spannungskonzentration",
+      "Metastabile tetragonale Körner wandeln an der Rissspitze in monoklin um, und ihre Volumenzunahme drückt den Riss zusammen"
+    ],
+    "explanation": "In teilstabilisiertem Zirkonoxid werden tetragonale Teilchen, die bei niedriger Temperatur eigentlich monoklin würden, dank der Behinderung durch ihre Umgebung metastabil gehalten. Wächst ein Riss, wandelt die Zugspannung an seiner Spitze die tetragonale Phase martensitisch in die monokline um, mit einer Volumenzunahme von etwa 4 %. Diese Ausdehnung erzeugt um den Riss Druckspannungen, die ihn zu schließen suchen, sodass für den Rissfortschritt zusätzliche Energie nötig ist. Dies nennt man Umwandlungsverstärkung (spannungsinduzierte Umwandlungsverstärkung). Die Aussage, in der Umwandlungsrichtung und Volumenänderung vertauscht sind, ist falsch. Die Abrundung durch viskoses Fließen ist ein Hochtemperaturphänomen in Werkstoffen mit Glasphase."
+  }
+}

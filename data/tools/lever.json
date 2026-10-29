@@ -296,6 +296,65 @@
           "a": "적용되지 않습니다. 지렛대 법칙은 평형 상태를 전제로 합니다. 실제 주조처럼 빠르게 냉각되면 고상 내 확산이 따라가지 못해 편석(코어링)이 일어나, 평형과는 다른 조성과 분율이 됩니다."
         }
       ]
+    },
+    "de": {
+      "nav": "Hebelgesetz",
+      "card": "Massenanteile der Phasen im Zweiphasengebiet aus den Zusammensetzungen berechnen",
+      "title": "Rechner für das Hebelgesetz (Phasenanteile und Massenanteile im Zustandsdiagramm)",
+      "description": "Berechnet im Zweiphasengebiet eines binären Zustandsdiagramms aus der Gesamtzusammensetzung der Legierung und den Zusammensetzungen der beiden Phasen an den Enden der Konode die Massenanteile und Massen der Phasen nach dem Hebelgesetz. Auch für die Anteile von Eutektikum und Primärkristallen geeignet.",
+      "h1": "Rechner für das Hebelgesetz",
+      "lead": "Für eine Legierung im Zweiphasengebiet eines Zustandsdiagramms ermittelt der Rechner aus der Gesamtzusammensetzung C0 und den Zusammensetzungen an den beiden Enden der Konode bei dieser Temperatur (Phase α und Phase β), wie viel Prozent jeder Phase vorliegen. Voreingestellt ist eine Legierung Pb–40 Massen-% Sn knapp oberhalb der eutektischen Temperatur (α-Phase 18,3 Massen-% Sn, Schmelze 61,9 Massen-% Sn).",
+      "in_heading": "Eingaben (alle Zusammensetzungen in derselben Einheit, z. B. Massen-% Sn)",
+      "c0": "Gesamtzusammensetzung der Legierung C0",
+      "ca": "Zusammensetzung der Phase α, Cα (ein Ende der Konode)",
+      "cb": "Zusammensetzung der Phase β, Cβ (anderes Ende der Konode)",
+      "m": "Masse der Legierung (g)",
+      "out_heading": "Ergebnisse",
+      "wa": "Massenanteil der Phase α, Wα",
+      "wb": "Massenanteil der Phase β, Wβ",
+      "check": "Prüfung",
+      "mass_heading": "Masse der einzelnen Phasen",
+      "ma": "Masse der Phase α",
+      "mb": "Masse der Phase β",
+      "note": "Bei Eingabe in Massen-% erhalten Sie Massenanteile, bei Eingabe in Atom-% den Anteil der Atomzahl (Stoffmengenanteil). Achten Sie darauf, dass alle Zusammensetzungen in derselben Einheit angegeben sind.",
+      "practice": "Aufgaben zu Zustandsdiagrammen lösen",
+      "related": "Verwandte Begriffe",
+      "js": {
+        "ok": "C0 liegt zwischen den Zusammensetzungen der beiden Phasen; die Berechnung ist möglich",
+        "out_of_range": "C0 liegt nicht zwischen Cα und Cβ (außerhalb des Zweiphasengebiets nicht anwendbar)"
+      },
+      "sections": [
+        {
+          "h": "Was ist das Hebelgesetz?",
+          "p": "Zieht man im Zweiphasengebiet eines binären Zustandsdiagramms bei einer bestimmten Temperatur eine waagerechte Linie (Konode), geben deren Endpunkte die Zusammensetzungen der beiden koexistierenden Phasen an. Für eine Legierung mit der Gesamtzusammensetzung C0 folgen aus der Massenbilanz C0 = Wα·Cα + Wβ·Cβ und Wα + Wβ = 1 die Beziehungen Wα = (Cβ − C0)/(Cβ − Cα) und Wβ = (C0 − Cα)/(Cβ − Cα). Der Name rührt daher, dass die Beziehung einer Balkenwaage (einem Hebel) mit dem Drehpunkt bei C0 gleicht, bei der die Länge des gegenüberliegenden Arms die Menge der jeweiligen Phase angibt. Für die voreingestellte Legierung Pb–40 Massen-% Sn ergibt sich Wα = (61,9 − 40)/(61,9 − 18,3) ≈ 50,2 %, die Schmelze macht etwa 49,8 % aus."
+        },
+        {
+          "h": "Anteile von Primärkristallen und Eutektikum",
+          "p": "Kühlt man eine untereutektische Legierung bis knapp unter die eutektische Temperatur ab, wandelt sich die gesamte Schmelze, die knapp oberhalb der eutektischen Temperatur vorlag, in Eutektikum (ein lamellares Gefüge aus α und β) um. Die Anteile von primärem α und Eutektikum sind daher gleich den Anteilen von α-Phase und Schmelze knapp oberhalb der eutektischen Temperatur und lassen sich berechnen, indem man für Cβ die eutektische Zusammensetzung Ce einsetzt. Möchte man dagegen knapp unterhalb der eutektischen Temperatur die Anteile der „gesamten α-Phase“ und der „gesamten β-Phase“ kennen, setzt man an den Enden die Zusammensetzungen der α- und der β-Phase ein (im System Pb-Sn etwa 18,3 Massen-% und etwa 97,8 Massen-% Sn). Zu unterscheiden, welchen der beiden Anteile man eigentlich sucht, ist bei dieser Rechnung die häufigste Fehlerquelle."
+        },
+        {
+          "h": "Massenanteil und Volumenanteil",
+          "p": "Das Hebelgesetz liefert Massenanteile, wenn die Zusammensetzungen in Massen-% eingegeben werden. Der Flächenanteil, den man im Gefügebild sieht, entspricht eher dem Volumenanteil und stimmt bei unterschiedlichen Dichten der beiden Phasen nicht mit dem Massenanteil überein. Den Volumenanteil rechnet man mit Vα = (Wα/ρα)/(Wα/ρα + Wβ/ρβ) um. Gibt man die Zusammensetzungen in Atom-% ein, erhält man den Anteil der Atomzahl (Stoffmengenanteil). Die drei eingegebenen Zusammensetzungen müssen unbedingt dieselbe Einheit haben."
+        },
+        {
+          "h": "Anwendung im System Fe-C",
+          "p": "Auch bei Gefügeberechnungen für Stahl wird das Hebelgesetz häufig verwendet. Für einen untereutektoiden Stahl mit 0,40 Massen-% C knapp unterhalb der eutektoiden Temperatur (727 °C) erhält man die Anteile von Ferrit und Perlit, indem man auf der Ferritseite 0,022 Massen-% C und am anderen Ende die eutektoide Zusammensetzung 0,76 Massen-% C einsetzt: etwa 48,8 % voreutektoider Ferrit und etwa 51,2 % Perlit. Für die Anteile der gesamten Ferritphase und der gesamten Zementitphase setzt man an den Enden 0,022 Massen-% und 6,70 Massen-% C ein."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Wann lässt sich das Hebelgesetz anwenden?",
+          "a": "Wenn eine Legierung im Zweiphasengebiet des Zustandsdiagramms liegt und sich im Gleichgewicht befindet. Im Einphasengebiet gibt es nur eine Phase, deren Anteil 100 % beträgt; auf der waagerechten Linie genau bei der eutektischen Temperatur, auf der drei Phasen koexistieren, lassen sich die Anteile mit dem Hebelgesetz für zwei Phasen allein nicht bestimmen."
+        },
+        {
+          "q": "Warum verwendet man die Länge des gegenüberliegenden Arms?",
+          "a": "Je näher C0 bei Cα liegt, desto mehr α-Phase sollte vorhanden sein; der Anteil der α-Phase ist daher proportional zum Abstand von C0 bis Cβ (dem gegenüberliegenden Arm). Löst man die Gleichungen der Massenbilanz, ergibt sich diese Form ganz von selbst."
+        },
+        {
+          "q": "Gilt das Hebelgesetz auch bei schneller Abkühlung?",
+          "a": "Nein. Das Hebelgesetz setzt den Gleichgewichtszustand voraus. Kühlt die Legierung wie beim realen Gießen schnell ab, kommt die Diffusion im Festkörper nicht nach, es entstehen Seigerungen (Kristallseigerung, Coring), und Zusammensetzungen und Anteile weichen vom Gleichgewicht ab."
+        }
+      ]
     }
   }
 }

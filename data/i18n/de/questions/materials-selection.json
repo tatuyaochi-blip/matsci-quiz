@@ -1,0 +1,110 @@
+{
+ "materials-selection-001": {
+  "question": "Bei der Werkstoffauswahl nach Ashby werden die Konstruktionsanforderungen in Funktion, Randbedingungen, Ziel und freie Variablen gegliedert. Was davon ist bei der Werkstoffauswahl für einen Fahrradrahmen das Ziel?",
+  "choices": [
+   "Außendurchmesser und Wanddicke der Rahmenrohre darf der Konstrukteur frei wählen",
+   "Der Rahmen darf unter den Betriebslasten nicht fließen und muss eine vorgegebene Biegesteifigkeit in jedem Fall einhalten",
+   "Die Masse des Rahmens soll bei Erfüllung der geforderten Steifigkeit und Festigkeit so klein wie möglich sein"
+  ],
+  "explanation": "Bei der Methode nach Ashby werden die Konstruktionsanforderungen zunächst in vier Teile gegliedert. Die Funktion ist, was das Bauteil leistet (etwa ein Balken, der eine Last trägt), die Randbedingungen sind Bedingungen, die unbedingt erfüllt sein müssen, das Ziel ist die Größe, die maximiert oder minimiert werden soll, und die freien Variablen sind Abmessungen und Ähnliches, die der Konstrukteur verändern darf. „Die Masse so klein wie möglich machen“ ist eine zu minimierende Größe und damit das Ziel; der Materialindex, nach dem die Werkstoffe in eine Rangfolge gebracht werden, wird aus diesem Ziel abgeleitet. „Nicht fließen“ und „eine vorgegebene Steifigkeit einhalten“ sind Randbedingungen, die eine Grenze zwischen bestanden und nicht bestanden ziehen; sie dienen im Auswahlschritt dazu, ungeeignete Werkstoffe auszusortieren. Außendurchmesser und Wanddicke der Rohre sind freie Variablen; eliminiert man sie mithilfe der Gleichungen der Randbedingungen, bleibt der Materialindex übrig, eine Kombination aus reinen Werkstoffeigenschaften."
+ },
+ "materials-selection-002": {
+  "question": "Ein Zugstab fester Länge L soll eine Zuglast F tragen, ohne zu fließen, und seine Querschnittsfläche darf frei gewählt werden. Welcher Materialindex ist zu maximieren, um ihn möglichst leicht zu machen, wenn σf die Streckgrenze und ρ die Dichte des Werkstoffs ist?",
+  "choices": [
+   "σf/ρ",
+   "E/ρ",
+   "∛(σf²)/ρ"
+  ],
+  "explanation": "Die Bedingung gegen Fließen lautet F/A ≤ σf, die nötige Querschnittsfläche ist also A = F/σf. Die Masse des Zugstabs beträgt m = ρAL = FL(ρ/σf); da F und L festliegen, ist zur Minimierung der Masse der Werkstoff mit dem größten σf/ρ (spezifische Festigkeit) zu wählen. E/ρ (spezifischer Elastizitätsmodul) ist der Index, der bei einem Zugstab zu maximieren ist, bei dem nicht die Festigkeit, sondern die Verlängerung, also die Steifigkeit, die Randbedingung bildet. ∛(σf²)/ρ ist der Index für einen auf Biegung beanspruchten Balken, dessen Querschnittsgröße so verändert wird, dass er nicht fließt; er ergibt sich daraus, dass sich die Biegespannung bei Änderung der Querschnittsgröße umgekehrt proportional zur dritten Potenz der Abmessung ändert. Entscheidend ist, dass sich der Index auch bei derselben Forderung „leicht und fest“ mit der Art der Belastung ändert."
+ },
+ "materials-selection-003": {
+  "question": "Ein Balken mit quadratischem Querschnitt, festgelegter Länge und festgelegter Biegesteifigkeit soll durch freie Wahl der Querschnittsgröße möglichst leicht werden. Welcher Materialindex ist zu maximieren, wenn E der Elastizitätsmodul und ρ die Dichte ist?",
+  "choices": [
+   "E/ρ",
+   "√E/ρ",
+   "∛E/ρ"
+  ],
+  "explanation": "Die Durchbiegung eines Balkens ist umgekehrt proportional zur Biegesteifigkeit EI, und das Flächenträgheitsmoment eines quadratischen Querschnitts mit der Kantenlänge b beträgt I = b⁴/12. Damit die vorgegebene Steifigkeit erreicht wird, muss Eb⁴ konstant sein, also b² ∝ 1/√E. Die Masse des Balkens ist m = ρb²L ∝ ρ/√E; zur Minimierung der Masse wählt man daher den Werkstoff mit dem größten √E/ρ. E/ρ ist der Index für einen steifigkeitsbestimmten Zugstab, bei dem die Querschnittsfläche unmittelbar eingeht. ∛E/ρ gilt für die Biegesteifigkeit einer Platte (Paneel) mit festgelegter Breite, bei der nur die Dicke verändert wird; er folgt daraus, dass die Steifigkeit proportional zur dritten Potenz der Dicke ist. Bei Biegung steigt die Steifigkeit mit der Querschnittsgröße stark an, sodass Werkstoffe mit geringer Dichte im Vorteil sind; deshalb sind Holz und CFK als Balken besonders leistungsfähig."
+ },
+ "materials-selection-004": {
+  "question": "Welche Steigung hat im doppeltlogarithmischen Werkstoffschaubild (Ashby-Diagramm) mit dem Elastizitätsmodul E auf der senkrechten und der Dichte ρ auf der waagerechten Achse die Leitlinie, auf der der Materialindex √E/ρ für einen leichten, steifen Balken konstant ist?",
+  "choices": [
+   "1",
+   "2",
+   "1/2"
+  ],
+  "explanation": "Mit √E/ρ = C (konstant) ist E = C²ρ²; logarithmiert ergibt sich log E = 2 log ρ + 2 log C, also eine Gerade mit der Steigung 2. Werkstoffe auf einer Parallelen zu dieser Linie sind gleichwertig, und je weiter die Linie nach links oben verschoben wird, desto größer ist √E/ρ, desto leichter lässt sich also ein Balken gleicher Steifigkeit bauen. Die Steigung 1 gehört zur Linie konstanter E/ρ (Zugstab), die Steigung 3 zur Linie konstanter ∛E/ρ (Platte). Die Steigung 1/2 entsteht durch Vertauschen der Achsen, wenn man die Steigung von log ρ = (1/2) log E + const abliest. Im doppeltlogarithmischen Diagramm erscheinen unterschiedliche Exponenten der Materialindizes als unterschiedliche Steigungen, sodass sich aus einem einzigen Schaubild die Rangfolge der Werkstoffe für jede Belastungsart ablesen lässt."
+ },
+ "materials-selection-005": {
+  "question": "Balken mit quadratischem Querschnitt, die für gleiche Länge und gleiche Biegesteifigkeit ausgelegt sind, werden aus Stahl (E = 210 GPa, ρ = 7,8 g/cm³) und aus einer Aluminiumlegierung (E = 70 GPa, ρ = 2,7 g/cm³) gefertigt. Das Wievielfache der Masse des Stahlbalkens beträgt etwa die Masse des Balkens aus der Aluminiumlegierung, wenn die Querschnittsgröße frei gewählt werden kann?",
+  "choices": [
+   "ca. 0,60-fach",
+   "ca. 0,35-fach",
+   "ca. 1,04-fach"
+  ],
+  "explanation": "Die Masse eines Balkens mit vorgegebener Steifigkeit ist proportional zu ρ/√E. Für die Aluminiumlegierung ergibt sich 2,7/√70 = 2,7/8,37 ≈ 0,323, für Stahl 7,8/√210 = 7,8/14,5 ≈ 0,538; das Verhältnis beträgt 0,323/0,538 ≈ 0,60, also ca. das 0,60-Fache. Da der Elastizitätsmodul der Aluminiumlegierung nur ein Drittel beträgt, muss ihr Querschnitt größer sein, doch dank der geringen Dichte ist der Balken insgesamt um etwa 40 % leichter. Ca. 0,35-fach betrachtet nur das Dichteverhältnis (2,7/7,8) und übersieht, dass der Querschnitt für gleiche Steifigkeit größer werden muss. Ca. 1,04-fach gilt, wenn die Masse wie beim Zugstab proportional zu ρ/E ist; beim Zugstab sind Aluminiumlegierung und Stahl fast gleich schwer."
+ },
+ "materials-selection-006": {
+  "question": "Ein Zugstab festgelegter Länge und Zugsteifigkeit wird aus Stahl (E = 210 GPa, ρ = 7,8 g/cm³, Preis pro kg = 1) und aus CFK (quasiisotropes Laminat; E = 70 GPa, ρ = 1,6 g/cm³, Preis pro kg das 20-Fache von Stahl) gefertigt. Das Wievielfache der Materialkosten des Stahlstabs betragen etwa die Materialkosten des CFK-Stabs, wenn die Querschnittsfläche frei gewählt werden kann?",
+  "choices": [
+   "ca. 0,62-fach",
+   "ca. 20-fach",
+   "ca. 12-fach"
+  ],
+  "explanation": "Die Masse eines steifigkeitsbestimmten Zugstabs ist proportional zu ρ/E; das Massenverhältnis CFK/Stahl beträgt also (1,6/70)/(7,8/210) = 0,0229/0,0371 ≈ 0,62. Die Materialkosten sind Masse mal Preis pro kg, also 0,62 × 20 ≈ 12,3, d. h. ca. das 12-Fache. Ca. 0,62-fach vergleicht nur die Massen und lässt den Preis außer Acht. Ca. 20-fach betrachtet nur das Verhältnis der Preise pro kg und übersieht, dass von CFK weniger Masse nötig ist. Sind die Kosten das Ziel, lautet der Materialindex E/(Cmρ) (Cm: Preis pro kg); CFK, das beim Gewicht im Vorteil ist, schneidet bei den Materialkosten weit schlechter ab als Stahl. In der Praxis werden auch die Verarbeitungskosten und der im Betrieb durch das geringere Gewicht eingesparte Kraftstoff berücksichtigt."
+ },
+ "materials-selection-007": {
+  "question": "Bei einem Bauteil, das bei einer Spannung in Höhe seiner Streckgrenze σy eingesetzt wird, lässt sich die größte Rissgröße, bei der es noch vor einem Sprödbruch fließt, mit a = (1/π)(K_IC/σy)² abschätzen (Geometriefaktor Y = 1). Welcher Wert kommt dieser kritischen Risslänge bei einem Stahl mit σy = 800 MPa und K_IC = 120 MPa·√m am nächsten?",
+  "choices": [
+   "ca. 7,2 mm",
+   "ca. 23 mm",
+   "ca. 0,35 mm"
+  ],
+  "explanation": "K_IC/σy = 120/800 = 0,15 √m, also a = (0,15)²/π = 0,0225/π ≈ 7,2×10⁻³ m, ca. 7,2 mm. Bei kürzeren Rissen fließt das gesamte Bauteil, bevor es vom Riss ausgehend bricht; es verformt sich also vor dem Bruch deutlich, und der Schaden kann bemerkt werden. Ca. 23 mm vergisst die Division durch π (0,0225 m). Ca. 0,35 mm ergäbe sich bei einem anderen, hochfesten Stahl (σy = 1500 MPa, K_IC = 50 MPa·√m); bei Werkstoffen mit hoher Festigkeit und geringer Zähigkeit führen schon kleine, bei der Prüfung schwer auffindbare Risse vor dem Fließen zum Bruch. Soll ein Bruch vermieden werden, wählt man den Werkstoff daher nicht nur nach der Festigkeit, sondern mit K_IC/σy als Materialindex aus und vergleicht mit den Rissgrößen, die die Prüfung erkennen kann."
+ },
+ "materials-selection-008": {
+  "question": "Vergleicht man bei einem üblichen Pkw mit Ottomotor die über den Lebenszyklus von der Werkstoffherstellung bis zur Entsorgung verbrauchte Energie nach Phasen: Welche Phase ist gewöhnlich die größte, und welcher Grundsatz der Werkstoffauswahl folgt daraus?",
+  "choices": [
+   "Die Herstellung der Werkstoffe; am wirksamsten ist es, möglichst viel Werkstoff mit geringem Herstellungsenergiebedarf zu verwenden",
+   "Die Nutzung (der Fahrbetrieb); wirksam ist eine Werkstoffauswahl, die die Karosserie leichter macht und den Kraftstoffverbrauch senkt",
+   "Die Entsorgung; es genügt, nur an die Verringerung von Verbrennung und Deponierung zu denken"
+  ],
+  "explanation": "Nach der Ökobilanz (LCA) entfällt bei einem Pkw mit Ottomotor gewöhnlich der größte Teil der Gesamtenergie auf die Nutzungsphase, also auf den Kraftstoffverbrauch im Fahrbetrieb. Selbst Aluminiumlegierungen und CFK, deren Herstellung viel Energie erfordert, können sich daher insgesamt lohnen, wenn sie die Karosserie leichter machen und den Verbrauch im Betrieb senken. Die Herstellungsphase dominiert bei Produkten, die im Betrieb keine Energie verbrauchen, etwa bei Baustoffen. Die Entsorgungsphase hat im Allgemeinen nur einen kleinen Anteil an der Energie, sodass es nicht ausreicht, nur sie zu betrachten. Welche Phase dominiert, hängt vom Produkt ab; grundlegend ist daher, zuerst diese Phase zu bestimmen und dann Werkstoffe zu wählen, die sie verringern. Die Anteile ändern sich mit den Annahmen; bei Elektroautos ist etwa der Anteil der Batterieherstellung größer."
+ },
+ "materials-selection-009": {
+  "question": "Die Herstellungsenergie einer Aluminiumlegierung betrage für Primäraluminium aus Erz 200 MJ pro kg und für Sekundäraluminium durch Umschmelzen von Schrott 15 MJ pro kg. Welcher Wert kommt der Herstellungsenergie pro kg eines Werkstoffs mit einem Massenanteil von 60 % Sekundäraluminium am nächsten?",
+  "choices": [
+   "ca. 108 MJ",
+   "ca. 126 MJ",
+   "ca. 89 MJ"
+  ],
+  "explanation": "Mit 40 % Primär- und 60 % Sekundäraluminium ergibt sich als gewichteter Mittelwert 0,40 × 200 + 0,60 × 15 = 80 + 9 = 89 MJ/kg. Je höher der Anteil an Sekundäraluminium, desto stärker sinkt die Herstellungsenergie gegenüber reinem Primäraluminium. Ca. 108 MJ ist der einfache Mittelwert (200 + 15)/2 ohne Berücksichtigung der Anteile, ca. 126 MJ vertauscht die Anteile, 0,60 × 200 + 0,40 × 15. Die Gewinnung von Aluminium aus Erz erfordert große Mengen elektrischer Energie, während das Umschmelzen weniger als ein Zehntel der Energie für Primäraluminium benötigt; das Recycling ist bei diesem Metall daher besonders wirksam. Knetlegierungen reagieren jedoch empfindlich auf Elemente, die mit dem Schrott eingetragen werden, sodass eine nach Legierungsarten getrennte Sammlung wichtig ist, um die Qualität zu erhalten."
+ },
+ "materials-selection-010": {
+  "question": "Welche Elemente reichern sich beim Umschmelzen von Stahlschrott im Elektrolichtbogenofen mit wiederholtem Recycling leicht im Stahl an und beeinträchtigen die Qualität (Tramp-Elemente)?",
+  "choices": [
+   "Kupfer und Zinn. Sie oxidieren schwerer als Eisen und lassen sich beim Frischen nicht entfernen, sodass sie beim Warmumformen Oberflächenrisse (Warmbrüchigkeit) verursachen",
+   "Kohlenstoff. Er lässt sich auch beim Frischen mit eingeblasenem Sauerstoff nicht entfernen, sodass wiederholtes Recycling stets zu einem kohlenstoffreichen Stahl führt",
+   "Aluminium. Es oxidiert schwerer als Eisen, geht daher beim Frischen nicht in die Schlacke über und verbleibt dauerhaft im Stahl"
+  ],
+  "explanation": "Beim Frischen von Stahl wird Sauerstoff eingeblasen, sodass Elemente, die leichter als Eisen oxidieren, zu Oxiden werden und als Schlacke entfernt werden. Kupfer und Zinn oxidieren schwerer als Eisen und lassen sich auf diese Weise nicht entfernen; gelangen etwa Kupferdrähte aus Motoren in den Schrott, reichern sie sich mit jedem Recyclingdurchgang weiter im Stahl an. Beim Erwärmen vor dem Warmwalzen oxidiert bevorzugt das Eisen, sodass sich Kupfer an der Grenzfläche zum Zunder anreichert; oberhalb des Schmelzpunkts von Kupfer (ca. 1085 °C) wird es flüssig, dringt in die Korngrenzen ein und verursacht Risse. Zinn verstärkt diesen Effekt. Kohlenstoff lässt sich durch Einblasen von Sauerstoff als Kohlenmonoxid entfernen, sodass der Kohlenstoffgehalt auch beim Recycling eingestellt werden kann. Aluminium oxidiert weit leichter als Eisen, wird sogar als Desoxidationsmittel verwendet und geht beim Frischen in die Schlacke über. Um Tramp-Elemente zu begrenzen, sortiert man den Schrott und verdünnt mit saubereren Eisenträgern."
+ },
+ "materials-selection-011": {
+  "question": "Welcher Grundsatz der Werkstoffauswahl und Konstruktion ist geeignet, um die Recyclingfähigkeit eines Produkts zu verbessern?",
+  "choices": [
+   "Verschiedene Kunststoffe und Metalle werden statt mit Schrauben mit Klebstoff zu einem Teil verbunden, um die Teilezahl zu verringern, sodass sie sich nicht mehr zerlegen lassen",
+   "Duroplaste, die sich durch Wärme nicht schmelzen und umformen lassen, werden in möglichst vielen Teilen vom Gehäuse bis zu den inneren Bauteilen eingesetzt",
+   "Man verringert die Zahl der Werkstoffarten, verwendet leicht lösbare Verbindungen wie Schrauben und kennzeichnet Kunststoffteile mit ihrer Werkstoffbezeichnung"
+  ],
+  "explanation": "Beim Recycling hängen Qualität und Kosten stark davon ab, ob sich gesammelte Produkte nach Werkstoffen trennen lassen. Verringert man die Zahl der Werkstoffarten, verwendet leicht lösbare Verbindungen wie Schrauben und Schnappverbindungen und kennzeichnet Kunststoffteile mit dem Werkstoffkurzzeichen, werden Zerlegung und Sortierung einfacher, und man erhält Rezyklate hoher Reinheit. Werden unterschiedliche Werkstoffe durch Kleben zu einem Teil verbunden, hilft das zwar beim Leichtbau und bei der Verringerung der Teilezahl, erschwert aber die Trennung und verschlechtert die Recyclingfähigkeit. Ein Duroplast hat eine Netzwerkstruktur und schmilzt beim Erwärmen nicht; anders als Thermoplaste lässt er sich daher nicht aufschmelzen und neu formen und ist werkstofflich schwer zu recyceln. Leistungsfähigkeit und Recyclingfähigkeit stehen oft im Konflikt, sodass beide als Ziele gegeneinander abgewogen werden müssen."
+ },
+ "materials-selection-012": {
+  "question": "Masse und Kosten eines Bauteils sollen gleichzeitig minimiert werden, doch leichtere Werkstoffe sind teurer, und kein Werkstoff ist in beiden Zielen der beste. Welches Vorgehen bei der Werkstoffauswahl ist in diesem Fall geeignet?",
+  "choices": [
+   "Wählt man den besten Werkstoff nach dem Materialindex für die Masse, ist er zwangsläufig auch bei den Kosten der beste, sodass der Vergleich nach einem Ziel genügt",
+   "Man sammelt die Pareto-optimalen Kandidaten, die von keinem anderen in beiden Zielen zugleich übertroffen werden, und wählt nach einem festgelegten Austauschverhältnis von Masse und Kosten",
+   "Man addiert die Materialindizes für Masse (kg) und Kosten (Yen) unverändert, ohne die Einheiten anzugleichen, und wählt den Werkstoff mit der kleinsten Summe"
+  ],
+  "explanation": "Stehen Ziele im Konflikt, wählt man zunächst die Kandidaten aus, die von keinem anderen Kandidaten in beiden Zielen zugleich übertroffen werden. Sie liegen auf einer Austauschkurve (Pareto-Front), auf der die Verbesserung eines Ziels das andere verschlechtert. Die endgültige Wahl trifft man, indem man einen Austauschkoeffizienten festlegt, also wie viel Geld man für die Einsparung von 1 kg zu zahlen bereit ist, und Masse und Kosten zu einer einzigen Bewertungsfunktion (Straffunktion) zusammenfasst. Deshalb wählt man bei Produkten, bei denen geringes Gewicht viel wert ist, etwa bei Flugzeugen, teure, aber leichte Werkstoffe und bei gewöhnlichen Produkten billige. Der in einem Ziel beste Werkstoff ist nicht zwangsläufig auch im anderen der beste; die Aussage, er sei es stets, ist daher falsch. Addiert man Größen mit unterschiedlichen Einheiten unverändert, hängt das Ergebnis von der Wahl der Einheiten ab, und der Vergleich ist nicht aussagekräftig."
+ }
+}

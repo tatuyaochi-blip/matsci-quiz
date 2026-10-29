@@ -359,6 +359,74 @@
           "a": "같은 평균 변형률을 주었을 때 재료 속 변형률의 분포는 탄성 변형 에너지가 가장 작아지도록 정해집니다(최소 퍼텐셜 에너지의 원리). 균일한 변형률(등변형률)은 가능한 분포 중 하나에 불과하므로, 그것으로 계산한 에너지, 즉 등변형률 식의 영률은 참값 이상이 됩니다. 실제로는 부드러운 기지 쪽이 크게 변형됨으로써 에너지가 낮아집니다. 마찬가지로 균일한 응력을 가정하면 상보 에너지(complementary energy)가 참값 이상이 되므로 등응력 식은 하한이 됩니다. 이 두 식이 영률의 엄밀한 한계가 되는 것은 두 상의 푸아송비가 같을 때이며, 다르면 일방향재의 섬유 방향 영률은 등변형률 값을 약간 웃도는 경우가 있습니다. 일방향재의 섬유 방향에서는 실제 변형률이 거의 균일하므로 등변형률 식이 잘 맞습니다."
         }
       ]
+    },
+    "de": {
+      "nav": "Mischungsregel",
+      "card": "Elastizitätsmodul und spezifische Steifigkeit eines Verbundwerkstoffs aus den Elastizitätsmoduln von Faser und Matrix und dem Volumenanteil berechnen",
+      "title": "Rechner für die Mischungsregel (Elastizitätsmodul von Verbundwerkstoffen, Voigt-Parallel- und Reuss-Reihenmodell, spezifische Steifigkeit)",
+      "description": "Berechnet für Verbundwerkstoffe mit unidirektional ausgerichteten Endlosfasern aus Elastizitätsmodul und Dichte von Faser und Matrix sowie dem Volumenanteil (oder Massenanteil) der Fasern den Elastizitätsmodul in Faserrichtung E₁ = VfEf + VmEm (gleiche Dehnung, Voigt), senkrecht dazu 1/E₂ = Vf/Ef + Vm/Em (gleiche Spannung, Reuss), die Dichte und die spezifische Steifigkeit E/ρ.",
+      "h1": "Rechner für die Mischungsregel",
+      "lead": "Aus den Elastizitätsmoduln von Faser und Matrix und dem Faservolumenanteil schätzt der Rechner den Elastizitätsmodul des Verbundwerkstoffs mit der Mischungsregel ab. In Faserrichtung gilt die Gleichung für gleiche Dehnung (parallel geschaltete Federn), senkrecht zur Faser die Gleichung für gleiche Spannung (in Reihe geschaltete Federn). Voreingestellt ist ein unidirektionales Material aus Kohlenstofffasern (230 GPa, 1,80 g/cm³) mit 60 % Volumenanteil in Epoxidharz (3,5 GPa, 1,20 g/cm³); in Faserrichtung ergeben sich etwa 139 GPa, senkrecht dazu etwa 8,6 GPa.",
+      "in_heading": "Eingaben (unidirektionale Endlosfasern, porenfrei, elastischer Bereich)",
+      "basis": "Angabe des Faseranteils",
+      "basis_vol": "Volumenanteil Vf",
+      "basis_mass": "Massenanteil Wf",
+      "f": "Faseranteil (%)",
+      "ef": "Elastizitätsmodul der Faser Ef (GPa)",
+      "em": "Elastizitätsmodul der Matrix Em (GPa)",
+      "rf": "Dichte der Faser ρf (g/cm³)",
+      "rm": "Dichte der Matrix ρm (g/cm³)",
+      "out_heading": "Ergebnisse",
+      "vf": "Faservolumenanteil Vf",
+      "wf": "Fasermassenanteil Wf",
+      "rho": "Dichte des Verbundwerkstoffs ρ",
+      "mod_heading": "Elastizitätsmodul (Mischungsregel)",
+      "e1": "Faserrichtung E₁ (gleiche Dehnung, Voigt, Obergrenze)",
+      "e2": "Senkrecht zur Faser E₂ (gleiche Spannung, Reuss, Untergrenze)",
+      "ratio": "Anisotropie E₁/E₂",
+      "share": "Lastanteil der Fasern in Faserrichtung",
+      "spec_heading": "Spezifische Steifigkeit",
+      "s1": "Faserrichtung E₁/ρ",
+      "s2": "Senkrecht zur Faser E₂/ρ",
+      "sb": "Index für leichte, steife Balken √E₁/ρ (GPa^½/(g/cm³))",
+      "note": "Die Gleichungen für gleiche Dehnung und gleiche Spannung sind Richtwerte für die Ober- und die Untergrenze des Elastizitätsmoduls. Der tatsächliche Modul senkrecht zur Faser ist oft etwas größer als nach der Gleichung für gleiche Spannung und wird z. B. mit den Halpin-Tsai-Gleichungen korrigiert. Bei Kurzfaser- und Partikelverbunden sowie bei porenhaltigen Werkstoffen weichen die tatsächlichen Werte hiervon ab.",
+      "practice": "Aufgaben zu Verbundwerkstoffen lösen",
+      "related": "Verwandte Begriffe",
+      "js": {
+        "unit_specific": "GPa/(g/cm³)"
+      },
+      "sections": [
+        {
+          "h": "Gleichung für gleiche Dehnung (parallel, Voigt)",
+          "p": "Zieht man parallel zu den Fasern, dehnen sich Faser und Matrix wie parallel geschaltete Federn um denselben Betrag. Da die Dehnungen gleich sind, ist die Gesamtspannung ein mit den Volumenanteilen gewichteter Mittelwert, und man erhält E₁ = VfEf + VmEm. Mit den Standardwerten ergibt sich 0,60 × 230 + 0,40 × 3,5 ≈ 139 GPa. Der Anteil der Last, den die Fasern tragen, beträgt dabei VfEf/E₁, mit den Standardwerten etwa 99 %. Auch wenn die Fasern nur etwa die Hälfte des Volumens ausmachen, bestimmen sie Steifigkeit und Festigkeit in Faserrichtung nahezu allein."
+        },
+        {
+          "h": "Gleichung für gleiche Spannung (Reihe, Reuss)",
+          "p": "Zieht man senkrecht zu den Fasern, erfahren Faser und Matrix wie in Reihe geschaltete Federn dieselbe Spannung, und die Dehnungen addieren sich gewichtet mit den Volumenanteilen. Daher gilt 1/E₂ = Vf/Ef + Vm/Em, und der Einfluss der weichen Matrix tritt stark hervor. Mit den Standardwerten ergibt sich 1/(0,60/230 + 0,40/3,5) ≈ 8,6 GPa, etwa ein Sechzehntel des Werts in Faserrichtung. Bei gleichem Volumenanteil liefert die Gleichung für gleiche Dehnung die Obergrenze und die Gleichung für gleiche Spannung die Untergrenze (Voigt- und Reuss-Grenze)."
+        },
+        {
+          "h": "Volumenanteil und Massenanteil",
+          "p": "In die Mischungsregel geht der Volumenanteil ein. In der Fertigung wird oft der Fasermassenanteil kontrolliert, daher rechnet man über die Dichten um: Vf = (Wf/ρf)/(Wf/ρf + (1 − Wf)/ρm). Für Kohlenstofffaser (1,80 g/cm³) und Epoxidharz (1,20 g/cm³) entspricht ein Massenanteil von 70 % einem Volumenanteil von etwa 61 %. Ist die Faser dichter als die Matrix, ist der Volumenanteil kleiner als der Massenanteil. Die Dichte des Verbundwerkstoffs beträgt ohne Poren ρ = Vfρf + Vmρm."
+        },
+        {
+          "h": "Spezifische Steifigkeit und Werkstoffauswahl",
+          "p": "Wie steif ein Werkstoff bei gleichem Gewicht ist, vergleicht man über die spezifische Steifigkeit E/ρ. Stahl (210 GPa, 7,9 g/cm³) liegt bei etwa 27 GPa/(g/cm³), Aluminium- und Titanlegierungen nahezu gleich. Das voreingestellte CFK erreicht in Faserrichtung etwa 89 GPa/(g/cm³), also mehr als das Dreifache, senkrecht dazu mit etwa 5,5 jedoch weniger als Stahl. Für den leichtesten Balken bei vorgegebener Biegesteifigkeit ist der Index √E/ρ maßgebend: Stahl erreicht etwa 1,8, das voreingestellte CFK in Faserrichtung etwa 7,6. In realen Bauteilen werden Lagen mit unterschiedlicher Faserorientierung gestapelt, um die Richtungsabhängigkeit auszugleichen, weshalb der Vorteil bei der spezifischen Steifigkeit kleiner ausfällt."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Welche Gleichung sollte ich verwenden?",
+          "a": "Wird unidirektionales Material mit Endlosfasern parallel zu den Fasern gezogen, rechnet man näherungsweise mit der Gleichung für gleiche Dehnung, senkrecht dazu mit der Gleichung für gleiche Spannung. Der Elastizitätsmodul von Partikelverbunden und Kurzfaserwerkstoffen liegt in der Regel zwischen den Werten der beiden Gleichungen."
+        },
+        {
+          "q": "Lässt sich die Mischungsregel auch auf die Festigkeit anwenden?",
+          "a": "Die Festigkeit in Faserrichtung wird manchmal mit σc ≈ Vfσf + Vmσm′ abgeschätzt, wobei σm′ die Spannung der Matrix bei der Bruchdehnung der Faser ist. Die Festigkeit wird jedoch stark von Fehlern, der Haftung an der Grenzfläche und der Faserlänge (kritische Faserlänge) beeinflusst und stimmt nicht so gut überein wie der Elastizitätsmodul."
+        },
+        {
+          "q": "Warum liefert die Voigt-Gleichung eine Obergrenze?",
+          "a": "Bei vorgegebener mittlerer Dehnung stellt sich die Dehnungsverteilung im Werkstoff so ein, dass die elastische Formänderungsenergie minimal wird (Prinzip vom Minimum der potentiellen Energie). Eine gleichmäßige Dehnung ist nur eine der möglichen Verteilungen; die damit berechnete Energie, also der Elastizitätsmodul nach der Gleichung für gleiche Dehnung, ist daher mindestens so groß wie der wahre Wert. Tatsächlich sinkt die Energie, weil sich die weiche Matrix stärker dehnt. Entsprechend ergibt die Annahme einer gleichmäßigen Spannung eine Ergänzungsenergie, die mindestens so groß wie der wahre Wert ist, weshalb die Gleichung für gleiche Spannung eine Untergrenze liefert. Strenge Grenzen für den Elastizitätsmodul sind die beiden Gleichungen nur, wenn die Querkontraktionszahlen beider Phasen gleich sind; sind sie verschieden, kann der Modul unidirektionalen Materials in Faserrichtung den Wert für gleiche Dehnung geringfügig übersteigen. In Faserrichtung ist die tatsächliche Dehnung in unidirektionalem Material nahezu gleichmäßig, daher passt die Gleichung für gleiche Dehnung dort gut."
+        }
+      ]
     }
   }
 }

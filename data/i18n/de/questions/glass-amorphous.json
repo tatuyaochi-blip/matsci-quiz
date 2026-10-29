@@ -1,0 +1,137 @@
+{
+ "glass-amorphous-001": {
+  "question": "Welche Aussage über die Atomanordnung oxidischer Gläser wie Kalk-Natron-Glas trifft zu?",
+  "choices": [
+   "Die Koordination der nächsten Nachbarn und die Bindungsabstände, etwa im SiO₄-Tetraeder, sind nahezu einheitlich (Nahordnung), eine langreichweitige Periodizität fehlt jedoch",
+   "Die Atome sind wie in einem Gas völlig regellos angeordnet, und Koordinationszahl und Bindungsabstände sind von Atom zu Atom verschieden",
+   "Es liegt dieselbe periodische Anordnung wie im Kristall vor, doch die Körner sind nur wenige nm groß, sodass in der Röntgenbeugung keine Peaks erscheinen"
+  ],
+  "explanation": "Auch in oxidischen Gläsern ist die SiO₄-Einheit, in der vier Sauerstoffatome tetraedrisch um Si koordiniert sind, nahezu dieselbe wie im Kristall, und auch der Si-O-Abstand ist einheitlich. Da jedoch die Si-O-Si-Winkel und die Art der Verknüpfung der Tetraeder schwanken, geht die Regelmäßigkeit jenseits von etwa 1 nm verloren, und es gibt keine langreichweitige Periodizität. Zachariasen beschrieb dies als kontinuierliches Zufallsnetzwerk. In der Röntgenbeugung erscheint statt scharfer Peaks ein breiter Halo, und aus der radialen Verteilungsfunktion lassen sich Abstand und Koordinationszahl der nächsten Nachbarn bestimmen. Die Aussage, die Atome seien völlig regellos angeordnet, übersieht die Nahordnung. Die Kristallithypothese, die Glas als Ansammlung winziger Kristalle auffasst, ist nicht die maßgebliche Vorstellung: Die aus der Halobreite abgeschätzte Kristallgröße entspricht höchstens einer Elementarzelle, und die Kleinwinkelstreuung, die Korngrenzen hervorrufen müssten, wird nicht beobachtet (Warren)."
+ },
+ "glass-amorphous-002": {
+  "question": "Welche Gruppe nennt richtig Netzwerkbildner, die allein ein Glas bilden und das Netzwerkgerüst oxidischer Gläser aufbauen?",
+  "choices": [
+   "Na₂O, K₂O, CaO",
+   "Al₂O₃, MgO, ZnO",
+   "SiO₂, B₂O₃, P₂O₅"
+  ],
+  "explanation": "In SiO₂, B₂O₃, P₂O₅ und GeO₂ bilden die Kationen mit Sauerstoff Polyeder mit der Koordinationszahl 3 bis 4, die über gemeinsame Eckensauerstoffe verknüpft sind; daher bildet jedes dieser Oxide auch allein ein Glasnetzwerk. Zachariasen nannte als Bedingungen für eine leichte Glasbildung unter anderem eine kleine Koordinationszahl des Kations und dass die Polyeder nur Ecken, nicht aber Kanten oder Flächen gemeinsam haben. Na₂O, K₂O und CaO sind Netzwerkwandler: Sie brechen das Netzwerk auf, besetzen dessen Zwischenräume und bilden allein kein Glas. Al₂O₃ und ZnO heißen Zwischenoxide (intermediäre Oxide); sie bilden allein kaum Glas, werden aber, wenn ihre Ladung durch Alkalien o. Ä. ausgeglichen wird, etwa als AlO₄-Tetraeder in das Netzwerk eingebaut. MgO wirkt gewöhnlich als Netzwerkwandler."
+ },
+ "glass-amorphous-003": {
+  "question": "Wie ändern sich Struktur und Eigenschaften von SiO₂-Glas, wenn Na₂O zugegeben wird?",
+  "choices": [
+   "Na⁺ tritt an die Stelle von Si⁴⁺ im Zentrum der SiO₄-Tetraeder und verstärkt das Netzwerk, sodass Viskosität und Erweichungstemperatur steigen",
+   "Si-O-Si-Brücken brechen zu nichtbrückendem Sauerstoff auf, das Netzwerk wird schwächer; Viskosität und Glasübergangstemperatur sinken, die Wärmeausdehnung steigt",
+   "Na₂O beeinflusst das Netzwerk nicht, die Viskosität bleibt unverändert, und nur die chemische Beständigkeit steigt"
+  ],
+  "explanation": "Mit jedem Na₂O wird der brückenbildende Sauerstoff einer Si-O-Si-Brücke aufgebrochen; dabei entsteht nichtbrückender Sauerstoff, nämlich zwei Sauerstoffatome, die nur an ein Si gebunden sind, und die Na⁺-Ionen besetzen Zwischenräume im Netzwerk und gleichen die Ladung aus. Da die Verknüpfung des Netzwerks schwächer wird, sinken Viskosität und Glasübergangstemperatur, sodass die Formgebung, die bei Quarzglas hohe Temperaturen von ca. 2000 °C erfordert, bei viel niedrigeren Temperaturen möglich wird. Dafür nimmt der Längenausdehnungskoeffizient zu, und weil Na⁺ leicht gegen Wasserstoffionen aus Wasser ausgetauscht wird, sinkt die chemische Beständigkeit. Beim Kalk-Natron-Glas setzt man CaO zu, um diese Beständigkeit auszugleichen. Na⁺ hat einen großen Ionenradius und eine kleine Ladung und besetzt daher nicht das Zentrum der Tetraeder."
+ },
+ "glass-amorphous-004": {
+  "question": "In einem Natriumsilicatglas aus 30 mol-% Na₂O und 70 mol-% SiO₂ soll jedes Na₂O zwei nichtbrückende Sauerstoffatome erzeugen. Welcher Wert kommt der Zahl der nichtbrückenden Sauerstoffatome pro SiO₄-Tetraeder (NBO/T) am nächsten?",
+  "choices": [
+   "ca. 0,43",
+   "ca. 0,60",
+   "ca. 0,86"
+  ],
+  "explanation": "Aus 1 mol Na₂O entstehen 2 mol nichtbrückender Sauerstoff, also NBO/T = 2×30/70 ≈ 0,86. Im Mittel sind pro Tetraeder 0,86 Eckensauerstoffe nicht mit einem Nachbartetraeder verknüpft, und der Vernetzungsgrad des Netzwerks sinkt. Ca. 0,43 erhält man, wenn man pro Na₂O nur ein nichtbrückendes Sauerstoffatom zählt, ca. 0,60, wenn man statt durch die Zahl der Tetraeder (die Menge an SiO₂) durch die Gesamtmenge von 100 mol teilt. NBO/T = 0 bedeutet ein vollständig dreidimensionales Netzwerk wie in Quarzglas, 2 eine Struktur aus zu Ketten oder Ringen verknüpften SiO₄-Tetraedern und 4 isolierte Tetraeder. NBO/T wird beim Vergleich der Zusammensetzungen von Gläsern und Schlacken häufig als Richtwert für Eigenschaften wie die Viskosität verwendet."
+ },
+ "glass-amorphous-005": {
+  "question": "Die Viskosität η (Pa·s) eines Kalk-Natron-Glases wird durch die VFT-Gleichung log₁₀η = A + B/(T − T₀) mit A = −2,5, B = 4300 K und T₀ = 520 K beschrieben. Welcher Wert kommt der Temperatur am nächsten, bei der die Viskosität 10¹² Pa·s erreicht (Richtwert für den oberen Kühlpunkt, nahe der Glasübergangstemperatur)?",
+  "choices": [
+   "ca. 817 K",
+   "ca. 878 K",
+   "ca. 297 K"
+  ],
+  "explanation": "Mit log₁₀η = 12 ergibt sich T − T₀ = B/(12 − A) = 4300/14,5 ≈ 297 K, also T ≈ 520 + 297 = 817 K (ca. 543 °C). Nach der VFT-Gleichung steigt die Viskosität bei Annäherung an T₀ steil an, als würde sie divergieren; damit lässt sich eine stärkere Temperaturabhängigkeit darstellen als mit einem Arrhenius-Ansatz. Ca. 878 K erhält man, wenn man A vernachlässigt und B/12 nimmt, ca. 297 K, wenn man vergisst, T₀ zu addieren. Bei der Glasverarbeitung formt man am Verarbeitungspunkt bei einer Viskosität von ca. 10³ Pa·s, hält das Glas in der Nähe des oberen Kühlpunkts bei ca. 10¹² Pa·s und kühlt es dann langsam bis unter den unteren Kühlpunkt (ca. 3×10¹³ Pa·s) ab, um Eigenspannungen abzubauen. Die Kenntnis des Viskositätsverlaufs mit der Temperatur ist die Grundlage für die Festlegung der Bedingungen für Formgebung und Kühlung."
+ },
+ "glass-amorphous-006": {
+  "question": "Welche Aussage beschreibt richtig, wie Flachglas durch Abschrecken mit Luft (thermisches Vorspannen) verfestigt wird?",
+  "choices": [
+   "Beim Abschrecken bleiben an der Oberfläche Zug- und im Inneren Druckspannungen zurück; die Druckspannung im Inneren stoppt Risse, sodass das Glas schwerer bricht",
+   "Beim Abschrecken erstarrt zuerst die Oberfläche; das später abkühlende und schrumpfende Innere zieht sie auf Druck, während es selbst unter Zug gerät",
+   "Beim Abschrecken kristallisiert nur die Oberfläche zu einer harten Kristallschicht, die Kratzer verhindert, sodass das Glas schwerer bricht"
+  ],
+  "explanation": "Bläst man auf beide Seiten einer auf ca. 650 °C erhitzten Glasscheibe Luft, kühlen die Oberflächen zuerst ab und erstarren. Das Innere ist zu diesem Zeitpunkt noch weich, sodass die Schrumpfung der Oberflächen durch Fließen im Inneren aufgenommen wird. Wenn danach das Innere abkühlt und schrumpfen will, zieht es die bereits erstarrten Oberflächen mit, sodass bei Raumtemperatur Druckspannungen an den Oberflächen und Zugspannungen im Inneren im Gleichgewicht zurückbleiben. Da der Bruch von Glas unter Zug von Oberflächenfehlern ausgeht, bricht es erst, wenn eine Zugspannung aufgebracht wird, die die Druckspannung an der Oberfläche übersteigt; die Festigkeit erreicht etwa das 3- bis 5-Fache derjenigen von langsam gekühltem Glas. Bricht es jedoch, zerfällt die gesamte Scheibe durch die im Inneren gespeicherte Verzerrungsenergie in kleine Krümel, und nach dem Vorspannen lässt sie sich nicht mehr schneiden. Die Aussage, an der Oberfläche blieben Zugspannungen zurück, kehrt die Verhältnisse um, und eine Kristallisation findet nicht statt."
+ },
+ "glass-amorphous-007": {
+  "question": "In einem thermisch vorgespannten Glas der Dicke t = 10 mm sei y der Abstand von der Mittelebene; die Spannung folge der Parabelverteilung σ(y) = σc(1 − 12y²/t²) (Zug positiv, σc ist die Zugspannung in der Mittelebene). Die Druckspannung an der Oberfläche beträgt 120 MPa. Welche Kombination aus der Zugspannung σc in der Mittelebene und der Tiefe von der Oberfläche bis zum Ende der Druckspannungsschicht ist richtig?",
+  "choices": [
+   "ca. 120 MPa, ca. 2,1 mm",
+   "ca. 60 MPa, ca. 2,1 mm",
+   "ca. 60 MPa, ca. 2,9 mm"
+  ],
+  "explanation": "An der Oberfläche, y = t/2, gilt σ = σc(1 − 3) = −2σc; aus 2σc = 120 MPa folgt σc = 60 MPa. Die Spannung wird null bei 12y²/t² = 1, also bei y = t/√12 ≈ 2,89 mm; die Tiefe von der Oberfläche beträgt somit 5,0 − 2,89 ≈ 2,1 mm (ca. 21 % der Dicke). Diese Verteilung erfüllt das Kräftegleichgewicht: Über die Dicke aufsummiert ergibt die Spannung null. Ca. 2,9 mm übernimmt den von der Mittelebene gemessenen Abstand unverändert als Tiefe von der Oberfläche. Eine Kombination, bei der die Zugspannung in der Mitte gleich der Druckspannung von 120 MPa an der Oberfläche ist, erfüllt das Kräftegleichgewicht nicht. Eine Oberflächendruckspannung von etwa dem Doppelten der Zugspannung in der Mitte und eine Druckspannungsschicht von etwa einem Fünftel der Dicke sind Richtwerte für das thermische Vorspannen."
+ },
+ "glass-amorphous-008": {
+  "question": "Welche Aussage über das chemische Vorspannen (Verfestigung durch Ionenaustausch), das etwa für Deckgläser von Smartphones verwendet wird, trifft zu?",
+  "choices": [
+   "Unterhalb des unteren Kühlpunkts wird Na⁺ in der Oberflächenschicht gegen das größere K⁺ ausgetauscht, sodass dort Druckspannungen entstehen",
+   "Na⁺ in der Oberflächenschicht wird gegen das kleinere Li⁺ ausgetauscht; das Volumen der Schicht schrumpft und erzeugt so Druckspannungen",
+   "Ein Ionenaustausch oberhalb des Erweichungspunkts verläuft schneller und liefert daher bis in größere Tiefe ausreichend hohe Druckspannungen"
+  ],
+  "explanation": "Beim chemischen Vorspannen taucht man ein Na⁺-haltiges Glas bei ca. 400 °C in eine KNO₃-Schmelze. Werden die Na⁺-Ionen der Oberflächenschicht gegen die größeren K⁺-Ionen ausgetauscht, sind gewissermaßen große Ionen in Plätze von der Größe der ursprünglichen Na⁺-Ionen gepresst; die Oberflächenschicht will sich ausdehnen, wird aber vom Inneren behindert, sodass in ihr große Druckspannungen von mehreren hundert MPa oder mehr entstehen. Diese Temperatur liegt unterhalb des unteren Kühlpunkts, bei dem das Netzwerk kaum noch fließt, sodass die Spannungen nicht relaxieren, sondern erhalten bleiben. Oberhalb des Erweichungspunkts würden sie durch viskoses Fließen abgebaut. Würde die Oberflächenschicht durch Austausch gegen das kleinere Li⁺ schrumpfen wollen, entstünden in ihr umgekehrt Zugspannungen. Thermisches Vorspannen ist bei dünnen Scheiben schwierig, weil sich in ihnen kaum ein Temperaturunterschied aufbauen lässt; chemisches Vorspannen ist dagegen auch bei Scheiben von 1 mm Dicke und darunter möglich."
+ },
+ "glass-amorphous-009": {
+  "question": "Welche Kombination von Bedingungen ist empirisch für Legierungen bekannt, aus denen sich leicht massive metallische Gläser herstellen lassen, die also auch bei Dicken von einigen mm und mehr glasartig erstarren (Inoue-Regeln)?",
+  "choices": [
+   "Die Legierung besteht aus nur zwei Elementen, liegt in der Zusammensetzung nahe an einem hochschmelzenden reinen Metall und hat eine hohe Liquidustemperatur",
+   "Drei oder mehr Elemente mit nahezu gleichem Atomradius werden so kombiniert, dass die Mischungswärme zwischen ihnen positiv ist",
+   "Sie besteht aus drei oder mehr Elementen, die Atomradien der Hauptelemente unterscheiden sich um ca. 12 % oder mehr, und die Mischungswärme ist negativ"
+  ],
+  "explanation": "Die Inoue-Regeln umfassen drei Punkte: Mehrkomponentigkeit, einen Unterschied der Atomradien der Hauptelemente von ca. 12 % oder mehr und eine negative Mischungswärme. Mischen sich unterschiedlich große Atome unter gegenseitiger Anziehung, nimmt die Schmelze eine dicht gepackte, ungeordnete Anordnung an, und Diffusion und Umordnung der Atome verlangsamen sich. Außerdem erfordert die Kristallbildung aus einer Schmelze mit vielen Elementen eine weitreichende Umordnung der Atome, sodass Keimbildung und Wachstum von Kristallen erschwert werden. Hilfreich ist auch die niedrigere Liquidustemperatur bei Zusammensetzungen nahe einem tiefen Eutektikum. Kombinationen mit gleichen Atomradien und positiver Mischungswärme neigen zur Bildung von Mischkristallen oder zur Phasentrennung, und Zusammensetzungen nahe einem reinen Metall erstarren selbst bei Abschreckung mit etwa 10⁶ K/s kaum glasartig."
+ },
+ "glass-amorphous-010": {
+  "question": "Nach der Faustregel von Turnbull bildet eine Schmelze beim Abkühlen umso leichter ein Glas, je größer die reduzierte Glasübergangstemperatur Trg = Tg/Tl ist (Tg: Glasübergangstemperatur, Tl: Liquidustemperatur, beide als absolute Temperatur). Welche der folgenden Legierungen bildet nach dieser Regel am leichtesten ein Glas?",
+  "choices": [
+   "Die Legierung mit Tg = 625 K und Tl = 940 K",
+   "Die Legierung mit Tg = 420 K und Tl = 820 K",
+   "Die Legierung mit Tg = 700 K und Tl = 1300 K"
+  ],
+  "explanation": "Für Trg ergibt sich bei der Legierung mit Tg = 625 K und Tl = 940 K 625/940 ≈ 0,665, bei der Legierung mit Tg = 700 K und Tl = 1300 K ca. 0,538 und bei der Legierung mit Tg = 420 K und Tl = 820 K ca. 0,512. Je schmaler der Temperaturbereich von Tl bis Tg, desto schneller durchläuft die Schmelze den Bereich der unterkühlten Schmelze, in dem Kristalle Keime bilden und wachsen können, und zudem ist die Schmelze in diesem Bereich zäher; daher bildet sich leichter ein Glas. Turnbull schätzte ab, dass die Kristallisation stark unterdrückt wird, wenn Trg etwa 2/3 oder mehr erreicht. Ausschlaggebend ist nicht die Legierung mit der höchsten Tg oder der niedrigsten Tl, sondern das Verhältnis der beiden. Es handelt sich um eine empirische Faustregel, zu der es Ausnahmen gibt."
+ },
+ "glass-amorphous-011": {
+  "question": "Durch Gießen in eine Kupferkokille wird ein plattenförmiges metallisches Glas hergestellt. Die Abkühlgeschwindigkeit in der Plattenmitte sei umgekehrt proportional zum Quadrat der Plattendicke d und betrage bei 1,0 mm Dicke 1,0×10³ K/s. Welcher Wert kommt der größten Plattendicke am nächsten, bei der eine Legierung mit einer kritischen Abkühlgeschwindigkeit von 10 K/s noch glasartig erstarrt?",
+  "choices": [
+   "ca. 100 mm",
+   "ca. 0,10 mm",
+   "ca. 10 mm"
+  ],
+  "explanation": "Die Abkühlgeschwindigkeit lässt sich als R = 1,0×10³×(1,0/d)² K/s (d in mm) schreiben; die Dicke, bei der R = 10 K/s wird, ist daher d = 1,0×√(1,0×10³/10) = 10 mm. Die Zeit, in der die Wärme an die Kokille abfließt, ist proportional zum Quadrat der Strecke, die die Wärme zurücklegen muss; daher ist die Abkühlgeschwindigkeit umgekehrt proportional zum Quadrat der Dicke. Ca. 100 mm setzt voraus, dass die Abkühlgeschwindigkeit umgekehrt proportional zur Dicke selbst ist, ca. 0,10 mm kehrt das Verhältnis der Abkühlgeschwindigkeiten um. Frühe metallische Gläser hatten große kritische Abkühlgeschwindigkeiten von etwa 10⁵–10⁶ K/s, sodass sich nur einige zehn µm dicke Bänder durch Schmelzspinnen herstellen ließen; mit Mehrkomponentenlegierungen sank die kritische Abkühlgeschwindigkeit, und massive metallische Gläser im cm-Bereich wurden möglich."
+ },
+ "glass-amorphous-012": {
+  "question": "Ein massives metallisches Glas auf Zr-Basis hat eine Streckgrenze von 1,8 GPa und einen Elastizitätsmodul von 90 GPa. Welche Kombination aus der mit σy/E abgeschätzten elastischen Grenzdehnung und dem Vergleich mit kristallinen metallischen Werkstoffen ist richtig?",
+  "choices": [
+   "ca. 0,020 %, kleiner als bei den meisten kristallinen metallischen Werkstoffen",
+   "ca. 2,0 %, größer als bei den meisten kristallinen metallischen Werkstoffen (unter 1 %)",
+   "ca. 2,0 %, etwa gleich wie bei den meisten kristallinen metallischen Werkstoffen"
+  ],
+  "explanation": "σy/E = 1,8/90 = 0,020, also ca. 2,0 %. Bei Stahl (Streckgrenze 0,5 GPa, Elastizitätsmodul 200 GPa) sind es ca. 0,25 %, selbst bei einer hochfesten Titanlegierung (0,9 GPa, 110 GPa) nur ca. 0,8 %; die elastische Grenzdehnung des metallischen Glases ist also viel größer. Der Grund ist, dass metallische Gläser keine Versetzungen haben und daher eine hohe Streckgrenze besitzen, während ihr Elastizitätsmodul oft um etwa 30 % niedriger ist als der von Kristallen gleicher Zusammensetzung. Die pro Volumeneinheit gespeicherte elastische Energie σy²/(2E) ist mit ca. 18 MJ/m³ groß; das nutzt man etwa bei Federn und Schlagflächen von Golfschlägern. Ca. 0,020 % entsteht, wenn man vergisst, 0,020 in Prozent umzurechnen."
+ },
+ "glass-amorphous-013": {
+  "question": "Welche Aussage über die plastische Verformung metallischer Gläser bei Raumtemperatur trifft zu?",
+  "choices": [
+   "Die Streckgrenze ist hoch, doch die Verformung konzentriert sich auf schmale Scherbänder, sodass sie im Zugversuch nahezu ohne Dehnung brechen",
+   "Da Korngrenzen fehlen, sind sie sehr duktil und dehnen sich im Zugversuch bei Raumtemperatur gleichmäßig um einige zehn Prozent, bevor sie brechen",
+   "Wie in Kristallen gleiten Versetzungen, daher verfestigen sie stark und schnüren sich deutlich ein, bevor sie duktil brechen"
+  ],
+  "explanation": "In metallischen Gläsern bewegen sich unter Schubspannung kleine Atomgruppen gemeinsam, wodurch örtlich das freie Volumen zunimmt und der Werkstoff entfestigt. Da diese Entfestigung weitere Verformung nach sich zieht, konzentriert sich die Verformung auf Scherbänder von etwa 10 bis einigen zehn nm Dicke; da außerdem keine Kaltverfestigung auftritt, durchläuft im Zugversuch ein einziges Scherband die Probe, und sie bricht nahezu ohne Dehnung. Unter Druck und Biegung bilden sich viele Scherbänder, und eine gewisse plastische Verformung ist zu beobachten. Kaltverfestigung und Einschnürung durch Versetzungsgleiten kennzeichnen kristalline Metalle, und das Fehlen von Korngrenzen garantiert keine Duktilität. Als Gegenmaßnahme werden unter anderem Verbundgefüge mit dispergierten kristallinen Phasen untersucht, die die Ausbreitung der Scherbänder behindern. Im Temperaturbereich der unterkühlten Schmelze lassen sich metallische Gläser dagegen durch viskoses Fließen stark verformen, was für die Präzisionsformgebung genutzt wird."
+ },
+ "glass-amorphous-014": {
+  "question": "Amorphes Silizium für Solarzellen und Dünnschichttransistoren wird durch plasmaunterstützte CVD aus Silan als a-Si:H mit ca. 10 % Wasserstoff hergestellt. Was ist der Hauptgrund dafür?",
+  "choices": [
+   "Wasserstoff wirkt auf Zwischengitterplätzen als Donator und macht die Schicht auch ohne Phosphordotierung n-leitend",
+   "Wasserstoff fördert die Kristallisation von Si, macht die Schicht zu polykristallinem Silizium mit hoher Beweglichkeit und verbessert so ihre Eigenschaften",
+   "Wasserstoff sättigt die freien Bindungen (Dangling Bonds) des Si ab und verringert so die Defektzustände"
+  ],
+  "explanation": "Wasserstofffreies amorphes Silizium enthält wegen der Unordnung des Netzwerks bis zu etwa 10¹⁹–10²⁰ cm⁻³ Bindungen ohne Partner (Dangling Bonds), deren Niveaus etwa in der Mitte der Bandlücke Elektronen und Löcher einfangen. Deshalb verschiebt sich das Fermi-Niveau auch bei Zugabe von Dotierstoffen kaum, und durch Licht erzeugte Ladungsträger rekombinieren schnell. Sättigt Wasserstoff diese Bindungen durch Si-H-Bindungen ab, sinkt die Defektdichte auf etwa 10¹⁵–10¹⁶ cm⁻³, und eine n- oder p-Dotierung mit Phosphor oder Bor wurde möglich. Wasserstoff wirkt nicht als Donator, und unter üblichen Abscheidebedingungen bleibt die Schicht amorph (aus stark mit Wasserstoff verdünntem Silan lassen sich auch mikrokristalline Schichten herstellen, doch das dient einem anderen Zweck). Auch der Staebler-Wronski-Effekt, bei dem andauernde Beleuchtung die Defekte vermehrt, hängt mit diesem Wasserstoff zusammen."
+ },
+ "glass-amorphous-015": {
+  "question": "Welcher Vergleich der Eigenschaften von wasserstoffhaltigem amorphem Silizium (a-Si:H) und kristallinem Silizium ist richtig?",
+  "choices": [
+   "Wegen der ungeordneten Atomanordnung absorbiert es sichtbares Licht kaum und wird anstelle von ITO für transparente Elektroden verwendet",
+   "Es absorbiert sichtbares Licht stärker als der Kristall, sodass Schichten von höchstens 1 µm genügen, doch die Elektronenbeweglichkeit ist 2 bis 3 Größenordnungen kleiner",
+   "Seine Elektronenbeweglichkeit ist größer als die von kristallinem Silizium, daher wird es häufig für Transistoren in schnellen Mikroprozessoren verwendet"
+  ],
+  "explanation": "Kristallines Silizium ist ein indirekter Halbleiter und absorbiert die längeren Wellenlängen des sichtbaren Lichts nur schwach; Solarzellen verwenden daher gewöhnlich Substrate mit einer Dicke von 100 µm oder mehr. In a-Si:H fehlt die langreichweitige Periodizität, sodass die Bedingung der Impulserhaltung beim Übergang gelockert ist; der Absorptionskoeffizient für sichtbares Licht ist daher größer als im Kristall, und eine Schicht von höchstens 1 µm Dicke kann das Licht absorbieren. Andererseits werden Ladungsträger in Bandausläuferzuständen eingefangen, die das ungeordnete Netzwerk erzeugt; die Elektronenbeweglichkeit beträgt daher etwa 1–10 cm²/(V·s) und ist damit 2 bis 3 Größenordnungen kleiner als die von kristallinem Silizium mit ca. 1400 cm²/(V·s). Für schnelle Logikschaltungen ist es deshalb ungeeignet; da es sich aber bei ca. 300 °C großflächig abscheiden lässt, wird es für die Pixel-TFTs von Flüssigkristallanzeigen und für Dünnschichtsolarzellen verwendet. Mit einer Bandlücke von ca. 1,7 eV absorbiert es sichtbares Licht gut und kann keine transparente Elektrode sein."
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "electronic-materials-001": {
+  "question": "Welcher Wert kommt dem spezifischen Widerstand von n-leitendem Silizium mit einer Donatorkonzentration von 1,0×10¹⁶ cm⁻³ (Raumtemperatur, alle Donatoren ionisiert) am nächsten? Die Elektronenbeweglichkeit beträgt 1350 cm²/(V·s), die Elementarladung 1,60×10⁻¹⁹ C; der Beitrag der Löcher wird vernachlässigt.",
+  "choices": [
+   "ca. 0,46 Ω·cm",
+   "ca. 2,2 Ω·cm",
+   "ca. 4,6×10³ Ω·cm"
+  ],
+  "explanation": "Die Leitfähigkeit beträgt σ = neμ = 1,0×10¹⁶ × 1,60×10⁻¹⁹ × 1350 ≈ 2,16 S/cm, und der spezifische Widerstand ist ihr Kehrwert ρ = 1/σ ≈ 0,46 Ω·cm. Der Wert von ca. 2,2 Ω·cm verwechselt den Zahlenwert der Leitfähigkeit mit dem spezifischen Widerstand. Der Wert von ca. 4,6×10³ Ω·cm entsteht durch gemischte Einheiten: Die in m²/(V·s) umgerechnete Beweglichkeit 0,135 wird unverändert mit der Konzentration in cm⁻³ kombiniert. Metalle haben mit etwa 10²² cm⁻³ eine große Ladungsträgerkonzentration, sodass ihr spezifischer Widerstand im Wesentlichen durch den Werkstoff festgelegt ist; bei Halbleitern lässt sich n dagegen durch Dotierung um viele Größenordnungen verändern, sodass der spezifische Widerstand über einen weiten Bereich einstellbar ist."
+ },
+ "electronic-materials-002": {
+  "question": "Welche Kombination beschreibt richtig, wie sich der spezifische elektrische Widerstand bei steigender Temperatur ändert? Der Halbleiter befindet sich im Eigenleitungsbereich.",
+  "choices": [
+   "Bei Metallen nimmt er ab, bei Eigenhalbleitern nimmt er zu",
+   "Bei Metallen nimmt er zu, bei Eigenhalbleitern nimmt er ab",
+   "Bei beiden nimmt er zu"
+  ],
+  "explanation": "In Metallen ist die Konzentration der Leitungselektronen nahezu temperaturunabhängig; mit steigender Temperatur nimmt die Streuung an Gitterschwingungen (Phononen) zu und die Beweglichkeit sinkt, sodass der spezifische Widerstand in der Nähe der Raumtemperatur annähernd proportional zur Temperatur steigt. In Eigenhalbleitern wächst mit der Temperatur die Zahl der über die Bandlücke angeregten Elektronen und Löcher exponentiell und überwiegt den Rückgang der Beweglichkeit bei Weitem, sodass der spezifische Widerstand stark abnimmt. Dieser Unterschied wird in Platin-Widerstandsthermometern (positiver Temperaturkoeffizient) und in NTC-Thermistoren aus Oxidhalbleitern (negativer Temperaturkoeffizient) genutzt. Die Aussage, der Widerstand nehme bei Metallen ab und bei Eigenhalbleitern zu, vertauscht die Richtungen; die Aussage, er nehme bei beiden zu, behandelt den Halbleiter wie ein Metall."
+ },
+ "electronic-materials-003": {
+  "question": "Der durch Gitterschwingungen bedingte spezifische Widerstand von reinem Kupfer beträgt bei 300 K 1,70 µΩ·cm und bei 77 K 0,20 µΩ·cm. Durch Zugabe von Fremdatomen erhält eine Kupferlegierung einen temperaturunabhängigen Restwiderstand von 0,40 µΩ·cm. Welcher Wert kommt dem Verhältnis ρ(300 K)/ρ(77 K) dieser Legierung nach der Matthiessenschen Regel am nächsten?",
+  "choices": [
+   "ca. 8,5",
+   "ca. 10,5",
+   "ca. 3,5"
+  ],
+  "explanation": "Nach der Matthiessenschen Regel ist der gesamte spezifische Widerstand die Summe aus einem temperaturabhängigen Anteil der Gitterschwingungen und einem temperaturunabhängigen Anteil der Fremdatome und Defekte, ρ = ρ_th(T) + ρ_res. Bei 300 K ergibt sich 1,70 + 0,40 = 2,10 µΩ·cm, bei 77 K 0,20 + 0,40 = 0,60 µΩ·cm; das Verhältnis beträgt also 2,10/0,60 = 3,5. Ca. 8,5 ist das Verhältnis allein der Gitterschwingungsanteile von reinem Kupfer (1,70/0,20) und lässt den Restwiderstand außer Acht. Ca. 10,5 addiert den Restwiderstand nur zum Wert bei 300 K, (1,70 + 0,40)/0,20, und übersieht, dass er bei beiden Temperaturen in gleicher Höhe hinzukommt. Da der Anteil des Restwiderstands mit sinkender Temperatur größer wird, dient das Verhältnis der Widerstände bei Raumtemperatur und bei sehr tiefer Temperatur (Restwiderstandsverhältnis) zur Beurteilung der Reinheit und des Defektgehalts von Metallen."
+ },
+ "electronic-materials-004": {
+  "question": "Magnesium hat zwei Valenzelektronen, und das aus den 3s-Orbitalen gebildete Band ist mit zwei Elektronen pro Atom gerade vollständig besetzt. Welche Aussage erklärt richtig, warum Magnesium trotzdem ein Metall ist?",
+  "choices": [
+   "Zwischen dem 3s- und dem 3p-Band liegt eine Bandlücke von ca. 1 eV, die die Elektronen durch thermische Anregung überwinden",
+   "Eines der beiden Valenzelektronen ist stark an das Atom gebunden",
+   "Das 3s-Band überlappt mit dem leeren 3p-Band, sodass direkt oberhalb des Fermi-Niveaus lückenlos freie Zustände liegen"
+  ],
+  "explanation": "Im Festkörper verbreitern sich die 3s- und die 3p-Orbitale der Atome jeweils zu Bändern, und bei Magnesium überlappen ihre Energiebereiche. Die Elektronen besetzen daher bereits Zustände im 3p-Band, bevor das 3s-Band ganz gefüllt ist; da direkt oberhalb des Fermi-Niveaus ununterbrochen freie Zustände vorhanden sind, werden die Elektronen schon durch ein schwaches elektrisches Feld beschleunigt, und es fließt Strom. Ein solches Metall entsteht durch Bandüberlappung. Gäbe es eine Lücke von ca. 1 eV, würde Magnesium Halbleitereigenschaften zeigen, und seine Leitfähigkeit müsste bei tiefen Temperaturen sinken. Auch die Vorstellung stark gebundener Valenzelektronen kann die metallische Leitfähigkeit nicht erklären. Be und Ca, die ebenfalls zur 2. Gruppe gehören, sind aus demselben Grund Metalle."
+ },
+ "electronic-materials-005": {
+  "question": "Welche Aussage darüber, was sich aus einer Messung des Hall-Effekts ermitteln lässt, trifft zu?",
+  "choices": [
+   "Der Hall-Koeffizient ist proportional zur Bandlücke, sodass sich die Bandlücke direkt ergibt",
+   "Das Vorzeichen des Hall-Koeffizienten zeigt die Art der Majoritätsträger, sein Betrag die Trägerkonzentration",
+   "Die Hall-Spannung hängt nicht vom Magnetfeld ab, sondern nur vom Strom und von der Probendicke"
+  ],
+  "explanation": "Legt man an eine stromdurchflossene Probe senkrecht ein Magnetfeld an, werden die Ladungsträger durch die Lorentzkraft zu einer Seitenfläche abgelenkt, und senkrecht zu Strom und Magnetfeld entsteht eine Hall-Spannung. Bei nur einer Ladungsträgerart gilt für Löcher R_H = 1/(ne) und für Elektronen R_H = −1/(ne); das Vorzeichen gibt also die Art der Majoritätsträger an, der Betrag die Ladungsträgerkonzentration n. Zusammen mit dem spezifischen Widerstand lässt sich außerdem die Beweglichkeit μ = |R_H|/ρ bestimmen. Die Hall-Spannung ist sowohl zum Strom als auch zum Magnetfeld proportional. Die Bandlücke bestimmt man aus der Temperaturabhängigkeit der Ladungsträgerkonzentration oder aus der optischen Absorption. Hall-Elemente in Magnetfeldsensoren beruhen auf diesem Effekt."
+ },
+ "electronic-materials-006": {
+  "question": "Was geschieht mit dem Magnetismus von ferromagnetischem Eisen, wenn es über seine Curie-Temperatur (ca. 770 °C) erhitzt wird?",
+  "choices": [
+   "Es wird diamagnetisch",
+   "Es wird antiferromagnetisch",
+   "Es wird paramagnetisch"
+  ],
+  "explanation": "In einem Ferromagneten sind die magnetischen Momente benachbarter Atome durch die Austauschwechselwirkung gleich ausgerichtet, sodass eine spontane Magnetisierung vorliegt. Mit steigender Temperatur stört die thermische Bewegung diese Ausrichtung, und oberhalb der Curie-Temperatur verschwindet die spontane Magnetisierung; es bleibt Paramagnetismus, bei dem sich der Stoff nur in einem äußeren Feld schwach magnetisiert. Die Curie-Temperatur beträgt bei Eisen ca. 770 °C, bei Nickel ca. 358 °C und bei Cobalt ca. 1120 °C. Antiferromagnetismus ist ein geordneter Zustand, in dem sich benachbarte Momente antiparallel ausrichten; die Temperatur, bei der diese Ordnung verschwindet, heißt Néel-Temperatur. Diamagnetismus ist eine schwache Eigenschaft aller Stoffe und tritt nicht als Folge des verschwindenden Ferromagnetismus auf."
+ },
+ "electronic-materials-007": {
+  "question": "Welche Aussage über die Eigenschaften eines für Transformatorkerne geeigneten weichmagnetischen Werkstoffs trifft zu?",
+  "choices": [
+   "Große Koerzitivfeldstärke und eine breite Hystereseschleife mit großer Fläche",
+   "Kleine Koerzitivfeldstärke und eine schmale Hystereseschleife mit kleiner Fläche",
+   "Eine große Remanenz ist am wichtigsten, die Koerzitivfeldstärke spielt keine Rolle"
+  ],
+  "explanation": "In einem mit Wechselstrom betriebenen Kern kehrt sich die Magnetisierung in jeder Periode um, sodass pro Periode eine Energie verloren geht, die der Fläche der Hystereseschleife proportional ist. Gefordert ist daher ein weichmagnetischer Werkstoff mit kleiner Koerzitivfeldstärke und schmaler Schleife. Außerdem werden eine hohe Permeabilität und Sättigungsflussdichte sowie ein hoher elektrischer Widerstand zur Verringerung der Wirbelstromverluste verlangt; verwendet werden kornorientiertes Elektroblech (Siliziumstahl), Ferrite und amorphe Legierungen. Große Koerzitivfeldstärke und große Schleifenfläche kennzeichnen hartmagnetische Werkstoffe (Dauermagnete) wie Nd-Fe-B- und Ferritmagnete. Bei Dauermagneten kommt es darauf an, dass Remanenz und Koerzitivfeldstärke beide groß sind."
+ },
+ "electronic-materials-008": {
+  "question": "Die Fläche der Hystereseschleife eines Kernwerkstoffs (Verlust pro Periode) beträgt 50 J/m³. Welcher Wert kommt den Hystereseverlusten am nächsten, wenn ein Kern mit einem Volumen von 0,010 m³ mit 50 Hz Wechselstrom betrieben wird?",
+  "choices": [
+   "ca. 0,5 W",
+   "ca. 25 W",
+   "ca. 2,5 kW"
+  ],
+  "explanation": "Die Hystereseverluste ergeben sich aus Verlust pro Periode (Schleifenfläche) × Frequenz × Volumen: P = 50 J/m³ × 50 s⁻¹ × 0,010 m³ = 25 W. Bei ca. 0,5 W wurde die Multiplikation mit der Frequenz vergessen; das ist die Energie pro Periode, 0,5 J. Bei ca. 2,5 kW wurde die Multiplikation mit dem Volumen vergessen; die eigentliche Einheit wäre W/m³. Die Hystereseverluste sind proportional zur Frequenz, die Wirbelstromverluste etwa proportional zum Quadrat der Frequenz; deshalb verwendet man in Netzteilen und Motoren, die bei hohen Frequenzen arbeiten, Werkstoffe mit hohem elektrischem Widerstand wie Ferrite oder dünne, geschichtete Elektrobleche. Die Einheit der Fläche der B-H-Schleife, T·A/m, ist gleich J/m³."
+ },
+ "electronic-materials-009": {
+  "question": "An einen entmagnetisierten Ferromagneten wird ein äußeres Magnetfeld angelegt und allmählich verstärkt. Welche Aussage beschreibt richtig, wie die Magnetisierung abläuft?",
+  "choices": [
+   "Bei schwachem Feld wandern vor allem die Domänenwände, bei starkem dreht sich die Magnetisierung in den Bezirken bis nahe zur Sättigung",
+   "Von Anfang an dreht sich das magnetische Moment jedes Atoms einzeln und unabhängig von den anderen in die Feldrichtung",
+   "Die Magnetisierung schreitet fort, indem sich die Bezirke fein aufteilen und ihre Zahl zunimmt"
+  ],
+  "explanation": "Ein entmagnetisierter Ferromagnet ist im Inneren in viele Weiss-Bezirke mit unterschiedlicher Magnetisierungsrichtung aufgeteilt, deren Magnetisierungen sich insgesamt aufheben. In einem schwachen Feld verschieben sich die Domänenwände, also die Grenzen zwischen den Bezirken, sodass die Bezirke mit feldnaher Ausrichtung wachsen und die Magnetisierung zunimmt. Wird das Feld weiter verstärkt, dreht sich die Magnetisierung in den verbleibenden Bezirken selbst in die Feldrichtung und nähert sich der Sättigungsmagnetisierung. Innerhalb eines Bezirks sind die atomaren Momente bereits ausgerichtet; sie drehen sich also nicht einzeln und unabhängig. Auch die Zahl der Bezirke nimmt nicht zu; vielmehr wachsen die Bezirke mit günstiger Ausrichtung. Je stärker die Domänenwände an Einschlüssen und Korngrenzen hängen bleiben, desto größer ist die Koerzitivfeldstärke."
+ },
+ "electronic-materials-010": {
+  "question": "Licht fällt aus Luft senkrecht auf die Oberfläche eines transparenten Stoffs mit dem Brechungsindex 2,4 (ähnlich wie Diamant). Welcher Wert kommt dem Reflexionsgrad an der Oberfläche am nächsten? Die Absorption wird vernachlässigt.",
+  "choices": [
+   "ca. 17 %",
+   "ca. 41 %",
+   "ca. 4 %"
+  ],
+  "explanation": "Der Reflexionsgrad bei senkrechtem Einfall beträgt R = [(n − 1)/(n + 1)]²; für n = 2,4 ergibt sich (1,4/3,4)² = 0,412² ≈ 0,17, also ca. 17 %. Ca. 41 % erhält man, wenn man das Quadrieren vergisst und nur (n − 1)/(n + 1) berechnet. Ca. 4 % ist der Reflexionsgrad von Glas mit dem Brechungsindex 1,5, (0,5/2,5)²; hier wurde der Wert für Glas einfach übernommen. Je größer der Brechungsindex eines Stoffs, desto stärker ist die Reflexion an der Oberfläche; das trägt zum Glanz des Diamanten bei. Silizium mit einem Brechungsindex von ca. 3,5 reflektiert sogar ca. 30 %, daher verringert man bei Solarzellen die Reflexion mit Antireflexschichten und einer Texturierung der Oberfläche."
+ },
+ "electronic-materials-011": {
+  "question": "Ein 1,0 µm dicker Film aus einem Werkstoff mit dem Absorptionskoeffizienten 1,0×10⁴ cm⁻¹ wird beleuchtet. Welcher Wert kommt dem Anteil des Lichts, der den Film durchdringt, am nächsten? Die Reflexion an der Oberfläche wird vernachlässigt, und es gilt I = I₀exp(−αx).",
+  "choices": [
+   "ca. 37 %",
+   "ca. 10 %",
+   "ca. 63 %"
+  ],
+  "explanation": "In cm umgerechnet ist die Dicke x = 1,0 µm = 1,0×10⁻⁴ cm, also αx = 1,0×10⁴ × 1,0×10⁻⁴ = 1,0. Der durchgelassene Anteil beträgt exp(−1,0) ≈ 0,37, also ca. 37 %. Ca. 10 % ergibt sich, wenn man statt mit exp mit einer Zehnerpotenz (10⁻¹) rechnet; hier liegt eine Verwechslung mit der über den dekadischen Logarithmus definierten Extinktion vor. Ca. 63 % ist 1 − exp(−1), der im Film absorbierte Anteil. 1/α ist die Eindringtiefe, bei der die Lichtintensität auf 1/e abgefallen ist, bei diesem Werkstoff also 1 µm. Direkte Halbleiter haben für Licht mit einer Energie oberhalb der Bandlücke ein großes α von 10⁴–10⁵ cm⁻¹ und können das Licht daher schon in dünnen Schichten ausreichend absorbieren."
+ },
+ "electronic-materials-012": {
+  "question": "Was ist der Hauptgrund dafür, dass Silizium als lichtemittierendes Material in Leuchtdioden kaum verwendet wird?",
+  "choices": [
+   "Es ist ein direkter Halbleiter, sodass Elektronen und Löcher sofort unter Abgabe von Phononen statt von Licht rekombinieren",
+   "Seine Bandlücke ist mit ca. 3,4 eV zu groß, sodass es nur UV-Licht mit kürzerer Wellenlänge als sichtbares Licht aussenden kann",
+   "Es ist ein indirekter Halbleiter; die strahlende Rekombination erfordert Phononen, daher ist die Lichtausbeute gering"
+  ],
+  "explanation": "Silizium ist ein indirekter Halbleiter: Das Minimum des Leitungsbands und das Maximum des Valenzbands liegen bei unterschiedlichen Kristallimpulsen. Damit ein Elektron und ein Loch unter Lichtemission rekombinieren, muss gleichzeitig ein Phonon beteiligt sein, das den Impulsunterschied ausgleicht; die Wahrscheinlichkeit strahlender Rekombination ist daher sehr gering, und meist erfolgt eine nichtstrahlende Rekombination über Defektniveaus, die Wärme erzeugt. Direkte Halbleiter wie GaAs und InGaN emittieren Licht effizient und werden für LEDs und Laser verwendet. Ein direkter Halbleiter zu sein ist für die Lichtemission also sogar günstig. Ca. 3,4 eV ist die Bandlücke von GaN, nicht von Silizium; die von Silizium beträgt ca. 1,12 eV, sodass emittiertes Licht im Infraroten bei einer Wellenlänge von ca. 1,1 µm liegt."
+ }
+}
