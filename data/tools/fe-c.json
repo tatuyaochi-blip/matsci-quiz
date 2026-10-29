@@ -1,0 +1,451 @@
+{
+  "id": "fe-c",
+  "order": 7,
+  "slug": "iron-carbon-phase-diagram",
+  "cats": [
+    "phase-diagram",
+    "heat-treatment",
+    "metals"
+  ],
+  "cat": "phase-diagram",
+  "terms": [
+    "共析反応",
+    "パーライト",
+    "共晶反応",
+    "てこの規則",
+    "マルテンサイト"
+  ],
+  "questions": [
+    "phase-diagram-006",
+    "phase-diagram-007",
+    "phase-diagram-008"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "fe-c-form",
+    "fields": [
+      {
+        "name": "c",
+        "value": 0.4,
+        "attrs": "min=\"0\" max=\"6.70\" step=\"any\""
+      },
+      {
+        "name": "t",
+        "value": 750,
+        "attrs": "min=\"400\" max=\"1600\" step=\"any\""
+      },
+      {
+        "name": "view",
+        "options": [
+          "full",
+          "steel"
+        ],
+        "value": "full"
+      }
+    ],
+    "outputs": [
+      {
+        "box": "chart"
+      },
+      {
+        "stats": [
+          "phase",
+          "kind"
+        ]
+      },
+      {
+        "heading": "tie_heading",
+        "box": "tie"
+      },
+      {
+        "heading": "micro_heading",
+        "box": "micro"
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "鉄–炭素状態図",
+      "card": "Fe–Fe₃C系状態図の点を選び、相・タイライン・てこの規則・室温の組織を表示",
+      "title": "鉄–炭素状態図ビューア(Fe–Fe₃C系の相・てこの規則・鋼と鋳鉄の組織)",
+      "description": "Fe–Fe₃C系(準安定系)の状態図を操作できる図で表示します。図をクリックするか炭素量と温度を入れると、その点の相、二相領域のタイラインと各相の組成・質量分率(てこの規則)、ゆっくり冷やしたときの室温の組織と分率の目安を示します。",
+      "h1": "鉄–炭素状態図ビューア",
+      "lead": "炭素0〜6.70 wt%、温度400〜1600 ℃のFe–Fe₃C系(準安定系)の状態図です。図をクリック/タップするか、炭素量と温度を数値で入れると、その点の相を示し、二相領域ならタイラインを引いて、両端の相の組成とてこの規則による質量分率を計算します。あわせて、その炭素量の鋼・鋳鉄を高温からゆっくり冷やしたときの室温の組織の目安も示します。既定値は0.40 wt% Cの亜共析鋼を750 ℃に保った点(α + γ の二相領域)です。",
+      "in_heading": "入力",
+      "c": "炭素量 C₀ (wt% C)",
+      "t": "温度 (℃)",
+      "view": "表示範囲",
+      "view_full": "全体 0〜6.70 wt%",
+      "view_steel": "拡大 0〜2.2 wt%",
+      "out_heading": "状態図と結果",
+      "phase": "その点の相",
+      "kind": "炭素量での分類",
+      "tie_heading": "その点の相の組成と質量分率",
+      "micro_heading": "ゆっくり冷やしたときの室温の組織(目安)",
+      "note": "主な点(共析点 727 ℃・0.76 wt% C、共晶点 1147 ℃・4.30 wt% C、包晶 1495 ℃など)は教科書の定番の値に合わせ、線はその点を通る直線や滑らかな曲線で近似しています。実際の線とは数℃〜数十℃ずれることがあり、合金元素を含む実用鋼では線の位置そのものが変わります。",
+      "practice": "状態図の問題を解く",
+      "related": "関連する用語",
+      "js": {
+        "chart_title": "Fe–Fe₃C系状態図(準安定系、主な点を通る近似)",
+        "axis_c": "炭素量 (wt% C)",
+        "axis_t": "温度 (℃)",
+        "pt_eutectoid": "共析点",
+        "pt_eutectic": "共晶点",
+        "pt_peritectic": "包晶",
+        "tap": "図をクリック/タップすると、その点を選べます。色の付いた部分が、選んだ点のある領域です。",
+        "hidden": "この点は拡大表示の範囲(0〜2.2 wt% C)の外にあります。表示範囲を「全体」にすると見えます。",
+        "out_range": "炭素量は0〜6.70 wt%、温度は400〜1600 ℃の範囲で入れてください。",
+        "single": "単相領域です。相は1つなので、その質量分率は100 %です。",
+        "two": "二相領域です。この温度のタイライン(水平線)の両端が、共存する2相の組成です。",
+        "inv_peritectic": "包晶温度(1495 ℃)ちょうどの水平線上で、δ・γ・Lの3相が共存します(冷却時に δ + L → γ)。3相が共存するので、てこの規則だけでは分率は決まりません。",
+        "inv_eutectic": "共晶温度(1147 ℃)ちょうどの水平線上で、L・γ・Fe₃Cの3相が共存します(冷却時に L → γ + Fe₃C)。3相が共存するので、てこの規則だけでは分率は決まりません。",
+        "inv_eutectoid": "共析温度(727 ℃)ちょうどの水平線上で、α・γ・Fe₃Cの3相が共存します(冷却時に γ → α + Fe₃C)。3相が共存するので、てこの規則だけでは分率は決まりません。",
+        "col_phase": "相",
+        "col_comp": "炭素量",
+        "col_frac": "質量分率",
+        "col_micro": "組織",
+        "ph_alpha": "フェライト α",
+        "ph_gamma": "オーステナイト γ",
+        "ph_delta": "δフェライト δ",
+        "ph_L": "液相 L",
+        "ph_cem": "セメンタイト Fe₃C",
+        "kind_iron": "純鉄に近い(0.022 wt% C以下)",
+        "kind_hypo": "亜共析鋼",
+        "kind_eut": "共析鋼",
+        "kind_hyper": "過共析鋼",
+        "kind_ci_hypo": "亜共晶鋳鉄",
+        "kind_ci_eut": "共晶鋳鉄",
+        "kind_ci_hyper": "過共晶鋳鉄",
+        "kind_cem": "セメンタイト(Fe₃C)",
+        "m_ferrite": "フェライト",
+        "m_pro_a": "初析フェライト",
+        "m_pearlite": "パーライト",
+        "m_pro_c": "初析セメンタイト",
+        "m_pearlite_g": "パーライト(初晶γから)",
+        "m_sec_c": "二次セメンタイト(初晶γから)",
+        "m_led": "変態レーデブライト",
+        "m_pri_c": "初晶セメンタイト",
+        "m_cem": "セメンタイト",
+        "m_total_a": "(参考)フェライト相の全体",
+        "m_total_c": "(参考)セメンタイト相の全体",
+        "mnote_iron": "727 ℃より下ではαの炭素の固溶限がさらに小さくなるので、炭素量によっては粒界にごく少量のセメンタイトが析出します。",
+        "mnote_hypo": "初析フェライトは727 ℃の直上の α + γ 領域ですでにできていたフェライトで、残りのγ(約0.76 wt% C)が727 ℃でパーライトになります。",
+        "mnote_eut": "全体が727 ℃で γ → α + Fe₃C の共析反応を起こし、αとFe₃Cの層状のパーライトになります。",
+        "mnote_hyper": "Acm線を横切ると、γの粒界に初析セメンタイトが網目状に析出し、残りのγ(約0.76 wt% C)が727 ℃でパーライトになります。",
+        "mnote_ci_hypo": "初晶γが晶出したあと、1147 ℃で残りの液相(4.30 wt% C)がレーデブライト(γ + Fe₃C)になり、727 ℃でその中のγもパーライトに変わります。初晶γから出る二次セメンタイトは、共晶のセメンタイトとつながって見分けにくいことが多いです。",
+        "mnote_ci_eut": "全体が1147 ℃で L → γ + Fe₃C の共晶反応でレーデブライトになり、727 ℃でその中のγがパーライトに変わります。",
+        "mnote_ci_hyper": "液相から先に初晶セメンタイトが晶出し、1147 ℃で残りの液相(4.30 wt% C)がレーデブライトになります。",
+        "mnote_cem": "",
+        "mnote": "分率は727 ℃直下でのてこの規則による質量分率の目安で、黒鉛が出ない準安定系として計算しています。参考の2行は、組織の区別をせずに見たα相とFe₃C相の分率です。"
+      },
+      "sections": [
+        {
+          "h": "Fe–Fe₃C系状態図の読み方",
+          "p": "縦軸が温度、横軸が炭素量(wt%)で、右端の6.70 wt% Cは鉄と炭素の化合物セメンタイト(Fe₃C)そのものに当たります。図のある点が単相領域にあれば、その相だけが平衡状態で安定です。二相領域にあれば、その温度で水平線(タイライン)を引き、線が領域の境界と交わる両端が、共存する2相の炭素量になります。各相の量はてこの規則 Wα = (Cβ − C₀)/(Cβ − Cα) で求まります。3相が共存できるのは、1495 ℃・1147 ℃・727 ℃の3本の水平線の上だけです。"
+        },
+        {
+          "h": "3つの不変反応と純鉄の変態点",
+          "p": "1495 ℃では包晶反応 δ(0.09 wt% C) + L(0.53 wt% C) → γ(0.17 wt% C)、1147 ℃では共晶反応 L(4.30 wt% C) → γ(2.14 wt% C) + Fe₃C が起こり、共晶の組織をレーデブライトとよびます。727 ℃では共析反応 γ(0.76 wt% C) → α(0.022 wt% C) + Fe₃C が起こり、層状のパーライトができます。炭素を含まない純鉄は、912 ℃でα(BCC)とγ(FCC)、1394 ℃でγとδ(BCC)が入れ替わり、1538 ℃で融けます。γの炭素の最大固溶限2.14 wt%が、鋼と鋳鉄を分ける目安です。"
+        },
+        {
+          "h": "A1・A3・Acm線の意味",
+          "p": "A1は共析温度727 ℃の水平線で、これより下ではオーステナイトは平衡では存在しません。A3は亜共析鋼でオーステナイトからフェライトが出始める温度で、純鉄の912 ℃から共析点の727 ℃まで、炭素が増えるほど下がります。Acmは過共析鋼でオーステナイトからセメンタイトが出始める温度で、オーステナイトの炭素の固溶限を表し、727 ℃・0.76 wt%から1147 ℃・2.14 wt%まで上がります。焼なましや焼入れの加熱温度はこれらの線を基準に決めます。実際の加熱・冷却では変態が平衡の温度からずれるので、加熱時の値をAc、冷却時の値をArと書き分けます。"
+        },
+        {
+          "h": "亜共析・共析・過共析鋼の組織",
+          "p": "オーステナイトからゆっくり冷やすと、0.76 wt% Cより少ない亜共析鋼では、A3線を横切ってから727 ℃までのあいだに初析フェライトができ、残りのオーステナイトが727 ℃でパーライトになります。0.40 wt% Cなら、てこの規則で初析フェライト (0.76 − 0.40)/(0.76 − 0.022) ≈ 48.8 %、パーライト約51.2 %です。0.76 wt% Cの共析鋼はパーライトだけになります。過共析鋼ではAcm線から粒界に初析セメンタイトが出て、1.2 wt% Cなら初析セメンタイト約7.4 %、パーライト約92.6 %です。パーライトの中は、質量でフェライトが約89 %、セメンタイトが約11 %です。"
+        },
+        {
+          "h": "鋳鉄の範囲とレーデブライト",
+          "p": "2.14 wt% Cを超えると、凝固の最後に1147 ℃で共晶反応が起こります。4.30 wt% Cの共晶鋳鉄は全体がレーデブライト(γとFe₃Cの混合組織)になり、727 ℃でその中のγがパーライトに変わるので、室温では変態レーデブライトとよばれる組織になります。4.30 wt%より少ない亜共晶鋳鉄では初晶γとレーデブライト、多い過共晶鋳鉄では初晶セメンタイトとレーデブライトになります。このように炭素がすべてセメンタイトとして固まった鋳鉄は、破面が白く硬くもろい白鋳鉄です。"
+        },
+        {
+          "h": "準安定系と安定系(黒鉛)の違い",
+          "p": "セメンタイトは厳密には準安定な相で、鉄と炭素の本当の平衡はFeと黒鉛のあいだにあります。Fe–黒鉛の安定系では、共晶点が約1153 ℃・約4.2 wt% C、共析点が約738〜740 ℃・約0.65〜0.69 wt% C(資料によって少し違います)と、準安定系より少し高温・低炭素側にずれます。Siが多い、冷却がゆっくりであるといった条件では黒鉛が出やすく、組織に黒鉛を含むねずみ鋳鉄(灰鋳鉄)などになります。逆に冷却が速い場合やCr・Moなどの炭化物をつくる元素が多い場合はセメンタイトができやすくなります。鋼では黒鉛はふつう出にくいので、Fe–Fe₃C系で考えます。"
+        },
+        {
+          "h": "速く冷やすとこの図は使えない",
+          "p": "状態図は、十分にゆっくり加熱・冷却して平衡に達したときの相を表し、変態にかかる時間の情報を含みません。焼入れのように速く冷やすと、変態が平衡の温度より低温側にずれ、拡散が追いつかないまま、マルテンサイトやベイナイトといった非平衡の組織ができます。これらは状態図には出てこないので、どの組織になるかを知るには、恒温保持での変態を表すTTT図や、連続冷却での変態を表すCCT図が必要です。この図とてこの規則で求めた組織と分率は、徐冷(焼なまし)した場合の目安と考えてください。"
+        },
+        {
+          "h": "この図の近似について",
+          "p": "主な点の値は教科書でよく使われる値にそろえ、線はその点のあいだを直線で結んでいます。A3線だけは、912 ℃から727 ℃まで T = 912 − 185·(C/0.76)^0.7 の滑らかな曲線にしています。この式は両端の点を通るように選んだもので、途中の温度(例えば0.40 wt% Cで約794 ℃)は図の形に合わせた近似です。実際のA3とは十数℃ずれることがあるので、正確な値が必要なときは資料の状態図で確かめてください。727 ℃より下のαの固溶限は、0.022 wt%からほぼ0へ下がる様子を描いた模式です。4.30 wt%より右の液相線は資料によって大きく違うため、破線の目安です。Fe₃Cの炭素量は、このサイトのほかの説明や問題にそろえて6.70 wt%としています。資料によって6.67〜6.70 wt%で(Fe₃Cの化学量論からは約6.69 wt%)、共晶温度を1148 ℃、包晶温度を1493 ℃とする資料もあります。これらの違いは、分率の計算では小数点以下の差にとどまります。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "室温の組織の分率を727 ℃直下の値で計算してよいのはなぜですか?",
+          "a": "727 ℃より下では、平衡でもα相の炭素の固溶限がわずかに下がるだけで、初析フェライトやパーライトの量はほとんど変わらないからです。教科書の計算も、ふつう727 ℃直下の組成を使います。"
+        },
+        {
+          "q": "初析フェライトの分率と、フェライト相全体の分率はどう違いますか?",
+          "a": "初析フェライトは組織(顕微鏡で見分けられる部分)の分率で、0.40 wt% Cでは約48.8 %です。フェライト相全体はパーライトの中のフェライトも含めた相の分率で、両端を0.022 wt%と6.70 wt% Cにして約94 %になります。何の分率を求めるかで、タイラインの端を変えます。"
+        },
+        {
+          "q": "焼入れした鋼の組織もこの図でわかりますか?",
+          "a": "わかりません。マルテンサイトは拡散を伴わない変態でできる非平衡の組織で、状態図には現れません。焼入れ後の組織は、TTT図やCCT図と冷却速度から考えます。ただし、焼入れの前にどの温度まで加熱すればオーステナイトにできるかは、この図のA3・Acm線から読み取れます。"
+        },
+        {
+          "q": "鋼と鋳鉄の境目は何wt% Cですか?",
+          "a": "Fe–Fe₃C系では、オーステナイトの炭素の最大固溶限2.14 wt%が目安です。これより少ないと固体の状態で全体をオーステナイトにでき、多いと凝固の最後に共晶反応が起こります。資料によって2.0〜2.11 wt%とすることもあります。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Iron–carbon diagram",
+      "card": "Pick a point on the Fe–Fe₃C phase diagram to see the phases, tie line, lever rule and room-temperature microstructure",
+      "title": "Iron–Carbon Phase Diagram Viewer: Fe–Fe₃C Phases, Lever Rule and Microstructures of Steel and Cast Iron",
+      "description": "An interactive Fe–Fe₃C (metastable) phase diagram. Click the diagram or enter a carbon content and temperature to see the phases at that point, the tie line with the composition and mass fraction of each phase in a two-phase region (lever rule), and an estimate of the room-temperature microstructure after slow cooling.",
+      "h1": "Iron–Carbon Phase Diagram Viewer",
+      "lead": "This is the Fe–Fe₃C (metastable) phase diagram from 0 to 6.70 wt% C and from 400 to 1600 °C. Click or tap the diagram, or enter a carbon content and temperature, to see the phases at that point. In a two-phase region, a tie line is drawn and the compositions of the phases at its ends and their mass fractions by the lever rule are calculated. It also shows an estimate of the room-temperature microstructure when a steel or cast iron of that carbon content is cooled slowly from high temperature. The default is a 0.40 wt% C hypoeutectoid steel held at 750 °C (the α + γ two-phase region).",
+      "in_heading": "Inputs",
+      "c": "Carbon content C₀ (wt% C)",
+      "t": "Temperature (°C)",
+      "view": "Range shown",
+      "view_full": "Full 0–6.70 wt%",
+      "view_steel": "Zoom 0–2.2 wt%",
+      "out_heading": "Diagram and results",
+      "phase": "Phases at the point",
+      "kind": "Class by carbon content",
+      "tie_heading": "Composition and mass fraction of the phases at the point",
+      "micro_heading": "Room-temperature microstructure after slow cooling (estimate)",
+      "note": "The key points (eutectoid 727 °C and 0.76 wt% C, eutectic 1147 °C and 4.30 wt% C, peritectic 1495 °C, and others) follow standard textbook values, and the lines are approximated by straight lines or smooth curves through them. They may differ from the real lines by a few to a few tens of degrees, and in commercial steels containing alloying elements the lines themselves shift.",
+      "practice": "Practice phase diagram questions",
+      "related": "Related terms",
+      "js": {
+        "chart_title": "Fe–Fe₃C phase diagram (metastable system, approximated through the key points)",
+        "axis_c": "Carbon (wt% C)",
+        "axis_t": "Temperature (°C)",
+        "pt_eutectoid": "Eutectoid",
+        "pt_eutectic": "Eutectic",
+        "pt_peritectic": "Peritectic",
+        "tap": "Click or tap the diagram to pick a point. The shaded area is the region that contains the point.",
+        "hidden": "This point is outside the zoomed range (0–2.2 wt% C). Switch the range to “Full” to see it.",
+        "out_range": "Enter a carbon content of 0–6.70 wt% and a temperature of 400–1600 °C.",
+        "single": "Single-phase region. There is only one phase, so its mass fraction is 100 %.",
+        "two": "Two-phase region. The ends of the tie line (horizontal line) at this temperature give the compositions of the two coexisting phases.",
+        "inv_peritectic": "On the horizontal line exactly at the peritectic temperature (1495 °C), three phases δ, γ and L coexist (δ + L → γ on cooling). With three phases present, the lever rule alone cannot fix the fractions.",
+        "inv_eutectic": "On the horizontal line exactly at the eutectic temperature (1147 °C), three phases L, γ and Fe₃C coexist (L → γ + Fe₃C on cooling). With three phases present, the lever rule alone cannot fix the fractions.",
+        "inv_eutectoid": "On the horizontal line exactly at the eutectoid temperature (727 °C), three phases α, γ and Fe₃C coexist (γ → α + Fe₃C on cooling). With three phases present, the lever rule alone cannot fix the fractions.",
+        "col_phase": "Phase",
+        "col_comp": "Carbon",
+        "col_frac": "Mass fraction",
+        "col_micro": "Constituent",
+        "ph_alpha": "Ferrite α",
+        "ph_gamma": "Austenite γ",
+        "ph_delta": "δ-ferrite δ",
+        "ph_L": "Liquid L",
+        "ph_cem": "Cementite Fe₃C",
+        "kind_iron": "Nearly pure iron (0.022 wt% C or less)",
+        "kind_hypo": "Hypoeutectoid steel",
+        "kind_eut": "Eutectoid steel",
+        "kind_hyper": "Hypereutectoid steel",
+        "kind_ci_hypo": "Hypoeutectic cast iron",
+        "kind_ci_eut": "Eutectic cast iron",
+        "kind_ci_hyper": "Hypereutectic cast iron",
+        "kind_cem": "Cementite (Fe₃C)",
+        "m_ferrite": "Ferrite",
+        "m_pro_a": "Proeutectoid ferrite",
+        "m_pearlite": "Pearlite",
+        "m_pro_c": "Proeutectoid cementite",
+        "m_pearlite_g": "Pearlite (from primary γ)",
+        "m_sec_c": "Secondary cementite (from primary γ)",
+        "m_led": "Transformed ledeburite",
+        "m_pri_c": "Primary cementite",
+        "m_cem": "Cementite",
+        "m_total_a": "(Reference) all ferrite phase",
+        "m_total_c": "(Reference) all cementite phase",
+        "mnote_iron": "Below 727 °C the carbon solubility in α falls further, so depending on the carbon content a very small amount of cementite precipitates at grain boundaries.",
+        "mnote_hypo": "Proeutectoid ferrite is the ferrite already formed in the α + γ region just above 727 °C; the remaining γ (about 0.76 wt% C) becomes pearlite at 727 °C.",
+        "mnote_eut": "The whole alloy undergoes the eutectoid reaction γ → α + Fe₃C at 727 °C and becomes lamellar pearlite of α and Fe₃C.",
+        "mnote_hyper": "On crossing the Acm line, proeutectoid cementite precipitates as a network on the γ grain boundaries, and the remaining γ (about 0.76 wt% C) becomes pearlite at 727 °C.",
+        "mnote_ci_hypo": "After primary γ forms, the remaining liquid (4.30 wt% C) becomes ledeburite (γ + Fe₃C) at 1147 °C, and at 727 °C the γ in it also changes to pearlite. The secondary cementite from primary γ often joins the eutectic cementite and is hard to tell apart.",
+        "mnote_ci_eut": "The whole alloy becomes ledeburite by the eutectic reaction L → γ + Fe₃C at 1147 °C, and at 727 °C the γ in it changes to pearlite.",
+        "mnote_ci_hyper": "Primary cementite forms from the liquid first, and the remaining liquid (4.30 wt% C) becomes ledeburite at 1147 °C.",
+        "mnote_cem": "",
+        "mnote": "The fractions are estimates of mass fractions by the lever rule just below 727 °C, calculated for the metastable system with no graphite. The two reference rows are the fractions of the α phase and Fe₃C phase without distinguishing microstructural constituents."
+      },
+      "sections": [
+        {
+          "h": "How to read the Fe–Fe₃C phase diagram",
+          "p": "The vertical axis is temperature and the horizontal axis is carbon content (wt%); the right edge at 6.70 wt% C corresponds to the iron–carbon compound cementite (Fe₃C) itself. If a point lies in a single-phase region, only that phase is stable at equilibrium. If it lies in a two-phase region, draw a horizontal line (tie line) at that temperature: its ends, where it meets the region boundaries, give the carbon contents of the two coexisting phases. The amount of each phase follows from the lever rule Wα = (Cβ − C₀)/(Cβ − Cα). Three phases can coexist only on the three horizontal lines at 1495 °C, 1147 °C and 727 °C."
+        },
+        {
+          "h": "The three invariant reactions and the transformation points of pure iron",
+          "p": "At 1495 °C the peritectic reaction δ (0.09 wt% C) + L (0.53 wt% C) → γ (0.17 wt% C) occurs, and at 1147 °C the eutectic reaction L (4.30 wt% C) → γ (2.14 wt% C) + Fe₃C; the eutectic structure is called ledeburite. At 727 °C the eutectoid reaction γ (0.76 wt% C) → α (0.022 wt% C) + Fe₃C forms lamellar pearlite. Pure iron with no carbon changes between α (BCC) and γ (FCC) at 912 °C and between γ and δ (BCC) at 1394 °C, and melts at 1538 °C. The maximum carbon solubility in γ, 2.14 wt%, is the usual dividing line between steel and cast iron."
+        },
+        {
+          "h": "What the A1, A3 and Acm lines mean",
+          "p": "A1 is the horizontal line at the eutectoid temperature of 727 °C; below it, austenite does not exist at equilibrium. A3 is the temperature at which ferrite starts to form from austenite in a hypoeutectoid steel; it falls from 912 °C for pure iron to 727 °C at the eutectoid point as carbon increases. Acm is the temperature at which cementite starts to form from austenite in a hypereutectoid steel; it is the carbon solubility limit of austenite and rises from 727 °C at 0.76 wt% to 1147 °C at 2.14 wt%. Heating temperatures for annealing and hardening are chosen with reference to these lines. In real heating and cooling the transformations shift from the equilibrium temperatures, so the values on heating are written Ac and those on cooling Ar."
+        },
+        {
+          "h": "Microstructures of hypoeutectoid, eutectoid and hypereutectoid steels",
+          "p": "On slow cooling from austenite, a hypoeutectoid steel with less than 0.76 wt% C forms proeutectoid ferrite between crossing the A3 line and reaching 727 °C, and the remaining austenite becomes pearlite at 727 °C. For 0.40 wt% C, the lever rule gives proeutectoid ferrite (0.76 − 0.40)/(0.76 − 0.022) ≈ 48.8 % and pearlite about 51.2 %. A eutectoid steel at 0.76 wt% C becomes all pearlite. In a hypereutectoid steel, proeutectoid cementite forms on grain boundaries from the Acm line; for 1.2 wt% C it is about 7.4 % proeutectoid cementite and about 92.6 % pearlite. Pearlite itself is about 89 % ferrite and 11 % cementite by mass."
+        },
+        {
+          "h": "The cast iron range and ledeburite",
+          "p": "Above 2.14 wt% C, a eutectic reaction occurs at 1147 °C at the end of solidification. A eutectic cast iron at 4.30 wt% C becomes entirely ledeburite (a mixture of γ and Fe₃C), and since the γ in it changes to pearlite at 727 °C, the room-temperature structure is called transformed ledeburite. A hypoeutectic cast iron below 4.30 wt% consists of primary γ and ledeburite, and a hypereutectic one above 4.30 wt% of primary cementite and ledeburite. Cast iron that solidifies with all its carbon as cementite in this way is white cast iron, with a white fracture surface, hard and brittle."
+        },
+        {
+          "h": "Metastable versus stable (graphite) systems",
+          "p": "Strictly, cementite is a metastable phase, and the true equilibrium of iron and carbon is between Fe and graphite. In the stable Fe–graphite system, the eutectic is at about 1153 °C and about 4.2 wt% C and the eutectoid at about 738–740 °C and about 0.65–0.69 wt% C (the values differ slightly between sources), slightly higher in temperature and lower in carbon than in the metastable system. Graphite forms more easily with more Si and slower cooling, giving gray cast iron and others that contain graphite. Conversely, fast cooling or much of a carbide-forming element such as Cr or Mo favors cementite. In steels graphite usually forms with difficulty, so the Fe–Fe₃C system is used."
+        },
+        {
+          "h": "With fast cooling this diagram does not apply",
+          "p": "A phase diagram shows the phases reached at equilibrium with sufficiently slow heating and cooling, and contains no information on the time transformations take. With fast cooling, as in quenching, transformations shift to temperatures below equilibrium and, with diffusion unable to keep up, nonequilibrium structures such as martensite and bainite form. These do not appear on the phase diagram, so to know which structure results you need a TTT diagram, for transformations during isothermal holding, or a CCT diagram, for transformations during continuous cooling. Treat the structures and fractions found with this diagram and the lever rule as estimates for slow cooling (annealing)."
+        },
+        {
+          "h": "About the approximations in this diagram",
+          "p": "The values of the key points follow those commonly used in textbooks, and the lines join these points with straight lines. Only the A3 line is a smooth curve from 912 °C to 727 °C, T = 912 − 185·(C/0.76)^0.7. This formula was chosen to pass through the two end points, and the temperatures in between (for example about 794 °C at 0.40 wt% C) are an approximation fitted to the shape of the diagram. They may differ from the real A3 by ten or more degrees, so check a published diagram when you need an exact value. The carbon solubility of α below 727 °C is a schematic showing it falling from 0.022 wt% to nearly zero. The liquidus to the right of 4.30 wt% differs widely between sources and is shown as a dashed guide. The carbon content of Fe₃C is taken as 6.70 wt% to match the other explanations and questions on this site. Sources give 6.67–6.70 wt% (about 6.69 wt% from the stoichiometry of Fe₃C), and some sources also give the eutectic as 1148 °C and the peritectic as 1493 °C. These differences change the calculated fractions only in the decimal places."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why can the room-temperature fractions be calculated with the values just below 727 °C?",
+          "a": "Because below 727 °C the carbon solubility of the α phase falls only slightly even at equilibrium, so the amounts of proeutectoid ferrite and pearlite hardly change. Textbook calculations also usually use the compositions just below 727 °C."
+        },
+        {
+          "q": "How does the fraction of proeutectoid ferrite differ from the fraction of all ferrite phase?",
+          "a": "Proeutectoid ferrite is the fraction of a microstructural constituent (a part distinguishable under the microscope), about 48.8 % for 0.40 wt% C. All ferrite phase is the phase fraction including the ferrite inside pearlite; with the ends at 0.022 wt% and 6.70 wt% C it is about 94 %. Which ends of the tie line you use depends on which fraction you want."
+        },
+        {
+          "q": "Can this diagram tell me the structure of a quenched steel?",
+          "a": "No. Martensite is a nonequilibrium structure formed by a diffusionless transformation and does not appear on the phase diagram. The structure after quenching is considered with TTT or CCT diagrams and the cooling rate. What you can read from this diagram's A3 and Acm lines is how high to heat before quenching to make the steel austenite."
+        },
+        {
+          "q": "At what wt% C is the boundary between steel and cast iron?",
+          "a": "In the Fe–Fe₃C system, the maximum carbon solubility of austenite, 2.14 wt%, is the usual guide. Below it the whole alloy can be made austenite in the solid state; above it a eutectic reaction occurs at the end of solidification. Some sources use 2.0–2.11 wt%."
+        }
+      ]
+    },
+    "zh-hant": {
+      "nav": "鐵–碳相圖",
+      "card": "在Fe–Fe₃C系相圖上選點，顯示相、連結線、槓桿法則與室溫組織",
+      "title": "鐵–碳相圖檢視工具（Fe–Fe₃C系的相、槓桿法則、鋼與鑄鐵的組織）",
+      "description": "以可操作的圖顯示Fe–Fe₃C系（介穩系）相圖。點選圖或輸入含碳量與溫度，即顯示該點的相、兩相區的連結線與各相的成分與質量分率（槓桿法則），以及緩慢冷卻時室溫組織與分率的估計。",
+      "h1": "鐵–碳相圖檢視工具",
+      "lead": "這是含碳量0〜6.70 wt%、溫度400〜1600 ℃的Fe–Fe₃C系（介穩系）相圖。點選圖，或以數值輸入含碳量與溫度，即顯示該點的相；若在兩相區，則畫出連結線，計算兩端各相的成分與槓桿法則求得的質量分率。同時也顯示該含碳量的鋼或鑄鐵由高溫緩慢冷卻時室溫組織的估計。預設值是將0.40 wt% C的亞共析鋼保持在750 ℃的點（α + γ 兩相區）。",
+      "in_heading": "輸入",
+      "c": "含碳量 C₀ (wt% C)",
+      "t": "溫度 (℃)",
+      "view": "顯示範圍",
+      "view_full": "全體 0〜6.70 wt%",
+      "view_steel": "放大 0〜2.2 wt%",
+      "out_heading": "相圖與結果",
+      "phase": "該點的相",
+      "kind": "依含碳量的分類",
+      "tie_heading": "該點各相的成分與質量分率",
+      "micro_heading": "緩慢冷卻時的室溫組織（估計）",
+      "note": "主要的點（共析點 727 ℃、0.76 wt% C，共晶點 1147 ℃、4.30 wt% C，包晶 1495 ℃等）採用教科書常用的值，各線以通過這些點的直線或平滑曲線近似。與實際的線可能相差數℃至數十℃，含合金元素的實用鋼中，線的位置本身也會改變。",
+      "practice": "練習相圖的題目",
+      "related": "相關名詞",
+      "js": {
+        "chart_title": "Fe–Fe₃C系相圖（介穩系，通過主要點的近似）",
+        "axis_c": "含碳量 (wt% C)",
+        "axis_t": "溫度 (℃)",
+        "pt_eutectoid": "共析點",
+        "pt_eutectic": "共晶點",
+        "pt_peritectic": "包晶",
+        "tap": "點選圖即可選擇該點。著色的部分是所選點所在的區域。",
+        "hidden": "此點在放大顯示的範圍（0〜2.2 wt% C）之外。將顯示範圍改為「全體」即可看到。",
+        "out_range": "請在含碳量0〜6.70 wt%、溫度400〜1600 ℃的範圍內輸入。",
+        "single": "單相區。只有1個相，其質量分率為100 %。",
+        "two": "兩相區。此溫度下連結線（水平線）的兩端，是共存2相的成分。",
+        "inv_peritectic": "在正好位於包晶溫度（1495 ℃）的水平線上，δ、γ、L 3相共存（冷卻時 δ + L → γ）。由於3相共存，只用槓桿法則無法決定分率。",
+        "inv_eutectic": "在正好位於共晶溫度（1147 ℃）的水平線上，L、γ、Fe₃C 3相共存（冷卻時 L → γ + Fe₃C）。由於3相共存，只用槓桿法則無法決定分率。",
+        "inv_eutectoid": "在正好位於共析溫度（727 ℃）的水平線上，α、γ、Fe₃C 3相共存（冷卻時 γ → α + Fe₃C）。由於3相共存，只用槓桿法則無法決定分率。",
+        "col_phase": "相",
+        "col_comp": "含碳量",
+        "col_frac": "質量分率",
+        "col_micro": "組織",
+        "ph_alpha": "肥粒鐵 α",
+        "ph_gamma": "沃斯田鐵 γ",
+        "ph_delta": "δ肥粒鐵 δ",
+        "ph_L": "液相 L",
+        "ph_cem": "雪明碳鐵 Fe₃C",
+        "kind_iron": "接近純鐵（0.022 wt% C以下）",
+        "kind_hypo": "亞共析鋼",
+        "kind_eut": "共析鋼",
+        "kind_hyper": "過共析鋼",
+        "kind_ci_hypo": "亞共晶鑄鐵",
+        "kind_ci_eut": "共晶鑄鐵",
+        "kind_ci_hyper": "過共晶鑄鐵",
+        "kind_cem": "雪明碳鐵（Fe₃C）",
+        "m_ferrite": "肥粒鐵",
+        "m_pro_a": "初析肥粒鐵",
+        "m_pearlite": "波來鐵",
+        "m_pro_c": "初析雪明碳鐵",
+        "m_pearlite_g": "波來鐵（來自初晶γ）",
+        "m_sec_c": "二次雪明碳鐵（來自初晶γ）",
+        "m_led": "變態粒滴斑鐵",
+        "m_pri_c": "初晶雪明碳鐵",
+        "m_cem": "雪明碳鐵",
+        "m_total_a": "（參考）肥粒鐵相全體",
+        "m_total_c": "（參考）雪明碳鐵相全體",
+        "mnote_iron": "在727 ℃以下，α的碳固溶限變得更小，因此依含碳量不同，晶界上會析出極少量的雪明碳鐵。",
+        "mnote_hypo": "初析肥粒鐵是在剛高於727 ℃的 α + γ 區中已經生成的肥粒鐵，其餘的γ（約0.76 wt% C）在727 ℃變成波來鐵。",
+        "mnote_eut": "整體在727 ℃發生 γ → α + Fe₃C 的共析反應，成為α與Fe₃C的層狀波來鐵。",
+        "mnote_hyper": "穿過Acm線後，初析雪明碳鐵在γ的晶界上呈網狀析出，其餘的γ（約0.76 wt% C）在727 ℃變成波來鐵。",
+        "mnote_ci_hypo": "初晶γ晶出後，其餘的液相（4.30 wt% C）在1147 ℃變成粒滴斑鐵（γ + Fe₃C），在727 ℃其中的γ也變成波來鐵。由初晶γ析出的二次雪明碳鐵，常與共晶的雪明碳鐵相連而難以分辨。",
+        "mnote_ci_eut": "整體在1147 ℃經 L → γ + Fe₃C 的共晶反應變成粒滴斑鐵，在727 ℃其中的γ變成波來鐵。",
+        "mnote_ci_hyper": "由液相先晶出初晶雪明碳鐵，其餘的液相（4.30 wt% C）在1147 ℃變成粒滴斑鐵。",
+        "mnote_cem": "",
+        "mnote": "分率是以剛低於727 ℃時的槓桿法則求得的質量分率估計，以不生成石墨的介穩系計算。參考的2列，是不區分組織時α相與Fe₃C相的分率。"
+      },
+      "sections": [
+        {
+          "h": "Fe–Fe₃C系相圖的讀法",
+          "p": "縱軸是溫度，橫軸是含碳量（wt%），右端的6.70 wt% C相當於鐵與碳的化合物雪明碳鐵（Fe₃C）本身。圖上某點若位於單相區，在平衡狀態下只有該相穩定。若位於兩相區，則在該溫度畫水平線（連結線），線與區域邊界相交的兩端，就是共存2相的含碳量。各相的量以槓桿法則 Wα = (Cβ − C₀)/(Cβ − Cα) 求得。3相能夠共存的，只有1495 ℃、1147 ℃、727 ℃這3條水平線上。"
+        },
+        {
+          "h": "3個不變反應與純鐵的變態點",
+          "p": "在1495 ℃發生包晶反應 δ（0.09 wt% C）+ L（0.53 wt% C）→ γ（0.17 wt% C），在1147 ℃發生共晶反應 L（4.30 wt% C）→ γ（2.14 wt% C）+ Fe₃C，共晶的組織稱為粒滴斑鐵。在727 ℃發生共析反應 γ（0.76 wt% C）→ α（0.022 wt% C）+ Fe₃C，生成層狀的波來鐵。不含碳的純鐵在912 ℃時α（BCC）與γ（FCC）互換，在1394 ℃時γ與δ（BCC）互換，在1538 ℃熔化。γ的碳最大固溶限2.14 wt%，是區分鋼與鑄鐵的基準。"
+        },
+        {
+          "h": "A1、A3、Acm線的意義",
+          "p": "A1是共析溫度727 ℃的水平線，在此溫度以下，平衡時不存在沃斯田鐵。A3是亞共析鋼中由沃斯田鐵開始生成肥粒鐵的溫度，從純鐵的912 ℃到共析點的727 ℃，含碳越多越低。Acm是過共析鋼中由沃斯田鐵開始生成雪明碳鐵的溫度，表示沃斯田鐵的碳固溶限，從727 ℃、0.76 wt%上升到1147 ℃、2.14 wt%。退火與淬火的加熱溫度，以這些線為基準來決定。實際加熱與冷卻時，變態會偏離平衡溫度，因此加熱時的值寫成Ac、冷卻時的值寫成Ar來區分。"
+        },
+        {
+          "h": "亞共析、共析、過共析鋼的組織",
+          "p": "由沃斯田鐵緩慢冷卻時，含碳少於0.76 wt%的亞共析鋼，在穿過A3線到727 ℃之間生成初析肥粒鐵，其餘的沃斯田鐵在727 ℃變成波來鐵。0.40 wt% C時，由槓桿法則得初析肥粒鐵 (0.76 − 0.40)/(0.76 − 0.022) ≈ 48.8 %，波來鐵約51.2 %。0.76 wt% C的共析鋼全部變成波來鐵。過共析鋼從Acm線開始在晶界上生成初析雪明碳鐵，1.2 wt% C時初析雪明碳鐵約7.4 %，波來鐵約92.6 %。波來鐵本身以質量計，肥粒鐵約89 %、雪明碳鐵約11 %。"
+        },
+        {
+          "h": "鑄鐵的範圍與粒滴斑鐵",
+          "p": "含碳超過2.14 wt%時，凝固的最後在1147 ℃發生共晶反應。4.30 wt% C的共晶鑄鐵全部變成粒滴斑鐵（γ與Fe₃C的混合組織），在727 ℃其中的γ變成波來鐵，因此室溫下成為稱為變態粒滴斑鐵的組織。少於4.30 wt%的亞共晶鑄鐵由初晶γ與粒滴斑鐵構成，多於4.30 wt%的過共晶鑄鐵由初晶雪明碳鐵與粒滴斑鐵構成。像這樣碳全部以雪明碳鐵的形式凝固的鑄鐵，是破斷面呈白色、硬而脆的白鑄鐵。"
+        },
+        {
+          "h": "介穩系與穩定系（石墨）的差異",
+          "p": "嚴格來說，雪明碳鐵是介穩的相，鐵與碳真正的平衡是在Fe與石墨之間。在Fe–石墨的穩定系中，共晶點約為1153 ℃、約4.2 wt% C，共析點約為738〜740 ℃、約0.65〜0.69 wt% C（各資料的值略有不同），比介穩系稍微偏向高溫、低碳側。Si多、冷卻緩慢等條件下容易生成石墨，成為組織中含石墨的灰鑄鐵等。反之，冷卻快或Cr、Mo等形成碳化物的元素多時，容易生成雪明碳鐵。鋼中通常不易生成石墨，因此以Fe–Fe₃C系來考慮。"
+        },
+        {
+          "h": "快速冷卻時不能使用此圖",
+          "p": "相圖表示充分緩慢加熱、冷卻而達到平衡時的相，不包含變態所需時間的資訊。像淬火那樣快速冷卻時，變態偏向比平衡溫度更低的溫度，在擴散跟不上的情況下，生成麻田散鐵或變韌鐵等非平衡組織。這些不出現在相圖上，要知道會成為何種組織，需要表示恆溫保持時變態的TTT圖，或表示連續冷卻時變態的CCT圖。以此圖與槓桿法則求得的組織與分率，請視為緩慢冷卻（退火）時的估計。"
+        },
+        {
+          "h": "關於此圖的近似",
+          "p": "主要點的值採用教科書常用的值，各線以直線連接這些點。只有A3線是從912 ℃到727 ℃的平滑曲線 T = 912 − 185·(C/0.76)^0.7。此式是為了通過兩端的點而選定，中間的溫度（例如0.40 wt% C時約794 ℃）是配合相圖形狀的近似，與實際的A3可能相差十數℃，需要精確值時，請以資料中的相圖確認。727 ℃以下α的碳固溶限，是表示從0.022 wt%降到接近0的示意。4.30 wt%右側的液相線因資料差異很大，以虛線作為參考。Fe₃C的含碳量配合本網站其他說明與題目取6.70 wt%。各資料的值在6.67〜6.70 wt%之間（由Fe₃C的化學計量約為6.69 wt%），也有資料把共晶溫度定為1148 ℃、包晶溫度定為1493 ℃。這些差異在分率的計算中只造成小數點以下的差。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "為什麼可以用剛低於727 ℃時的值計算室溫組織的分率？",
+          "a": "因為在727 ℃以下，即使在平衡時α相的碳固溶限也只稍微降低，初析肥粒鐵與波來鐵的量幾乎不變。教科書的計算通常也使用剛低於727 ℃時的成分。"
+        },
+        {
+          "q": "初析肥粒鐵的分率與肥粒鐵相全體的分率有何不同？",
+          "a": "初析肥粒鐵是組織（在顯微鏡下可分辨的部分）的分率，0.40 wt% C時約為48.8 %。肥粒鐵相全體是連波來鐵中的肥粒鐵也包含在內的相分率，兩端取0.022 wt%與6.70 wt% C，約為94 %。依要求的是哪一種分率，改變連結線的端點。"
+        },
+        {
+          "q": "淬火後鋼的組織也能由此圖得知嗎？",
+          "a": "不能。麻田散鐵是由不伴隨擴散的變態生成的非平衡組織，不出現在相圖上。淬火後的組織要由TTT圖或CCT圖與冷卻速度來考慮。不過，淬火前要加熱到什麼溫度才能變成沃斯田鐵，可以由此圖的A3、Acm線讀出。"
+        },
+        {
+          "q": "鋼與鑄鐵的分界是幾wt% C？",
+          "a": "在Fe–Fe₃C系中，以沃斯田鐵的碳最大固溶限2.14 wt%為基準。低於此值時，可在固態下使整體成為沃斯田鐵；高於此值時，凝固的最後會發生共晶反應。也有資料取2.0〜2.11 wt%。"
+        }
+      ]
+    }
+  }
+}

@@ -1245,16 +1245,19 @@ ${x.faq?.length ? `<section class="faq">
   const select = (name, label, options, value) => `<label class="dy-field"><span>${esc(label)}</span><select name="${name}">${options.map(([v, text]) => `<option value="${v}"${v === value ? ' selected' : ''}>${esc(text)}</option>`).join('')}</select></label>`;
   const stat = (key, label) => `<div><dt>${esc(label)}</dt><dd data-out="${key}">–</dd></div>`;
   // 入力欄と結果の枠を data/tools/{ID}.json の form から作る(toolBody に専用の形がないツール)。
-  // form: { id, fields: [{ name, value, attrs?, options?: [値…] }], outputs: [{ heading?, stats: [名前…] }], note? }
+  // form: { id, fields: [{ name, value, attrs?, options?: [値…], type?: 'text' }], outputs: [{ heading?, stats: [名前…], box?: 名前 }], note? }
+  // type 'text' は文字の入力欄(記号の読み方など)。box は JS が中身を書く枠(表や説明の並び)
   // 文言は text の name(入力)・stat 名の - を _ にしたもの(結果)・{name}_{値}(選択肢)・heading と note のキー。
   // JS で使う文言は text.js に書くと、form の data-text に入る
   const formBody = (f, x) => `<form id="${f.id}" class="dy-form"${x.js ? ` data-text="${esc(JSON.stringify(x.js))}"` : ''}>
     <h2>${esc(x.in_heading)}</h2>
-    ${f.fields.map(y => (y.options ? select(y.name, x[y.name], y.options.map(v => [v, x[`${y.name}_${v}`] ?? v]), y.value) : field(y.name, x[y.name], y.value, y.attrs ?? ''))).join('\n    ')}
+    ${f.fields.map(y => (y.options ? select(y.name, x[y.name], y.options.map(v => [v, x[`${y.name}_${v}`] ?? v]), y.value)
+      : y.type === 'text' ? `<label class="dy-field"><span>${esc(x[y.name])}</span><input name="${y.name}" type="text" value="${esc(y.value)}" autocomplete="off" spellcheck="false" ${y.attrs ?? ''}></label>`
+      : field(y.name, x[y.name], y.value, y.attrs ?? ''))).join('\n    ')}
   </form>
   <section class="dy-out" aria-live="polite">
     <h2>${esc(x.out_heading)}</h2>${f.outputs.map(o => `${o.heading ? `\n    <h3>${esc(x[o.heading])}</h3>` : ''}
-    <dl class="dy-stats">${o.stats.map(k => stat(k, x[k.replaceAll('-', '_')])).join('')}</dl>`).join('')}${f.svg ? `
+    ${o.stats?.length ? `<dl class="dy-stats">${o.stats.map(k => stat(k, x[k.replaceAll('-', '_')])).join('')}</dl>` : ''}${o.box ? `<div class="dy-box" data-out="${o.box}"></div>` : ''}`).join('')}${f.svg ? `
     <svg id="${f.svg}" class="sta-chart" viewBox="0 0 600 320" role="img" aria-label="${esc(x.chart_label ?? x.h1)}"></svg>` : ''}${f.note ? `
     <p class="muted">${esc(x[f.note])}</p>` : ''}
   </section>`;
