@@ -1588,3 +1588,120 @@ th[aria-sort] .md-sort-i { color: var(--accent); }
   html.fm-print-sel .fm-card:not(.is-picked), html.fm-print-sel .fm-group:not(.has-picked) { display: none !important; }
   html.fm-print-sel .fm-card.is-picked { display: block !important; }
 }
+/* 材料英語の表現集(/phrases/)。表現のカード・検索・お気に入り・差し込み欄・英文の点検。動きは phrases.js */
+.ph-app { display: grid; gap: 12px; margin: 1rem 0; }
+.ph-find, .ph-sel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; min-width: 0; }
+.ph-q { display: grid; gap: 4px; font-size: .88rem; color: var(--muted); }
+.ph-q input, .ph-fill-grid input { font: inherit; font-size: 1rem; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; min-height: 44px; width: 100%; min-width: 0; box-sizing: border-box; }
+.ph-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.ph-chips .chip { min-height: 36px; }
+.ph-count { margin: 8px 0 0; font-size: .85rem; font-variant-numeric: tabular-nums; }
+.ph-sel { display: grid; gap: 8px; }
+.ph-sel p { margin: 0; }
+.ph-fav-n { font-weight: 700; }
+.ph-only { display: flex; align-items: center; gap: 6px; min-height: 36px; font-size: .92rem; }
+.ph-only input { accent-color: var(--accent); width: 18px; height: 18px; margin: 0; }
+.ph-sel-btns, .ph-check-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.ph-msg { padding: 8px 12px; border-radius: 10px; background: var(--accent-soft); font-size: .9rem; }
+.ph-none { margin: 1rem 0; }
+.ph-group h2 { scroll-margin-top: 12px; }
+.ph-n { font-size: .8rem; font-weight: 600; color: var(--muted); }
+.ph-glead { color: var(--muted); font-size: .9rem; line-height: 1.75; margin: -.2rem 0 .8rem; }
+.ph-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin: 0 0 12px; min-width: 0; scroll-margin-top: 12px; }
+.ph-card:target { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.ph-card.is-fav { border-color: var(--accent); }
+.ph-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.ph-head h3 { margin: 0; font-size: 1.02rem; line-height: 1.55; min-width: 0; }
+.ph-head h3 a { color: inherit; text-decoration: none; }
+.ph-head h3 a:hover { text-decoration: underline; }
+.ph-fav { display: none; flex: none; align-items: center; gap: 4px; font: inherit; font-size: .85rem; color: var(--text); background: var(--surface); min-height: 36px; padding: 0 10px; border: 1px solid var(--border); border-radius: 999px; cursor: pointer; white-space: nowrap; }
+.ph-fav[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.ph-star { color: var(--accent); font-size: 1rem; line-height: 1; }
+.ph-tools { display: none; flex-wrap: wrap; align-items: center; gap: 8px; margin: 8px 0 0; }
+.ph-js .ph-fav { display: inline-flex; }
+.ph-js .ph-tools { display: flex; }
+.ph-copied { font-size: .85rem; color: var(--ok); }
+.ph-pat, .ph-ex { margin: 10px 0 0; line-height: 1.7; overflow-wrap: anywhere; }
+.ph-pat { padding: 8px 12px; background: var(--bg); border-radius: 10px; }
+.ph-ex { font-size: 1.02rem; }
+.ph-lab { display: inline-block; margin-right: 6px; font-size: .75rem; font-weight: 700; color: var(--muted); border: 1px solid var(--border); border-radius: 6px; padding: 0 6px; vertical-align: 1px; }
+.ph-slot { color: var(--accent); font-weight: 700; }
+.ph-fill { margin: 10px 0 0; padding: 10px 12px; border: 1px dashed var(--border); border-radius: 10px; display: grid; gap: 8px; }
+.ph-fill-grid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.ph-fill-grid label { display: grid; gap: 2px; font-size: .82rem; color: var(--muted); min-width: 0; }
+.ph-made { font-size: .78rem; font-weight: 700; color: var(--muted); }
+.ph-out { margin: 0; font-size: 1.02rem; line-height: 1.7; overflow-wrap: anywhere; }
+.ph-fill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.ph-more { margin: 10px 0 0; display: grid; gap: 6px; font-size: .92rem; line-height: 1.75; }
+.ph-more dt { font-weight: 700; font-size: .85rem; }
+.ph-more dd { margin: 0; overflow-wrap: anywhere; }
+.ph-mis { display: grid; gap: 2px; }
+.ph-w b, .ph-r b { display: inline-block; min-width: 1.6em; margin-right: 6px; font-size: .78rem; text-align: center; border-radius: 6px; padding: 0 4px; }
+.ph-w b { color: var(--ng); background: var(--ng-bg); }
+.ph-r b { color: var(--ok); background: var(--ok-bg); }
+.ph-w span { color: var(--muted); }
+.ph-terms { margin: 8px 0 0; font-size: .88rem; }
+.ph-terms b { margin-right: 4px; }
+.ph-check-sec { margin-top: 2rem; }
+.ph-privacy { padding: 8px 12px; border-radius: 10px; background: var(--ok-bg); font-size: .9rem; }
+.ph-check-ui { display: grid; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; min-width: 0; }
+.ph-text-label { font-size: .88rem; color: var(--muted); }
+#ph-text { font: inherit; font-size: 1rem; line-height: 1.6; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; width: 100%; min-width: 0; box-sizing: border-box; resize: vertical; }
+.ph-check-msg { margin: 0; font-weight: 700; }
+.ph-marked { padding: 10px 12px; background: var(--bg); border-radius: 10px; line-height: 1.9; white-space: pre-wrap; overflow-wrap: anywhere; }
+.ph-marked mark { color: var(--text); border-radius: 4px; padding: 0 2px; }
+.ph-marked mark sup { font-size: .68em; font-weight: 700; margin-left: 1px; }
+.ph-m-error { background: var(--ng-bg); box-shadow: inset 0 -2px 0 var(--ng); }
+.ph-m-style { background: var(--accent-soft); box-shadow: inset 0 -2px 0 var(--accent); }
+.ph-m-hint { background: var(--ok-bg); box-shadow: inset 0 -2px 0 var(--ok); }
+.ph-res { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.ph-hit { border: 1px solid var(--border); border-left-width: 4px; border-radius: 10px; padding: 8px 12px; font-size: .9rem; line-height: 1.7; min-width: 0; }
+.ph-hit p { margin: 2px 0; overflow-wrap: anywhere; }
+.ph-hit-error { border-left-color: var(--ng); }
+.ph-hit-style { border-left-color: var(--accent); }
+.ph-hit-hint { border-left-color: var(--ok); }
+.ph-hit-s code { font-size: .95em; }
+.ph-lv { display: inline-block; font-size: .72rem; font-weight: 700; border-radius: 6px; padding: 0 6px; white-space: nowrap; }
+.ph-lv-error { color: var(--ng); background: var(--ng-bg); }
+.ph-lv-style { color: var(--accent); background: var(--accent-soft); }
+.ph-lv-hint { color: var(--ok); background: var(--ok-bg); }
+.ph-fixed { display: grid; gap: 6px; justify-items: start; }
+.ph-fixed h3 { margin: 4px 0 0; font-size: .95rem; }
+.ph-fixed-text { margin: 0; padding: 10px 12px; background: var(--bg); border-radius: 10px; line-height: 1.8; white-space: pre-wrap; overflow-wrap: anywhere; justify-self: stretch; }
+.ph-fixed-msg { font-size: .85rem; color: var(--ok); }
+.ph-rules { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.ph-rules th, .ph-rules td { padding: 7px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; line-height: 1.65; }
+.ph-rules thead th { font-size: .8rem; color: var(--muted); font-weight: 600; }
+.ph-rules td:first-child { min-width: 9em; }
+.ph-rule-ex { min-width: 11em; overflow-wrap: anywhere; }
+.ph-guide p { line-height: 1.85; }
+@media (max-width: 520px) {
+  .ph-card, .ph-check-ui { padding: 12px; }
+  .ph-sel-btns .btn, .ph-check-btns .btn { flex: 1 1 auto; }
+  .ph-head { flex-wrap: wrap; }
+  .ph-rules th, .ph-rules td { padding: 6px; }
+}
+/* 印刷: 表現集のページだけ。ヘッダー・広告・検索欄・点検・読み物は出さず、表現のカードを2段に並べる。
+   「お気に入りを印刷」は html.ph-print-fav、「表示中の表現を印刷」は html.ph-print-shown(phrases.js) */
+@media print {
+  body:has(#ph-list) { background: #fff; color: #000; font-size: 9pt; }
+  body:has(#ph-list) .site-header, body:has(#ph-list) .site-footer, body:has(#ph-list) .lang-banner,
+  body:has(#ph-list) main > :not(h1):not(#ph-list), body:has(#ph-list) [data-ad], body:has(#ph-list) ins.adsbygoogle { display: none !important; }
+  body:has(#ph-list) main { max-width: none; padding: 0; margin: 0; }
+  body:has(#ph-list) h1 { font-size: 13pt; margin: 0 0 3mm; }
+  #ph-list, #ph-list * { color: #000 !important; background: transparent !important; box-shadow: none !important; }
+  #ph-list { columns: 2; column-gap: 7mm; }
+  .ph-group h2 { font-size: 10.5pt; margin: 0 0 2mm; break-after: avoid; }
+  .ph-n, .ph-glead, .ph-fav, .ph-tools, .ph-fill, .ph-terms { display: none !important; }
+  .ph-card { border: 0; border-bottom: .4pt solid #999; border-radius: 0; padding: 0 0 2mm; margin: 0 0 2.5mm; break-inside: avoid; }
+  .ph-card.is-fav { border-color: #999; }
+  .ph-head h3 { font-size: 9.5pt; }
+  .ph-pat, .ph-ex { margin: 1mm 0 0; padding: 0; line-height: 1.45; }
+  .ph-ex { font-size: 9pt; }
+  .ph-lab { font-size: 6.5pt; border-color: #999; }
+  .ph-slot { font-weight: 700; }
+  .ph-more { font-size: 7.5pt; line-height: 1.45; gap: .8mm; margin-top: 1mm; }
+  .ph-more dt { font-size: 7.5pt; }
+  .ph-w b, .ph-r b { border: .4pt solid #999; }
+  html.ph-print-fav .ph-card:not(.is-fav), html.ph-print-fav .ph-group:not(.has-fav) { display: none !important; }
+}
