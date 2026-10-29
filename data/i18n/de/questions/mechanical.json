@@ -1,0 +1,110 @@
+{
+ "mechanical-001": {
+  "question": "Welche Aussage über den Elastizitätsmodul von Stahl trifft zu?",
+  "choices": [
+   "Verdoppeln Härten oder Kaltumformung die Festigkeit, so verdoppelt sich auch der Elastizitätsmodul ungefähr",
+   "Er wird durch die Stärke der Bindung zwischen den Atomen bestimmt und ändert sich durch Wärmebehandlung oder Umformung kaum",
+   "Er ist die Streckgrenze geteilt durch die Gesamtdehnung bis zum Fließbeginn und gibt die Steigung im plastischen Bereich an"
+  ],
+  "explanation": "Der Elastizitätsmodul ist das Verhältnis von Spannung zu Dehnung im elastischen Bereich, E = σ/ε. Er wird durch die Stärke der Bindung zwischen den Atomen (die Krümmung des interatomaren Potentials) bestimmt und ist eine gefügeunempfindliche Eigenschaft. Deshalb liegt er bei Baustahl wie bei gehärtetem Stahl nahezu unverändert bei ca. 200 GPa, und eine doppelte Festigkeit bedeutet keinen doppelten Elastizitätsmodul. Streckgrenze und Härte sind gefügeempfindliche Eigenschaften, die davon abhängen, wie leicht sich Versetzungen bewegen, und ändern sich durch Wärmebehandlung und Umformung stark. Der Elastizitätsmodul ist die Steigung der Geraden im elastischen Bereich und etwas anderes als die Steigung im plastischen Bereich (die Verfestigungsrate). Mit steigender Temperatur wird die Bindung schwächer, und der Elastizitätsmodul nimmt allmählich ab."
+ },
+ "mechanical-002": {
+  "question": "Ein Rundstab mit 10 mm Durchmesser wird mit einer Zugkraft von 10 kN belastet. Welcher Wert kommt der Nennspannung am nächsten?",
+  "choices": [
+   "ca. 31,8 MPa",
+   "ca. 127 MPa",
+   "ca. 0,127 MPa"
+  ],
+  "explanation": "Die Querschnittsfläche beträgt A = πd²/4 = π × (10 mm)²/4 ≈ 78,5 mm², also ist die Nennspannung σ = F/A = 10000 N / 78,5 mm² ≈ 127 N/mm² = 127 MPa (1 N/mm² = 1 MPa). Der Wert ca. 31,8 MPa entsteht, wenn man Durchmesser und Radius verwechselt und A = π × (10 mm)² ≈ 314 mm² ansetzt. Der Wert ca. 0,127 MPa ergibt sich bei der falschen Flächenumrechnung 1 mm² = 10⁻³ m²; richtig ist 1 mm² = 10⁻⁶ m². Die Nennspannung bezieht sich auf die Querschnittsfläche vor der Verformung und weicht daher nach Beginn der Einschnürung von der tatsächlichen Spannung ab."
+ },
+ "mechanical-003": {
+  "question": "Ein Stahlstab (Länge 2,0 m) mit einem Elastizitätsmodul von 200 GPa wird im elastischen Bereich mit einer Zugspannung von 100 MPa belastet. Welcher Wert kommt der Verlängerung des Stabs am nächsten?",
+  "choices": [
+   "ca. 0,10 mm",
+   "ca. 1,0 mm",
+   "ca. 10 mm"
+  ],
+  "explanation": "Nach dem Hookeschen Gesetz ist die Dehnung ε = σ/E = 100×10⁶ / (200×10⁹) = 5,0×10⁻⁴. Die Verlängerung beträgt ΔL = εL = 5,0×10⁻⁴ × 2000 mm = 1,0 mm. Die Werte ca. 0,10 mm und ca. 10 mm sind um eine Zehnerpotenz verschoben, weil bei der Umrechnung von GPa in MPa (1 GPa = 1000 MPa) oder von m in mm eine Stelle verrutscht ist. Selbst bei einem Stahl mit einer Streckgrenze von einigen hundert MPa bleibt die elastische Dehnung bei nur ca. 0,1–0,2 %. Bei gleicher Spannung dehnt sich eine Aluminiumlegierung, deren Elastizitätsmodul nur ca. ein Drittel beträgt (ca. 70 GPa), ca. 3-mal so stark; bei Konstruktionen, bei denen es auf Steifigkeit ankommt, macht sich dieser Unterschied bemerkbar."
+ },
+ "mechanical-004": {
+  "question": "Wie wird bei Werkstoffen ohne ausgeprägte Streckgrenze, etwa Aluminiumlegierungen, die 0,2-%-Dehngrenze richtig bestimmt?",
+  "choices": [
+   "Man liest auf der Spannungs-Dehnungs-Kurve direkt die Spannung im Punkt mit 0,2 % Dehnung ab",
+   "Man verschiebt die elastische Gerade um 0,2 % Dehnung parallel und nimmt die Spannung am Schnittpunkt mit der Kurve",
+   "Man nimmt die Spannung, die 0,2 % der aus der Höchstkraft bestimmten Zugfestigkeit entspricht"
+  ],
+  "explanation": "Die 0,2-%-Dehngrenze ist als die Spannung definiert, nach deren Entlastung eine bleibende (plastische) Dehnung von 0,2 % zurückbleibt. In der Spannungs-Dehnungs-Kurve verschiebt man die Gerade des elastischen Bereichs um 0,002 in Richtung der Dehnungsachse und liest die Spannung am Schnittpunkt mit der Kurve ab. Liest man die Spannung bei 0,2 % Dehnung direkt ab, enthält diese Dehnung auch den elastischen Anteil; das entspricht nicht der Definition und ergibt einen zu niedrigen Wert. Der Höchstkraft entspricht die Zugfestigkeit, eine andere Größe als die 0,2-%-Dehngrenze. Bei Werkstoffen wie Baustahl, die eine deutliche obere und untere Streckgrenze zeigen, verwendet man den Wert der Streckgrenze."
+ },
+ "mechanical-005": {
+  "question": "Im Zugversuch betrug die Nennspannung bei einer Nenndehnung von 0,20, vor Beginn der Einschnürung, 400 MPa. Unter der Annahme, dass das Volumen bei plastischer Verformung konstant bleibt: Welcher Wert kommt der wahren Spannung in diesem Zustand am nächsten?",
+  "choices": [
+   "ca. 333 MPa",
+   "ca. 400 MPa",
+   "ca. 480 MPa"
+  ],
+  "explanation": "Aus der Volumenkonstanz A₀L₀ = AL folgt A = A₀/(1 + e), und die wahre Spannung ist σ_T = σ(1 + e) = 400 × 1,20 = 480 MPa. Die wahre Dehnung beträgt dabei ε_T = ln(1 + e) = ln 1,20 ≈ 0,182. Der Wert ca. 333 MPa entsteht, wenn man durch (1 + e) teilt, statt damit zu multiplizieren; da die Querschnittsfläche abnimmt, ist die tatsächliche Spannung größer als die Nennspannung. Der Wert ca. 400 MPa ist einfach die Nennspannung und vernachlässigt die Abnahme der Querschnittsfläche. Diese Umrechnung gilt nur bis zum Beginn der Einschnürung, solange sich die Probe über ihre ganze Länge gleichmäßig verformt."
+ },
+ "mechanical-006": {
+  "question": "Welche Aussage über die Härteprüfung nach Vickers trifft zu?",
+  "choices": [
+   "Eine vierseitige Diamantpyramide mit 136° Flächenwinkel wird eingedrückt; die Härte folgt aus den Diagonalen des Eindrucks",
+   "Eine Kugel aus Hartmetall oder Stahl, z. B. mit 10 mm Durchmesser, wird eingedrückt; die Härte folgt aus dem Eindruckdurchmesser",
+   "Die Härte folgt aus der Differenz der Eindringtiefen eines Diamantkegels o. Ä. unter Vor- und Prüfkraft, ohne die Eindruckgröße zu messen"
+  ],
+  "explanation": "Bei der Härteprüfung nach Vickers wird eine vierseitige Diamantpyramide mit einem Flächenwinkel von 136° eingedrückt. Aus dem Mittelwert d der beiden Eindruckdiagonalen bestimmt man die Oberfläche des Eindrucks und berechnet HV = 0,1891F/d² (F in N, d in mm). Da die Form des Eindringkörpers geometrisch ähnliche Eindrücke erzeugt, bleibt der Wert bei unterschiedlicher Prüfkraft nahezu gleich; das Verfahren eignet sich daher auch für dünne Schichten und kleine Bereiche (Mikrohärteprüfung nach Vickers). Eine Kugel einzudrücken und den Eindruckdurchmesser zu messen, ist die Härteprüfung nach Brinell; sie eignet sich zur Messung der mittleren Härte grober Gefüge. Die Härte aus der Differenz der Eindringtiefen zu bestimmen, ist die Härteprüfung nach Rockwell, die sich für die Prüfung von Serienteilen eignet. Umrechnungen zwischen den Prüfverfahren sind empirisch."
+ },
+ "mechanical-007": {
+  "question": "Ein Stahlblech mit der Bruchzähigkeit K_IC = 50 MPa·√m wird mit einer Zugspannung von 200 MPa belastet. Mit K = Yσ√(πa) und dem Geometriefaktor Y = 1,0: Welcher Wert kommt der kritischen Risslänge a, bei der Bruch eintritt, am nächsten?",
+  "choices": [
+   "ca. 20 mm",
+   "ca. 62,5 mm",
+   "ca. 80 mm"
+  ],
+  "explanation": "Aus der Bedingung K = K_IC folgt a = (1/π)(K_IC/Yσ)². Mit K_IC/σ = 50/200 = 0,25 √m ergibt sich a = 0,25²/π = 0,0625/3,14 ≈ 0,0199 m, also ca. 20 mm. Der Wert ca. 62,5 mm entsteht, wenn man die Division durch π vergisst, der Wert ca. 80 mm, wenn man ohne Quadrieren 0,25/π rechnet. Die kritische Risslänge ist umgekehrt proportional zum Quadrat der Spannung; halbiert man die Spannung, ist ein 4-mal so langer Riss zulässig. Die Rissgrößen, die die zerstörungsfreie Prüfung auffinden kann, mit diesem kritischen Wert zu vergleichen, ist der Grundgedanke der schadenstoleranten Auslegung."
+ },
+ "mechanical-008": {
+  "question": "Misst man die Bruchzähigkeit an Blechen aus demselben Werkstoff, aber mit unterschiedlicher Dicke: Wie verhält sich die scheinbare Bruchzähigkeit K_c mit zunehmender Blechdicke?",
+  "choices": [
+   "Sie steigt immer weiter, da sich in dickeren Blechen die plastische Zone stärker ausbreitet",
+   "Sie ist eine Werkstoffkonstante und daher unabhängig von der Blechdicke",
+   "Sie nimmt durch stärkere Dehnungsbehinderung ab und nähert sich dem Wert K_IC des ebenen Dehnungszustands"
+  ],
+  "explanation": "In einem dünnen Blech ist die Dehnungsbehinderung in Dickenrichtung gering (nahe dem ebenen Spannungszustand), sodass sich die plastische Zone an der Rissspitze weit ausbreitet und viel Energie aufnimmt; die scheinbare Bruchzähigkeit K_c ist daher hoch. Mit zunehmender Dicke wird die Verformung in Dickenrichtung behindert, und es stellt sich der ebene Dehnungszustand ein; die plastische Zone wird kleiner, K_c nimmt ab und erreicht oberhalb einer bestimmten Dicke einen nahezu konstanten Mindestwert K_IC. Deshalb kann K_IC als Werkstoffkonstante behandelt und in der Auslegung als Wert auf der sicheren Seite verwendet werden. Die Prüfnormen fordern eine für den ebenen Dehnungszustand ausreichende Dicke, die proportional zu (K_IC/Streckgrenze)² ist."
+ },
+ "mechanical-009": {
+  "question": "Welche Aussage über die Wöhlerkurve (S-N-Kurve) bei Ermüdung trifft zu?",
+  "choices": [
+   "Kohlenstoffstähle zeigen oft eine Dauerfestigkeit: Unterhalb einer bestimmten Spannungsamplitude brechen sie auch bei vielen Schwingspielen kaum",
+   "Aluminiumlegierungen zeigen eine deutlichere Dauerfestigkeit als Kohlenstoffstähle; ab ca. 10⁶ Schwingspielen verläuft die Wöhlerkurve völlig waagerecht",
+   "Je größer die Zugmittelspannung, desto schwerer öffnen sich Risse und desto langsamer wachsen sie; die Lebensdauer bei gleicher Spannungsamplitude wird länger"
+  ],
+  "explanation": "Bei Kohlenstoffstählen und niedriglegierten Stählen verläuft die Wöhlerkurve bei ca. 10⁶–10⁷ Schwingspielen nahezu waagerecht, und es zeigt sich oft eine Dauerfestigkeit, unterhalb derer ein Bruch unwahrscheinlich wird. Bei kfz-Metallen wie Aluminium- und Kupferlegierungen zeigt sich selten ein deutlicher waagerechter Abschnitt; sie werden daher nach der Festigkeit bei einer festgelegten Schwingspielzahl wie 10⁷ beurteilt (Zeitfestigkeit). Eine Zugmittelspannung wirkt rissöffnend und beschleunigt das Risswachstum; die Lebensdauer ist daher bei gleicher Spannungsamplitude kürzer, was man z. B. mit dem Goodman-Diagramm korrigiert. In korrosiver Umgebung oder im Bereich sehr hoher Schwingspielzahlen über 10⁸ kann allerdings auch bei Stählen die Dauerfestigkeit undeutlich werden."
+ },
+ "mechanical-010": {
+  "question": "Wie groß ist die Spannungsamplitude einer schwingenden Beanspruchung mit der Oberspannung +300 MPa und der Unterspannung −100 MPa?",
+  "choices": [
+   "100 MPa",
+   "400 MPa",
+   "200 MPa"
+  ],
+  "explanation": "Die Spannungsamplitude ist σa = (σmax − σmin)/2 = (300 − (−100))/2 = 200 MPa. Die Mittelspannung beträgt σm = (σmax + σmin)/2 = (300 + (−100))/2 = 100 MPa, das Spannungsverhältnis R = σmin/σmax = −100/300 ≈ −0,33. Der Wert 100 MPa ist die Mittelspannung, der Wert 400 MPa die Schwingbreite Δσ, also die Differenz zwischen Ober- und Unterspannung. Spannungsamplitude und Schwingbreite unterscheiden sich um den Faktor 2; daher muss man stets prüfen, welche der beiden Größen in einem Datenblatt oder einer Norm angegeben ist. Die Wechselbeanspruchung mit der Mittelspannung 0 (R = −1) ist die Grundbedingung für Ermüdungsversuche."
+ },
+ "mechanical-011": {
+  "question": "Als Richtwert für die Temperatur, ab der das Kriechen nicht mehr vernachlässigt werden kann, gelte ca. das 0,4-Fache des Schmelzpunkts (als absolute Temperatur). Welcher Wert kommt diesem Richtwert bei Aluminium (Schmelzpunkt 660 °C) am nächsten?",
+  "choices": [
+   "ca. 100 °C",
+   "ca. 264 °C",
+   "ca. 373 °C"
+  ],
+  "explanation": "Dieser Richtwert bezieht sich auf die absolute Temperatur; mit Tm = 660 + 273 = 933 K ergibt sich 0,4Tm ≈ 373 K, also ca. 100 °C. Der Wert ca. 264 °C entsteht, wenn man 0,4 × 660 in °C rechnet, der Wert ca. 373 °C, wenn man 373 K mit °C verwechselt. Dieses Verhältnis (die homologe Temperatur) liegt als Richtwert je nach Werkstoff bei ca. 0,3–0,5; bei Aluminiumlegierungen müssen Kriechen und Festigkeitsabfall jedoch schon ab ca. 100 °C berücksichtigt werden, und niedrigschmelzende Lote kriechen sogar bei Raumtemperatur. Bis zum Bruch durchläuft das Kriechen drei Stadien – Übergangskriechen, stationäres und beschleunigtes Kriechen –, und für die Auslegung ist die stationäre Kriechgeschwindigkeit entscheidend."
+ },
+ "mechanical-012": {
+  "question": "Welcher Werkstoff zeigt bei tiefen Temperaturen einen deutlichen Übergang vom zähen zum spröden Verhalten (Zäh-Spröd-Übergang)?",
+  "choices": [
+   "Austenitischer nichtrostender Stahl (kfz)",
+   "Aluminiumlegierungen (kfz)",
+   "Ferritischer Kohlenstoffstahl (krz)"
+  ],
+  "explanation": "In krz-Metallen steigt die Spannung, die zum Bewegen einer Versetzung nötig ist (Peierls-Spannung), mit sinkender Temperatur stark an. Bei tiefen Temperaturen tritt daher vor dem Fließen ein Spaltbruch auf, und die Kerbschlagarbeit im Kerbschlagbiegeversuch nach Charpy fällt in einem bestimmten Temperaturbereich steil ab. Das ist der Zäh-Spröd-Übergang; ferritischer Kohlenstoffstahl ist das typische Beispiel. Austenitischer nichtrostender Stahl und Aluminiumlegierungen mit kfz-Gitter haben viele Gleitsysteme, und Versetzungen bleiben auch bei tiefen Temperaturen beweglich; sie zeigen daher keinen deutlichen Übergang und werden für Tieftemperaturanwendungen wie Tanks für Flüssiggase eingesetzt. Die Übergangstemperatur sinkt durch Kornfeinung und steigt z. B. durch Neutronenbestrahlung."
+ }
+}

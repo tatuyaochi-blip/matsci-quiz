@@ -1,0 +1,137 @@
+{
+ "fracture-fatigue-001": {
+  "question": "Die theoretische Festigkeit eines perfekten Kristalls wird auf etwa ein Zehntel des Elastizitätsmoduls geschätzt, doch die tatsächliche Bruchfestigkeit spröder Werkstoffe wie Glas ist oft um einen Faktor von einigen Zehn bis einigen Hundert kleiner. Was ist der Hauptgrund?",
+  "choices": [
+   "In realen Werkstoffen beträgt die Bindungskraft zwischen den Atomen selbst nur einige Hundertstel des in der Theorie angenommenen Werts",
+   "An den Spitzen winziger Risse im Inneren oder an der Oberfläche konzentriert sich die Spannung und erreicht örtlich die theoretische Festigkeit",
+   "Unter Last wird der Querschnitt kleiner, sodass die wahre Spannung auf ein Vielfaches der Nennspannung steigt und die theoretische Festigkeit erreicht"
+  ],
+  "explanation": "Die theoretische Festigkeit ist die Spannung, die nötig ist, um Atomebenen auf einmal voneinander zu trennen; sie liegt in der Größenordnung von E/10 (bei Glas ca. 7 GPa). Griffith nahm an, dass reale Werkstoffe winzige Risse enthalten, an deren Spitzen sich die Spannung so konzentriert, dass sie örtlich die theoretische Festigkeit erreicht; deshalb kann der Bruch beginnen, auch wenn die mittlere Spannung viel niedriger ist. Gestützt wird diese Vorstellung dadurch, dass frisch gezogene Glasfasern mit fehlerfreier Oberfläche Festigkeiten von mehreren GPa erreichen. Die Bindungskraft selbst ist in der Abschätzung der theoretischen Festigkeit bereits enthalten und nicht kleiner als angenommen. Der Unterschied zwischen wahrer Spannung und Nennspannung betrifft duktile Werkstoffe, die sich einschnüren, und erklärt nicht die geringe Festigkeit spröder Werkstoffe."
+ },
+ "fracture-fatigue-002": {
+  "question": "Ein elliptisches Loch in einer breiten Platte (große Halbachse a = 1,0 mm, Krümmungsradius am Scheitel der großen Achse ρ = 0,040 mm) wird senkrecht zur großen Achse durch eine Zugspannung von 100 MPa belastet. Welcher Wert kommt der maximalen Spannung am Rand des Lochs am nächsten, wenn man sie mit σmax = σ₀(1 + 2√(a/ρ)) abschätzt?",
+  "choices": [
+   "ca. 1100 MPa",
+   "ca. 5100 MPa",
+   "ca. 140 MPa"
+  ],
+  "explanation": "Mit a/ρ = 1,0/0,040 = 25 ist √(a/ρ) = 5; die Kerbformzahl beträgt Kt = 1 + 2×5 = 11 und die maximale Spannung σmax = 100×11 = ca. 1100 MPa. Je länger das Loch und je schärfer sein Ende (je kleiner ρ), desto stärker konzentriert sich die Spannung; wird ρ wie bei einem Riss so klein wie ein Atomabstand, erreicht die Spannung am Ende schon bei niedriger mittlerer Spannung die theoretische Festigkeit. Ca. 5100 MPa ergibt sich, wenn man die Wurzel weglässt und 1 + 2a/ρ rechnet, ca. 140 MPa, wenn man a und ρ vertauscht und √(ρ/a) verwendet. Für ein kreisrundes Loch (a = ρ) ist Kt = 3; die Formel zeigt auch, warum das Ausrunden des Kerbgrunds die Spannungskonzentration mildert."
+ },
+ "fracture-fatigue-003": {
+  "question": "Ein Glas (Elastizitätsmodul E = 70 GPa, Oberflächenenergie γs = 1,0 J/m²) hat einen Oberflächenriss der Länge a = 1,0 µm. Welcher Wert kommt der mit der Griffith-Gleichung σf = √(2Eγs/(πa)) abgeschätzten Bruchspannung am nächsten?",
+  "choices": [
+   "ca. 149 MPa",
+   "ca. 374 MPa",
+   "ca. 211 MPa"
+  ],
+  "explanation": "2Eγs/(πa) = 2×70×10⁹×1,0/(3,14×1,0×10⁻⁶) ≈ 4,46×10¹⁶ Pa²; die Wurzel daraus ist ca. 2,11×10⁸ Pa, also ca. 211 MPa. Die Griffith-Gleichung folgt aus der Bedingung, dass ein Riss instabil wächst, wenn die bei seiner Verlängerung freigesetzte elastische Verzerrungsenergie die Energie 2γs der beiden neu entstehenden Oberflächen übersteigt. Ca. 149 MPa lässt den Faktor 2 weg, der daher rührt, dass zwei Oberflächen entstehen; ca. 374 MPa vergisst die Division durch π. Da σf umgekehrt proportional zu √a ist, halbiert sich die Bruchspannung, wenn der Riss viermal so lang wird."
+ },
+ "fracture-fatigue-004": {
+  "question": "Welche Aussage beschreibt Modus I der Rissöffnungsarten richtig?",
+  "choices": [
+   "Die Rissufer gleiten in Rissfortschrittsrichtung gegeneinander ab; eine ebene Schubbeanspruchung",
+   "Die Rissufer gleiten parallel zur Rissfront gegeneinander ab; eine nichtebene Schubbeanspruchung",
+   "Die Rissufer werden durch Zug senkrecht zur Rissebene auseinandergezogen; eine öffnende Beanspruchung"
+  ],
+  "explanation": "Die Verformung eines Risses wird in drei Arten eingeteilt: Modus I (Öffnungsmodus), bei dem die Rissufer auseinandergezogen werden, Modus II (ebener Schub), bei dem sie in Rissfortschrittsrichtung gegeneinander abgleiten, und Modus III (nichtebener Schub), bei dem sie parallel zur Rissfront abgleiten; entsprechend unterscheidet man auch die Spannungsintensitätsfaktoren K_I, K_II und K_III. Spröde Werkstoffe versagen am leichtesten unter einer Belastung nach Modus I, und Risse neigen dazu, in die Richtung abzuknicken, in der sie nach Modus I beansprucht werden; deshalb gibt man die Bruchzähigkeit gewöhnlich als kritischen Wert für Modus I, K_IC, an. Das Abgleiten in Rissfortschrittsrichtung ist Modus II, das Abgleiten parallel zur Rissfront Modus III; diese Arten spielen etwa bei Rissen in auf Torsion beanspruchten Wellen eine Rolle."
+ },
+ "fracture-fatigue-005": {
+  "question": "In duktilen Metallen wie Stahl ist die für den Rissfortschritt nötige Energie (kritische Energiefreisetzungsrate G_c) um Größenordnungen größer als der aus der Oberflächenenergie abgeschätzte Wert 2γs (einige J/m²). Was ist der Hauptgrund?",
+  "choices": [
+   "An der Rissspitze tritt plastische Verformung auf, und als plastische Arbeit wird dabei viel Energie verbraucht",
+   "Die Oberflächenenergie von Metallen ist mehrere tausend Mal so groß wie die von Keramiken",
+   "Metalle enthalten kaum Risse, sodass die Vorstellung von Griffith auf sie nicht zutrifft"
+  ],
+  "explanation": "Orowan und Irwin erweiterten die Vorstellung von Griffith auf Metalle und schrieben die für den Rissfortschritt nötige Energie als G_c = 2γs + γp. Dabei ist γp die in der plastischen Zone an der Rissspitze verbrauchte plastische Arbeit; in duktilen Stählen übersteigt sie 10⁴ J/m² und ist damit weit größer als 2γs. Die Oberflächenenergie von Metallen beträgt etwa 1–3 J/m² und unterscheidet sich nicht um Größenordnungen von der von Keramiken. Auch Metalle enthalten Einschlüsse und Risse, und die Energiebilanz nach Griffith dient, ergänzt um die plastische Arbeit, weiterhin als Grundlage. In Werkstoffen, die sich kaum plastisch verformen, wie Glas, ist G_c ein kleiner Wert in derselben Größenordnung wie 2γs."
+ },
+ "fracture-fatigue-006": {
+  "question": "In einem Stahl mit einer Streckgrenze von 500 MPa beträgt der Spannungsintensitätsfaktor an einer Rissspitze K = 30 MPa·√m. Welcher Wert kommt der Größe der plastischen Zone im ebenen Spannungszustand (Abstand von der Rissspitze) am nächsten, wenn man sie mit r_p = (1/2π)(K/σy)² abschätzt?",
+  "choices": [
+   "ca. 3,6 mm",
+   "ca. 0,57 mm",
+   "ca. 9,5 mm"
+  ],
+  "explanation": "K/σy = 30/500 = 0,060 √m; quadriert ergibt das 3,6×10⁻³ m, und geteilt durch 2π ≈ 6,28 erhält man r_p ≈ 5,7×10⁻⁴ m, also ca. 0,57 mm. In der elastischen Lösung wächst die Spannung an der Rissspitze proportional zu 1/√r über alle Grenzen; tatsächlich wird der Bereich, in dem sie die Streckgrenze übersteigt, zu einer plastischen Zone, deren Größe proportional zu (K/σy)² ist. Ca. 3,6 mm vergisst die Division durch 2π, ca. 9,5 mm lässt das Quadrieren weg und fasst 0,060/2π als Länge auf. Die linear-elastische Bruchmechanik, die den Bruch über K beurteilt, ist anwendbar, wenn die plastische Zone viel kleiner als Risslänge und Blechdicke ist. Im ebenen Dehnungszustand beträgt die plastische Zone etwa ein Drittel dieses Werts."
+ },
+ "fracture-fatigue-007": {
+  "question": "Welche Zuordnung eines Merkmals der Bruchfläche im Rasterelektronenmikroskop zur Bruchart ist richtig?",
+  "choices": [
+   "Eine mit vielen kleinen Grübchen (Waben) bedeckte Bruchfläche zeigt einen duktilen Bruch durch Bildung und Vereinigung von Hohlräumen",
+   "Eine entlang ebener Kristallflächen gespaltene Bruchfläche mit Flussmustern zeigt einen duktilen Bruch mit starker plastischer Verformung",
+   "Eine Bruchfläche, auf der die Kornformen unverändert hervortreten, zeigt einen spröden Spaltbruch quer durch die Körner (transkristalliner Bruch)"
+  ],
+  "explanation": "Beim duktilen Bruch bilden sich um Einschlüsse und Ausscheidungen Hohlräume, die wachsen und sich vereinigen; die Bruchfläche ist daher mit vielen Grübchen (Waben) bedeckt. Der Spaltbruch ist ein Sprödbruch, der entlang bestimmter Kristallebenen durch die Körner verläuft; seine Bruchfläche ist eben und zeigt Flussmuster, in denen Stufen wie zusammenfließende Bäche zusammenlaufen. Ihn als duktilen Bruch zu deuten, kehrt die Verhältnisse um. Eine Bruchfläche, auf der die Kornformen wie aufgeschichtete Steine hervortreten, entsteht beim interkristallinen Bruch entlang der Korngrenzen, etwa durch Anlasssprödigkeit, Wasserstoffversprödung oder Ausscheidungen an den Korngrenzen. Die Untersuchung von Bruchflächen (Fraktografie) ist die Grundlage der Schadensanalyse, mit der die Ursache eines Schadensfalls ermittelt wird."
+ },
+ "fracture-fatigue-008": {
+  "question": "Welche Aussage über die Entstehung von Ermüdungsrissen trifft zu, wenn auf einen metallischen Werkstoff mit glatter Oberfläche wiederholt eine Spannungsamplitude unterhalb der Streckgrenze aufgebracht wird?",
+  "choices": [
+   "Da die Oberfläche durch eine Oxidschicht geschützt ist, entstehen die Risse fast immer im Inneren nahe der Werkstoffmitte",
+   "Unterhalb der Streckgrenze bewegen sich Versetzungen überhaupt nicht, sodass keine Risse entstehen und der Werkstoff unbegrenzt hält",
+   "In oberflächennahen Körnern wiederholt sich örtliches Gleiten, und Intrusionen und Extrusionen an der Oberfläche werden zu Rissausgangsstellen"
+  ],
+  "explanation": "Auch bei einer Spannungsamplitude unterhalb der Streckgrenze tritt in günstig orientierten oberflächennahen Körnern örtliches Gleiten auf, und mit den Wiederholungen bilden sich persistente Gleitbänder. Da das Gleiten beim Hin und Her nicht vollständig zurückgeht, entstehen an der Oberfläche winzige Unebenheiten, die Intrusionen und Extrusionen; sie wirken als Kerben, an denen Risse entstehen. Die Oberfläche ist weniger behindert, weist Kratzer und Korrosion auf und trägt bei Biegung und Torsion die höchste Spannung; deshalb beginnen die meisten Ermüdungsrisse an der Oberfläche. Eine Rissentstehung im Inneren beschränkt sich auf Fälle wie Einschlüsse als Ausgangsstellen in hochfesten Stählen im Bereich sehr hoher Schwingspielzahlen. Versetzungen sind nicht völlig unbeweglich, sodass Ermüdungsbrüche auch unterhalb der Streckgrenze auftreten."
+ },
+ "fracture-fatigue-009": {
+  "question": "Die Bruchfläche eines durch Ermüdung gebrochenen Bauteils zeigt mit bloßem Auge sichtbare muschelartige Linien (Rastlinien) und im Elektronenmikroskop sichtbare feine Streifen (Schwingstreifen). Welche Aussage darüber trifft zu?",
+  "choices": [
+   "Beide entstehen mit je einer Linie pro Lastzyklus, sodass man durch Zählen die Schwingspielzahl bis zum Bruch erhält",
+   "Schwingstreifen markieren etwa den Rissfortschritt je Zyklus, Rastlinien dagegen die Betriebsgeschichte wie Stillstände",
+   "Beide entstehen in der Restbruchfläche, die zuletzt schlagartig gebrochen ist, und sammeln sich am weitesten vom Ausgangspunkt entfernt"
+  ],
+  "explanation": "Schwingstreifen sind Linien, die zurückbleiben, wenn sich die Rissspitze in jedem Zyklus öffnet und abstumpft und sich dann schließt und wieder schärft; ihr Abstand entspricht etwa dem Rissfortschritt pro Zyklus, da/dN. Der Abstand ist mit höchstens etwa 1 µm sehr fein und nur im Elektronenmikroskop zu erkennen. Rastlinien sind Muster, in denen die Lage der Rissfront durch Stillstand und Wiederanfahren, Änderungen der Lasthöhe, Unterschiede im Korrosionsfortschritt usw. festgehalten ist; zwischen zwei Linien liegen viele Zyklen. Beide treten in dem Bereich auf, in dem der Ermüdungsriss schrittweise fortgeschritten ist, und das gemeinsame Zentrum der Muster zeigt den Ausgangspunkt. Die Restbruchfläche ist der Teil, in dem der verbleibende Querschnitt schlagartig gebrochen ist; sie zeigt das Bild eines duktilen oder spröden Bruchs."
+ },
+ "fracture-fatigue-010": {
+  "question": "Auf einen Stahl mit der Wechselfestigkeit σw = 300 MPa und der Zugfestigkeit σB = 800 MPa wird eine schwingende Beanspruchung mit der Mittelspannung σm = 200 MPa aufgebracht. Welcher Wert kommt der Spannungsamplitude, die der Dauerfestigkeit entspricht, am nächsten, wenn man die modifizierte Goodman-Beziehung σa = σw(1 − σm/σB) verwendet?",
+  "choices": [
+   "ca. 281 MPa",
+   "ca. 225 MPa",
+   "ca. 100 MPa"
+  ],
+  "explanation": "Mit σm/σB = 200/800 = 0,25 ergibt sich σa = 300×(1 − 0,25) = 225 MPa. Eine Zugmittelspannung wirkt rissöffnend, sodass die zulässige Spannungsamplitude kleiner ist als bei reiner Wechselbeanspruchung (σm = 0). Ein modifiziertes Goodman-Diagramm erhält man, indem man σw auf der senkrechten Achse und σB auf der waagerechten Achse durch eine Gerade verbindet; es ist ein Richtwert auf der sicheren Seite. Ca. 281 MPa ist der Wert nach der parabolischen Gerber-Beziehung, die das Mittelspannungsverhältnis quadriert, 300×(1 − 0,25²); diese Abschätzung liegt weniger auf der sicheren Seite als die nach Goodman. Ca. 100 MPa entsteht, wenn man statt durch σB durch σw teilt. Eine Druckmittelspannung wirkt sich auf die Ermüdung oft sogar günstig aus, doch in der Auslegung wird dieser Effekt gewöhnlich nicht angerechnet."
+ },
+ "fracture-fatigue-011": {
+  "question": "Von welcher Oberflächenbehandlung kann man eine höhere Ermüdungsfestigkeit eines Stahlbauteils erwarten?",
+  "choices": [
+   "Die Oberfläche rau bearbeiten, damit Lack und Schmierstoffe besser haften",
+   "Die Oberfläche schleifen, sodass in der Randschicht Zugeigenspannungen verbleiben",
+   "Durch Kugelstrahlen Druckeigenspannungen in die Randschicht einbringen"
+  ],
+  "explanation": "Die meisten Ermüdungsrisse entstehen an der Oberfläche und öffnen sich und wachsen unter Zugspannung. Beim Kugelstrahlen werden kleine Stahlkugeln o. Ä. mit hoher Geschwindigkeit auf die Oberfläche geschossen; die Randschicht wird plastisch verformt, und es bleiben Druckeigenspannungen zurück, die die Zugspannung an der Oberfläche ausgleichen und Rissentstehung und frühes Risswachstum hemmen. Auch Aufkohlen, Nitrieren und Induktionshärten härten die Randschicht und bringen Druckeigenspannungen ein, sodass die Ermüdungsfestigkeit steigt. Oberflächenrauheit wirkt wie kleine Kerben; eine raue Bearbeitung senkt daher die Ermüdungsfestigkeit. Zugeigenspannungen wirken wie eine Verschiebung der Mittelspannung zur Zugseite und sind für die Ermüdung ungünstig. Bei ungünstigen Schleifbedingungen können in der Randschicht Zugeigenspannungen zurückbleiben."
+ },
+ "fracture-fatigue-012": {
+  "question": "Ein Stahlbauteil versagt bei der Spannungsamplitude σ₁ nach 1,0×10⁵ Schwingspielen und bei σ₂ nach 1,0×10⁶ Schwingspielen durch Ermüdung. Nach 4,0×10⁴ Schwingspielen bei σ₁ wird es bei σ₂ weiter betrieben. Welcher Wert kommt der mit der Miner-Regel (Bruch bei Σn/N = 1) abgeschätzten Restlebensdauer am nächsten?",
+  "choices": [
+   "ca. 6,0×10⁵ Schwingspiele",
+   "ca. 9,6×10⁵ Schwingspiele",
+   "ca. 6,0×10⁴ Schwingspiele"
+  ],
+  "explanation": "Die Schädigung bei σ₁ beträgt n₁/N₁ = 4,0×10⁴/1,0×10⁵ = 0,40, es verbleiben also 1 − 0,40 = 0,60. Bei σ₂ beträgt die Schädigung pro Schwingspiel 1/N₂, die verbleibende Zahl ist somit 0,60×1,0×10⁶ = 6,0×10⁵ Schwingspiele. Ca. 9,6×10⁵ Schwingspiele erhält man, wenn man statt des Schädigungsanteils die Zahl der Schwingspiele selbst von N₂ abzieht; dabei wird übersehen, dass ein Schwingspiel je nach Spannung unterschiedlich stark zählt. Ca. 6,0×10⁴ Schwingspiele ergibt sich, wenn man den verbleibenden Anteil mit der Lebensdauer N₁ bei σ₁ multipliziert. Die Miner-Regel ist einfach, kann aber den Einfluss der Lastreihenfolge nicht abbilden; bekanntermaßen ist die tatsächliche Lebensdauer bei einem Wechsel von hoher zu niedriger Spannung oft kürzer als abgeschätzt."
+ },
+ "fracture-fatigue-013": {
+  "question": "Welche Aussage über die Kurzzeitermüdung (Low Cycle Fatigue; bis zum Bruch etwa 10⁴ Schwingspiele oder weniger) trifft zu?",
+  "choices": [
+   "Grundlegend ist eine Bewertung mit Spannungen im elastischen Bereich bei konstanter Spannungsamplitude",
+   "Wegen der geringen Schwingspielzahl entstehen keine Ermüdungsrisse, und der Bruch ist derselbe duktile Bruch wie bei einer einmaligen Überlast",
+   "In jedem Zyklus tritt plastische Dehnung auf, und der Zusammenhang zwischen plastischer Dehnungsamplitude und Lebensdauer folgt dem Coffin-Manson-Gesetz"
+  ],
+  "explanation": "Bei der Kurzzeitermüdung wiederholt sich in jedem Zyklus eine große plastische Verformung, und nicht die Spannung, sondern die plastische Dehnungsamplitude bestimmt die Lebensdauer. Man bewertet sie daher in Versuchen mit konstanter Dehnungsamplitude und beschreibt den Zusammenhang zwischen der plastischen Dehnungsamplitude Δεp/2 und der Zahl der Lastumkehrungen bis zum Bruch 2Nf durch Δεp/2 = εf′(2Nf)ᶜ (c etwa −0,5 bis −0,7), was im doppeltlogarithmischen Diagramm eine Gerade ergibt. Das ist das Coffin-Manson-Gesetz. Die Bewertung mit Spannungsamplituden im elastischen Bereich ist das Verfahren der Langzeitermüdung (High Cycle Fatigue), bei dem Wöhlerkurven (S-N-Kurven) und das Basquin-Gesetz verwendet werden. Auch bei der Kurzzeitermüdung kommt es über Rissentstehung und Risswachstum zum Bruch; sie ist ein Problem bei Kraftwerksanlagen, die häufig an- und abgefahren werden, und bei Bauteilen unter thermischer Dehnung."
+ },
+ "fracture-fatigue-014": {
+  "question": "Welche Aussage über die Kurve der Ermüdungsrisswachstumsgeschwindigkeit da/dN über der Schwingbreite des Spannungsintensitätsfaktors ΔK im doppeltlogarithmischen Diagramm trifft zu?",
+  "choices": [
+   "Der mittlere Bereich ist eine Gerade nach dem Paris-Gesetz da/dN = C(ΔK)ᵐ, und unterhalb von ΔK_th wächst der Riss kaum",
+   "da/dN ist unabhängig von ΔK konstant und wird nur durch die Risslänge und die Streckgrenze des Werkstoffs bestimmt",
+   "Mit zunehmendem ΔK wird die Steigung der Geraden kleiner, und nähert sich der maximale Spannungsintensitätsfaktor dem Wert K_IC, kommt das Risswachstum zum Stillstand"
+  ],
+  "explanation": "Die Kurve gliedert sich gewöhnlich in drei Bereiche. Im unteren Bereich, in dem sich ΔK dem Schwellenwert ΔK_th nähert, nimmt die Wachstumsgeschwindigkeit stark ab, und unterhalb von ΔK_th wächst der Riss praktisch nicht. Der mittlere Bereich ist im doppeltlogarithmischen Diagramm eine Gerade und lässt sich mit dem Paris-Gesetz da/dN = C(ΔK)ᵐ beschreiben; der Exponent m beträgt bei Metallen etwa 2–4. Im oberen Bereich, in dem sich der maximale Spannungsintensitätsfaktor K_max der Bruchzähigkeit K_IC nähert, steigt die Geschwindigkeit stark an und führt zum instabilen Bruch; die Aussage, das Wachstum komme zum Stillstand, kehrt dies um. ΔK = YΔσ√(πa) hängt sowohl von der Spannungsschwingbreite als auch von der Risslänge ab, sodass die Geschwindigkeit nicht allein durch die Risslänge bestimmt wird."
+ },
+ "fracture-fatigue-015": {
+  "question": "Das Ermüdungsrisswachstum in einem Stahlblech folgt dem Paris-Gesetz da/dN = C(ΔK)ᵐ (C = 1,0×10⁻¹², da/dN in m/Zyklus, ΔK in MPa·√m, m = 4), und es gilt ΔK = Δσ√(πa) (Geometriefaktor 1). Welcher Wert kommt der Zahl der Schwingspiele am nächsten, in denen der Riss bei einer Spannungsschwingbreite Δσ = 200 MPa von 1,0 mm auf 5,0 mm wächst? ΔK liegt in diesem Bereich (ca. 11–25 MPa·√m) deutlich über dem Schwellenwert und im Gültigkeitsbereich des Paris-Gesetzes.",
+  "choices": [
+   "ca. 2,5×10⁵ Schwingspiele",
+   "ca. 5,1×10⁴ Schwingspiele",
+   "ca. 6,3×10⁴ Schwingspiele"
+  ],
+  "explanation": "Für m = 4 gilt da/dN = C(Δσ√π)⁴a²; Trennung der Variablen und Integration ergeben N = (1/a₀ − 1/a_f)/[C(Δσ√π)⁴]. Mit C(Δσ√π)⁴ = 1,0×10⁻¹²×200⁴×π² ≈ 1,58×10⁻² m⁻¹ und 1/a₀ − 1/a_f = 1000 − 200 = 800 m⁻¹ ist N ≈ 800/(1,58×10⁻²) ≈ 5,1×10⁴ Schwingspiele. Ca. 2,5×10⁵ Schwingspiele erhält man, wenn man annimmt, dass die Geschwindigkeit bei der anfänglichen Risslänge von 1,0 mm, 1,58×10⁻⁸ m/Zyklus, bis zum Ende gleich bleibt; dabei wird übersehen, dass ΔK mit wachsendem Riss zunimmt und der Riss sich beschleunigt. Ca. 6,3×10⁴ Schwingspiele lässt den Term 1/a_f weg. Der größte Teil der Lebensdauer entfällt auf die Anfangsphase, in der der Riss noch kurz ist."
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "energy-materials-001": {
+  "question": "Welche Aussage beschreibt die Bewegung von Lithium-Ionen und Elektronen beim Entladen einer Lithium-Ionen-Batterie (negative Elektrode aus Graphit, positive Elektrode aus LiCoO₂) richtig?",
+  "choices": [
+   "Li⁺ wandert durch den Elektrolyten von der negativen zur positiven Elektrode, und die Elektronen fließen durch den äußeren Stromkreis von der negativen zur positiven Elektrode",
+   "Li⁺ wandert durch den Elektrolyten von der negativen zur positiven Elektrode, und die Elektronen fließen durch den äußeren Stromkreis von der positiven zur negativen Elektrode",
+   "Li⁺ wandert durch den Elektrolyten von der positiven zur negativen Elektrode, und die Elektronen fließen durch den äußeren Stromkreis von der negativen zur positiven Elektrode"
+  ],
+  "explanation": "Beim Entladen trennt sich das zwischen den Graphitschichten eingelagerte Lithium in Li⁺ und Elektronen und verlässt die negative Elektrode. Li⁺ wandert durch den Elektrolyten (und den Separator) zur positiven Elektrode und lagert sich zwischen den Schichten von LiCoO₂ ein, während die Elektronen durch den äußeren Stromkreis ebenfalls zur positiven Elektrode fließen und unterwegs Arbeit verrichten. Da die Elektronen von der negativen zur positiven Elektrode fließen, fließt der Strom von der positiven zur negativen Elektrode; die Aussage mit umgekehrter Elektronenrichtung verwechselt die Stromrichtung mit dem Elektronenfluss. Die Aussage mit umgekehrter Li⁺-Richtung verwechselt das Entladen mit dem Laden: Beim Laden drückt eine äußere Stromquelle Elektronen in die negative Elektrode, und auch Li⁺ kehrt von der positiven zur negativen Elektrode zurück. Beim Entladen wie beim Laden bewegen sich Li⁺ und Elektronen in dieselbe Richtung und halten so die Ladungsbilanz beider Elektroden aufrecht. Weil Li⁺ nur zwischen den Elektroden hin- und herpendelt und das Gerüst der Elektroden erhalten bleibt, spricht man auch von einer Schaukelstuhl-Batterie (Rocking-Chair-Prinzip)."
+ },
+ "energy-materials-002": {
+  "question": "Welche Zuordnung von Kathodenmaterialien für Lithium-Ionen-Batterien zu ihren Kristallstrukturen ist richtig?",
+  "choices": [
+   "LiCoO₂: Spinellstruktur, LiMn₂O₄: Olivinstruktur, LiFePO₄: geschichtete Steinsalzstruktur",
+   "LiCoO₂: geschichtete Steinsalzstruktur, LiMn₂O₄: Spinellstruktur, LiFePO₄: Olivinstruktur",
+   "LiCoO₂: Olivinstruktur, LiMn₂O₄: geschichtete Steinsalzstruktur, LiFePO₄: Spinellstruktur"
+  ],
+  "explanation": "LiCoO₂ hat eine geschichtete Steinsalzstruktur (α-NaFeO₂-Typ), in der sich Li- und Co-Schichten innerhalb einer dichtesten Packung von Sauerstoff abwechseln; Li⁺ bewegt sich zweidimensional zwischen den Schichten. LiMn₂O₄ hat Spinellstruktur mit dreidimensional verbundenen Li⁺-Pfaden im Mn-O-Gerüst und eine Arbeitsspannung von ca. 4 V. LiFePO₄ hat dieselbe Olivinstruktur wie das Mineral Olivin; Li⁺ bewegt sich entlang eindimensionaler Kanäle in einem Gerüst aus PO₄-Tetraedern und FeO₆-Oktaedern, und die Arbeitsspannung beträgt ca. 3,4 V. Die beiden anderen Aussagen vertauschen die Namen dieser drei Strukturen. Schicht-, Spinell- und Olivinstruktur sind die drei Grundstrukturen, nach denen man Kathodenmaterialien einteilt."
+ },
+ "energy-materials-003": {
+  "question": "Bei maximaler Lithiumeinlagerung wird eine Graphitanode zu LiC₆. Welcher Wert kommt der theoretischen Kapazität von Graphit (bezogen auf die Masse des Graphits) am nächsten? Die Atommasse von Kohlenstoff beträgt 12,01, die Faraday-Konstante 96485 C/mol, und es gilt 1 mAh = 3,6 C.",
+  "choices": [
+   "ca. 2230 mAh/g",
+   "ca. 339 mAh/g",
+   "ca. 372 mAh/g"
+  ],
+  "explanation": "In 1 mol C₆ (72,06 g) werden 1 mol Li⁺ und 1 mol Elektronen eingelagert; die gespeicherte Ladung beträgt also 96485 C. Die theoretische Kapazität pro Masse beträgt Q = nF/(3,6M) = 1 × 96485 / (3,6 × 72,06) ≈ 372 mAh/g. Ca. 339 mAh/g erhält man, wenn man im Nenner die Masse von LiC₆ einschließlich Li (78,99 g/mol) verwendet; die Kapazität der negativen Elektrode wird jedoch üblicherweise auf die Masse des lithiumfreien Graphits bezogen. Ca. 2230 mAh/g beruht auf der falschen Annahme, dass auf jedes Kohlenstoffatom ein Lithiumatom kommt. Reale Graphitanoden werden mit ca. 350–360 mAh/g nahe am theoretischen Wert betrieben, und um höhere Kapazitäten zu erreichen, wird an Materialien wie Silizium geforscht."
+ },
+ "energy-materials-004": {
+  "question": "Welcher Wert kommt der theoretischen Kapazität des Kathodenmaterials LiFePO₄ mit Olivinstruktur am nächsten, wenn das gesamte Lithium über die Reaktion Fe²⁺/Fe³⁺ aus- und eingelagert wird? Die Formelmasse von LiFePO₄ beträgt 157,8 g/mol, die Faraday-Konstante 96485 C/mol, und es gilt 1 mAh = 3,6 C.",
+  "choices": [
+   "ca. 170 mAh/g",
+   "ca. 85 mAh/g",
+   "ca. 340 mAh/g"
+  ],
+  "explanation": "Aus 1 mol LiFePO₄ wird 1 mol Li⁺ ausgelagert, und Fe²⁺ wird zu Fe³⁺ oxidiert; es wird also 1 mol Elektronen übertragen. Die theoretische Kapazität beträgt Q = nF/(3,6M) = 1 × 96485 / (3,6 × 157,8) ≈ 170 mAh/g. Ca. 340 mAh/g zählt fälschlich zwei Elektronen pro Reaktion; der Übergang von Fe²⁺ zu Fe³⁺ umfasst jedoch nur ein Elektron. Ca. 85 mAh/g entsteht, wenn man unterwegs durch 2 teilt. LiFePO₄ lässt sich in der Praxis bis etwa 160 mAh/g nutzen, also nahe am theoretischen Wert; wegen der eher niedrigen mittleren Spannung von ca. 3,4 V ist die massenbezogene Energie aber kleiner als bei Kathoden aus Schichtoxiden."
+ },
+ "energy-materials-005": {
+  "question": "Welche Aussage über Kathoden aus LiFePO₄ mit Olivinstruktur trifft zu?",
+  "choices": [
+   "Li⁺ bewegt sich zweidimensional zwischen den Schichten, und wird beim Laden mehr als die Hälfte des Li entnommen, wird die Schichtstruktur instabil",
+   "Es hat Spinellstruktur mit dreidimensionalen Li⁺-Pfaden, und der Kapazitätsverlust durch Herauslösen von Mn ist ein Problem",
+   "Es gibt wegen der starken P–O-Bindung kaum Sauerstoff ab, leitet Elektronen aber schlecht und wird daher als feines, mit Kohlenstoff beschichtetes Pulver eingesetzt"
+  ],
+  "explanation": "In LiFePO₄ ist der Sauerstoff über starke kovalente Bindungen an P gebunden und bildet PO₄-Tetraeder; daher wird selbst bei Überladung oder hohen Temperaturen kaum Sauerstoff freigesetzt, und die thermische Sicherheit ist hervorragend. Andererseits ist die Li⁺-Diffusion auf eindimensionale Kanäle beschränkt und die elektronische Leitfähigkeit äußerst gering; man verkleinert die Teilchen daher auf etwa 100 nm und beschichtet ihre Oberfläche mit Kohlenstoff. Die zweidimensionale Bewegung von Li⁺ zwischen Schichten und die Instabilität der Struktur, wenn mehr als etwa die Hälfte des Li entnommen wird, sind Merkmale von LiCoO₂ mit geschichteter Steinsalzstruktur. Dreidimensionale Pfade und das Problem des Herauslösens von Mn betreffen LiMn₂O₄ mit Spinellstruktur."
+ },
+ "energy-materials-006": {
+  "question": "Welche Aussage über Silizium (Si) als Anodenmaterial trifft zu?",
+  "choices": [
+   "Seine theoretische Kapazität ist kleiner als die von Graphit, doch die Volumenänderung beim Laden und Entladen beträgt höchstens 1 %, daher ist die Lebensdauer lang",
+   "Seine theoretische Kapazität ist etwa zehnmal so groß wie die von Graphit, doch bei der Lithiumeinlagerung dehnt es sich auf mehr als das Dreifache aus und altert leicht",
+   "Seine theoretische Kapazität ist etwa so groß wie die von Graphit, doch wegen seiner metallähnlich hohen elektronischen Leitfähigkeit eignet es sich zum Schnellladen"
+  ],
+  "explanation": "Si bildet mit Lithium Legierungen; reagiert es bei Raumtemperatur bis zu Li₁₅Si₄, hat es eine theoretische Kapazität von ca. 3600 mAh/g bezogen auf die Masse von Si, also etwa das Zehnfache von Graphit (372 mAh/g). Bei der Lithiumeinlagerung dehnt sich das Volumen jedoch auf etwa das Drei- bis Vierfache aus; bei wiederholtem Laden und Entladen zerbrechen die Teilchen und werden elektrisch isoliert, an den neu freigelegten Oberflächen zersetzt sich der Elektrolyt und bildet die SEI-Deckschicht (Solid Electrolyte Interphase) neu, und Lithium geht nach und nach verloren. In der Praxis mischt man deshalb dem Graphit geringe Mengen Si oder SiO bei oder verwendet Si als Nanopartikel, um die Auswirkungen der Ausdehnung zu begrenzen. Kaum Volumenänderung zeigt Lithiumtitanat (Li₄Ti₅O₁₂); selbst bei Graphit beträgt sie nur ca. 10 %. Si hat eine geringe elektronische Leitfähigkeit; auch die Aussage, es eigne sich zum Schnellladen, ist also falsch."
+ },
+ "energy-materials-007": {
+  "question": "Welche Aussage über sulfidische Festelektrolyte für Festkörperbatterien trifft zu?",
+  "choices": [
+   "Manche erreichen die Ionenleitfähigkeit organischer Flüssigelektrolyte und lassen sich allein durch Pressen verdichten, reagieren aber mit Feuchtigkeit unter Bildung von Schwefelwasserstoff",
+   "Ihre Ionenleitfähigkeit liegt mindestens drei Größenordnungen unter der organischer Flüssigelektrolyte, doch sie sind so stabil, dass sie nicht einmal mit Luftfeuchtigkeit reagieren und keine trockene Umgebung brauchen",
+   "Sie sind hart und kaum verformbar; ohne Sintern bei hohen Temperaturen über 1000 °C verbinden sich die Teilchen nicht und leiten kein Li⁺"
+  ],
+  "explanation": "Einige sulfidische Festelektrolyte wie Li₁₀GeP₂S₁₂ (LGPS), Li₇P₃S₁₁ und Li₆PS₅Cl vom Argyrodit-Typ erreichen bei Raumtemperatur Ionenleitfähigkeiten von 10⁻³ bis 10⁻² S/cm und damit Werte wie organische Flüssigelektrolyte (ca. 10⁻² S/cm). Sulfide sind weich und leicht verformbar; ein weiterer Vorteil ist daher, dass schon das Pressen des Pulvers bei Raumtemperatur einen guten Kontakt der Teilchen untereinander und mit den Elektroden herstellt. Andererseits reagieren sie leicht mit der Luftfeuchtigkeit und setzen giftigen Schwefelwasserstoff frei, sodass sie in trockener Umgebung gehandhabt werden müssen. Dass zum Verdichten ein Sintern bei hoher Temperatur nötig ist, kennzeichnet oxidische Festelektrolyte wie Li₇La₃Zr₂O₁₂ (LLZO) mit Granatstruktur. LLZO ist an Luft vergleichsweise stabil und reagiert kaum mit Lithiummetall, ist aber hart, sodass sich die Grenzfläche zu den Elektroden nur schwer herstellen lässt."
+ },
+ "energy-materials-008": {
+  "question": "Welche Aussage über den Elektrolyten einer Polymerelektrolytbrennstoffzelle (PEFC) trifft zu?",
+  "choices": [
+   "Er ist eine keramische Membran, die Oxidionen (O²⁻) leitet, und wird zur Erhöhung der Leitfähigkeit oberhalb von 700 °C betrieben",
+   "Er ist eine Carbonatschmelze, in der Carbonationen zur Brenngaselektrode wandern, und wird daher bei ca. 650 °C betrieben",
+   "Er ist eine fluorierte Polymermembran mit Sulfonsäuregruppen, die feucht Protonen leitet, und wird daher bei höchstens etwa 100 °C betrieben"
+  ],
+  "explanation": "Als Elektrolyt der PEFC dient eine Polymermembran aus einer Fluorpolymer-Hauptkette mit Seitenketten, die Sulfonsäuregruppen (−SO₃H) tragen. Nimmt die Membran Wasser auf, lagern sich die Sulfonsäuregruppen zu hydrophilen Kanälen zusammen, und die Protonen bewegen sich zusammen mit Wasser durch diese Kanäle. Trocknet die Membran aus, sinkt die Leitfähigkeit stark; daher ist eine Befeuchtung nötig, und damit die Membran kein Wasser verliert, hält man die Betriebstemperatur bei höchstens etwa 100 °C, meist bei ca. 80 °C. Eine O²⁻-leitende keramische Membran oberhalb von 700 °C verwendet die Festoxid-Brennstoffzelle (SOFC), etwa mit stabilisiertem Zirkonoxid. Eine Carbonatschmelze als Elektrolyt bei ca. 650 °C nutzt die Schmelzcarbonat-Brennstoffzelle (MCFC). Der Unterschied im Elektrolyten bestimmt jeweils Betriebstemperatur, verwendbare Brennstoffe und Katalysatoren."
+ },
+ "energy-materials-009": {
+  "question": "Die Standardänderung der Gibbs-Energie der Reaktion H₂ + 1/2 O₂ → H₂O(l), bei der aus Wasserstoff und Sauerstoff flüssiges Wasser entsteht, beträgt bei 25 °C −237 kJ/mol. Welcher Wert kommt der theoretischen Zellspannung einer Brennstoffzelle mit dieser Reaktion am nächsten? Die Faraday-Konstante beträgt 96485 C/mol.",
+  "choices": [
+   "ca. 2,46 V",
+   "ca. 1,23 V",
+   "ca. 0,61 V"
+  ],
+  "explanation": "Die theoretische Zellspannung beträgt E = −ΔG/(nF); bei der Reaktion von 1 mol H₂ werden 2 mol Elektronen übertragen, also ist n = 2. Es ergibt sich E = 237×10³ / (2 × 96485) ≈ 1,23 V. Ca. 2,46 V setzt fälschlich n = 1, ca. 0,61 V kombiniert die Elektronenzahl pro Mol O₂, n = 4, mit ΔG pro Mol H₂. Das Verhältnis der Änderung der Gibbs-Energie zur Reaktionsenthalpie (−286 kJ/mol), 237/286 ≈ 83 %, ist ein Richtwert für den theoretischen Wirkungsgrad bei 25 °C. In realen Zellen sinkt die Betriebsspannung durch Überspannungen an den Elektroden und den Widerstand des Elektrolyten auf etwa 0,6–0,8 V."
+ },
+ "energy-materials-010": {
+  "question": "Bei einer Solarzelle mit nur einem pn-Übergang gibt es für die Bandlücke des Absorberhalbleiters einen optimalen Wert, bei dem der theoretische Wirkungsgrad maximal wird (unter terrestrischem Sonnenlicht ca. 1,1–1,4 eV). Welche Begründung ist richtig?",
+  "choices": [
+   "Bei kleiner Bandlücke ist die Spannung niedrig und überschüssige Energie wird zu Wärme, bei großer bleiben mehr Photonen unabsorbiert",
+   "Je größer die Bandlücke, desto mehr Photonen werden absorbiert, doch die Beweglichkeit sinkt, sodass der Strom abnimmt",
+   "Je kleiner die Bandlücke, desto weniger Rekombination, doch weil Sonnenlicht bei allen Wellenlängen gleich stark ist, flacht der Gewinn irgendwann ab"
+  ],
+  "explanation": "Ein Photon wird nur absorbiert, wenn seine Energie mindestens der Bandlücke Eg entspricht, und die über Eg hinausgehende Energie geben die Ladungsträger als Wärme an das Gitter ab (Thermalisierungsverlust). Außerdem kann die Leerlaufspannung Eg/q nicht übersteigen. Bei kleinem Eg werden mehr Photonen absorbiert, aber pro Photon lässt sich weniger Energie entnehmen; bei großem Eg ist die Spannung höher, Photonen mit einer Energie unterhalb von Eg werden jedoch nicht absorbiert und durchgelassen. Aus diesem Kompromiss ergibt sich die Shockley-Queisser-Grenze: Unter terrestrischem Standard-Sonnenlicht (AM1,5) ist der theoretische Wirkungsgrad im Bereich von ca. 1,1–1,4 eV mit ca. 32–33 % hoch und erreicht bei ca. 1,34 eV sein Maximum von ca. 33 %. Die Aussage, eine größere Bandlücke erhöhe die Absorption, kehrt den Zusammenhang um. Die Intensität des Sonnenlichts hängt stark von der Wellenlänge ab und ist nicht konstant."
+ },
+ "energy-materials-011": {
+  "question": "Ein thermoelektrischer Werkstoff hat bei 300 K einen Seebeck-Koeffizienten von 200 µV/K, eine elektrische Leitfähigkeit von 1,0×10⁵ S/m und eine Wärmeleitfähigkeit von 1,5 W/(m·K). Welcher Wert kommt der dimensionslosen Gütezahl ZT = S²σT/κ am nächsten?",
+  "choices": [
+   "ca. 0,0027",
+   "ca. 0,8",
+   "ca. 4000"
+  ],
+  "explanation": "Der Leistungsfaktor beträgt S²σ = (200×10⁻⁶)² × 1,0×10⁵ = 4,0×10⁻⁸ × 1,0×10⁵ = 4,0×10⁻³ W/(m·K²). Multipliziert man mit der Temperatur und teilt durch die Wärmeleitfähigkeit, ergibt sich ZT = 4,0×10⁻³ × 300 / 1,5 = 0,8. Ca. 0,0027 entsteht, wenn man die Multiplikation mit der Temperatur T vergisst; erst mit der Temperatur wird ZT dimensionslos. Ca. 4000 entsteht, wenn man vergisst, den Seebeck-Koeffizienten zu quadrieren. Werkstoffe auf Bi₂Te₃-Basis, die in der Nähe der Raumtemperatur eingesetzt werden, haben ein ZT von etwa 1; je größer ZT ist, desto mehr nähert sich der Wirkungsgrad der Umwandlung von Wärme in Strom dem Carnot-Wirkungsgrad, der durch die Temperaturen der heißen und der kalten Seite bestimmt ist."
+ },
+ "energy-materials-012": {
+  "question": "Mit welcher Strategie lässt sich die thermoelektrische Gütezahl ZT erhöhen?",
+  "choices": [
+   "Hebt man die Ladungsträgerkonzentration auf das Niveau von Metallen an, steigen Seebeck-Koeffizient und elektrische Leitfähigkeit zugleich, sodass ZT stark zunimmt",
+   "Senkt man die elektrische Leitfähigkeit und erhöht die Wärmeleitfähigkeit, wandert die Wärme schneller durch das Element, sodass sich leichter eine Temperaturdifferenz an den Enden einstellt und ZT steigt",
+   "Man streut Phononen an Nanostrukturen oder schweren Atomen, um die Gitterwärmeleitfähigkeit zu senken, und stört die elektrische Leitung dabei möglichst wenig"
+  ],
+  "explanation": "Um ZT = S²σT/κ zu vergrößern, müssen Seebeck-Koeffizient S und elektrische Leitfähigkeit σ hoch und die Wärmeleitfähigkeit κ niedrig sein. Mit steigender Ladungsträgerkonzentration nimmt σ jedoch zu, während S abnimmt, und auch die von den Elektronen transportierte Wärme wächst (Wiedemann-Franzsches Gesetz); das Optimum liegt daher bei einem nahezu entarteten Halbleiter mit einer Ladungsträgerkonzentration von etwa 10¹⁹–10²⁰ cm⁻³. Auf dem Niveau von Metallen wird S zu klein. Eine aussichtsreiche Strategie ist daher, nur die Phononen, die den größten Teil der Wärme transportieren, an Grenzflächen von Nanostrukturen oder durch das Rattling schwerer Atome zu streuen und so die Gitterwärmeleitfähigkeit zu senken; man spricht von „Phononenglas, Elektronenkristall“. σ zu senken und κ zu erhöhen verringert ZT dagegen."
+ }
+}

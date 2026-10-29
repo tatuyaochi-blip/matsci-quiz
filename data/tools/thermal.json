@@ -366,6 +366,75 @@
           "a": "그 이후에는 탄성 식이 성립하지 않으며, 금속에서는 소성 변형이 일어나 응력은 대략 항복 응력에서 더 이상 커지지 않습니다. 온도를 되돌리면 반대 방향의 잔류 응력이 남는 경우도 있습니다. 취성인 세라믹스나 유리에서는 인장 쪽에서 균열이 생길 우려가 있습니다."
         }
       ]
+    },
+    "de": {
+      "nav": "Wärmeausdehnung und Wärmespannung",
+      "card": "Längenänderung durch Temperaturänderung und Wärmespannung bei behinderter Ausdehnung berechnen",
+      "title": "Rechner für Wärmeausdehnung und Wärmespannung (ΔL = αLΔT, σ = −EαΔT)",
+      "description": "Berechnet aus dem Längenausdehnungskoeffizienten und der Temperaturänderung die Längenänderung bei freier Ausdehnung ΔL = αLΔT sowie für beidseitig eingespannte Stäbe und dünne Schichten auf Substraten die Wärmespannung σ = −EΔαΔT (Zug positiv, bei Schichten ÷(1 − ν)). Außerdem gibt er einen Richtwert für die Temperaturdifferenz aus, bei der die Spannung die Festigkeit erreicht.",
+      "h1": "Rechner für Wärmeausdehnung und Wärmespannung",
+      "lead": "Ändert sich die Temperatur eines Werkstoffs, dehnt er sich proportional zum Längenausdehnungskoeffizienten α aus oder zieht sich zusammen. Kann er sich frei verformen, entsteht keine Spannung; wird die Verformung behindert, entsteht eine Wärmespannung. Voreingestellt ist ein Stahlstab mit 1000 mm Länge (α = 12×10⁻⁶ K⁻¹, E = 200 GPa), der von 20 °C auf 70 °C erwärmt wird: Frei dehnt er sich um 0,60 mm, zwischen zwei unverschiebbaren Wänden eingespannt entsteht eine Druckspannung von etwa 120 MPa.",
+      "in_heading": "Eingaben (elastischer Bereich, temperaturunabhängige Stoffwerte)",
+      "mode": "Art der Behinderung",
+      "mode_uniaxial": "Stab an beiden Enden eingespannt (einachsig)",
+      "mode_biaxial": "Dünne Schicht auf Substrat, in der Ebene behinderte Platte (äquibiaxial)",
+      "alpha": "Längenausdehnungskoeffizient α (×10⁻⁶ K⁻¹)",
+      "as": "Längenausdehnungskoeffizient der behindernden Seite αs (×10⁻⁶ K⁻¹, 0 bei unverschiebbarer Wand)",
+      "l": "Länge L (mm)",
+      "t1": "Anfangstemperatur (spannungsfreie Temperatur) (°C)",
+      "t2": "Endtemperatur (°C)",
+      "e": "Elastizitätsmodul E (GPa)",
+      "nu": "Querkontraktionszahl ν (nur bei äquibiaxial)",
+      "sy": "Vergleichsfestigkeit (Streckgrenze oder Bruchfestigkeit) (MPa)",
+      "out_heading": "Ergebnisse",
+      "dt": "Temperaturänderung ΔT",
+      "dl": "Freie Längenänderung ΔL = αLΔT",
+      "eps": "Wärmedehnung αΔT",
+      "sigma_heading": "Wärmespannung bei behinderter Ausdehnung",
+      "sigma": "Wärmespannung σ (Zug positiv)",
+      "state": "Art der Spannung",
+      "dtc": "Temperaturänderung ΔTc, bei der |σ| die Festigkeit erreicht",
+      "note": "αs ist der Längenausdehnungskoeffizient des Rahmens, der den Stab hält, bzw. des Substrats der Schicht. Die behindernde Seite wird als ausreichend steif (nicht verformbar) angenommen, und die Wärmespannung wird mit −E(α − αs)ΔT berechnet (äquibiaxial ÷(1 − ν)). Die Temperaturabhängigkeit der Stoffwerte sowie der Spannungsabbau durch plastische Verformung oder Kriechen werden nicht berücksichtigt.",
+      "practice": "Aufgaben zu dünnen Schichten, Oberflächen und Nanomaterialien lösen",
+      "related": "Verwandte Begriffe",
+      "js": {
+        "tension": "Zug",
+        "compression": "Druck",
+        "none": "Keine Spannung",
+        "no_limit": "α und αs sind gleich, es entsteht keine Spannung"
+      },
+      "sections": [
+        {
+          "h": "Die Gleichung der Wärmeausdehnung",
+          "p": "Ein Festkörper wird mit steigender Temperatur länger, weil der mittlere Abstand zwischen den Atomen wächst. Ist der Temperaturbereich nicht zu groß, ist die Längenänderung proportional zur Temperaturänderung, und es gilt ΔL = αLΔT. α ist der Längenausdehnungskoeffizient: für Stahl etwa 12×10⁻⁶ K⁻¹, für Aluminium etwa 23×10⁻⁶ K⁻¹, für Silizium etwa 2,6×10⁻⁶ K⁻¹ und für Quarzglas etwa 0,5×10⁻⁶ K⁻¹. Der Volumenausdehnungskoeffizient isotroper Werkstoffe beträgt etwa 3α. Je stärker die Bindung zwischen den Atomen und je höher der Schmelzpunkt, desto kleiner ist α in der Regel."
+        },
+        {
+          "h": "Wärmespannung bei behinderter Ausdehnung",
+          "p": "Erwärmt man einen Stab, der an beiden Enden zwischen unverschiebbaren Wänden eingespannt ist, wird die Wärmedehnung αΔT, mit der er sich ausdehnen möchte, durch eine gleich große elastische Dehnung aufgehoben. Die Wärmespannung beträgt daher σ = −EαΔT; beim Erwärmen entsteht Druck, beim Abkühlen Zug. Die Spannung hängt nicht von der Stablänge ab, sondern nur vom Produkt aus E und α. Für den voreingestellten Stahl ergibt sich 200×10⁹ × 12×10⁻⁶ × 50 = 1,2×10⁸ Pa, also eine Druckspannung von etwa 120 MPa. Dehnt sich auch der Rahmen aus, verwendet man statt α die Differenz Δα = α − αs."
+        },
+        {
+          "h": "Wärmespannung in dünnen Schichten (äquibiaxial)",
+          "p": "Eine dünne Schicht auf einem dicken Substrat wird in beiden Richtungen der Ebene gleichzeitig behindert. In diesem äquibiaxialen Zustand verwendet man den biaxialen Modul E/(1 − ν), und es gilt σ = −EΔαΔT/(1 − ν). Kühlt man beispielsweise eine Aluminiumschicht auf einem Siliziumsubstrat (E = 70 GPa, ν = 0,35, α = 23×10⁻⁶ K⁻¹) von spannungsfreien 125 °C auf 25 °C ab, entsteht eine Zugspannung von etwa 220 MPa. Ist der Längenausdehnungskoeffizient der Schicht größer als der des Substrats, steht sie nach dem Abkühlen unter Zug, ist er kleiner, unter Druck."
+        },
+        {
+          "h": "Richtwert für den Thermoschock",
+          "p": "Schreckt man heiße Keramik ab, möchte sich zuerst nur die Oberfläche zusammenziehen, wird aber vom Inneren daran gehindert, sodass an der Oberfläche eine äquibiaxiale Zugspannung entsteht. Die Temperaturdifferenz, bei der diese Spannung die Festigkeit σf erreicht, lässt sich mit ΔTc = σf(1 − ν)/(Eα) abschätzen. Bei einer Biegefestigkeit von 300 MPa, E = 380 GPa, ν = 0,22 und α = 8,0×10⁻⁶ K⁻¹ ergeben sich etwa 77 K. Wählt man in diesem Rechner äquibiaxial, setzt αs = 0 und gibt σf als Festigkeit ein, erhält man denselben Wert. In der Praxis spielen Wärmeleitung und Bauteilabmessungen eine Rolle, daher dient der Wert als Richtwert für den Vergleich von Werkstoffen untereinander."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Hängt die Wärmespannung von der Stablänge ab?",
+          "a": "Bei vollständiger Behinderung nicht. Da die Wärmedehnung αΔT nicht von der Länge abhängt, hängt auch die Spannung EαΔT nicht davon ab. Bei langen Bauteilen ist vielmehr die Längenänderung ΔL das Problem; deshalb erhalten Brücken und Schienen Dehnungsfugen."
+        },
+        {
+          "q": "Warum teilt man bei dünnen Schichten durch (1 − ν)?",
+          "a": "Eine dünne Schicht wird in beiden Richtungen der Ebene gleichzeitig am Schrumpfen gehindert. Die Spannung in einer Richtung hebt über die Querkontraktion einen Teil der Dehnung in der dazu senkrechten Richtung auf, sodass eine größere Spannung nötig ist, um dieselbe Wärmedehnung aufzuheben. Im Ergebnis wirkt es so, als stiege der Modul von E auf E/(1 − ν)."
+        },
+        {
+          "q": "Was passiert, wenn die berechnete Spannung die Streckgrenze übersteigt?",
+          "a": "Dann gelten die elastischen Gleichungen nicht mehr; in Metallen tritt plastische Verformung auf, und die Spannung bleibt etwa bei der Streckgrenze stehen. Nach der Rückkehr zur Ausgangstemperatur können Eigenspannungen mit umgekehrtem Vorzeichen zurückbleiben. Bei spröder Keramik oder Glas können auf der Zugseite Risse entstehen."
+        }
+      ]
     }
   }
 }

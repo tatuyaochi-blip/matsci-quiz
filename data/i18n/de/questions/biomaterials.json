@@ -1,0 +1,137 @@
+{
+  "biomaterials-001": {
+    "question": "Welche Aussage über das Konzept der Biokompatibilität von Biomaterialien trifft zu?",
+    "choices": [
+      "Nur Werkstoffe, die im Körper überhaupt nicht mit dem Gewebe reagieren, sind biokompatibel",
+      "Die Fähigkeit, in einer bestimmten Anwendung bei angemessener Reaktion des Körpers die geforderte Funktion zu erfüllen",
+      "Ein Werkstoff ohne toxische Elemente kann in jeder beliebigen Anwendung als biokompatibel gelten"
+    ],
+    "explanation": "Biokompatibilität ist keine Eigenschaft, die einem Werkstoff an sich innewohnt; sie wird definiert als „die Fähigkeit, in einer bestimmten Anwendung bei angemessener Reaktion des Wirtsgewebes eine Funktion zu erfüllen“. Für die Hüftköpfe künstlicher Hüftgelenke eignen sich Aluminiumoxid und Zirkonoxid, die nicht mit dem Knochen reagieren; von Werkstoffen, die Knochendefekte füllen, wird dagegen gerade eine Reaktion erwartet, nämlich dass sie sich mit dem Knochen verbinden oder resorbiert und durch Knochen ersetzt werden. Da die erwünschte Reaktion also von der Anwendung abhängt, ist völlige Reaktionslosigkeit keine Voraussetzung. Umgekehrt ist auch ein Werkstoff ohne toxische Elemente für eine Anwendung ungeeignet, wenn er so steif ist, dass er Stress Shielding verursacht, wenn sein Abrieb Entzündungen auslöst oder wenn er im Kontakt mit Blut Thromben bildet. Bewertet werden auch Form, Oberflächenzustand und Einsatzort."
+  },
+  "biomaterials-002": {
+    "question": "Welche bioaktive Keramik geht eine direkte chemische Bindung mit dem Knochen ein?",
+    "choices": [
+      "Hydroxylapatit",
+      "Hochreines Aluminiumoxid",
+      "Yttriumoxid-teilstabilisiertes Zirkonoxid"
+    ],
+    "explanation": "Hydroxylapatit (Ca₁₀(PO₄)₆(OH)₂) ist ein Calciumphosphat mit nahezu derselben Zusammensetzung wie der mineralische Bestandteil von Knochen und Zähnen. Im Körper bildet sich auf seiner Oberfläche eine Apatitschicht derselben Art wie im Knochen, über die es sich direkt mit dem Knochen verbindet. Wegen dieser Eigenschaft wird es als Füllmaterial für Knochendefekte und als Oberflächenbeschichtung metallischer Implantate verwendet. Bioaktive Gläser verbinden sich ebenfalls mit dem Knochen. Hochreines Aluminiumoxid und teilstabilisiertes Zirkonoxid sind bioinerte Keramiken, die im Körper kaum reagieren; da sie hart und verschleißfest sind, werden sie für die Hüftköpfe künstlicher Hüftgelenke eingesetzt, gehen aber keine chemische Bindung mit dem Knochen ein. Ihre Oberfläche wird entweder von einer dünnen fibrösen Membran umhüllt oder verzahnt sich nur mechanisch mit dem Knochen."
+  },
+  "biomaterials-003": {
+    "question": "Wie groß ist das molare Ca/P-Verhältnis von Hydroxylapatit Ca₁₀(PO₄)₆(OH)₂?",
+    "choices": [
+      "1,50",
+      "1,33",
+      "1,67"
+    ],
+    "explanation": "Die Formel enthält 10 Ca und, entsprechend den 6 PO₄-Gruppen, 6 P; also ist Ca/P = 10/6 ≈ 1,67. Knochenapatit enthält unter anderem Carbonationen, und sein Ca/P-Verhältnis liegt etwas niedriger. 1,50 ist das Verhältnis 3/2 von Tricalciumphosphat (TCP, Ca₃(PO₄)₂). β-TCP ist leichter löslich als Hydroxylapatit und wird als bioresorbierbarer Werkstoff verwendet, der im Körper resorbiert und durch Knochen ersetzt wird. 1,33 ist das Verhältnis 8/6 von Octacalciumphosphat (Ca₈H₂(PO₄)₆·5H₂O). Weicht das Ca/P-Verhältnis eines synthetisierten Pulvers von 1,67 ab, entstehen beim Brennen β-TCP oder CaO als Nebenprodukte; deshalb ist die Kontrolle der Zusammensetzung wichtig."
+  },
+  "biomaterials-004": {
+    "question": "Welche Erklärung der Osseointegration, wie man sie etwa bei Zahnimplantaten aus Reintitan kennt, trifft zu?",
+    "choices": [
+      "Ein Zustand, in dem Knochen und Implantatoberfläche ohne zwischenliegendes fibröses Gewebe direkt aneinanderliegen und Lasten übertragen können",
+      "Ein Zustand, in dem sich das Implantat im Körper allmählich auflöst, resorbiert und durch neuen, von Osteoblasten gebildeten Knochen ersetzt wird",
+      "Ein Zustand, in dem der Spalt zwischen Implantat und Knochen mit PMMA-Knochenzement gefüllt und das Implantat durch mechanische Verzahnung fixiert ist"
+    ],
+    "explanation": "Die Osseointegration ist ein Phänomen, das Brånemark an Titan entdeckte. Sie bezeichnet einen Zustand, in dem lebender Knochen und Implantatoberfläche ohne zwischenliegendes fibröses Bindegewebe in direktem Kontakt stehen und Lasten übertragen können. Die Titanoberfläche ist mit einer wenige nm dicken TiO₂-Passivschicht bedeckt, die in Körperflüssigkeiten stabil ist, sodass sich Knochen entlang dieser Oberfläche bildet. Eine mäßig aufgeraute Oberfläche erleichtert die Verzahnung mit dem Knochen und beschleunigt die Fixierung. Der Begriff bezeichnet vor allem den direkten Kontakt mit dem Knochen und ist von einer chemischen Bindung wie beim Hydroxylapatit zu unterscheiden. Im Körper resorbiert und durch Knochen ersetzt zu werden, ist eine Eigenschaft bioresorbierbarer Werkstoffe wie β-TCP, und die Fixierung mit Knochenzement ist ein anderes Verfahren, die zementierte Fixierung."
+  },
+  "biomaterials-005": {
+    "question": "Wird für den Schaft eines künstlichen Hüftgelenks ein Metall mit einem weit höheren Elastizitätsmodul als dem des Knochens verwendet, tritt Stress Shielding auf. Welche Aussage beschreibt dieses Problem zutreffend?",
+    "choices": [
+      "Der Knochen trägt den größten Teil der Last, wird dadurch übermäßig beansprucht und bricht leicht",
+      "Das Implantat trägt den größten Teil der Last, die Spannung im umgebenden Knochen sinkt, und der Knochen wird resorbiert und dünner",
+      "Die Passivschicht auf der Implantatoberfläche bricht unter der Spannung auf, und die Freisetzung von Metallionen nimmt zu"
+    ],
+    "explanation": "Tragen Knochen und Implantat gemeinsam eine Last, dehnen sich beide nahezu gleich stark, sodass der Partner mit dem größeren Elastizitätsmodul den größten Teil der Spannung übernimmt. Der Elastizitätsmodul von kortikalem Knochen beträgt etwa 10–30 GPa, der von Co-Cr-Legierungen dagegen etwa 210 GPa und der von Ti-6Al-4V etwa 110 GPa; die Spannung im Knochen wird daher kleiner, als sie eigentlich wäre. Knochen passt das Gleichgewicht zwischen Aufbau und Resorption an die mechanischen Reize an, die er erfährt (Wolffsches Gesetz). Wo der Reiz abnimmt, wird Knochen resorbiert und dünner, was zur Lockerung des Implantats und zu Frakturen in seiner Umgebung führt. Eine übermäßige Spannung im Knochen ist die umgekehrte Situation. Die Freisetzung von Metallionen durch eine Schädigung der Passivschicht ist ein anderes Problem, etwa bei der Reibkorrosion (Fretting-Korrosion)."
+  },
+  "biomaterials-006": {
+    "question": "Ein Stab aus kortikalem Knochen (Elastizitätsmodul 20 GPa) und ein Stab aus Ti-6Al-4V (Elastizitätsmodul 110 GPa) mit gleicher Querschnittsfläche sind parallel miteinander verbunden und werden gemeinsam in Längsrichtung auf Zug belastet. Welcher Wert kommt dem Anteil der Gesamtlast, den der Knochen trägt, am nächsten, wenn beide dieselbe Dehnung haben?",
+    "choices": [
+      "ca. 85 %",
+      "ca. 18 %",
+      "ca. 15 %"
+    ],
+    "explanation": "Da die Dehnung ε gleich ist, ist jede Spannung proportional zum Elastizitätsmodul (σ = Eε); weil auch die Querschnittsflächen gleich sind, stehen die Lasten im Verhältnis 20 : 110. Der Anteil des Knochens beträgt 20/(20 + 110) ≈ 0,154, also etwa 15 %. Das Implantat übernimmt rund 85 % der Last, die zuvor der Knochen allein trug; der Reiz auf den Knochen sinkt dadurch stark, und es kommt zu Stress Shielding. Ca. 85 % ist der Anteil des Implantats, ca. 18 % setzt das Verhältnis der Elastizitätsmoduln 20/110 direkt als Anteil an. Bei einer β-Titanlegierung mit einem Elastizitätsmodul von etwa 55 GPa steigt der Anteil des Knochens auf 20/75 ≈ 27 %. Die realen Formen von Knochen und Schaft sind kompliziert, doch der Gedanke, dass der Unterschied der Elastizitätsmoduln die Lastaufteilung bestimmt, bleibt derselbe."
+  },
+  "biomaterials-007": {
+    "question": "Was ist der Hauptgrund dafür, dass β-Titanlegierungen wie das System Ti-Nb-Ta-Zr für Implantate zur Knochenfixierung entwickelt wurden?",
+    "choices": [
+      "Bleibt die krz-β-Phase bis Raumtemperatur erhalten, liegt der E-Modul unter dem von Ti-6Al-4V, und Stress Shielding wird verringert",
+      "Die β-Phase hat eine hdP-Struktur mit starker Atombindung, die den E-Modul über den von Ti-6Al-4V hebt und Verformungen des Implantats verhindert",
+      "In der β-Phase bildet sich auf der Titanoberfläche keine Passivschicht mehr, sodass eine chemische Bindung an den Knochen leichter entsteht"
+    ],
+    "explanation": "Titan liegt bei niedriger Temperatur als hdP-α-Phase und bei hoher Temperatur als krz-β-Phase vor; durch Zugabe großer Mengen β-stabilisierender Elemente wie Nb, Ta und Mo bleibt die β-Phase auch bei Raumtemperatur erhalten. β-Legierungen haben einen Elastizitätsmodul von etwa 55–80 GPa, niedriger als die (α+β)-Legierung Ti-6Al-4V (etwa 110 GPa) und näher am Knochen (etwa 10–30 GPa), sodass sie Stress Shielding verringern. Nb, Ta und Zr gelten zudem als wenig zytotoxisch, und man kommt ohne V und Al aus. Die α-Phase ist hdP; die β-Phase als hdP zu bezeichnen, verwechselt die Kristallstrukturen. Eine höhere Steifigkeit des Implantats verstärkt das Stress Shielding. Auch β-Legierungen bilden an der Oberfläche eine Passivschicht und bleiben dadurch korrosionsbeständig; ginge die Schicht verloren, nähme nur die Ionenfreisetzung zu, ohne dass dies zu einer Bindung an den Knochen führte."
+  },
+  "biomaterials-008": {
+    "question": "Der Elastizitätsmodul von porösem Titan mit offenen Poren wird mit der Gibson-Ashby-Gleichung E* = Es(ρ*/ρs)² abgeschätzt. Welcher Wert kommt E* am nächsten, wenn der Elastizitätsmodul von dichtem Titan Es = 110 GPa und die Porosität 60 % beträgt? ρ*/ρs ist die relative Dichte.",
+    "choices": [
+      "ca. 44 GPa",
+      "ca. 18 GPa",
+      "ca. 40 GPa"
+    ],
+    "explanation": "Bei einer Porosität von 60 % beträgt die relative Dichte ρ*/ρs = 1 − 0,60 = 0,40. E* = 110 × 0,40² = 110 × 0,16 ≈ 17,6 GPa, also etwa 18 GPa; das liegt im Bereich des Elastizitätsmoduls von kortikalem Knochen (etwa 10–30 GPa). Offene Poren dienen zugleich als Gerüst, in das Knochen einwachsen kann, sodass poröse Metalle eine Möglichkeit sind, Stress Shielding zu verringern. Ca. 44 GPa vergisst das Quadrat und rechnet 110 × 0,40, ca. 40 GPa setzt die Porosität selbst ein und rechnet 110 × 0,60². Mehr Porosität senkt allerdings auch die Festigkeit, insbesondere die Ermüdungsfestigkeit; ausgelegt wird daher als Kompromiss zwischen Porosität und Festigkeit."
+  },
+  "biomaterials-009": {
+    "question": "Welche Aussage beschreibt den Mechanismus der Superelastizität von Ni-Ti-Legierungen (etwa 50 Atom-% Ni) für kieferorthopädische Drähte und Stents zutreffend? Die Einsatztemperatur liegt über der Rückumwandlungs-Endtemperatur Af.",
+    "choices": [
+      "Es tritt plastische Verformung durch Versetzungsgleiten auf, doch bei Ni-Ti laufen die Versetzungen beim Entlasten zurück, und die Form stellt sich wieder her",
+      "Feine Ausscheidungen blockieren die Versetzungsbewegung, sodass der E-Modul größer als der von Stahl wird und sich die Legierung weniger verformt",
+      "Unter Last wandelt die Mutterphase in Martensit um (spannungsinduzierte martensitische Umwandlung), beim Entlasten wandelt sie zurück, und die Dehnung geht zurück"
+    ],
+    "explanation": "Oberhalb von Af ist die Mutterphase mit B2-Struktur stabil. Wird eine Spannung aufgebracht, wandelt sie bei einer bestimmten Spannung in Martensit um (spannungsinduzierte martensitische Umwandlung), und bei nahezu konstanter Spannung entsteht eine große Dehnung. Beim Entlasten wird der Martensit instabil und wandelt in die Mutterphase zurück, sodass sich Dehnungen bis etwa 6–8 % zurückbilden. Diese Eigenschaft, sich bei nahezu konstanter Kraft stark zu verformen und wieder in die Ausgangsform zurückzukehren, nutzen kieferorthopädische Drähte, die Zähne mit konstanter Kraft bewegen, und Stents, die dünn zusammengefaltet in Blutgefäße eingeführt werden. Plastische Verformung durch Versetzungsgleiten ist eine bleibende Dehnung, die beim Entlasten nicht zurückgeht. Eine Verfestigung durch Ausscheidungen erhöht nur die Streckgrenze; der Elastizitätsmodul ändert sich kaum, und die Superelastizität wird damit nicht erklärt."
+  },
+  "biomaterials-010": {
+    "question": "Welche Aussage über die Tieftemperaturdegradation, die bei Hüftköpfen künstlicher Hüftgelenke aus yttriumoxid-teilstabilisiertem Zirkonoxid (Y-TZP) zum Problem wurde, trifft zu?",
+    "choices": [
+      "In feuchter Umgebung wandelt die tetragonale Phase von der Oberfläche her unter Volumenzunahme in die monokline um; die Oberfläche wird rau, die Festigkeit sinkt",
+      "Bei etwa Körpertemperatur geht die tetragonale Phase allmählich in die kubische über, die Umwandlungsverstärkung an Rissspitzen wirkt stärker, die Zähigkeit steigt",
+      "Chloridionen in Körperflüssigkeiten verursachen Lochkorrosion, und auf der Oberfläche entstehen tiefe Löcher"
+    ],
+    "explanation": "Y-TZP verdankt seine hohe Zähigkeit der Umwandlungsverstärkung: Metastabile tetragonale Körner wandeln unter der Spannung an einer Rissspitze in die monokline Phase um und dehnen sich dabei aus. In feuchter Umgebung schreitet die Umwandlung tetragonal → monoklin jedoch auch bei so niedrigen Temperaturen wie der Körpertemperatur langsam von der Oberfläche her fort. Die Volumenzunahme von etwa 4 % erzeugt an der Oberfläche Mikrorisse und Kornausbrüche; die Oberfläche wird rau, und Festigkeit und Verschleißfestigkeit sinken. Dies ist die Tieftemperaturdegradation (hydrothermale Alterung); bestimmte Herstellungsbedingungen beschleunigten die Umwandlung, und Brüche künstlicher Hüftköpfe wurden zum Problem. Deshalb wurden unter anderem Verbundwerkstoffe aus Aluminiumoxid und Zirkonoxid entwickelt. Eine Umwandlung in die kubische Phase findet bei niedriger Temperatur nicht statt und steigert auch nicht die Wirkung der Umwandlungsverstärkung. Lochkorrosion ist eine Korrosion, bei der die Passivschicht eines Metalls örtlich zusammenbricht; sie ist kein Schädigungsmechanismus oxidischer Keramiken."
+  },
+  "biomaterials-011": {
+    "question": "Welche Aussage über Knochenzement aus PMMA (Polymethylmethacrylat) zur Fixierung künstlicher Gelenke trifft zu?",
+    "choices": [
+      "Er geht mit den Oberflächen von Knochen und Implantat eine chemische Bindung ein und fixiert beide wie ein Klebstoff aus Epoxidharz",
+      "PMMA wird auf etwa 200 °C erhitzt, geschmolzen injiziert und fixiert das Implantat, indem es beim Abkühlen auf Körpertemperatur glasartig erstarrt",
+      "Werden PMMA-Pulver und flüssiges Monomer gemischt, setzt bei Raumtemperatur die Polymerisation ein, und der Zement härtet unter Wärmeentwicklung aus"
+    ],
+    "explanation": "Knochenzement wird verwendet, indem PMMA-Pulver während der Operation mit flüssigem Methylmethacrylat (dem Monomer) angerührt wird. Radikale aus dem Initiator lösen bei Raumtemperatur eine radikalische Kettenpolymerisation aus, und der Zement härtet in etwa 10 Minuten aus. Diese Polymerisation ist exotherm; zu beachten sind thermische Schäden am umliegenden Gewebe durch den Temperaturanstieg beim Aushärten, Restmonomer und Polymerisationsschrumpfung. Knochenzement haftet nicht chemisch, sondern dient als Füllmasse: Er füllt den Raum zwischen der unebenen Knochenoberfläche und dem Implantat aus, verzahnt sich mechanisch und überträgt die Last verteilt auf den Knochen. PMMA ist ein Thermoplast, doch seine Schmelztemperatur ist für den Einsatz im Körper viel zu hoch; es wird daher als Monomer eingebracht und im Körper polymerisiert."
+  },
+  "biomaterials-012": {
+    "question": "Durch welche Hauptreaktion wird Polymilchsäure (PLA), die für resorbierbares Nahtmaterial und Stifte zur Knochenfixierung verwendet wird, im Körper abgebaut?",
+    "choices": [
+      "Photoabbau der Hauptkette durch UV-Strahlung",
+      "Hydrolyse der Esterbindungen der Hauptkette",
+      "Thermischer Abbau (Depolymerisation) der Hauptkette bei Körpertemperatur"
+    ],
+    "explanation": "Bei aliphatischen Polyestern wie PLA und Polyglycolsäure (PGA) werden die Esterbindungen der Hauptkette durch das Wasser im Körper hydrolysiert; die Molmasse sinkt, und am Ende entstehen Milchsäure bzw. Glycolsäure. Diese werden verstoffwechselt und verlassen den Körper schließlich als Kohlendioxid und Wasser. Die Hydrolyse läuft auch ohne Enzyme ab, und da die Säure der entstehenden Carboxygruppen den weiteren Abbau beschleunigt (Autokatalyse), können große Bauteile von innen her abgebaut werden. UV-Strahlung dringt kaum in den Körper ein, daher ist Photoabbau dort kein Abbaumechanismus. Bei 37 °C findet kaum thermischer Abbau (Depolymerisation) statt; auf ihn ist bei der Formgebung um 200 °C zu achten."
+  },
+  "biomaterials-013": {
+    "question": "Ein Stift zur Knochenfixierung aus kristalliner Poly-L-Milchsäure (PLLA), die nur aus dem L-Isomer besteht, braucht im Körper mehrere Jahre bis zur vollständigen Resorption. Welche Maßnahme beschleunigt den Abbau?",
+    "choices": [
+      "Copolymerisation mit dem D-Isomer zu amorpher Poly-DL-Milchsäure",
+      "Erhöhung der Kristallinität durch Verstrecken oder Wärmebehandlung, damit mehr hydrolysierbare kristalline Bereiche entstehen",
+      "Erhöhung der Molmasse, damit mehr Esterbindungen für die Spaltung durch Hydrolyse zur Verfügung stehen"
+    ],
+    "explanation": "Die Hydrolyse schreitet zuerst in den amorphen Bereichen voran, in die Wasser leicht eindringt, und verläuft in den kristallinen Bereichen mit dicht gepackten Ketten langsam. Mit dem D-Isomer copolymerisierte Poly-DL-Milchsäure (PDLLA) verliert ihre Stereoregularität, wird amorph und baut sich schneller ab. Auch PLGA, ein Copolymer mit Glycolsäure, die keine Methylgruppe trägt und hydrophiler ist, wird schneller abgebaut. Die Abbaudauer von PLGA lässt sich über die Zusammensetzung im Bereich von einigen Wochen bis zu einigen Monaten einstellen, und es dient auch als Träger, der Wirkstoffe nach und nach freisetzt. Eine höhere Kristallinität erschwert das Eindringen von Wasser und verlangsamt den Abbau. Eine höhere Molmasse erhöht die Zahl der Bindungen, die gespalten werden müssen, bevor die Festigkeit verloren geht, sodass Festigkeitsverlust und Resorption ebenfalls langsamer werden."
+  },
+  "biomaterials-014": {
+    "question": "Die zahlenmittlere Molmasse Mn eines biologisch abbaubaren Polymers sinke durch Hydrolyse gemäß Mn(t) = Mn₀exp(−kt). Welcher Wert kommt bei k = 0,030 d⁻¹ der Anzahl der Tage am nächsten, bis Mn auf 20 % des Anfangswerts gefallen ist?",
+    "choices": [
+      "ca. 23 Tage",
+      "ca. 27 Tage",
+      "ca. 54 Tage"
+    ],
+    "explanation": "Aus exp(−kt) = 0,20 folgt t = ln(1/0,20)/k = ln 5/0,030 = 1,609/0,030 ≈ 53,6 Tage, also etwa 54 Tage. Ca. 23 Tage ergibt sich, wenn statt des natürlichen Logarithmus der dekadische Logarithmus log 5 ≈ 0,699 verwendet wird. Ca. 27 Tage nimmt an, dass die Molmasse linear mit der Zeit sinkt, und rechnet 0,80/0,030. In Wirklichkeit sammelt sich im Inneren großer Bauteile Säure an und beschleunigt dort den Abbau, oder das Polymer kristallisiert während des Abbaus weiter, sodass der Verlauf von einer einfachen Exponentialfunktion abweicht. Zudem geht die Festigkeit erst verzögert gegenüber der Molmasse verloren, und der Masseverlust (die Resorption) beginnt noch später. Zusammensetzung und Molmasse des Werkstoffs werden daher so gewählt, dass er seine Festigkeit bis zur Heilung des Knochens behält und danach resorbiert wird."
+  },
+  "biomaterials-015": {
+    "question": "Magnesium, das als biologisch abbaubares Metall untersucht wird, korrodiert in Körperflüssigkeiten nach Mg + 2H₂O → Mg(OH)₂ + H₂. Welcher Wert kommt dem Volumen des freigesetzten Wasserstoffs am nächsten, wenn eine Magnesiumschraube von 0,10 g vollständig korrodiert? Die molare Masse von Mg sei 24,31 g/mol, das molare Gasvolumen bei 37 °C und 1 atm 25,4 L/mol.",
+    "choices": [
+      "ca. 52 mL",
+      "ca. 104 mL",
+      "ca. 209 mL"
+    ],
+    "explanation": "Die Stoffmenge an Mg beträgt 0,10/24,31 ≈ 4,11×10⁻³ mol. Beim Übergang zu Mg²⁺ gibt Mg 2 Elektronen ab, und mit diesen Elektronen werden 2 H⁺ zu 1 H₂-Molekül; pro mol Mg entsteht also 1 mol H₂. Das Volumen beträgt 4,11×10⁻³ × 25,4 L ≈ 0,104 L, also etwa 104 mL. Schon eine einzige Schraube setzt so viel Gas frei; bei schneller Korrosion sammelt sich daher Gas im Gewebe an, und es wird daran geforscht, die Korrosion durch Legieren und Oberflächenbehandlung so zu verlangsamen, dass sie zur Knochenheilung passt. Ca. 52 mL nimmt an, dass aus 2 mol Mg 1 mol H₂ entsteht, und ca. 209 mL lässt sich vom Koeffizienten in 2H₂O verleiten und nimmt 2 mol H₂ pro mol Mg an."
+  }
+}

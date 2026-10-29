@@ -285,6 +285,61 @@
           "a": "1 eV/원자는 약 96.49 kJ/mol입니다. 예를 들어 1.5 eV라면 약 145 kJ/mol을 넣습니다. 원자 1개당으로 계산할 때는 기체 상수 R 대신 볼츠만 상수 k = 8.617 × 10⁻⁵ eV/K를 사용하여 D = D0·exp(−Q/kT)로 합니다."
         }
       ]
+    },
+    "de": {
+      "nav": "Diffusionskoeffizient und Diffusionslänge",
+      "card": "Diffusionskoeffizient nach Arrhenius bestimmen, Diffusionslänge und Konzentration beim Aufkohlen berechnen",
+      "title": "Rechner für den Diffusionskoeffizienten (Arrhenius-Gleichung, Diffusionslänge √Dt, Fehlerfunktionslösung)",
+      "description": "Berechnet den Diffusionskoeffizienten D = D0·exp(−Q/RT) aus der Temperatur und ermittelt aus der Zeit den Richtwert der Diffusionslänge √(Dt) sowie das Konzentrationsverhältnis in der Tiefe x bei konstanter Randkonzentration (Fehlerfunktionslösung). Geeignet zur Abschätzung beim Aufkohlen und bei der Diffusion von Dotierstoffen.",
+      "h1": "Rechner für Diffusionskoeffizient und Diffusionslänge",
+      "lead": "Aus dem Frequenzfaktor D0 und der Aktivierungsenergie Q bestimmt der Rechner den Diffusionskoeffizienten bei einer gegebenen Temperatur und schätzt aus der Glühdauer ab, wie tief die Atome eindiffundieren. Voreingestellt ist Kohlenstoff in Austenit (γ-Eisen) (D0 = 2,3 × 10⁻⁵ m²/s, Q = 148 kJ/mol) beim Aufkohlen für 4 Stunden bei 900 °C.",
+      "in_heading": "Eingaben",
+      "d0": "Frequenzfaktor D0 (m²/s)",
+      "q": "Aktivierungsenergie Q (kJ/mol)",
+      "t": "Temperatur (°C)",
+      "hours": "Zeit (h)",
+      "x": "Tiefe unter der Oberfläche x (mm)",
+      "out_heading": "Ergebnisse",
+      "tk": "Absolute Temperatur T",
+      "d": "Diffusionskoeffizient D",
+      "l": "Richtwert der Diffusionslänge √(Dt)",
+      "erf_heading": "Bei konstanter Randkonzentration (halbunendlicher Körper)",
+      "ratio": "Konzentrationsverhältnis in der Tiefe x, (Cx − C0)/(Cs − C0)",
+      "note": "D0 und Q hängen von der Kombination aus Werkstoff und diffundierendem Element ab. Das Konzentrationsverhältnis wird mit der Fehlerfunktionslösung berechnet, die gilt, wenn die Randkonzentration Cs konstant gehalten wird und die Probe als ausreichend dick (halbunendlicher Körper) angesehen werden kann. Gaskonstante R = 8,314 J/(mol·K).",
+      "practice": "Aufgaben zu Kristallbaufehlern und Diffusion lösen",
+      "related": "Verwandte Begriffe",
+      "sections": [
+        {
+          "h": "Temperaturabhängigkeit des Diffusionskoeffizienten (Arrhenius-Gleichung)",
+          "p": "Atome im Festkörper bewegen sich sprunghaft über Leerstellen oder Zwischengitterplätze. Da jeder Sprung die Aktivierungsenergie Q überwinden muss, ändert sich der Diffusionskoeffizient nach D = D0·exp(−Q/RT) exponentiell mit der Temperatur. Mit den Standardwerten (Kohlenstoff in γ-Eisen, 900 °C = 1173,15 K) ergibt sich D = 2,3 × 10⁻⁵ × exp(−148000/(8,314 × 1173,15)) ≈ 5,91 × 10⁻¹² m²/s. Schon eine Temperaturerhöhung um 100 °C vervielfacht D, weshalb die Temperaturführung bei der Wärmebehandlung wichtig ist. Logarithmiert man beide Seiten, ergibt ln D = ln D0 − Q/(RT) über 1/T aufgetragen eine Gerade, aus deren Steigung man −Q/R erhält."
+        },
+        {
+          "h": "Richtwert der Diffusionslänge √(Dt)",
+          "p": "Die Strecke, die Atome durch Diffusion zurücklegen, wächst nicht proportional zur Zeit, sondern proportional zur Quadratwurzel der Zeit. Als Richtwert verwendet man häufig x ≈ √(Dt); für die voreingestellten 4 Stunden (14400 s) ergibt sich √(5,91 × 10⁻¹² × 14400) ≈ 0,292 mm. Um die Diffusionstiefe bei gleicher Temperatur zu verdoppeln, muss die Zeit vervierfacht werden. Je nach Definition wird auch ein Vorfaktor wie in 2√(Dt) verwendet; achten Sie beim Vergleichen auf dieselbe Definition."
+        },
+        {
+          "h": "Aufkohlen und Fehlerfunktionslösung",
+          "p": "Wird die Stahloberfläche beim Aufkohlen in einer Atmosphäre mit der Kohlenstoffkonzentration Cs gehalten, beschreibt die Lösung des zweiten Fickschen Gesetzes (Cx − C0)/(Cs − C0) = 1 − erf(x/(2√(Dt))) das Konzentrationsprofil in einer dicken Probe mit der Anfangskonzentration C0. In der voreingestellten Tiefe von 0,5 mm ist x/(2√(Dt)) ≈ 0,857, und das Konzentrationsverhältnis beträgt etwa 22,6 %. Ist beispielsweise C0 = 0,20 Massen-% und Cs = 1,00 Massen-%, beträgt der Kohlenstoffgehalt in 0,5 mm Tiefe etwa 0,38 Massen-%. erf(z) ist eine Funktion, die für z = 0 den Wert 0 hat und für z über 2 nahezu 1 erreicht."
+        },
+        {
+          "h": "Typische Werte für D0 und Q",
+          "p": "Kleine Atome, die über Zwischengitterplätze wandern, diffundieren leichter als Substitutionsatome. Für Kohlenstoff in γ-Eisen (Zwischengitterdiffusion) gelten D0 ≈ 2,3 × 10⁻⁵ m²/s und Q ≈ 148 kJ/mol, für Kohlenstoff in α-Eisen D0 ≈ 1,1 × 10⁻⁶ m²/s und Q ≈ 87 kJ/mol. Die Selbstdiffusion des Eisens (in γ-Eisen, Leerstellenmechanismus) hat dagegen ein großes Q von rund 280 kJ/mol und ist bei gleicher Temperatur um viele Größenordnungen langsamer. Da die Werte je nach Literatur streuen, setzen Sie für Berechnungen die Werte Ihrer Quelle unverändert ein."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Welche Einheit hat der Diffusionskoeffizient?",
+          "a": "In SI-Einheiten m²/s. In der Literatur wird er oft in cm²/s angegeben; umgerechnet wird mit 1 cm²/s = 10⁻⁴ m²/s. Geben Sie D0 in diesem Rechner in m²/s ein."
+        },
+        {
+          "q": "Warum ist die Diffusionslänge proportional zur Quadratwurzel der Zeit?",
+          "a": "Weil die Atome wiederholt in zufällige Richtungen springen (Random Walk) und die mittlere zurückgelegte Strecke daher proportional zur Quadratwurzel der Sprungzahl ist. Die Sprungzahl ist proportional zur Zeit, die Strecke also proportional zu √t."
+        },
+        {
+          "q": "Was tun, wenn die Aktivierungsenergie in eV bekannt ist?",
+          "a": "1 eV pro Atom entspricht etwa 96,49 kJ/mol. Für 1,5 eV geben Sie also etwa 145 kJ/mol ein. Rechnet man pro Atom, verwendet man statt der Gaskonstante R die Boltzmann-Konstante k = 8,617 × 10⁻⁵ eV/K und setzt D = D0·exp(−Q/kT)."
+        }
+      ]
     }
   }
 }

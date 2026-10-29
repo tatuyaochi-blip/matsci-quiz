@@ -1,0 +1,6 @@
+{
+  "main": {
+    "name": "Materialwissenschaft",
+    "groups": { "basic": "Grundlagen", "phases": "Gefüge und Phasenumwandlungen", "classes": "Werkstoffklassen", "analysis": "Analytik und fortgeschrittene Themen" }
+  }
+}

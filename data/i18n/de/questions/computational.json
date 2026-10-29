@@ -1,0 +1,137 @@
+{
+  "computational-001": {
+    "question": "Welche Zuordnung eines Rechenverfahrens der Werkstoffsimulation zu den räumlichen und zeitlichen Größenordnungen, die es üblicherweise behandeln kann, ist am zutreffendsten?",
+    "choices": [
+      "Rechnungen mit Dichtefunktionaltheorie (DFT), die mehrere Millionen Atome samt Elektronenstruktur über mehrere Mikrosekunden verfolgen",
+      "Die Finite-Elemente-Methode, die die Schwingungen einzelner Atome in Femtosekundenschritten verfolgt",
+      "Klassische Molekulardynamik, die Tausende bis Millionen Atome über Zeiten in der Größenordnung von Nanosekunden verfolgt"
+    ],
+    "explanation": "Rechenverfahren werden je nach der Größenordnung ausgewählt, die sie bewältigen. Die DFT, die den Elektronenzustand quantenmechanisch löst, behandelt üblicherweise einige Dutzend bis einige Hundert Atome und kann die zeitliche Entwicklung nur bis etwa einige Dutzend Pikosekunden verfolgen. Die klassische Molekulardynamik, die ein interatomares Potential verwendet, kann Tausende bis Millionen Atome bis in die Größenordnung von Nanosekunden verfolgen. Die Phasenfeldmethode behandelt Gefügeänderungen im Bereich von Nanometern bis Mikrometern, die Finite-Elemente-Methode Spannungen und Temperaturen auf Bauteilebene als Kontinuum. Mit DFT mehrere Millionen Atome über Mikrosekunden zu verfolgen, ist vom Rechenaufwand her unrealistisch, und die Finite-Elemente-Methode behandelt überhaupt keine Atome. Die Weitergabe von Ergebnissen kleinskaliger Rechnungen an großskalige Rechnungen nennt man Multiskalensimulation."
+  },
+  "computational-002": {
+    "question": "Welche Aussage über die Grundideen der Dichtefunktionaltheorie (DFT) trifft zu?",
+    "choices": [
+      "Ausgehend davon, dass die Elektronendichte die Grundzustandsenergie bestimmt, werden die Kohn-Sham-Gleichungen gelöst und die Wechselwirkung der Elektronen durch ein genähertes Austausch-Korrelations-Funktional beschrieben",
+      "Die Form eines interatomaren Potentials wird an Messwerte angepasst und die Newtonsche Bewegungsgleichung der Atome gelöst, sodass Elektronenzustände nirgends in der Rechnung vorkommen",
+      "Die Wellenfunktionen aller Elektronen werden ohne Näherung exakt bestimmt, sodass auch ohne Austausch-Korrelations-Näherung jede Eigenschaft jedes Stoffs so genau wie im Experiment vorhergesagt wird"
+    ],
+    "explanation": "Die Vielelektronen-Wellenfunktion hat zu viele Variablen, um direkt gelöst zu werden. Die DFT stützt sich auf das Hohenberg-Kohn-Theorem, nach dem die Grundzustandsenergie allein durch die Elektronendichte, eine Funktion von drei Raumkoordinaten, bestimmt ist, und verwendet die Elektronendichte als Hauptvariable. Praktisch werden die Kohn-Sham-Gleichungen, in denen sich fiktive, wechselwirkungsfreie Elektronen in einem effektiven Potential bewegen, iterativ gelöst, bis sich die Elektronendichte nicht mehr ändert (selbstkonsistente Rechnung). Die komplizierte Wechselwirkung der Elektronen untereinander wird im Austausch-Korrelations-Funktional zusammengefasst, für das Näherungen wie LDA oder GGA verwendet werden; die Ergebnisse sind daher nicht exakt, und die Genauigkeit hängt von Stoff und Eigenschaft ab. Die Bewegungsgleichungen mit einem empirischen interatomaren Potential zu lösen, ist das Vorgehen der klassischen Molekulardynamik."
+  },
+  "computational-003": {
+    "question": "Welche Tendenz zeigen die Ergebnisse von Standard-DFT-Rechnungen mit LDA- oder GGA-Austausch-Korrelations-Funktionalen?",
+    "choices": [
+      "Sie überschätzen die Bandlücke von Halbleitern und Isolatoren gegenüber dem Experiment meist; für Silizium liefert GGA etwa 2 eV",
+      "Sie unterschätzen die Bandlücke von Halbleitern und Isolatoren gegenüber dem Experiment; für Silizium liefert GGA etwa 0,6 eV",
+      "Neben dem Grundzustand bei 0 K liefern sie freie Energien bei endlicher Temperatur und Schmelzpunkte direkt aus einer einzigen Strukturoptimierung"
+    ],
+    "explanation": "Bei LDA und GGA ist bekannt, dass die aus der Differenz der Kohn-Sham-Eigenwerte abgelesene Bandlücke kleiner als der Messwert ausfällt. Für Silizium liefert GGA etwa 0,6 eV, rund die Hälfte des Messwerts von 1,12 eV; die Aussage, die Bandlücke werde überschätzt, gibt die Tendenz umgekehrt an. Werden genaue Werte benötigt, kommen Hybridfunktionale oder die GW-Näherung zum Einsatz. Größen, die mit der Gesamtenergie des Grundzustands zusammenhängen, wie Gitterkonstanten, elastische Moduln und Bildungsenergien, werden dagegen für viele Stoffe mit guter Genauigkeit erhalten. Die übliche DFT berechnet den Grundzustand bei 0 K; für Eigenschaften bei endlicher Temperatur müssen Rechnungen der Gitterschwingungen (Phononen) oder Molekulardynamik hinzugenommen werden. Zudem beschreiben Standardfunktionale Van-der-Waals-Kräfte schlecht, sodass bei Schichtstoffen und Adsorption Korrekturen ergänzt werden."
+  },
+  "computational-004": {
+    "question": "Eine Superzelle mit 108 Atomen (periodische Randbedingungen) eines Metalls hat in einer DFT-Rechnung die Gesamtenergie −405,00 eV. Wird ein Atom entfernt, sodass eine Leerstelle entsteht, und die Struktur relaxiert, ergibt sich −400,10 eV. Welcher Wert kommt der Leerstellenbildungsenergie E_v = E(N−1) − [(N−1)/N]E(N) am nächsten?",
+    "choices": [
+      "ca. 1,15 eV",
+      "ca. 4,90 eV",
+      "ca. 3,75 eV"
+    ],
+    "explanation": "E_v = −400,10 − (107/108)(−405,00) = −400,10 + 401,25 = 1,15 eV. Der Faktor (N−1)/N gleicht die Atomzahl an: Verglichen wird mit dem Zustand, in dem das entfernte Atom mit der Energie eines Atoms im Kristall (−405,00/108 = −3,75 eV) zurückgegeben wurde. Ca. 4,90 eV ist nur die Differenz der beiden Gesamtenergien; es fehlt der Anteil für das Zurückführen des entfernten Atoms in den Kristall. Ca. 3,75 eV ist der Betrag der Energie pro Atom im perfekten Kristall und nicht die Leerstellenbildungsenergie. Der richtige Wert lässt sich auch als 4,90 − 3,75 = 1,15 eV schreiben. In realen Rechnungen bleibt bei kleinen Zellen eine Wechselwirkung zwischen den periodisch angeordneten Leerstellen bestehen; daher wird die Konvergenz bezüglich der Zellgröße überprüft."
+  },
+  "computational-005": {
+    "question": "In der Molekulardynamik sollen die Bewegungsgleichungen mit einem Zeitschritt von 2 fs integriert werden, um die Bewegung der Atome über 1 ns zu berechnen. Wie viele Zeitschritte sind nötig?",
+    "choices": [
+      "5×10²",
+      "5×10⁸",
+      "5×10⁵"
+    ],
+    "explanation": "Mit 1 ns = 10⁻⁹ s und 2 fs = 2×10⁻¹⁵ s ist die Zahl der Schritte 10⁻⁹/(2×10⁻¹⁵) = 5×10⁵. Der Zeitschritt muss so klein sein, dass die Periode der Atomschwingungen (etwa 100 fs) in einige Dutzend Schritte unterteilt wird; in Systemen mit leichtem Wasserstoff wählt man 1 fs oder weniger. Ist der Schritt zu groß, bleibt die Energie wegen der Fehler der numerischen Integration (z. B. mit dem Verlet-Algorithmus) nicht erhalten, und die Rechnung bricht zusammen. Der Wert 5×10² verwechselt fs mit 10⁻¹² s (ps), der Wert 5×10⁸ verwechselt ns mit 10⁻⁶ s (µs). Da in jedem Schritt die Kräfte auf alle Atome berechnet werden, liegt die mit Molekulardynamik erreichbare Zeit als Richtwert bei Nanosekunden bis Mikrosekunden."
+  },
+  "computational-006": {
+    "question": "Welche Aussage über die in der Molekulardynamik verwendeten interatomaren Potentiale trifft zu?",
+    "choices": [
+      "Das Lennard-Jones-Potential ist ein Paarpotential, das nur vom Abstand zweier Atome abhängt, und beschreibt auch die metallische Bindung und die Richtungsabhängigkeit kovalenter Bindungen gut",
+      "Das Potential der Embedded-Atom-Methode (EAM) fügt eine Einbettungsenergie hinzu, die von der Elektronendichte der umgebenden Atome abhängt, und beschreibt so den Vielteilchencharakter der metallischen Bindung",
+      "Für kovalente Kristalle wie Silizium ist ein Paarpotential, das nicht von den Bindungswinkeln abhängt, am besten geeignet"
+    ],
+    "explanation": "Das Lennard-Jones-Potential ist ein Paarpotential, das nur vom Abstand zweier Atome abhängt; es beschreibt schwache, ungerichtete Bindungen wie bei Edelgasen gut, nicht aber die Eigenschaften metallischer oder kovalenter Bindungen. In Metallen spielt ein Vielteilcheneffekt eine große Rolle: Die Bindungsstärke eines Atoms hängt von der Zahl seiner Nachbarn ab. Die EAM berücksichtigt dies als Funktion der von den umgebenden Atomen erzeugten Elektronendichte. Mit reinen Paarpotentialen gilt für spannungsfreie kfz- und krz-Kristalle, in denen jedes Atom ein Symmetriezentrum ist, für die elastischen Konstanten stets C₁₂ = C₄₄ (Cauchy-Relation), was viele Metalle nicht erfüllen. Bei kovalenten Bindungen sind die Bindungswinkel wichtig, daher werden Potentiale mit Winkeltermen wie das Stillinger-Weber- oder das Tersoff-Potential verwendet. Verbreitet ist auch, ein interatomares Potential durch maschinelles Lernen an DFT-Ergebnisse anzupassen (Machine-Learning-Potentiale)."
+  },
+  "computational-007": {
+    "question": "Argon wird durch das Lennard-Jones-Potential V(r) = 4ε[(σ/r)¹² − (σ/r)⁶] mit σ = 0,34 nm beschrieben. Welcher Wert kommt dem Atomabstand r₀ mit minimaler Energie am nächsten?",
+    "choices": [
+      "ca. 0,34 nm",
+      "ca. 0,38 nm",
+      "ca. 0,43 nm"
+    ],
+    "explanation": "Aus dV/dr = 0 folgt −12σ¹²/r¹³ + 6σ⁶/r⁷ = 0, also r⁶ = 2σ⁶ und r₀ = ⁶√2 × σ ≈ 1,122 × 0,34 ≈ 0,38 nm. Die Energie beträgt dort −ε; ε gibt die Bindungsstärke (Tiefe der Potentialmulde) an. Ca. 0,34 nm ist der Abstand σ selbst, bei dem V(r) = 0 wird; dort heben sich abstoßende und anziehende Energie nur zu null auf, die Kraft wirkt aber abstoßend. Ca. 0,43 nm ist ∛2 × σ und verwechselt r⁶ = 2σ⁶ mit r³ = 2σ³. Der Abstand r₀ ist ein Richtwert für den Abstand nächster Nachbarn im Festkörper und liegt nahe am gemessenen Abstand nächster Nachbarn im Argonkristall bei tiefer Temperatur (etwa 0,376 nm)."
+  },
+  "computational-008": {
+    "question": "In einer Molekulardynamik-Rechnung eines einatomigen Systems betrug die mittlere kinetische Energie pro Atom 0,0517 eV. Welcher Wert kommt der nach dem Gleichverteilungssatz bestimmten Temperatur des Systems am nächsten? Die Boltzmann-Konstante sei k = 8,617×10⁻⁵ eV/K.",
+    "choices": [
+      "ca. 400 K",
+      "ca. 600 K",
+      "ca. 200 K"
+    ],
+    "explanation": "Ein Atom hat 3 Translationsfreiheitsgrade mit je kT/2 kinetischer Energie; die mittlere kinetische Energie beträgt also (3/2)kT. Damit ist T = 2 × 0,0517/(3 × 8,617×10⁻⁵) ≈ 400 K. Ca. 600 K setzt die kinetische Energie gleich kT, ca. 200 K gleich 3kT. In der Molekulardynamik wird so aus den Atomgeschwindigkeiten die momentane Temperatur bestimmt; soll die Temperatur konstant gehalten werden, werden die Geschwindigkeiten über eine Kopplung an ein Wärmebad (Thermostat) angepasst. Bei wenigen Atomen schwankt die momentane Temperatur stark, daher wird das Zeitmittel ausgewertet. In Systemen mit wenigen Atomen ändert sich der Wert zudem geringfügig mit der Zählweise der Freiheitsgrade, etwa wenn die Schwerpunktsbewegung abgezogen wird."
+  },
+  "computational-009": {
+    "question": "Bei der Monte-Carlo-Methode nach Metropolis erhöht eine Probeverschiebung eines Atoms die Energie des Systems um 0,10 eV. Welcher Wert kommt bei einer Temperatur von 1000 K der Wahrscheinlichkeit am nächsten, diesen Schritt anzunehmen? k = 8,617×10⁻⁵ eV/K.",
+    "choices": [
+      "ca. 0,69",
+      "0 (energieerhöhende Schritte werden nicht angenommen)",
+      "ca. 0,31"
+    ],
+    "explanation": "Beim Metropolis-Verfahren werden Schritte, die die Energie senken, immer angenommen, solche, die sie erhöhen, mit der Wahrscheinlichkeit exp(−ΔE/kT). Mit kT = 8,617×10⁻⁵ × 1000 ≈ 0,0862 eV ist ΔE/kT ≈ 1,16 und die Wahrscheinlichkeit exp(−1,16) ≈ 0,31. Praktisch wird eine Zufallszahl zwischen 0 und 1 erzeugt und der Schritt angenommen, wenn sie kleiner als diese Wahrscheinlichkeit ist. Da auch energieerhöhende Schritte mit einer gewissen Wahrscheinlichkeit angenommen werden, besucht das System Zustände gemäß der Boltzmann-Verteilung, und im Mittel ergeben sich die Gleichgewichtseigenschaften bei endlicher Temperatur. Würden energieerhöhende Schritte nie angenommen, bliebe das System in einem lokalen Energieminimum gefangen, was einer Optimierung bei 0 K entspräche. Ca. 0,69 verwechselt die Ablehnungswahrscheinlichkeit 1 − 0,31 mit der Annahmewahrscheinlichkeit."
+  },
+  "computational-010": {
+    "question": "Welche Aussage über die kinetische Monte-Carlo-Methode (kMC) trifft zu?",
+    "choices": [
+      "Ereignissen wie Atomsprüngen werden Raten ν exp(−E_a/kT) zugeordnet, Ereignisse mit ratenproportionaler Wahrscheinlichkeit gewählt und die Zeit fortgeschrieben, sodass Diffusion und Ausscheidung über lange Zeiten verfolgbar sind",
+      "Sie integriert die Bewegungsgleichungen der Atome in Femtosekundenschritten, verfolgt die thermischen Schwingungen genau und behandelt bei gleichem Aufwand längere Diffusionszeiten als die Molekulardynamik",
+      "Sie kennt keine Zeit, nimmt energieerhöhende Versuche mit der Wahrscheinlichkeit exp(−ΔE/kT) an und dient nur zur Bestimmung mittlerer Eigenschaften im Gleichgewicht"
+    ],
+    "explanation": "Bei der Diffusion im Festkörper führen Atome sehr viele Schwingungen aus, bevor sie selten in eine benachbarte Leerstelle springen. Die Molekulardynamik verfolgt alle diese Schwingungen, sodass Vorgänge über mehr als Mikrosekunden schwer zugänglich sind. Die kMC lässt die Schwingungen weg: Sie stellt eine Liste von Ereignissen wie Leerstellensprüngen mit ihren Aktivierungsenergien auf, wählt das nächste Ereignis mit einer zur Rate ν exp(−E_a/kT) proportionalen Wahrscheinlichkeit und schreitet in der Zeit gemäß dem Kehrwert der Summe aller Raten voran. Als Aktivierungsenergien werden häufig DFT-Werte verwendet. So lassen sich das Wachstum von Ausscheidungen beim Auslagern oder die Entwicklung von Strahlenschäden in realer Zeit verfolgen. Die Bewegungsgleichungen zu integrieren, kennzeichnet die Molekulardynamik, und ohne Zeitbegriff Gleichgewichtsmittelwerte zu bestimmen, das Metropolis-Verfahren."
+  },
+  "computational-011": {
+    "question": "Welche Aussage über die CALPHAD-Methode trifft zu?",
+    "choices": [
+      "Ein Verfahren, das die Schrödinger-Gleichung der Elektronen bei jeder Temperatur und Zusammensetzung direkt löst und Zustandsdiagramme von Mehrstoffsystemen ganz ohne Messwerte und thermodynamische Modelle von Grund auf bestimmt",
+      "Ein Verfahren, das Modelle der Gibbs-Energie jeder Phase an Messwerte und andere Daten anpasst und das Zustandsdiagramm aus der Phasenkombination mit minimaler Gesamt-Gibbs-Energie berechnet",
+      "Ein Verfahren, das lediglich Liquidus- und Soliduslinien gemessener binärer Zustandsdiagramme passend zur Zusammensetzung von Mehrstoffsystemen interpoliert und verbindet, ganz ohne thermodynamische Modelle"
+    ],
+    "explanation": "Bei der CALPHAD-Methode (CALculation of PHAse Diagrams) wird die Gibbs-Energie jeder Phase, etwa der Schmelze, von Mischkristallen und Verbindungen, als Summe eines Terms der reinen Stoffe, eines Terms der idealen Mischung und eines Exzessterms für die Wechselwirkungen dargestellt. Die Parameter werden so bestimmt, dass sie zu Messwerten wie Zustandsdiagrammen, Wärmekapazitäten und Mischungswärmen sowie zu in Ab-initio-Rechnungen bestimmten Bildungsenergien passen, und in thermodynamischen Datenbanken zusammengefasst. Bestimmt man bei gegebener Temperatur und Zusammensetzung die Phasen und Zusammensetzungen, bei denen die Gibbs-Energie des Gesamtsystems minimal ist, lassen sich Zustandsdiagramme und Phasenanteile berechnen. Elektronengleichungen zu lösen, ist Sache der Ab-initio-Rechnung; die CALPHAD-Methode verwendet deren Ergebnisse als eine ihrer Eingangsgrößen. Da sie nicht die Linien des Zustandsdiagramms interpoliert, sondern thermodynamische Modelle verwendet, kann sie auch auf Temperaturen und Zusammensetzungen ohne Messdaten extrapolieren."
+  },
+  "computational-012": {
+    "question": "Mit der CALPHAD-Methode sollen in einer Nickelbasis-Superlegierung oder einem Stahl mit fast zehn Elementen die ausgeschiedenen Phasen und ihre Anteile vorhergesagt werden. Welche Kombination aus Grundgedanke und Einschränkung trifft zu?",
+    "choices": [
+      "Die Datenbank enthält Messwerte für jede Zusammensetzung des Mehrstoffsystems, daher wird nicht extrapoliert, und die Ergebnisse stimmen stets mit dem realen Gefüge überein",
+      "Die Gibbs-Energie eines Mehrstoffsystems ist allein durch die Werte der reinen Stoffe bestimmt, daher ist keine Optimierung binärer oder ternärer Systeme nötig",
+      "Die Gibbs-Energie des Mehrstoffsystems wird aus vor allem an binären und ternären Systemen optimierten Parametern extrapoliert. Man erhält das Gleichgewicht, und außerhalb des optimierten Bereichs sinkt die Genauigkeit"
+    ],
+    "explanation": "Alle Zusammensetzungen eines Mehrstoffsystems experimentell zu untersuchen, ist unmöglich; mit Modellen der Gibbs-Energie lassen sich jedoch die an binären und ternären Systemen bestimmten Parameter kombinieren und die Werte des Mehrstoffsystems extrapolieren. Wechselwirkungen in quaternären und höheren Systemen werden meist als klein vernachlässigt. Auf diese Weise lassen sich Liquidustemperatur, Art und Anteil der ausgeschiedenen Phasen, Löslichkeitsgrenzen usw. technischer Legierungen vorhersagen, was das Ausprobieren bei der Legierungsentwicklung stark verringert. Man erhält jedoch den thermodynamischen Gleichgewichtszustand; ob das reale Gefüge das Gleichgewicht erreicht und wie schnell Umwandlungen ablaufen, geht daraus nicht hervor. Für die Kinetik werden Daten zur Diffusionsmobilität und Rechnungen zur Ausscheidungskinetik hinzugenommen. Mit den Werten der reinen Stoffe allein lassen sich die Wechselwirkungen zwischen den Komponenten nicht beschreiben."
+  },
+  "computational-013": {
+    "question": "Welche Aussage über die Phasenfeldmethode trifft zu?",
+    "choices": [
+      "Sie betrachtet eine diffuse Grenzfläche, über die sich ein Ordnungsparameter stetig ändert, und entwickelt ihn so, dass die freie Energie sinkt; Gefügeänderungen werden ohne direkte Verfolgung der Grenzfläche berechnet",
+      "Sie behandelt die Grenzfläche als scharfe Grenze der Dicke null, sodass alle Punkte der Grenzfläche einzeln verfolgt und in jedem Zeitschritt gemäß einer Gleichung für die Grenzflächengeschwindigkeit verschoben werden müssen",
+      "Sie verwendet Orte und Geschwindigkeiten einzelner Atome als Variablen und löst mit Kräften aus interatomaren Potentialen die Newtonschen Bewegungsgleichungen, um Gefügeänderungen zu verfolgen"
+    ],
+    "explanation": "Bei der Phasenfeldmethode wird jedem Raumpunkt ein Ordnungsparameter zugeordnet, der z. B. im Festkörper 1 und in der Schmelze 0 ist und sich an der Grenzfläche über eine endliche Breite stetig ändert. Die gesamte freie Energie wird als Summe der chemischen freien Energie jedes Punkts und einer Grenzflächenenergie proportional zum Gradienten des Ordnungsparameters dargestellt und so zeitlich entwickelt, dass sie abnimmt. Nicht erhaltene Größen wie die Kristallorientierung werden mit der Allen-Cahn-Gleichung, erhaltene Größen wie die Konzentration mit der Cahn-Hilliard-Gleichung behandelt. Da die Grenzfläche nicht explizit verfolgt werden muss, lassen sich Gefüge mit komplex veränderlicher Form berechnen, etwa das Wachstum von Dendriten, Kornwachstum und die Vergröberung von Ausscheidungen. Punkte der Grenzfläche zu verfolgen, kennzeichnet Verfahren mit scharfer Grenzfläche, die Bewegungsgleichungen der Atome zu lösen, die Molekulardynamik."
+  },
+  "computational-014": {
+    "question": "Welche Vorgehensweise ist richtig, wenn mit der Finite-Elemente-Methode die elastischen Spannungen in einem Bauteil mit Bohrungen oder Kerben berechnet werden?",
+    "choices": [
+      "Mit zunehmender Elementzahl summieren sich Rundungsfehler und der Fehler wächst; die Elemente sollten daher auch im Bereich der Spannungskonzentration möglichst grob und groß sein",
+      "In einer linear-elastischen Rechnung konvergiert auch die Spannung an einer scharfen Rissspitze bei ausreichend feinen Elementen gegen einen endlichen Wert, der mit der Zugfestigkeit verglichen werden kann",
+      "Da es ein Näherungsverfahren ist, werden die Elemente im Bereich der Spannungskonzentration verfeinert, und es wird geprüft, dass sich das Ergebnis mit der Elementgröße kaum ändert (Konvergenz)"
+    ],
+    "explanation": "Bei der Finite-Elemente-Methode wird die Struktur in kleine Elemente wie Dreiecke oder Vierecke zerlegt, und die Verschiebungen innerhalb eines Elements werden mit einfachen Funktionen aus den Knotenverschiebungen interpoliert. Durch Lösen der globalen Steifigkeitsgleichung [K]{u} = {F} erhält man die Knotenverschiebungen und daraus Dehnungen und Spannungen. Da die Interpolation eine Näherung ist, wird in der Nähe von Bohrungen und Kerben, wo sich die Spannung stark ändert, fein vernetzt, und grundsätzlich wird geprüft, dass sich die Werte bei weiterer Netzverfeinerung nicht mehr ändern. Gröbere Elemente ergeben in der Regel größere Fehler. In der linearen Elastizität ist die Spannung an einer scharfen Rissspitze dagegen theoretisch unendlich, sodass sie mit zunehmender Verfeinerung immer weiter wächst und nicht konvergiert. Risse werden daher nicht über die Spannung, sondern über den Spannungsintensitätsfaktor oder das J-Integral bewertet, und an der Spitze werden z. B. singuläre Elemente eingesetzt."
+  },
+  "computational-015": {
+    "question": "Welcher Hinweis ist richtig, wenn in der Materialinformatik aus Daten bekannter Werkstoffe ein Modell des maschinellen Lernens erstellt wird, um Eigenschaften neuer Werkstoffe vorherzusagen?",
+    "choices": [
+      "Je kleiner der Fehler auf den Trainingsdaten, desto genauer sind zwangsläufig auch die Vorhersagen für neue Werkstoffe; einziges Ziel ist daher, den Trainingsfehler zu minimieren",
+      "Die Güte wird am Fehler auf nicht zum Training verwendeten Daten (z. B. durch Kreuzvalidierung) beurteilt, und Vorhersagen weit außerhalb des Bereichs der Trainingsdaten sind wenig verlässlich",
+      "Auch bei wenigen Daten bringen immer mehr Deskriptoren (Merkmale) mehr Information, sodass die Vorhersagen für neue Werkstoffe zwangsläufig genauer werden"
+    ],
+    "explanation": "Ein Modell des maschinellen Lernens lernt eine Funktion, die die Zieleigenschaft aus Deskriptoren (Merkmalen) vorhersagt, in denen Zusammensetzung, Kristallstruktur usw. als Zahlen ausgedrückt sind. Wird es zu stark an die Trainingsdaten angepasst (Überanpassung), ist der Fehler auf diesen Daten zwar klein, die Vorhersage für neue Daten aber schlecht. Deshalb werden die Daten in Trainings- und Validierungsdaten aufgeteilt oder es wird eine Kreuzvalidierung durchgeführt, und die Güte wird am Fehler auf nicht zum Training verwendeten Daten beurteilt. Werden bei wenigen Daten zu viele Deskriptoren verwendet, tritt leicht Überanpassung auf. Außerdem ist ein Modell zwar gut im Interpolieren innerhalb des Bereichs der Trainingsdaten, aber schwach beim Extrapolieren weit darüber hinaus. Daher werden die Daten effizient ergänzt, etwa mit der Bayesschen Optimierung, die anhand von Vorhersagewert und Unsicherheit den nächsten zu prüfenden Kandidaten auswählt."
+  }
+}

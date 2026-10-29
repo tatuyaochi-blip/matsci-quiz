@@ -1,0 +1,110 @@
+{
+  "defects-diffusion-001": {
+    "question": "Welche Aussage beschreibt unter den Punktdefekten in Ionenkristallen den Frenkel-Defekt zutreffend?",
+    "choices": [
+      "Ein Paar aus einer Kationenleerstelle und einer Anionenleerstelle, das so entsteht, dass der Kristall elektrisch neutral bleibt",
+      "Ein Paar aus einer Leerstelle und einem Zwischengitterion, das entsteht, wenn ein Ion seinen Gitterplatz verlässt und auf einen Zwischengitterplatz wechselt",
+      "Ein substitutioneller Fremdatomdefekt, bei dem ein Ion eines anderen Elements anstelle eines Wirtsions einen Gitterplatz besetzt"
+    ],
+    "explanation": "Beim Frenkel-Defekt wechselt ein Ion (meist ein kleines Kation) von seinem Gitterplatz auf einen Zwischengitterplatz, sodass eine Leerstelle und ein Zwischengitterion als Paar entstehen. Ein bekanntes Beispiel ist Ag⁺ in AgCl und AgBr. Ein Paar aus Kationen- und Anionenleerstelle ist der Schottky-Defekt, der vor allem in NaCl und MgO auftritt. Beide Kombinationen wahren die elektrische Neutralität des gesamten Kristalls. Die Substitution durch Fremdionen ist eine Mischkristallbildung mit Fremdatomen; bei abweichender Wertigkeit werden zum Ladungsausgleich Defekte wie Leerstellen eingebaut."
+  },
+  "defects-diffusion-002": {
+    "question": "Welche Beziehung besteht bei einer Stufenversetzung zwischen Burgersvektor und Versetzungslinie?",
+    "choices": [
+      "Sie stehen senkrecht aufeinander",
+      "Sie sind parallel zueinander",
+      "Sie schließen stets 45° ein"
+    ],
+    "explanation": "Eine Stufenversetzung entspricht einer zusätzlich in den Kristall eingeschobenen Halbebene von Atomen; ihr Burgersvektor b steht senkrecht auf der Versetzungslinie. Die Stufenversetzung gleitet in Richtung von b, und ihre Gleitebene ist eindeutig als die Ebene festgelegt, die b und die Versetzungslinie enthält. Parallel sind b und Versetzungslinie bei der Schraubenversetzung; da bei ihr die Gleitebene nicht eindeutig festgelegt ist, kann sie durch Quergleitung auf eine andere Gleitebene wechseln. Allgemeine Versetzungen sind gemischte Versetzungen dazwischen; entlang der Versetzungslinie ändert sich der Anteil von Stufen- und Schraubenkomponente kontinuierlich, und der Winkel ist nicht auf 45° festgelegt."
+  },
+  "defects-diffusion-003": {
+    "question": "Die Leerstellenbildungsenergie eines Metalls betrage 0,90 eV. Welcher Wert kommt der Gleichgewichtskonzentration der Leerstellen (Anteil unbesetzter Gitterplätze) bei 1000 K nach n/N = exp(−Q/kT) am nächsten? Die Boltzmann-Konstante sei k = 8,617×10⁻⁵ eV/K.",
+    "choices": [
+      "ca. 5,4×10⁻³",
+      "ca. 2,9×10⁻⁵",
+      "ca. 3,6×10⁻¹¹"
+    ],
+    "explanation": "Mit kT = 8,617×10⁻⁵ × 1000 ≈ 0,0862 eV ist Q/kT = 0,90/0,0862 ≈ 10,44. Damit ist n/N = exp(−10,44) ≈ 2,9×10⁻⁵; rechnerisch kommt also auf rund 35 000 Gitterplätze eine Leerstelle. Ca. 5,4×10⁻³ halbiert den Exponenten zu exp(−Q/2kT) und verwechselt die Formel mit der für die Ladungsträgerdichte eines Eigenhalbleiters. Ca. 3,6×10⁻¹¹ rechnet statt mit exp mit 10 hoch −10,44, also mit dem dekadischen Logarithmus. Die Leerstellenkonzentration steigt exponentiell mit der Temperatur und erreicht nahe dem Schmelzpunkt etwa 10⁻⁴."
+  },
+  "defects-diffusion-004": {
+    "question": "Durch ein 5,0 mm dickes Stahlblech, dessen beide Oberflächen auf Kohlenstoffkonzentrationen von 1,2 kg/m³ bzw. 0,8 kg/m³ gehalten werden, diffundiert Kohlenstoff stationär. Welcher Wert kommt der Diffusionsstromdichte des Kohlenstoffs am nächsten, wenn der Diffusionskoeffizient 3,0×10⁻¹¹ m²/s beträgt? Die Konzentration ändere sich linear über die Dicke.",
+    "choices": [
+      "ca. 2,4×10⁻¹² kg/(m²·s)",
+      "ca. 7,2×10⁻⁹ kg/(m²·s)",
+      "ca. 2,4×10⁻⁹ kg/(m²·s)"
+    ],
+    "explanation": "Im stationären Zustand gilt das erste Ficksche Gesetz J = −D(dC/dx). Der Konzentrationsgradient beträgt (0,8 − 1,2)/(5,0×10⁻³ m) = −80 kg/m⁴, also J = 3,0×10⁻¹¹ × 80 = 2,4×10⁻⁹ kg/(m²·s), und der Strom fließt von der Seite hoher zur Seite niedriger Konzentration. Ca. 2,4×10⁻¹² teilt durch die Dicke in mm (5,0) und ist ein Fehler bei der Einheitenumrechnung, ca. 7,2×10⁻⁹ verwendet statt der Konzentrationsdifferenz die Konzentration 1,2 kg/m³ einer Seite. Da der Konzentrationsunterschied den Strom verursacht, kommt es auf den richtigen Gradienten an. Dieser Ansatz wird auch bei Wasserstoffpermeationsversuchen und zur Bewertung von Gastrennmembranen verwendet."
+  },
+  "defects-diffusion-005": {
+    "question": "Der Diffusionskoeffizient von Kohlenstoff in γ-Eisen folgt dem Arrhenius-Ansatz D = D₀exp(−Q/RT) mit D₀ = 2,3×10⁻⁵ m²/s und der Aktivierungsenergie Q = 148 kJ/mol. Welcher Wert kommt dem Diffusionskoeffizienten bei 927 °C am nächsten? Die Gaskonstante sei R = 8,314 J/(mol·K).",
+    "choices": [
+      "ca. 8,3×10⁻¹² m²/s",
+      "ca. 1,1×10⁻¹³ m²/s",
+      "ca. 2,3×10⁻⁵ m²/s"
+    ],
+    "explanation": "Die Temperatur wird in die absolute Temperatur umgerechnet: T = 927 + 273 = 1200 K. Mit Q/RT = 148000/(8,314 × 1200) ≈ 14,83 ist D = 2,3×10⁻⁵ × exp(−14,83) ≈ 2,3×10⁻⁵ × 3,6×10⁻⁷ ≈ 8,3×10⁻¹² m²/s. Ca. 1,1×10⁻¹³ setzt die Temperatur in °C als 927 ein. Ca. 2,3×10⁻⁵ setzt Q in kJ als 148 ein, sodass der Exponent nahezu null wird und sich fast derselbe Wert wie D₀ ergibt. Da D exponentiell von der Temperatur abhängt, lässt sich die Behandlungsdauer beim Aufkohlen schon durch eine Erhöhung der Temperatur um einige Dutzend °C stark verkürzen."
+  },
+  "defects-diffusion-006": {
+    "question": "Der Diffusionskoeffizient eines Elements betrug bei 800 K 1,0×10⁻¹⁴ m²/s und bei 1000 K 4,0×10⁻¹³ m²/s. Welcher Wert kommt der Aktivierungsenergie Q am nächsten, wenn der Arrhenius-Ansatz D = D₀exp(−Q/RT) gilt? R = 8,314 J/(mol·K).",
+    "choices": [
+      "ca. 53 kJ/mol",
+      "ca. 123 kJ/mol",
+      "ca. 245 kJ/mol"
+    ],
+    "explanation": "Bildet man das Verhältnis der Gleichungen für beide Temperaturen, fällt D₀ heraus, und es gilt ln(D₂/D₁) = (Q/R)(1/T₁ − 1/T₂). Mit D₂/D₁ = 40, ln 40 ≈ 3,689 und 1/800 − 1/1000 = 2,5×10⁻⁴ K⁻¹ ist Q = 8,314 × 3,689 / (2,5×10⁻⁴) ≈ 1,23×10⁵ J/mol, also etwa 123 kJ/mol. Ca. 53 kJ/mol verwendet statt des natürlichen den dekadischen Logarithmus (log₁₀ 40 ≈ 1,602), ca. 245 kJ/mol verwechselt den Ansatz mit der Form exp(−Q/2RT) und verdoppelt den Wert. In der Praxis wird ln D über 1/T aufgetragen und Q aus der Steigung −Q/R der Geraden bestimmt."
+  },
+  "defects-diffusion-007": {
+    "question": "Ein Stahl mit 0,20 Massen-% Kohlenstoff wird aufgekohlt, wobei die Kohlenstoffkonzentration an der Oberfläche auf 1,00 Massen-% gehalten wird. Welcher Wert kommt der Zeit am nächsten, bis die Kohlenstoffkonzentration in 0,50 mm Tiefe 0,60 Massen-% erreicht? Der Diffusionskoeffizient sei 1,6×10⁻¹¹ m²/s, (C − C₀)/(Cₛ − C₀) = 1 − erf(x/2√(Dt)), erf(0,371) = 0,40 und erf(0,477) = 0,50.",
+    "choices": [
+      "ca. 7,9 Stunden",
+      "ca. 19 Stunden",
+      "ca. 4,8 Stunden"
+    ],
+    "explanation": "Aus (0,60 − 0,20)/(1,00 − 0,20) = 0,50 folgt 1 − erf(z) = 0,50, also erf(z) = 0,50 und z = x/2√(Dt) = 0,477. Damit ist √(Dt) = 0,50×10⁻³/(2 × 0,477) ≈ 5,24×10⁻⁴ m, Dt ≈ 2,75×10⁻⁷ m² und t = 2,75×10⁻⁷/(1,6×10⁻¹¹) ≈ 1,72×10⁴ s, also etwa 4,8 Stunden. Ca. 19 Stunden lässt die 2 im Nenner weg und setzt x/√(Dt) = 0,477; die Zeit wird dadurch viermal so groß. Ca. 7,9 Stunden vernachlässigt die Ausgangskonzentration C₀ und erhält aus 0,60/1,00 erf(z) = 0,40 und z = 0,371. Da die Zeit mit dem Quadrat der Tiefe wächst, wirkt sich der Umgang mit den Faktoren stark aus."
+  },
+  "defects-diffusion-008": {
+    "question": "Um welchen Faktor muss bei einer Diffusionsbehandlung bei gleicher Temperatur die Behandlungszeit verlängert werden, damit sich die Tiefe verdoppelt, in der eine bestimmte Konzentration erreicht wird?",
+    "choices": [
+      "2-fach",
+      "ca. 1,4-fach (√2-fach)",
+      "4-fach"
+    ],
+    "explanation": "In der Fehlerfunktionslösung hängt die Konzentration nur von x/2√(Dt) ab, sodass die Tiefe x, in der eine bestimmte Konzentration erreicht wird, proportional zu √(Dt) ist. Bei gleicher Temperatur ist D konstant; um die Tiefe zu verdoppeln, muss √t verdoppelt, die Zeit also vervierfacht werden. Der Faktor 2 nimmt an, dass die Tiefe proportional zur Zeit ist, der Faktor √2 wendet die Proportionalität in umgekehrter Richtung an. Der Richtwert für die Diffusionslänge x ≈ √(Dt) wird in vielen Bereichen verwendet, etwa beim Aufkohlen oder bei der Diffusion von Dotierstoffen. Wird eine tiefe Schicht benötigt, ist es wirksamer, die Temperatur zu erhöhen und damit D zu vergrößern, als die Zeit zu verlängern."
+  },
+  "defects-diffusion-009": {
+    "question": "In α-Eisen ist bei gleicher Temperatur der Diffusionskoeffizient von Kohlenstoff um viele Größenordnungen größer als der von Nickel. Was ist der Hauptgrund?",
+    "choices": [
+      "Kohlenstoff wandert über Zwischengitterplätze und kann auch ohne benachbarte Leerstelle springen",
+      "Kohlenstoff diffundiert über den Leerstellenmechanismus, und Leerstellen sammeln sich bevorzugt um Kohlenstoffatome",
+      "Kohlenstoff hat eine kleinere Atommasse als Nickel, daher sind seine thermischen Schwingungen schneller"
+    ],
+    "explanation": "Kleine Atome wie Kohlenstoff sitzen in den Lücken zwischen den Eisenatomen (Zwischengitterplätzen) und können nacheinander auf benachbarte freie Zwischengitterplätze springen. Da fast alle Zwischengitterplätze frei sind, gibt es viele Sprunggelegenheiten, und auch die Aktivierungsenergie ist klein. Substitutionsatome wie Nickel diffundieren dagegen über den Leerstellenmechanismus, bei dem sie sich nur bewegen können, wenn eine Leerstelle benachbart ist; zur Aktivierungsenergie kommt die Leerstellenbildungsenergie hinzu, sodass die Diffusion viel langsamer ist. Ein Unterschied der Schwingungsfrequenz wegen der Atommasse besteht zwar in gewissem Maß, doch Unterschiede von vielen Größenordnungen lassen sich nur durch den unterschiedlichen Diffusionsmechanismus erklären."
+  },
+  "defects-diffusion-010": {
+    "question": "Welche Aussage über die Diffusionswege in einem polykristallinen Metall trifft zu?",
+    "choices": [
+      "Die Aktivierungsenergie nimmt im Allgemeinen in der Reihenfolge Gitterdiffusion < Korngrenzendiffusion < Oberflächendiffusion zu",
+      "Je niedriger die Temperatur, desto größer ist der Beitrag der Korngrenzendiffusion im Verhältnis zur Gitterdiffusion",
+      "Je feiner die Körner, desto kleiner ist der Beitrag der Korngrenzendiffusion"
+    ],
+    "explanation": "Je gestörter die Atomanordnung entlang eines Wegs ist, desto leichter springen die Atome; die Aktivierungsenergie nimmt im Allgemeinen in der Reihenfolge Oberflächendiffusion < Korngrenzendiffusion < Gitter- (Volumen-)Diffusion zu. Die Aussage mit der Reihenfolge Gitterdiffusion < Korngrenzendiffusion < Oberflächendiffusion kehrt diese Rangfolge um. Wege mit kleiner Aktivierungsenergie verlieren bei sinkender Temperatur weniger an Diffusionskoeffizient, sodass der Beitrag der Korngrenzendiffusion bei niedriger Temperatur relativ zunimmt. Je feiner die Körner, desto größer ist die gesamte Korngrenzenfläche, sodass der Beitrag der Korngrenzendiffusion sogar zunimmt. Deshalb wird Korngrenzendiffusion gerade in feinkörnigen Systemen bei niedriger Temperatur zum Problem, etwa in Lötverbindungen oder Dünnschicht-Leiterbahnen."
+  },
+  "defects-diffusion-011": {
+    "question": "Werden Kupfer und Messing (eine Cu-Zn-Legierung) verbunden und erwärmt, bewegen sich an der ursprünglichen Grenzfläche angebrachte inerte Markierungen zur Messingseite hin (Kirkendall-Effekt). Was zeigt diese Erscheinung?",
+    "choices": [
+      "Die beiden Atomsorten diffundieren unterschiedlich schnell, und die Diffusion verläuft über den Leerstellenmechanismus",
+      "Die Atome diffundieren ausschließlich über den Zwischengittermechanismus, und die Zahl der Gitterplätze ändert sich auf beiden Seiten nicht",
+      "Wärmespannungen an der Fügefläche schieben die inerten Markierungen während der Erwärmung zur Messingseite"
+    ],
+    "explanation": "Zink diffundiert schneller in das Kupfer als Kupfer in das Messing, sodass mehr Atome die Messingseite verlassen als hineingelangen. Da die Substitutionsdiffusion durch Platzwechsel mit Leerstellen abläuft, fließen Leerstellen entgegen dem Nettoatomstrom; auf der Messingseite verschwinden Gitterebenen, und die Markierungen wandern zur Messingseite. Dieses historische Experiment zeigte, dass die Diffusion über den Leerstellenmechanismus abläuft. Bei reinem Zwischengittermechanismus bliebe die Zahl der Gitterplätze unverändert, und die Markierungen würden sich nicht bewegen. Sammeln sich die überschüssigen Leerstellen, entstehen Kirkendall-Poren, die z. B. die Zuverlässigkeit von Lötverbindungen verringern."
+  },
+  "defects-diffusion-012": {
+    "question": "Der Burgersvektor einer vollständigen Versetzung in einem kfz-Metall ist (a/2)<110>. Welcher Wert kommt seinem Betrag bei Aluminium (Gitterkonstante 0,405 nm) am nächsten?",
+    "choices": [
+      "ca. 0,405 nm",
+      "ca. 0,351 nm",
+      "ca. 0,286 nm"
+    ],
+    "explanation": "Der Betrag von (a/2)<110> ist (a/2) × √(1² + 1² + 0²) = a/√2, also 0,405/1,414 ≈ 0,286 nm. Das entspricht dem kürzesten Atomabstand im kfz-Gitter: Versetzungen wählen als Burgersvektor den kürzesten Gittertranslationsvektor in dichtest gepackter Richtung. Ca. 0,405 nm ist die Gitterkonstante selbst (Translation in <100>-Richtung); da die Versetzungsenergie proportional zu b² ist, wäre dies ungünstig. Ca. 0,351 nm wendet den krz-Wert (a/2)<111>, also √3a/2, an. Die elastische Energie einer Versetzung pro Längeneinheit beträgt etwa Gb²/2; Versetzungen mit kleinem b sind stabiler."
+  }
+}

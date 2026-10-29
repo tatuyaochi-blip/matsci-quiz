@@ -1,0 +1,110 @@
+{
+  "crystal-001": {
+    "question": "Wie viele Atome berühren in einem Metall mit kubisch-flächenzentriertem Gitter (kfz) ein gegebenes Atom im kürzesten Abstand (Koordinationszahl)?",
+    "choices": [
+      "8",
+      "12",
+      "6"
+    ],
+    "explanation": "Im kfz-Gitter berührt jedes Atom 6 Atome in derselben {111}-Ebene und je 3 Atome in der {111}-Ebene darüber und darunter; die Koordinationszahl ist also 12. Dies ist der Höchstwert für die Packung gleich großer Kugeln, und auch hdP hat die Koordinationszahl 12. Der Wert 8 ist die Koordinationszahl von krz (das raumzentrierte Atom berührt die 8 Eckatome des Würfels), der Wert 6 die des kubisch-primitiven Gitters. Je größer die Koordinationszahl, desto höher ist auch die Packungsdichte: etwa 0,52 bei kubisch-primitiv, etwa 0,68 bei krz und etwa 0,74 bei kfz und hdP. Typische kfz-Metalle sind Cu, Al, Ni, Au und γ-Eisen."
+  },
+  "crystal-002": {
+    "question": "Wie viele Atome enthält die Elementarzelle des kubisch-raumzentrierten Gitters (krz) netto?",
+    "choices": [
+      "2 Atome",
+      "4 Atome",
+      "9 Atome"
+    ],
+    "explanation": "Ein Eckatom wird von 8 Elementarzellen geteilt und zählt daher mit 1/8, während das raumzentrierte Atom vollständig zu seiner Zelle gehört. Die Nettoatomzahl ist also 8×1/8 + 1 = 2. 9 Atome ergeben sich, wenn jedes Eckatom ohne Berücksichtigung der Teilung als ganzes Atom gezählt wird; 4 Atome ist der Wert für kfz (Ecken 8×1/8 + Flächenmitten 6×1/2 = 4). Die Zahl n der Atome pro Elementarzelle geht unmittelbar in die Dichteberechnung ρ = nM/(N_A a³) ein und sollte für jede Struktur sicher bekannt sein. Kubisch-primitiv hat 1 Atom, hdP bezogen auf das sechseckige Prisma 6 Atome."
+  },
+  "crystal-003": {
+    "question": "Wie groß ist die Packungsdichte der kfz-Struktur (Anteil des von Atomen eingenommenen Volumens am Volumen der Elementarzelle), wenn die Atome als gleich große starre Kugeln betrachtet werden?",
+    "choices": [
+      "ca. 0,68",
+      "ca. 0,74",
+      "ca. 0,52"
+    ],
+    "explanation": "Im kfz-Gitter berühren sich die Atome entlang der Flächendiagonale, also √2a = 4r bzw. a = 2√2r. Da die Elementarzelle 4 Atome enthält, beträgt die Packungsdichte 4×(4/3)πr³ / (2√2r)³ = π/(3√2) ≈ 0,74. Ca. 0,68 ist der Wert für krz (Berührung entlang der Raumdiagonale mit a = 4r/√3, 2 Atome), ca. 0,52 der für kubisch-primitiv (a = 2r, 1 Atom, π/6). Auch hdP hat bei idealem c/a den Wert 0,74 und ist neben kfz eine dichteste Kugelpackung. Die Größe der einzelnen Lücken verhält sich jedoch umgekehrt: Im weniger dicht gepackten krz-Gitter sind sie kleiner (der Radius der größten Kugel in einer Oktaederlücke beträgt im kfz-Gitter etwa 0,41r, im krz-Gitter nur etwa 0,15r), weil krz sein größeres Gesamtleervolumen auf viele kleine Lücken verteilt."
+  },
+  "crystal-004": {
+    "question": "Welche Beziehung zwischen Gitterkonstante a und Atomradius r gilt für die krz-Struktur? Die Atome seien starre Kugeln, und nächste Nachbarn berühren sich.",
+    "choices": [
+      "a = 2r",
+      "a = 2√2r",
+      "a = 4r/√3"
+    ],
+    "explanation": "Im krz-Gitter berühren sich die Atome entlang der Raumdiagonale, die die Eckatome mit dem raumzentrierten Atom verbindet. Die Raumdiagonale hat die Länge √3a, und auf ihr liegen vier Atomradien, also √3a = 4r bzw. a = 4r/√3 ≈ 2,31r. Die Beziehung a = 2√2r gilt für kfz (Berührung entlang der Flächendiagonale, √2a = 4r), a = 2r für kubisch-primitiv (Berührung entlang der Würfelkante). Wer übersieht, dass sich die Atome im krz-Gitter entlang der Flächendiagonale nicht berühren, wendet leicht die kfz-Beziehung an."
+  },
+  "crystal-005": {
+    "question": "Kupfer hat eine kfz-Struktur mit der Gitterkonstante 0,3615 nm und der molaren Masse 63,55 g/mol. Welcher Wert kommt der berechneten Dichte von Kupfer am nächsten, wenn die Avogadro-Konstante 6,022×10²³ mol⁻¹ beträgt?",
+    "choices": [
+      "ca. 2,23 g/cm³",
+      "ca. 4,47 g/cm³",
+      "ca. 8,94 g/cm³"
+    ],
+    "explanation": "Die Dichte ist ρ = nM/(N_A a³), und die kfz-Elementarzelle enthält n = 4 Atome. Aus a = 0,3615 nm = 3,615×10⁻⁸ cm folgt a³ ≈ 4,724×10⁻²³ cm³, also ρ = 4×63,55 / (6,022×10²³ × 4,724×10⁻²³) ≈ 8,94 g/cm³; das stimmt gut mit dem Messwert von etwa 8,96 g/cm³ überein. Ca. 2,23 g/cm³ ergibt sich mit n = 1 (als kubisch-primitiv gerechnet), ca. 4,47 g/cm³ mit n = 2 (als krz gerechnet). Auch bei der Umrechnung von nm in cm (1 nm = 10⁻⁷ cm) unterlaufen leicht Fehler; bringen Sie die Einheiten vor dem Potenzieren in Übereinstimmung."
+  },
+  "crystal-006": {
+    "question": "Welcher Wert kommt dem Atomradius im Modell starrer Kugeln am nächsten, wenn die Gitterkonstante von α-Eisen (krz) 0,2866 nm beträgt?",
+    "choices": [
+      "ca. 0,124 nm",
+      "ca. 0,101 nm",
+      "ca. 0,143 nm"
+    ],
+    "explanation": "Im krz-Gitter berühren sich die Atome entlang der Raumdiagonale; aus √3a = 4r folgt r = √3a/4 = 1,732 × 0,2866/4 ≈ 0,124 nm. Ca. 0,101 nm wendet die kfz-Beziehung r = √2a/4 an, ca. 0,143 nm die kubisch-primitive Beziehung r = a/2. Das kfz-γ-Eisen hat zwar eine größere Gitterkonstante von etwa 0,36 nm, der Atomradius unterscheidet sich aber nur um wenige Prozent; der Unterschied der Gitterkonstanten beruht größtenteils auf der unterschiedlichen Anordnung der Atome (Struktur)."
+  },
+  "crystal-007": {
+    "question": "Eine Ebene in einem kubischen Kristall schneidet die x-Achse bei 1a und die y-Achse bei 2a und verläuft parallel zur z-Achse. Wie lauten ihre Millerschen Indizes?",
+    "choices": [
+      "(120)",
+      "(102)",
+      "(210)"
+    ],
+    "explanation": "Millersche Indizes erhält man, indem man die Achsenabschnitte in Einheiten der Gitterkonstante ausdrückt, ihre Kehrwerte bildet und diese auf das kleinste ganzzahlige Verhältnis bringt. Die Achsenabschnitte sind 1, 2 und ∞, die Kehrwerte 1, 1/2 und 0; mit 2 multipliziert ergibt sich (210). (120) reiht die Achsenabschnitte 1 und 2 ohne Kehrwertbildung aneinander. Eine Ebene parallel zur z-Achse hat auf der z-Achse den Achsenabschnitt ∞ und daher stets l = 0; (102) mit von null verschiedenem drittem Index ist daher ebenfalls falsch. Geht die Ebene durch den Ursprung, wird der Ursprung zuvor auf einen benachbarten Gitterpunkt verschoben."
+  },
+  "crystal-008": {
+    "question": "Welche Kombination aus dichtest gepackten Ebenen und dichtest gepackten Richtungen eines kfz-Metalls trifft zu?",
+    "choices": [
+      "{110}-Ebenen und <111>-Richtungen",
+      "{111}-Ebenen und <110>-Richtungen",
+      "{100}-Ebenen und <100>-Richtungen"
+    ],
+    "explanation": "Im kfz-Gitter sind die {111}-Ebenen am dichtesten mit Atomen belegt, und innerhalb dieser Ebenen berühren sich die Atome entlang der Flächendiagonalen, also in <110>-Richtungen. Die Gleitung in kfz-Metallen erfolgt in diesem System {111}<110>; da es 4 verschiedene {111}-Ebenen mit je 3 <110>-Richtungen gibt, existieren 12 Gleitsysteme. {110}-Ebenen und <111>-Richtungen sind die dichtest gepackten Ebenen und Richtungen von krz und werden leicht mit kfz verwechselt. {100}-Ebenen und <100>-Richtungen sind die dichtest gepackten Ebenen und Richtungen des kubisch-primitiven Gitters und im kfz-Gitter nicht dichtest gepackt."
+  },
+  "crystal-009": {
+    "question": "Welcher Wert kommt dem Netzebenenabstand der (111)-Ebenen von Aluminium (kfz, Gitterkonstante 0,405 nm) am nächsten?",
+    "choices": [
+      "ca. 0,135 nm",
+      "ca. 0,234 nm",
+      "ca. 0,701 nm"
+    ],
+    "explanation": "Für kubische Kristalle gilt für den Netzebenenabstand d = a/√(h² + k² + l²); für die (111)-Ebenen ist d = 0,405/√3 ≈ 0,234 nm. Ca. 0,135 nm lässt die Wurzel weg und rechnet a/3, ca. 0,701 nm multipliziert a mit √3 und ist die Länge der Raumdiagonale. Der Netzebenenabstand wird mit steigenden Indizes kleiner, und bei der XRD erscheinen die Reflexe von Ebenen mit kleinerem d bei größeren Winkeln. Die Formel gilt nur für kubische Kristalle; für tetragonale oder hexagonale Kristalle werden Formeln mit getrennten Gitterkonstanten a und c verwendet."
+  },
+  "crystal-010": {
+    "question": "Welche Aussage über die ideale hexagonal dichteste Packung (hdP) trifft zu?",
+    "choices": [
+      "c/a ≈ 1,633, Packungsdichte wie bei kfz etwa 0,74",
+      "c/a ≈ 1,633, Packungsdichte wie bei krz etwa 0,68",
+      "c/a ≈ 1,414, Packungsdichte wie bei kfz etwa 0,74"
+    ],
+    "explanation": "Die hdP-Struktur entsteht durch Stapelung dichtest gepackter Ebenen in der Folge ABAB …; berühren sich die starren Kugeln ideal, ist c/a = √(8/3) ≈ 1,633. Die Koordinationszahl ist 12 und die Packungsdichte etwa 0,74 – eine dichteste Packung wie kfz mit der Stapelfolge ABCABC … Etwa 0,68 ist die Packungsdichte von krz, und 1,414 (√2) ist das Verhältnis von Flächendiagonale zu Kantenlänge im kfz-Gitter, nicht das c/a von hdP. Bei realen hdP-Metallen weicht c/a vom Idealwert ab: Mg etwa 1,62, Ti etwa 1,59, Zn etwa 1,86. Wegen der geringen Zahl an Gleitsystemen ist die Duktilität von hdP-Metallen bei Raumtemperatur oft geringer als die von kfz-Metallen."
+  },
+  "crystal-011": {
+    "question": "Welcher Wert kommt in einem kubischen Kristall dem Winkel zwischen den Richtungen [100] und [111] am nächsten?",
+    "choices": [
+      "ca. 45,0°",
+      "ca. 35,3°",
+      "ca. 54,7°"
+    ],
+    "explanation": "In kubischen Kristallen lässt sich der Winkel zwischen zwei Richtungen aus dem Skalarprodukt bestimmen. Für [100] und [111] ist cosθ = (1×1 + 0×1 + 0×1)/(1 × √3) = 1/√3 ≈ 0,577, also θ ≈ 54,7°. Ca. 35,3° ist der Winkel zwischen [110] und [111] (cosθ = 2/√6), ca. 45,0° der zwischen [100] und [110]. Da in kubischen Kristallen die Richtung [hkl] senkrecht auf der Ebene (hkl) steht, ist dieser Winkel von 54,7° auch der Winkel zwischen der (100)- und der (111)-Ebene; er ist auch als Neigungswinkel der {111}-Flanken bekannt, die beim alkalischen Ätzen von (100)-Silizium entstehen."
+  },
+  "crystal-012": {
+    "question": "Reines Eisen wandelt bei 912 °C vom krz-α-Eisen (Gitterkonstante 0,2904 nm) in das kfz-γ-Eisen (Gitterkonstante 0,3647 nm) um. Welche Aussage über die Änderung des Volumens pro Atom trifft zu? Beide Gitterkonstanten sind Werte bei 912 °C.",
+    "choices": [
+      "Es schrumpft um etwa 1 %",
+      "Es dehnt sich um etwa 1 % aus",
+      "Es verdoppelt sich etwa"
+    ],
+    "explanation": "Das Volumen pro Atom ergibt sich aus dem Volumen der Elementarzelle geteilt durch die Zahl der Atome in ihr. Für krz ist es 0,2904³/2 ≈ 0,01225 nm³, für kfz 0,3647³/4 ≈ 0,01213 nm³; die Änderung beträgt also etwa −0,97 %, d. h., das Volumen schrumpft um etwa 1 %. Da die dichter gepackte kfz-Struktur entsteht, nimmt das Volumen ab; eine Ausdehnung anzunehmen, vertauscht das Vorzeichen. Eine etwa doppelte Ausdehnung ergibt sich, wenn die Volumina der Elementarzellen direkt verglichen werden (0,3647³/0,2904³ ≈ 1,98); dabei wird übersehen, dass die Elementarzelle bei krz 2 und bei kfz 4 Atome enthält. Diese Volumenänderung lässt sich bei der Messung der Wärmeausdehnung (Dilatometrie) als Umwandlungspunkt beobachten."
+  }
+}

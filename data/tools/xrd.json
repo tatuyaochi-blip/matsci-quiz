@@ -336,6 +336,71 @@
           "a": "Kα1이 0.15406 nm, Kα2가 0.15444 nm이며, 강도비는 대략 2 : 1입니다. 구분하지 않고 다룰 때는 가중 평균인 약 0.15418 nm를 사용하기도 합니다. 그 밖에 Co Kα(약 0.1789 nm), Mo Kα(약 0.0709 nm) 등도 자주 사용됩니다."
         }
       ]
+    },
+    "de": {
+      "nav": "XRD und Bragg-Gleichung",
+      "card": "Netzebenenabstand, Beugungswinkel 2θ und nach den Auslöschungsregeln auftretende Reflexe kubischer Kristalle berechnen",
+      "title": "XRD-Rechner (Bragg-Gleichung, Netzebenenabstand, Beugungswinkel 2θ, Auslöschungsregeln)",
+      "description": "Berechnet aus Gitterkonstante und Millerschen Indizes den Netzebenenabstand d und den Beugungswinkel 2θ kubischer Kristalle und prüft anhand der Auslöschungsregeln für kubisch-primitive, krz-, kfz- und Diamantstruktur, ob die Ebene einen Beugungsreflex liefert. Außerdem listet er die Reflexe ab kleinen Winkeln auf.",
+      "h1": "XRD-Rechner (Bragg-Gleichung und Auslöschungsregeln)",
+      "lead": "Aus der Gitterkonstante a und den Millerschen Indizes (hkl) bestimmt der Rechner Netzebenenabstand und Beugungswinkel 2θ und prüft mit den Auslöschungsregeln der jeweiligen Kristallstruktur, ob ein Reflex auftritt. Voreingestellt sind krz-Eisen (a = 0,2866 nm) und Cu-Kα-Strahlung (λ = 0,15406 nm).",
+      "in_heading": "Eingaben",
+      "type": "Kristallstruktur",
+      "type_sc": "Kubisch-primitiv (SC)",
+      "type_bcc": "Kubisch-raumzentriert (krz, BCC)",
+      "type_fcc": "Kubisch-flächenzentriert (kfz, FCC)",
+      "type_diamond": "Diamantstruktur",
+      "a": "Gitterkonstante a (nm)",
+      "lambda": "Röntgenwellenlänge λ (nm)",
+      "h": "Millerscher Index h",
+      "k": "Millerscher Index k",
+      "l": "Millerscher Index l",
+      "out_heading": "Ergebnisse",
+      "d": "Netzebenenabstand d",
+      "two_theta": "Beugungswinkel 2θ",
+      "rule": "Auslöschungsregel",
+      "peaks_heading": "Reflexe ab kleinen Winkeln (höchstens 6)",
+      "peaks": "(hkl) und 2θ",
+      "note": "Berechnet wird die Beugung erster Ordnung (n = 1). An Ebenen, für die λ/2d größer als 1 ist, tritt bei dieser Wellenlänge keine Beugung auf. Die Reflexintensitäten (Betrag des Strukturfaktors, Multiplizität, Temperaturfaktor) werden nicht berechnet.",
+      "practice": "Aufgaben zur Werkstoffanalytik lösen",
+      "related": "Verwandte Begriffe",
+      "js": {
+        "rule_yes": "Beugungsreflex tritt auf",
+        "rule_no": "Ausgelöscht (kein Reflex)",
+        "no_peak": "Bei dieser Wellenlänge keine Beugung"
+      },
+      "sections": [
+        {
+          "h": "Bragg-Gleichung und Netzebenenabstand kubischer Kristalle",
+          "p": "Trifft Röntgenstrahlung der Wellenlänge λ auf einen Kristall, tritt starke Beugung unter dem Winkel θ auf, bei dem sich die Reflexionen an den im Abstand d angeordneten Atomebenen verstärken. Diese Bedingung ist die Bragg-Gleichung nλ = 2d·sinθ. In kubischen Kristallen ergibt sich der Abstand der Ebenen mit den Millerschen Indizes (hkl) aus d = a/√(h² + k² + l²). Für die (110)-Ebene des voreingestellten krz-Eisens (a = 0,2866 nm) ist d = 0,2866/√2 ≈ 0,2027 nm; mit Cu-Kα-Strahlung (λ = 0,15406 nm) folgt sinθ = 0,15406/(2 × 0,2027) ≈ 0,380 und 2θ ≈ 44,68°. Da XRD-Geräte Diagramme mit 2θ auf der waagerechten Achse ausgeben, vergleicht man auch bei der Rechnung üblicherweise 2θ."
+        },
+        {
+          "h": "Auslöschungsregeln: warum erwartete Reflexe fehlen",
+          "p": "Enthält die Elementarzelle mehrere Atome, können sich die von ihnen gestreuten Wellen gegenseitig auslöschen, sodass die Beugungsintensität bestimmter Ebenen null wird. Dies beschreiben die Auslöschungsregeln; sie folgen aus der Berechnung des Strukturfaktors F = Σ f·exp(2πi(hx + ky + lz)). Bei kubisch-raumzentrierten Gittern erscheinen nur Reflexe von Ebenen mit geradem h + k + l: (100) fehlt, und es folgen (110), (200), (211), (220) … Bei kubisch-flächenzentrierten Gittern erscheinen nur Reflexe von Ebenen, deren h, k, l alle gerade oder alle ungerade sind: (111), (200), (220), (311) … In der Diamantstruktur (Si, Ge usw.) muss zusätzlich bei lauter geraden Indizes h + k + l ein Vielfaches von 4 sein; (200) fehlt also, und es folgen (111), (220), (311), (400) …"
+        },
+        {
+          "h": "Die Kristallstruktur an der Reflexfolge erkennen",
+          "p": "In kubischen Kristallen ist sin²θ proportional zu h² + k² + l²; bildet man von kleinen Winkeln an die Verhältnisse der sin²θ-Werte der Reflexe, lässt sich die Struktur erkennen. Bei krz lauten die Verhältnisse 2 : 4 : 6 : 8 … (1 : 2 : 3 : 4 …), bei kfz 3 : 4 : 8 : 11 : 12 … Bei kubisch-primitiven Gittern ergibt sich 1 : 2 : 3 : 4 : 5 : 6 : 8 …; kennzeichnend ist das Fehlen der 7. Ist das Verhältnis der ersten beiden Reflexe 3 : 4, handelt es sich um kfz, bei 1 : 2 um krz oder kubisch-primitiv (fehlt die 7 in der Folge, ist es kubisch-primitiv). Wechseln Sie in diesem Rechner die Struktur und beobachten Sie, wie sich die Liste der Reflexe ändert."
+        },
+        {
+          "h": "Wenn Rechnung und Messung voneinander abweichen",
+          "p": "Gemessene Reflexlagen können durch einen Höhenfehler der Probe (Probenverschiebung), Nullpunktfehler, Änderungen der Gitterkonstante durch Legierungselemente oder Eigenspannungen um etwa 0,1° von der Rechnung abweichen. Für eine genaue Bestimmung der Gitterkonstante extrapoliert man mit mehreren Reflexen bei großen Winkeln. Außerdem besteht die Cu-Kα-Strahlung aus Kα1 (0,15406 nm) und Kα2 (0,15444 nm), weshalb die Reflexe bei großen Winkeln doppelt erscheinen. Die Reflexe werden durch kleine Kristallitgrößen und durch Gitterverzerrungen verbreitert; mit der Scherrer-Gleichung D = Kλ/(β·cosθ) lässt sich ein Richtwert für die Kristallitgröße abschätzen."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Was bedeutet n in der Bragg-Gleichung?",
+          "a": "Es ist die Beugungsordnung. Die Beugung zweiter Ordnung (n = 2) an der (110)-Ebene erscheint unter demselben Winkel wie die Beugung erster Ordnung an der (220)-Ebene mit halbem Netzebenenabstand. In der XRD setzt man deshalb üblicherweise n = 1 und gibt die Ebene mit verdoppelten Indizes an, etwa (220)."
+        },
+        {
+          "q": "Warum fehlt bei krz der (100)-Reflex?",
+          "a": "Das raumzentrierte Atom bildet genau in der Mitte zwischen den (100)-Ebenen der Eckatome eine Ebene gleicher Dichte, und die dort gestreuten Wellen sind um eine halbe Wellenlänge verschoben und löschen sich aus. Aus demselben Grund fehlen die Reflexe aller Ebenen mit ungeradem h + k + l."
+        },
+        {
+          "q": "Welche Wellenlänge hat Cu-Kα-Strahlung?",
+          "a": "Kα1 hat 0,15406 nm, Kα2 0,15444 nm, bei einem Intensitätsverhältnis von etwa 2 : 1. Werden sie nicht getrennt behandelt, verwendet man auch den gewichteten Mittelwert von etwa 0,15418 nm. Häufig verwendet werden außerdem Co-Kα (etwa 0,1789 nm) und Mo-Kα (etwa 0,0709 nm)."
+        }
+      ]
     }
   }
 }

@@ -1,0 +1,110 @@
+{
+ "heat-treatment-001": {
+  "question": "Welche Aussage über die martensitische Umwandlung in Stahl trifft zu?",
+  "choices": [
+   "Sie läuft langsam ab, wobei Kohlenstoffatome über große Entfernungen diffundieren und an den Austenitkorngrenzen Zementit ausscheiden",
+   "Sie ist eine diffusionslose Scherumwandlung, bei der mit Kohlenstoff übersättigter tetragonal-raumzentrierter (trz) Martensit entsteht",
+   "Je langsamer die Abkühlung, desto mehr Zeit haben die Kohlenstoffatome zum Diffundieren und Umordnen, sodass mehr Martensit entsteht"
+  ],
+  "explanation": "Wird Austenit schneller als mit der kritischen Abkühlgeschwindigkeit abgeschreckt, bleibt dem Kohlenstoff keine Zeit zur Diffusion; es kommt zu einer scherenden Umwandlung, bei der sich die Atome kollektiv um kleine Beträge verschieben, und es entsteht tetragonal-raumzentrierter (trz) Martensit mit übersättigt gelöstem Kohlenstoff. Da der Kohlenstoff das Gitter in Richtung der c-Achse verzerrt, ist das Gefüge sehr hart und spröde. Die Umwandlung beginnt bei der Ms-Temperatur, schreitet mit sinkender Temperatur fort und hängt kaum von der Haltezeit ab. Ein Zerfall in Ferrit und Zementit unter Diffusion des Kohlenstoffs führt zu Perlit und Bainit, und es ist auch der Perlit, der sich umso leichter bildet, je langsamer abgekühlt wird."
+ },
+ "heat-treatment-002": {
+  "question": "Welche Aussage beschreibt den Unterschied zwischen dem isothermen ZTU-Schaubild (TTT-Diagramm) und dem kontinuierlichen ZTU-Schaubild (CCT-Diagramm) richtig?",
+  "choices": [
+   "Das isotherme ZTU-Schaubild zeigt die Umwandlung nach Abschrecken auf eine feste Temperatur und Halten, das kontinuierliche die Umwandlung bei stetiger Abkühlung",
+   "Das isotherme ZTU-Schaubild zeigt die Umwandlung bei stetiger Abkühlung, das kontinuierliche die Umwandlung beim Halten auf einer festen Temperatur",
+   "Beide enthalten dasselbe, nur sind die senkrechte und die waagerechte Achse vertauscht"
+  ],
+  "explanation": "Das isotherme ZTU-Schaubild zeigt Beginn und Ende der Umwandlung, wenn austenitisierter Stahl so schnell, dass keine Umwandlung eintritt, auf eine bestimmte Temperatur abgeschreckt und dort gehalten wird; man nutzt es zur Auslegung isothermer Behandlungen wie des Zwischenstufenvergütens (Austempering). Sinkt die Temperatur wie beim realen Härten stetig, verwendet man das kontinuierliche ZTU-Schaubild; dessen Linie für den Umwandlungsbeginn ist gegenüber dem isothermen Schaubild zu längeren Zeiten und tieferen Temperaturen verschoben. Die Aussage, die dem isothermen Schaubild die stetige Abkühlung und dem kontinuierlichen das isotherme Halten zuordnet, vertauscht die beiden Definitionen. Beide sind eigenständige Schaubilder mit der Temperatur auf der senkrechten und der Zeit (logarithmisch) auf der waagerechten Achse; kühlt man so schnell ab, dass die Nase nicht erreicht wird, entsteht Martensit."
+ },
+ "heat-treatment-003": {
+  "question": "Die Zugabe von Legierungselementen wie Mn, Cr und Mo verbessert die Einhärtbarkeit von Stahl. Welche Begründung ist richtig?",
+  "choices": [
+   "Die Nase im isothermen ZTU-Schaubild verschiebt sich zu kürzeren Zeiten, der Austenit wandelt schneller um, und der Stahl lässt sich leichter härten",
+   "Die Nase im isothermen ZTU-Schaubild verschiebt sich zu längeren Zeiten, sodass auch bei langsamer Abkühlung leicht Martensit entsteht",
+   "Die Ms-Temperatur steigt, sodass sich Martensit schon früh während der Abkühlung zu bilden beginnt"
+  ],
+  "explanation": "Die Einhärtbarkeit ist die Tiefe, bis zu der beim Härten Martensit entsteht (wie leicht der Stahl durchhärtet). Legierungselemente wie Mn, Cr und Mo verzögern die Perlit- und die Bainitumwandlung des Austenits und verschieben die Nase im isothermen und im kontinuierlichen ZTU-Schaubild zu längeren Zeiten. Dadurch sinkt die kritische Abkühlgeschwindigkeit, sodass Martensit auch im Kern dicker Bauteile oder bei langsamerer Abkühlung wie dem Abschrecken in Öl leicht entsteht. Verschiebt sich die Nase zu kürzeren Zeiten, lässt sich der Stahl umgekehrt schwerer härten. Die meisten Legierungselemente senken die Ms-Temperatur eher, sodass dies nicht der Grund für die bessere Einhärtbarkeit ist. Die Einhärtbarkeit wird mit dem Jominy-Versuch (Stirnabschreckversuch) bestimmt."
+ },
+ "heat-treatment-004": {
+  "question": "Wozu dient das Anlassen von gehärtetem Stahl in erster Linie?",
+  "choices": [
+   "Um den Martensit noch härter zu machen und die Verschleißbeständigkeit zu erhöhen",
+   "Um den Restaustenit zu vermehren, das Gefüge zu stabilisieren und Maßänderungen zu verhindern",
+   "Um bei etwas geringerer Härte die Zähigkeit wiederherzustellen und innere Spannungen abzubauen"
+  ],
+  "explanation": "Martensit im abgeschreckten Zustand ist hart, aber sehr spröde und weist große innere Spannungen auf. Beim Anlassen, dem erneuten Erwärmen auf eine Temperatur unterhalb der A1-Temperatur (727 °C), scheidet sich der übersättigte Kohlenstoff als feine Carbide aus, und die inneren Spannungen bauen sich ab; die Härte sinkt, doch die Zähigkeit wird deutlich wiederhergestellt. Je höher die Anlasstemperatur, desto weicher und zäher wird das Gefüge; für Werkzeuge wendet man ein Anlassen bei niedriger Temperatur an, für Maschinenteile ein Anlassen bei hoher Temperatur (Vergüten). Eine Härtezunahme beim Anlassen beschränkt sich auf die Sekundärhärtung mancher legierter Stähle und ist nicht der allgemeine Zweck. Der Restaustenit wird beim Anlassen eher zersetzt; ihn zu vermehren, ist nicht das Ziel."
+ },
+ "heat-treatment-005": {
+  "question": "Die Streckgrenze eines Stahls folgt der Hall-Petch-Beziehung σy = σ₀ + k/√d mit σ₀ = 70 MPa und k = 0,74 MPa·√m. Welcher Wert kommt der Streckgrenze bei einer mittleren Korngröße d = 25 µm am nächsten?",
+  "choices": [
+   "ca. 75 MPa",
+   "ca. 148 MPa",
+   "ca. 218 MPa"
+  ],
+  "explanation": "In m umgerechnet ist d = 25×10⁻⁶ m und √d = 5,0×10⁻³ √m, also k/√d = 0,74/(5,0×10⁻³) = 148 MPa. Damit ist σy = 70 + 148 = 218 MPa. Ca. 75 MPa entsteht, wenn man die Korngröße in mm belässt und mit d = 0,025 rechnet; dann passen die Einheiten von k (MPa·√m) und der Korngröße nicht zusammen. Ca. 148 MPa ist nur der Beitrag der Korngrenzenverfestigung; σ₀ wurde nicht addiert. Die Kornfeinung ist eines der wenigen Verfestigungsverfahren, die Festigkeit und Zähigkeit zugleich erhöhen, und wird etwa beim thermomechanischen Walzen von Stahl genutzt. Wird die Korngröße bis in den Nanometerbereich verkleinert, kann die Beziehung ihre Gültigkeit verlieren."
+ },
+ "heat-treatment-006": {
+  "question": "Die Streckgrenze eines Metalls betrug bei einer mittleren Korngröße von 100 µm 150 MPa und bei 25 µm 250 MPa. Welcher Wert kommt der Streckgrenze bei einer Korngröße von 4 µm am nächsten, wenn die Hall-Petch-Beziehung σy = σ₀ + k/√d gilt?",
+  "choices": [
+   "ca. 278 MPa",
+   "ca. 550 MPa",
+   "ca. 950 MPa"
+  ],
+  "explanation": "Rechnet man die Korngrößen in m um und bildet 1/√d, erhält man für d = 100 µm 100, für 25 µm 200 und für 4 µm 500 (jeweils in 1/√m). Aus den beiden Messpunkten folgen k = (250 − 150)/(200 − 100) = 1,0 MPa·√m und σ₀ = 150 − 1,0 × 100 = 50 MPa; bei 4 µm ist somit σy = 50 + 1,0 × 500 = 550 MPa. Ca. 950 MPa entsteht, wenn man annimmt, die Streckgrenze hänge linear von 1/d ab, und eine Gerade durch die beiden Punkte legt; ca. 278 MPa ist eine Extrapolation, als ändere sich die Streckgrenze linear mit der Korngröße d. Die Verfestigung ist umgekehrt proportional zur Wurzel der Korngröße; jede Verkleinerung der Korngröße auf 1/4 verdoppelt daher den Beitrag der Korngrenzen."
+ },
+ "heat-treatment-007": {
+  "question": "Welche Reihenfolge der Schritte bei der Ausscheidungshärtung einer Al-Cu-Legierung (Duralumin-Typ) ist richtig?",
+  "choices": [
+   "Lösungsglühen → Abschrecken → Auslagern",
+   "Auslagern → Lösungsglühen → langsames Abkühlen",
+   "Abschrecken → Lösungsglühen → Glühen"
+  ],
+  "explanation": "Zunächst wird die Legierung beim Lösungsglühen oberhalb der Löslichkeitsgrenze gehalten, damit sich das Cu löst, und durch Abschrecken wird der übersättigte Mischkristall bis auf Raumtemperatur erhalten. Hält man ihn anschließend bei Raumtemperatur (Kaltauslagern) oder bei etwa 100–200 °C (Warmauslagern), bilden sich feine, mit der Matrix kohärente oder teilkohärente Ausscheidungen wie GP-Zonen, θ″- und θ′-Phase, die die Versetzungsbewegung behindern und die Festigkeit erhöhen. Wird zu lange ausgelagert, vergröbert die stabile θ-Phase (Al₂Cu), und die Festigkeit sinkt; man spricht von Überalterung. Kühlt man nach dem Lösungsglühen langsam ab, scheiden sich grobe Gleichgewichtsphasen aus, die nicht zur Verfestigung beitragen; das Abschrecken ist daher unverzichtbar."
+ },
+ "heat-treatment-008": {
+  "question": "Welche der folgenden Aluminiumlegierungen lässt sich nicht durch eine Wärmebehandlung mit Ausscheidungshärtung verfestigen (ist also nicht aushärtbar)?",
+  "choices": [
+   "2000er-Serie (Al-Cu)",
+   "5000er-Serie (Al-Mg)",
+   "6000er-Serie (Al-Mg-Si)"
+  ],
+  "explanation": "Die 5000er-Serie (Al-Mg) umfasst nicht aushärtbare Legierungen, die ihre Festigkeit durch Mischkristallverfestigung mit Mg und durch Kaltverfestigung beim Kaltumformen erhalten; sie sind sehr korrosionsbeständig und gut schweißbar und werden für Schiffe und Tanks verwendet. Die 2000er-Serie (Al-Cu), deren bekanntester Vertreter Duralumin ist, ist aushärtbar und wird durch Al-Cu-Ausscheidungen verfestigt. Auch die 6000er-Serie (Al-Mg-Si) ist aushärtbar, und zwar durch Mg-Si-Ausscheidungen; sie wird häufig für Strangpressprofile verwendet. Daneben ist die 7000er-Serie (Al-Zn-Mg) die festeste aushärtbare Gruppe, während die 1000er-Serie (Reinaluminium) und die 3000er-Serie (Al-Mn) nicht aushärtbar sind. Man sollte anhand des Legierungssystems beurteilen können, ob die Verfestigung auf Ausscheidungen oder auf Kaltverfestigung beruht."
+ },
+ "heat-treatment-009": {
+  "question": "Welche Aussage über die Mischkristallverfestigung durch Substitutionsatome trifft zu?",
+  "choices": [
+   "Je größer der Größenunterschied zwischen gelösten Atomen und Wirtsatomen, desto stärker ist das Gitter gestört und desto leichter bewegen sich Versetzungen, sodass die Verfestigung gering ist",
+   "Mit steigender Konzentration der gelösten Atome sinkt die Festigkeit im Allgemeinen und die Duktilität steigt, sodass die Legierung weicher als das reine Metall wird",
+   "Das Verzerrungsfeld des Gitters um die gelösten Atome tritt mit Versetzungen in Wechselwirkung und behindert deren Bewegung"
+  ],
+  "explanation": "Gelöste Atome unterscheiden sich von den Atomen der Matrix in Größe und Elastizitätsmodul und erzeugen daher um sich herum ein Verzerrungsfeld im Gitter. Dieses Verzerrungsfeld tritt mit dem Verzerrungsfeld der Versetzungen in Wechselwirkung und hält sie fest, sodass zur Bewegung der Versetzungen eine größere Spannung nötig ist. Das ist die Mischkristallverfestigung; sie ist umso stärker, je größer der Unterschied der Atomgröße (Größeneffekt) und des Elastizitätsmoduls ist. Innerhalb der Löslichkeitsgrenze steigt mit der Konzentration der gelösten Atome im Allgemeinen die Festigkeit, während die Duktilität etwas sinkt. Typische Beispiele für die Mischkristallverfestigung sind Messing (Cu-Zn), Al-Mg-Legierungen sowie Si und Mn in Stahl."
+ },
+ "heat-treatment-010": {
+  "question": "Ein Kupferdraht mit 10,0 mm Durchmesser wird auf 8,0 mm Durchmesser gezogen. Wie groß ist der Kaltumformgrad (Querschnittsabnahme)?",
+  "choices": [
+   "36 %",
+   "20 %",
+   "56 %"
+  ],
+  "explanation": "Der Kaltumformgrad ist die relative Abnahme der Querschnittsfläche, %CW = (A₀ − A_d)/A₀ × 100. Da die Fläche proportional zum Quadrat des Durchmessers ist, gilt %CW = (10,0² − 8,0²)/10,0² × 100 = (100 − 64)/100 × 100 = 36 %. Der Wert 20 % ist fälschlich die Abnahme des Durchmessers, (10,0 − 8,0)/10,0, und 56 % entsteht durch Division durch die Querschnittsfläche nach dem Ziehen ((100 − 64)/64 ≈ 0,56). Je höher der Umformgrad, desto größer wird die Versetzungsdichte und desto stärker die Kaltverfestigung: Die Festigkeit steigt, die Duktilität sinkt. Der Umformgrad beeinflusst auch die Rekristallisationstemperatur und die Korngröße nach der Rekristallisation."
+ },
+ "heat-treatment-011": {
+  "question": "Welche Aussage über die Rekristallisation beim Erwärmen eines kaltverformten Metalls trifft zu?",
+  "choices": [
+   "Es entstehen neue, nahezu verzerrungsfreie Körner; die Festigkeit sinkt, und die Duktilität wird wiederhergestellt",
+   "Je höher der Umformgrad, desto höher ist die Rekristallisationstemperatur",
+   "Nach Abschluss der Rekristallisation wachsen die Körner auch bei weiterem Erwärmen nicht mehr"
+  ],
+  "explanation": "Erwärmt man ein kaltverformtes Metall, setzt zunächst die Erholung ein, bei der sich Versetzungen umordnen und innere Spannungen abnehmen; bei höheren Temperaturen folgt die Rekristallisation, bei der, angetrieben von der gespeicherten Verformungsenergie, neue, nahezu verzerrungsfreie Körner entstehen und wachsen. Da die Versetzungsdichte stark sinkt, nehmen Festigkeit und Härte ab, und die Duktilität wird wiederhergestellt. Je höher der Umformgrad, desto größer ist die gespeicherte Energie und desto niedriger die Rekristallisationstemperatur. Als Richtwert liegt die Rekristallisationstemperatur beim 0,3- bis 0,5-Fachen der Schmelztemperatur (als absolute Temperatur), sie hängt aber von Umformgrad und Reinheit ab. Wird nach der Rekristallisation weiter erwärmt, schreitet das Kornwachstum fort, um die Korngrenzenenergie zu verringern."
+ },
+ "heat-treatment-012": {
+  "question": "Eine Aluminiumlegierung erreicht beim Auslagern bei 190 °C nach 10 Stunden ihre Höchsthärte. Welcher Wert kommt der Zeit bis zum Erreichen der Höchsthärte bei 160 °C am nächsten, wenn die Auslagerungsgeschwindigkeit einem Arrhenius-Ansatz mit einer Aktivierungsenergie von 120 kJ/mol folgt? Es gilt R = 8,314 J/(mol·K).",
+  "choices": [
+   "ca. 1,2 Stunden",
+   "ca. 12 Stunden",
+   "ca. 87 Stunden"
+  ],
+  "explanation": "Ist die Reaktionsgeschwindigkeit proportional zu exp(−Q/RT), so gilt für die Zeit bis zum Erreichen desselben Zustands t ∝ exp(Q/RT). Mit T₁ = 463 K und T₂ = 433 K ergibt sich t₂ = t₁ × exp[(Q/R)(1/T₂ − 1/T₁)] = 10 × exp(14433 × 1,495×10⁻⁴) = 10 × exp(2,16) ≈ 87 Stunden. Ca. 1,2 Stunden kehrt das Vorzeichen des Exponenten um: Die Zeit wird kürzer, obwohl die Temperatur gesenkt wurde. Ca. 12 Stunden beruht auf der falschen Annahme, die Zeit sei umgekehrt proportional zur Temperatur in °C. Dass die Zeit bei nur 30 °C Unterschied auf etwa das Neunfache steigt, liegt an der starken Temperaturabhängigkeit des Arrhenius-Ansatzes."
+ }
+}

@@ -1,0 +1,110 @@
+{
+  "corrosion-001": {
+    "question": "Bei 25 °C beträgt das Standardelektrodenpotential +0,34 V für Cu²⁺/Cu, −0,44 V für Fe²⁺/Fe und −0,76 V für Zn²⁺/Zn. Welches dieser drei Metalle wird thermodynamisch am leichtesten oxidiert (geht am leichtesten als Kation in Lösung)?",
+    "choices": [
+      "Kupfer",
+      "Eisen",
+      "Zink"
+    ],
+    "explanation": "Das Standardelektrodenpotential gibt das Gleichgewicht zwischen einem Metall und seinen Ionen bezogen auf die Standard-Wasserstoffelektrode (0 V) an. Je negativer das Potential eines Metalls ist (je unedler es ist), desto stärker neigt es dazu, Elektronen abzugeben und zum Kation zu werden; von den drei Metallen wird daher Zink mit −0,76 V am leichtesten oxidiert, und Kupfer mit +0,34 V ist das am schwersten oxidierbare (edelste) Metall. Wer Kupfer wählt, liest die Vorzeichen in umgekehrter Richtung. Eisen (−0,44 V) ist edler als Zink und wird daher nicht so leicht oxidiert wie Zink. Das Standardelektrodenpotential zeigt allerdings nur die Neigung, nicht die tatsächliche Korrosionsgeschwindigkeit. Aluminium etwa ist mit −1,66 V sehr unedel, ist an Luft aber dank seiner dichten Oxidschicht an der Oberfläche gut beständig. Zur Bewertung von Werkstoffpaarungen in realen Umgebungen wird die in Meerwasser gemessene Reihe der freien Korrosionspotentiale (galvanische Spannungsreihe) verwendet."
+  },
+  "corrosion-002": {
+    "question": "Auf einer Eisenoberfläche in neutralem, belüftetem Wasser bilden sich Lokalelemente, und die Korrosion schreitet fort. Welche Reaktion läuft an der Kathode hauptsächlich ab?",
+    "choices": [
+      "Fe → Fe²⁺ + 2e⁻",
+      "O₂ + 2H₂O + 4e⁻ → 4OH⁻",
+      "2H⁺ + 2e⁻ → H₂"
+    ],
+    "explanation": "Auch auf der Oberfläche eines einzigen Metalls entstehen durch Einschlüsse, Korngrenzen, Verformungen oder eine ungleichmäßige Umgebung Bereiche mit niedrigerem und höherem Potential, und mit dem Metall selbst als Leiter bilden sich viele kleine galvanische Zellen. Eine solche Zelle heißt Lokalelement. An der Anode mit niedrigerem Potential löst sich Eisen nach Fe → Fe²⁺ + 2e⁻ (diese Gleichung unter den Antworten ist die Anodenreaktion); an der Kathode, die die Elektronen aufnimmt, läuft in neutralem Wasser hauptsächlich die Reduktion des gelösten Sauerstoffs O₂ + 2H₂O + 4e⁻ → 4OH⁻ ab. Die entstehenden Fe²⁺ und OH⁻ reagieren miteinander und werden weiter zu Rost (FeOOH u. a.) oxidiert. Die Wasserstoffentwicklung 2H⁺ + 2e⁻ → H₂ ist die vorherrschende Reaktion in sauren Lösungen mit viel H⁺; in neutralem Wasser ist H⁺ mit etwa 10⁻⁷ mol/L zu knapp, um die Hauptrolle zu spielen."
+  },
+  "corrosion-003": {
+    "question": "Ist die Konzentration des gelösten Sauerstoffs an einem Stahlteil in Wasser örtlich verschieden, bildet sich ein Belüftungselement. Wo konzentriert sich die Korrosion bevorzugt?",
+    "choices": [
+      "Wo die Sauerstoffzufuhr gering ist (tief in Spalten, unter Ablagerungen usw.)",
+      "Wo die Sauerstoffzufuhr groß ist (nahe der Wasserlinie usw.); dieser Bereich wird zur Anode",
+      "Ein Unterschied der Sauerstoffkonzentration erzeugt kein Element, daher korrodiert die ganze Oberfläche nahezu gleichmäßig"
+    ],
+    "explanation": "Wo viel Sauerstoff zugeführt wird, läuft die Kathodenreaktion, die Sauerstoffreduktion, leicht ab, und das Potential steigt. Daher bildet sich ein Element, in dem der sauerstoffarme Bereich zur Anode wird, an der sich Eisen löst, und der sauerstoffreiche Bereich zur Kathode. Dies ist das Belüftungselement; die Korrosion konzentriert sich auf Bereiche, die Sauerstoff schlecht erreicht, etwa tief in Spalten, unter Ablagerungen oder knapp unter der Wasserlinie. Die Aussage mit dem Bereich großer Sauerstoffzufuhr vertauscht Anode und Kathode. Da schon ein Unterschied der Sauerstoffkonzentration allein eine Potentialdifferenz erzeugt, ist auch die Aussage einer nahezu gleichmäßigen Korrosion falsch. Im Spalt wird die Lösung durch Hydrolyse der gelösten Metallionen sauer, und Chloridionen reichern sich an, sodass sich die Korrosion weiter beschleunigt (Spaltkorrosion). Typische Orte sind Schraubverbindungen und Bereiche unter Dichtungen."
+  },
+  "corrosion-004": {
+    "question": "An einem Stahlbauwerk in Meerwasser wird eine Opferanode aus Zink angebracht. Welche Kombination aus Zellspannung und sich auflösendem Metall trifft zu, wenn man eine Zelle unter Standardbedingungen mit den Standardelektrodenpotentialen −0,44 V für Fe²⁺/Fe und −0,76 V für Zn²⁺/Zn annimmt?",
+    "choices": [
+      "ca. 0,32 V; Zink löst sich auf, und der Stahl wird geschützt",
+      "ca. 0,32 V; der Stahl löst sich auf, und das Zink wird geschützt",
+      "ca. 1,20 V; Zink löst sich auf, und der Stahl wird geschützt"
+    ],
+    "explanation": "Die Zellspannung ergibt sich aus dem Potential der Kathodenseite (edleres Eisen) minus dem der Anodenseite (unedleres Zink): E = −0,44 − (−0,76) = 0,32 V. Das unedlere Zink wird zur Anode und löst sich nach Zn → Zn²⁺ + 2e⁻ auf; die Elektronen fließen in den Stahl und machen ihn zur Kathode, sodass seine Auflösung unterdrückt wird. Dies ist der kathodische Korrosionsschutz mit Opferanoden (galvanische Anoden); er wird für Schiffsrümpfe, Stahlbauten in Häfen und erdverlegte Rohrleitungen eingesetzt, und da sich die Anoden verbrauchen, werden sie regelmäßig ersetzt. Ca. 1,20 V addiert fälschlich die Beträge der beiden Potentiale. Die Aussage, bei ca. 0,32 V löse sich der Stahl, vertauscht edel und unedel. Die tatsächlichen Potentiale in Meerwasser weichen von den Standardelektrodenpotentialen ab, doch die Beziehung, dass Zink unedler als Stahl ist, bleibt dieselbe."
+  },
+  "corrosion-005": {
+    "question": "Stahl und Kupfer werden in Meerwasser in elektrisch leitendem Kontakt verwendet. In welchem Fall wird die Schädigung des Stahls durch Kontaktkorrosion voraussichtlich am stärksten?",
+    "choices": [
+      "Ein großes Stahlblech, mit kleinen Kupfernieten befestigt",
+      "Ein großes Kupferblech, mit kleinen Stahlnieten befestigt",
+      "Unabhängig vom Flächenverhältnis korrodiert der Stahl in beiden Fällen gleich schnell"
+    ],
+    "explanation": "Bei Kontakt verschiedener Metalle wird der unedlere Stahl zur Anode und das edlere Kupfer zur Kathode, und die Korrosion des Stahls beschleunigt sich (Kontaktkorrosion). Die an der Kathode reduzierte Sauerstoffmenge ist etwa proportional zur Kathodenfläche, und der an der Anode fließende Auflösungsstrom ist gleich groß; der Korrosionsstrom wird also vor allem von der Kathodenfläche bestimmt. Ist das Kupferblech als Kathode groß und sind die Stahlniete als Anode klein, konzentriert sich ein großer Strom auf eine kleine Fläche, und die Niete korrodieren in kurzer Zeit stark. Werden dagegen kleine Kupferniete in einem großen Stahlblech verwendet, verteilt sich der Korrosionsstrom auf die große Stahlfläche, und die Korrosionsgeschwindigkeit (pro Flächeneinheit) bleibt klein. Auch die Aussage, das Flächenverhältnis habe keinen Einfluss, ist daher falsch. Beim Verbinden verschiedener Metalle gilt als Grundsatz, die Verbindungselemente aus dem edleren Metall zu wählen oder die Metalle gegeneinander zu isolieren."
+  },
+  "corrosion-006": {
+    "question": "Was ist der Hauptgrund dafür, dass nichtrostender Stahl an Luft und in Wasser kaum rostet?",
+    "choices": [
+      "Durch Zugabe von Ni wird das Standardelektrodenpotential der Legierung so edel wie das von Gold oder Platin, sodass sie sich kaum löst",
+      "Auf der Oberfläche wächst eine mehrere mm dicke, dichte Oxidzunderschicht, die Wasser und Sauerstoff vollständig abschirmt",
+      "Er enthält etwa 11 % Cr oder mehr, wodurch sich eine wenige nm dicke Passivschicht bildet, die sich von selbst erneuert"
+    ],
+    "explanation": "Nichtrostender Stahl enthält etwa 11 % Cr (nach der Normdefinition 10,5 %) oder mehr; dadurch bildet sich auf der Oberfläche eine nur wenige nm dicke Passivschicht, die hauptsächlich aus Cr-Oxid besteht und die weitere Auflösung des Metalls verhindert. Wichtig ist, dass sich die Schicht in sauerstoffhaltiger Umgebung auch nach einer Verletzung von selbst erneuert. Die Passivität bleibt daher in oxidierenden Umgebungen wie Salpetersäure gut erhalten, bricht aber in sauerstoffarmen Umgebungen, bei hohem Chloridgehalt und in reduzierenden Säuren (z. B. Salzsäure) leicht zusammen. Das Potential der gesamten Legierung wird nicht so edel wie das von Gold oder Platin; die Hauptaufgabe von Ni ist die Stabilisierung des austenitischen Gefüges. Mehrere mm dicke Oxidzunderschichten entstehen bei der Hochtemperaturoxidation, neigen zu Rissen und Abplatzen und sind etwas völlig anderes als die Passivschicht."
+  },
+  "corrosion-007": {
+    "question": "SUS304 (japanische Norm JIS) wird in chloridreichem Meerwasser eingesetzt. Welche Kombination aus der dabei wahrscheinlichen örtlichen Korrosion und einer Gegenmaßnahme trifft zu?",
+    "choices": [
+      "Flächenkorrosion; die Wanddicke wird als Korrosionszuschlag erhöht",
+      "Lochkorrosion; Wechsel zu einer Mo-haltigen Sorte wie SUS316",
+      "Lochkorrosion; Wechsel zu einem nichtrostenden Stahl mit höherem Kohlenstoffgehalt"
+    ],
+    "explanation": "Chloridionen durchbrechen die Passivschicht örtlich an Schwachstellen und verursachen Lochkorrosion, bei der kleine Löcher in die Tiefe vorangetrieben werden. Im Loch wird die Lösung durch Hydrolyse der gelösten Metallionen sauer, und zur Wahrung der Elektroneutralität wandern Chloridionen hinein, sodass sich die Korrosion selbst beschleunigt. Da die große passive Oberfläche ringsum als Kathode und der Lochgrund als kleine Anode wirken, kann die Korrosion rasch bis zum Durchbruch fortschreiten. Abhilfe ist der Wechsel zu Sorten mit mehr Mo, Cr und N, die die Schicht stärken (z. B. SUS316 mit etwa 2–3 % Mo); die aus diesen Gehalten berechnete Wirksumme (PREN) dient als Auswahlkriterium. Da es sich nicht um eine gleichmäßige Flächenkorrosion handelt, ist eine größere Wanddicke keine wirksame Maßnahme. Mehr Kohlenstoff fördert die Bildung von Cr-Carbiden an den Korngrenzen (Sensibilisierung) und senkt die Korrosionsbeständigkeit sogar."
+  },
+  "corrosion-008": {
+    "question": "Welche Aussage über die Spannungsrisskorrosion trifft zu?",
+    "choices": [
+      "Sie tritt bevorzugt dort auf, wo durch Kugelstrahlen Druckeigenspannungen in die Oberfläche eingebracht wurden",
+      "Sie tritt nur auf, wenn die Spannung die Streckgrenze übersteigt und sich der Werkstoff plastisch verformt",
+      "Sie tritt auf, wenn ein anfälliger Werkstoff unter Zugspannung einem bestimmten korrosiven Medium ausgesetzt ist"
+    ],
+    "explanation": "Bei der Spannungsrisskorrosion wachsen in einem anfälligen Werkstoff unter Zugspannung (äußere Last oder Eigenspannungen aus Schweißen oder Umformen) in einem bestimmten korrosiven Medium Risse schon bei Spannungen weit unterhalb der Streckgrenze. Typische Beispiele sind austenitische nichtrostende Stähle in heißen chloridhaltigen Medien und Messing in ammoniakhaltigen Medien (Season Cracking). Sie ist gefährlich, weil das Bauteil äußerlich kaum korrodiert aussieht und plötzlich bricht. Da sie verhindert wird, wenn eine der drei Bedingungen entfällt, werden die Eigenspannungen durch Spannungsarmglühen gesenkt oder durch Kugelstrahlen Druckeigenspannungen in die Oberfläche eingebracht. Druckspannungen öffnen keine Risse; die Aussage, sie trete bevorzugt bei Druckeigenspannungen auf, ist daher umgekehrt. Auch die Aussage, sie trete erst oberhalb der Streckgrenze auf, ist falsch."
+  },
+  "corrosion-009": {
+    "question": "Welche der folgenden Aussagen über den Korrosionsschutz von Stahlblech trifft zu?",
+    "choices": [
+      "Bei verzinktem Stahlblech löst sich, auch wenn ein Kratzer den Stahl freilegt, zuerst das umgebende Zink und schützt den Stahl",
+      "Auch bei Weißblech (verzinntem Stahlblech) löst sich an Luft, wenn ein Kratzer den Stahl freilegt, zuerst das Zinn und schützt den Stahl",
+      "Ein Anstrich verhindert Korrosion, indem Strom durch die Beschichtung geleitet und der Stahl zur Kathode gemacht wird"
+    ],
+    "explanation": "Zink ist unedler als Stahl; auch wenn die Zinkschicht verletzt und der Stahl freigelegt wird, löst sich das Zink als Anode und schützt den Stahl als Kathode (kathodischer Schutz durch Opferwirkung). An Luft und in Wasser ist Zinn dagegen edler als Stahl: Wird der Stahl durch einen Kratzer freigelegt, wird er zur Anode, die große Zinnfläche zur Kathode, und die Korrosion der kleinen freigelegten Stelle beschleunigt sich sogar. In sauerstoffarmen Konservendosen bildet Zinn dagegen mit organischen Säuren der Lebensmittel Komplexe, wird unedler als Stahl und schützt ihn; deshalb wird es für die Innenseite von Dosen verwendet. Ein Anstrich wirkt als Barriere, die Wasser, Sauerstoff und Ionen vom Stahl fernhält, und beruht nicht auf einem Stromfluss. Zinkstaubfarben mit hohem Zinkstaubanteil haben allerdings zusätzlich eine kathodische Schutzwirkung durch das Zink im Anstrich."
+  },
+  "corrosion-010": {
+    "question": "In einem Stahlrohr floss ein Korrosionsstrom, bei dem sich Eisen nach Fe → Fe²⁺ + 2e⁻ löst, ein Jahr lang (365 Tage) mit durchschnittlich 0,10 A. Welcher Wert kommt der gelösten Eisenmasse am nächsten? Die molare Masse von Fe sei 55,85 g/mol, die Faraday-Konstante 96485 C/mol.",
+    "choices": [
+      "ca. 0,61 kg",
+      "ca. 0,91 kg",
+      "ca. 1,8 kg"
+    ],
+    "explanation": "Nach dem Faradayschen Gesetz ist die gelöste Masse m = ItM/(nF). Ein Jahr hat 365 × 24 × 3600 = 3,15×10⁷ s; die geflossene Ladung beträgt also Q = 0,10 × 3,15×10⁷ = 3,15×10⁶ C. Da Fe²⁺ entsteht, ist n = 2 und m = 3,15×10⁶ × 55,85/(2 × 96485) ≈ 913 g, also etwa 0,91 kg. Ca. 1,8 kg setzt fälschlich n = 1 für die Zahl der Elektronen an. Ca. 0,61 kg rechnet mit n = 3, also mit Fe³⁺, was nicht zur Reaktionsgleichung der Aufgabe passt. Schon ein Korrosionsstrom von nur 0,10 A führt in einem Jahr zum Verlust von fast 1 kg Eisen; örtlich konzentriert reicht das, um ein Rohr zu durchlöchern."
+  },
+  "corrosion-011": {
+    "question": "Die Korrosionsstromdichte von Eisen betrage auf der ganzen Oberfläche gleichmäßig 1,0 µA/cm². Welcher Wert kommt der Geschwindigkeit am nächsten, mit der die Oberfläche durch Korrosion zurückweicht? Eisen löse sich als Fe²⁺; molare Masse 55,85 g/mol, Dichte 7,87 g/cm³, Faraday-Konstante 96485 C/mol, 1 Jahr = 3,15×10⁷ s.",
+    "choices": [
+      "ca. 7,7 µm/Jahr",
+      "ca. 23 µm/Jahr",
+      "ca. 12 µm/Jahr"
+    ],
+    "explanation": "Die pro Flächeneinheit und Sekunde gelöste Masse beträgt iM/(nF) = 1,0×10⁻⁶ × 55,85/(2 × 96485) ≈ 2,9×10⁻¹⁰ g/(cm²·s); geteilt durch die Dichte 7,87 g/cm³ ergibt sich eine Abtragsgeschwindigkeit von etwa 3,7×10⁻¹¹ cm/s. Multipliziert mit einem Jahr: 3,7×10⁻¹¹ × 3,15×10⁷ ≈ 1,16×10⁻³ cm/Jahr, also etwa 12 µm/Jahr (11,6 µm/Jahr). Ca. 23 µm/Jahr setzt fälschlich n = 1 an. Ca. 7,7 µm/Jahr rechnet mit n = 3, also mit Auflösung als Fe³⁺, was nicht zu den Bedingungen der Aufgabe passt. Da Stromdichte und Korrosionsgeschwindigkeit proportional sind, ist für Eisen „1 µA/cm² entspricht etwa 12 µm/Jahr“ ein praktischer Umrechnungswert, um aus dem Korrosionsstrom die Lebensdauer abzuschätzen."
+  },
+  "corrosion-012": {
+    "question": "Eine galvanische Vernickelung wird 30 Minuten lang mit einer Stromdichte von 2,0 A/dm² durchgeführt. Welcher Wert kommt der Schichtdicke bei einer Stromausbeute von 100 % am nächsten? Es gelte Ni²⁺ + 2e⁻ → Ni; molare Masse von Ni 58,69 g/mol, Dichte 8,90 g/cm³, Faraday-Konstante 96485 C/mol.",
+    "choices": [
+      "ca. 12 µm",
+      "ca. 25 µm",
+      "ca. 1,2 mm"
+    ],
+    "explanation": "2,0 A/dm² entsprechen 0,020 A/cm²; in 30 Minuten (1800 s) fließt pro cm² also die Ladung 0,020 × 1800 = 36 C. Die abgeschiedene Masse beträgt 36 × 58,69/(2 × 96485) ≈ 1,09×10⁻² g/cm²; geteilt durch die Dichte ergibt sich die Dicke 1,09×10⁻²/8,90 ≈ 1,23×10⁻³ cm, also etwa 12 µm (12,3 µm). Ca. 25 µm rechnet die Zwei-Elektronen-Reaktion fälschlich mit n = 1. Ca. 1,2 mm verwechselt dm² mit cm² und rechnet mit 2,0 A/cm², was einen 100-mal zu großen Wert ergibt (1 dm² = 100 cm²). In der Praxis liegt die Stromausbeute z. B. wegen Wasserstoffentwicklung unter 100 %, sodass dieser Wert eine Obergrenze darstellt."
+  }
+}

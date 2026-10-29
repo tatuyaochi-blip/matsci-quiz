@@ -1,0 +1,137 @@
+{
+ "high-temperature-001": {
+  "question": "Welche Aussage über die drei Stadien einer bei konstanter Last und Temperatur gemessenen Kriechkurve (Dehnung über der Zeit) trifft zu?",
+  "choices": [
+   "Im Übergangskriechen (primären Kriechen) nimmt die Dehngeschwindigkeit mit der Zeit zu, erreicht im stationären (sekundären) Kriechen einen konstanten Höchstwert und nimmt im beschleunigten (tertiären) Kriechen wieder ab",
+   "Im Übergangskriechen nimmt die Dehngeschwindigkeit allmählich ab, im stationären Kriechen halten sich Verfestigung und Erholung die Waage, sodass sie nahezu konstant ist, und im beschleunigten Kriechen steigt sie bis zum Bruch an",
+   "Im stationären (sekundären) Stadium halten sich Verfestigung und Erholung die Waage, sodass die Versetzungsbewegung völlig stillsteht und die Dehnung vom Ende des Übergangskriechens bis zum Beginn des beschleunigten Kriechens überhaupt nicht zunimmt"
+  ],
+  "explanation": "Nach der Anfangsdehnung unmittelbar bei Lastaufbringung überwiegt im Übergangskriechen die Verfestigung durch sich vermehrende und verhakende Versetzungen gegenüber der Erholung, und die Dehngeschwindigkeit sinkt allmählich. Im stationären Kriechen halten sich die Verfestigung und die Erholung, etwa durch Klettern von Versetzungen, die Waage, sodass die Dehngeschwindigkeit minimal und nahezu konstant ist. Da dieses Stadium den größten Teil der Lebensdauer ausmacht, verwendet man in der Auslegung die stationäre (minimale) Kriechgeschwindigkeit. Im beschleunigten Kriechen steigt die Dehngeschwindigkeit durch Bildung und Vereinigung von Poren an den Korngrenzen, Querschnittsabnahme durch Einschnürung und Gefügeschädigung bis zum Bruch an. Die Aussage mit vertauschtem Anstieg und Abfall der Geschwindigkeit verwechselt die Reihenfolge der Stadien. Stationär bedeutet, dass die Dehngeschwindigkeit konstant ist, nicht, dass die Dehnung zum Stillstand kommt."
+ },
+ "high-temperature-002": {
+  "question": "Die stationäre Kriechgeschwindigkeit einer warmfesten Legierung folgt dem Potenzgesetz ε̇ = Aσⁿexp(−Q/RT) mit dem Spannungsexponenten n = 5. Um etwa welchen Faktor steigt die stationäre Kriechgeschwindigkeit, wenn die Spannung bei gleicher Temperatur um 20 % erhöht wird?",
+  "choices": [
+   "ca. 2,5-fach",
+   "ca. 6,0-fach",
+   "ca. 1,2-fach"
+  ],
+  "explanation": "Bei gleicher Temperatur ändern sich A und exp(−Q/RT) nicht; das Verhältnis der Geschwindigkeiten ist daher das Spannungsverhältnis hoch n: (1,2)⁵ ≈ 2,49, also ca. das 2,5-Fache. Dass schon 20 % mehr Spannung die Geschwindigkeit mehr als verdoppelt, ist kennzeichnend für das Versetzungskriechen (Potenzgesetz-Kriechen), bei dem n mit etwa 3 bis 8 groß ist; kleine Fehler bei der Abschätzung der Auslegungsspannung wirken sich daher stark auf die Lebensdauer aus. Ca. 6,0-fach entsteht, wenn man das Spannungsverhältnis mit dem Exponenten n multipliziert, ca. 1,2-fach, wenn man annimmt, die Geschwindigkeit sei proportional zur Spannung (n = 1); das entspricht dem Diffusionskriechen, das bei niedrigen Spannungen wirkt. Trägt man die Geschwindigkeit doppeltlogarithmisch über der Spannung auf, ist die Steigung gleich n."
+ },
+ "high-temperature-003": {
+  "question": "Die stationäre Kriechgeschwindigkeit einer Legierung folgt ε̇ = Aσⁿexp(−Q/RT) mit der Aktivierungsenergie Q = 300 kJ/mol. Um etwa welchen Faktor steigt die stationäre Kriechgeschwindigkeit, wenn die Temperatur bei gleicher Spannung von 1000 K auf 1050 K erhöht wird? Es gilt R = 8,314 J/(mol·K).",
+  "choices": [
+   "ca. 1,05-fach",
+   "ca. 52-fach",
+   "ca. 5,6-fach"
+  ],
+  "explanation": "Das Verhältnis der Geschwindigkeiten beträgt exp[(Q/R)(1/1000 − 1/1050)]. Mit Q/R = 300000/8,314 ≈ 3,61×10⁴ K und (1/1000 − 1/1050) ≈ 4,76×10⁻⁵ K⁻¹ ist der Exponent ca. 1,72, und exp(1,72) ≈ 5,6. Dass schon 50 K Temperaturerhöhung die Geschwindigkeit mehr als verfünffacht, liegt an der exponentiellen Temperaturabhängigkeit der Geschwindigkeit. Die Aktivierungsenergie des Hochtemperaturkriechens reiner Metalle liegt oft nahe an der der Selbstdiffusion, was zeigt, dass das Kriechen diffusionsgesteuert ist. Ca. 52-fach entsteht, wenn man den Exponenten der e-Funktion als Zehnerpotenz behandelt, ca. 1,05-fach, wenn man das Verhältnis der absoluten Temperaturen unverändert als Verhältnis der Geschwindigkeiten nimmt."
+ },
+ "high-temperature-004": {
+  "question": "Ein feinkörniges polykristallines Metall wurde bei etwa dem 0,5-Fachen seiner Schmelztemperatur (als absolute Temperatur) unter niedriger Spannung im Kriechversuch geprüft. Die stationäre Kriechgeschwindigkeit war nahezu proportional zur Spannung (Spannungsexponent n ≈ 1) und nahezu umgekehrt proportional zur dritten Potenz der Korngröße. Welcher Kriechmechanismus wirkt hier am wahrscheinlichsten?",
+  "choices": [
+   "Potenzgesetz-Kriechen, gesteuert durch Klettern von Versetzungen im Korninneren",
+   "Coble-Kriechen durch Diffusion von Atomen entlang der Korngrenzen",
+   "Nabarro-Herring-Kriechen durch Volumendiffusion durch das Korninnere"
+  ],
+  "explanation": "Beim Diffusionskriechen diffundieren Atome von Korngrenzen unter Zug zu Korngrenzen unter Druck, die Körner längen sich, und die Geschwindigkeit ist proportional zur Spannung (n = 1). Verläuft der Diffusionsweg entlang der Korngrenzen, spricht man von Coble-Kriechen; die Geschwindigkeit ist dann umgekehrt proportional zur dritten Potenz der Korngröße. Bei Volumendiffusion durch das Korninnere spricht man von Nabarro-Herring-Kriechen, dessen Geschwindigkeit umgekehrt proportional zum Quadrat der Korngröße ist. Da die Korngrenzendiffusion eine kleinere Aktivierungsenergie als die Volumendiffusion hat, überwiegt bei vergleichsweise niedrigen Temperaturen und feinem Korn das Coble-Kriechen, während bei hohen Temperaturen nahe dem Schmelzpunkt der Beitrag des Nabarro-Herring-Kriechens zunimmt. Das Potenzgesetz-Kriechen durch Versetzungen hat ein großes n von 3 bis 8 und hängt kaum von der Korngröße ab."
+ },
+ "high-temperature-005": {
+  "question": "Welche Aussage über die Verformungsmechanismuskarte nach Ashby und Mitarbeitern (senkrechte Achse: auf den Schubmodul normierte Spannung σ/G, waagerechte Achse: homologe Temperatur T/Tm) trifft zu? Tm ist die Schmelztemperatur als absolute Temperatur.",
+  "choices": [
+   "Sie zeigt bei festgelegter Korngröße usw. für jede Spannung und Temperatur das Feld des schnellsten Mechanismus; Diffusionskriechen liegt bei niedriger Spannung und hoher Temperatur, Potenzgesetz-Kriechen bei höherer Spannung",
+   "Die Felder der Mechanismen hängen nur von der Werkstoffart ab, sodass sich die Grenze zwischen Diffusions- und Potenzgesetz-Kriechen bei gleichem Werkstoff weder bei Kornfeinung noch bei Kornvergröberung verschiebt",
+   "Zu niedrigen Spannungen und hohen Temperaturen hin dehnt sich das Feld des Versetzungsgleitens aus, und das Feld des Diffusionskriechens erscheint nur bei hohen Spannungen nahe der idealen Festigkeit und tiefen Temperaturen"
+  ],
+  "explanation": "In der Verformungsmechanismuskarte wird aus den Geschwindigkeitsgleichungen der einzelnen Mechanismen bestimmt, welcher bei gegebener Spannung und Temperatur die schnellste Verformung bewirkt, und dessen Feld wird markiert. Da mehrere Mechanismen parallel wirken, gilt der schnellste als bestimmend. Bei hohen Spannungen nahe der idealen Festigkeit dominiert das Versetzungsgleiten, bei mittleren Spannungen und hohen Temperaturen das Potenzgesetz-Kriechen mit Klettern von Versetzungen und bei niedrigen Spannungen und hohen Temperaturen das Diffusionskriechen. Da die Geschwindigkeit des Diffusionskriechens umgekehrt proportional zum Quadrat oder zur dritten Potenz der Korngröße ist, vergrößert eine Kornfeinung das Feld des Diffusionskriechens; die Grenzen verschieben sich also. In die Karte werden auch Linien konstanter Dehngeschwindigkeit eingezeichnet, sodass sich Mechanismus und Verformungsgeschwindigkeit unter Betriebsbedingungen ablesen lassen. Die Aussage, die das Versetzungsgleiten auf die Seite niedriger Spannungen legt, vertauscht die Anordnung."
+ },
+ "high-temperature-006": {
+  "question": "Bei Raumtemperatur erhöht eine Kornfeinung die Festigkeit (Hall-Petch-Beziehung), doch für Bauteile, die lange bei hoher Temperatur belastet werden, verwendet man häufig grobes Korn oder Einkristalle. Welche Begründung ist richtig?",
+  "choices": [
+   "Grobes Korn ergibt einen höheren Elastizitätsmodul und damit eine kleinere elastische Dehnung bei gleicher Spannung, sodass die Kriechdehnung auch bei langer Belastung bei hoher Temperatur klein bleibt",
+   "Bei hoher Temperatur werden die Korngrenzen fester als das Korninnere; weniger Korngrenzen verhindern, dass Versetzungen zu stark an ihnen festgehalten werden, und die Spannung baut sich durch Versetzungsbewegung im Korn ab",
+   "Bei hoher Temperatur werden Korngrenzen zu schnellen Diffusionswegen und Gleitflächen, sodass Korngrenzendiffusionskriechen, Korngrenzengleiten und Porenbildung an Korngrenzen umso leichter auftreten, je mehr Korngrenzen vorhanden sind"
+  ],
+  "explanation": "Bei hoher Temperatur diffundieren Atome entlang der Korngrenzen schnell, und es tritt auch Korngrenzengleiten auf, sodass die Korngrenzen zu Schwachstellen werden. Die Temperatur, bei der Korngrenzen und Korninneres gleich fest sind, heißt äquikohäsive Temperatur; oberhalb davon sind die Korngrenzen schwächer. Diffusionskriechen (vor allem das Coble-Kriechen, umgekehrt proportional zur dritten Potenz der Korngröße), Korngrenzengleiten sowie der Bruch durch Bildung und Vereinigung von Poren an Korngrenzen treten daher in feinkörnigem Werkstoff mit vielen Korngrenzen leichter auf. Deshalb verwendet man in Hochtemperaturbauteilen grobes Korn, Stängelkristalle parallel zur Spannung und sogar Einkristalle. Der Elastizitätsmodul wird durch die Bindung zwischen den Atomen bestimmt und hängt kaum von der Korngröße ab; er ist daher kein Vorteil des groben Korns. Die Aussage, die Korngrenzen würden bei hoher Temperatur fester als das Korninnere, kehrt den Zusammenhang um."
+ },
+ "high-temperature-007": {
+  "question": "Eine warmfeste Legierung erlitt unter einer bestimmten Spannung bei 1000 K nach 1000 h einen Kriechbruch. Der Larson-Miller-Parameter P = T(C + log₁₀t_r) (T: absolute Temperatur, t_r: Bruchzeit in h, C = 20) sei bei gleicher Spannung konstant. Welcher Wert kommt der Temperatur am nächsten, bei der unter derselben Spannung eine Bruchzeit von 10⁵ h erreicht wird?",
+  "choices": [
+   "ca. 920 K",
+   "ca. 854 K",
+   "ca. 600 K"
+  ],
+  "explanation": "Aus den Versuchsbedingungen folgt P = 1000 × (20 + log₁₀1000) = 1000 × 23 = 23000. Für 10⁵ h ist log₁₀t_r = 5, also T = 23000/(20 + 5) = 920 K. Eine Temperatursenkung um nur 80 K verlängert die Lebensdauer auf das Hundertfache; der Parameter dient dazu, aus kurzen Versuchen bei höherer Temperatur lange Lebensdauern bei niedrigerer Temperatur abzuschätzen. Ca. 854 K erhält man, wenn man statt des dekadischen den natürlichen Logarithmus verwendet, ca. 600 K, wenn man die Konstante C vergisst und P = T log₁₀t_r setzt. Ändert sich jedoch über lange Zeit das Gefüge oder wechselt der Verformungsmechanismus, versagt die Extrapolation; eine Extrapolation um den Faktor 100 wie in diesem Beispiel ist daher mit Vorsicht zu behandeln, und der Extrapolationsbereich sollte nicht unnötig groß gewählt werden."
+ },
+ "high-temperature-008": {
+  "question": "Welche Aussage über die γ'-Phase, auf der die Hochtemperaturfestigkeit einer Nickelbasis-Superlegierung beruht, trifft zu?",
+  "choices": [
+   "Sie ist eine geordnete krz-Phase vom B2-Typ mit großer Gitterfehlanpassung und inkohärenten Grenzflächen zur Matrix γ, die sich als grobe Teilchen an Korngrenzen und im Korn ausscheidet und Versetzungen stark festhält",
+   "Sie ist Ni₃Al mit geordneter L1₂-Struktur (eine auf dem kfz-Gitter beruhende Ordnungsphase), hat nahezu dieselbe Gitterkonstante wie die Matrix γ und scheidet sich fein mit kohärenten Grenzflächen aus",
+   "Sie ist ein Carbid wie M₂₃C₆, das sich als zusammenhängender Film auf Korngrenzen ausscheidet; je mehr davon vorliegt, desto besser wird Korngrenzengleiten gehemmt und desto höher sind Duktilität und Kriechfestigkeit"
+  ],
+  "explanation": "Die γ'-Phase ist eine geordnete Phase vom L1₂-Typ der Zusammensetzung Ni₃(Al,Ti), in der Al die Ecken und Ni die Flächenmitten des kfz-Gitters besetzt. Ihre Gitterkonstante unterscheidet sich nur wenig von der der Matrix γ (eines kfz-Mischkristalls auf Ni-Basis), die Fehlpassung ist also klein; daher scheiden sich feine würfelförmige Teilchen mit kohärenten Grenzflächen aus, die in Legierungen für einkristalline Schaufeln 60–70 % des Volumens erreichen. Tritt eine Versetzung aus γ in γ' ein, stört sie die geordnete Anordnung und erzeugt eine Antiphasengrenze; die Versetzungen müssen sich daher paarweise bewegen, was einen großen Widerstand bedeutet. γ' ist bis zu hohen Temperaturen stabil und zeigt zudem eine anomale Temperaturabhängigkeit, bei der die Streckgrenze bis etwa 700–800 °C mit der Temperatur steigt. Die Aussage mit krz verwechselt die Kristallstruktur, die Aussage mit Korngrenzencarbiden verwechselt γ' mit einer anderen Phase; filmartige Carbide sind sogar eine Ursache für Versprödung."
+ },
+ "high-temperature-009": {
+  "question": "Warum verwendet man für Turbinenschaufeln von Strahltriebwerken gerichtet erstarrte stängelkristalline oder einkristalline Nickelbasis-Superlegierungen?",
+  "choices": [
+   "Weil ein Einkristall überhaupt keine Versetzungen enthält, sodass keine Kriechverformung auftreten kann",
+   "Weil man einem Einkristall mehr Kohlenstoff und Bor zusetzen kann, die sonst der Korngrenzenverfestigung dienen, sodass er sich durch die entstehenden Carbide und Boride verfestigen lässt",
+   "Weil ohne Korngrenzen quer zur Spannung die Ausgangsstellen der Kriechschädigung fehlen und Einkristalle keine Korngrenzenverfestiger brauchen, sodass sie heiß lösungsgeglüht werden können und γ' gleichmäßig fein wird"
+  ],
+  "explanation": "Turbinenschaufeln werden durch die Fliehkraft in Längsrichtung auf Zug beansprucht, und Korngrenzen senkrecht zur Spannung werden zu Ausgangsstellen von Kriechporen und -rissen. Bei der gerichteten Erstarrung werden die Körner als Stängelkristalle in Spannungsrichtung ausgerichtet, sodass die senkrechten Korngrenzen entfallen. Bei einkristallinen Schaufeln, bei denen nur ein einziger Kristall ausgewählt und gezüchtet wird, gibt es überhaupt keine Korngrenzen. Werden C, B, Zr und andere Elemente zur Korngrenzenverfestigung überflüssig, steigt die Temperatur, bei der die Legierung zu schmelzen beginnt; das Lösungsglühen kann daher bei hoher Temperatur erfolgen, sodass sich γ' zunächst vollständig löst und dann gleichmäßig und fein ausscheidet. Die Aussage, man setze mehr verfestigende Elemente zu, kehrt diesen Zusammenhang um. Auch Einkristalle enthalten Versetzungen, und das Kriechen erfolgt durch deren Bewegung im Kristall."
+ },
+ "high-temperature-010": {
+  "question": "Was ist der Hauptzweck der Zugabe einiger Prozent schwerer Elemente wie Rhenium (Re) zu einkristallinen Nickelbasis-Superlegierungen?",
+  "choices": [
+   "Sie lösen sich in der Matrix γ, verlangsamen die Diffusion und verzögern neben der Mischkristallverfestigung die Vergröberung der γ'-Teilchen, was die Kriechfestigkeit bei hoher Temperatur erhöht",
+   "Sie bilden an der Oberfläche eine dichte, kaum flüchtige Rheniumoxidschicht, die anstelle der Al₂O₃-Schicht die Oxidationsbeständigkeit bei hoher Temperatur erhöht",
+   "Sie senken die Dichte der Legierung, verringern die Fliehkraftspannung in der schnell rotierenden Schaufel und verlängern so die Bruchzeit bei gleicher Temperatur"
+  ],
+  "explanation": "Re diffundiert in der Legierung sehr langsam und verteilt sich überwiegend auf die Matrix γ, in der es sich löst. Neben der Mischkristallverfestigung von γ verzögert es die Vergröberung von γ' und das Rafting, bei dem sich γ' unter Spannung bei hoher Temperatur zu Platten verbindet, und erhöht so die Kriechfestigkeit erheblich. Die Generationen einkristalliner Legierungen werden mitunter nach dem Re-Gehalt unterschieden, etwa die zweite Generation mit ca. 3 % Re und die dritte mit ca. 6 %. Zu viel Re begünstigt jedoch die Ausscheidung spröder TCP-Phasen wie der σ-Phase. Da Re ein schweres Element ist, steigt die Dichte eher, und sein Oxid ist flüchtig und bildet keine Schutzschicht. Die Oxidationsbeständigkeit wird vor allem durch die von Al gebildete Al₂O₃-Schicht gewährleistet."
+ },
+ "high-temperature-011": {
+  "question": "Bei der Oxidation einer Legierung an Luft bei hoher Temperatur galt ein parabolisches Zeitgesetz x² = k_p t, bei dem die Diffusion durch die dichte Oxidschicht die Geschwindigkeit bestimmt; nach 100 h war die Schicht 2,0 µm dick. Welcher Wert kommt der Schichtdicke nach 900 h Oxidation bei derselben Temperatur am nächsten?",
+  "choices": [
+   "ca. 18 µm",
+   "ca. 6,0 µm",
+   "ca. 4,2 µm"
+  ],
+  "explanation": "Nach dem parabolischen Zeitgesetz ist die Dicke proportional zur Wurzel aus der Zeit, also x = 2,0 × √(900/100) = 2,0 × 3 = 6,0 µm. Je dicker die Schicht wird, desto länger ist der Weg, den Ionen und Elektronen durch sie zurücklegen müssen, und desto langsamer wächst sie; daraus ergibt sich diese Form (Theorie von Wagner). Ca. 18 µm ist mit dem linearen Zeitgesetz berechnet, bei dem die Dicke proportional zur Zeit ist; es tritt auf, wenn die Schicht porös oder gerissen und daher nicht schützend ist oder wenn eine Reaktion an einer Grenzfläche die Geschwindigkeit bestimmt. Ca. 4,2 µm ist mit dem kubischen Zeitgesetz berechnet, bei dem die Dicke proportional zur dritten Wurzel aus der Zeit ist. Je kleiner die parabolische Geschwindigkeitskonstante k_p einer Schicht, desto besser schützt sie; das dient als Richtwert bei der Legierungsauswahl."
+ },
+ "high-temperature-012": {
+  "question": "Das Pilling-Bedworth-Verhältnis einer Oxidschicht (PBR, das Verhältnis des Oxidvolumens zum Volumen des zu seiner Bildung verbrauchten Metalls) wird mit PBR = (M_ox ρ_M)/(n M_M ρ_ox) berechnet (M: molare Masse, ρ: Dichte, n: Zahl der Metallatome in einer Formeleinheit des Oxids). Welche Kombination aus PBR und Verhalten der Schicht ist für Magnesium (24,31 g/mol, 1,74 g/cm³) und MgO (40,30 g/mol, 3,58 g/cm³, n = 1) richtig?",
+  "choices": [
+   "ca. 1,24; die Schicht steht unter mäßiger Druckspannung und bildet eine schützende Schicht, die das Metall bedeckt",
+   "ca. 0,81; da der Wert kleiner als 1 ist, schrumpft die Schicht zu einer dichten Lage und schützt das Metall gut",
+   "ca. 0,81; die Schicht kann die Metalloberfläche nicht vollständig bedecken, reißt leicht und schützt kaum"
+  ],
+  "explanation": "PBR = (40,30 × 1,74)/(1 × 24,31 × 3,58) = 70,1/87,0 ≈ 0,81. Ist das PBR kleiner als 1, ist das Oxidvolumen kleiner als das verbrauchte Metallvolumen; die Schicht steht unter Zugspannung, reißt oder bildet Spalte, und Sauerstoff gelangt leicht bis zum Metall. Bei Werten von etwa 1 bis 2 bedeckt die Schicht das Metall eher lückenlos und wirkt meist schützend, wie bei Aluminium, das Al₂O₃ bildet (PBR ≈ 1,29); deutlich über 2 wird die Druckspannung dagegen zu groß, und die Schicht platzt leicht ab. Ca. 1,24 ist der Wert mit vertauschtem Zähler und Nenner. Das PBR ist nur ein Richtwert; die Schutzwirkung hängt auch von der Diffusionsgeschwindigkeit in der Schicht und von ihrer Haftung ab."
+ },
+ "high-temperature-013": {
+  "question": "Welche Aussage über Schutzschichten auf warmfesten Legierungen, die an Luft bei hohen Temperaturen über 1000 °C eingesetzt werden, trifft zu?",
+  "choices": [
+   "Eine Cr₂O₃-Schicht verdampft bei keiner Temperatur und schützt daher oberhalb von 1000 °C stets besser als eine Al₂O₃-Schicht",
+   "Eine Cr₂O₃-Schicht geht oberhalb von etwa 1000 °C als flüchtiges CrO₃ leicht verloren, daher verwendet man bei höheren Temperaturen Legierungen, die eine Al₂O₃-Schicht bilden",
+   "Je schneller und dicker eine Schutzschicht wächst, desto besser schützt sie; man wählt daher Legierungen, die Oxide mit großer parabolischer Geschwindigkeitskonstante bilden"
+  ],
+  "explanation": "Eine Schutzschicht bei hoher Temperatur muss dicht sein, eine langsame Diffusion aufweisen (kleine parabolische Geschwindigkeitskonstante) und gut am Grundwerkstoff haften; typische Beispiele sind Cr₂O₃, Al₂O₃ und SiO₂. Cr₂O₃ ist bis etwa 1000 °C eine gute Schutzschicht, geht aber bei höheren Temperaturen in oxidierender Atmosphäre in gasförmiges CrO₃ über und verdampft, sodass die Schicht dünner wird. Al₂O₃ wächst noch langsamer und ist bis zu hohen Temperaturen stabil; daher lässt man bei Nickelbasis-Superlegierungen, bei Haftvermittlerschichten von Wärmedämmschichten und bei Fe-Cr-Al-Heizleitern Al₂O₃ entstehen. Geringe Zusätze von Y oder Hf verbessern die Haftung der Schicht (Reaktivelementeffekt). Schnelles und dickes Wachstum einer Schicht bedeutet, dass das Metall schnell verbraucht wird, und ist das Gegenteil guter Schutzwirkung."
+ },
+ "high-temperature-014": {
+  "question": "Welche Aussage über den Aufbau einer Wärmedämmschicht (TBC) auf Gasturbinenschaufeln trifft zu?",
+  "choices": [
+   "Unter einer Deckschicht aus YSZ mit geringer Wärmeleitfähigkeit liegt eine Haftvermittlerschicht wie MCrAlY, und das an ihrer Grenzfläche thermisch gewachsene dünne Al₂O₃ (TGO) schützt den Grundwerkstoff vor Oxidation",
+   "Als Deckschicht dient dichtes Aluminiumoxid mit hoher Wärmeleitfähigkeit, das die Wärme schnell aus der Schaufel abführt und das Metall kühlt, und die Haftvermittlerschicht darunter gleicht die unterschiedliche Wärmeausdehnung aus",
+   "Die YSZ-Deckschicht lässt überhaupt keinen Sauerstoff durch, daher ist keine Haftvermittlerschicht nötig, und direkt auf den Grundwerkstoff gespritztes YSZ schützt zugleich vor Oxidation und Wärme"
+  ],
+  "explanation": "Eine Wärmedämmschicht senkt die Metalltemperatur durch eine isolierende Oberflächenschicht, während das Innere der Schaufel mit Kühlluft gekühlt wird. Die Deckschicht aus YSZ (mit Yttriumoxid teilstabilisiertes Zirkonoxid) hat eine geringe Wärmeleitfähigkeit von etwa 1–2 W/(m·K) und für eine Keramik einen großen Wärmeausdehnungskoeffizienten. Sie wird als poröse Spritzschicht oder als stängelige, aus der Dampfphase abgeschiedene Schicht hergestellt, um die Dehnungen aus der unterschiedlichen Wärmeausdehnung gegenüber dem Grundwerkstoff abzubauen. YSZ leitet Oxidionen gut und kann Sauerstoff nicht aufhalten; daher oxidiert das Al der Haftvermittlerschicht zu einem dünnen Al₂O₃-TGO, das den Grundwerkstoff vor Oxidation schützt. Wird das TGO dicker oder wird es thermisch zyklisch beansprucht, platzt die Deckschicht in seiner Nähe ab; das ist die wichtigste Ursache für das Ende der Lebensdauer. Ein Werkstoff mit hoher Wärmeleitfähigkeit kann die Aufgabe der Wärmedämmung nicht erfüllen."
+ },
+ "high-temperature-015": {
+  "question": "Durch die Deckschicht einer Wärmedämmschicht (Dicke 250 µm, Wärmeleitfähigkeit 1,2 W/(m·K)) tritt in Dickenrichtung gleichmäßig eine Wärmestromdichte von 1,0 MW/m². Welcher Wert kommt bei stationärer eindimensionaler Wärmeleitung dem Temperaturunterschied zwischen Ober- und Unterseite der Deckschicht am nächsten?",
+  "choices": [
+   "ca. 300 K",
+   "ca. 21 K",
+   "ca. 208 K"
+  ],
+  "explanation": "Aus dem Fourierschen Gesetz q = kΔT/L folgt ΔT = qL/k = (1,0×10⁶ × 250×10⁻⁶)/1,2 ≈ 208 K. Dass eine nur etwa 0,25 mm dicke Schicht die Metalltemperatur um rund 200 K senken kann, ist die Wirkung der Wärmedämmschicht. Die Kriechfestigkeit von Nickelbasis-Superlegierungen reagiert empfindlich auf die Temperatur, sodass dieser Temperaturunterschied die Lebensdauer und die zulässige Gastemperatur stark beeinflusst. Ca. 300 K entsteht, wenn man mit der Wärmeleitfähigkeit multipliziert, statt durch sie zu teilen, ca. 21 K, wenn man die Dicke um eine Zehnerpotenz zu klein als 25 µm umrechnet. Je geringer die Wärmeleitfähigkeit und je dicker die Schicht, desto größer der Temperaturunterschied; dickere Schichten platzen jedoch unter Wärmespannung leichter ab, sodass der Dicke Grenzen gesetzt sind."
+ }
+}

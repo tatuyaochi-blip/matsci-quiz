@@ -1,0 +1,110 @@
+{
+  "composites-001": {
+    "question": "Welche Aussage beschreibt die Hauptaufgabe der Matrix in einem faserverstärkten Verbundwerkstoff zutreffend?",
+    "choices": [
+      "Die Matrix trägt den größten Teil der Last; die Fasern dienen nur dazu, das Risswachstum in der Matrix zu verhindern und die Zähigkeit zu erhöhen",
+      "Sie verbindet die Fasern, hält die Form, überträgt die Last über Schub an der Grenzfläche auf die Fasern und schützt sie vor der Umgebung",
+      "Ihre einzige Aufgabe ist, die Wärmeausdehnung der Fasern auszugleichen; auf Festigkeit, Steifigkeit und andere mechanische Eigenschaften hat sie keinen Einfluss"
+    ],
+    "explanation": "In einem faserverstärkten Verbundwerkstoff tragen die festen, steifen Fasern den größten Teil der Last, während die Matrix die Fasern in ihrer vorgesehenen Lage und Richtung hält und dem Bauteil seine Form gibt. Äußere Lasten werden von der Matrix über Schubspannungen an der Grenzfläche zwischen Faser und Matrix auf die Fasern übertragen. Die Matrix schützt die Fasern außerdem vor Beschädigung, Feuchtigkeit und Chemikalien und verhindert, dass ein Riss beim Bruch einer Faser ungehindert in die benachbarten Fasern läuft. Die Aussage, die Matrix trage den größten Teil der Last, vertauscht die Rollen von Faser und Matrix. Die Matrix bestimmt die Festigkeit quer zur Faser, die Druckfestigkeit und die interlaminare Festigkeit maßgeblich mit; auch die Aussage, sie habe keinen Einfluss auf die mechanischen Eigenschaften, ist daher falsch."
+  },
+  "composites-002": {
+    "question": "In einem Verbundwerkstoff aus Kohlenstofffasern und Epoxidharz beträgt der Massenanteil der Kohlenstofffasern 70 %. Welcher Wert kommt dem Faservolumenanteil am nächsten, wenn die Dichte der Kohlenstofffasern 1,80 g/cm³ und die des Epoxidharzes 1,20 g/cm³ beträgt und keine Poren (Lufteinschlüsse) vorhanden sind?",
+    "choices": [
+      "ca. 70 %",
+      "ca. 78 %",
+      "ca. 61 %"
+    ],
+    "explanation": "Das Volumen ergibt sich aus der Masse geteilt durch die Dichte. In 100 g Verbundwerkstoff beträgt das Faservolumen 70/1,80 ≈ 38,9 cm³ und das Harzvolumen 30/1,20 = 25,0 cm³; der Faservolumenanteil ist also Vf = 38,9/(38,9 + 25,0) ≈ 0,61, etwa 61 %. Da die Fasern eine höhere Dichte als das Harz haben, ist der Volumenanteil kleiner als der Massenanteil. Ca. 70 % setzt fälschlich den Massenanteil als Volumenanteil an; für die Mischungsregel muss der Volumenanteil verwendet werden. Ca. 78 % ergibt sich, wenn die Dichten von Faser und Harz vertauscht werden. Reale Formteile können Poren enthalten; Vf und Porengehalt werden durch Dichtemessung oder das Veraschungsverfahren überprüft."
+  },
+  "composites-003": {
+    "question": "Welche Aussage beschreibt für einen Verbundwerkstoff mit unidirektional ausgerichteten Endlosfasern zutreffend, wann die Mischungsregel für gleiche Dehnung und wann die für gleiche Spannung verwendet wird?",
+    "choices": [
+      "Zug parallel zu den Fasern wird mit der Form für gleiche Dehnung, Zug senkrecht dazu mit der Form für gleiche Spannung angenähert",
+      "Zug parallel zu den Fasern wird mit der Form für gleiche Spannung, Zug senkrecht dazu mit der Form für gleiche Dehnung angenähert",
+      "In beiden Richtungen gilt die Form für gleiche Dehnung, und der E-Modul hängt nicht von der Faserrichtung ab"
+    ],
+    "explanation": "Bei Zug parallel zu den Fasern dehnen sich Faser und Matrix wie parallel geschaltete Federn gleich stark, sodass die Gleichung für gleiche Dehnung E₁ = VfEf + VmEm gilt. Bei Zug senkrecht zu den Fasern erfahren Faser und Matrix wie in Reihe geschaltete Federn dieselbe Spannung, und es wird mit der Gleichung für gleiche Spannung 1/E₂ = Vf/Ef + Vm/Em angenähert. Bei gleichem Volumenanteil liefert die Gleichung für gleiche Dehnung die obere und die für gleiche Spannung die untere Schranke des Elastizitätsmoduls (Voigt- und Reuss-Schranke). Die Aussage, die parallel gleiche Spannung und senkrecht gleiche Dehnung ansetzt, vertauscht parallel und senkrecht. Der Elastizitätsmodul eines unidirektionalen Werkstoffs unterscheidet sich in Faserrichtung und quer dazu stark; auch die Aussage, er sei richtungsunabhängig, ist falsch. Der reale Quermodul ist meist etwas größer als nach der Gleichung für gleiche Spannung und wird z. B. mit den Halpin-Tsai-Gleichungen korrigiert."
+  },
+  "composites-004": {
+    "question": "Ein Verbundwerkstoff aus Harz (Elastizitätsmodul 3,0 GPa) mit unidirektional eingebetteten Glasfasern (Elastizitätsmodul 72 GPa) bei einem Volumenanteil von 40 % wird parallel zu den Fasern auf Zug belastet. Welcher Wert kommt im elastischen Bereich dem Anteil der Last, den die Fasern tragen, am nächsten?",
+    "choices": [
+      "ca. 40 %",
+      "ca. 94 %",
+      "ca. 6 %"
+    ],
+    "explanation": "Bei Zug parallel zu den Fasern sind die Dehnungen von Faser und Harz gleich, sodass die jeweils getragene Kraft proportional zum Produkt aus Volumenanteil und Elastizitätsmodul ist. Der Anteil der Fasern beträgt VfEf/(VfEf + VmEm) = 0,40 × 72 / (0,40 × 72 + 0,60 × 3,0) = 28,8/30,6 ≈ 0,94, also etwa 94 %. Ca. 40 % nimmt an, dass die Last proportional zum Volumenanteil ist, und übersieht den Unterschied der Elastizitätsmoduln. Ca. 6 % ist der Anteil des Harzes, der mit dem der Fasern verwechselt wurde. Auch wenn die Fasern weniger als die Hälfte des Volumens ausmachen, tragen sie fast die gesamte Last; Festigkeit und Steifigkeit in Faserrichtung werden daher nahezu von den Fasereigenschaften bestimmt."
+  },
+  "composites-005": {
+    "question": "Ein Verbundwerkstoff enthält unidirektional eingebettete Glasfasern (Elastizitätsmodul 72 GPa) mit einem Volumenanteil von 50 % in einem Harz (Elastizitätsmodul 3,0 GPa). Welcher Wert kommt dem Elastizitätsmodul senkrecht zu den Fasern am nächsten, wenn er mit der Mischungsregel für gleiche Spannung abgeschätzt wird?",
+    "choices": [
+      "ca. 5,8 GPa",
+      "ca. 37,5 GPa",
+      "ca. 0,17 GPa"
+    ],
+    "explanation": "Senkrecht zu den Fasern werden Faser und Harz als in Reihe angeordnet betrachtet, die dieselbe Spannung erfahren, und es gilt 1/E₂ = Vf/Ef + Vm/Em. 1/E₂ = 0,50/72 + 0,50/3,0 = 0,00694 + 0,1667 = 0,1736 GPa⁻¹, also E₂ = 1/0,1736 ≈ 5,76 GPa, etwa 5,8 GPa. Ca. 37,5 GPa ist der mit der Gleichung für gleiche Dehnung 0,50 × 72 + 0,50 × 3,0 berechnete Elastizitätsmodul in Faserrichtung. Ca. 0,17 GPa vergisst, den Kehrwert zu bilden. Der Quermodul bleibt nahe beim Elastizitätsmodul des weichen Harzes und beträgt nur etwa 15 % (etwa 1/6,5) des Werts in Faserrichtung. Deshalb werden unidirektionale Werkstoffe nicht für Bauteile verwendet, die quer zur Faser belastet werden."
+  },
+  "composites-006": {
+    "question": "Welcher Vergleich zwischen CFK (kohlenstofffaserverstärktem Kunststoff) und GFK (glasfaserverstärktem Kunststoff) trifft zu?",
+    "choices": [
+      "GFK leitet Strom und verursacht daher anders als CFK bei Kontakt mit Aluminiumlegierungen leicht Kontaktkorrosion",
+      "CFK ist gut durchlässig für Funkwellen und gut isolierend und eignet sich daher statt GFK für Radarabdeckungen und Isolierteile",
+      "CFK hat eine hohe spezifische Steifigkeit, leitet aber Strom und verursacht daher bei Kontakt mit Aluminiumlegierungen leicht Kontaktkorrosion"
+    ],
+    "explanation": "Kohlenstofffasern haben mit etwa 1,8 g/cm³ eine geringere Dichte als Glasfasern (etwa 2,5 g/cm³) und mit etwa 230 GPa oder mehr einen mehr als dreimal so hohen Elastizitätsmodul wie Glasfasern (etwa 70 GPa); CFK zeichnet sich daher durch hohe spezifische Steifigkeit und Festigkeit aus und wird in Flugzeugen und Sportartikeln eingesetzt. Es ist jedoch teuer, und da Kohlenstofffasern Strom leiten und ein edles Elektrodenpotential haben, erleidet das Aluminium leicht Kontaktkorrosion, wenn CFK mit Aluminiumlegierungen in Kontakt steht; als Gegenmaßnahme wird z. B. eine Glasfaserlage dazwischengelegt. Strom leitet CFK, nicht GFK. Gute Durchlässigkeit für Funkwellen und gute Isolation kennzeichnen GFK, das für Radome, elektrische Isolierteile sowie preiswerte Bootsrümpfe und Badewannen verwendet wird."
+  },
+  "composites-007": {
+    "question": "Welcher Wert kommt dem Verhältnis CFK/Stahl des spezifischen E-Moduls (Elastizitätsmodul/Dichte) in Faserrichtung am nächsten, für unidirektionales CFK (Elastizitätsmodul in Faserrichtung 140 GPa, Dichte 1,6 g/cm³) und Stahl (Elastizitätsmodul 210 GPa, Dichte 7,9 g/cm³)?",
+    "choices": [
+      "ca. 0,67",
+      "ca. 3,3",
+      "ca. 4,9"
+    ],
+    "explanation": "Der spezifische E-Modul beträgt bei CFK 140/1,6 = 87,5 und bei Stahl 210/7,9 ≈ 26,6 (beide in GPa/(g/cm³)), das Verhältnis also 87,5/26,6 ≈ 3,3. Der Elastizitätsmodul selbst ist bei CFK zwar kleiner, doch die Dichte beträgt nur etwa ein Fünftel, sodass CFK bei gleichem Gewicht etwa die 3,3-fache Steifigkeit hat. Ca. 0,67 vergleicht nur die Elastizitätsmoduln (140/210), ca. 4,9 nur das Dichteverhältnis (7,9/1,6). Dieser Wert gilt allerdings nur in Faserrichtung; quer zur Faser ist der spezifische E-Modul weit kleiner als der von Stahl. In realen Strukturen werden die Richtungen durch den Lagenaufbau ausgeglichen, sodass der Vorteil der spezifischen Steifigkeit kleiner als dieser Wert ausfällt."
+  },
+  "composites-008": {
+    "question": "Eine in eine Matrix eingebettete Kurzfaser wird in Faserrichtung auf Zug belastet. Welche Aussage über die Verteilung der Zugspannung in der Faser trifft zu? Die Grenzfläche gleite nicht und übertrage die Last mit konstanter Schubspannung.",
+    "choices": [
+      "An den Enden nahezu null, mit wachsendem Abstand von ihnen durch Grenzflächenschub zunehmend und bei ausreichender Länge in der Mitte konstant",
+      "Über die ganze Länge gleichförmig, weil die Schubspannung an der Grenzfläche konstant ist, und unabhängig von der Faserlänge",
+      "An beiden Enden maximal, weil die Stirnflächen die Last direkt aufnehmen, und zur Fasermitte hin abnehmend"
+    ],
+    "explanation": "Über die Stirnflächen der Faser wird kaum Last übertragen, daher ist die Spannung in der Faser an den Enden nahezu null. Mit zunehmendem Abstand vom Ende wird über die Grenzflächenschubspannung τ nach und nach Last eingeleitet, und die Spannung steigt nahezu proportional zum Abstand vom Ende. Ist die Faser lang genug, gleichen sich ab einem bestimmten Abstand die Dehnungen von Faser und Matrix an, und die Spannung erreicht einen konstanten Höchstwert. Die Länge, die nötig ist, damit dieser Höchstwert die Zugfestigkeit der Faser erreicht, ist die kritische Faserlänge lc; die Festigkeit wird im Abstand lc/2 vom Ende erreicht. Ist die Faser viel länger als lc, wird der Anteil der gering beanspruchten Enden klein, und man erzielt eine Verstärkungswirkung ähnlich wie mit Endlosfasern. Eine konstante Grenzflächenschubspannung bedeutet, dass die Spannung in der Faser mit konstanter Rate zunimmt, nicht aber, dass die Spannung selbst gleichförmig ist. Die Aussage, die Last werde über die Stirnflächen eingeleitet und sei an den Enden maximal, ist umgekehrt."
+  },
+  "composites-009": {
+    "question": "Welche Aussage über die Steifigkeit in der Ebene eines Laminats, in dem unidirektionale Schichten wie bei [0/90]ₛ kreuzweise und symmetrisch gestapelt sind, trifft zu?",
+    "choices": [
+      "Die E-Moduln in 0°- und 90°-Richtung sind gleich, und unter 45° wirken beide Schichten je zur Hälfte, sodass es in der Ebene isotrop ist",
+      "Nur die 0°-Richtung hat einen hohen E-Modul; in 90°-Richtung tragen keine Fasern Last, und es gilt der E-Modul des reinen Harzes",
+      "Die E-Moduln in 0°- und 90°-Richtung sind nahezu gleich, doch unter 45° überwiegt der Schub in der Ebene, und der E-Modul ist kleiner"
+    ],
+    "explanation": "Bei [0/90]ₛ nehmen bei Zug in 0°-Richtung die 0°-Schichten und bei Zug in 90°-Richtung die 90°-Schichten die Last in Faserrichtung auf, sodass die E-Moduln in beiden Richtungen nahezu gleich sind. Bei Zug unter 45° weichen die Fasern aller Schichten jedoch um 45° von der Lastrichtung ab; die Verformung ist dann überwiegend ein Schub in der Ebene, den hauptsächlich das Harz trägt, und der Elastizitätsmodul sinkt stark. Soll das Laminat in der Ebene annähernd isotrop sein, wird es wie [0/±45/90]ₛ mit zusätzlichen 45°-Schichten als quasiisotropes Laminat aufgebaut. Die Aussage, unter 45° sei es genauso, übersieht diesen Punkt. Auch in 90°-Richtung tragen die Fasern der 90°-Schichten die Last, sodass nicht der E-Modul des reinen Harzes gilt. Unabhängig vom Lagenaufbau trägt in Dickenrichtung das Harz, sodass Delamination weiterhin leicht auftritt."
+  },
+  "composites-010": {
+    "question": "Was ist der Hauptzweck, die Oberfläche von Glasfasern zur Verstärkung eines Harzes mit einem Silan-Haftvermittler zu behandeln?",
+    "choices": [
+      "Die Faseroberfläche zu glätten und die Reibung mit dem Harz zu verringern, damit das Harz beim Formen leichter fließt",
+      "Sich sowohl an das anorganische Glas als auch an das organische Harz zu binden, die Haftung zu stärken und die Lastübertragung zu verbessern",
+      "Die Wärmeleitfähigkeit der Fasern zu senken und die Harzhärtung beim Formen zu verzögern, damit Gasblasen entweichen können"
+    ],
+    "explanation": "Ein Silan-Haftvermittler ist ein Molekül, das an einem Ende eine Alkoxysilylgruppe trägt, die mit den Hydroxygruppen der Glasoberfläche reagiert, und am anderen Ende eine Amino-, Epoxid-, Vinyl- oder ähnliche Gruppe, die mit dem Harz reagiert. Da es das anorganische Glas und das organische Harz chemisch verbindet, wird die Haftung an der Grenzfläche gestärkt, und die Last wird über Schub an der Grenzfläche leichter auf die Fasern übertragen. Groß ist auch seine Wirkung, das Eindringen von Wasser in die Grenzfläche und damit eine Schwächung der Haftung zu verhindern; der Festigkeitsabfall in feuchter Umgebung wird so begrenzt. Eine glattere Oberfläche mit geringerer Reibung würde die Lastübertragung schwächen und ist das Gegenteil des Zwecks. Wärmeleitfähigkeit oder Härtungsgeschwindigkeit des Harzes zu verändern, ist nicht der Zweck eines Haftvermittlers."
+  },
+  "composites-011": {
+    "question": "Welche Aussage über einen Metallmatrix-Verbundwerkstoff (MMC) aus einer mit SiC-Partikeln verstärkten Aluminiumlegierung trifft zu?",
+    "choices": [
+      "Gegenüber der Aluminiumlegierung der Matrix sind E-Modul und Verschleißfestigkeit höher und der Längenausdehnungskoeffizient kleiner, Duktilität und Zähigkeit aber geringer",
+      "Gegenüber der Aluminiumlegierung der Matrix ist der Längenausdehnungskoeffizient größer, und auch die Duktilität ist deutlich verbessert",
+      "SiC-Partikel reagieren überhaupt nicht mit geschmolzenem Aluminium, sodass bei keiner Herstellungstemperatur Reaktionsprodukte an der Grenzfläche entstehen"
+    ],
+    "explanation": "Werden SiC-Partikel mit hohem Elastizitätsmodul (etwa 400 GPa) und kleinem Längenausdehnungskoeffizienten (etwa 4×10⁻⁶ K⁻¹) eingebracht, werden Elastizitätsmodul und Verschleißfestigkeit des Verbundwerkstoffs höher als die der Aluminiumlegierung der Matrix, und der Längenausdehnungskoeffizient wird kleiner. Da er sich dem von Halbleitern und Keramiksubstraten annähern lässt, wird der Werkstoff z. B. für Wärmesenken von Leistungshalbleitern verwendet. Andererseits entstehen um die harten Partikel leicht Risse, und Duktilität und Zähigkeit sinken. Die Aussage, der Längenausdehnungskoeffizient werde größer und die Duktilität verbessert, ist in beiden Punkten umgekehrt. Außerdem kann SiC mit heißem, geschmolzenem Aluminium zu sprödem Al₄C₃ reagieren; die Reaktion wird durch Einstellen der Herstellungstemperatur und des Si-Gehalts der Matrix unterdrückt."
+  },
+  "composites-012": {
+    "question": "Ein keramischer Faserverbundwerkstoff (CMC) ist mit SiC-Fasern verstärkt. Was ist der Hauptzweck einer dünnen Beschichtung aus Bornitrid (BN) oder pyrolytischem Kohlenstoff an der Grenzfläche zwischen Faser und Matrix?",
+    "choices": [
+      "Die Grenzfläche möglichst fest zu verbinden, um die Lastübertragung von der Matrix auf die Fasern zu maximieren und Risse durch die Fasern zu stoppen",
+      "Als Sinterhilfsmittel zu wirken, das den Schmelzpunkt der keramischen Matrix senkt, sodass sie bei niedrigerer Temperatur gesintert werden kann",
+      "Die Grenzfläche gezielt zu schwächen, damit Risse abgelenkt werden und Energie durch Ablösen und Herausziehen der Fasern aufgenommen wird"
+    ],
+    "explanation": "Keramische Matrizes sind spröde, daher entstehen unter Last zuerst Risse in der Matrix. Ist die Grenzfläche zu fest, durchläuft ein solcher Riss die Fasern ungehindert, und der Werkstoff bricht wie eine monolithische Keramik schlagartig. Wird die Grenzfläche mit einer geschichteten, leicht gleitenden Beschichtung wie BN oder pyrolytischem Kohlenstoff gezielt geschwächt, wird der Riss entlang der Grenzfläche abgelenkt; die Fasern überbrücken die Rissflanken und nehmen durch Ablösen und Herausziehen (Pull-out) viel Energie auf. Dadurch versagt der Werkstoff nicht schlagartig, und die scheinbare Zähigkeit steigt deutlich. Eine möglichst feste Grenzfläche ist das Konzept für Polymermatrizes, bei denen die Lastübertragung erhöht werden soll; bei CMC wirkt sie kontraproduktiv. Die Beschichtung dient nicht dazu, die Sintertemperatur zu senken."
+  }
+}

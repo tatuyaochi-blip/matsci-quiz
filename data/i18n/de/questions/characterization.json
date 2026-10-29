@@ -1,0 +1,110 @@
+{
+  "characterization-001": {
+    "question": "Welcher Wert kommt bei XRD mit Cu-Kα-Strahlung (Wellenlänge 0,15406 nm) dem Beugungswinkel 2θ des Reflexes erster Ordnung der Si-(111)-Ebenen mit einem Netzebenenabstand von 0,3135 nm am nächsten?",
+    "choices": [
+      "ca. 14,2°",
+      "ca. 28,4°",
+      "ca. 58,9°"
+    ],
+    "explanation": "Aus der Bragg-Gleichung 2d sinθ = nλ (n = 1) folgt sinθ = 0,15406/(2 × 0,3135) ≈ 0,2457, also θ ≈ 14,2° und der Beugungswinkel 2θ ≈ 28,4°. In XRD-Geräten und -Daten wird üblicherweise 2θ, der Winkel zwischen einfallendem und gebeugtem Röntgenstrahl, auf der waagerechten Achse aufgetragen. Ca. 14,2° gibt fälschlich θ selbst an, ca. 58,9° lässt den Faktor 2 in der Bragg-Gleichung weg und rechnet mit sinθ = λ/d. Der Reflex von Siliziumpulver bei etwa 28,4° ist stark und scharf und wird daher auch häufig als Standard zur Kalibrierung der Beugungswinkel verwendet."
+  },
+  "characterization-002": {
+    "question": "Welche Indizes hat beim Pulver-XRD eines Metalls mit kfz-Struktur der Beugungsreflex, der beim kleinsten Winkel erscheint?",
+    "choices": [
+      "(100)",
+      "(110)",
+      "(111)"
+    ],
+    "explanation": "Im kfz-Gitter tritt Beugung nur auf, wenn h, k und l alle gerade oder alle ungerade sind; sind gerade und ungerade gemischt, löschen sich die Streubeiträge der vier Atome der Elementarzelle aus, und die Intensität ist null (Auslöschungsregeln). Die Reflexe erscheinen daher in der Reihenfolge (111), (200), (220), (311) …, und (111) hat mit dem kleinsten h² + k² + l² den größten Netzebenenabstand und liegt beim kleinsten Winkel. (100) und (110) haben beide gemischt gerade und ungerade Indizes und erscheinen beim kfz-Gitter nicht. Beim krz-Gitter erscheinen nur Ebenen mit geradem h + k + l, sodass der erste Reflex (110) ist; an der Abfolge der Reflexe lassen sich kfz und krz unterscheiden."
+  },
+  "characterization-003": {
+    "question": "Beim Pulver-XRD von Kupfer (kfz) mit Cu-Kα-Strahlung (Wellenlänge 0,15406 nm) erschien der Reflex beim kleinsten Winkel bei 2θ = 43,30°. Welcher Wert kommt der Gitterkonstante von Kupfer am nächsten?",
+    "choices": [
+      "ca. 0,209 nm",
+      "ca. 0,295 nm",
+      "ca. 0,362 nm"
+    ],
+    "explanation": "Mit θ = 21,65° ist sinθ ≈ 0,3689, und aus der Bragg-Gleichung folgt d = λ/(2 sinθ) ≈ 0,2088 nm. Im kfz-Gitter ist der Reflex beim kleinsten Winkel (111), also a = d × √(1² + 1² + 1²) = 0,2088 × √3 ≈ 0,362 nm; das stimmt mit der Gitterkonstante von Kupfer (etwa 0,3615 nm) überein. Ca. 0,209 nm ist der Netzebenenabstand d selbst, ohne Umrechnung in die Gitterkonstante. Ca. 0,295 nm deutet den ersten Reflex als (110) und multipliziert mit √2; hier wurden fälschlich die Auslöschungsregeln des krz-Gitters angewandt. Die richtige Indizierung der Reflexe ist die Voraussetzung für die Bestimmung der Gitterkonstante."
+  },
+  "characterization-004": {
+    "question": "Beim XRD hatte ein Reflex bei 2θ = 38,2° eine Halbwertsbreite (nach Abzug der gerätebedingten Verbreiterung) von 0,40°. Welcher Wert kommt der Kristallitgröße am nächsten, wenn die Scherrer-Gleichung D = Kλ/(β cosθ) mit K = 0,9 und λ = 0,15406 nm verwendet wird?",
+    "choices": [
+      "ca. 0,37 nm",
+      "ca. 25 nm",
+      "ca. 21 nm"
+    ],
+    "explanation": "Die Halbwertsbreite wird in Radiant umgerechnet, β = 0,40 × π/180 ≈ 6,98×10⁻³ rad, und für θ wird die Hälfte von 2θ, also 19,1° (cosθ ≈ 0,945), verwendet. D = 0,9 × 0,15406/(6,98×10⁻³ × 0,945) ≈ 21 nm. Ca. 0,37 nm setzt β in Grad als 0,40 ein, ca. 25 nm verwendet statt θ den Kosinus von 2θ, cos38,2°. Die Scherrer-Gleichung liefert nicht die Korngröße selbst, sondern die Größe der kohärent beugenden Kristallite. Auch inhomogene Gitterverzerrungen verbreitern die Reflexe; streng genommen werden beide Beiträge deshalb mit Verfahren wie der Williamson-Hall-Methode getrennt. Bei großen Kristalliten ist die Verbreiterung zu gering, um die Größe genau zu bestimmen."
+  },
+  "characterization-005": {
+    "question": "Welche Aussage über Sekundärelektronen- und Rückstreuelektronenbilder im REM trifft zu?",
+    "choices": [
+      "Sekundärelektronen bilden vor allem die Oberflächentopografie ab, Rückstreuelektronen Unterschiede der Zusammensetzung (Ordnungszahl)",
+      "Sekundärelektronenbilder zeigen vor allem Unterschiede der Ordnungszahl, Rückstreuelektronenbilder vor allem die Oberflächentopografie",
+      "Sekundär- und Rückstreuelektronen treten gleichermaßen aus einigen µm Tiefe aus, daher zeigen beide Bilder dasselbe"
+    ],
+    "explanation": "Sekundärelektronen sind niederenergetische Elektronen von höchstens 50 eV und können nur aus wenigen nm Tiefe unter der Oberfläche austreten. Sie werden daher stark von Neigung, Topografie und Kanten der Oberfläche beeinflusst und liefern Bilder der Oberflächengestalt mit räumlicher Wirkung. Rückstreuelektronen sind Primärelektronen, die an den Atomen der Probe zurückgestreut wurden; sie sind energiereich und stammen aus tieferen Bereichen. Ihre Ausbeute steigt mit der Ordnungszahl, sodass Materialkontrastbilder entstehen, in denen Bereiche schwerer Elemente hell erscheinen. Die Aussage, das Sekundärelektronenbild zeige die Ordnungszahl und das Rückstreuelektronenbild die Topografie, vertauscht die Rollen der beiden, und auch die Annahme gleicher Austrittstiefen ist falsch. In der Fehleranalyse werden beide Bilder verglichen, um Fremdpartikel und Ausscheidungen zu finden."
+  },
+  "characterization-006": {
+    "question": "Welcher Vergleich von EDX (energiedispersiv) und WDX (wellenlängendispersiv) zur Analyse charakteristischer Röntgenstrahlung im REM und in der ESMA (Elektronenstrahl-Mikroanalyse) trifft zu?",
+    "choices": [
+      "Da EDX ohne Analysatorkristall auskommt, hat es die höhere Energieauflösung und trennt überlappende Peaks leichter",
+      "WDX hat die höhere Energieauflösung, während EDX viele Elemente gleichzeitig in kurzer Zeit messen kann",
+      "WDX misst alle Elemente gleichzeitig mit einem Detektor, ohne den Kristall zu bewegen, und ist daher schneller als EDX"
+    ],
+    "explanation": "EDX misst die Energie der Röntgenquanten direkt mit einem Halbleiterdetektor, erfasst daher die Peaks aller Elemente gleichzeitig in kurzer Zeit und lässt sich einfach an ein REM anbauen. Die Energieauflösung beträgt jedoch nur etwa 130 eV, sodass nahe beieinanderliegende Peaks wie Si Kα und W Mα oder S Kα und Mo Lα schwer zu trennen sind. WDX wählt die Wellenlänge durch Bragg-Reflexion an Analysatorkristallen aus; seine Auflösung ist mit etwa 10 eV um eine Größenordnung besser, und es eignet sich auch besser zum Nachweis von Spurenelementen und für eine genaue Quantifizierung. Da der Winkel des Analysatorkristalls jedoch für jedes Element durchgefahren werden muss, dauert die Messung länger. Die Aussagen, EDX habe die höhere Auflösung bzw. WDX sei schneller, vertauschen die Eigenschaften der beiden."
+  },
+  "characterization-007": {
+    "question": "Was ist der Hauptgrund dafür, dass Proben für die TEM (Transmissionselektronenmikroskopie) auf etwa 100 nm oder weniger gedünnt werden müssen?",
+    "choices": [
+      "Elektronen wechselwirken stark mit Materie, durchdringen dicke Proben nicht, und Mehrfachstreuung lässt das Bild verschwimmen",
+      "Die Elektronenwellenlänge ist länger als die von Röntgenstrahlen, sodass ohne Dünnung keine Beugung auftritt",
+      "Eine dünnere Probe lädt sich durch den Elektronenstrahl stärker auf, wodurch der Kontrast steigt"
+    ],
+    "explanation": "Da Elektronen geladen sind, wechselwirken sie weit stärker mit Materie als Röntgenstrahlen; selbst bei einer Beschleunigungsspannung von etwa 200 kV lässt eine dicke Probe kaum Elektronen durch oder streut sie mehrfach, sodass Bilder und Spektren unscharf werden. Die Proben werden daher durch Ionendünnen oder mit einem FIB (fokussierter Ionenstrahl) zu Lamellen von etwa 100 nm oder weniger gedünnt und dann beobachtet. Die Wellenlänge von 200-kV-Elektronen beträgt etwa 0,0025 nm und ist damit weit kürzer als die etwa 0,154 nm der Cu-Kα-Strahlung; die Aussage, die Wellenlänge sei länger, ist also umgekehrt. Aufladung stört das Bild und ist nicht der Zweck des Dünnens. In der Fehleranalyse ist es ein Standardverfahren, mit dem FIB gezielt an der Fehlerstelle eine Lamelle zu präparieren und den Querschnitt im TEM zu beobachten."
+  },
+  "characterization-008": {
+    "question": "Welche Aussage über die Informationstiefe der XPS (Röntgen-Photoelektronenspektroskopie) und die damit gewonnenen Informationen trifft zu?",
+    "choices": [
+      "Röntgenstrahlen dringen einige µm in die Probe ein, daher erhält man die mittlere Zusammensetzung bis in einige µm Tiefe",
+      "Die Informationstiefe beträgt einige nm, und aus der chemischen Verschiebung der Peaks folgt der Bindungszustand (z. B. die Oxidationszahl)",
+      "Die Informationstiefe beträgt einige nm, doch man erkennt nur die Art der Elemente, nicht ihren Bindungszustand"
+    ],
+    "explanation": "Bei der XPS dringen die einfallenden Röntgenstrahlen selbst zwar einige µm in die Probe ein, die erzeugten Photoelektronen verlieren aber durch inelastische Streuung leicht Energie, und nur solche, die innerhalb weniger nm unter der Oberfläche entstehen, verlassen die Oberfläche mit ihrer ursprünglichen Energie. XPS ist daher ein Verfahren zur Untersuchung der obersten wenigen nm. Die Bindungsenergie der Photoelektronen verschiebt sich geringfügig mit dem chemischen Zustand des Atoms (chemische Verschiebung); bei Si 2p liegt beispielsweise SiO₂ etwa 4 eV höher als elementares Si, sodass sich Oxidation und Oxidationszahl unterscheiden lassen. Tiefenverteilungen werden durch Messung unter Abtrag mit Ar-Ionen oder durch Variation des Austrittswinkels der Photoelektronen untersucht. Die mittlere Zusammensetzung bis in einige µm Tiefe zu bestimmen, ist die Aufgabe von Verfahren wie der EDX im REM."
+  },
+  "characterization-009": {
+    "question": "Bei der XPS mit Al-Kα-Strahlung (Energie 1486,6 eV) wurde für Si-2p-Photoelektronen eine kinetische Energie von 1378,8 eV gemessen. Welcher Wert kommt der Bindungsenergie am nächsten, wenn die Austrittsarbeit des Spektrometers 4,5 eV beträgt?",
+    "choices": [
+      "ca. 112,3 eV",
+      "ca. 107,8 eV",
+      "ca. 103,3 eV"
+    ],
+    "explanation": "Aus der Energieerhaltung beim Photoeffekt folgt die Bindungsenergie E_B = hν − E_K − φ = 1486,6 − 1378,8 − 4,5 = 103,3 eV. Die Bindungsenergie von Si 2p beträgt bei elementarem Si etwa 99 eV; der um etwa 4 eV höhere Wert ist typisch für SiO₂ (Si⁴⁺), die Oberfläche ist also oxidiert. Ca. 107,8 eV vergisst, die Austrittsarbeit abzuziehen, ca. 112,3 eV addiert sie, wo sie abzuziehen wäre. Bei der Messung von Isolatoren verschiebt die Aufladung die Peaks; die Bindungsenergien werden daher häufig auf den C-1s-Peak des Kontaminationskohlenstoffs an der Oberfläche (etwa 284,8 eV) bezogen und korrigiert."
+  },
+  "characterization-010": {
+    "question": "Welches Verfahren eignet sich in der Fehleranalyse von Halbleitern am besten, um das Tiefenprofil der Dotierstoffkonzentration mit einer Empfindlichkeit im ppm- bis ppb-Bereich zu bestimmen?",
+    "choices": [
+      "SIMS (Sekundärionen-Massenspektrometrie)",
+      "EDX (energiedispersive Röntgenspektroskopie)",
+      "XRD (Röntgenbeugung)"
+    ],
+    "explanation": "Bei der SIMS wird die Probenoberfläche mit Primärionen wie O₂⁺ oder Cs⁺ abgetragen, und die herausgeschlagenen Sekundärionen werden massenspektrometrisch analysiert. Viele Elemente lassen sich mit einer Empfindlichkeit von ppm bis ppb und einer Tiefenauflösung von wenigen nm messen; für Profile von Bor, Phosphor und Arsen in Silizium ist sie das Standardverfahren. Da Material abgetragen wird, ist sie zerstörend, und eine genaue Quantifizierung erfordert Referenzproben derselben Matrix. Die Nachweisgrenze der EDX liegt grob bei etwa 0,1 Massen-% und reicht für die Messung von Dotierstoffkonzentrationen nicht aus. Die XRD untersucht Kristallstruktur und Gitterkonstanten und kann Konzentrationsprofile von Spurenelementen nicht messen."
+  },
+  "characterization-011": {
+    "question": "Welches Verfahren eignet sich zum Nachweis der Glasübergangstemperatur Tg, wenn eine Polymerprobe beim Aufheizen gemessen wird, und wie zeigt sich der Übergang?",
+    "choices": [
+      "In der TGA, als stufenförmige Massenabnahme beim Glasübergang",
+      "In der DSC, als stufenförmige Verschiebung der Wärmestrom-Basislinie",
+      "In der DSC, als scharfer exothermer Peak wie bei der Kaltkristallisation"
+    ],
+    "explanation": "Die DSC (dynamische Differenzkalorimetrie) misst die Differenz der Wärmeströme in bzw. aus der Probe und einer Referenz. Beim Glasübergang nimmt die Wärmekapazität sprunghaft zu, sodass der Übergang als stufenförmige Verschiebung der Basislinie erscheint. Schmelzen zeigt sich als scharfer endothermer Peak, Kristallisation als exothermer Peak; der Glasübergang erscheint nicht als Peak. Die TGA (Thermogravimetrie) misst Massenänderungen und dient zur Untersuchung von Vorgängen mit Massenzunahme oder -abnahme wie Dehydratisierung, Zersetzung und Oxidation; beim Glasübergang ändert sich die Masse jedoch nicht, sodass er damit nicht nachweisbar ist. Es gibt auch Geräte, die beides gleichzeitig messen; sie eignen sich gut, um Reaktionen und Massenänderungen einander zuzuordnen."
+  },
+  "characterization-012": {
+    "question": "Wird Calciumoxalat-Monohydrat (CaC₂O₄·H₂O, molare Masse 146,1 g/mol) in der TGA erhitzt, wird zuerst das Kristallwasser abgegeben. Welcher Wert kommt der prozentualen Massenabnahme in diesem ersten Schritt am nächsten? Die molare Masse von H₂O sei 18,0 g/mol.",
+    "choices": [
+      "ca. 12,3 %",
+      "ca. 19,2 %",
+      "ca. 30,1 %"
+    ],
+    "explanation": "Der erste Schritt ist CaC₂O₄·H₂O → CaC₂O₄ + H₂O; pro mol gehen 18,0 g verloren, die prozentuale Massenabnahme beträgt also 18,0/146,1 × 100 ≈ 12,3 %. Ca. 19,2 % entspricht dem im zweiten Schritt CaC₂O₄ → CaCO₃ + CO abgegebenen CO (28,0 g/mol), ca. 30,1 % dem im dritten Schritt CaCO₃ → CaO + CO₂ abgegebenen CO₂ (44,0 g/mol), jeweils bezogen auf die ursprüngliche Masse von 146,1 g. Da Calciumoxalat-Monohydrat auf diese Weise drei klar getrennte Stufen der Massenabnahme zeigt, wird es häufig zur Funktionsprüfung von TGA-Geräten verwendet."
+  }
+}

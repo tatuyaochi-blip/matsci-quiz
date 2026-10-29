@@ -1,0 +1,137 @@
+{
+ "magnetic-materials-001": {
+  "question": "Welche Art von Magnetismus zeigt ein Stoff, dessen magnetische Suszeptibilität χ negativ und mit etwa 10⁻⁵ sehr klein ist?",
+  "choices": [
+   "Diamagnetismus",
+   "Paramagnetismus",
+   "Antiferromagnetismus"
+  ],
+  "explanation": "Diamagnetismus ist die Eigenschaft, dass ein angelegtes Magnetfeld die Bahnbewegung der Elektronen verändert und eine schwache, dem Feld entgegengerichtete Magnetisierung hervorruft; χ ist negativ, sein Betrag liegt bei etwa 10⁻⁶ bis 10⁻⁵. Alle Stoffe besitzen diese Eigenschaft, doch bei Kupfer, Wasser und vielen organischen Stoffen, die keine ungepaarten Elektronen haben, tritt nur sie auf. Paramagnetismus ist die schwache Ausrichtung regellos orientierter atomarer magnetischer Momente in Feldrichtung; χ ist positiv. Antiferromagnetismus ist eine Ordnung, in der sich benachbarte Momente antiparallel ausrichten; χ ist ebenfalls klein und positiv. Das negative Vorzeichen von χ ist das entscheidende Merkmal des Diamagnetismus, und Supraleiter zeigen mit χ = −1 idealen Diamagnetismus."
+ },
+ "magnetic-materials-002": {
+  "question": "Welche Aussage beschreibt den Ferrimagnetismus von Ferriten wie Magnetit (Fe₃O₄) richtig?",
+  "choices": [
+   "Alle atomaren Momente sind parallel ausgerichtet, sodass er im Wesentlichen dasselbe wie Ferromagnetismus ist",
+   "Die Momente zweier Untergitter sind antiparallel ausgerichtet und gleich groß, sodass die spontane Gesamtmagnetisierung null ist",
+   "Die Momente zweier Untergitter sind antiparallel ausgerichtet, aber verschieden groß, sodass sie sich nicht aufheben und eine spontane Magnetisierung bleibt"
+  ],
+  "explanation": "In einem Ferrimagneten sind die magnetischen Momente auf zwei Arten von Gitterplätzen im Kristall (Untergittern) durch die Austauschwechselwirkung antiparallel zueinander ausgerichtet. Da sich die Momente der beiden Untergitter in Größe oder Anzahl unterscheiden, heben sie sich nicht vollständig auf, und es bleibt eine spontane Magnetisierung in Höhe der Differenz. Makroskopisch zeigt ein Ferrimagnet wie ein Ferromagnet Weiss-Bezirke und Hysterese, seine Sättigungsmagnetisierung ist jedoch kleiner als die ferromagnetischer Metalle wie Eisen. Die parallele Ausrichtung aller Momente ist Ferromagnetismus, antiparallele, gleich große und sich aufhebende Momente kennzeichnen den Antiferromagnetismus. Ferrite sind Oxide mit hohem spezifischem elektrischem Widerstand, in denen kaum Wirbelströme fließen; sie werden daher als Kerne für hohe Frequenzen verwendet."
+ },
+ "magnetic-materials-003": {
+  "question": "Das magnetische Moment pro Atom von Eisen (krz, Gitterkonstante 0,2866 nm) betrage 2,22 µB. Welcher Wert kommt der Sättigungsmagnetisierung Ms bei 0 K, wenn alle Momente ausgerichtet sind, am nächsten? Für das Bohrsche Magneton gilt µB = 9,27×10⁻²⁴ A·m².",
+  "choices": [
+   "ca. 8,7×10⁵ A/m",
+   "ca. 1,7×10⁶ A/m",
+   "ca. 3,5×10⁶ A/m"
+  ],
+  "explanation": "Die krz-Elementarzelle enthält 2 Atome, die Anzahldichte der Atome ist also n = 2/a³ = 2/(0,2866×10⁻⁹ m)³ ≈ 8,50×10²⁸ m⁻³. Die Sättigungsmagnetisierung ist das magnetische Moment pro Volumeneinheit, also Ms = n × 2,22 µB = 8,50×10²⁸ × 2,22 × 9,27×10⁻²⁴ ≈ 1,7×10⁶ A/m. Als µ₀Ms ausgedrückt sind das ca. 2,2 T, was gut mit der Sättigungsflussdichte von Eisen übereinstimmt. Ca. 8,7×10⁵ A/m zählt nur 1 Atom pro Elementarzelle, ca. 3,5×10⁶ A/m zählt 4 Atome wie bei kfz. Dass das Moment pro Atom keine ganze Zahl ist, liegt daran, dass die für den Magnetismus verantwortlichen 3d-Elektronen ein Band bilden."
+ },
+ "magnetic-materials-004": {
+  "question": "Magnetit Fe₃O₄ hat eine inverse Spinellstruktur: Auf den A-Plätzen (Tetraederplätzen) sitzt ein Fe³⁺, auf den B-Plätzen (Oktaederplätzen) je ein Fe³⁺ und ein Fe²⁺, und die Momente der A- und B-Plätze sind antiparallel ausgerichtet. Welches magnetische Moment ergibt sich pro Formeleinheit Fe₃O₄, wenn man für Fe³⁺ 5 µB und für Fe²⁺ 4 µB ansetzt und nur der Spin beiträgt?",
+  "choices": [
+   "0 µB",
+   "4 µB",
+   "14 µB"
+  ],
+  "explanation": "Das Moment der B-Plätze beträgt 5 + 4 = 9 µB, das der A-Plätze 5 µB; da beide antiparallel stehen, bleiben 9 − 5 = 4 µB. Man kann sich auch vorstellen, dass sich die Fe³⁺-Ionen auf A- und B-Plätzen genau aufheben und nur der Beitrag des Fe²⁺ übrig bleibt. Auch der aus der gemessenen Sättigungsmagnetisierung bestimmte Wert beträgt ca. 4,1 µB und stimmt gut mit dieser Abschätzung überein. 14 µB setzt voraus, dass alle Momente parallel stehen (Fehler: als ferromagnetisch behandelt), 0 µB, dass sich alles aufhebt (Fehler: als antiferromagnetisch behandelt). Ersetzt man Fe²⁺ durch ein anderes zweiwertiges Ion (etwa Ni²⁺ oder Mn²⁺), ändert sich die Sättigungsmagnetisierung entsprechend dem Moment dieses Ions."
+ },
+ "magnetic-materials-005": {
+  "question": "Was ist der Hauptgrund dafür, dass ein Ferromagnet auch ohne äußeres Feld in viele Weiss-Bezirke zerfällt?",
+  "choices": [
+   "Um die Energie der Austauschwechselwirkung zu senken, die die Momente benachbarter Atome parallel auszurichten sucht",
+   "Um die magnetostatische Energie (Entmagnetisierungsenergie) der Pole zu senken, die bei gleichmäßiger Magnetisierung des ganzen Körpers an der Oberfläche entstehen",
+   "Weil die thermische Bewegung auch unterhalb der Curie-Temperatur die Richtungen der atomaren magnetischen Momente regellos macht"
+  ],
+  "explanation": "Ist der ganze Kristall in einer Richtung magnetisiert, entstehen an seiner Oberfläche starke Magnetpole, die außen und innen ein Feld erzeugen (innen das Entmagnetisierungsfeld) und eine große magnetostatische Energie besitzen. Durch die Aufteilung in Bezirke unterschiedlicher Richtung heben sich die Pole auf, und diese Energie sinkt stark. Andererseits drehen sich die Momente in der Domänenwand an der Grenze zwischen den Bezirken allmählich, sodass die Energie um die Austausch- und die Anisotropieenergie steigt. Die tatsächliche Größe der Bezirke ergibt sich aus dem Gleichgewicht beider Anteile. Die Austauschwechselwirkung wirkt auf eine Ausrichtung aller Momente hin; die Austauschenergie steigt durch die Aufteilung in Bezirke also sogar. Durch thermische Bewegung regellos orientierte Momente kennzeichnen den paramagnetischen Zustand oberhalb der Curie-Temperatur."
+ },
+ "magnetic-materials-006": {
+  "question": "Wie ändert sich die Koerzitivfeldstärke von Teilchen eines Ferromagneten, wenn man sie von einigen µm bis auf nm-Größe verkleinert?",
+  "choices": [
+   "Die Koerzitivfeldstärke ist eine allein durch die magnetokristalline Anisotropie bestimmte Stoffgröße und daher nahezu unabhängig von der Teilchengröße",
+   "Je kleiner die Teilchen, desto weniger Domänenwände gibt es und desto schwerer kehrt sich die Magnetisierung um, sodass die Koerzitivfeldstärke bis in den nm-Bereich stetig zunimmt",
+   "Sie wird in der Nähe des kritischen Durchmessers für Eindomänenteilchen maximal und geht bei weiterer Verkleinerung durch Superparamagnetismus gegen null"
+  ],
+  "explanation": "Große Teilchen enthalten viele Weiss-Bezirke, und ihre Magnetisierung kehrt sich durch Verschieben von Domänenwänden um, die schon in schwachen Feldern wandern; die Koerzitivfeldstärke ist daher klein. Verkleinert man die Teilchen, nimmt die Zahl der Wände ab, und unterhalb eines kritischen Durchmessers werden sie zu Eindomänenteilchen ohne Wände. Um die Magnetisierung eines Eindomänenteilchens umzukehren, muss die gesamte Magnetisierung gegen die magnetische Anisotropie gedreht werden; die Koerzitivfeldstärke wird daher in diesem Bereich maximal. Bei noch kleineren Teilchen wird die Energiebarriere der Umkehr KV klein gegenüber der thermischen Energie, die Magnetisierung kehrt sich thermisch von selbst um (Superparamagnetismus), und die Koerzitivfeldstärke geht gegen null. Die Koerzitivfeldstärke hängt nicht nur von der Anisotropie, sondern stark von Teilchengröße und Gefüge ab und ist daher nicht konstant; unterhalb des kritischen Durchmessers nimmt sie auch nicht weiter zu. Teilchen für magnetische Aufzeichnungsmedien werden zwischen dieser oberen und unteren Grenze ausgelegt."
+ },
+ "magnetic-materials-007": {
+  "question": "Die Energiebarriere für die thermische Umkehr der Magnetisierung eines Eindomänenteilchens mit dem Volumen V sei KV (K: magnetische Anisotropiekonstante); bei einer Messzeit von etwa 100 s gilt KV = 25kT als Richtwert für die Grenze zum Superparamagnetismus. Welcher Wert kommt mit K = 1,1×10⁴ J/m³, einer Temperatur von 300 K und der Boltzmann-Konstante k = 1,38×10⁻²³ J/K der Obergrenze des Durchmessers eines kugelförmigen Teilchens, das superparamagnetisch wird, am nächsten?",
+  "choices": [
+   "ca. 9 nm",
+   "ca. 13 nm",
+   "ca. 26 nm"
+  ],
+  "explanation": "Das Grenzvolumen beträgt V = 25kT/K = 25 × 1,38×10⁻²³ × 300/(1,1×10⁴) ≈ 9,4×10⁻²⁴ m³. Aus dem Kugelvolumen V = πd³/6 folgt d = (6V/π)^(1/3) ≈ 2,6×10⁻⁸ m; Teilchen mit einem Durchmesser von ca. 26 nm oder weniger werden also superparamagnetisch. Ca. 13 nm ist der Radius, der fälschlich als Durchmesser angegeben wurde, ca. 9 nm lässt den Faktor 25 weg und setzt KV = kT. Der Faktor 25 ergibt sich mit einer charakteristischen Versuchszeit der Umkehr von etwa 10⁻⁹ s aus ln(100 s/10⁻⁹ s) ≈ 25. Da der Durchmesser umgekehrt proportional zur dritten Wurzel aus K ist, können Werkstoffe mit größerer Anisotropie ihre Magnetisierung auch in kleineren Teilchen stabil halten."
+ },
+ "magnetic-materials-008": {
+  "question": "Was ist der Hauptgrund dafür, dass Permalloy (Fe mit ca. 78 % Ni) eine extrem hohe Permeabilität zeigt?",
+  "choices": [
+   "Durch den Ni-Zusatz verdoppelt sich die Sättigungsmagnetisierung gegenüber reinem Eisen etwa, sodass schon in schwachem Feld schnell eine große Flussdichte erreicht wird",
+   "Magnetokristalline Anisotropie und Magnetostriktion sind beide nahezu null, sodass sich Domänenwände leicht verschieben und die Magnetisierung leicht dreht",
+   "Durch Abschrecken aus der Schmelze sind die Körner bis auf Nanometergröße verfeinert, sodass sich die magnetokristalline Anisotropie herausmittelt und aufhebt"
+  ],
+  "explanation": "Für eine hohe Permeabilität muss sich die Magnetisierung in schwachem Feld stark ändern. Die Drehung der Magnetisierung wird durch die magnetokristalline Anisotropie behindert, und bei vorhandener Magnetostriktion behindert die mit inneren Spannungen gekoppelte magnetoelastische Energie die Verschiebung der Domänenwände. Im System Fe-Ni nähern sich bei Zusammensetzungen um etwa 80 % Ni sowohl die Kristallanisotropiekonstante als auch die Magnetostriktionskonstante null, und durch eine Wärmebehandlung, die den Ordnungsgrad einstellt, lässt sich die Anisotropie weiter verringern; so erreicht man eine sehr hohe Permeabilität. Die Sättigungsflussdichte von Permalloy ist deutlich niedriger als die von reinem Eisen (ca. 2,2 T); die Aussage, die Sättigungsmagnetisierung sei größer als die von reinem Eisen, ist daher falsch. Die Anisotropie durch Körner in Nanometergröße herauszumitteln, ist das Prinzip nanokristalliner weichmagnetischer Legierungen und nicht der Grund bei Permalloy."
+ },
+ "magnetic-materials-009": {
+  "question": "Kornorientiertes Elektroblech (Fe mit ca. 3 % Si) für Transformatorkerne hat bei Magnetisierung in Walzrichtung besonders geringe Verluste und eine hohe Permeabilität. Welche Begründung ist richtig?",
+  "choices": [
+   "Die Körner sind in der Goss-Lage {110}<001> ausgerichtet, sodass die leichte Richtung <100> in Walzrichtung zeigt",
+   "Die Textur ist durch Walzen und Glühen so eingestellt, dass <111>, die leichte Richtung von Eisen, in Walzrichtung liegt",
+   "Die Körner sind fein und regellos orientiert, sodass sich das Blech in allen Richtungen einschließlich der Walzrichtung gleich leicht magnetisieren lässt"
+  ],
+  "explanation": "Eisen ist kubisch, und wegen der magnetokristallinen Anisotropie lassen sich die <100>-Richtungen am leichtesten (leichte Richtungen) und die <111>-Richtungen am schwersten magnetisieren. Kornorientiertes Elektroblech erhält durch sekundäre Rekristallisation mithilfe von Inhibitoren (feinen MnS- oder AlN-Ausscheidungen) grobe Körner in der Goss-Lage, bei der die {110}-Ebenen parallel zur Blechoberfläche liegen und <001> in Walzrichtung zeigt. Bei Magnetisierung in Walzrichtung nähert es sich daher schon in schwachem Feld der Sättigung, und die Verluste sind gering. Die Aussage, <111> sei die leichte Richtung, verwechselt leichte und schwere Richtung. Nicht kornorientiertes Elektroblech mit regelloser Orientierung wird für Motorkerne verwendet, in denen sich die Flussrichtung dreht. Si wird zugesetzt, um den spezifischen elektrischen Widerstand zu erhöhen und die Wirbelstromverluste zu verringern."
+ },
+ "magnetic-materials-010": {
+  "question": "Die Wirbelstromverluste von Elektroblech seien proportional zu t²f²Bm² (t: Blechdicke, f: Frequenz, Bm: maximale Flussdichte; gleicher spezifischer Widerstand). Auf etwa das Wievielfache ändern sich die Wirbelstromverluste bei gleicher Frequenz und Flussdichte, wenn die Blechdicke von 0,50 mm auf 0,35 mm verringert wird?",
+  "choices": [
+   "ca. 0,34-fach",
+   "ca. 0,49-fach",
+   "ca. 0,70-fach"
+  ],
+  "explanation": "Die Wirbelstromverluste sind proportional zum Quadrat der Dicke, also (0,35/0,50)² = 0,70² = 0,49; sie betragen ca. das 0,49-Fache des ursprünglichen Werts, also etwa die Hälfte. Ca. 0,70-fach setzt Proportionalität zur Dicke voraus, ca. 0,34-fach Proportionalität zur dritten Potenz. In einem dünneren Blech ist die durch die Flussänderung im Querschnitt induzierte Spannung kleiner und der Strompfad schmaler, sodass die Verluste mit dem Quadrat der Dicke abnehmen. Deshalb werden Kerne aus dünnen, oberflächenisolierten Blechen geschichtet. Die Hystereseverluste hängen jedoch kaum von der Dicke ab, sodass die gesamten Kernverluste nicht ganz auf die Hälfte sinken. Auch der Si-Zusatz zur Erhöhung des spezifischen Widerstands ist ein Mittel, Wirbelströme zu unterdrücken."
+ },
+ "magnetic-materials-011": {
+  "question": "An ein Elektroblech mit dem spezifischen elektrischen Widerstand 4,8×10⁻⁷ Ω·m und der relativen Permeabilität 5000 wird ein magnetisches Wechselfeld von 50 Hz angelegt. Welcher Wert kommt der Skintiefe δ = √(2ρ/(ωµ)) am nächsten? Es gelten ω = 2πf, µ = µᵣµ₀ und µ₀ = 4π×10⁻⁷ H/m.",
+  "choices": [
+   "ca. 0,70 mm",
+   "ca. 0,49 mm",
+   "ca. 1,7 mm"
+  ],
+  "explanation": "ωµ = 2π × 50 × 5000 × 4π×10⁻⁷ ≈ 1,97, also 2ρ/(ωµ) = 9,6×10⁻⁷/1,97 ≈ 4,9×10⁻⁷ m² und δ ≈ 7,0×10⁻⁴ m = 0,70 mm. Ca. 0,49 mm lässt die 2 in der Formel weg, ca. 1,7 mm setzt statt ω unmittelbar die Frequenz f ein. Die Skintiefe ist ein Maß dafür, wie tief der Wechselfluss in das Blech eindringen kann; ist das Blech nicht deutlich dünner, erreicht der Fluss die Blechmitte nicht, und der Werkstoff wird nicht wirksam genutzt. Elektroblech von etwa 0,35 mm Dicke erfüllt diese Bedingung bei 50 Hz, doch δ nimmt umgekehrt proportional zur Wurzel aus der Frequenz ab; im kHz-Bereich und darüber verwendet man daher dünne Bänder aus amorphen Legierungen oder Ferrite mit hohem spezifischem Widerstand."
+ },
+ "magnetic-materials-012": {
+  "question": "Auf der Entmagnetisierungskurve eines Dauermagneten sei der Betrag des Gegenfelds, bei dem die Flussdichte B null wird, die Koerzitivfeldstärke HcB, und der Betrag des Gegenfelds, bei dem die Magnetisierung M null wird, die intrinsische Koerzitivfeldstärke HcJ. Welche Größenbeziehung zwischen beiden folgt aus B = µ₀(H + M)?",
+  "choices": [
+   "HcJ ≥ HcB",
+   "HcJ ≤ HcB",
+   "Unabhängig vom Werkstoff stets HcJ = HcB"
+  ],
+  "explanation": "Ist B bei einem Gegenfeld H = −HcB null geworden, folgt aus B = µ₀(H + M) M = HcB > 0; die Magnetisierung ist also noch positiv. Um M auf null zu bringen, ist ein noch stärkeres Gegenfeld nötig, daher gilt HcJ ≥ HcB. Die Aussagen HcJ ≤ HcB und stets gleiche Werte sind somit falsch. Außerdem wird M im Gegenfeld nicht größer als die remanente Magnetisierung, sodass HcB den Wert Br/µ₀ nicht übersteigen kann. Bei Werkstoffen mit sehr großem HcJ wie Neodym-Magneten bleibt HcB nahe dieser Obergrenze Br/µ₀ stehen. Ob ein Magnet bei hoher Temperatur oder in einem starken Gegenfeld schwer entmagnetisiert wird, beurteilt man nach HcJ, das angibt, ob sich die Magnetisierung selbst umkehrt. Bei weichmagnetischen Werkstoffen mit kleiner Koerzitivfeldstärke ist der Unterschied zwischen beiden vernachlässigbar klein."
+ },
+ "magnetic-materials-013": {
+  "question": "Bei einem idealen Dauermagneten, dessen Entmagnetisierungskurve die Gerade B = Br + µ₀H ist (mit ausreichend großem HcJ), beträgt die Remanenzflussdichte Br = 1,40 T. Welcher Wert kommt dem maximalen Energieprodukt (BH)max am nächsten? Es gilt µ₀ = 4π×10⁻⁷ H/m.",
+  "choices": [
+   "ca. 390 kJ/m³",
+   "ca. 780 kJ/m³",
+   "ca. 1560 kJ/m³"
+  ],
+  "explanation": "Auf der Geraden im zweiten Quadranten wird der Betrag des Produkts aus B und H, |BH| = (Br + µ₀H)(−H), bei H = −Br/(2µ₀), B = Br/2 maximal; es gilt (BH)max = Br²/(4µ₀). Mit Zahlen ergibt sich 1,40²/(4 × 4π×10⁻⁷) = 1,96/(5,03×10⁻⁶) ≈ 3,9×10⁵ J/m³, also ca. 390 kJ/m³ (ca. 49 MGOe). Ca. 1560 kJ/m³ ist das Produkt der beiden Endpunkte der Geraden, Br und Br/µ₀; ca. 780 kJ/m³ entsteht, wenn man nur einmal durch 2 teilt. Die mit derselben Formel aus der Sättigungsmagnetisierung von Nd₂Fe₁₄B (ca. 1,6 T) abgeschätzte theoretische Obergrenze beträgt ca. 510 kJ/m³, und handelsübliche Hochleistungs-Neodym-Magnete erreichen etwa 80 % davon (ca. 400–440 kJ/m³)."
+ },
+ "magnetic-materials-014": {
+  "question": "Was ist der wichtigste stoffliche Grund dafür, dass Neodym-Magnete mit Nd₂Fe₁₄B als Hauptphase eine große Koerzitivfeldstärke haben können?",
+  "choices": [
+   "Es ist kubisch und hat kaum magnetokristalline Anisotropie, sodass die Magnetisierung in jeder Richtung stabil ist",
+   "Seine Sättigungsmagnetisierung ist mit ca. 1,6 T groß, und eine größere Sättigungsmagnetisierung bedeutet stets eine größere Koerzitivfeldstärke",
+   "Es ist tetragonal und besitzt eine starke einachsige magnetokristalline Anisotropie in Richtung der c-Achse"
+  ],
+  "explanation": "Ein Richtwert für die Obergrenze der Koerzitivfeldstärke ist das Anisotropiefeld HA = 2K/(µ₀Ms); je größer K, desto schwerer lässt sich die Magnetisierung aus der leichten Richtung herausdrehen. Nd₂Fe₁₄B ist tetragonal und besitzt durch den Beitrag der 4f-Elektronen des Nd eine starke einachsige magnetokristalline Anisotropie in Richtung der c-Achse; µ₀HA erreicht ca. 7,5 T. Die tatsächliche Koerzitivfeldstärke ist deutlich kleiner als HA, weil an Stellen wie den Kornoberflächen umgekehrt magnetisierte Bezirke entstehen; man erhöht sie durch Einstellen des Gefüges, etwa der Korngrenzenphase. Kubisch und nahezu ohne Anisotropie zu sein, ist die Bedingung für weichmagnetische Werkstoffe wie Permalloy. Die Sättigungsmagnetisierung von Nd₂Fe₁₄B ist mit ca. 1,6 T groß und erhöht die Remanenzflussdichte, doch Ms steht in der Formel für HA im Nenner, sodass die Koerzitivfeldstärke nicht zwangsläufig größer wird."
+ },
+ "magnetic-materials-015": {
+  "question": "Was ist der Hauptzweck der Zugabe von Dy oder Tb zu Neodym-Magneten, die bei hohen Temperaturen eingesetzt werden, etwa in Motoren von Elektroautos?",
+  "choices": [
+   "Die Remanenzflussdichte und damit das maximale Energieprodukt zu erhöhen",
+   "Die Curie-Temperatur auf über 1000 °C anzuheben und so die thermische Entmagnetisierung bei hoher Temperatur zu verhindern",
+   "Die mit steigender Temperatur abnehmende Koerzitivfeldstärke durch ein höheres Anisotropiefeld auszugleichen"
+  ],
+  "explanation": "Nd₂Fe₁₄B hat mit ca. 310 °C eine eher niedrige Curie-Temperatur; mit steigender Temperatur nimmt seine magnetokristalline Anisotropie ab, und die Koerzitivfeldstärke sinkt stark. Damit die Magnete bei der Betriebstemperatur des Motors nicht entmagnetisiert werden, ersetzt man einen Teil des Nd durch Dy oder Tb, erhöht so das Anisotropiefeld und steigert die Koerzitivfeldstärke. Die magnetischen Momente von Dy und Tb koppeln jedoch antiparallel zu denen von Fe; je mehr man zusetzt, desto stärker sinkt daher die Sättigungsmagnetisierung, und Remanenzflussdichte und maximales Energieprodukt werden sogar kleiner. Auch die Curie-Temperatur bleibt bei diesem Zusatz bei einigen hundert °C und übersteigt 1000 °C nicht. Da Dy und Tb teuer sind und ihre Vorkommen ungleich verteilt sind, werden Verfahren eingesetzt, bei denen man sie nur in die Kornoberflächen eindiffundieren lässt, um die Einsatzmenge zu verringern."
+ }
+}
