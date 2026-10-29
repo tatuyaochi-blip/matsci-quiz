@@ -21,7 +21,11 @@
     "metals-004"
   ],
   "figures": [],
-  "compares": [],
+  "compares": [
+    "sus304-vs-sus316",
+    "quenching-vs-tempering",
+    "annealing-vs-normalizing"
+  ],
   "form": {
     "id": "designation-form",
     "fields": [
