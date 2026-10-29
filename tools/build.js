@@ -285,6 +285,44 @@ function drillText(code) {
     }),
   };
 }
+// 材料データ集(/materials/)。data/materials.json(既定言語の文章・値・出典。値は review の scripts/extract.mjs が計算ツールから抜き出したもの)と、
+// 訳 data/i18n/{言語}/materials.json(文章だけ)。検索・表・換算・並べ比べ・CSV は src/js/materials.js(動きのない表もそこの tableHTML で作る)。
+// その言語の src/i18n に nav_materials があり、文章の訳もある言語でだけ作る。ファイルがなければ何も作らない(materials.js も読み込まない)
+const matBase = readOpt('data/materials.json', null);
+const matJs = matBase ? await import(pathToFileURL(path.join(root, 'src/js/materials.js')).href) : null;
+const matTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/materials.json`, null));
+const matOn = code => !!matBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_materials') && (code === defLang || !!matTr(code)?.materials);
+// 訳を既定言語のデータに重ねる。足りない訳や {…} の違う訳があれば止める
+function matText(code) {
+  const d = matBase;
+  const T = matTr(code);
+  if (!T) return { ...d, materials: d.materials.map(m => ({ ...m, sub: m.en })) };
+  const where = `data/i18n/${code}/materials.json`;
+  const need = (v, k) => { if (v == null || v === '') throw new Error(`${where}: ${k} の訳がありません`); return v; };
+  const keysOf = s => [...s.matchAll(/\{(\w+)\}/g)].map(m => m[1]).sort().join(',');
+  // 既定言語の a と同じ鍵・同じ {…} の訳(値が空の文字は空のままでよい: 単位のない性質)
+  const like = (a, b, k) => {
+    if (typeof a === 'string') { if (a === '') return b ?? ''; need(b, k); if (keysOf(a) !== keysOf(b)) throw new Error(`${where}: ${k} の {…} が既定言語と違います`); return b; }
+    if (Array.isArray(a)) { if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`); return a.map((x, i) => like(x, b[i], `${k}[${i}]`)); }
+    return Object.fromEntries(Object.keys(a).map(x => [x, like(a[x], b?.[x], `${k}.${x}`)]));
+  };
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note'].map(k => [k, need(T[k], k)])),
+    classes: d.classes.map(c => ({ ...c, name: need(T.classes?.[c.id], `classes.${c.id}`) })),
+    props: d.props.map(p => ({ ...p, name: need(T.props?.[p.id]?.name, `props.${p.id}`), sym: T.props[p.id].sym ?? p.sym })),
+    kinds: like(d.kinds, T.kinds, 'kinds'), conds: like(d.conds, T.conds, 'conds'), structs: like(d.structs, T.structs, 'structs'), mpNotes: like(d.mpNotes, T.mpNotes, 'mpNotes'),
+    tr: like(d.tr, T.tr, 'tr'), units: like(d.units, T.units, 'units'),
+    sources: d.sources.map(s => ({ ...s, name: need(T.sources?.[s.id], `sources.${s.id}`) })),
+    materials: d.materials.map(m => {
+      const x = need(T.materials?.[m.id], `materials.${m.id}`);
+      return { ...m, name: need(x.name, `materials.${m.id}.name`), al: x.al ?? [], sub: null, ...(m.note ? { note: need(x.note, `materials.${m.id}.note`) } : {}), ...(m.trn ? { trn: need(x.trn, `materials.${m.id}.trn`) } : {}),
+        vars: like(m.vars, x.vars ?? {}, `materials.${m.id}.vars`) };
+    }),
+    guide: like(d.guide.map(g => ({ h: g.h, p: g.p })), T.guide?.map(g => ({ h: g.h, p: g.p })), 'guide').map((g, i) => ({ ...g, id: d.guide[i].id })),
+    faq: T.faq ?? [],
+  };
+}
 // ニュースに出た用語(/news-terms/)。用語集の語に「なぜ今話題なのか」などを足す。訳は data/i18n/{言語}/news-terms.json
 const newsTerms = readOpt('data/news-terms.json', []);
 const figs = figures();
@@ -418,6 +456,8 @@ function buildLang(L) {
   const atl = atlasOn(code) ? atlasText(code) : null;
   // 計算ドリル(この言語で作るときだけ。訳を重ねた文章)
   const drl = drillOn(code) ? drillText(code) : null;
+  // 材料データ集(この言語で作るときだけ。訳を重ねた文章)
+  const mtl = matOn(code) ? matText(code) : null;
   // ニュース用語: 日付・問題・リンク先は既定言語のファイルのものを使い、文章だけ訳で置き換える(訳がなければその言語では出さない)
   const nwT = tr('news-terms');
   const news = newsTerms.filter(e => isDef || nwT[e.term]).map(e => {
@@ -568,7 +608,7 @@ function buildLang(L) {
     ${interviewText[code] ? feature(`${home}interview-questions/`, interviewText[code].nav, interviewText[code].card, 'home_feat_interview') : ''}
     ${beyondText[code] && pageNames(code).includes('beyond-scaling') ? feature(`${home}beyond-scaling/`, beyondText[code].nav, beyondText[code].card, 'home_feat_beyond') : ''}
     ${compares.some(e => isDef || tr('compare')[e.slug]) ? feature(`${home}compare/`, S.nav_compare, t('home_feat_compare_desc'), 'home_feat_compare') : ''}
-    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}${atl ? feature(`${home}atlas/`, S.nav_atlas, t('home_feat_atlas_desc'), 'home_feat_atlas') : ''}${drl ? feature(`${home}drill/`, S.nav_drill, t('home_feat_drill_desc'), 'home_feat_drill') : ''}
+    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}${atl ? feature(`${home}atlas/`, S.nav_atlas, t('home_feat_atlas_desc'), 'home_feat_atlas') : ''}${drl ? feature(`${home}drill/`, S.nav_drill, t('home_feat_drill_desc'), 'home_feat_drill') : ''}${mtl ? feature(`${home}materials/`, S.nav_materials, t('home_feat_materials_desc'), 'home_feat_materials') : ''}
     ${Object.keys(figs).length ? feature(`${home}figures/`, S.footer_figures, t('home_feat_figures_desc'), 'home_feat_figures') : ''}
     ${toolsIn(code).length ? feature(`${home}tools/`, S.nav_tools, t('home_feat_tools_desc'), 'home_feat_tools') : ''}
     ${news.length ? feature(`${home}news-terms/`, S.news_title, t('home_feat_news_desc'), 'home_feat_news') : ''}
@@ -801,13 +841,15 @@ function buildLang(L) {
       { t: 'a', n: t('atlas_grain_h'), u: 'atlas/#grain', x: atl.grain.lead }] : []),
     ...(drl ? [{ t: 'd', n: drl.h1, u: 'drill/', x: drl.description },
       ...drl.types.map(x => ({ t: 'd', n: x.name, u: `drill/?t=${x.id}`, x: x.short }))] : []),
+    ...(mtl ? [{ t: 'm', n: mtl.h1, u: 'materials/', x: mtl.description },
+      ...mtl.materials.map(m => ({ t: 'm', n: m.name, u: `materials/?m=${m.id}#md-card`, x: [m.sub, m.sym, ...m.codes, ...m.al].filter(Boolean).join(' ') }))] : []),
     ...terms.map(g => ({ t: 't', n: g.term, u: `term/${termSlug[g.key]}/`, x: g.desc, ...(isDef ? {} : { k: g.key }) })),
     ...live.map(c => ({ t: 'k', n: c.name, u: `c/${c.id}/`, x: c.description })),
     ...figList.map(x => ({ t: 'f', n: x.title, u: figPage(x.id) ? `figures/${x.id}/` : `figures/#fig-${x.id}`, x: '' })),
     ...live.flatMap(c => qs[c.id].map(q => ({ t: 'q', n: q.question, u: `q/${c.id}/${q.id}/`, x: c.name }))),
   ];
   write(`data/${code}/search.json`, JSON.stringify({
-    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}), ...(fail ? { search_g_x: S.nav_failure } : {}), ...(atl ? { search_g_a: S.nav_atlas } : {}), ...(drl ? { search_g_d: S.nav_drill } : {}) },
+    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}), ...(fail ? { search_g_x: S.nav_failure } : {}), ...(atl ? { search_g_a: S.nav_atlas } : {}), ...(drl ? { search_g_d: S.nav_drill } : {}), ...(mtl ? { search_g_m: S.nav_materials } : {}) },
     items: searchItems,
   }));
 
@@ -854,6 +896,7 @@ function buildLang(L) {
     aboutFailure: fail ? `  <li><strong><a href="${home}failure/">${esc(S.nav_failure)}</a></strong>${itemSep}${esc(t('about_failure'))}</li>\n` : '',
     aboutAtlas: atl ? `  <li><strong><a href="${home}atlas/">${esc(S.nav_atlas)}</a></strong>${itemSep}${esc(t('about_atlas'))}</li>\n` : '',
     aboutDrill: drl ? `  <li><strong><a href="${home}drill/">${esc(S.nav_drill)}</a></strong>${itemSep}${esc(t('about_drill'))}</li>\n` : '',
+    aboutMaterials: mtl ? `  <li><strong><a href="${home}materials/">${esc(S.nav_materials)}</a></strong>${itemSep}${esc(t('about_materials'))}</li>\n` : '',
     aboutFigures: figList.length ? `  <li><strong><a href="${home}figures/">${esc(S.footer_figures)}</a></strong>${itemSep}${esc(t('about_figures'))}</li>\n` : '',
     // トップの開始ボタンの下: 学習コースへの案内(コースの一覧は分野の一覧より下にある)
     courseHint: liveCourses.length ? `<p class="hero-note"><a href="#courses">${esc(t('home_course_hint'))} → ${esc(t('course_heading'))}</a></p>` : '',
@@ -922,13 +965,14 @@ function buildLang(L) {
     // ヘッダーのナビ(いまいるページには aria-current を付ける)。
     // PC: Topics / 用語集 / 比較 / 図解 / 計算ツール / Progress。スマートフォン: ホームを加えて Menu に縦に並べる
     const navLink = ([sub, label]) => `<a href="${home}${sub}"${p === L.path + sub ? ' aria-current="page"' : ''}>${esc(label)}</a>`;
-    const resources = [...(learnArts.length ? [['learn/', LT.nav]] : []), ['glossary/', S.nav_glossary], ...(cmp.length ? [['compare/', S.nav_compare]] : []),
-      ...(fail ? [['failure/', S.nav_failure]] : []), ...(atl ? [['atlas/', S.nav_atlas]] : []), ...(drl ? [['drill/', S.nav_drill]] : []), ...(figList.length ? [['figures/', S.footer_figures]] : []),
+    // 材料データ集はスマートフォンのメニューにだけ並べる(PC のナビは項目が多く、もう1つ足すと 1040px の幅に収まらない。PC ではトップの機能カード・サイト内検索から)
+    const resources = withMat => [...(learnArts.length ? [['learn/', LT.nav]] : []), ['glossary/', S.nav_glossary], ...(cmp.length ? [['compare/', S.nav_compare]] : []),
+      ...(fail ? [['failure/', S.nav_failure]] : []), ...(atl ? [['atlas/', S.nav_atlas]] : []), ...(drl ? [['drill/', S.nav_drill]] : []), ...(withMat && mtl ? [['materials/', S.nav_materials]] : []), ...(figList.length ? [['figures/', S.footer_figures]] : []),
       ...(numbers.length && code === numbersLang ? [['numbers/', 'Key numbers']] : []),
       ...(toolsIn(code).length ? [['tools/', S.nav_tools]] : [])];
     // 用語集・比較・図解・計算ツールはそれぞれ独立した項目として並べる(PC ではホームはロゴから戻る)
-    const headerNav = [['c/', S.nav_topics], ...resources, ['stats/', S.nav_stats]].map(navLink).join('');
-    const navMenu = [['', S.nav_home], ['c/', S.nav_topics], ...resources, ['stats/', S.nav_stats]].map(navLink).join('');
+    const headerNav = [['c/', S.nav_topics], ...resources(false), ['stats/', S.nav_stats]].map(navLink).join('');
+    const navMenu = [['', S.nav_home], ['c/', S.nav_topics], ...resources(true), ['stats/', S.nav_stats]].map(navLink).join('');
     // 既定言語以外のページ: ブラウザの言語がこのページの言語でない人に、既定言語版への案内を出す(閉じたら以後出さない)
     const mainHref = langBanner && code !== mainLang ? base + (alt[mainLang] ?? fallback(mainL)) : null;
     const bannerHtml = mainHref ? `<div class="lang-banner" lang="${mainL.htmlLang}" hidden><div class="wrap"><a href="${mainHref}" hreflang="${mainL.htmlLang}">${esc(mainS.lang_banner)}</a><button type="button" aria-label="${esc(mainS.lang_banner_close)}">×</button></div></div>
@@ -3215,6 +3259,159 @@ ${relCats.length ? `<section>
     if (guideIds.some(id => ['types', 'faq', 'dr-pick', 'dr-card'].includes(id))) throw new Error(`${where}: guide の id が重なります`);
   }
 
+  // 材料データ集: /materials/(探す・一覧表・カード・並べ比べ・図・CSV。動きは materials.js。ページは1つだけ)
+  if (mtl) buildMaterials();
+  function buildMaterials() {
+    const D = mtl;
+    const where = 'data/materials.json';
+    // データの検査(どの言語でも同じ結果。訳の欠けは matText が止める)
+    const P = Object.fromEntries(D.props.map(p => [p.id, p]));
+    const clsIds = new Set(D.classes.map(c => c.id)), srcIds = new Set(D.sources.map(s => s.id));
+    const toolIds = new Set([...tools.map(y => y.id), 'added', 'drill']); // drill: 計算ドリルのデータ(導体の抵抗率・原子量)
+    for (const p of D.props) for (const u of p.us ?? []) if (!matJs.UNIT[u] || D.units[u] == null) throw new Error(`${where}: 性質 ${p.id} の単位 ${u} が materials.js の UNIT か units にありません`);
+    const ids = new Set();
+    for (const m of D.materials) {
+      const at = `${where}: ${m.id}`;
+      if (ids.has(m.id)) throw new Error(`${at} が2つあります`);
+      ids.add(m.id);
+      if (!clsIds.has(m.cls)) throw new Error(`${at} の種類 ${m.cls} がありません`);
+      for (const v of m.v) {
+        const p = P[v.p];
+        if (!p) throw new Error(`${at} の性質 ${v.p} がありません`);
+        if (p.text ? v.x == null : (v.v == null && !v.r && v.x == null)) throw new Error(`${at} ${v.p} の値がありません`);
+        if (v.u && !p.us?.includes(v.u) && matJs.UNIT[v.u]?.[0] !== matJs.UNIT[p.u]?.[0]) throw new Error(`${at} ${v.p} の単位 ${v.u} は ${p.u} と換算できません`);
+        if (!v.s?.length || v.s.some(k => !srcIds.has(k))) throw new Error(`${at} ${v.p} の出典がないか、出典の一覧にありません`);
+        if (!v.t?.length || v.t.some(x => !toolIds.has(x))) throw new Error(`${at} ${v.p} のツールがありません`);
+        for (const c of v.c ?? []) {
+          if (D.conds[c] == null) throw new Error(`${at} ${v.p} の条件 ${c} が conds にありません`);
+          for (const [, k] of D.conds[c].matchAll(/\{(\w+)\}/g)) if (v.cp?.[k] == null) throw new Error(`${at} ${v.p} の条件 ${c} の {${k}} がありません`);
+        }
+        if (v.k && !D.kinds[v.k]) throw new Error(`${at} ${v.p} の強さの種類 ${v.k} がありません`);
+        if (v.g && !m.vars?.[v.g]) throw new Error(`${at} ${v.p} の銘柄・状態 ${v.g} が vars にありません`);
+        if (v.p === 'struct' && !D.structs[v.x]) throw new Error(`${at} の構造 ${v.x} の名前がありません`);
+        if (v.p === 'tr' && v.x[1] !== 'meta' && !D.tr.st[v.x[3]]) throw new Error(`${at} の変態の構造 ${v.x[3]} の名前がありません`);
+      }
+      for (const l of m.tl) if (!tools.some(y => y.id === l.tool)) throw new Error(`${at} のツール ${l.tool} がありません`);
+      for (const k of m.terms) if (!glossary.some(g => g.term === k)) throw new Error(`${at} の用語集にない語 ${k}`);
+      if (isDef) for (const s of m.learn) if (!learnArts.some(a => a.slug === s)) throw new Error(`${at} の存在しない記事 ${s}`);
+    }
+    const mHome = `${home}materials/`;
+    const mPath = l => `${l.path}materials/`;
+    const mAlt = Object.fromEntries(langs.filter(x => matOn(x.code)).map(x => [x.code, mPath(x)]));
+    function need(k) { if (S[k] == null) throw new Error(`src/i18n/${code}.json: ${k} がありません`); return S[k]; }
+    const tKeys = Object.keys(S).filter(k => k.startsWith('md_'));
+    for (const k of ['md_csv_name', 'md_rep_short', 'md_count', 'md_chart_cap', 'md_cmp_lead2', 'md_tool_added', 'md_src_tool']) need(k);
+    // 検索の文字: どの言語の名前・別名でも引ける(訳のファイルの名前・別名も入れる)
+    const trs = langs.map(x => matTr(x.code)).filter(Boolean);
+    const keyOf = m => matJs.norm([m.id, m.name, m.en, m.sym, m.el, ...m.codes, matBase.materials.find(x => x.id === m.id).name, ...matBase.materials.find(x => x.id === m.id).al, ...trs.flatMap(x => [x.materials?.[m.id]?.name, ...(x.materials?.[m.id]?.al ?? [])]), ...m.al].filter(Boolean).join('|'));
+    const toolLink = id => { if (id === 'drill') return drl ? { n: S.nav_drill, u: `${home}drill/` } : null; const y = tools.find(x => x.id === id); return y?.text[code] ? { n: y.text[code].nav, u: `${home}tools/${y.slug}/` } : null; };
+    const usedTools = [...new Set(D.materials.flatMap(m => [...m.tl.map(l => l.tool), ...m.v.flatMap(v => v.t)]))].filter(id => id !== 'added');
+    const jsData = {
+      t: { ...Object.fromEntries(tKeys.map(k => [k, S[k]])) },
+      lang: L.htmlLang,
+      defCols: ['rho', 'E', 's', 'k', 'a', 'mp'],
+      classes: D.classes, props: D.props, units: D.units, kinds: D.kinds, conds: D.conds, structs: D.structs, mpNotes: D.mpNotes, tr: D.tr,
+      sources: D.sources.map(s => ({ id: s.id, name: s.name, url: s.url, tool: s.tool })),
+      materials: D.materials.map(m => ({ id: m.id, cls: m.cls, name: m.name, ...(m.sub ? { sub: m.sub } : {}), ...(m.sym ? { sym: m.sym } : {}), ...(m.z ? { z: m.z } : {}), codes: m.codes, al: m.al,
+        ...(m.note ? { note: m.note } : {}), ...(m.trn ? { trn: m.trn } : {}), vars: m.vars, v: m.v, tl: m.tl, terms: m.terms, learn: m.learn, k: keyOf(m) })),
+      tools: Object.fromEntries(usedTools.map(id => [id, toolLink(id)]).filter(([, x]) => x)),
+      terms: Object.fromEntries([...new Set(D.materials.flatMap(m => m.terms))].map(k => terms.find(g => g.key === k)).filter(Boolean).map(g => [g.key, { n: g.term, u: `${home}term/${termSlug[g.key]}/` }])),
+      learn: Object.fromEntries([...new Set(D.materials.flatMap(m => m.learn))].map(s => learnArts.find(a => a.slug === s)).filter(Boolean).map(a => [a.slug, { n: a.title, u: `${home}learn/${a.slug}/` }])),
+    };
+    jsData.t.md_tool_added = S.md_tool_added;
+    const st0 = { cols: jsData.defCols, units: {}, sort: null, cmp: [] };
+    const opt = (v, label) => `<option value="${esc(v)}">${esc(label)}</option>`;
+    const nCls = id => D.materials.filter(m => m.cls === id).length;
+    const toolOf = s => (s.tool === 'added' ? S.md_tool_added : s.tool === 'drill' ? S.nav_drill : tools.find(y => y.id === s.tool)?.text[code]?.nav ?? s.tool);
+    if (D.guide.some(g => ['find', 'list', 'md-card', 'md-cmp', 'md-chart', 'export', 'sources', 'faq'].includes(g.id))) throw new Error(`${where}: guide の id が重なります`);
+    page({
+      path: mPath(L),
+      alt: mAlt,
+      title: D.title,
+      fullTitle: `${D.title} | ${siteName}`,
+      description: D.description,
+      scripts: ['materials.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_materials, mHome]),
+        { '@context': 'https://schema.org', '@type': 'Dataset', name: D.h1, description: D.description, url: abs(mHome), inLanguage: L.htmlLang, isAccessibleForFree: true,
+          variableMeasured: D.props.filter(p => !p.card).map(p => p.name), citation: D.sources.map(s => s.name) },
+        ...(D.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: D.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(D.h1)}</h1>
+<p class="lead">${esc(D.lead)}</p>
+<p class="fn-caution">${esc(D.note)}</p>
+<noscript><p class="muted">${esc(need('md_noscript'))}</p></noscript>
+<nav class="at-toc" aria-label="${esc(need('md_toc'))}"><a class="chip" href="#list">${esc(need('md_table_h'))}</a> <a class="chip" href="#md-cmp">${esc(need('md_cmp_h'))}</a> <a class="chip" href="#md-chart">${esc(need('md_chart_h'))}</a>${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')}${D.faq.length ? ` <a class="chip" href="#faq">${esc(t('compare_faq'))}</a>` : ''} <a class="chip" href="#sources">${esc(need('md_sources_h'))}</a></nav>
+<div id="md-app" class="md-app" hidden>
+  <form id="md-find" class="md-find" role="search" autocomplete="off">
+    <h2 id="find">${esc(need('md_find_h'))}</h2>
+    <div class="md-find-row">
+      <label class="md-q">${esc(need('md_q'))}<input name="q" type="search" placeholder="${esc(need('md_q_ph'))}" enterkeyhint="search" spellcheck="false" autocapitalize="off"></label>
+      <label>${esc(need('md_cls'))}<select name="c">${opt('', need('md_cls_all'))}${D.classes.filter(c => nCls(c.id)).map(c => opt(c.id, `${c.name}(${nCls(c.id)})`)).join('')}</select></label>
+      <label>${esc(need('md_has'))}<select name="h">${opt('', need('md_has_any'))}${D.props.filter(p => !p.card).map(p => opt(p.id, p.name)).join('')}</select></label>
+    </div>
+    <details class="md-more-opts"><summary>${esc(need('md_cols'))}</summary><div class="md-cols"></div></details>
+    <details class="md-more-opts"><summary>${esc(need('md_units'))}</summary><div class="md-units"></div></details>
+    <div class="cmp-tools">
+      <button type="button" class="btn btn-ghost" data-share>${esc(need('md_share'))}</button>
+      <button type="button" class="btn btn-ghost" data-reset>${esc(need('md_reset'))}</button>
+    </div>
+    <p class="muted fn-note">${esc(need('md_share_note'))}</p>
+  </form>
+  <p class="md-count" aria-live="polite"></p>
+  <p class="md-empty muted" hidden>${esc(need('md_empty'))}</p>
+  <p class="visually-hidden md-live" aria-live="polite"></p>
+</div>
+<section id="list" class="md-list">
+  <h2>${esc(need('md_table_h'))}</h2>
+  <p class="muted md-lead">${esc(need('md_table_lead'))}</p>
+  <p class="muted md-static-note">${esc(need('md_static_note'))}</p>
+  <div class="table-wrap md-table-wrap"><table id="md-table" class="md-table">${matJs.tableHTML(jsData, jsData.materials, st0)}</table></div>
+</section>
+<section id="export" class="md-export" hidden>
+  <h2>${esc(need('md_export_h'))}</h2>
+  <fieldset class="md-csv-mode"><legend class="visually-hidden">${esc(need('md_export_h'))}</legend>
+    <label><input type="radio" name="csv" value="wide" checked> ${esc(need('md_csv_wide'))}</label>
+    <label><input type="radio" name="csv" value="long"> ${esc(need('md_csv_long'))}</label>
+  </fieldset>
+  <div class="cmp-tools"><button type="button" class="btn btn-ghost" data-csv-copy>${esc(need('md_csv_copy'))}</button><button type="button" class="btn btn-ghost" data-csv-save>${esc(need('md_csv_save'))}</button></div>
+  <p class="muted fn-note">${esc(need('md_csv_note'))}</p>
+</section>
+<section id="md-card" class="md-card" aria-labelledby="md-card-h" hidden></section>
+<section id="md-cmp" class="md-cmp" hidden>
+  <h2>${esc(need('md_cmp_h'))}</h2>
+  <p class="muted">${esc(need('md_cmp_lead'))}</p>
+  <div class="md-cmp-body"></div>
+  <div class="cmp-tools"><button type="button" class="btn btn-ghost" data-cmp-clear hidden>${esc(need('md_cmp_clear'))}</button></div>
+</section>
+<section id="md-chart" class="md-chart" hidden>
+  <h2>${esc(need('md_chart_h'))}</h2>
+  <p class="muted">${esc(need('md_chart_lead'))}</p>
+  <div class="md-chart-ctl"><label>${esc(need('md_chart_prop'))}<select name="ch"></select></label><label class="md-chk"><input type="checkbox" name="lg"> ${esc(need('md_chart_log'))}</label></div>
+  <div class="md-chart-box"></div>
+  <p class="muted md-chart-cap"></p>
+</section>
+<script type="application/json" id="md-data">${JSON.stringify(jsData).replace(/</g, '\\u003c')}</script>
+${D.guide.map(g => `<section id="${g.id}" class="dr-guide">
+  <h2>${esc(g.h)}</h2>${g.p.map(p => `
+  <p>${linked(p)}</p>`).join('')}
+</section>`).join('\n')}
+<div data-ad="compare"></div>
+${D.faq.length ? `<section class="faq" id="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${D.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+<section id="sources" class="fn-sources md-sources">
+  <h2>${esc(need('md_sources_h'))}</h2>
+  <p class="muted">${esc(need('md_sources_lead'))}</p>
+  <ol>${D.sources.map((s, i) => `<li id="src-${i + 1}">${s.url ? `<a href="${esc(s.url)}" rel="noopener" target="_blank">${esc(s.name)}</a>` : esc(s.name)} <span class="muted">(${esc(t('md_src_tool', { t: toolOf(s) }))})</span></li>`).join('')}</ol>
+</section>`,
+    });
+  }
+
   // 破損解析: 診断ナビ /failure/ と事故事例 /failure/{slug}/(動きは failure.js)
   if (fail) buildFailure();
   function buildFailure() {
@@ -3643,7 +3840,7 @@ fs.writeFileSync(lastmodFile, '{\n' + Object.entries(lastmod).map(([k, v]) => ` 
 // /sitemap.xml の場所は変えないので、Search Console と robots.txt はそのままでよい
 const SITEMAP_MAX = 40000;
 const langOfUrl = url => [...langs].sort((a, b) => b.path.length - a.path.length).find(x => pageKey(url).startsWith(x.path)).code; // 既定言語(path が空)は最後に当たる
-const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools', 'failure', 'atlas', 'drill']; // これ以外(トップ・分野・図解集など)は other にまとめる
+const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools', 'failure', 'atlas', 'drill', 'materials']; // これ以外(トップ・分野・図解集など)は other にまとめる
 const typeOfUrl = url => {
   const L = langs.find(x => x.code === langOfUrl(url));
   const first = pageKey(url).slice(L.path.length).split('/')[0];
