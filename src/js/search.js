@@ -6,8 +6,8 @@ const root = document.documentElement;
 const input = document.getElementById('site-q');
 const out = document.getElementById('search-results');
 const countEl = document.getElementById('search-count');
-const ORDER = ['l', 'x', 'a', 'd', 'm', 'e', 'c', 't', 'k', 'f', 'q']; // x: 破損解析(診断ナビと事故事例)、a: 組織アトラス、d: 計算ドリル(問題の型)、m: 材料データ集(材料)、e: 公式集(式)
-const LIMIT = { l: 5, x: 5, a: 6, d: 6, m: 6, e: 6, c: 8, t: 12, k: 6, f: 6, q: 20 };
+const ORDER = ['l', 'x', 'a', 'd', 'm', 'e', 'p', 'c', 't', 'k', 'f', 'q']; // x: 破損解析(診断ナビと事故事例)、a: 組織アトラス、d: 計算ドリル(問題の型)、m: 材料データ集(材料)、e: 公式集(式)、p: 材料英語の表現集(表現)
+const LIMIT = { l: 5, x: 5, a: 6, d: 6, m: 6, e: 6, p: 6, c: 8, t: 12, k: 6, f: 6, q: 20 };
 const expanded = new Set();
 
 let S, index;

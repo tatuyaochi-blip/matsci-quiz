@@ -1,0 +1,4405 @@
+{
+ "title": "材料英語の表現集(論文・発表・メールの文型と例文、英文の点検つき)",
+ "description": "材料系の論文・報告書・学会発表・メールで使う英語の表現 237 個を、序論・熱処理・組織観察・XRD・機械試験・腐食・図の説明・数と単位などの場面ごとに、例文・使い分け・よくある誤りつきでまとめました。値を入れて例文を作ってコピーでき、英文の単位や表記のよくある誤りを端末の中で点検できます。",
+ "h1": "材料英語の表現集",
+ "lead": "材料系の学生・技術者が、英語の論文・報告書・発表・メールを書くときに使う文型を、場面ごとに引ける表現集です。用語集が語の意味を引く場所なのに対して、ここでは文の型と書き方の決まりを引きます。表現ごとに、文型(差し込む所は {温度} のように示します)、完成した例文、使い分けの注意、よくある誤りを載せています。",
+ "note": "例文はこのサイトで書いたもので、既存の論文・教科書・表現集の文は写していません。数値と条件は材料科学として正しい値にしていますが、例です。単位と記号の書き方は SI 文書と NIST SP 811 を基本にし、雑誌によって違う所はそう書いています。",
+ "ui": {
+  "nav": "材料英語の表現集",
+  "card": "論文・発表・メールの英語の表現 {n} 個を場面ごとに。値を入れて例文を作り、英文の単位・表記を点検",
+  "about": "材料系の学生・技術者が英語の論文・報告書・発表・メールを書くときの文型を、場面ごとに例文・使い分け・よくある誤りつきでまとめています。文型に値を入れた文をコピーでき、英文の単位や表記のよくある誤りを規則で点検できます(貼った文は端末の外に送りません)。",
+  "noscript": "検索・絞り込み・お気に入り・差し込み・英文の点検には JavaScript が必要です。表現はすべてこのページに載っています。",
+  "toc": "このページの内容",
+  "search_label": "表現を探す",
+  "search_ph": "日本語・英語・場面(例: 焼なまし、annealed at、図、respectively)",
+  "groups_label": "場面で絞る",
+  "all": "すべて",
+  "count": "{n} / {total} 個",
+  "none": "当てはまる表現がありません。言葉を短くするか、場面を「すべて」にしてください。",
+  "fav": "お気に入り",
+  "fav_n": "お気に入り: {n}",
+  "only_fav": "お気に入りだけ表示",
+  "print_fav": "お気に入りを印刷",
+  "print_shown": "表示中の表現を印刷",
+  "clear_fav": "お気に入りを外す",
+  "fav_first": "先に、印刷する表現の「☆ お気に入り」を押してください。",
+  "fav_note": "お気に入りはこのブラウザの中にだけ残ります(サーバーには送りません)。保存できない設定のブラウザでは、ページを開いている間だけ使えます。",
+  "pattern": "文型",
+  "example": "例文",
+  "note": "使い分け・注意",
+  "mistake": "よくある誤り",
+  "wrong": "誤",
+  "right": "正",
+  "terms": "用語集",
+  "fill": "値を入れて文を作る",
+  "copy_ex": "例文をコピー",
+  "made": "できた文",
+  "copy_made": "この文をコピー",
+  "reset": "例文の値に戻す",
+  "copied": "コピーしました",
+  "copy_fail": "コピーできませんでした。文を選んでコピーしてください。",
+  "check_label": "点検する英文",
+  "check_ph": "ここに英文を貼り付けてください(この端末の中だけで調べます)",
+  "check_run": "点検する",
+  "check_sample": "例の文を入れる",
+  "check_clear": "消す",
+  "check_empty": "英文を入れると、規則に当たる所を示します。",
+  "check_none": "規則に当たる所はありませんでした(文法や意味が正しいとは限りません)。",
+  "check_n": "{n} か所(誤り {e}・書き方の決まり {s}・目安 {h})",
+  "check_how": "直し方:",
+  "check_delete": "(消す)",
+  "check_marked": "当たった所",
+  "check_list": "指摘",
+  "check_fixed": "直し方の決まっている所だけを直した文",
+  "check_copy_fixed": "直した文をコピー",
+  "check_noscript": "英文の点検には JavaScript が必要です。規則の一覧は下にあります。",
+  "level_error": "誤り",
+  "level_style": "書き方の決まり",
+  "level_hint": "目安",
+  "rules_h": "点検の規則の一覧",
+  "rule_name": "規則",
+  "rule_level": "種類",
+  "rule_ex": "例(誤 → 正)",
+  "rule_why": "理由と直し方",
+  "faq_h": "よくある質問",
+  "rel_h": "関連するページ"
+ },
+ "groups": [
+  {
+   "id": "intro",
+   "name": "序論(背景と目的)",
+   "lead": "研究の背景・これまでの研究・足りない点・この研究の目的を述べる文。一般的な事実は現在形、これまでの研究の流れは現在完了がよく使われます。"
+  },
+  {
+   "id": "method",
+   "name": "実験方法(全体の書き方)",
+   "lead": "材料・装置・条件・手順を書く文。行ったことは過去形の受動態が多く、表や図の内容は現在形です。"
+  },
+  {
+   "id": "result",
+   "name": "結果",
+   "lead": "得られた結果を述べる文。自分の結果は過去形で書き、図表がいま示している内容は現在形で書きます。"
+  },
+  {
+   "id": "discuss",
+   "name": "考察",
+   "lead": "結果の理由・解釈・先行研究との比較を述べる文。言い切れないことは may、likely、suggest などで強さを調整します。"
+  },
+  {
+   "id": "concl",
+   "name": "結論と要旨",
+   "lead": "論文の最後と要旨(Abstract)の文。分かったことの意味を、現在形で短く言い切ります。"
+  },
+  {
+   "id": "process",
+   "name": "試料作製と熱処理",
+   "lead": "溶解・鋳造・圧延・焼なまし・焼入れ・時効などの条件を書く文。温度は at、時間は for、到達する温度は to で示します。"
+  },
+  {
+   "id": "micro",
+   "name": "組織観察",
+   "lead": "光学顕微鏡・SEM・EBSD・TEM の試料作製・条件・見えたものを書く文。略語は初出で正式名を書き、冠詞は読みの音で a / an を選びます。"
+  },
+  {
+   "id": "xrd",
+   "name": "XRD と分析",
+   "lead": "X 線回折・EDS・XPS の条件と結果を書く文。ピークの角度・面の指数・相の名前の書き方をそろえます。"
+  },
+  {
+   "id": "mech",
+   "name": "機械試験",
+   "lead": "引張・硬さ・衝撃・疲労・破面の観察を書く文。規格・試験片の寸法・速さ・繰返しの条件をそろえて書くと、再現できる論文になります。"
+  },
+  {
+   "id": "corr",
+   "name": "腐食と高温",
+   "lead": "電気化学測定・孔食・応力腐食割れ・高温酸化・クリープの条件と結果を書く文。電位には必ず参照電極を書きます。"
+  },
+  {
+   "id": "fig",
+   "name": "図と表の説明",
+   "lead": "図と表の内容・傾向・ばらつき・比較を述べる文。図がいま示していることは現在形、図に表した実験の結果は過去形です。"
+  },
+  {
+   "id": "num",
+   "name": "数と単位の書き方",
+   "lead": "数と単位記号の間の空白、℃、%、範囲、×10ⁿ、組成の書き方。SI 文書・NIST SP 811 の決まりを基本に、雑誌によって違う所はそう書いています。"
+  },
+  {
+   "id": "grammar",
+   "name": "冠詞・前置詞・数の一致",
+   "lead": "日本語の話し手がつまずきやすい所。冠詞・可算と不可算・前置詞・主語と動詞の一致・分詞の主語を、材料の文で確かめます。"
+  },
+  {
+   "id": "present",
+   "name": "学会発表と質疑応答",
+   "lead": "口頭発表の始め・図の説明・まとめ、質問への答え方。話し言葉なので短い文で、主語は I / we を使います。"
+  },
+  {
+   "id": "mail",
+   "name": "共同研究・問い合わせのメール",
+   "lead": "面識のない研究者への問い合わせ、試料の依頼、共同研究の打診のメール。件名は具体的に、本文は丁寧に、用件は早めに書きます。"
+  }
+ ],
+ "phrases": [
+  {
+   "id": "intro-attention",
+   "g": "intro",
+   "ja": "〜は〜の性質から、〜として注目されている",
+   "en": "{材料} have attracted considerable attention as {用途} because of their {性質}.",
+   "v": {
+    "材料": "Titanium alloys",
+    "用途": "structural materials for aircraft",
+    "性質": "high specific strength and excellent corrosion resistance"
+   },
+   "note": "研究の流れが今も続いていることを表すので、現在完了(have attracted)がよく合います。attention は不可算なので attentions にしません。「注目されている」を直訳した受動態(are paid attention)は不自然です。",
+   "bad": "Titanium alloys are paid attention because of high specific strength.",
+   "good": "Titanium alloys have attracted attention because of their high specific strength.",
+   "terms": [
+    "チタン合金"
+   ],
+   "kw": "注目 背景 attract attention 比強度"
+  },
+  {
+   "id": "intro-widely-used",
+   "g": "intro",
+   "ja": "〜は〜のため、〜に広く使われている",
+   "en": "{材料} is widely used in {用途} owing to its {性質}.",
+   "v": {
+    "材料": "Austenitic stainless steel",
+    "用途": "chemical plants and food-processing equipment",
+    "性質": "excellent corrosion resistance and formability"
+   },
+   "note": "owing to と because of のあとは名詞(句)、because のあとは主語と動詞のある節です。物質名・材料の種類を1つの物として述べるときは無冠詞の単数(stainless steel is)で書けます。",
+   "bad": "It is widely used because of it has excellent corrosion resistance.",
+   "good": "It is widely used because it has excellent corrosion resistance.",
+   "terms": [
+    "ステンレス鋼"
+   ],
+   "kw": "広く使われる 用途 owing to because of"
+  },
+  {
+   "id": "intro-obstacle",
+   "g": "intro",
+   "ja": "しかし、〜が〜の大きな妨げになっている",
+   "en": "However, {問題} remains a major obstacle to {目標}.",
+   "v": {
+    "問題": "hydrogen embrittlement",
+    "目標": "the wider use of high-strength steels"
+   },
+   "note": "obstacle to の to は前置詞なので、あとは名詞か動名詞(-ing)です。動詞の原形は続きません。However は文頭に置いてコンマを付けるのが基本です。",
+   "bad": "Hydrogen embrittlement is an obstacle to use high-strength steels.",
+   "good": "Hydrogen embrittlement is an obstacle to using high-strength steels.",
+   "terms": [],
+   "kw": "課題 問題点 however obstacle 水素脆化"
+  },
+  {
+   "id": "intro-little-known",
+   "g": "intro",
+   "ja": "〜についてはほとんど分かっていない",
+   "en": "Little is known about {対象}.",
+   "v": {
+    "対象": "the effect of trace Sn additions on the precipitation kinetics of Al–Cu alloys"
+   },
+   "note": "little(冠詞なし)は「ほとんどない」、a little は「少しはある」で、意味が逆になります。研究の足りない点を述べる決まった言い方です。",
+   "bad": "A little is known about the effect of Sn.",
+   "good": "Little is known about the effect of Sn.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "未解明 研究の空白 little is known"
+  },
+  {
+   "id": "intro-not-yet",
+   "g": "intro",
+   "ja": "〜はまだ系統的に調べられていない",
+   "en": "{対象} has not yet been systematically investigated.",
+   "v": {
+    "対象": "The relationship between the cooling rate and the fraction of retained austenite in this steel"
+   },
+   "note": "「これまでに〜していない」は現在完了の否定で表します。until now は「今までは(今は違う)」の意味になりやすいので、to date や so far を使います。主語が長いときは、動詞(has)を主語の中心の名詞(relationship)に合わせます。",
+   "bad": "The relationship is not investigated until now.",
+   "good": "The relationship has not been investigated to date.",
+   "terms": [],
+   "kw": "未解明 これまで 現在完了 not yet to date"
+  },
+  {
+   "id": "intro-previous",
+   "g": "intro",
+   "ja": "これまでの研究で〜が示されている",
+   "en": "Previous studies {文献} have shown that {内容}.",
+   "v": {
+    "文献": "[3,4]",
+    "内容": "grain refinement improves both the strength and the toughness of the weld metal"
+   },
+   "note": "先行研究の結果のうち、今も正しいとされる内容は that 節の中を現在形にできます(improves)。番号の引用 [3,4] の書き方は雑誌の規定に従います。",
+   "bad": "Previous studies have shown that grain refinement improve the toughness.",
+   "good": "Previous studies have shown that grain refinement improves the toughness.",
+   "terms": [
+    "ホール・ペッチの関係"
+   ],
+   "kw": "先行研究 文献 previous studies have shown 引用"
+  },
+  {
+   "id": "intro-et-al",
+   "g": "intro",
+   "ja": "〜らは〜と報告した",
+   "en": "{著者} et al. {文献} reported that {内容}.",
+   "v": {
+    "著者": "Smith",
+    "文献": "[5]",
+    "内容": "the addition of Mo improved the pitting resistance of the steel"
+   },
+   "note": "et al. は「ほか」の意味のラテン語の略で、al のあとに必ずピリオドを付けます(et のあとには付けません)。名前と番号は例です。特定の論文の結果を述べるときは reported(過去形)が自然です。",
+   "bad": "Smith et.al reported that the addition of Mo improved the pitting resistance.",
+   "good": "Smith et al. reported that the addition of Mo improved the pitting resistance.",
+   "terms": [
+    "孔食"
+   ],
+   "kw": "et al. 引用 報告 reported"
+  },
+  {
+   "id": "intro-aim",
+   "g": "intro",
+   "ja": "この研究の目的は〜を明らかにすることである",
+   "en": "The aim of this study is to clarify {対象}.",
+   "v": {
+    "対象": "the effect of tempering temperature on the impact toughness of S45C steel"
+   },
+   "note": "「明らかにする」は clarify が簡潔です(make clear the … は不自然)。aim のほか purpose、objective も使えます。論文の目的は現在形、終わった研究として This study aimed to … と過去形で書くこともあります。",
+   "bad": "In this study, we make clear the effect of tempering temperature.",
+   "good": "In this study, we clarify the effect of tempering temperature.",
+   "terms": [
+    "焼戻し"
+   ],
+   "kw": "目的 aim purpose objective clarify 明らかにする"
+  },
+  {
+   "id": "intro-we-investigated",
+   "g": "intro",
+   "ja": "本研究では、〜を用いて〜を調べた",
+   "en": "In this study, we investigated {対象} using {手法}.",
+   "v": {
+    "対象": "the precipitation behavior of an Al–4 wt% Cu alloy aged at 190 °C",
+    "手法": "transmission electron microscopy and hardness measurements"
+   },
+   "note": "行った研究は過去形です。主語を we にすると、だれが何をしたかがはっきりします。受動態なら The precipitation behavior … was investigated. と書きます。「it was investigated the …」のような形は英語になりません。",
+   "bad": "In this study, it was investigated the precipitation behavior.",
+   "good": "In this study, the precipitation behavior was investigated.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "本研究 we investigated 受動態 能動態"
+  },
+  {
+   "id": "intro-attention-paid",
+   "g": "intro",
+   "ja": "特に〜に注目した",
+   "en": "Particular attention was paid to {対象}.",
+   "v": {
+    "対象": "the formation of grain boundary carbides during slow cooling"
+   },
+   "note": "pay attention to … の受動態は attention was paid to … です。日本語の「〜に注目した」をそのまま It was paid attention … とはしません。",
+   "bad": "It was paid attention to the formation of carbides.",
+   "good": "Particular attention was paid to the formation of carbides.",
+   "terms": [],
+   "kw": "注目 着目 focus pay attention"
+  },
+  {
+   "id": "intro-hypothesis",
+   "g": "intro",
+   "ja": "〜であると考え(仮説を立て)た",
+   "en": "We hypothesized that {仮説}.",
+   "v": {
+    "仮説": "the addition of Nb would suppress austenite grain growth during carburizing"
+   },
+   "note": "仮説の中身は「これから起こるはずのこと」なので、過去の文の中では would を使います。",
+   "bad": "We hypothesized that Nb will suppress grain growth.",
+   "good": "We hypothesized that Nb would suppress grain growth.",
+   "terms": [
+    "浸炭"
+   ],
+   "kw": "仮説 hypothesis would"
+  },
+  {
+   "id": "intro-organized",
+   "g": "intro",
+   "ja": "本論文の構成は次のとおりである",
+   "en": "The remainder of this paper is organized as follows.",
+   "v": {},
+   "note": "「次のとおり」は as follows で、主語が複数でも follows のままです。as following とは言いません。",
+   "bad": "This paper is organized as following.",
+   "good": "This paper is organized as follows.",
+   "terms": [],
+   "kw": "構成 as follows 以下のとおり"
+  },
+  {
+   "id": "intro-role",
+   "g": "intro",
+   "ja": "〜は〜で重要な役割を果たしている",
+   "en": "{要素} plays an important role in {現象}.",
+   "v": {
+    "要素": "Grain boundary character",
+    "現象": "the intergranular corrosion of austenitic stainless steels"
+   },
+   "note": "role in のあとは名詞か動名詞です。role for … とはしません。「重要な役割」に冠詞 an を忘れないようにします。",
+   "bad": "Grain boundary character plays important role for determining the corrosion rate.",
+   "good": "Grain boundary character plays an important role in determining the corrosion rate.",
+   "terms": [
+    "鋭敏化"
+   ],
+   "kw": "役割 重要 play a role"
+  },
+  {
+   "id": "intro-despite",
+   "g": "intro",
+   "ja": "〜にもかかわらず、〜",
+   "en": "Despite {事柄}, {主節}.",
+   "v": {
+    "事柄": "their high strength",
+    "主節": "martensitic steels often show poor ductility"
+   },
+   "note": "despite は前置詞なので、あとは名詞です(despite of とはしません)。節を続けるなら although を使います。",
+   "bad": "Despite of their high strength, martensitic steels show poor ductility.",
+   "good": "Despite their high strength, martensitic steels show poor ductility.",
+   "terms": [
+    "マルテンサイト"
+   ],
+   "kw": "にもかかわらず despite although"
+  },
+  {
+   "id": "intro-attributed",
+   "g": "intro",
+   "ja": "〜は〜によるとされている",
+   "en": "{現象} has been attributed to {原因}.",
+   "v": {
+    "現象": "The high creep strength of Ni-based superalloys",
+    "原因": "the coherent γ′ precipitates"
+   },
+   "note": "attribute A to B(A を B のせいにする)の受動態で、前置詞は to です。by にしません。",
+   "bad": "The high creep strength is attributed by the γ′ precipitates.",
+   "good": "The high creep strength is attributed to the γ′ precipitates.",
+   "terms": [
+    "Ni基超合金",
+    "クリープ"
+   ],
+   "kw": "原因 attributed to γ′"
+  },
+  {
+   "id": "m-material",
+   "g": "method",
+   "ja": "用いた材料は、化学組成が〜の〜である",
+   "en": "The material used in this study was {材料} with a chemical composition of {組成}.",
+   "v": {
+    "材料": "a commercial S45C steel",
+    "組成": "Fe–0.45C–0.25Si–0.75Mn (wt%)"
+   },
+   "note": "「用いた材料」は the material used(過去分詞を後ろに置く)で、the used material は不自然です。組成は元素の記号を en dash(–)でつなぎ、質量%か原子%かをかっこで示します。",
+   "bad": "The used material was S45C steel.",
+   "good": "The material used was S45C steel.",
+   "terms": [],
+   "kw": "供試材 材料 化学組成 composition"
+  },
+  {
+   "id": "m-supplied",
+   "g": "method",
+   "ja": "〜は〜の形で供給された",
+   "en": "The alloy was supplied by {供給元} in the form of {形}.",
+   "v": {
+    "供給元": "the manufacturer",
+    "形": "a 20 mm thick hot-rolled plate"
+   },
+   "note": "数と単位を形容詞として使うときも、数と単位の間は空白にします(NIST SP 811 の例: a 25 kg sphere)。20-mm-thick とハイフンでつなぐ雑誌もあります。",
+   "bad": "The alloy was supplied as a 20mm-thick plate.",
+   "good": "The alloy was supplied as a 20 mm thick plate.",
+   "terms": [],
+   "kw": "入手 供給 supplied as-received"
+  },
+  {
+   "id": "m-table",
+   "g": "method",
+   "ja": "〜の化学組成を表〜に示す",
+   "en": "The chemical composition of {材料} is listed in Table {番号}.",
+   "v": {
+    "材料": "the investigated alloys",
+    "番号": "1"
+   },
+   "note": "表の内容は今も表にあるので現在形(is listed / is given)です。Table 1 のように番号の付いた表には the を付けません。",
+   "bad": "The chemical composition was listed in the Table 1.",
+   "good": "The chemical composition is listed in Table 1.",
+   "terms": [],
+   "kw": "表 化学組成 Table is listed"
+  },
+  {
+   "id": "m-prepared",
+   "g": "method",
+   "ja": "〜は〜によって作製した",
+   "en": "{試料} were prepared by {方法}.",
+   "v": {
+    "試料": "Specimens for microstructural observation",
+    "方法": "mechanical grinding and polishing followed by etching"
+   },
+   "note": "by のあとは動名詞や名詞です。順に行った処理は A followed by B(A のあとに B)で1つの文にまとめられます。",
+   "bad": "Specimens were prepared by grind and polish.",
+   "good": "Specimens were prepared by grinding and polishing.",
+   "terms": [],
+   "kw": "作製 調製 prepared followed by"
+  },
+  {
+   "id": "m-measured-using",
+   "g": "method",
+   "ja": "〜は〜を用いて測定した",
+   "en": "{量} was measured using {装置}.",
+   "v": {
+    "量": "The Vickers hardness",
+    "装置": "a microhardness tester with a load of 4.9 N"
+   },
+   "note": "using だけで「〜を用いて」の意味になり、by using は冗長です。装置は a … tester のように一般名で書き、型番やメーカーはかっこで添えます。",
+   "bad": "The hardness was measured by using a hardness tester.",
+   "good": "The hardness was measured using a hardness tester.",
+   "terms": [],
+   "kw": "測定 using 装置"
+  },
+  {
+   "id": "m-room-temp",
+   "g": "method",
+   "ja": "試験は室温・大気中で行った",
+   "en": "{試験} were performed at {温度} in {雰囲気}.",
+   "v": {
+    "試験": "All tests",
+    "温度": "room temperature",
+    "雰囲気": "laboratory air"
+   },
+   "note": "at room temperature には冠詞を付けません。温度は at、雰囲気や溶液は in です。",
+   "bad": "All tests were performed at the room temperature in the air.",
+   "good": "All tests were performed at room temperature in air.",
+   "terms": [],
+   "kw": "室温 大気中 at room temperature in air"
+  },
+  {
+   "id": "m-repeated",
+   "g": "method",
+   "ja": "各測定は〜回くり返し、平均値を示す",
+   "en": "Each measurement was repeated {回数} times, and the average value is reported.",
+   "v": {
+    "回数": "five"
+   },
+   "note": "each のあとの名詞と動詞は単数です。10 未満の数は語で書くスタイルが多いですが、雑誌によっては数字です。平均値を「この論文で示している」ので is reported は現在形です。",
+   "bad": "Each measurements were repeated 5 times.",
+   "good": "Each measurement was repeated five times.",
+   "terms": [],
+   "kw": "くり返し 平均 each 単数"
+  },
+  {
+   "id": "m-standard",
+   "g": "method",
+   "ja": "〜は規格〜に従って作製・実施した",
+   "en": "{試料} were machined in accordance with {規格}.",
+   "v": {
+    "試料": "Tensile specimens",
+    "規格": "ASTM E8/E8M"
+   },
+   "note": "規格には in accordance with や according to を使います(規格には the を付けません)。「結果によると」の according to the results とは別の使い方です。",
+   "bad": "Tensile specimens were machined based on the ASTM E8.",
+   "good": "Tensile specimens were machined in accordance with ASTM E8/E8M.",
+   "terms": [],
+   "kw": "規格 JIS ASTM ISO in accordance with"
+  },
+  {
+   "id": "m-calculated",
+   "g": "method",
+   "ja": "〜は〜から計算した",
+   "en": "{量} was calculated from {データ} using {方法}.",
+   "v": {
+    "量": "The dislocation density",
+    "データ": "the XRD peak broadening",
+    "方法": "the modified Williamson–Hall method"
+   },
+   "note": "calculated from(元のデータ)と using(方法・式)を分けると読みやすくなります。式は Eq. (2) のように番号で示せます。",
+   "bad": "The dislocation density was calculated by the XRD peak broadening.",
+   "good": "The dislocation density was calculated from the XRD peak broadening.",
+   "terms": [
+    "転位"
+   ],
+   "kw": "計算 算出 calculated from Williamson–Hall"
+  },
+  {
+   "id": "m-software",
+   "g": "method",
+   "ja": "解析には〜を用いた",
+   "en": "{解析} was performed using {ソフトウェア}.",
+   "v": {
+    "解析": "Image analysis",
+    "ソフトウェア": "the open-source software ImageJ"
+   },
+   "note": "software は不可算名詞で softwares とはしません。数えるときは software packages や programs と言います。",
+   "bad": "Several softwares were used for image analysis.",
+   "good": "Several software packages were used for image analysis.",
+   "terms": [],
+   "kw": "ソフトウェア 画像解析 software 不可算"
+  },
+  {
+   "id": "m-respectively",
+   "g": "method",
+   "ja": "原料は〜と〜(純度はそれぞれ〜)を用いた",
+   "en": "{原料} ({純度}) were used as starting materials.",
+   "v": {
+    "原料": "Pure aluminum and copper",
+    "純度": "99.99% and 99.9%, respectively"
+   },
+   "note": "respectively は、前に並べた A and B と後ろの値を順に対応させる語で、並びの最後にコンマを付けて置きます。対応させるものが1組しかないときは使いません。文頭に置くのも誤りです。",
+   "bad": "Respectively, the purities of Al and Cu were 99.99% and 99.9%.",
+   "good": "The purities of Al and Cu were 99.99% and 99.9%, respectively.",
+   "terms": [],
+   "kw": "それぞれ respectively 純度 原料"
+  },
+  {
+   "id": "m-unless",
+   "g": "method",
+   "ja": "特に断らない限り、〜",
+   "en": "Unless otherwise stated, {内容}.",
+   "v": {
+    "内容": "all tests were conducted at room temperature"
+   },
+   "note": "「特に断りのない限り」の決まった言い方です。Unless otherwise noted / specified も使えます。",
+   "bad": "If not specially mentioned, all tests were conducted at room temperature.",
+   "good": "Unless otherwise stated, all tests were conducted at room temperature.",
+   "terms": [],
+   "kw": "特に断らない限り unless otherwise stated"
+  },
+  {
+   "id": "r-increase-with",
+   "g": "result",
+   "ja": "〜は〜とともに増加した",
+   "en": "{量} increased with increasing {条件}.",
+   "v": {
+    "量": "The hardness",
+    "条件": "aging time"
+   },
+   "note": "increase は「増える」の自動詞なので、受動態(was increased)にしません。「〜が増えるにつれて」は with increasing X または with an increase in X です。",
+   "bad": "The hardness was increased with the aging time increased.",
+   "good": "The hardness increased with increasing aging time.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "増加 増える increase with increasing 傾向"
+  },
+  {
+   "id": "r-decrease-from-to",
+   "g": "result",
+   "ja": "〜は〜から〜へ大きく下がった",
+   "en": "{量} decreased markedly from {値1} to {値2} {条件}.",
+   "v": {
+    "量": "The elongation",
+    "値1": "32%",
+    "値2": "12%",
+    "条件": "after cold rolling"
+   },
+   "note": "significantly は統計的に有意という意味に読まれることがあるので、検定をしていないときは markedly や substantially を使います。% の値どうしの差は「20 percentage points」と書き、20% と書くと比の変化と紛れます。",
+   "bad": "The elongation decreased significantly from 32% to 12%, that is, by 20%.",
+   "good": "The elongation decreased markedly from 32% to 12%, that is, by 20 percentage points.",
+   "terms": [
+    "加工硬化"
+   ],
+   "kw": "減少 低下 decrease from to percentage points 有意"
+  },
+  {
+   "id": "r-no-change",
+   "g": "result",
+   "ja": "〜には目立った変化は見られなかった",
+   "en": "No appreciable change in {量} was observed {条件}.",
+   "v": {
+    "量": "grain size",
+    "条件": "after annealing at 400 °C"
+   },
+   "note": "no + 名詞 で「〜はなかった」を表すと簡潔です。change in(〜の変化)の前置詞は in です。",
+   "bad": "The change of grain size was not almost observed.",
+   "good": "Almost no change in grain size was observed.",
+   "terms": [
+    "回復"
+   ],
+   "kw": "変化なし no change observed"
+  },
+  {
+   "id": "r-times-higher",
+   "g": "result",
+   "ja": "AはBの約〜倍であった",
+   "en": "{A} was about {倍数} times higher than that of {B}.",
+   "v": {
+    "A": "The corrosion rate of the as-welded specimen",
+    "倍数": "three",
+    "B": "the base metal"
+   },
+   "note": "比べるものをそろえるため、than のあとに that of(=the corrosion rate of)を入れます。than the base metal だと「腐食速度」と「母材」を比べたことになります。「3倍」は three times as high as と書くとあいまいさがありません。",
+   "bad": "The corrosion rate of the weld was three times higher than the base metal.",
+   "good": "The corrosion rate of the weld was three times higher than that of the base metal.",
+   "terms": [
+    "局部電池"
+   ],
+   "kw": "倍 比較 that of times higher"
+  },
+  {
+   "id": "r-as-expected",
+   "g": "result",
+   "ja": "予想どおり、〜",
+   "en": "As expected, {結果}.",
+   "v": {
+    "結果": "the water-quenched specimen exhibited the highest hardness"
+   },
+   "note": "最上級(highest)が名詞の前に来るときは the を付けます。",
+   "bad": "As expected, water-quenched specimen exhibited highest hardness.",
+   "good": "As expected, the water-quenched specimen exhibited the highest hardness.",
+   "terms": [
+    "マルテンサイト"
+   ],
+   "kw": "予想どおり as expected 最上級"
+  },
+  {
+   "id": "r-in-contrast",
+   "g": "result",
+   "ja": "これに対して、〜は〜からなっていた",
+   "en": "In contrast, {試料} consisted of {組織}.",
+   "v": {
+    "試料": "the furnace-cooled specimen",
+    "組織": "ferrite and coarse pearlite"
+   },
+   "note": "consist of(〜からなる)は能動態で使い、is consisted of とはしません。受動態にしたいときは is composed of です。",
+   "bad": "The furnace-cooled specimen was consisted of ferrite and pearlite.",
+   "good": "The furnace-cooled specimen consisted of ferrite and pearlite.",
+   "terms": [
+    "パーライト"
+   ],
+   "kw": "からなる consist of composed of 対照 in contrast"
+  },
+  {
+   "id": "r-respectively",
+   "g": "result",
+   "ja": "AとBはそれぞれ〜と〜であった",
+   "en": "{A} and {B} were {値1} and {値2}, respectively.",
+   "v": {
+    "A": "The yield strength",
+    "B": "the tensile strength",
+    "値1": "345 MPa",
+    "値2": "610 MPa"
+   },
+   "note": "respectively は並べた順に値を対応させます。値の数と並べたものの数がそろっていることを確かめます。",
+   "bad": "The yield and tensile strengths were respectively 345 and 610MPa.",
+   "good": "The yield and tensile strengths were 345 MPa and 610 MPa, respectively.",
+   "terms": [
+    "0.2%耐力"
+   ],
+   "kw": "それぞれ respectively 値 降伏強さ 引張強さ"
+  },
+  {
+   "id": "r-ranged",
+   "g": "result",
+   "ja": "〜は〜から〜の範囲であった",
+   "en": "{量} ranged from {下限} to {上限}.",
+   "v": {
+    "量": "The grain size",
+    "下限": "15 µm",
+    "上限": "40 µm"
+   },
+   "note": "range from A to B の形にします。ranged between 15–40 µm のように between や from と – を一緒に使いません(between A and B、from A to B)。",
+   "bad": "The grain size ranged between 15–40 µm.",
+   "good": "The grain size ranged from 15 µm to 40 µm.",
+   "terms": [],
+   "kw": "範囲 range from to between and"
+  },
+  {
+   "id": "r-reached-max",
+   "g": "result",
+   "ja": "〜は〜で最大値〜に達した",
+   "en": "{量} reached a maximum of {値} after {条件}.",
+   "v": {
+    "量": "The hardness",
+    "値": "135 HV",
+    "条件": "aging at 190 °C for 10 h"
+   },
+   "note": "reach は他動詞なので reach to としません。「最大値に達する」は reach a maximum (of …) です。",
+   "bad": "The hardness reached to the maximum value after 10 h.",
+   "good": "The hardness reached a maximum after 10 h.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "最大 ピーク reach a maximum 時効"
+  },
+  {
+   "id": "r-similar",
+   "g": "result",
+   "ja": "〜でも同じような傾向が見られた",
+   "en": "A similar tendency was observed for {対象}.",
+   "v": {
+    "対象": "the specimens tempered at 600 °C"
+   },
+   "note": "tendency や trend は可算名詞で、a similar tendency のように冠詞を付けます。similar to(〜と似た)の前置詞は to です。",
+   "bad": "Similar tendency was observed for the tempered specimens.",
+   "good": "A similar tendency was observed for the tempered specimens.",
+   "terms": [
+    "焼戻し"
+   ],
+   "kw": "同様 傾向 similar tendency trend"
+  },
+  {
+   "id": "r-not-detected",
+   "g": "result",
+   "ja": "〜には〜は検出されなかった",
+   "en": "No {相} was detected in {データ}.",
+   "v": {
+    "相": "secondary phase",
+    "データ": "the XRD pattern of the as-sintered specimen"
+   },
+   "note": "「検出されなかった」は No … was detected で簡潔に書けます。検出されないことは「無い」ことと同じではないので、必要なら within the detection limit を添えます。",
+   "bad": "Any secondary phase was not detected.",
+   "good": "No secondary phase was detected.",
+   "terms": [
+    "XRD(X線回折)"
+   ],
+   "kw": "検出されない not detected no"
+  },
+  {
+   "id": "r-approximately",
+   "g": "result",
+   "ja": "〜は約〜であった",
+   "en": "{量} was approximately {値}.",
+   "v": {
+    "量": "The average grain size of the recrystallized specimen",
+    "値": "25 µm"
+   },
+   "note": "「約」は副詞の approximately、about です。形容詞の approximate を数の前に置きません。~25 µm の「~」は雑誌によっては使えないので、本文では語で書くのが無難です。",
+   "bad": "The average grain size was approximate 25 µm.",
+   "good": "The average grain size was approximately 25 µm.",
+   "terms": [
+    "再結晶"
+   ],
+   "kw": "約 およそ approximately about"
+  },
+  {
+   "id": "r-summarized",
+   "g": "result",
+   "ja": "結果を表〜にまとめる",
+   "en": "The {結果} are summarized in Table {番号}.",
+   "v": {
+    "結果": "tensile properties",
+    "番号": "2"
+   },
+   "note": "表にまとめた内容は現在形(are summarized)です。properties(複数)に合わせて動詞も are にします。",
+   "bad": "The tensile properties is summarized in Table 2.",
+   "good": "The tensile properties are summarized in Table 2.",
+   "terms": [],
+   "kw": "まとめ 表 summarized"
+  },
+  {
+   "id": "r-proportional",
+   "g": "result",
+   "ja": "〜は〜に比例した",
+   "en": "{A} was proportional to {B}, indicating {解釈}.",
+   "v": {
+    "A": "The oxide thickness",
+    "B": "the square root of the exposure time",
+    "解釈": "parabolic growth kinetics"
+   },
+   "note": "proportional to の前置詞は to です。酸化膜の厚さが時間の平方根に比例すれば放物線則で、膜の中の拡散が速さを決めていると考えられます。",
+   "bad": "The oxide thickness was proportional with the square root of time.",
+   "good": "The oxide thickness was proportional to the square root of time.",
+   "terms": [
+    "酸化の放物線則"
+   ],
+   "kw": "比例 proportional to 放物線則"
+  },
+  {
+   "id": "d-attributed",
+   "g": "discuss",
+   "ja": "この〜は〜によると考えられる",
+   "en": "This {変化} can be attributed to {原因}.",
+   "v": {
+    "変化": "increase in hardness",
+    "原因": "the precipitation of fine θ″ particles"
+   },
+   "note": "attributed to の to は前置詞です。理由の確かさに応じて can be / may be / is mainly を使い分けます。",
+   "bad": "This increase is attributed for the precipitation of θ″.",
+   "good": "This increase is attributed to the precipitation of θ″.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "原因 理由 attributed to 考察"
+  },
+  {
+   "id": "d-suggest",
+   "g": "discuss",
+   "ja": "これらの結果から〜と考えられる",
+   "en": "These results suggest that {解釈}.",
+   "v": {
+    "解釈": "the softening during tempering is mainly caused by the recovery of the martensite substructure and the coarsening of cementite"
+   },
+   "note": "確かさの強い順に show / demonstrate > indicate > suggest > imply です。結論が一般的な性質なら that 節は現在形にします。「結果によると」を according to the results と書くのは不自然です。",
+   "bad": "According to the results, the softening is caused by recovery.",
+   "good": "These results suggest that the softening is caused by recovery.",
+   "terms": [
+    "焼戻し",
+    "回復"
+   ],
+   "kw": "示唆 考えられる suggest indicate 結果から"
+  },
+  {
+   "id": "d-likely",
+   "g": "discuss",
+   "ja": "〜である可能性が高い",
+   "en": "It is likely that {推測}.",
+   "v": {
+    "推測": "the residual stress introduced by machining accelerated crack initiation"
+   },
+   "note": "likely(〜らしい)は形容詞で、It is likely that … か、主語を立てて … is likely to … とします。It is likely to that … とはしません。",
+   "bad": "It is likely to the residual stress accelerated crack initiation.",
+   "good": "It is likely that the residual stress accelerated crack initiation.",
+   "terms": [],
+   "kw": "可能性 likely probably 推測"
+  },
+  {
+   "id": "d-consistent",
+   "g": "discuss",
+   "ja": "この結果は〜と一致する",
+   "en": "This result is consistent with {先行研究}.",
+   "v": {
+    "先行研究": "previous reports on Al–Cu alloys [8,9]"
+   },
+   "note": "consistent with、in agreement with の前置詞は with です。consistent to とはしません。",
+   "bad": "This result is consistent to previous reports.",
+   "good": "This result is consistent with previous reports.",
+   "terms": [],
+   "kw": "一致 consistent with agreement 先行研究"
+  },
+  {
+   "id": "d-differ",
+   "g": "discuss",
+   "ja": "これは〜とは異なる",
+   "en": "This behavior differs from that reported for {比較}.",
+   "v": {
+    "比較": "conventional cast alloys [10]"
+   },
+   "note": "differ from、different from の前置詞は from です(アメリカ英語の話し言葉の different than は論文では避けます)。比べるものをそろえるため that reported(=the behavior reported)とします。",
+   "bad": "This behavior is different with conventional alloys.",
+   "good": "This behavior is different from that of conventional alloys.",
+   "terms": [],
+   "kw": "異なる differ from 比較"
+  },
+  {
+   "id": "d-reason-that",
+   "g": "discuss",
+   "ja": "その理由は〜だからである",
+   "en": "The reason is that {理由}.",
+   "v": {
+    "理由": "the Cr-depleted zones along the grain boundaries are preferentially attacked"
+   },
+   "note": "The reason is that … とします。The reason is because … は reason と because が重なるので論文では避けます。",
+   "bad": "The reason is because the Cr-depleted zones are attacked.",
+   "good": "The reason is that the Cr-depleted zones are attacked.",
+   "terms": [
+    "鋭敏化"
+   ],
+   "kw": "理由 the reason is that because"
+  },
+  {
+   "id": "d-explained-by",
+   "g": "discuss",
+   "ja": "〜は〜で説明できる",
+   "en": "{現象} can be explained by {考え方}.",
+   "v": {
+    "現象": "The increase in yield strength",
+    "考え方": "the Hall–Petch relationship"
+   },
+   "note": "説明に使う式・考え方は by です。人名の付いた関係は the Hall–Petch relationship のように the を付け、2人の名前は en dash でつなぎます。",
+   "bad": "The increase can be explained with Hall-Petch relationship.",
+   "good": "The increase can be explained by the Hall–Petch relationship.",
+   "terms": [
+    "ホール・ペッチの関係"
+   ],
+   "kw": "説明 explained by 結晶粒微細化"
+  },
+  {
+   "id": "d-in-other-words",
+   "g": "discuss",
+   "ja": "言いかえると、〜",
+   "en": "In other words, {言いかえ}.",
+   "v": {
+    "言いかえ": "the ductile-to-brittle transition temperature shifted to a higher temperature"
+   },
+   "note": "前の文を別の言い方で言い直すときに使います。新しい結果を足すときは In addition、反対のことを述べるときは However を使い、つなぎの語の意味をそろえます。",
+   "bad": "In other word, the transition temperature increased.",
+   "good": "In other words, the transition temperature increased.",
+   "terms": [],
+   "kw": "言いかえ in other words つなぎ"
+  },
+  {
+   "id": "d-on-the-other-hand",
+   "g": "discuss",
+   "ja": "一方、〜",
+   "en": "On the other hand, {対比}.",
+   "v": {
+    "対比": "the specimen tempered at 200 °C retained a high hardness but showed a low impact energy"
+   },
+   "note": "On the other hand は2つのものを対比するときの言い方で、the を落としません。単に話を足すだけ(日本語の「また」)なら In addition、時間的に同時なら Meanwhile です。",
+   "bad": "On other hand, the specimen tempered at 200 °C retained a high hardness.",
+   "good": "On the other hand, the specimen tempered at 200 °C retained a high hardness.",
+   "terms": [
+    "焼戻し"
+   ],
+   "kw": "一方 対比 on the other hand"
+  },
+  {
+   "id": "d-may-be-due",
+   "g": "discuss",
+   "ja": "その差は〜によるのかもしれない",
+   "en": "The discrepancy between {A} and {B} may be due to {原因}.",
+   "v": {
+    "A": "the measured",
+    "B": "calculated values",
+    "原因": "the texture of the rolled sheet"
+   },
+   "note": "be due to は「〜による(原因である)」です。言い切れないので may be を付けています。文頭で Due to … と使うのを避ける書き方の指針もあり、そのときは Because of … にします。",
+   "bad": "The discrepancy may be owing to that the sheet has texture.",
+   "good": "The discrepancy may be due to the texture of the sheet.",
+   "terms": [],
+   "kw": "原因 due to 差 不一致 discrepancy"
+  },
+  {
+   "id": "d-whereas",
+   "g": "discuss",
+   "ja": "Aは〜であるのに対して、Bは〜である",
+   "en": "{A}, whereas {B}.",
+   "v": {
+    "A": "Ferrite deforms easily at room temperature",
+    "B": "cementite is hard and brittle"
+   },
+   "note": "whereas は2つの節を対比してつなぐ語で、前にコンマを置きます。一般的な性質の対比なので現在形です。",
+   "bad": "Ferrite deforms easily. Whereas cementite is hard.",
+   "good": "Ferrite deforms easily, whereas cementite is hard.",
+   "terms": [
+    "パーライト"
+   ],
+   "kw": "対比 whereas while それに対して"
+  },
+  {
+   "id": "d-noted",
+   "g": "discuss",
+   "ja": "〜に注意する必要がある",
+   "en": "It should be noted that {注意}.",
+   "v": {
+    "注意": "the EDS results for carbon are only semi-quantitative"
+   },
+   "note": "読み手に注意を促す決まった言い方です。多用すると何が大事か分からなくなるので、本当に大事な所に限ります。",
+   "bad": "It should be noticed that the EDS results are semi-quantitative.",
+   "good": "It should be noted that the EDS results are semi-quantitative.",
+   "terms": [
+    "EDS(エネルギー分散型X線分光法)"
+   ],
+   "kw": "注意 note EDS 半定量"
+  },
+  {
+   "id": "d-further",
+   "g": "discuss",
+   "ja": "〜を明らかにするには、さらに研究が必要である",
+   "en": "Further study is needed to {目的}.",
+   "v": {
+    "目的": "clarify the role of hydrogen trapping at the precipitate interfaces"
+   },
+   "note": "research は不可算で researches とはしません(動詞の he researches は別)。study は Further studies are needed のように複数にもできます。",
+   "bad": "Further researches are needed to clarify the role of hydrogen.",
+   "good": "Further research is needed to clarify the role of hydrogen.",
+   "terms": [],
+   "kw": "今後 課題 further research needed"
+  },
+  {
+   "id": "d-contribute",
+   "g": "discuss",
+   "ja": "〜も〜に寄与している",
+   "en": "{要素} also contributes to {効果}.",
+   "v": {
+    "要素": "Solid solution strengthening by Mn and Si",
+    "効果": "the yield strength of the ferrite"
+   },
+   "note": "contribute to の前置詞は to です。主語(strengthening)が単数なので contributes になります。",
+   "bad": "Solid solution strengthening also contribute for the strength.",
+   "good": "Solid solution strengthening also contributes to the strength.",
+   "terms": [
+    "固溶強化"
+   ],
+   "kw": "寄与 contribute to"
+  },
+  {
+   "id": "d-we-found",
+   "g": "discuss",
+   "ja": "〜であることが分かった",
+   "en": "We found that {内容}.",
+   "v": {
+    "内容": "the pitting potential increased with increasing Mo content"
+   },
+   "note": "It is found that … より、We found that … か The pitting potential was found to increase … が簡潔です。受動態は「だれがしたか」より「何が起きたか」を前に出したいときに使い分けます。",
+   "bad": "It was found that the pitting potential is increased with Mo content increase.",
+   "good": "We found that the pitting potential increased with increasing Mo content.",
+   "terms": [
+    "孔食",
+    "不動態"
+   ],
+   "kw": "分かった we found 受動態 能動態 it is found that"
+  },
+  {
+   "id": "c-following",
+   "g": "concl",
+   "ja": "本研究から次の結論が得られた",
+   "en": "The following conclusions can be drawn from {研究}:",
+   "v": {
+    "研究": "this study"
+   },
+   "note": "「結論を得る」は draw conclusions です。箇条書きの前はコロン(:)にします。following は the following と the を付けます。",
+   "bad": "Following conclusions were obtained from this study.",
+   "good": "The following conclusions were drawn from this study.",
+   "terms": [],
+   "kw": "結論 following conclusions draw"
+  },
+  {
+   "id": "c-summary",
+   "g": "concl",
+   "ja": "まとめると、〜",
+   "en": "In summary, {まとめ}.",
+   "v": {
+    "まとめ": "a two-step aging treatment improved the strength of the alloy without reducing its elongation"
+   },
+   "note": "In summary、In conclusion は段落の頭で使います。without + 動名詞(〜せずに)の形は、改善と引き換えの有無を言うのに便利です。",
+   "bad": "In summary, a two-step aging treatment improved the strength without reduce the elongation.",
+   "good": "In summary, a two-step aging treatment improved the strength without reducing the elongation.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "まとめ in summary in conclusion"
+  },
+  {
+   "id": "c-here-we-report",
+   "g": "concl",
+   "ja": "ここでは〜について報告する",
+   "en": "Here, we report {内容}.",
+   "v": {
+    "内容": "the effect of induction hardening on the rotating bending fatigue strength of S45C steel"
+   },
+   "note": "要旨の書き出しによく使う言い方です。要旨は何をしたか(過去形)と分かったことの意味(現在形)を短くまとめます。",
+   "bad": "In this paper, we report about the effect of induction hardening.",
+   "good": "In this paper, we report the effect of induction hardening.",
+   "terms": [
+    "疲労限度"
+   ],
+   "kw": "要旨 abstract here we report"
+  },
+  {
+   "id": "c-results-show",
+   "g": "concl",
+   "ja": "結果は〜であることを示している",
+   "en": "The results show that {結果}.",
+   "v": {
+    "結果": "a fine-grained structure improves both strength and toughness"
+   },
+   "note": "結論として一般化した内容は that 節を現在形にします。「結果によると」は The results show that … で書きます。",
+   "bad": "According to the results, a fine-grained structure improves strength.",
+   "good": "The results show that a fine-grained structure improves strength.",
+   "terms": [
+    "ホール・ペッチの関係"
+   ],
+   "kw": "結果 show 示す 結論"
+  },
+  {
+   "id": "c-basis",
+   "g": "concl",
+   "ja": "この知見は〜の基礎となる",
+   "en": "These findings provide a basis for {用途}.",
+   "v": {
+    "用途": "designing heat treatments of high-strength aluminum alloys"
+   },
+   "note": "basis for のあとは名詞か動名詞です。研究の意味を述べる文は大げさにならないように書きます。",
+   "bad": "These findings provide a basis to design heat treatments.",
+   "good": "These findings provide a basis for designing heat treatments.",
+   "terms": [],
+   "kw": "意義 基礎 finding basis for"
+  },
+  {
+   "id": "c-future",
+   "g": "concl",
+   "ja": "今後は〜に取り組む",
+   "en": "Future work will focus on {課題}.",
+   "v": {
+    "課題": "the long-term thermal stability of the precipitates"
+   },
+   "note": "focus on の前置詞は on です。これからのことなので will を使います。",
+   "bad": "Future work will be focused to the thermal stability.",
+   "good": "Future work will focus on the thermal stability.",
+   "terms": [],
+   "kw": "今後 future work focus on"
+  },
+  {
+   "id": "c-limitation",
+   "g": "concl",
+   "ja": "この研究の限界は〜である",
+   "en": "A limitation of this study is that {限界}.",
+   "v": {
+    "限界": "all tests were performed in laboratory air"
+   },
+   "note": "研究の限界をはっきり書くと、結論の範囲が読み手に伝わります。",
+   "bad": "The limit of this study is all tests were in air.",
+   "good": "A limitation of this study is that all tests were performed in air.",
+   "terms": [],
+   "kw": "限界 limitation 研究の範囲"
+  },
+  {
+   "id": "c-abstract-used",
+   "g": "concl",
+   "ja": "〜を調べるため〜を用いた(要旨)",
+   "en": "{手法} was used to {目的}.",
+   "v": {
+    "手法": "Electron backscatter diffraction",
+    "目的": "characterize the grain boundary character distribution"
+   },
+   "note": "要旨では手法を主語にした受動態がよく使われます。to + 動詞の原形で目的を表します。",
+   "bad": "Electron backscatter diffraction was used for characterize the boundaries.",
+   "good": "Electron backscatter diffraction was used to characterize the boundaries.",
+   "terms": [],
+   "kw": "要旨 手法 EBSD was used to"
+  },
+  {
+   "id": "p-arc-melt",
+   "g": "process",
+   "ja": "〜はアルゴン雰囲気でアーク溶解し、均質にするため〜回再溶解した",
+   "en": "Button ingots were prepared by arc melting under {雰囲気} and remelted {回数} times to ensure chemical homogeneity.",
+   "v": {
+    "雰囲気": "an argon atmosphere",
+    "回数": "five"
+   },
+   "note": "アーク溶解の小さな鋳塊は button ingot と言います。「均質にするため」は to ensure (chemical) homogeneity です。裏返して溶かし直したことを書くなら flipped and remelted です。",
+   "bad": "Ingots were arc melted in Ar gas atmosphere and re-melted 5 times for homogenize.",
+   "good": "Ingots were arc-melted under an argon atmosphere and remelted five times to ensure homogeneity.",
+   "terms": [],
+   "kw": "アーク溶解 溶解 鋳塊 arc melting ingot"
+  },
+  {
+   "id": "p-vim",
+   "g": "process",
+   "ja": "〜の組成の鋳塊を真空誘導溶解で作製した",
+   "en": "Ingots with a nominal composition of {組成} were prepared by vacuum induction melting.",
+   "v": {
+    "組成": "Fe–20Mn–3Al–3Si (wt%)"
+   },
+   "note": "狙いの組成は nominal composition です。分析した組成は measured (analyzed) composition と書き分けます。",
+   "bad": "Ingots with an aimed composition of Fe-20%Mn-3%Al-3%Si were melted.",
+   "good": "Ingots with a nominal composition of Fe–20Mn–3Al–3Si (wt%) were melted.",
+   "terms": [],
+   "kw": "真空溶解 誘導溶解 狙い組成 nominal composition"
+  },
+  {
+   "id": "p-cast",
+   "g": "process",
+   "ja": "溶湯を〜で〜の金型に鋳込んだ",
+   "en": "The melt was poured at {温度} into {型}.",
+   "v": {
+    "温度": "720 °C",
+    "型": "a preheated steel mold"
+   },
+   "note": "溶けた金属は melt、「鋳込む」は pour into / cast into です。cast の過去形・過去分詞は cast で、casted とはしません。mold はアメリカ式、mould はイギリス式のつづりで、論文の中ではどちらかにそろえます。 温度を文の最後に置く(poured into a preheated steel mold at 720 °C)と、型の温度に読めることがあるので、注ぐ温度は動詞のすぐあとに置きます。",
+   "bad": "The molten metal was casted into a steel mold.",
+   "good": "The molten metal was cast into a steel mold.",
+   "terms": [
+    "引け巣"
+   ],
+   "kw": "鋳造 鋳込み cast pour melt mold"
+  },
+  {
+   "id": "p-homogenize",
+   "g": "process",
+   "ja": "鋳塊を〜で〜均質化処理した",
+   "en": "The ingots were homogenized at {温度} for {時間} in {雰囲気}.",
+   "v": {
+    "温度": "1200 °C",
+    "時間": "10 h",
+    "雰囲気": "a vacuum furnace"
+   },
+   "note": "温度は at、時間は for です。前置詞を取り違えた for 1200 °C at 10 h はよくある誤りです。",
+   "bad": "The ingots were homogenized for 1200 °C at 10 h.",
+   "good": "The ingots were homogenized at 1200 °C for 10 h.",
+   "terms": [],
+   "kw": "均質化 homogenization 熱処理"
+  },
+  {
+   "id": "p-hot-roll",
+   "g": "process",
+   "ja": "〜で熱間圧延し、厚さ〜にした",
+   "en": "The homogenized ingot was hot-rolled at {温度} to a final thickness of {厚さ}.",
+   "v": {
+    "温度": "1100 °C",
+    "厚さ": "4 mm"
+   },
+   "note": "to a thickness of は「〜の厚さまで」、by は減らした量です。名詞の前(hot-rolled plate)ではハイフンでつなぎます。動詞のとき(was hot-rolled / was hot rolled)はどちらも見られるので、論文の中でそろえます。",
+   "bad": "The ingot was hot rolled until 4 mm thickness.",
+   "good": "The ingot was hot-rolled to a thickness of 4 mm.",
+   "terms": [],
+   "kw": "熱間圧延 hot rolling thickness 圧延"
+  },
+  {
+   "id": "p-cold-roll",
+   "g": "process",
+   "ja": "〜を圧下率〜まで冷間圧延した",
+   "en": "The annealed sheet was cold-rolled to a {圧下率} reduction in thickness.",
+   "v": {
+    "圧下率": "50%"
+   },
+   "note": "圧下率は reduction in thickness(または thickness reduction)です。「50% 冷間圧延材」は 50% cold-rolled sheet と書けます。",
+   "bad": "The sheet was cold-rolled with the rolling reduction ratio of 50%.",
+   "good": "The sheet was cold-rolled to a 50% reduction in thickness.",
+   "terms": [
+    "加工硬化"
+   ],
+   "kw": "冷間圧延 圧下率 cold rolling reduction"
+  },
+  {
+   "id": "p-anneal",
+   "g": "process",
+   "ja": "〜で〜焼なまし、完全に再結晶させた",
+   "en": "The cold-rolled sheets were annealed at {温度} for {時間} to obtain {組織}.",
+   "v": {
+    "温度": "600 °C",
+    "時間": "1 h",
+    "組織": "a fully recrystallized structure"
+   },
+   "note": "「〜℃で〜時間」は at … for … で、in や during は使いません。annealing はアメリカ英語でもイギリス英語でも同じつづりです。",
+   "bad": "The sheets were annealed in 600 °C during 1 h.",
+   "good": "The sheets were annealed at 600 °C for 1 h.",
+   "terms": [
+    "再結晶"
+   ],
+   "kw": "焼なまし 焼鈍 annealing 再結晶"
+  },
+  {
+   "id": "p-furnace-cool",
+   "g": "process",
+   "ja": "焼なましのあと、室温まで炉冷した",
+   "en": "After annealing, the specimens were {冷却} to room temperature.",
+   "v": {
+    "冷却": "furnace-cooled"
+   },
+   "note": "炉冷 furnace-cooled、空冷 air-cooled、水冷 water-cooled、水焼入れ water-quenched、油焼入れ oil-quenched。名詞の前(furnace-cooled specimens)ではハイフンでつなぎ(動詞のときはつながない書き方も多く見られます)、略語(FC、AC、WQ)は初出で定義します。「室温まで」は to room temperature(until は使いません)。",
+   "bad": "The specimens were furnace cooled until the room temperature.",
+   "good": "The specimens were furnace-cooled to room temperature.",
+   "terms": [],
+   "kw": "炉冷 空冷 水冷 furnace cooling air cooling"
+  },
+  {
+   "id": "p-quench",
+   "g": "process",
+   "ja": "〜で〜オーステナイト化したのち水焼入れした",
+   "en": "The {試料} were austenitized at {温度} for {時間} and then quenched in water.",
+   "v": {
+    "試料": "S45C specimens",
+    "温度": "850 °C",
+    "時間": "30 min"
+   },
+   "note": "austenitize(オーステナイト化する)は動詞として使えます。「水焼入れ」は quenched in water / water-quenched です。quenched into water と書く人もいます。",
+   "bad": "The specimens were quenched by water after keeping at 850 °C.",
+   "good": "The specimens were water-quenched after holding at 850 °C.",
+   "terms": [
+    "マルテンサイト",
+    "焼入れ性"
+   ],
+   "kw": "焼入れ 水焼入れ quench austenitize オーステナイト化"
+  },
+  {
+   "id": "p-temper",
+   "g": "process",
+   "ja": "焼入れした試料を〜で〜焼戻した",
+   "en": "The quenched specimens were tempered at {温度} for {時間}, followed by {冷却}.",
+   "v": {
+    "温度": "600 °C",
+    "時間": "1 h",
+    "冷却": "water cooling"
+   },
+   "note": "temper(焼戻す)、tempering(焼戻し)。焼入れ・焼戻しをまとめた「調質」は quenching and tempering(Q&T)です。",
+   "bad": "The specimens were tempered under 600 °C for 1 hour time.",
+   "good": "The specimens were tempered at 600 °C for 1 h.",
+   "terms": [
+    "焼戻し"
+   ],
+   "kw": "焼戻し tempering 調質"
+  },
+  {
+   "id": "p-solution",
+   "g": "process",
+   "ja": "〜で〜溶体化処理し、水焼入れした",
+   "en": "The {合金} was solution-treated at {温度} for {時間} and quenched in water at room temperature.",
+   "v": {
+    "合金": "Al–4 wt% Cu alloy",
+    "温度": "540 °C",
+    "時間": "1 h"
+   },
+   "note": "溶体化処理は solution treatment、動詞は solution-treat です。Al–Cu 合金は共晶温度(548 ℃)より低い温度で溶体化します。",
+   "bad": "The alloy was solutionized treated at 540 °C.",
+   "good": "The alloy was solution-treated at 540 °C.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "溶体化 solution treatment 焼入れ"
+  },
+  {
+   "id": "p-age",
+   "g": "process",
+   "ja": "溶体化した試料を〜で〜時効させた",
+   "en": "The solution-treated specimens were aged at {温度} for {時間} in {熱媒}.",
+   "v": {
+    "温度": "190 °C",
+    "時間": "0.5–100 h",
+    "熱媒": "an oil bath"
+   },
+   "note": "age は「時効させる」の他動詞としても使います。aging(アメリカ式)と ageing(イギリス式)はどちらかにそろえます。室温での時効は natural aging、加熱しての時効は artificial aging です。",
+   "bad": "The specimens were aged in 190 °C.",
+   "good": "The specimens were aged at 190 °C.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "時効 aging ageing 人工時効 自然時効"
+  },
+  {
+   "id": "p-peak-aged",
+   "g": "process",
+   "ja": "ピーク時効の状態は〜で得た",
+   "en": "The peak-aged condition was obtained by aging at {温度} for {時間}.",
+   "v": {
+    "温度": "190 °C",
+    "時間": "10 h"
+   },
+   "note": "時効の状態は under-aged(亜時効)、peak-aged(ピーク時効)、over-aged(過時効)と言います。名詞の前ではハイフンでつなぎます。",
+   "bad": "The peak aging state was got by aging at 190 °C.",
+   "good": "The peak-aged condition was obtained by aging at 190 °C.",
+   "terms": [
+    "析出硬化",
+    "オストワルド成長"
+   ],
+   "kw": "ピーク時効 過時効 peak-aged over-aged"
+  },
+  {
+   "id": "p-normalize",
+   "g": "process",
+   "ja": "〜で焼ならしし、空冷した",
+   "en": "The as-received {材料} was normalized at {温度} for {時間} and air-cooled.",
+   "v": {
+    "材料": "S45C bar",
+    "温度": "860 °C",
+    "時間": "1 h"
+   },
+   "note": "焼ならしは normalizing です。「受け入れたままの」は as-received、鋳造のままは as-cast、焼入れのままは as-quenched です。",
+   "bad": "The S45C bar was normalizing at 860 °C.",
+   "good": "The S45C bar was normalized at 860 °C.",
+   "terms": [
+    "パーライト"
+   ],
+   "kw": "焼ならし normalizing as-received"
+  },
+  {
+   "id": "p-heating-rate",
+   "g": "process",
+   "ja": "〜の速さで〜まで加熱した",
+   "en": "The specimens were heated to {温度} at a rate of {速度}.",
+   "v": {
+    "温度": "1050 °C",
+    "速度": "10 °C/min"
+   },
+   "note": "到達する温度は to、速さは at a rate of です。単位は °C/min と °C min⁻¹ のどちらかに論文全体でそろえます。",
+   "bad": "The specimens were heated up 1050 °C with the rate of 10 °C/min.",
+   "good": "The specimens were heated to 1050 °C at a rate of 10 °C/min.",
+   "terms": [],
+   "kw": "加熱速度 昇温 heating rate"
+  },
+  {
+   "id": "p-atmosphere",
+   "g": "process",
+   "ja": "酸化と脱炭を防ぐため〜中で熱処理した",
+   "en": "Heat treatment was carried out in {雰囲気} to prevent {問題}.",
+   "v": {
+    "雰囲気": "a flowing argon atmosphere",
+    "問題": "oxidation and decarburization"
+   },
+   "note": "雰囲気は in です。「〜を防ぐため」は to prevent … で、for preventing … より自然です。",
+   "bad": "Heat treatment was carried out under Ar for preventing oxidation.",
+   "good": "Heat treatment was carried out in argon to prevent oxidation.",
+   "terms": [],
+   "kw": "雰囲気 アルゴン 脱炭 酸化防止"
+  },
+  {
+   "id": "p-encapsulate",
+   "g": "process",
+   "ja": "処理の前に試料を真空の石英管に封入した",
+   "en": "The specimens were sealed in {容器} before {処理}.",
+   "v": {
+    "容器": "evacuated quartz tubes",
+    "処理": "the solution treatment"
+   },
+   "note": "「真空封入」は sealed in evacuated quartz (silica) tubes / encapsulated in です。",
+   "bad": "The specimens were vacuum-sealed into the quartz tube.",
+   "good": "The specimens were sealed in evacuated quartz tubes.",
+   "terms": [],
+   "kw": "真空封入 石英管 encapsulate"
+  },
+  {
+   "id": "p-machined",
+   "g": "process",
+   "ja": "試験片は〜から、長手方向を〜にそろえて切り出した",
+   "en": "{試験片} were machined from {素材} with their longitudinal axis parallel to {方向}.",
+   "v": {
+    "試験片": "Tensile specimens",
+    "素材": "the rolled plate",
+    "方向": "the rolling direction"
+   },
+   "note": "圧延方向 rolling direction(RD)、板幅方向 transverse direction(TD)、板厚方向 normal direction(ND)。略語は初出で定義します。",
+   "bad": "Tensile specimens were cut from the plate to the rolling direction.",
+   "good": "Tensile specimens were cut from the plate parallel to the rolling direction.",
+   "terms": [],
+   "kw": "切り出し 圧延方向 RD TD ND machined"
+  },
+  {
+   "id": "p-sinter",
+   "g": "process",
+   "ja": "成形体を大気中で〜で〜焼結した",
+   "en": "The {粉末} powder compacts were sintered at {温度} for {時間} in air.",
+   "v": {
+    "粉末": "alumina",
+    "温度": "1600 °C",
+    "時間": "2 h"
+   },
+   "note": "成形体は green compact / powder compact、焼結体は sintered body です。到達した密度は relative density(相対密度)で示すのが普通です。",
+   "bad": "The alumina green bodies were sintered with 1600 °C for 2 h.",
+   "good": "The alumina green bodies were sintered at 1600 °C for 2 h.",
+   "terms": [
+    "焼結"
+   ],
+   "kw": "焼結 sintering 成形体 粉末"
+  },
+  {
+   "id": "p-ball-mill",
+   "g": "process",
+   "ja": "粉末は遊星ボールミルで〜混合した",
+   "en": "The powders were mixed by planetary ball milling at {回転数} for {時間} in {溶媒}.",
+   "v": {
+    "回転数": "300 rpm",
+    "時間": "4 h",
+    "溶媒": "ethanol"
+   },
+   "note": "回転数の rpm は SI の単位ではありませんが、広く使われます(r/min と書く雑誌もあります)。",
+   "bad": "The powders were ball milled with 300rpm.",
+   "good": "The powders were ball-milled at 300 rpm.",
+   "terms": [
+    "ボトムアップ法"
+   ],
+   "kw": "ボールミル 混合 粉末 ball milling"
+  },
+  {
+   "id": "p-weld",
+   "g": "process",
+   "ja": "ビードオンプレート溶接を入熱〜で行った",
+   "en": "Bead-on-plate welds were made by {方法} with a heat input of {入熱}.",
+   "v": {
+    "方法": "gas tungsten arc welding",
+    "入熱": "1.2 kJ/mm"
+   },
+   "note": "溶接の方法は by、入熱は with a heat input of です。TIG 溶接は gas tungsten arc welding(GTAW)と書くことが多くなっています。",
+   "bad": "Bead on plate welding was done by TIG with heat input 1.2kJ/mm.",
+   "good": "Bead-on-plate welding was performed by GTAW with a heat input of 1.2 kJ/mm.",
+   "terms": [
+    "溶接熱影響部",
+    "炭素当量"
+   ],
+   "kw": "溶接 入熱 GTAW TIG welding"
+  },
+  {
+   "id": "p-carburize",
+   "g": "process",
+   "ja": "〜でガス浸炭し、油焼入れ・低温焼戻しした",
+   "en": "The {鋼} specimens were gas-carburized at {温度} for {時間}, quenched in oil, and tempered at {焼戻し温度}.",
+   "v": {
+    "鋼": "SCM415",
+    "温度": "930 °C",
+    "時間": "4 h",
+    "焼戻し温度": "180 °C"
+   },
+   "note": "3つ以上を並べるときは、最後の and の前にもコンマ(シリアルコンマ)を置くスタイルが科学論文では多数です(置かない雑誌もあります)。",
+   "bad": "The specimens were carburized at 930 °C, quenched in oil and then tempered 180 °C.",
+   "good": "The specimens were carburized at 930 °C, quenched in oil, and tempered at 180 °C.",
+   "terms": [
+    "浸炭",
+    "焼戻し"
+   ],
+   "kw": "浸炭 carburizing 焼入れ 焼戻し"
+  },
+  {
+   "id": "p-as-received",
+   "g": "process",
+   "ja": "受け入れ材は〜であった",
+   "en": "The as-received material was {状態}.",
+   "v": {
+    "状態": "a 12 mm thick hot-rolled plate of SUS304 stainless steel"
+   },
+   "note": "as-received、as-cast、as-quenched、as-sintered など、処理したままの状態は as- をハイフンでつなぎます。",
+   "bad": "The as received material was 12mm thick plate.",
+   "good": "The as-received material was a 12 mm thick plate.",
+   "terms": [
+    "ステンレス鋼"
+   ],
+   "kw": "受け入れ材 as-received 素材"
+  },
+  {
+   "id": "o-grind",
+   "g": "micro",
+   "ja": "〜番までのエメリー紙で研削し、〜で研磨した",
+   "en": "The specimens were ground with SiC papers up to {番手} and polished with {研磨剤}.",
+   "v": {
+    "番手": "#2000",
+    "研磨剤": "1 µm diamond paste"
+   },
+   "note": "grind の過去分詞は ground です。番手の書き方(#2000、P2000、2000 grit)は統一します。エメリー紙は SiC paper と書くのが一般的です。",
+   "bad": "The specimens were grinded by emery papers.",
+   "good": "The specimens were ground with SiC papers.",
+   "terms": [],
+   "kw": "研磨 研削 grind polish 番手"
+  },
+  {
+   "id": "o-nital",
+   "g": "micro",
+   "ja": "研磨面を〜%ナイタールで〜腐食した",
+   "en": "The polished surfaces were etched with {腐食液} for {時間}.",
+   "v": {
+    "腐食液": "3% nital",
+    "時間": "10 s"
+   },
+   "note": "ナイタールは硝酸のエタノール溶液で、鋼のフェライト粒界やパーライトを出します。腐食液の組成(3 mL HNO₃ + 97 mL ethanol など)を書くと再現できます。",
+   "bad": "The surfaces were corroded by 3% nital.",
+   "good": "The surfaces were etched with 3% nital.",
+   "terms": [
+    "パーライト"
+   ],
+   "kw": "エッチング 腐食液 ナイタール etching nital"
+  },
+  {
+   "id": "o-keller",
+   "g": "micro",
+   "ja": "〜の組織を出すため〜を用いた",
+   "en": "{腐食液} was used to reveal {組織}.",
+   "v": {
+    "腐食液": "Keller's reagent",
+    "組織": "the grain structure of the aluminum alloy"
+   },
+   "note": "組織を「出す」は reveal です。人名の付いた腐食液(Keller’s reagent、Kroll’s reagent)は所有格で書きます。",
+   "bad": "Keller reagent was used to appear the grain structure.",
+   "good": "Keller's reagent was used to reveal the grain structure.",
+   "terms": [],
+   "kw": "ケラー液 腐食液 reveal 結晶粒"
+  },
+  {
+   "id": "o-om-sem",
+   "g": "micro",
+   "ja": "組織は光学顕微鏡と走査電子顕微鏡で観察した",
+   "en": "The microstructure was observed using {装置1} and {装置2}.",
+   "v": {
+    "装置1": "an optical microscope",
+    "装置2": "a scanning electron microscope (SEM)"
+   },
+   "note": "冠詞は読みの音で決めます。scanning は子音で始まるので a、略語 SEM は「エス」と母音で始まるので an SEM です。略語は初出で正式名を書いてかっこで示します。",
+   "bad": "The microstructure was observed using a SEM.",
+   "good": "The microstructure was observed using an SEM.",
+   "terms": [
+    "SEM(走査電子顕微鏡)"
+   ],
+   "kw": "光学顕微鏡 SEM 観察 an SEM 冠詞"
+  },
+  {
+   "id": "o-consisted",
+   "g": "micro",
+   "ja": "組織は〜と〜からなっていた",
+   "en": "The microstructure of {試料} consisted of {組織}.",
+   "v": {
+    "試料": "the normalized specimen",
+    "組織": "proeutectoid ferrite and pearlite"
+   },
+   "note": "consist of は能動態で使います。「初析フェライト」は proeutectoid ferrite です。",
+   "bad": "The microstructure was consisted of ferrite and pearlite.",
+   "good": "The microstructure consisted of ferrite and pearlite.",
+   "terms": [
+    "パーライト",
+    "共析反応"
+   ],
+   "kw": "組織 からなる consist of フェライト パーライト"
+  },
+  {
+   "id": "o-martensite",
+   "g": "micro",
+   "ja": "〜は全面マルテンサイト組織であった",
+   "en": "The {試料} showed a fully martensitic structure, and no {相} was detected by XRD.",
+   "v": {
+    "試料": "water-quenched specimen",
+    "相": "retained austenite"
+   },
+   "note": "「全面マルテンサイト」は fully martensitic です。「残留オーステナイト」は retained austenite で、residual austenite とも書きます。",
+   "bad": "The specimen showed full martensite structure.",
+   "good": "The specimen showed a fully martensitic structure.",
+   "terms": [
+    "マルテンサイト"
+   ],
+   "kw": "マルテンサイト 残留オーステナイト martensitic"
+  },
+  {
+   "id": "o-grain-size-method",
+   "g": "micro",
+   "ja": "平均結晶粒径は〜法で測定した",
+   "en": "The average grain size was measured by {方法} in accordance with {規格}.",
+   "v": {
+    "方法": "the linear intercept method",
+    "規格": "ASTM E112"
+   },
+   "note": "切断法は linear intercept method、求積法は planimetric method です。双晶境界を数えたかどうかも書いておくと値を比べられます。",
+   "bad": "The grain size was measured by the intercept method based on ASTM E112.",
+   "good": "The grain size was measured by the intercept method in accordance with ASTM E112.",
+   "terms": [
+    "ホール・ペッチの関係"
+   ],
+   "kw": "結晶粒径 切断法 ASTM E112 grain size"
+  },
+  {
+   "id": "o-grain-size",
+   "g": "micro",
+   "ja": "〜の添加で平均粒径は〜から〜に小さくなった",
+   "en": "The average grain size decreased from {値1} to {値2} with the addition of {添加}.",
+   "v": {
+    "値1": "45 µm",
+    "値2": "12 µm",
+    "添加": "0.05 wt% Ti"
+   },
+   "note": "「〜の添加で」は with the addition of です。µm の µ は u で代用しません。",
+   "bad": "The grain size decreased from 45um to 12um by adding Ti of 0.05 wt%.",
+   "good": "The grain size decreased from 45 µm to 12 µm with the addition of 0.05 wt% Ti.",
+   "terms": [
+    "ホール・ペッチの関係"
+   ],
+   "kw": "結晶粒微細化 粒径 添加 addition"
+  },
+  {
+   "id": "o-elongated",
+   "g": "micro",
+   "ja": "冷間圧延後、結晶粒は〜方向に伸びていた",
+   "en": "The grains were elongated along {方向} after {処理}.",
+   "v": {
+    "方向": "the rolling direction",
+    "処理": "cold rolling"
+   },
+   "note": "「〜方向に伸びた」は elongated along / in the … direction です。",
+   "bad": "The grains were elongated to the rolling direction.",
+   "good": "The grains were elongated along the rolling direction.",
+   "terms": [
+    "加工硬化"
+   ],
+   "kw": "伸長粒 elongated grains 圧延"
+  },
+  {
+   "id": "o-precipitates",
+   "g": "micro",
+   "ja": "粒内に微細な析出物が一様に分布し、粒界には粗大な粒子が見られた",
+   "en": "Fine precipitates were uniformly distributed {場所1}, whereas coarse particles were observed {場所2}.",
+   "v": {
+    "場所1": "within the grains",
+    "場所2": "along the grain boundaries"
+   },
+   "note": "粒内 within the grains、粒界に沿って along the grain boundaries、粒界の上 at the grain boundaries と使い分けます。",
+   "bad": "Fine precipitates were distributed in grain and coarse ones on grain boundary.",
+   "good": "Fine precipitates were distributed within the grains, and coarse ones at the grain boundaries.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "析出物 分布 粒内 粒界 precipitates"
+  },
+  {
+   "id": "o-pfz",
+   "g": "micro",
+   "ja": "粒界に沿って幅約〜の無析出帯が見られた",
+   "en": "A precipitate-free zone (PFZ) approximately {幅} wide was observed along {場所}.",
+   "v": {
+    "幅": "50 nm",
+    "場所": "the grain boundaries"
+   },
+   "note": "「幅〜の」は数と単位のあとに wide を置きます(50 nm wide)。略語 PFZ は初出で定義します。",
+   "bad": "PFZ with 50nm width was observed.",
+   "good": "A PFZ approximately 50 nm wide was observed.",
+   "terms": [
+    "析出硬化",
+    "空孔"
+   ],
+   "kw": "無析出帯 PFZ precipitate-free zone"
+  },
+  {
+   "id": "o-ebsd",
+   "g": "micro",
+   "ja": "EBSD 測定は加速電圧〜、ステップ〜で行った",
+   "en": "EBSD measurements were performed at an accelerating voltage of {電圧} with a step size of {ステップ}.",
+   "v": {
+    "電圧": "20 kV",
+    "ステップ": "0.5 µm"
+   },
+   "note": "略語 EBSD(electron backscatter diffraction)は「イー」と母音で読むので an EBSD map です。",
+   "bad": "A EBSD map was measured with step size 0.5 µm.",
+   "good": "An EBSD map was acquired with a step size of 0.5 µm.",
+   "terms": [
+    "ミラー指数"
+   ],
+   "kw": "EBSD 結晶方位 ステップ 加速電圧"
+  },
+  {
+   "id": "o-hagb",
+   "g": "micro",
+   "ja": "方位差〜以上の境界を大角粒界とした",
+   "en": "Boundaries with misorientation angles greater than {角度} were defined as {境界}.",
+   "v": {
+    "角度": "15°",
+    "境界": "high-angle grain boundaries"
+   },
+   "note": "角度の °(平面角)は数との間に空白を入れません(15°)。温度の °C には空白を入れるのと違います(SI 文書)。小角粒界は low-angle grain boundaries です。",
+   "bad": "Boundaries with misorientation over 15 ° were defined as large angle grain boundaries.",
+   "good": "Boundaries with misorientations above 15° were defined as high-angle grain boundaries.",
+   "terms": [
+    "転位"
+   ],
+   "kw": "大角粒界 小角粒界 方位差 misorientation"
+  },
+  {
+   "id": "o-tem-foil",
+   "g": "micro",
+   "ja": "TEM 用の薄膜は〜で作製した",
+   "en": "Thin foils for TEM observation were prepared by {方法}.",
+   "v": {
+    "方法": "twin-jet electropolishing in a solution of 30% nitric acid in methanol at −30 °C"
+   },
+   "note": "負の温度には、ハイフンではなくマイナス記号(−、U+2212)を使うのが正式です。電解研磨の液の組成と温度を書きます。",
+   "bad": "Thin foils were prepared by twin-jet electro polishing at -30°C.",
+   "good": "Thin foils were prepared by twin-jet electropolishing at −30 °C.",
+   "terms": [],
+   "kw": "TEM 薄膜 電解研磨 electropolishing"
+  },
+  {
+   "id": "o-tem-kv",
+   "g": "micro",
+   "ja": "TEM 観察は加速電圧〜の装置で行った",
+   "en": "TEM observations were carried out using a microscope operated at {電圧}.",
+   "v": {
+    "電圧": "200 kV"
+   },
+   "note": "加速電圧は operated at … kV と書きます。kV の k は小文字です。",
+   "bad": "TEM observation was carried out at 200KV.",
+   "good": "TEM observation was carried out at 200 kV.",
+   "terms": [],
+   "kw": "TEM 透過電子顕微鏡 加速電圧 kV"
+  },
+  {
+   "id": "o-bse",
+   "g": "micro",
+   "ja": "反射電子像では〜に富む明るい粒子が見られた",
+   "en": "Backscattered electron (BSE) images showed bright particles enriched in {元素} along {場所}.",
+   "v": {
+    "元素": "Mo",
+    "場所": "the grain boundaries"
+   },
+   "note": "反射電子像では原子番号の大きい元素を多く含む所が明るく見えます。「〜に富む」は enriched in / rich in です。",
+   "bad": "BSE images showed bright particles which are rich of Mo.",
+   "good": "BSE images showed bright particles rich in Mo.",
+   "terms": [
+    "SEM(走査電子顕微鏡)"
+   ],
+   "kw": "反射電子 BSE 組成像 原子番号"
+  },
+  {
+   "id": "o-fraction",
+   "g": "micro",
+   "ja": "〜の体積率は SEM 像〜枚の画像解析で求めた",
+   "en": "The volume fraction of {相} was estimated by image analysis of {枚数} SEM micrographs.",
+   "v": {
+    "相": "pearlite",
+    "枚数": "five"
+   },
+   "note": "断面で測るのは面積率ですが、試料の中で組織が一様で、断面を偏りなく選べば、面積率の平均は体積率に等しい(デレッセの原理)ので、体積率として報告できます。顕微鏡の写真は micrograph です。",
+   "bad": "The volume ratio of pearlite was estimated from 5 SEM photos.",
+   "good": "The volume fraction of pearlite was estimated from five SEM micrographs.",
+   "terms": [
+    "パーライト"
+   ],
+   "kw": "体積率 面積率 画像解析 volume fraction"
+  },
+  {
+   "id": "o-twins",
+   "g": "micro",
+   "ja": "再結晶した〜粒には焼なまし双晶が多く見られた",
+   "en": "Annealing twins were frequently observed in {場所}.",
+   "v": {
+    "場所": "the recrystallized austenite grains"
+   },
+   "note": "焼なまし双晶 annealing twins は、積層欠陥エネルギーが低めの FCC 金属(オーステナイト系ステンレス鋼、銅、黄銅など)でよく見られます。twin は可算名詞です。",
+   "bad": "Many annealing twin was observed.",
+   "good": "Many annealing twins were observed.",
+   "terms": [
+    "再結晶",
+    "面心立方格子"
+   ],
+   "kw": "焼なまし双晶 annealing twins オーステナイト"
+  },
+  {
+   "id": "x-cu-ka",
+   "g": "xrd",
+   "ja": "XRD は Cu Kα 線で〜の範囲を測定した",
+   "en": "XRD patterns were obtained using Cu Kα radiation (λ = {波長}) over a 2θ range of {範囲}.",
+   "v": {
+    "波長": "0.15406 nm",
+    "範囲": "20° to 100°"
+   },
+   "note": "Kα は α を本文の高さで書く形(Cu Kα)が多いですが、下付きにする雑誌もあるので、論文の中でそろえます。平面角の ° は数と離しません。",
+   "bad": "XRD was measured by CuKa with 2θ = 20 ~ 100 °.",
+   "good": "XRD patterns were obtained using Cu Kα radiation over a 2θ range of 20° to 100°.",
+   "terms": [
+    "XRD(X線回折)",
+    "ブラッグの法則"
+   ],
+   "kw": "XRD X線回折 Cu Kα 測定条件"
+  },
+  {
+   "id": "x-step",
+   "g": "xrd",
+   "ja": "データはステップ〜、計数時間〜で取った",
+   "en": "Data were collected with a step size of {ステップ} and a counting time of {時間} per step.",
+   "v": {
+    "ステップ": "0.02°",
+    "時間": "1 s"
+   },
+   "note": "data は datum の複数形として扱う雑誌が多く、Data were … とします(単数扱いも増えていますが、論文では複数が無難です)。datas とはしません。",
+   "bad": "The datas were collected with 0.02° step.",
+   "good": "The data were collected with a step size of 0.02°.",
+   "terms": [
+    "XRD(X線回折)"
+   ],
+   "kw": "データ ステップ 計数時間 data were"
+  },
+  {
+   "id": "x-identified",
+   "g": "xrd",
+   "ja": "回折ピークはすべて〜と同定された",
+   "en": "All diffraction peaks were identified as those of {相}.",
+   "v": {
+    "相": "α-Fe (bcc)"
+   },
+   "note": "「〜と同定された」は identified as です。those of(=the peaks of)で比べる物をそろえます。指数付けは indexed as / to です。",
+   "bad": "All peaks were identified to α-Fe.",
+   "good": "All peaks were identified as those of α-Fe.",
+   "terms": [
+    "XRD(X線回折)",
+    "体心立方格子"
+   ],
+   "kw": "同定 指数付け identified indexed"
+  },
+  {
+   "id": "x-peak-at",
+   "g": "xrd",
+   "ja": "2θ = 〜に〜面の強いピークが見られた",
+   "en": "A strong peak was observed at 2θ = {角度}, corresponding to the {面} reflection of {相}.",
+   "v": {
+    "角度": "44.7°",
+    "面": "(110)",
+    "相": "α-Fe"
+   },
+   "note": "Cu Kα 線(0.15406 nm)で α-Fe(a = 0.28665 nm)の (110) は 2θ ≈ 44.67° です。面の指数は丸かっこ、方向は角かっこで書きます。",
+   "bad": "A strong peak was observed at 44.7 degree corresponding to α-Fe [110] plane.",
+   "good": "A strong peak was observed at 2θ = 44.7°, corresponding to the (110) reflection of α-Fe.",
+   "terms": [
+    "ブラッグの法則",
+    "ミラー指数"
+   ],
+   "kw": "ピーク 回折角 2θ 面指数 反射"
+  },
+  {
+   "id": "x-shift",
+   "g": "xrd",
+   "ja": "Cu の固溶量が増えると〜ピークは高角側にずれた",
+   "en": "The {ピーク} peak shifted to a higher angle with increasing {条件}, indicating {解釈}.",
+   "v": {
+    "ピーク": "Al (111)",
+    "条件": "Cu content in solid solution",
+    "解釈": "a decrease in the lattice parameter"
+   },
+   "note": "Al より小さな Cu 原子が固溶すると格子定数が小さくなり、面間隔 d が小さくなるので、ブラッグの式から 2θ は大きく(高角側)なります。「高角側に」は to a higher angle / toward higher angles です。",
+   "bad": "The peak shifted to high angle side with Cu increase.",
+   "good": "The peak shifted to a higher angle with increasing Cu content.",
+   "terms": [
+    "ブラッグの法則",
+    "固溶強化"
+   ],
+   "kw": "ピークシフト 高角側 格子定数 固溶"
+  },
+  {
+   "id": "x-lattice",
+   "g": "xrd",
+   "ja": "格子定数は〜と求められ、文献値〜とよく一致した",
+   "en": "The lattice parameter of {試料} was determined to be {値}, in good agreement with the reference value of {文献値}.",
+   "v": {
+    "試料": "the annealed pure Al specimen",
+    "値": "0.4049 nm",
+    "文献値": "0.40496 nm"
+   },
+   "note": "「〜と求められた」は was determined to be です。値の桁は測定の精度に合わせます(文献値より細かく書かない)。",
+   "bad": "The lattice constant was decided as 0.4049 nm.",
+   "good": "The lattice parameter was determined to be 0.4049 nm.",
+   "terms": [
+    "面心立方格子",
+    "ブラッグの法則"
+   ],
+   "kw": "格子定数 lattice parameter 精密化"
+  },
+  {
+   "id": "x-broadening",
+   "g": "xrd",
+   "ja": "冷間圧延後にピークの幅が大きく広がった",
+   "en": "Pronounced peak broadening was observed after {処理}, which is attributed to {原因}.",
+   "v": {
+    "処理": "cold rolling",
+    "原因": "the increased dislocation density and the reduced crystallite size"
+   },
+   "note": "ピークの広がりには、結晶子が小さいことによる広がりと、不均一なひずみ(転位など)による広がりがあり、Williamson–Hall の方法などで分けます。",
+   "bad": "The peak width became broad after the cold rolling.",
+   "good": "The peaks became broader after cold rolling.",
+   "terms": [
+    "シェラーの式",
+    "転位"
+   ],
+   "kw": "ピークの広がり 半値幅 broadening"
+  },
+  {
+   "id": "x-scherrer",
+   "g": "xrd",
+   "ja": "結晶子径はシェラーの式(K = 0.9)で約〜と見積もった",
+   "en": "The crystallite size was estimated to be about {値} using the Scherrer equation with K = {定数}.",
+   "v": {
+    "値": "20 nm",
+    "定数": "0.9"
+   },
+   "note": "結晶子径(crystallite size)は、SEM や EBSD で見る結晶粒径(grain size)と同じではありません。装置による広がりを差し引いたかどうかも書きます。",
+   "bad": "The grain size calculated by Scherrer formula was 20nm.",
+   "good": "The crystallite size estimated by the Scherrer equation was 20 nm.",
+   "terms": [
+    "シェラーの式"
+   ],
+   "kw": "結晶子径 シェラー crystallite size"
+  },
+  {
+   "id": "x-fwhm",
+   "g": "xrd",
+   "ja": "〜は〜ピークの半値幅から評価した",
+   "en": "{量} was evaluated from the full width at half maximum (FWHM) of {ピーク}.",
+   "v": {
+    "量": "The microstrain",
+    "ピーク": "the (211) peak"
+   },
+   "note": "半値幅は full width at half maximum(FWHM)です。積分幅(integral breadth)とは別の量です。",
+   "bad": "The microstrain was evaluated from the half width of the peak.",
+   "good": "The microstrain was evaluated from the FWHM of the peak.",
+   "terms": [],
+   "kw": "半値幅 FWHM ひずみ"
+  },
+  {
+   "id": "x-retained-austenite",
+   "g": "xrd",
+   "ja": "残留オーステナイトの体積率は〜の積分強度から求めた",
+   "en": "The volume fraction of retained austenite was determined from the integrated intensities of {ピーク}.",
+   "v": {
+    "ピーク": "the (200)α, (211)α, (200)γ, and (220)γ peaks"
+   },
+   "note": "α と γ の複数のピークの積分強度を比べる方法(ASTM E975 など)です。集合組織があると誤差が大きくなります。",
+   "bad": "The retained austenite amount was determined by the peak height.",
+   "good": "The volume fraction of retained austenite was determined from the integrated intensities.",
+   "terms": [
+    "マルテンサイト",
+    "XRD(X線回折)"
+   ],
+   "kw": "残留オーステナイト 積分強度 体積率"
+  },
+  {
+   "id": "x-eds-map",
+   "g": "xrd",
+   "ja": "EDS マッピングから〜に〜が濃化していることが分かった",
+   "en": "EDS mapping revealed that {元素} were enriched in {相}.",
+   "v": {
+    "元素": "Cr and Mo",
+    "相": "the σ phase"
+   },
+   "note": "「濃化する」は be enriched in / be concentrated in です。σ 相は Cr と Mo に富む金属間化合物です。",
+   "bad": "EDS mapping revealed that Cr and Mo were concentrated to the σ phase.",
+   "good": "EDS mapping revealed that Cr and Mo were concentrated in the σ phase.",
+   "terms": [
+    "EDS(エネルギー分散型X線分光法)"
+   ],
+   "kw": "EDS マッピング 濃化 偏析"
+  },
+  {
+   "id": "x-eds-point",
+   "g": "xrd",
+   "ja": "EDS 点分析で、粒子は約〜 at% の Cu を含み、〜に当たった",
+   "en": "EDS point analysis showed that the particles contained about {量} Cu, which corresponds to {相}.",
+   "v": {
+    "量": "33 at%",
+    "相": "θ-Al₂Cu"
+   },
+   "note": "Al₂Cu の Cu は 33.3 at%(約 54 wt%)です。at% と wt% を必ず区別します。細かい粒子では母相からの X 線も拾うので、組成は目安になります。",
+   "bad": "EDS showed that the particle contains 33% of Cu, which is Al2Cu.",
+   "good": "EDS showed that the particles contained about 33 at% Cu, which corresponds to Al₂Cu.",
+   "terms": [
+    "EDS(エネルギー分散型X線分光法)",
+    "析出硬化"
+   ],
+   "kw": "EDS 点分析 組成 at% Al₂Cu"
+  },
+  {
+   "id": "x-limit",
+   "g": "xrd",
+   "ja": "第2相は検出されなかったが、体積率の小さな相は検出できない可能性がある",
+   "en": "No secondary phases were detected, although phases with volume fractions below {値} may not be detectable by {手法}.",
+   "v": {
+    "値": "a few percent",
+    "手法": "laboratory XRD"
+   },
+   "note": "検出限界を書いておくと、「無かった」と言い過ぎずに済みます。",
+   "bad": "There was no secondary phase in the sample because XRD did not detect it.",
+   "good": "No secondary phase was detected by XRD.",
+   "terms": [
+    "XRD(X線回折)"
+   ],
+   "kw": "検出限界 detection limit 第2相"
+  },
+  {
+   "id": "x-texture",
+   "g": "xrd",
+   "ja": "再結晶焼なまし後の板は強い〜集合組織を示した",
+   "en": "The sheet annealed at {温度} exhibited a strong {集合組織} texture.",
+   "v": {
+    "温度": "700 °C",
+    "集合組織": "γ-fiber (<111>//ND)"
+   },
+   "note": "集合組織は texture です。γ ファイバー(板面に平行な {111} 面)は、焼なましたフェライト鋼板に典型的な集合組織です。",
+   "bad": "The sheet had strong texture of γ-fiber.",
+   "good": "The sheet had a strong γ-fiber texture.",
+   "terms": [
+    "再結晶"
+   ],
+   "kw": "集合組織 texture γファイバー"
+  },
+  {
+   "id": "x-xps",
+   "g": "xrd",
+   "ja": "XPS スペクトルから、〜の不動態皮膜は〜に富んでいた",
+   "en": "XPS spectra indicated that the passive film formed on {材料} was enriched in {酸化物}.",
+   "v": {
+    "材料": "the stainless steel",
+    "酸化物": "Cr₂O₃"
+   },
+   "note": "XPS(X-ray photoelectron spectroscopy)は表面数 nm の化学状態を調べる方法です。皮膜の上に「できる」は formed on です。",
+   "bad": "XPS spectra indicated the passive film on the stainless steel was rich of Cr2O3.",
+   "good": "XPS spectra indicated that the passive film was rich in Cr₂O₃.",
+   "terms": [
+    "XPS(X線光電子分光法)",
+    "不動態"
+   ],
+   "kw": "XPS 不動態皮膜 表面分析"
+  },
+  {
+   "id": "t-tensile",
+   "g": "mech",
+   "ja": "引張試験は〜で、初期ひずみ速度〜で行った",
+   "en": "Tensile tests were conducted at {温度} at an initial strain rate of {ひずみ速度}.",
+   "v": {
+    "温度": "room temperature",
+    "ひずみ速度": "1.0 × 10⁻³ s⁻¹"
+   },
+   "note": "ひずみ速度の単位は s⁻¹ です(1/s とも書けます)。10 のべきは × と上付きで書き、1.0E-3 や 1.0x10-3 とはしません。クロスヘッドの速さ(mm/min)で書くときは、どちらの量かを明記します。",
+   "bad": "Tensile tests were conducted with the strain rate of 1.0x10-3 /s.",
+   "good": "Tensile tests were conducted at a strain rate of 1.0 × 10⁻³ s⁻¹.",
+   "terms": [],
+   "kw": "引張試験 ひずみ速度 strain rate tensile test"
+  },
+  {
+   "id": "t-gauge",
+   "g": "mech",
+   "ja": "標点距離〜、幅〜のダンベル形試験片を用いた",
+   "en": "Dog-bone specimens with a gauge length of {標点距離} and a width of {幅} were used.",
+   "v": {
+    "標点距離": "25 mm",
+    "幅": "6 mm"
+   },
+   "note": "gauge(イギリス式)と gage(アメリカ式)のつづりがあります。ASTM E8/E8M は古い版(E8/E8M-09 など)が gage、現行の E8/E8M-24 は gauge です。どちらかにそろえます。",
+   "bad": "Dumbbell specimens of gauge length 25mm were used.",
+   "good": "Dog-bone specimens with a gauge length of 25 mm were used.",
+   "terms": [],
+   "kw": "試験片 標点距離 gauge length ダンベル"
+  },
+  {
+   "id": "t-yield",
+   "g": "mech",
+   "ja": "0.2%耐力は公称応力–ひずみ曲線から求めた",
+   "en": "The 0.2% offset yield strength was determined from {曲線}.",
+   "v": {
+    "曲線": "the engineering stress–strain curve"
+   },
+   "note": "0.2% offset yield strength(ASTM E8/E8M など)と 0.2% proof strength(ISO 6892-1 の Rp0.2。イギリス式では proof stress とも)は同じ量です。公称は engineering、真は true です。stress–strain の – は en dash です。",
+   "bad": "The 0.2% proof strength was decided from the nominal stress-strain curve.",
+   "good": "The 0.2% offset yield strength was determined from the engineering stress–strain curve.",
+   "terms": [
+    "0.2%耐力"
+   ],
+   "kw": "耐力 降伏強さ 0.2% proof stress 公称応力"
+  },
+  {
+   "id": "t-properties",
+   "g": "mech",
+   "ja": "〜の降伏強さは〜、伸びは〜であった",
+   "en": "The {試料} specimen exhibited a yield strength of {降伏強さ} and an elongation of {伸び}.",
+   "v": {
+    "試料": "A6061-T6",
+    "降伏強さ": "276 MPa",
+    "伸び": "12%"
+   },
+   "note": "材料の性質としての値は yield strength と書くことが多くなっています(yield stress も広く使われ、誤りではありません)。伸びには an elongation of、破断伸びは elongation to failure / at fracture です。",
+   "bad": "The yield strength of the specimen was 276MPa and elongation 12%.",
+   "good": "The yield strength of the specimen was 276 MPa, and the elongation was 12%.",
+   "terms": [
+    "0.2%耐力"
+   ],
+   "kw": "降伏強さ 伸び 引張特性 A6061"
+  },
+  {
+   "id": "t-work-hardening",
+   "g": "mech",
+   "ja": "〜は真ひずみ〜まで高い加工硬化率を示した",
+   "en": "The {材料} showed a high work-hardening rate up to a true strain of {ひずみ}.",
+   "v": {
+    "材料": "austenitic stainless steel",
+    "ひずみ": "0.4"
+   },
+   "note": "加工硬化は work hardening / strain hardening です。ひずみは無次元なので単位を付けません(0.4、または 40%)。",
+   "bad": "The steel showed high work hardening until true strain 0.4.",
+   "good": "The steel showed a high work-hardening rate up to a true strain of 0.4.",
+   "terms": [
+    "加工硬化"
+   ],
+   "kw": "加工硬化 work hardening 真ひずみ"
+  },
+  {
+   "id": "t-necking",
+   "g": "mech",
+   "ja": "公称ひずみ約〜でくびれが生じ、その後は荷重が下がって破断した",
+   "en": "Necking occurred at an engineering strain of about {ひずみ}, after which the load decreased until fracture.",
+   "v": {
+    "ひずみ": "0.18"
+   },
+   "note": "くびれは necking です。「その後」を , after which … でつなぐと、2つの文に分けずに書けます。",
+   "bad": "Necking was occurred at strain of 0.18.",
+   "good": "Necking occurred at a strain of 0.18.",
+   "terms": [],
+   "kw": "くびれ necking 破断"
+  },
+  {
+   "id": "t-vickers",
+   "g": "mech",
+   "ja": "ビッカース硬さは荷重〜、保持時間〜で測った",
+   "en": "Vickers hardness was measured under a load of {荷重} with a dwell time of {時間}.",
+   "v": {
+    "荷重": "4.9 N (HV 0.5)",
+    "時間": "15 s"
+   },
+   "note": "荷重は N で書き、試験力の記号(HV 0.5 など)を添えます。kgf だけで書くと SI に合いません。保持時間は dwell time / holding time です。",
+   "bad": "Vickers hardness was measured with 500gf load for 15sec.",
+   "good": "Vickers hardness was measured under a load of 4.9 N for 15 s.",
+   "terms": [],
+   "kw": "ビッカース 硬さ 荷重 保持時間 Vickers"
+  },
+  {
+   "id": "t-hv-value",
+   "g": "mech",
+   "ja": "焼入れままの〜の硬さは〜であった",
+   "en": "The hardness of the as-quenched {鋼} specimen was {硬さ}.",
+   "v": {
+    "鋼": "S45C",
+    "硬さ": "640 HV 10"
+   },
+   "note": "ISO 6507 の書き方は「数値・HV・試験力」の順(640 HV 10)です。Hv や HV640 と書く例も見かけますが、規格の書き方にそろえます。硬さは単位ではなく記号です。",
+   "bad": "The hardness of the as-quenched specimen was Hv640.",
+   "good": "The hardness of the as-quenched specimen was 640 HV 10.",
+   "terms": [
+    "マルテンサイト"
+   ],
+   "kw": "硬さ 表記 HV 焼入れ"
+  },
+  {
+   "id": "t-profile",
+   "g": "mech",
+   "ja": "表面から中心まで〜間隔で硬さ分布を測った",
+   "en": "A hardness profile was measured from the surface to the core at intervals of {間隔}.",
+   "v": {
+    "間隔": "0.1 mm"
+   },
+   "note": "「〜間隔で」は at intervals of … です。有効硬化層深さは effective case depth です。",
+   "bad": "Hardness distribution was measured from surface to core with the interval of 0.1 mm.",
+   "good": "The hardness profile was measured from the surface to the core at intervals of 0.1 mm.",
+   "terms": [
+    "浸炭"
+   ],
+   "kw": "硬さ分布 硬化層 case depth"
+  },
+  {
+   "id": "t-charpy",
+   "g": "mech",
+   "ja": "シャルピー衝撃試験を〜から〜の温度で行った",
+   "en": "Charpy impact tests were performed on {試験片} at temperatures from {下限} to {上限}.",
+   "v": {
+    "試験片": "standard V-notch specimens",
+    "下限": "−100 °C",
+    "上限": "20 °C"
+   },
+   "note": "範囲は from A to B で、両方に単位を付けます(NIST SP 811)。負の温度はマイナス記号(−)で書きます。吸収エネルギーは absorbed energy です。",
+   "bad": "Charpy tests were performed from -100 to 20°C.",
+   "good": "Charpy tests were performed at temperatures from −100 °C to 20 °C.",
+   "terms": [],
+   "kw": "シャルピー 衝撃試験 吸収エネルギー Charpy"
+  },
+  {
+   "id": "t-dbtt",
+   "g": "mech",
+   "ja": "延性–脆性遷移温度は吸収エネルギーが〜になる温度とした",
+   "en": "The ductile-to-brittle transition temperature was defined as the temperature at which the absorbed energy was {値}.",
+   "v": {
+    "値": "27 J"
+   },
+   "note": "遷移温度の決め方(27 J の温度、上部棚の半分の温度、破面率 50% の温度など)は複数あるので、定義を必ず書きます。",
+   "bad": "DBTT was defined as temperature where absorbed energy is 27J.",
+   "good": "The DBTT was defined as the temperature at which the absorbed energy was 27 J.",
+   "terms": [
+    "破壊前降伏"
+   ],
+   "kw": "遷移温度 DBTT 延性脆性遷移"
+  },
+  {
+   "id": "t-fatigue",
+   "g": "mech",
+   "ja": "疲労試験は荷重制御、応力比〜、周波数〜で行った",
+   "en": "Axial fatigue tests were carried out under load control at a stress ratio of {応力比} and a frequency of {周波数}.",
+   "v": {
+    "応力比": "R = 0.1",
+    "周波数": "10 Hz"
+   },
+   "note": "応力比 R は最小応力 ÷ 最大応力です(両振りは R = −1)。周波数 Hz は数と離して書きます。",
+   "bad": "Fatigue tests were carried out with R=0.1 and 10Hz.",
+   "good": "Fatigue tests were carried out at R = 0.1 and 10 Hz.",
+   "terms": [
+    "修正グッドマン線図"
+   ],
+   "kw": "疲労試験 応力比 周波数 fatigue"
+  },
+  {
+   "id": "t-runout",
+   "g": "mech",
+   "ja": "〜回で破断しないものは打ち切った",
+   "en": "Tests were terminated at {回数} cycles if no failure occurred (run-out).",
+   "v": {
+    "回数": "10⁷"
+   },
+   "note": "「打ち切り」は run-out です。10⁷ は上付きで書きます(10^7 や 1E7 とはしません)。",
+   "bad": "Tests were stopped at 10^7 cycles when not broken.",
+   "good": "Tests were stopped at 10⁷ cycles if no failure occurred.",
+   "terms": [
+    "疲労限度"
+   ],
+   "kw": "打ち切り run-out 繰返し数"
+  },
+  {
+   "id": "t-fatigue-limit",
+   "g": "mech",
+   "ja": "〜の疲労限度は〜と見積もられた",
+   "en": "The fatigue limit of the {試料} was estimated to be {値}.",
+   "v": {
+    "試料": "induction-hardened specimens",
+    "値": "520 MPa"
+   },
+   "note": "はっきりした疲労限度のない材料では、決めた繰返し数での疲労強さ(fatigue strength at 10⁷ cycles)として書きます。",
+   "bad": "The fatigue limit was estimated as about 520 MPa at 10^7 cycles.",
+   "good": "The fatigue strength at 10⁷ cycles was estimated to be about 520 MPa.",
+   "terms": [
+    "疲労限度"
+   ],
+   "kw": "疲労限度 疲労強さ fatigue limit"
+  },
+  {
+   "id": "t-fractography",
+   "g": "mech",
+   "ja": "破面を SEM で観察し、き裂の発生点を調べた",
+   "en": "The fracture surfaces were examined by {手法} to identify {目的}.",
+   "v": {
+    "手法": "SEM",
+    "目的": "the crack initiation sites"
+   },
+   "note": "破面観察は fractography です。き裂の発生 crack initiation、進展 crack propagation / growth です。",
+   "bad": "The fracture surfaces were observed by SEM in order to find crack origin.",
+   "good": "The fracture surfaces were examined by SEM to identify the crack initiation sites.",
+   "terms": [
+    "ストライエーション"
+   ],
+   "kw": "破面 fractography き裂発生"
+  },
+  {
+   "id": "t-dimples",
+   "g": "mech",
+   "ja": "破面は等軸のディンプルで覆われ、延性破壊を示していた",
+   "en": "The fracture surface was covered with {特徴}, indicating {破壊}.",
+   "v": {
+    "特徴": "equiaxed dimples",
+    "破壊": "ductile fracture by microvoid coalescence"
+   },
+   "note": "ディンプルは微小な空洞(ボイド)ができてつながる延性破壊の跡です。「〜を示す」は indicating / suggesting で、確かさに合わせて選びます。",
+   "bad": "The fracture surface was covered by dimples, it shows ductile fracture.",
+   "good": "The fracture surface was covered with dimples, indicating ductile fracture.",
+   "terms": [],
+   "kw": "ディンプル 延性破壊 dimple"
+  },
+  {
+   "id": "t-cleavage",
+   "g": "mech",
+   "ja": "〜で試験した試料には、リバーパターンのあるへき開面が見られた",
+   "en": "Cleavage facets with river patterns were observed on the specimens tested at {温度}.",
+   "v": {
+    "温度": "−60 °C"
+   },
+   "note": "へき開 cleavage は脆性破壊の典型的な破面で、川の流れのような段(river pattern)が見られます。",
+   "bad": "Cleavage facets with river pattern was observed.",
+   "good": "Cleavage facets with river patterns were observed.",
+   "terms": [
+    "破壊前降伏"
+   ],
+   "kw": "へき開 脆性破壊 cleavage river pattern"
+  },
+  {
+   "id": "t-striations",
+   "g": "mech",
+   "ja": "き裂進展域に疲労ストライエーションが見られ、その間隔は〜とともに広がった",
+   "en": "Fatigue striations were observed in the crack propagation region, and their spacing increased with {条件}.",
+   "v": {
+    "条件": "crack length"
+   },
+   "note": "ストライエーションは1回の繰返しで1本できる縞で、間隔はおおよそ1回あたりのき裂の進み(da/dN)に当たります。",
+   "bad": "Fatigue striation was observed and its interval became wide with the crack length.",
+   "good": "Fatigue striations were observed, and their spacing increased with crack length.",
+   "terms": [
+    "ストライエーション",
+    "パリス則"
+   ],
+   "kw": "ストライエーション 疲労破面 striation"
+  },
+  {
+   "id": "t-kic",
+   "g": "mech",
+   "ja": "平面ひずみ破壊靱性は〜に従って求めた",
+   "en": "The plane-strain fracture toughness was determined in accordance with {規格}.",
+   "v": {
+    "規格": "ASTM E399"
+   },
+   "note": "K_IC として有効であるためには、試験片の厚さなどの条件(規格の有効性の判定)を満たす必要があります。満たさないときは K_Q と書きます。",
+   "bad": "The fracture toughness K_IC was measured based on the ASTM E399.",
+   "good": "The fracture toughness was measured in accordance with ASTM E399.",
+   "terms": [
+    "破壊靭性",
+    "応力拡大係数"
+   ],
+   "kw": "破壊靱性 K_IC ASTM E399"
+  },
+  {
+   "id": "e-solution",
+   "g": "corr",
+   "ja": "電気化学測定は〜の〜溶液中、〜で行った",
+   "en": "Electrochemical measurements were performed in {溶液} at {温度}.",
+   "v": {
+    "溶液": "a 3.5 wt% NaCl solution",
+    "温度": "25 °C"
+   },
+   "note": "溶液は in です。濃度の % が質量分率か(wt%)、ほかの基準かを書きます。脱気したかどうか(deaerated / aerated)も条件として書きます。",
+   "bad": "Electrochemical measurement was carried out at 3.5% NaCl solution.",
+   "good": "Electrochemical measurements were carried out in a 3.5 wt% NaCl solution.",
+   "terms": [
+    "標準電極電位"
+   ],
+   "kw": "電気化学測定 溶液 NaCl"
+  },
+  {
+   "id": "e-cell",
+   "g": "corr",
+   "ja": "参照電極に〜、対極に〜を用いた3電極セルを使った",
+   "en": "A conventional three-electrode cell was used, with {参照電極} as the reference electrode and {対極} as the counter electrode.",
+   "v": {
+    "参照電極": "a saturated calomel electrode (SCE)",
+    "対極": "a platinum plate"
+   },
+   "note": "参照電極 reference electrode、対極 counter electrode、試料は working electrode です。",
+   "bad": "Three electrodes cell was used with SCE as reference and Pt as opposite electrode.",
+   "good": "A three-electrode cell was used with an SCE as the reference electrode and Pt as the counter electrode.",
+   "terms": [],
+   "kw": "3電極 参照電極 対極 SCE"
+  },
+  {
+   "id": "e-ocp",
+   "g": "corr",
+   "ja": "測定の前に〜浸漬して自然電位を安定させた",
+   "en": "Before each measurement, the specimens were immersed for {時間} to stabilize the open-circuit potential.",
+   "v": {
+    "時間": "30 min"
+   },
+   "note": "自然電位は open-circuit potential(OCP)または corrosion potential です。",
+   "bad": "Before measurement, the specimens were immersed during 30 min for stabilizing the potential.",
+   "good": "Before each measurement, the specimens were immersed for 30 min to stabilize the potential.",
+   "terms": [],
+   "kw": "自然電位 OCP 浸漬"
+  },
+  {
+   "id": "e-polarization",
+   "g": "corr",
+   "ja": "動電位分極曲線を掃引速度〜で測定した",
+   "en": "Potentiodynamic polarization curves were measured at a scan rate of {速度}.",
+   "v": {
+    "速度": "0.167 mV/s (0.6 V/h)"
+   },
+   "note": "掃引速度は scan rate / sweep rate です。0.6 V/h は ASTM G5 の分極測定の標準の速さです。",
+   "bad": "Polarization curves were measured with sweep speed of 0.167mV/s.",
+   "good": "Polarization curves were measured at a scan rate of 0.167 mV/s.",
+   "terms": [],
+   "kw": "分極曲線 掃引速度 potentiodynamic"
+  },
+  {
+   "id": "e-vs-sce",
+   "g": "corr",
+   "ja": "〜の孔食電位は〜 vs. SCE で、〜より高かった",
+   "en": "The pitting potential of the {試料} specimen was {電位} vs. SCE, which was higher than that of the {比較} specimen.",
+   "v": {
+    "試料": "316L",
+    "電位": "0.45 V",
+    "比較": "304"
+   },
+   "note": "電位は参照電極によって値が変わるので、必ず vs. SCE、vs. Ag/AgCl などを付けます。Mo を含む 316L は 304 より孔食に強いのが普通です。",
+   "bad": "The pitting potential of 316L was 0.45 V, which was higher than 304.",
+   "good": "The pitting potential of 316L was 0.45 V vs. SCE, which was higher than that of 304.",
+   "terms": [
+    "孔食",
+    "ステンレス鋼"
+   ],
+   "kw": "孔食電位 vs. SCE 参照電極"
+  },
+  {
+   "id": "e-icorr",
+   "g": "corr",
+   "ja": "腐食電流密度はカソード分極曲線のターフェル外挿で求めた",
+   "en": "The corrosion current density was determined by Tafel extrapolation of {枝}.",
+   "v": {
+    "枝": "the cathodic branch"
+   },
+   "note": "Tafel は人名なので大文字です。電流密度の単位は A/m² または µA/cm² で、どちらかにそろえます。",
+   "bad": "Corrosion current was determined by tafel extrapolation.",
+   "good": "The corrosion current density was determined by Tafel extrapolation.",
+   "terms": [
+    "ファラデーの法則"
+   ],
+   "kw": "腐食電流 ターフェル Tafel"
+  },
+  {
+   "id": "e-pits",
+   "g": "corr",
+   "ja": "孔食は〜を起点に優先的に発生した",
+   "en": "Pits were preferentially initiated at {起点}.",
+   "v": {
+    "起点": "MnS inclusions"
+   },
+   "note": "孔食の現象は pitting (corrosion)、1つ1つの孔は pit(可算)です。ステンレス鋼では MnS などの介在物が孔食の起点になりやすいことが知られています。",
+   "bad": "Pitting corrosions were initiated at MnS.",
+   "good": "Pits were initiated at MnS inclusions.",
+   "terms": [
+    "孔食"
+   ],
+   "kw": "孔食 pit 介在物 MnS"
+  },
+  {
+   "id": "e-passive",
+   "g": "corr",
+   "ja": "〜から〜 vs. SCE の間に安定な不動態域が見られた",
+   "en": "A stable passive region was observed between {下限} and {上限} vs. SCE.",
+   "v": {
+    "下限": "−0.2 V",
+    "上限": "0.3 V"
+   },
+   "note": "「〜から〜の間」は between A and B です(between A–B とはしません)。",
+   "bad": "A passive region was observed between −0.2–0.3 V.",
+   "good": "A passive region was observed between −0.2 V and 0.3 V.",
+   "terms": [
+    "不動態"
+   ],
+   "kw": "不動態域 passive region"
+  },
+  {
+   "id": "e-mass-loss",
+   "g": "corr",
+   "ja": "腐食速度は〜浸漬後の質量減から計算した",
+   "en": "The corrosion rate was calculated from the mass loss after immersion for {時間}.",
+   "v": {
+    "時間": "720 h"
+   },
+   "note": "量としては「質量」なので mass loss が正確です(weight loss も慣用で使われます)。時間は h で、hr や hrs とはしません。",
+   "bad": "Corrosion rate was calculated from weight loss after 720hrs immersion.",
+   "good": "The corrosion rate was calculated from the mass loss after 720 h of immersion.",
+   "terms": [
+    "ファラデーの法則"
+   ],
+   "kw": "腐食速度 質量減 mass loss"
+  },
+  {
+   "id": "e-scc",
+   "g": "corr",
+   "ja": "応力腐食割れ試験は U ベンド試験片で沸騰〜溶液中で行った",
+   "en": "Stress corrosion cracking tests were conducted using U-bend specimens in {溶液}.",
+   "v": {
+    "溶液": "a boiling magnesium chloride solution"
+   },
+   "note": "沸騰 MgCl₂ 溶液は、オーステナイト系ステンレス鋼の塩化物応力腐食割れを短時間で調べる古典的な方法です(ASTM G36)。",
+   "bad": "SCC test was done by U-bend specimen in boiling MgCl2.",
+   "good": "SCC tests were conducted using U-bend specimens in boiling MgCl₂ solution.",
+   "terms": [
+    "応力腐食割れ"
+   ],
+   "kw": "応力腐食割れ SCC U ベンド"
+  },
+  {
+   "id": "h-oxidation",
+   "g": "corr",
+   "ja": "〜の静止大気中で最長〜の等温酸化試験を行った",
+   "en": "Isothermal oxidation tests were carried out at {温度} in static air for up to {時間}.",
+   "v": {
+    "温度": "1000 °C",
+    "時間": "100 h"
+   },
+   "note": "「最長〜まで」は for up to … です。くり返し加熱する試験は cyclic oxidation です。",
+   "bad": "Isothermal oxidation test was done at 1000 °C in air until maximum 100 hours.",
+   "good": "Isothermal oxidation tests were carried out at 1000 °C in air for up to 100 h.",
+   "terms": [
+    "酸化の放物線則"
+   ],
+   "kw": "高温酸化 等温酸化 oxidation"
+  },
+  {
+   "id": "h-parabolic",
+   "g": "corr",
+   "ja": "単位面積あたりの質量増は放物線則に従った",
+   "en": "The mass gain per unit area followed a parabolic rate law, indicating that {解釈}.",
+   "v": {
+    "解釈": "the oxidation was controlled by diffusion through the oxide scale"
+   },
+   "note": "放物線則は (Δm/A)² = k_p t の形で、酸化皮膜の中の拡散が速さを決めるときに成り立ちます。",
+   "bad": "The weight gain obeyed the parabolic law, which means diffusion control.",
+   "good": "The mass gain followed a parabolic rate law, indicating diffusion control.",
+   "terms": [
+    "酸化の放物線則"
+   ],
+   "kw": "放物線則 質量増 parabolic"
+  },
+  {
+   "id": "h-scale",
+   "g": "corr",
+   "ja": "〜には連続した〜皮膜ができたのに対し、〜にはより厚い〜皮膜ができた",
+   "en": "A continuous {酸化物1} scale formed on {合金1}, whereas {合金2} developed a thicker {酸化物2} scale.",
+   "v": {
+    "酸化物1": "α-Al₂O₃",
+    "合金1": "the alumina-forming alloy",
+    "合金2": "the chromia-forming alloy",
+    "酸化物2": "Cr₂O₃"
+   },
+   "note": "酸化皮膜は oxide scale(厚い皮膜)/ oxide film(薄い皮膜)です。α-Al₂O₃ は Cr₂O₃ より成長が遅く、高温でよく保護します。",
+   "bad": "Continuous Al2O3 scale was formed on the alloy.",
+   "good": "A continuous Al₂O₃ scale formed on the alloy.",
+   "terms": [
+    "ピリング・ベドワース比"
+   ],
+   "kw": "酸化皮膜 アルミナ クロミア scale"
+  },
+  {
+   "id": "h-spallation",
+   "g": "corr",
+   "ja": "冷却中に酸化皮膜のはく離が起きた",
+   "en": "Spallation of the oxide scale occurred during {条件} because of {原因}.",
+   "v": {
+    "条件": "cooling",
+    "原因": "the thermal expansion mismatch between the oxide and the substrate"
+   },
+   "note": "酸化皮膜のはく離は spallation、熱膨張の差は thermal expansion mismatch です。",
+   "bad": "Exfoliation of oxide was occurred during cooling.",
+   "good": "Spallation of the oxide scale occurred during cooling.",
+   "terms": [
+    "熱応力",
+    "線膨張係数"
+   ],
+   "kw": "はく離 spallation 熱膨張差"
+  },
+  {
+   "id": "h-creep",
+   "g": "corr",
+   "ja": "クリープ試験は〜で、初期応力〜の一定荷重で行った",
+   "en": "Creep tests were performed at {温度} under constant loads corresponding to initial stresses of {応力}.",
+   "v": {
+    "温度": "650 °C",
+    "応力": "150–250 MPa"
+   },
+   "note": "一定荷重(constant load)と一定応力(constant stress)の試験は別物です。一定荷重では、伸びるにつれて真応力が大きくなります。",
+   "bad": "Creep test was done at 650 °C with constant stress of 150 MPa by dead weight.",
+   "good": "Creep tests were performed at 650 °C under a constant load (initial stress: 150 MPa).",
+   "terms": [
+    "クリープ"
+   ],
+   "kw": "クリープ試験 一定荷重 creep"
+  },
+  {
+   "id": "h-stress-exponent",
+   "g": "corr",
+   "ja": "最小クリープ速度は応力とともに増え、応力指数は約〜であった",
+   "en": "The minimum creep rate increased with applied stress, with a stress exponent of approximately {n}, suggesting {機構}.",
+   "v": {
+    "n": "5",
+    "機構": "dislocation climb-controlled creep"
+   },
+   "note": "応力指数 n が 4〜5 程度なら転位の上昇運動が律速するべき乗則クリープ、1 に近ければ拡散クリープと考えるのが一般的です。",
+   "bad": "The minimum creep rate became larger with stress and n value was about 5.",
+   "good": "The minimum creep rate increased with stress, with a stress exponent of about 5.",
+   "terms": [
+    "べき乗則クリープ",
+    "変形機構図"
+   ],
+   "kw": "最小クリープ速度 応力指数 stress exponent"
+  },
+  {
+   "id": "h-lmp",
+   "g": "corr",
+   "ja": "破断データは C = 20 のラーソン・ミラー・パラメータで整理した",
+   "en": "The rupture data were analyzed using the Larson–Miller parameter with C = {定数}.",
+   "v": {
+    "定数": "20"
+   },
+   "note": "ラーソン・ミラー・パラメータは T(C + log t_r) で、T は絶対温度(K)、t_r は時間(h)です。C の値と時間の単位を必ず書きます。",
+   "bad": "The rupture datas were arranged by LMP.",
+   "good": "The rupture data were analyzed using the Larson–Miller parameter.",
+   "terms": [
+    "ラーソン・ミラー・パラメータ",
+    "クリープ"
+   ],
+   "kw": "ラーソン・ミラー LMP クリープ破断"
+  },
+  {
+   "id": "f-shows",
+   "g": "fig",
+   "ja": "図〜は〜を示す",
+   "en": "Fig. {番号} shows {内容}.",
+   "v": {
+    "番号": "3",
+    "内容": "the change in hardness with aging time at 190 °C"
+   },
+   "note": "図の説明は現在形です。番号の付いた図には the を付けません(the Fig. 3 とはしません)。Fig. と Figure のどちらを使うか、文頭で略さないかは雑誌の規定に従います。",
+   "bad": "The Fig.3 is shown the change in hardness.",
+   "good": "Fig. 3 shows the change in hardness.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "図 Fig. shows 図の説明"
+  },
+  {
+   "id": "f-as-shown",
+   "g": "fig",
+   "ja": "図〜に示すように、〜",
+   "en": "As shown in Fig. {番号}, {内容}.",
+   "v": {
+    "番号": "4",
+    "内容": "the yield strength increased linearly with the inverse square root of the grain size"
+   },
+   "note": "As shown in Fig. 4, のあとに it can be seen that を重ねるのは冗長です。結晶粒径の −1/2 乗に比例するのがホール・ペッチの関係です。",
+   "bad": "As shown in Fig. 4, it can be seen that the yield strength increased.",
+   "good": "As shown in Fig. 4, the yield strength increased.",
+   "terms": [
+    "ホール・ペッチの関係"
+   ],
+   "kw": "に示すように as shown in 冗長"
+  },
+  {
+   "id": "f-presented",
+   "g": "fig",
+   "ja": "典型的な〜を図〜に示す",
+   "en": "Typical {内容} are presented in Fig. {番号}.",
+   "v": {
+    "内容": "engineering stress–strain curves",
+    "番号": "5"
+   },
+   "note": "presented / shown / given のどれでも使えます。主語(curves)が複数なので are です。",
+   "bad": "Typical stress-strain curve are shown in Fig. 5.",
+   "good": "Typical stress–strain curves are shown in Fig. 5.",
+   "terms": [],
+   "kw": "典型的 presented 図"
+  },
+  {
+   "id": "f-ab",
+   "g": "fig",
+   "ja": "図〜(a)と(b)は、それぞれ〜と〜で試験した試料の破面を示す",
+   "en": "Fig. {番号}(a) and (b) show {内容} of the specimens tested at {条件1} and {条件2}, respectively.",
+   "v": {
+    "番号": "6",
+    "内容": "SEM images of the fracture surfaces",
+    "条件1": "20 °C",
+    "条件2": "−60 °C"
+   },
+   "note": "図の中の (a)(b) の書き方(Fig. 6(a) and (b)、Figs. 6a and 6b など)は雑誌によって違います。2つ以上の図を指すので動詞は show(複数)です。",
+   "bad": "Fig. 6(a) and (b) shows SEM images at 20 °C and −60 °C.",
+   "good": "Fig. 6(a) and (b) show SEM images at 20 °C and −60 °C, respectively.",
+   "terms": [],
+   "kw": "図 (a)(b) respectively 破面"
+  },
+  {
+   "id": "f-caption",
+   "g": "fig",
+   "ja": "(図の説明文)図〜 〜の光学顕微鏡写真:(a)焼ならし、(b)焼入れ",
+   "en": "Fig. {番号}. {内容} (a) as normalized and (b) as quenched.",
+   "v": {
+    "番号": "2",
+    "内容": "Optical micrographs of the S45C steel"
+   },
+   "note": "図の説明文(キャプション)は文ではなく名詞句で書くのが普通です。顕微鏡の写真は photograph ではなく micrograph です。",
+   "bad": "Fig. 2. Optical microscope photos of the S45C steel.",
+   "good": "Fig. 2. Optical micrographs of the S45C steel.",
+   "terms": [
+    "パーライト",
+    "マルテンサイト"
+   ],
+   "kw": "キャプション 図の説明 caption micrograph"
+  },
+  {
+   "id": "f-error-bars",
+   "g": "fig",
+   "ja": "エラーバーは〜回の測定の標準偏差を表す",
+   "en": "Error bars represent the standard deviation of {回数} measurements.",
+   "v": {
+    "回数": "five"
+   },
+   "note": "エラーバーが標準偏差(SD)か標準誤差(SE)か、何回の測定かを書かないと、読み手は図を比べられません。",
+   "bad": "Error bars show the error.",
+   "good": "Error bars represent the standard deviation of five measurements.",
+   "terms": [],
+   "kw": "エラーバー 標準偏差 standard deviation ばらつき"
+  },
+  {
+   "id": "f-linear",
+   "g": "fig",
+   "ja": "〜と〜の間には直線の関係があった",
+   "en": "A linear relationship was found between {A} and {B} ({指標}).",
+   "v": {
+    "A": "the hardness",
+    "B": "the tensile strength",
+    "指標": "R² = 0.98"
+   },
+   "note": "relationship between A and B の前置詞は between … and です。決定係数は R²(上付き)で書きます。",
+   "bad": "There was linear relation among hardness and tensile strength (R2=0.98).",
+   "good": "There was a linear relationship between hardness and tensile strength (R² = 0.98).",
+   "terms": [],
+   "kw": "直線関係 相関 linear relationship R²"
+  },
+  {
+   "id": "f-plotted",
+   "g": "fig",
+   "ja": "〜を〜の関数として図〜に示す",
+   "en": "The {量} is plotted as a function of {変数} in Fig. {番号}.",
+   "v": {
+    "量": "volume fraction of retained austenite",
+    "変数": "the austenitizing temperature",
+    "番号": "7"
+   },
+   "note": "「A を B に対してプロットする」は plot A against (versus) B、または A as a function of B です。",
+   "bad": "The retained austenite was plotted with the austenitizing temperature in Fig. 7.",
+   "good": "The retained austenite fraction is plotted against the austenitizing temperature in Fig. 7.",
+   "terms": [
+    "マルテンサイト"
+   ],
+   "kw": "プロット 関数 as a function of versus"
+  },
+  {
+   "id": "f-arrows",
+   "g": "fig",
+   "ja": "図〜の矢印は〜を示す",
+   "en": "The arrows in Fig. {番号} indicate {対象}.",
+   "v": {
+    "番号": "8",
+    "対象": "the crack initiation sites"
+   },
+   "note": "図の中の矢印・記号は indicate / mark / point to で説明します。",
+   "bad": "Arrows in Fig. 8 mean crack initiation site.",
+   "good": "The arrows in Fig. 8 indicate the crack initiation sites.",
+   "terms": [],
+   "kw": "矢印 indicate 図"
+  },
+  {
+   "id": "f-inset",
+   "g": "fig",
+   "ja": "挿入図は対応する制限視野回折図形を示す",
+   "en": "The inset shows {内容}.",
+   "v": {
+    "内容": "the corresponding selected area electron diffraction pattern"
+   },
+   "note": "図の中の小さな図は inset です。制限視野電子回折は selected area electron diffraction(SAED)です。",
+   "bad": "The insert figure shows the diffraction pattern.",
+   "good": "The inset shows the diffraction pattern.",
+   "terms": [],
+   "kw": "挿入図 inset SAED"
+  },
+  {
+   "id": "f-table",
+   "g": "fig",
+   "ja": "表〜に〜をまとめる",
+   "en": "Table {番号} lists {内容}.",
+   "v": {
+    "番号": "3",
+    "内容": "the heat treatment conditions and the resulting hardness values"
+   },
+   "note": "表が主語なら lists / summarizes / gives を使い、現在形です。",
+   "bad": "In Table 3, heat treatment conditions are listed up.",
+   "good": "Table 3 lists the heat treatment conditions.",
+   "terms": [],
+   "kw": "表 Table lists まとめ"
+  },
+  {
+   "id": "f-drop",
+   "g": "fig",
+   "ja": "〜は〜と〜の間で急に下がった",
+   "en": "The {量} showed a sharp drop between {温度1} and {温度2}.",
+   "v": {
+    "量": "impact energy",
+    "温度1": "−40 °C",
+    "温度2": "−20 °C"
+   },
+   "note": "急に下がる sharp drop / abrupt decrease、ゆるやかに gradual、横ばい plateau / level off です。",
+   "bad": "The impact energy dropped down suddenly at between −40 °C and −20 °C.",
+   "good": "The impact energy dropped sharply between −40 °C and −20 °C.",
+   "terms": [
+    "破壊前降伏"
+   ],
+   "kw": "急減 sharp drop 傾向 増減"
+  },
+  {
+   "id": "f-scatter",
+   "g": "fig",
+   "ja": "〜以下の応力振幅ではデータのばらつきが大きい",
+   "en": "The fatigue data show considerable scatter at stress amplitudes below {値}.",
+   "v": {
+    "値": "400 MPa"
+   },
+   "note": "データのばらつきの意味の scatter は不可算で使うのが普通です(considerable scatter、a large degree of scatter)。scatters と複数にはしません。data を複数扱いにするなら動詞は show です(単数扱いの雑誌もあります)。",
+   "bad": "The fatigue data show large scatters.",
+   "good": "The fatigue data show considerable scatter.",
+   "terms": [
+    "疲労限度",
+    "ワイブル係数"
+   ],
+   "kw": "ばらつき scatter data"
+  },
+  {
+   "id": "f-compared",
+   "g": "fig",
+   "ja": "〜と比べると、〜はより細かい粒径と高い延性を示した",
+   "en": "Compared with {比較}, {主語} showed {結果}.",
+   "v": {
+    "比較": "the as-cast alloy",
+    "主語": "the extruded alloy",
+    "結果": "a finer grain size and higher ductility"
+   },
+   "note": "Compared with … の比べる相手と、主節の主語をそろえます。主語が grain size だと「鋳造合金と粒径」を比べたことになります(懸垂分詞)。compared to も使われます。",
+   "bad": "Compared with the as-cast alloy, the grain size was finer.",
+   "good": "Compared with the as-cast alloy, the extruded alloy had a finer grain size.",
+   "terms": [
+    "押出し"
+   ],
+   "kw": "比較 compared with 懸垂分詞"
+  },
+  {
+   "id": "f-slightly",
+   "g": "fig",
+   "ja": "〜とともに〜はわずかに下がった",
+   "en": "The {量} decreased slightly with increasing {条件}.",
+   "v": {
+    "量": "lattice parameter",
+    "条件": "Cu content"
+   },
+   "note": "slightly(わずかに)は動詞のあとに置くと自然です。「やや」「少し」を a little で書くと話し言葉に近くなります。",
+   "bad": "The lattice parameter was slightly decreased with the Cu content increase.",
+   "good": "The lattice parameter decreased slightly with increasing Cu content.",
+   "terms": [
+    "固溶強化"
+   ],
+   "kw": "わずかに slightly 減少 副詞の位置"
+  },
+  {
+   "id": "f-no-correlation",
+   "g": "fig",
+   "ja": "〜と〜の間にははっきりした相関は見られなかった",
+   "en": "No clear correlation was found between {A} and {B} {範囲}.",
+   "v": {
+    "A": "the inclusion size",
+    "B": "the fatigue life",
+    "範囲": "in this range"
+   },
+   "note": "correlation between A and B です。相関がないことも結果として書きます。",
+   "bad": "There was no clear correlation of inclusion size and fatigue life.",
+   "good": "There was no clear correlation between inclusion size and fatigue life.",
+   "terms": [
+    "疲労限度"
+   ],
+   "kw": "相関 correlation between"
+  },
+  {
+   "id": "f-schematic",
+   "g": "fig",
+   "ja": "〜の模式図を図〜に示す",
+   "en": "A schematic illustration of {対象} is shown in Fig. {番号}.",
+   "v": {
+    "対象": "the specimen geometry",
+    "番号": "1"
+   },
+   "note": "模式図は schematic illustration / schematic diagram です。schematic figure とも書きます。",
+   "bad": "The schematic of specimen is shown in the Fig. 1.",
+   "good": "A schematic of the specimen is shown in Fig. 1.",
+   "terms": [],
+   "kw": "模式図 schematic 試験片"
+  },
+  {
+   "id": "n-space",
+   "g": "num",
+   "ja": "数と単位の間には空白を入れる",
+   "en": "The specimens were heated to {温度} and held for {時間}.",
+   "v": {
+    "温度": "500 °C",
+    "時間": "2 h"
+   },
+   "note": "SI 文書と NIST SP 811 では、数と単位記号の間に空白を入れます(°C も同じ)。例外は平面角の °・′・″ で、30° のように空白を入れません。% の前の空白は雑誌によって違います。",
+   "bad": "The specimens were heated to 500°C and held for 2h.",
+   "good": "The specimens were heated to 500 °C and held for 2 h.",
+   "terms": [],
+   "kw": "空白 スペース 単位 数と単位 SI"
+  },
+  {
+   "id": "n-celsius",
+   "g": "num",
+   "ja": "℃ は「°」と「C」の2文字で書く",
+   "en": "The test temperature was {温度}.",
+   "v": {
+    "温度": "25 °C"
+   },
+   "note": "°C は度の記号(U+00B0)と C の2文字で書き、間に空白を入れません。1文字の ℃(U+2103)は東アジアの文字との互換のための文字なので、英文では °C にします。小文字の o や ° と C の間の空白は誤りです。ケルビンには ° を付けません(298 K)。",
+   "bad": "The test temperature was 25 ° C (298 °K).",
+   "good": "The test temperature was 25 °C (298 K).",
+   "terms": [],
+   "kw": "℃ °C ケルビン K 温度の書き方"
+  },
+  {
+   "id": "n-percent",
+   "g": "num",
+   "ja": "% の書き方をそろえる",
+   "en": "The porosity of the sintered body was {値}.",
+   "v": {
+    "値": "3.2%"
+   },
+   "note": "SI 文書・ISO 80000 は数と % の間に空白を入れます(3.2 %)。英語のスタイルガイド(Chicago、APA)や多くの雑誌は空白なし(3.2%)です。投稿先の規定に合わせ、1つの論文の中ではそろえます。数のあとの percent は複数でも形が変わらない(3.2 percent)ので、percents とはしません。",
+   "bad": "The porosity was 3.2 percents.",
+   "good": "The porosity was 3.2%.",
+   "terms": [
+    "焼結"
+   ],
+   "kw": "パーセント % 空白 percent"
+  },
+  {
+   "id": "n-wt-at",
+   "g": "num",
+   "ja": "組成は wt% か at% かを必ず書く",
+   "en": "The alloy contained {量1} Cu ({量2} Cu).",
+   "v": {
+    "量1": "4 wt%",
+    "量2": "1.7 at%"
+   },
+   "note": "Al–4 wt% Cu は 1.7 at% Cu に当たり、基準で値が大きく違います。wt%・wt.%・mass% の書き方は雑誌で違います。SI 文書・NIST SP 811 は単位に情報を付けることを認めず「質量分率 4 %」のように書くよう求めますが、材料系の雑誌では wt% と at% が広く使われています。",
+   "bad": "The alloy contained 4% Cu.",
+   "good": "The alloy contained 4 wt% Cu.",
+   "terms": [],
+   "kw": "wt% at% mass% 質量% 原子% 組成"
+  },
+  {
+   "id": "n-alloy",
+   "g": "num",
+   "ja": "合金の組成は元素を en dash でつなぐ",
+   "en": "An {合金} alloy was used in this study.",
+   "v": {
+    "合金": "Fe–18Cr–8Ni (wt%)"
+   },
+   "note": "元素の並びは en dash(–)でつなぎ、数は元素の前に置き、基準(wt%)をまとめて示します。ハイフン(-)でつなぐ雑誌もあります。冠詞は読みの音で決め、Fe(エフイー / アイアン)は母音で始まるので an です。",
+   "bad": "A Fe-18%Cr-8%Ni alloy was used.",
+   "good": "An Fe–18Cr–8Ni (wt%) alloy was used.",
+   "terms": [
+    "ステンレス鋼"
+   ],
+   "kw": "合金の書き方 組成 en dash"
+  },
+  {
+   "id": "n-range",
+   "g": "num",
+   "ja": "範囲は from … to … か en dash で書き、〜は使わない",
+   "en": "The aging temperature was varied from {下限} to {上限}.",
+   "v": {
+    "下限": "150 °C",
+    "上限": "250 °C"
+   },
+   "note": "NIST SP 811 は「150 °C to 250 °C」か「(150 to 250) °C」と書き、「150 to 250 °C」や「150 °C – 250 °C」を認めません。多くの雑誌は「150–250 °C」(en dash)も認めます。日本語の「〜」は英文では使いません。",
+   "bad": "The aging temperature was varied from 150~250 °C.",
+   "good": "The aging temperature was varied from 150 °C to 250 °C.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "範囲 から まで en dash 〜 to"
+  },
+  {
+   "id": "n-pm",
+   "g": "num",
+   "ja": "平均値と標準偏差は ± で書き、単位の付け方をそろえる",
+   "en": "The average grain size was {値}.",
+   "v": {
+    "値": "(24 ± 3) µm"
+   },
+   "note": "NIST SP 811 は (24 ± 3) µm か 24 µm ± 3 µm と書きます。24 ± 3 µm と書く雑誌も多くあります。± の後ろが標準偏差か標準誤差かを書きます。",
+   "bad": "The average grain size was 24±3um.",
+   "good": "The average grain size was 24 ± 3 µm.",
+   "terms": [],
+   "kw": "± 標準偏差 平均値 誤差の書き方"
+  },
+  {
+   "id": "n-power",
+   "g": "num",
+   "ja": "10 のべきは × と上付きで書く",
+   "en": "The diffusion coefficient of {元素} in {母相} at {温度} is approximately {値}.",
+   "v": {
+    "元素": "Cu",
+    "母相": "Al",
+    "温度": "500 °C",
+    "値": "4.2 × 10⁻¹⁴ m²/s"
+   },
+   "note": "掛け算の記号は × で、文字の x は使いません。指数は上付き(10⁻¹⁴)にし、1.2E-14 のような計算機の書き方は本文では使いません。D = D₀ exp(−Q/RT) に D₀ = 6.5 × 10⁻⁵ m²/s、Q = 136 kJ/mol を入れると、500 °C で約 4.2 × 10⁻¹⁴ m²/s です。",
+   "bad": "The diffusion coefficient was 4.2x10-14 m2/s.",
+   "good": "The diffusion coefficient was 4.2 × 10⁻¹⁴ m²/s.",
+   "terms": [
+    "拡散係数",
+    "フィックの法則"
+   ],
+   "kw": "べき 指数 × 上付き 拡散係数"
+  },
+  {
+   "id": "n-sig",
+   "g": "num",
+   "ja": "有効数字は測定の精度に合わせる",
+   "en": "The measured density was {値}, which corresponds to {割合} of the theoretical density.",
+   "v": {
+    "値": "3.92 g/cm³",
+    "割合": "98.5%"
+   },
+   "note": "計算機の桁をそのまま書かず、測定の精度に合う桁にそろえます。アルミナの理論密度 3.98 g/cm³ に対して 3.92 g/cm³ は 98.5% です。",
+   "bad": "The density was 3.9196482 g/cm3 (98.48% of the theoretical density).",
+   "good": "The density was 3.92 g/cm³ (98.5% of the theoretical density).",
+   "terms": [
+    "焼結"
+   ],
+   "kw": "有効数字 桁 密度 相対密度"
+  },
+  {
+   "id": "n-start",
+   "g": "num",
+   "ja": "文の頭に数字を置かない",
+   "en": "{数} specimens were tested for each condition.",
+   "v": {
+    "数": "Three"
+   },
+   "note": "文の頭の数は語で書くか、文を組み替えます(For each condition, 3 specimens were tested.)。単位の付いた数は数字で書きます(5 mm)。",
+   "bad": "3 specimens were tested for each condition.",
+   "good": "Three specimens were tested for each condition.",
+   "terms": [],
+   "kw": "文頭の数字 数字で始めない spelled out"
+  },
+  {
+   "id": "n-per",
+   "g": "num",
+   "ja": "単位の割り算は「/」を1つまでにする",
+   "en": "The molar heat capacity of {物質} is about {値}.",
+   "v": {
+    "物質": "copper",
+    "値": "24.4 J/(mol·K)"
+   },
+   "note": "J/mol/K のように / を重ねると、どこで割るかあいまいになります。J/(mol·K) か J mol⁻¹ K⁻¹ と書き、1つの論文の中ではそろえます(NIST SP 811)。",
+   "bad": "The molar heat capacity is 24.4 J/mol/K.",
+   "good": "The molar heat capacity is 24.4 J/(mol·K).",
+   "terms": [
+    "デュロン・プティの法則"
+   ],
+   "kw": "単位の割り算 スラッシュ J/(mol·K)"
+  },
+  {
+   "id": "n-micro",
+   "g": "num",
+   "ja": "マイクロメートルは µm と書く",
+   "en": "The particles were {値} in diameter.",
+   "v": {
+    "値": "2–5 µm"
+   },
+   "note": "µ を u で代用しません。micron(ミクロン)は古い名前なので、本文は micrometer(µm)にします。範囲の en dash の前後に空白は入れません。",
+   "bad": "The particles were 2 - 5 um in diameter.",
+   "good": "The particles were 2–5 µm in diameter.",
+   "terms": [],
+   "kw": "マイクロメートル µm ミクロン 直径"
+  },
+  {
+   "id": "n-sqrt-m",
+   "g": "num",
+   "ja": "破壊靱性の単位は MPa√m か、m の 1/2 乗を上付きで書く",
+   "en": "The fracture toughness of the tempered steel was {値}.",
+   "v": {
+    "値": "45 MPa√m"
+   },
+   "note": "平方根の単位は MPa√m か、MPa·m の右肩に 1/2 を上付きで書く形です(ワープロの上付きを使います)。MPa m1/2 のように上付きを忘れると、別の意味に読めます。",
+   "bad": "The fracture toughness was 45 MPa m1/2.",
+   "good": "The fracture toughness was 45 MPa√m.",
+   "terms": [
+    "破壊靭性",
+    "応力拡大係数"
+   ],
+   "kw": "MPa√m 破壊靱性 単位"
+  },
+  {
+   "id": "n-hv",
+   "g": "num",
+   "ja": "硬さの書き方は規格にそろえる",
+   "en": "The hardness of the case was {値1}, and that of the core was {値2}.",
+   "v": {
+    "値1": "700 HV 1",
+    "値2": "350 HV 1"
+   },
+   "note": "ビッカース硬さは ISO 6507 の「数値・HV・試験力」(700 HV 1)、ロックウェルは「数値・HRC」(58 HRC)の順に書きます。Hv、hv は誤りです。that of で比べる物(the hardness)をそろえます。",
+   "bad": "The case hardness was Hv700 and the core was 350Hv.",
+   "good": "The hardness of the case was 700 HV 1, and that of the core was 350 HV 1.",
+   "terms": [
+    "浸炭"
+   ],
+   "kw": "硬さ HV HRC 表記"
+  },
+  {
+   "id": "n-dimension",
+   "g": "num",
+   "ja": "寸法は単位をそれぞれに付けて書く",
+   "en": "Specimens measuring {寸法} were used for {試験}.",
+   "v": {
+    "寸法": "10 mm × 10 mm × 55 mm",
+    "試験": "the Charpy impact tests"
+   },
+   "note": "NIST SP 811 は 10 mm × 10 mm × 55 mm のように数ごとに単位を付け、10 × 10 × 55 mm を認めません(原稿点検のチェックリストの例: 35 cm × 48 cm)。多くの雑誌は 10 × 10 × 55 mm も使います。",
+   "bad": "Specimens of 10×10×55mm were used.",
+   "good": "Specimens measuring 10 mm × 10 mm × 55 mm were used.",
+   "terms": [],
+   "kw": "寸法 × 試験片 サイズ"
+  },
+  {
+   "id": "n-time",
+   "g": "num",
+   "ja": "時間の記号は h・min・s で書く",
+   "en": "The total exposure time was {時間}.",
+   "v": {
+    "時間": "1000 h"
+   },
+   "note": "hr、hrs、sec、mins は単位記号ではありません(NIST SP 811)。語で書くなら hours、minutes です。大きな数の区切りは、SI 文書では空白(10 000)で、英語の雑誌ではコンマ(10,000)も使われます。4桁の数は区切らないのが普通です。",
+   "bad": "The total exposure time was 1000hrs.",
+   "good": "The total exposure time was 1000 h.",
+   "terms": [
+    "クリープ"
+   ],
+   "kw": "時間 h hr sec min 単位記号"
+  },
+  {
+   "id": "g-microstructure",
+   "g": "grammar",
+   "ja": "microstructure の数え方",
+   "en": "The microstructure of {試料} was examined by {手法}.",
+   "v": {
+    "試料": "the weld metal",
+    "手法": "optical microscopy"
+   },
+   "note": "microstructure は「組織というもの」の意味では不可算(Microstructure affects properties.)、1つの試料の組織は the microstructure、いくつかの試料のそれぞれの組織は the microstructures です。主語の中心(microstructure)に動詞を合わせます。",
+   "bad": "The microstructures of the weld metal was examined.",
+   "good": "The microstructure of the weld metal was examined.",
+   "terms": [],
+   "kw": "microstructure 不可算 可算 組織 数"
+  },
+  {
+   "id": "g-data",
+   "g": "grammar",
+   "ja": "data は複数扱いが多い",
+   "en": "These data indicate that {内容}.",
+   "v": {
+    "内容": "the coarsening rate is controlled by volume diffusion"
+   },
+   "note": "data は datum の複数形で、論文では these data … indicate(複数)が無難です。単数扱い(this data shows)も広まっていますが、雑誌の規定を見てそろえます。datas とはしません。",
+   "bad": "This datas indicates that the coarsening is controlled by diffusion.",
+   "good": "These data indicate that the coarsening is controlled by diffusion.",
+   "terms": [
+    "オストワルド成長"
+   ],
+   "kw": "data 複数 datum 単数扱い"
+  },
+  {
+   "id": "g-the-of",
+   "g": "grammar",
+   "ja": "〜の性質には the を付け、比べる物は that of でそろえる",
+   "en": "The hardness of the {試料1} was higher than that of the {試料2}.",
+   "v": {
+    "試料1": "aged specimen",
+    "試料2": "solution-treated specimen"
+   },
+   "note": "of で限定された名詞(the hardness of …)には the を付けます。than のあとに that of を入れて、硬さと硬さを比べます。",
+   "bad": "Hardness of aged specimen was higher than solution-treated specimen.",
+   "good": "The hardness of the aged specimen was higher than that of the solution-treated specimen.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "冠詞 the that of 比較"
+  },
+  {
+   "id": "g-same",
+   "g": "grammar",
+   "ja": "same は the same の形で使う",
+   "en": "{A} showed the same tendency as {B}.",
+   "v": {
+    "A": "The 316L specimens",
+    "B": "the 304 specimens"
+   },
+   "note": "same は the same の形で使います。「〜と同じ」は the same … as です(with ではありません)。",
+   "bad": "The 316L specimens showed same tendency with the 304 specimens.",
+   "good": "The 316L specimens showed the same tendency as the 304 specimens.",
+   "terms": [
+    "ステンレス鋼"
+   ],
+   "kw": "the same 冠詞 as"
+  },
+  {
+   "id": "g-superlative",
+   "g": "grammar",
+   "ja": "名詞の前の最上級には the を付ける",
+   "en": "The specimen tempered at {温度} exhibited the highest {性質} among all conditions.",
+   "v": {
+    "温度": "200 °C",
+    "性質": "hardness"
+   },
+   "note": "名詞の前の最上級は the highest hardness です。The hardness was highest at 200 °C. のように補語として使うときは the を省けます。",
+   "bad": "The specimen tempered at 200 °C exhibited highest hardness.",
+   "good": "The specimen tempered at 200 °C exhibited the highest hardness.",
+   "terms": [
+    "焼戻し"
+   ],
+   "kw": "最上級 the highest 冠詞"
+  },
+  {
+   "id": "g-number-of",
+   "g": "grammar",
+   "ja": "the number of は単数、a number of は複数で受ける",
+   "en": "The number of {数えるもの} decreased with increasing {条件}.",
+   "v": {
+    "数えるもの": "cycles to failure",
+    "条件": "stress amplitude"
+   },
+   "note": "the number of … (数)は単数で受け、a number of …(いくつかの)は複数で受けます。",
+   "bad": "The number of cycles to failure were decreased.",
+   "good": "The number of cycles to failure decreased.",
+   "terms": [
+    "疲労限度"
+   ],
+   "kw": "number of 単数 複数 主語と動詞の一致"
+  },
+  {
+   "id": "g-amount",
+   "g": "grammar",
+   "ja": "amount は不可算、number は可算に使う",
+   "en": "A large {量} of {対象} was observed in {試料}.",
+   "v": {
+    "量": "amount",
+    "対象": "retained austenite",
+    "試料": "the high-carbon steel quenched from 1000 °C"
+   },
+   "note": "amount は不可算名詞(austenite、hydrogen)、number は可算名詞(precipitates、pits)に使います。高い温度から焼き入れた高炭素鋼では、Ms 点が下がって残留オーステナイトが多くなります。",
+   "bad": "A large amount of precipitates were observed.",
+   "good": "A large number of precipitates were observed.",
+   "terms": [
+    "マルテンサイト"
+   ],
+   "kw": "amount number 可算 不可算"
+  },
+  {
+   "id": "g-agreement",
+   "g": "grammar",
+   "ja": "主語の中心の名詞に動詞を合わせる",
+   "en": "The hardness of the specimens aged at {温度} was higher than that of the naturally aged specimens.",
+   "v": {
+    "温度": "190 °C"
+   },
+   "note": "主語は hardness(単数)なので was です。直前の specimens(複数)に引きずられないようにします。",
+   "bad": "The hardness of the aged specimens were higher.",
+   "good": "The hardness of the aged specimens was higher.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "主語と動詞の一致 単数 複数"
+  },
+  {
+   "id": "g-prep",
+   "g": "grammar",
+   "ja": "温度は at、雰囲気は in、表面は on",
+   "en": "Oxide particles formed on {場所} at {温度} in {雰囲気}.",
+   "v": {
+    "場所": "the surface",
+    "温度": "800 °C",
+    "雰囲気": "air"
+   },
+   "note": "温度 at 800 °C、雰囲気・溶液 in air / in NaCl solution、表面 on the surface、期間 for 2 h、圧力 under 50 MPa です。",
+   "bad": "Oxide particles formed in the surface in 800 °C.",
+   "good": "Oxide particles formed on the surface at 800 °C.",
+   "terms": [],
+   "kw": "前置詞 at in on 温度 雰囲気"
+  },
+  {
+   "id": "g-for-after",
+   "g": "grammar",
+   "ja": "期間は for、そのあとは after、以内は within",
+   "en": "After {時間} of aging, the hardness reached {到達}.",
+   "v": {
+    "時間": "10 h",
+    "到達": "its maximum"
+   },
+   "note": "時間の長さは for(for 10 h)、そのあとは after、以内は within です。during は「〜の間に(何かが起こる)」で、during 10 h とはしません。 After aging for 10 h, the hardness … と書くと、「硬さが時効した」と読めてしまいます(分詞の主語をそろえる、を参照)。主語が試料でないときは After 10 h of aging, … とします。",
+   "bad": "During 10 h aging, the hardness reached maximum.",
+   "good": "After 10 h of aging, the hardness reached its maximum.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "前置詞 for after during within 時間"
+  },
+  {
+   "id": "g-depend",
+   "g": "grammar",
+   "ja": "〜は〜に強く依存する",
+   "en": "The {量} depends strongly on {条件}.",
+   "v": {
+    "量": "diffusion coefficient",
+    "条件": "temperature"
+   },
+   "note": "depend on、dependence on、dependent on の前置詞は on です。温度依存性は the temperature dependence of D です。",
+   "bad": "The diffusion coefficient depends of temperature strongly.",
+   "good": "The diffusion coefficient depends strongly on temperature.",
+   "terms": [
+    "拡散係数"
+   ],
+   "kw": "依存 depend on dependence"
+  },
+  {
+   "id": "g-effect",
+   "g": "grammar",
+   "ja": "AがBに及ぼす影響は the effect of A on B",
+   "en": "This study examined the effect of {原因} on {結果}.",
+   "v": {
+    "原因": "cooling rate",
+    "結果": "the microstructure of the weld metal"
+   },
+   "note": "影響を与える側が of、受ける側が on です。動詞なら affect(A affects B)、名詞なら effect です。",
+   "bad": "This study examined the effect of cooling rate to the microstructure.",
+   "good": "This study examined the effect of cooling rate on the microstructure.",
+   "terms": [
+    "溶接熱影響部"
+   ],
+   "kw": "影響 effect of on affect"
+  },
+  {
+   "id": "g-fraction",
+   "g": "grammar",
+   "ja": "「〜の3分の1」は one-third that of",
+   "en": "The density of {A} is about {割合} that of {B}.",
+   "v": {
+    "A": "aluminum",
+    "割合": "one-third",
+    "B": "steel"
+   },
+   "note": "密度は Al 2.70 g/cm³、鋼 7.87 g/cm³ で約 1/3 です。three times higher than は「3倍」か「4倍」かあいまいなので、three times as high as のように書くと誤解がありません。",
+   "bad": "The density of aluminum is about 1/3 of steel.",
+   "good": "The density of aluminum is about one-third that of steel.",
+   "terms": [],
+   "kw": "分数 倍 one-third that of times as"
+  },
+  {
+   "id": "g-which",
+   "g": "grammar",
+   "ja": "コンマ + which は補足、that は限定",
+   "en": "The {名詞}, which {説明}, {主節}.",
+   "v": {
+    "名詞": "γ′ precipitates",
+    "説明": "are coherent with the matrix",
+    "主節": "provide high creep strength"
+   },
+   "note": "コンマで区切った which は、すでに特定したものの補足です。コンマなしの that は「〜であるもの」と限定します。the precipitates that are coherent と書くと、整合でない析出物もあることになります。",
+   "bad": "The γ′ precipitates which are coherent with the matrix provides high strength.",
+   "good": "The γ′ precipitates, which are coherent with the matrix, provide high strength.",
+   "terms": [
+    "Ni基超合金"
+   ],
+   "kw": "関係代名詞 which that 制限 非制限"
+  },
+  {
+   "id": "g-dangling",
+   "g": "grammar",
+   "ja": "分詞構文の主語をそろえる",
+   "en": "After being {処理}, the specimens were {次の処理}.",
+   "v": {
+    "処理": "polished",
+    "次の処理": "etched with 3% nital"
+   },
+   "note": "After polishing, the microstructure was observed. と書くと、組織が研磨したことになります。分詞の意味上の主語(研磨されたもの)と主節の主語をそろえます。",
+   "bad": "After polishing, the microstructure was observed.",
+   "good": "After polishing, the specimens were examined by optical microscopy.",
+   "terms": [],
+   "kw": "懸垂分詞 分詞構文 主語 dangling"
+  },
+  {
+   "id": "g-difficult",
+   "g": "grammar",
+   "ja": "「〜するのは難しい」は is difficult to + 能動",
+   "en": "It is difficult to {動作} because {理由}.",
+   "v": {
+    "動作": "measure the carbon content of small precipitates accurately by EDS",
+    "理由": "the X-ray signal also comes from the surrounding matrix"
+   },
+   "note": "Carbon content is difficult to measure.(能動の不定詞)とします。is difficult to be measured とはしません。",
+   "bad": "The carbon content is difficult to be measured.",
+   "good": "The carbon content is difficult to measure.",
+   "terms": [
+    "EDS(エネルギー分散型X線分光法)"
+   ],
+   "kw": "difficult to 不定詞 能動"
+  },
+  {
+   "id": "g-generic-plural",
+   "g": "grammar",
+   "ja": "材料の種類の総称は無冠詞の複数",
+   "en": "{材料} are widely used in {分野}.",
+   "v": {
+    "材料": "Aluminum alloys",
+    "分野": "the transportation industry"
+   },
+   "note": "種類の総称は無冠詞の複数(aluminum alloys)が自然です。the aluminum alloys は特定の合金を指します。無冠詞の単数 aluminum alloy is … は不自然です。",
+   "bad": "Aluminum alloy is widely used in transportation.",
+   "good": "Aluminum alloys are widely used in transportation.",
+   "terms": [],
+   "kw": "総称 無冠詞 複数 冠詞"
+  },
+  {
+   "id": "g-mass-noun",
+   "g": "grammar",
+   "ja": "物質名は無冠詞の単数",
+   "en": "{物質} is used for {用途} because of its {性質}.",
+   "v": {
+    "物質": "Copper",
+    "用途": "electrical wiring",
+    "性質": "high electrical conductivity"
+   },
+   "note": "copper、steel、alumina などの物質名は無冠詞の単数です。鋼の種類を数えるときは two steels、high-strength steels のように複数にします。",
+   "bad": "A copper is used for wiring because of the high conductivity.",
+   "good": "Copper is used for wiring because of its high conductivity.",
+   "terms": [
+    "マティーセンの規則"
+   ],
+   "kw": "物質名 不可算 無冠詞"
+  },
+  {
+   "id": "g-such-as",
+   "g": "grammar",
+   "ja": "例を挙げるときは such as、etc. と重ねない",
+   "en": "{総称} such as {例} improve {性質}.",
+   "v": {
+    "総称": "Alloying elements",
+    "例": "Cr, Mo, and Ni",
+    "性質": "the hardenability of steels"
+   },
+   "note": "such as で例を挙げたら、etc. は重ねません。かっこの中なら (e.g., Cr, Mo, and Ni) とも書けます。",
+   "bad": "Alloying elements such as Cr, Mo, Ni, etc. improve the hardenability.",
+   "good": "Alloying elements such as Cr, Mo, and Ni improve the hardenability.",
+   "terms": [
+    "焼入れ性"
+   ],
+   "kw": "例 such as etc. e.g."
+  },
+  {
+   "id": "g-to-prevent",
+   "g": "grammar",
+   "ja": "目的は to + 動詞の原形で書く",
+   "en": "To {目的}, the specimens were heated in {雰囲気}.",
+   "v": {
+    "目的": "prevent oxidation",
+    "雰囲気": "a vacuum"
+   },
+   "note": "「〜するために」は To …(In order to …)です。For preventing … で文を始めると、目的の意味が弱くなります。",
+   "bad": "For prevent oxidation, the specimens were heated in vacuum.",
+   "good": "To prevent oxidation, the specimens were heated in a vacuum.",
+   "terms": [],
+   "kw": "目的 to 不定詞 in order to"
+  },
+  {
+   "id": "g-enable",
+   "g": "grammar",
+   "ja": "enable は「人・物 + to」か名詞を目的語にとる",
+   "en": "This method enables {対象} to be {動作} quickly.",
+   "v": {
+    "対象": "the grain boundary character",
+    "動作": "determined"
+   },
+   "note": "enable to determine とは言いません。enable us to determine か enable the determination of と書きます。allow も同じです。",
+   "bad": "This method enables to determine the grain boundary character.",
+   "good": "This method enables us to determine the grain boundary character.",
+   "terms": [],
+   "kw": "enable allow 目的語 to"
+  },
+  {
+   "id": "s-open",
+   "g": "present",
+   "ja": "(発表の始め)おはようございます。〜大学の〜です",
+   "en": "Good morning, everyone. My name is {名前}, and I am from {所属}.",
+   "v": {
+    "名前": "Taro Yamada",
+    "所属": "the Department of Materials Science at ABC University"
+   },
+   "note": "名前は名・姓の順で言うか、姓を大文字で示します(Taro YAMADA)。名前と所属は例です。",
+   "bad": "Hello. I am Yamada Taro from ABC University materials science department.",
+   "good": "Hello. My name is Taro Yamada, and I am from the Department of Materials Science at ABC University.",
+   "terms": [],
+   "kw": "自己紹介 発表の始め introduction"
+  },
+  {
+   "id": "s-topic",
+   "g": "present",
+   "ja": "今日は〜についてお話しします",
+   "en": "Today, I would like to talk about {題目}.",
+   "v": {
+    "題目": "the effect of Nb on austenite grain growth during carburizing"
+   },
+   "note": "talk about には about が要りますが、discuss は他動詞なので discuss about とはしません。",
+   "bad": "Today, I would like to discuss about the effect of Nb.",
+   "good": "Today, I would like to discuss the effect of Nb.",
+   "terms": [
+    "浸炭"
+   ],
+   "kw": "発表 題目 talk about discuss"
+  },
+  {
+   "id": "s-outline",
+   "g": "present",
+   "ja": "これが発表の流れです",
+   "en": "This is the outline of my presentation. First, I will explain {内容1}, and then I will show {内容2}.",
+   "v": {
+    "内容1": "the background",
+    "内容2": "our experimental results"
+   },
+   "note": "発表の流れは outline です。First, … Then, … Finally, … で順を示します。",
+   "bad": "This is the contents of today.",
+   "good": "This is the outline of my presentation.",
+   "terms": [],
+   "kw": "目次 流れ outline"
+  },
+  {
+   "id": "s-slide",
+   "g": "present",
+   "ja": "このスライドは〜を示しています",
+   "en": "This slide shows {内容}.",
+   "v": {
+    "内容": "the hardness change during aging at 190 °C"
+   },
+   "note": "口頭では Fig. ではなく this slide、this graph、the left figure などと言います。",
+   "bad": "In this slide, it shows the hardness change.",
+   "good": "This slide shows the hardness change.",
+   "terms": [
+    "析出硬化"
+   ],
+   "kw": "スライド 説明 this slide shows"
+  },
+  {
+   "id": "s-look",
+   "g": "present",
+   "ja": "〜をご覧ください",
+   "en": "Please look at {場所}.",
+   "v": {
+    "場所": "the red curve in the upper graph"
+   },
+   "note": "聞き手の注意を図の一部に向ける言い方です。As you can see, … も使います。",
+   "bad": "Please see the red line of the upper graph.",
+   "good": "Please look at the red curve in the upper graph.",
+   "terms": [],
+   "kw": "ご覧ください please look at"
+  },
+  {
+   "id": "s-key",
+   "g": "present",
+   "ja": "ここで大事なのは〜という点です",
+   "en": "The key point here is that {要点}.",
+   "v": {
+    "要点": "the Sc-containing alloy retained its peak hardness even after 100 h at 300 °C"
+   },
+   "note": "Al₃Sc の析出物は粗大化しにくく、Sc を含む Al 合金は高い温度でも軟らかくなりにくいことが知られています。",
+   "bad": "The important point is the alloy kept the hardness.",
+   "good": "The key point is that the alloy retained its hardness.",
+   "terms": [
+    "オストワルド成長",
+    "析出硬化"
+   ],
+   "kw": "要点 key point 強調"
+  },
+  {
+   "id": "s-conclude",
+   "g": "present",
+   "ja": "まとめると、〜",
+   "en": "To conclude, {結論}.",
+   "v": {
+    "結論": "the addition of 0.05 wt% Nb effectively suppressed abnormal grain growth during carburizing"
+   },
+   "note": "発表の最後は To conclude, / In summary, で始め、要点を1〜3つに絞ります。",
+   "bad": "As a conclusion, Nb addition suppressed the grain growth.",
+   "good": "To conclude, the addition of Nb suppressed the grain growth.",
+   "terms": [
+    "浸炭"
+   ],
+   "kw": "まとめ 結論 to conclude"
+  },
+  {
+   "id": "s-thanks",
+   "g": "present",
+   "ja": "ご清聴ありがとうございました",
+   "en": "Thank you for your attention. I would be happy to answer any questions.",
+   "v": {},
+   "note": "最後のあいさつです。Thank you for listening. も使えます。",
+   "bad": "Thank you for your kind attention to my poor presentation.",
+   "good": "Thank you for your attention.",
+   "terms": [],
+   "kw": "あいさつ ご清聴 thank you for your attention"
+  },
+  {
+   "id": "q-thanks",
+   "g": "present",
+   "ja": "ご質問ありがとうございます",
+   "en": "Thank you for your question. {続き}",
+   "v": {
+    "続き": "That is a very good point."
+   },
+   "note": "答える前のひと言で、考える時間もできます。",
+   "bad": "Thank you for your good question.",
+   "good": "Thank you for your question.",
+   "terms": [],
+   "kw": "質疑応答 質問 ありがとう"
+  },
+  {
+   "id": "q-repeat",
+   "g": "present",
+   "ja": "もう一度、ゆっくりおっしゃっていただけますか",
+   "en": "I am sorry, but could you repeat the question {頼み方}?",
+   "v": {
+    "頼み方": "a little more slowly"
+   },
+   "note": "聞き取れなかったときは、分かったふりをせずに聞き返します。Could you rephrase the question? も使えます。",
+   "bad": "Pardon? Once more please.",
+   "good": "Sorry, could you repeat the question?",
+   "terms": [],
+   "kw": "聞き返す repeat 質疑応答"
+  },
+  {
+   "id": "q-confirm",
+   "g": "present",
+   "ja": "〜についてのご質問ということでよろしいでしょうか",
+   "en": "If I understand correctly, you are asking about {内容}.",
+   "v": {
+    "内容": "the reason for the low elongation of the as-cast specimen"
+   },
+   "note": "質問の内容を言い直して確かめると、的外れな答えを防げます。",
+   "bad": "Your question is about the elongation, right?",
+   "good": "If I understand correctly, you are asking about the elongation.",
+   "terms": [],
+   "kw": "確認 質問の確かめ if I understand correctly"
+  },
+  {
+   "id": "q-not-yet",
+   "g": "present",
+   "ja": "〜はまだ調べていませんが、〜で調べる予定です",
+   "en": "We have not examined {内容} yet, but we plan to {予定}.",
+   "v": {
+    "内容": "the hydrogen content",
+    "予定": "measure it by thermal desorption analysis"
+   },
+   "note": "調べていないことは正直に言い、これからの予定を添えます。",
+   "bad": "We did not check it, sorry.",
+   "good": "We have not examined it yet, but we plan to measure it.",
+   "terms": [],
+   "kw": "未実施 今後 予定 答え方"
+  },
+  {
+   "id": "q-scope",
+   "g": "present",
+   "ja": "それはこの研究の範囲外ですが、〜",
+   "en": "That is beyond the scope of this study, but {補足}.",
+   "v": {
+    "補足": "it is an interesting topic for future work"
+   },
+   "note": "beyond the scope of this study は、研究の範囲を超える質問に丁寧に答える言い方です。",
+   "bad": "That is out of my study.",
+   "good": "That is beyond the scope of this study.",
+   "terms": [],
+   "kw": "範囲外 scope 答え方"
+  },
+  {
+   "id": "q-later",
+   "g": "present",
+   "ja": "時間の都合で、詳しくはセッションのあとでお話しできますか",
+   "en": "Since time is limited, could we discuss this {時}?",
+   "v": {
+    "時": "in more detail after the session"
+   },
+   "note": "長くなりそうな質問は、セッションのあとに話すことを提案します。",
+   "bad": "Time is not enough, so please come later.",
+   "good": "Since time is limited, could we discuss this after the session?",
+   "terms": [],
+   "kw": "時間 あとで after the session"
+  },
+  {
+   "id": "a-subject",
+   "g": "mail",
+   "ja": "(件名)〜についての問い合わせ",
+   "en": "Subject: Inquiry about {内容}",
+   "v": {
+    "内容": "TEM observation of Al–Cu alloy specimens"
+   },
+   "note": "件名は文ではなく名詞句で、何の用件かが分かるように具体的に書きます。Question や Hello だけの件名は避けます。",
+   "bad": "Subject: Question",
+   "good": "Subject: Inquiry about TEM observation of Al–Cu alloy specimens",
+   "terms": [],
+   "kw": "件名 subject inquiry メール"
+  },
+  {
+   "id": "a-dear",
+   "g": "mail",
+   "ja": "(宛名)〜先生",
+   "en": "Dear {宛名},",
+   "v": {
+    "宛名": "Dr. Smith"
+   },
+   "note": "Dear のあとは敬称と姓です(Dear Dr. Smith、Dear Prof. Smith)。名前が分からないときは Dear Sir or Madam、部署あてなら Dear Admissions Committee のようにします。Dear Smith や Dear Dr. John とはしません。",
+   "bad": "Dear Smith,",
+   "good": "Dear Dr. Smith,",
+   "terms": [],
+   "kw": "宛名 敬称 Dear Dr. Prof."
+  },
+  {
+   "id": "a-self",
+   "g": "mail",
+   "ja": "〜大学〜専攻の修士2年の〜と申します",
+   "en": "My name is {名前}, and I am a {学年} at {所属}.",
+   "v": {
+    "名前": "Hanako Suzuki",
+    "学年": "second-year master's student",
+    "所属": "the Department of Materials Science, XYZ University"
+   },
+   "note": "修士課程の学生は master's student、博士課程は Ph.D. student / doctoral student です。名前と所属は例です。",
+   "bad": "I am Hanako Suzuki of master course 2nd grade.",
+   "good": "My name is Hanako Suzuki, and I am a second-year master's student.",
+   "terms": [],
+   "kw": "自己紹介 修士 学生 メール"
+  },
+  {
+   "id": "a-read",
+   "g": "mail",
+   "ja": "〜についての先生の論文を興味深く拝読しました",
+   "en": "I read your recent paper on {題目} with great interest.",
+   "v": {
+    "題目": "hydrogen trapping in tempered martensite"
+   },
+   "note": "paper on … の前置詞は on です(about も可)。どの論文かが分かるように題名や雑誌名を添えます。",
+   "bad": "I read your paper about hydrogen with big interest.",
+   "good": "I read your paper on hydrogen trapping with great interest.",
+   "terms": [
+    "マルテンサイト"
+   ],
+   "kw": "論文を読んだ paper on interest"
+  },
+  {
+   "id": "a-ask",
+   "g": "mail",
+   "ja": "〜について教えていただきたく、ご連絡しました",
+   "en": "I am writing to ask you about {内容}.",
+   "v": {
+    "内容": "the electropolishing conditions you used for the TEM specimens"
+   },
+   "note": "I am writing to … はメールの用件を述べる決まった言い方です。I want to … は直接すぎるので、I would like to … にします。",
+   "bad": "I want to ask you a question for the electropolishing conditions.",
+   "good": "I would like to ask you about the electropolishing conditions.",
+   "terms": [],
+   "kw": "問い合わせ I am writing to ask about"
+  },
+  {
+   "id": "a-possible",
+   "g": "mail",
+   "ja": "〜していただくことは可能でしょうか",
+   "en": "Would it be possible to {依頼}?",
+   "v": {
+    "依頼": "send us a small piece of the alloy for XRD analysis"
+   },
+   "note": "丁寧な依頼の言い方です。Could you …? も使えます。Please send … は命令に聞こえることがあります。",
+   "bad": "Please send us your alloy sample.",
+   "good": "Would it be possible to send us a small piece of your alloy?",
+   "terms": [],
+   "kw": "依頼 お願い would it be possible"
+  },
+  {
+   "id": "a-collab",
+   "g": "mail",
+   "ja": "〜について、先生のグループと共同研究ができればと考えております",
+   "en": "We would be very interested in collaborating with your group on {テーマ}.",
+   "v": {
+    "テーマ": "the in situ observation of recrystallization"
+   },
+   "note": "collaborate with(相手)on(テーマ)です。in situ は「その場」の意味のラテン語で、斜体にする雑誌もあります。",
+   "bad": "We want to do collaboration research with your group about recrystallization.",
+   "good": "We would be interested in collaborating with your group on recrystallization.",
+   "terms": [
+    "再結晶"
+   ],
+   "kw": "共同研究 collaborate with on"
+  },
+  {
+   "id": "a-attach",
+   "g": "mail",
+   "ja": "〜を添付いたします",
+   "en": "Please find attached {添付}.",
+   "v": {
+    "添付": "the draft of our manuscript for your comments"
+   },
+   "note": "Please find attached … は添付を知らせる決まった言い方です。I have attached … も使えます。添付し忘れに気をつけます。",
+   "bad": "I attach the file of draft in this mail.",
+   "good": "Please find attached the draft of our manuscript.",
+   "terms": [],
+   "kw": "添付 attached メール"
+  },
+  {
+   "id": "a-by",
+   "g": "mail",
+   "ja": "〜までにご意見をいただけますでしょうか",
+   "en": "Could you send me your comments by {期日}?",
+   "v": {
+    "期日": "14 November"
+   },
+   "note": "期日は by(〜までに)です。until は「〜までずっと」の意味です。日付の書き方は 14 November(イギリス式)と November 14(アメリカ式)があり、11/14 のような数字だけの書き方は国によって読み方が違うので避けます。",
+   "bad": "Could you send me your comments until 11/14?",
+   "good": "Could you send me your comments by 14 November?",
+   "terms": [],
+   "kw": "期限 by until 日付の書き方"
+  },
+  {
+   "id": "a-thanks",
+   "g": "mail",
+   "ja": "早速のご返信ありがとうございます",
+   "en": "Thank you very much for {内容}.",
+   "v": {
+    "内容": "your prompt reply and the detailed explanation"
+   },
+   "note": "Thank you for のあとは名詞か動名詞です(Thank you for replying)。",
+   "bad": "Thank you for your quick replying.",
+   "good": "Thank you for your prompt reply.",
+   "terms": [],
+   "kw": "お礼 返信 thank you for"
+  },
+  {
+   "id": "a-sorry",
+   "g": "mail",
+   "ja": "返信が遅くなり申し訳ありません",
+   "en": "I apologize for the late reply; {理由}.",
+   "v": {
+    "理由": "I was away at a conference last week"
+   },
+   "note": "apologize for … の前置詞は for です。セミコロン(;)で理由をつなげます。",
+   "bad": "I am sorry for my late reply because of busy.",
+   "good": "I apologize for the late reply.",
+   "terms": [],
+   "kw": "おわび 返信が遅れた apologize"
+  },
+  {
+   "id": "a-follow-up",
+   "g": "mail",
+   "ja": "〜日にお送りしたメールについて、改めてご連絡しました",
+   "en": "I am writing to follow up on {件}.",
+   "v": {
+    "件": "my email of 3 November regarding the sample exchange"
+   },
+   "note": "返事のないメールを確かめるときの丁寧な言い方です。催促の調子にならないようにします。",
+   "bad": "Why do you not reply my email?",
+   "good": "I am writing to follow up on my previous email.",
+   "terms": [],
+   "kw": "催促 確認 follow up"
+  },
+  {
+   "id": "a-close",
+   "g": "mail",
+   "ja": "ご返信をお待ちしております",
+   "en": "I look forward to {動作} from you.",
+   "v": {
+    "動作": "hearing"
+   },
+   "note": "look forward to の to は前置詞なので、あとは動名詞(hearing)です。結びは Best regards, や Sincerely, のあとに名前を書きます。",
+   "bad": "I look forward to hear from you.",
+   "good": "I look forward to hearing from you.",
+   "terms": [],
+   "kw": "結び 返事を待つ look forward to hearing"
+  }
+ ],
+ "check": {
+  "h": "英文の点検",
+  "lead": [
+   "英文を貼り付けると、単位と数の書き方、記号の上付き・下付き、つづり、決まった言い回しなど、論文でよくある誤りを規則で探して、理由と直し方を示します。",
+   "これは文法の点検ではなく、よくある誤りの目安です。規則に当たらなくても正しい英文とは限らず、当たっても誤りとは限りません(特に「目安」の指摘)。「書き方の決まり」は雑誌によって違うもので、投稿先の規定に合わせてそろえてください。"
+  ],
+  "privacy": "貼った英文はこのページの JavaScript で、この端末(ブラウザ)の中だけで調べます。どこにも送らず、保存もしません。",
+  "sample": "The specimens were annealed at 500°C for 2hrs and furnace cooled. 5 specimens were tested at 10~20 °C, e.g. in air. According to the results, the datas indicate that the microstructure is consisted of ferrite and Fe3C, and a SEM image showed highest hardness at the surface (see the Fig.3).",
+  "rules_lead": "規則は、正しい英文(このサイトで書いたもの)では当たらないように作り、誤検出の多い規則は入れていません。誤検出を避けるため、1文字の単位のうち s・L・N・A・T(1990s、316L、5N の純度、Fig. 5A、T6 調質と紛れる)は調べません。"
+ },
+ "rules": [
+  {
+   "id": "unit-space",
+   "level": "error",
+   "name": "数と単位の間の空白",
+   "why": "SI 文書と NIST SP 811 では、数と単位記号の間に空白を1つ入れます。数と単位を形容詞として使うとき(a 25 kg sphere)も同じです。",
+   "fix": "数と単位の間に空白を入れます。",
+   "bad": "10MPa、25µm、2h、5wt%",
+   "good": "10 MPa、25 µm、2 h、5 wt%"
+  },
+  {
+   "id": "deg-space",
+   "level": "style",
+   "name": "数と °C の間の空白",
+   "why": "SI 文書と NIST SP 811 は 500 °C と空白を入れます。空白を入れない書き方(500°C)の雑誌もあるので、投稿先に合わせます。平面角(30°)には空白を入れません。",
+   "fix": "500 °C のように空白を入れます(投稿先が空白なしなら、そちらにそろえます)。",
+   "bad": "500°C",
+   "good": "500 °C"
+  },
+  {
+   "id": "degree-c",
+   "level": "error",
+   "name": "℃・° C・oC・°K の誤り",
+   "why": "°C は度の記号(°)と C の2文字で、間に空白を入れません。小文字の o や º(序数の記号)は度の記号ではありません。1文字の ℃ は東アジアの文字との互換用の文字です。ケルビンには ° を付けません(1968年から)。",
+   "fix": "°C(° + C)か K に直します。",
+   "bad": "500 ° C、500oC、500℃、300 °K",
+   "good": "500 °C、300 K"
+  },
+  {
+   "id": "percent-mix",
+   "level": "style",
+   "name": "% の前の空白の混在",
+   "why": "SI 文書・ISO 80000 は 5 % と空白を入れ、英語のスタイルガイドや多くの雑誌は 5% と空白なしです。どちらでもよいのですが、1つの文書の中では混ぜません。この規則は、両方の書き方があるときだけ、少ない方を示します。",
+   "fix": "多い方の書き方にそろえます(投稿規定を確かめます)。",
+   "bad": "5%, 10 %, 20%",
+   "good": "5%, 10%, 20%"
+  },
+  {
+   "id": "wt-mix",
+   "level": "style",
+   "name": "wt% と wt.% の混在",
+   "why": "wt%・wt.%・wt %(at%・vol% も同じ)は雑誌によって書き方が違います。混ざっているときだけ、少ない方を示します。",
+   "fix": "どれか1つにそろえます。",
+   "bad": "4 wt% Cu and 0.5 wt.% Mg",
+   "good": "4 wt% Cu and 0.5 wt% Mg"
+  },
+  {
+   "id": "unit-case",
+   "level": "error",
+   "name": "単位記号の大文字・小文字",
+   "why": "単位記号の大文字・小文字には意味があります。k(キロ)は小文字、M(メガ)・G(ギガ)は大文字で、Pa・Hz・eV は決まった形です。Mpa・KJ・Kg・Khz は誤りです。硬さの記号 HV・HRC も大文字です。",
+   "fix": "正しい記号(MPa、kJ、kg、kHz、eV、HV)に直します。",
+   "bad": "200 Mpa、5 KJ、300 Hv",
+   "good": "200 MPa、5 kJ、300 HV"
+  },
+  {
+   "id": "unit-abbr",
+   "level": "error",
+   "name": "hr・sec・mins の略し方",
+   "why": "hr・hrs・sec・secs・mins は単位記号ではありません(NIST SP 811)。時間の記号は h・min・s で、複数でも s を付けません。",
+   "fix": "h、min、s に直します。",
+   "bad": "2 hrs、30 sec、10 mins",
+   "good": "2 h、30 s、10 min"
+  },
+  {
+   "id": "micro-um",
+   "level": "error",
+   "name": "µm を um と書く",
+   "why": "マイクロの記号はギリシャ文字の µ です。u での代用は単位記号になりません。",
+   "fix": "µm に直します。",
+   "bad": "25 um",
+   "good": "25 µm"
+  },
+  {
+   "id": "sub-sup",
+   "level": "error",
+   "name": "上付きの書き忘れ(m2・s-1・m^2)",
+   "why": "面積・体積の m²・m³、負のべき s⁻¹ などは上付きで書きます。m2 や s-1 のままでは、別の記号や引き算に読めます。^ を使う書き方は本文では使いません。MPa·m1/2 の 1/2 も上付きです。",
+   "fix": "上付きに直します(ワープロの上付きでもかまいません)。",
+   "bad": "10 m2/g、1 × 10⁻³ s-1、m^3",
+   "good": "10 m²/g、1 × 10⁻³ s⁻¹、m³"
+  },
+  {
+   "id": "formula-sub",
+   "level": "error",
+   "name": "化学式の下付きの書き忘れ",
+   "why": "化学式の数(Fe₃C の 3、Al₂O₃ の 2 と 3)は下付きで書きます。この規則は、酸化物・炭化物・窒化物などの形と、材料でよく出る化合物(Fe3C・Mg2Si・Al2Cu・Ni3Al など)だけを調べ、合金や鋼種の名前(Ti6Al4V、S45C、SKH51、SUP9、CF8 など)と、下付きの 1 を含む形(HC1 など試料の名前)は調べません。",
+   "fix": "下付きに直します。",
+   "bad": "Fe3C、Al2O3、Mg2Si",
+   "good": "Fe₃C、Al₂O₃、Mg₂Si"
+  },
+  {
+   "id": "exponent",
+   "level": "error",
+   "name": "×10ⁿ の書き方",
+   "why": "10 のべきは × と上付きの指数で書きます(2.5 × 10⁻³)。文字の x、10-3、10^-3、2.5E-3 のような書き方は本文では使いません。",
+   "fix": "× と上付きに直します。",
+   "bad": "2.5x10-3、1.2E-14",
+   "good": "2.5 × 10⁻³、1.2 × 10⁻¹⁴"
+  },
+  {
+   "id": "range-tilde",
+   "level": "error",
+   "name": "範囲を 〜 で書く",
+   "why": "「〜」(波ダッシュ・チルダ)は英文の範囲の記号ではありません。英文では en dash(10–20)か to を使います。~5 nm(約 5 nm)の ~ は別の意味です。",
+   "fix": "10–20 か 10 to 20 に直します。",
+   "bad": "10~20 °C",
+   "good": "10–20 °C"
+  },
+  {
+   "id": "range-words",
+   "level": "error",
+   "name": "between・from と – を一緒に使う",
+   "why": "between は and と、from は to と組みます。between 10–20 °C や from 10–20 °C は組み合わせの誤りです。from は範囲のあとに単位・°C・% があるときだけ調べます(from 3–5 specimens「3〜5 個の試料から」は正しい)。",
+   "fix": "between 10 °C and 20 °C、from 10 °C to 20 °C にします。",
+   "bad": "between 10–20 °C",
+   "good": "between 10 °C and 20 °C"
+  },
+  {
+   "id": "plural-uncountable",
+   "level": "error",
+   "name": "不可算名詞の複数形",
+   "why": "data・information・research・equipment・evidence・advice・knowledge・software・feedback・literature は s を付けません(data はそれ自体が複数形)。researches は動詞(she researches)なら正しい使い方です。",
+   "fix": "s を取ります。数えるときは pieces of information、studies、software packages などにします。",
+   "bad": "datas、informations、researches",
+   "good": "data、information、research"
+  },
+  {
+   "id": "consist",
+   "level": "error",
+   "name": "is consisted of",
+   "why": "consist of(〜からなる)は能動態だけで使う動詞です。受動態にしたいときは is composed of を使います。",
+   "fix": "consists of / consisted of か、is composed of に直します。",
+   "bad": "is consisted of",
+   "good": "consists of"
+  },
+  {
+   "id": "about-verb",
+   "level": "error",
+   "name": "discuss about など",
+   "why": "discuss・mention・explain・consider は他動詞で、目的語を直接とります。about は入れません(talk about は正しい)。about のあとに数が続く「約〜」は調べません。",
+   "fix": "about を取ります。",
+   "bad": "discuss about the results",
+   "good": "discuss the results"
+  },
+  {
+   "id": "reason-because",
+   "level": "error",
+   "name": "the reason is because",
+   "why": "reason と because の意味が重なります。論文では the reason is that … とします。",
+   "fix": "the reason is that … にします。",
+   "bad": "The reason is because …",
+   "good": "The reason is that …"
+  },
+  {
+   "id": "according",
+   "level": "hint",
+   "name": "according to the results",
+   "why": "according to は「(人や資料)によれば」の意味で、自分の結果を述べるには不自然です。",
+   "fix": "The results show (indicate) that … と書き換えます。",
+   "bad": "According to the results, …",
+   "good": "The results show that …"
+  },
+  {
+   "id": "as-follows",
+   "level": "error",
+   "name": "as following",
+   "why": "「次のとおり」は as follows で、主語が複数でも形は変わりません。",
+   "fix": "as follows に直します。",
+   "bad": "as following",
+   "good": "as follows"
+  },
+  {
+   "id": "number-start",
+   "level": "style",
+   "name": "数字で始まる文",
+   "why": "英語のほとんどのスタイルガイドは、文を数字で始めないよう求めます。Fig. 3 や et al. のあとの数、見出しや番号付きの行は調べません。",
+   "fix": "数を語で書くか(Three specimens …)、文を組み替えます。",
+   "bad": "5 specimens were tested.",
+   "good": "Five specimens were tested."
+  },
+  {
+   "id": "eg-form",
+   "level": "error",
+   "name": "e.g. / i.e. のつづり",
+   "why": "e.g.(例えば)と i.e.(すなわち)はラテン語の略で、それぞれの文字のあとにピリオドを付けます。ピリオドのない eg・ie は小文字のときだけ調べます(Eg はバンドギャップ、EG はエチレングリコールなどの記号)。",
+   "fix": "e.g. / i.e. に直します。",
+   "bad": "eg, Cr、e.g Cr、ie, Cr",
+   "good": "e.g., Cr、i.e., Cr"
+  },
+  {
+   "id": "eg-comma",
+   "level": "style",
+   "name": "e.g. / i.e. のあとのコンマ",
+   "why": "アメリカ英語の多くのスタイル(Chicago Manual of Style など)は e.g., i.e., とあとにコンマを付けます。イギリス英語では付けないことが多いので、投稿先に合わせてそろえます。",
+   "fix": "コンマを付けます(イギリス式にするなら、付けずにそろえます)。",
+   "bad": "(e.g. Cr and Mo)",
+   "good": "(e.g., Cr and Mo)"
+  },
+  {
+   "id": "et-al",
+   "level": "error",
+   "name": "et al. の書き方",
+   "why": "et al. は et alii の略で、al のあとにだけピリオドを付けます。",
+   "fix": "et al. に直します。",
+   "bad": "et. al、et al",
+   "good": "et al."
+  },
+  {
+   "id": "fig-space",
+   "level": "error",
+   "name": "Fig. と番号の間の空白",
+   "why": "Fig. 3、Eq. (2)、Table 1 のように、略語・語と番号の間に空白を入れます。",
+   "fix": "空白を入れます。",
+   "bad": "Fig.3、Eq.(2)、Table1",
+   "good": "Fig. 3、Eq. (2)、Table 1"
+  },
+  {
+   "id": "the-fig",
+   "level": "error",
+   "name": "番号の付いた図・表・式の the",
+   "why": "Fig. 3、Table 1、Eq. (2) は名前のように使うので、the を付けません。the Fig. 3 data のように、the があとの名詞に掛かるときは正しいので調べません。",
+   "fix": "the を取ります。",
+   "bad": "as shown in the Fig. 3",
+   "good": "as shown in Fig. 3"
+  },
+  {
+   "id": "the-hint",
+   "level": "hint",
+   "name": "the の抜けやすい所",
+   "why": "same は the same の形で使い、名詞の前の最上級(the highest hardness)、the following + 名詞、the rest of、on the other hand、in the present study にも the が要ります。補語の最上級(was highest at)や副詞の最上級(performed best、best describes、can best be)は調べません。前後の語で判断する目安なので、当たっても誤りとは限りません。",
+   "fix": "前に the(または this、its など)が要るか確かめます。",
+   "bad": "showed same tendency、showed highest hardness",
+   "good": "showed the same tendency、showed the highest hardness"
+  },
+  {
+   "id": "a-an",
+   "level": "error",
+   "name": "略語の前の a / an",
+   "why": "a と an は、つづりではなく読みの音で決めます。SEM(エス)、XRD(エックス)、EBSD(イー)、MD(エム)は母音で始まるので an、TEM(ティー)、DSC(ディー)、UV(ユー)は子音なので a です。1文字ずつ読む略語だけを調べます(SIMS や STEM のように語として読む略語は調べません)。",
+   "fix": "a / an を直します。",
+   "bad": "a SEM image、an TEM image",
+   "good": "an SEM image、a TEM image"
+  },
+  {
+   "id": "double-word",
+   "level": "error",
+   "name": "同じ語の重なり",
+   "why": "the the、of of のような重なりは、書き直したときの消し忘れです(that that や had had、in in situ は正しいことがあるので調べません)。",
+   "fix": "1つにします。",
+   "bad": "the the specimens",
+   "good": "the specimens"
+  },
+  {
+   "id": "space-punct",
+   "level": "error",
+   "name": "コンマ・ピリオドの前の空白",
+   "why": "英文ではコンマ・ピリオド・セミコロンの前に空白を入れず、あとに入れます。",
+   "fix": "前の空白を取ります。",
+   "bad": "the specimens , and",
+   "good": "the specimens, and"
+  },
+  {
+   "id": "fullwidth",
+   "level": "error",
+   "name": "全角の文字",
+   "why": "英文に全角の英数字・記号・空白や「、」「。」が混ざると、投稿システムで文字化けしたり、検索できなくなったりします。",
+   "fix": "半角に直します。",
+   "bad": "１０ ＭＰａ、",
+   "good": "10 MPa, "
+  },
+  {
+   "id": "japanese-char",
+   "level": "hint",
+   "name": "日本語の文字",
+   "why": "英文に日本語の文字が残っています。機械翻訳の訳し残しや、貼り付けのときに入った文字かもしれません。",
+   "fix": "英語に直すか消します。",
+   "bad": "annealed at 500 °C で",
+   "good": "annealed at 500 °C"
+  },
+  {
+   "id": "contraction",
+   "level": "hint",
+   "name": "短縮形",
+   "why": "論文では don't、it's などの短縮形を使わず、do not、it is と書きます(メールや発表ではかまいません)。it's(it is)と its(その)の取り違えにも気をつけます。",
+   "fix": "短縮しない形にします。",
+   "bad": "doesn't",
+   "good": "does not"
+  }
+ ],
+ "guide": [
+  {
+   "id": "tense",
+   "h": "論文の英語の時制",
+   "p": [
+    "論文の英語では、時制で「いつのことか」と「どのくらい確かなことか」を表します。大学のライティング資料(Clarkson University Writing Center など)の目安は次のとおりです。",
+    "一般的な事実・定説は現在形です。例: Aluminum has an fcc structure. / Cementite is hard and brittle. 序論の背景はこの形が多くなります。",
+    "自分が行った実験・方法・得られた結果は過去形です。例: The specimens were aged at 190 °C. / The hardness increased with aging time. 自分の結果はまだ一般に認められた事実ではないので、過去形で書きます。",
+    "図と表がいま示していることは現在形です。例: Fig. 3 shows … / Table 2 lists …",
+    "先行研究の紹介は、現在形でも過去形でもかまいませんが、論文の中で書き方をそろえます(Clarkson の資料)。研究の流れをまとめるときは現在完了(Many studies have reported …)、特定の論文の結果を述べるときは過去形(Smith et al. reported …)もよく使われます。",
+    "考察と結論で一般化することは現在形です。例: These results suggest that Nb suppresses grain growth. 言い切れないときは may・likely・suggest で強さを調整します。"
+   ]
+  },
+  {
+   "id": "voice",
+   "h": "能動態と受動態",
+   "p": [
+    "方法の節では、だれが行ったかより何をしたかが大事なので、受動態がよく使われます(The specimens were polished …)。一方、we を主語にした能動態のほうが短く明確になる所も多く、能動態を勧める雑誌も増えています。",
+    "「It is found that …」「It was confirmed that …」は形だけの主語の受動態で、文が長くなります。We found that … や The hardness was found to increase … のほうが簡潔です。1つの段落の中では、主語の立て方をそろえると読みやすくなります。"
+   ]
+  },
+  {
+   "id": "units",
+   "h": "単位と数の書き方の基準",
+   "p": [
+    "このページの単位と数の書き方は、国際単位系の SI 文書(BIPM、第9版)と NIST SP 811(アメリカ国立標準技術研究所の SI の使い方の手引き)を基本にしています。どちらも、数と単位記号の間に空白を入れる(°C の前も。平面角の ° には空白を入れない)と定めています。NIST SP 811 は、単位記号に情報(wt や H₂O など)を付けないこと、範囲は 20 °C to 30 °C か (20 to 30) °C のように書くことも示しています。",
+    "雑誌や出版社の書き方は、これと違う所があります。% の前の空白(SI 文書・ISO は 5 %、英語のスタイルガイドや多くの雑誌は 5%)、組成の書き方(wt%、wt.%、mass%、または質量分率)、範囲の書き方(150–250 °C を認めるか)、Fig. と Figure、e.g. のあとのコンマなどです。出版社の著者向けガイドの多くは「SI 単位を使う」とだけ定め、細かな書き方は雑誌ごとに違います。投稿する雑誌の Guide for Authors と、その雑誌の最近の論文の書き方を確かめ、1つの論文の中でそろえます。",
+    "このページの例文は、% は空白なし(5%)、組成は wt%・at%、温度は 500 °C、範囲は from … to … か en dash で書いています。上付き・下付きは Unicode の文字(m²、s⁻¹、Fe₃C)で書いているので、そのまま貼り付けられます。投稿原稿ではワープロの上付き・下付きに直してもかまいません。"
+   ]
+  },
+  {
+   "id": "mt",
+   "h": "機械翻訳を使うときの確かめ方",
+   "p": [
+    "機械翻訳は文法の整った英文を出しますが、専門用語・数・単位・論理の向きを取り違えることがあります。次の点を自分で確かめます。",
+    "数・単位・条件: 温度・時間・組成・試料の番号が原文と同じか。℃ が °C になっているか、wt% と at% が入れ替わっていないか。上の「英文の点検」に貼ると、単位の空白や上付き・下付きの書き忘れなどが見つかります。",
+    "専門用語: 焼なまし(annealing)と焼戻し(tempering)、焼入れ(quenching)、時効(aging)、析出物(precipitate)と介在物(inclusion)などが正しい語になっているか。用語集の英語の名前と比べます。",
+    "否定と比較の向き: 「〜より高い」「〜しなかった」「〜とは限らない」が逆になっていないか。",
+    "主語と時制: 日本語で省いた主語を機械が補ったとき、意図と違う主語になっていないか(組織が研磨したことになる、など)。方法は過去形、図の説明は現在形になっているか。",
+    "訳し戻し: 英文を日本語に訳し戻して、意味が変わっていないかを見ます。ただし、訳し戻しが自然でも、英文が論文の書き方に合っているとは限りません。",
+    "未発表の原稿を外部の翻訳サービスに入れてよいかは、所属機関や共同研究の取り決めで確かめます(このページの点検は端末の外に送りません)。"
+   ]
+  },
+  {
+   "id": "padding",
+   "h": "水増しの文は書かない",
+   "p": [
+    "論文の英文は、短く正確なほど読み手に伝わります。次のような中身のない文や語は削ります。",
+    "It is well known that … / It is generally said that …: 本当に周知なら文献を示すだけで足り、周知でなければ根拠が要ります。",
+    "As shown in Fig. 3, it can be seen that …: 「示すように」と「見られる」が重なっています。",
+    "very、quite、extremely、significantly(検定をしていないとき): 数で示せるときは数を書きます(the hardness increased by 40 HV)。",
+    "novel、remarkable、for the first time: 根拠がなければ使いません。査読で根拠を問われます。",
+    "この表現集の例文も、1つの文に1つの事柄を入れ、数・条件・比べる相手をはっきり書くようにしています。"
+   ]
+  }
+ ],
+ "faq": [
+  [
+   "このページの例文を、自分の論文にそのまま使ってよいですか?",
+   "はい。文型と例文はこのサイトで書いたもので、既存の論文・教科書・表現集の文を写していません。数値と条件は例なので、自分の実験の値に置き換えてください。文型のような決まった言い回しは、論文で使ってかまわない一般的な表現です。"
+  ],
+  [
+   "英文の点検で何も出なければ、正しい英文ですか?",
+   "いいえ。点検は、単位・記号・つづり・決まった言い回しのよくある誤りを規則で探す目安で、文法や意味を調べるものではありません。冠詞・時制・論理の流れは自分で読み返し、できれば英語に慣れた人に見てもらってください。"
+  ],
+  [
+   "貼った英文はどこかに送られますか?",
+   "送られません。点検はこのページの JavaScript で、この端末(ブラウザ)の中だけで行います。お気に入りもこのブラウザの中(localStorage)にだけ残ります。"
+  ],
+  [
+   "% の前に空白を入れるかどうかが、雑誌によって違うのはなぜですか?",
+   "SI 文書と ISO 80000 は % を単位と同じように扱い、数との間に空白を入れます。英語の多くのスタイルガイドは % を数にくっつける記号として扱います。どちらが正しいということはないので、投稿先の規定に従い、1つの論文の中でそろえてください。"
+  ],
+  [
+   "アメリカ英語とイギリス英語のどちらで書けばよいですか?",
+   "投稿先の規定に従い、1つの論文の中でそろえます(aging と ageing、color と colour、gage と gauge、e.g., と e.g. など)。規定がなければ、どちらかに決めて通します。"
+  ]
+ ],
+ "sources_h": "主な出典",
+ "refs": [
+  {
+   "k": "si",
+   "s": "SI 文書 第9版",
+   "full": "BIPM, The International System of Units (SI Brochure), 9th edition (2019), version 4.01 (2026)",
+   "url": "https://www.bipm.org/en/si-brochure-9"
+  },
+  {
+   "k": "nist811",
+   "s": "NIST SP 811",
+   "full": "A. Thompson, B. N. Taylor, Guide for the Use of the International System of Units (SI), NIST Special Publication 811, 2008 edition(と、その原稿点検のチェックリスト)",
+   "url": "https://www.nist.gov/document/sp-811-2008-checklist-reviewing-manuscriptspdf"
+  },
+  {
+   "k": "iso80000",
+   "s": "ISO 80000-1",
+   "full": "ISO 80000-1:2022, Quantities and units — Part 1: General",
+   "url": ""
+  },
+  {
+   "k": "cmos",
+   "s": "Chicago Manual of Style",
+   "full": "The Chicago Manual of Style, 18th edition, University of Chicago Press (2024), 6.54・10.4(e.g. と i.e. のあとのコンマ)",
+   "url": "https://cmosshoptalk.com/?p=14347"
+  },
+  {
+   "k": "springer",
+   "s": "Springer の著者向けガイドの例",
+   "full": "Journal of Materials Engineering and Performance (Springer / ASM International), Submission guidelines(SI 単位を使う。温度は °C を認める)",
+   "url": "https://link.springer.com/journal/11665/submission-guidelines"
+  },
+  {
+   "k": "clarkson",
+   "s": "Clarkson University Writing Center",
+   "full": "Clarkson University Writing Center, Verb Tenses in Scientific Writing(方法と結果は過去形、一般的な事実と図の説明は現在形)",
+   "url": "https://sites.clarkson.edu/cuwrite/wp-content/uploads/sites/6/2019/06/verbtenses.pdf"
+  },
+  {
+   "k": "uhcl",
+   "s": "UHCL Writing Center",
+   "full": "University of Houston–Clear Lake Writing Center, Scientific Writing(序論の背景は現在形、方法・結果は過去形)",
+   "url": "https://www.uhcl.edu/writing-center/documents/tip-sheets/scientificwriting.pdf"
+  },
+  {
+   "k": "iso6507",
+   "s": "ISO 6507-1",
+   "full": "ISO 6507-1, Metallic materials — Vickers hardness test — Part 1: Test method(硬さの表し方 640 HV 30)",
+   "url": ""
+  }
+ ]
+}
