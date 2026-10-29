@@ -21,7 +21,10 @@
     "phase-diagram-008"
   ],
   "figures": [],
-  "compares": [],
+  "compares": [
+    "annealing-vs-normalizing",
+    "quenching-vs-tempering"
+  ],
   "form": {
     "id": "fe-c-form",
     "fields": [

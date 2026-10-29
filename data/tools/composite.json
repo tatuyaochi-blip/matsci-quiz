@@ -21,7 +21,9 @@
     "composites-007"
   ],
   "figures": [],
-  "compares": [],
+  "compares": [
+    "thermoplastic-vs-thermosetting"
+  ],
   "form": {
     "id": "comp-form",
     "fields": [

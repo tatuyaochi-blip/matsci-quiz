@@ -25,7 +25,9 @@
     "materials-selection-005"
   ],
   "figures": [],
-  "compares": [],
+  "compares": [
+    "hardness-strength-toughness"
+  ],
   "form": {
     "id": "ashby-form",
     "fields": [
