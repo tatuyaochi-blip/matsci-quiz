@@ -810,8 +810,12 @@ if (form) {
   });
   function linkBox(s) {
     const links = [];
-    if (s.st === 'hcp') links.push(`<p class="muted xt-note">${esc(T.xrd_hcp)}</p>`);
-    else {
+    if (s.st === 'hcp') {
+      // HCP は c も渡し、いちばん強い (101) を選んで開く
+      const q = `type=hcp&a=${Number(s.a.toPrecision(6))}&c=${Number((s.a * s.ca).toPrecision(6))}&lambda=0.15406&h=1&k=0&l=1`;
+      links.push(`<p><a class="btn btn-ghost" href="${home}tools/xrd-bragg-calculator/?${esc(q)}">${esc(fill(T.xrd_link, { hkl: '101', s: T.short_hcp, a: num(s.a, 5) }))} →</a></p>`);
+      links.push(`<p class="muted xt-note">${esc(T.xrd_note)}</p>`);
+    } else {
       const def = { sc: [1, 0, 0], bcc: [1, 1, 0], fcc: [1, 1, 1], diamond: [1, 1, 1] }[s.st];
       const useP = /plane|both/.test(s.show) && s.hklOk && s.hkl.some(x => x);
       const hkl = useP ? s.hkl.map(Math.abs) : def;
