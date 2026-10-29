@@ -1,0 +1,922 @@
+{
+ "title": "Rechentrainer Materialwissenschaft: Rechenaufgaben mit Rechenweg",
+ "description": "Üben Sie 38 typische Rechenaufgaben der Materialwissenschaft mit jedes Mal neuen Zahlen: Netzebenenabstand, Bragg-Winkel, theoretische Dichte, Hebelgesetz, Diffusion, Spannung und Dehnung, Bruchzähigkeit, Wärmespannung und Mischungsregel. Antworten werden mit Einheit bewertet, mit Rechenweg und typischen Fehlern.",
+ "h1": "Rechentrainer",
+ "lead": "Typische Rechenaufgaben aus Vorlesungen, Klausuren und Aufnahmeprüfungen der Materialwissenschaft, jedes Mal mit neuen Zahlen. Lösen Sie die Aufgabe selbst und geben Sie das Ergebnis mit Einheit ein: Sie sehen, ob es stimmt, den Rechenweg (welche Werte in welche Formel eingesetzt werden) und den typischen Fehler, auf den Ihr Zahlenwert hindeutet. Sie können auch den passenden Rechner mit denselben Zahlen öffnen und das Ergebnis dort nachprüfen.",
+ "note": "Die Zahlen in den Aufgaben sind Übungswerte, die jedes Mal neu aus einem Bereich gewählt werden. Stoffwerte stammen aus der Datensammlung der Rechner dieser Website (Quellen unten) oder werden in der Aufgabe als Annahme angegeben. Für die Auslegung realer Bauteile verwenden Sie Werte aus Normen und Werkstoffdatenblättern.",
+ "lowerNames": false,
+ "mat": {
+  "al": "Aluminiumlegierung",
+  "cu": "Kupferlegierung",
+  "mg": "Magnesiumlegierung",
+  "ti": "Titanlegierung",
+  "ni": "Nickellegierung",
+  "w": "Wolframlegierung",
+  "pb": "Bleilegierung",
+  "epoxy": "Epoxidharz"
+ },
+ "groups": {
+  "crystal": "Kristallstruktur",
+  "phase": "Zustandsdiagramme",
+  "diffusion": "Diffusion und Gitterfehler",
+  "mechanical": "Mechanische Eigenschaften",
+  "fracture": "Bruch",
+  "thermal": "Thermische Eigenschaften",
+  "composite": "Verbundwerkstoffe",
+  "other": "Elektrische Eigenschaften, Korrosion, Hochtemperatur"
+ },
+ "units": {
+  "µm/y": "µm/Jahr",
+  "mm/y": "mm/Jahr",
+  "h": "h (Stunden)",
+  "d": "d (Tage)"
+ },
+ "names": {
+  "x": {
+   "src_cu": "Cu-Kα1-Strahlung",
+   "src_co": "Co-Kα1-Strahlung",
+   "src_cr": "Cr-Kα1-Strahlung",
+   "src_mo": "Mo-Kα1-Strahlung",
+   "st_nacl": "Steinsalzstruktur (NaCl-Typ)",
+   "st_cscl": "CsCl-Struktur",
+   "touch_bcc": "Im BCC-Gitter (krz) berühren sich die Atome entlang der Raumdiagonalen, daher √3a = 4r",
+   "touch_fcc": "Im FCC-Gitter (kfz) berühren sich die Atome entlang der Flächendiagonalen, daher √2a = 4r",
+   "ph_L": "Schmelze ({p})",
+   "ph_S": "{p}-Phase",
+   "tension": "Zugspannung",
+   "compression": "Druckspannung",
+   "fib_carbon": "Kohlenstofffasern",
+   "fib_glass": "Glasfasern",
+   "fib_aramid": "Aramidfasern",
+   "cond_cu": "Normkupfer, weichgeglüht (100 % IACS)",
+   "cond_al": "Leitaluminium (61 % IACS)"
+  },
+  "diff": {
+   "c_g": "Kohlenstoff in γ-Eisen",
+   "fe_a": "Eisen in α-Eisen (Selbstdiffusion)",
+   "fe_g": "Eisen in γ-Eisen (Selbstdiffusion)",
+   "cu": "Kupfer in Kupfer (Selbstdiffusion)",
+   "zn_cu": "Zink in Kupfer",
+   "al": "Aluminium in Aluminium (Selbstdiffusion)",
+   "cu_al": "Kupfer in Aluminium",
+   "mg_al": "Magnesium in Aluminium",
+   "cu_ni": "Kupfer in Nickel"
+  }
+ },
+ "guide": [
+  {
+   "id": "how",
+   "h": "Bedienung",
+   "p": [
+    "Wählen Sie ein Gebiet oder einen Aufgabentyp und starten Sie einen Satz mit 5 oder 10 Aufgaben. Ist „Schwache Typen häufiger“ aktiviert, kommen Typen, bei denen Sie bisher öfter falsch lagen, häufiger dran. Ein Klick auf einen Typnamen in der Liste unten öffnet genau eine Aufgabe dieses Typs.",
+    "Geben Sie das Ergebnis als Zahl ein und wählen Sie die Einheit im Auswahlfeld. 1,23e-5; 1,23×10^-5 und 1,23 × 10⁻⁵ werden gleichermaßen gelesen. Gibt es ein Auswahlfeld für die Einheit, können Sie in mm, in µm oder in jeder anderen angebotenen Einheit antworten, sofern die Zahl zur gewählten Einheit passt (umgerechnet wird mit dem Faktor der Einheit).",
+    "„Prüfen“ zeigt, ob das Ergebnis stimmt, und öffnet den Rechenweg. Bei einem falschen Ergebnis wird angezeigt, auf welchen typischen Fehler Ihr Zahlenwert hindeutet (Radius und Durchmesser, °C und K, wt% und at%, 2θ und θ usw.). „Lösung anzeigen“ öffnet den Rechenweg, ohne dass Sie antworten.",
+    "„Link zu dieser Aufgabe kopieren“ liefert eine URL, die dieselbe Aufgabe mit denselben Zahlen öffnet. Die URL enthält nur den Aufgabentyp und eine Startzahl (Seed), nie die Lösung. Ihre Ergebnisse werden nur in diesem Browser gespeichert (localStorage) und nirgendwohin gesendet. Blockiert Ihr Browser das Speichern, funktionieren die Aufgaben trotzdem; nur die Ergebnisse bleiben nicht erhalten."
+   ]
+  },
+  {
+   "id": "tips",
+   "h": "Tipps zum Lösen von Rechenaufgaben",
+   "p": [
+    "Schreiben Sie zuerst die gegebenen und die gesuchten Größen mit Formelzeichen und Einheiten auf. Begriffe wie „Durchmesser“, „Gesamtlänge 2a“ oder „Massenanteil“ entsprechen oft nicht der Größe, die in die Formel gehört (Radius, a, Volumenanteil); korrigieren Sie das an dieser Stelle.",
+    "Am sichersten ist es, vor dem Einsetzen alles in SI-Einheiten (m, kg, s, K, J, Pa) umzurechnen. In der Festigkeitslehre ist auch die Kombination MPa und mm (1 MPa = 1 N/mm²) praktisch, aber bei einer Bruchzähigkeit in MPa·√m muss die Länge in Metern stehen. Eine Temperaturdifferenz ΔT hat in °C und K denselben Zahlenwert, das T in exp(−Q/RT) oder T(C + log t) muss jedoch immer die absolute Temperatur sein.",
+    "Prüfen Sie die Größenordnung des Ergebnisses. Netzebenenabstände von Metallen liegen bei 0,1–0,3 nm, Dichten bei 2–22 g/cm³, die Wärmespannung in einem eingespannten Stahlstab, der um 100 K erwärmt wird, bei einigen hundert MPa, und Aufkohlungstiefen bei 0,1 bis einigen mm. Weichen Sie um den Faktor 10 oder mehr ab, liegt der Fehler wahrscheinlich bei einer Einheitenumrechnung oder einer Zehnerpotenz.",
+    "Behalten Sie bei Zwischenwerten ein bis zwei Stellen mehr als im Ergebnis (am sichersten im Speicher des Taschenrechners). Wer zwischendurch auf drei Stellen rundet und mit dem gerundeten Wert weiterrechnet, kann bei Differenzen, Exponentialfunktionen und Potenzen Fehler so verstärken, dass das Ergebnis außerhalb der Toleranz liegt."
+   ]
+  },
+  {
+   "id": "units",
+   "h": "Einheiten",
+   "p": [
+    "Das Auswahlfeld bietet andere Einheiten derselben Größe an (nm und Å, MPa und GPa, m²/s und cm²/s, h und s usw.). Ein in der gewählten Einheit richtiger Wert wird als richtig gewertet. Wird nur eine Einheit angezeigt, antworten Sie in dieser Einheit.",
+    "Anteile können als Dezimalzahl zwischen 0 und 1 oder in % angegeben werden (0,25 und 25 % sind dasselbe). Bei Massen- oder Volumenanteilen ist beides zulässig.",
+    "Temperaturen werden in °C oder K angegeben. Da man zwischen beiden durch Addieren oder Subtrahieren von 273,15 umrechnet und nicht durch Multiplizieren, ist ein °C-Wert, der bei gewählter Einheit K eingegeben wird, falsch. Geben Sie umgekehrt einen K-Wert als °C an, erscheint der Hinweis „Sie haben die absolute Temperatur (K) so angegeben, als wäre sie in °C“.",
+    "Nützliche Umrechnungen: 1 nm = 10 Å = 10⁻⁹ m; 1 µm = 10⁻⁶ m; 1 MPa = 1 N/mm² = 10⁶ Pa; 1 GPa = 1000 MPa; 1 cm²/s = 10⁻⁴ m²/s; 1 g/cm³ = 1000 kg/m³; 1 eV = 1,602 × 10⁻¹⁹ J; 1 kJ/mol = 1000 J/mol."
+   ]
+  },
+  {
+   "id": "sig",
+   "h": "Signifikante Stellen und Bewertung",
+   "p": [
+    "Die Zahlen in jeder Aufgabe sind bereits auf die angezeigten Stellen gerundet, und die Referenzlösung wird aus diesen gerundeten Zahlen berechnet. Wer mit den Zahlen rechnet, wie sie dastehen, kann also nie wegen der Rundung der Angaben falsch liegen.",
+    "Bewertet wird nach dem relativen Fehler. Die meisten Typen akzeptieren ±1 %. Typen, deren Rechnung über eine Exponentialfunktion läuft (Diffusionskoeffizient, Aufkohlen, Leerstellenkonzentration, Zeit nach Larson-Miller), akzeptieren ±2 %, weil Rundungen unterwegs dort stärker ins Gewicht fallen; Typen, die viele Stellen benötigen, etwa Winkel und Gitterkonstanten, akzeptieren ±0,5 %. Typen, deren Ergebnis eine Temperatur ist (höchste Temperatur des eingespannten Stabs, Temperatur nach Larson-Miller), werden nach dem relativen Fehler der absoluten Temperatur in K bewertet (±0,3 % bzw. ±0,5 %, zwischen 300 und 1200 K also etwa ±1 bis 6 K). Die Toleranz wird bei jeder Aufgabe angezeigt.",
+    "Es genügt, das Ergebnis mit der angegebenen Zahl signifikanter Stellen (meist 3) einzugeben; mehr Stellen sind erlaubt. Ist der genaue Wert zum Beispiel 0,2867 nm, werden sowohl 0,287 als auch 0,2867 als richtig gewertet. Mit nur zwei Stellen wie 0,29 kann die Abweichung über 1 % liegen und die Antwort als falsch gelten.",
+    "Liegen Sie knapp außerhalb der Toleranz (innerhalb von 5 %), erscheint der Hinweis „Knapp daneben“ mit dem Verweis auf zu starkes Runden oder eine andere Konstante. Der Ansatz stimmt dann meist: Prüfen Sie, ob Sie Zwischenwerte zu stark gerundet und die in der Aufgabe angegebenen Konstanten (N_A, R, k usw.) verwendet haben."
+   ]
+  }
+ ],
+ "faq": [
+  [
+   "Mein Ergebnis müsste stimmen, wird aber als falsch gewertet.",
+   "Prüfen Sie zuerst das Auswahlfeld für die Einheit. Passt die gewählte Einheit nicht zur eingegebenen Zahl, wird auch ein richtiger Wert als falsch gewertet (meist mit dem Hinweis „Das sieht nach einer Verwechslung der Einheit aus“). Stimmen die Einheiten und liegen Sie nur knapp daneben, haben Sie wahrscheinlich Zwischenwerte zu stark gerundet oder eine andere Konstante verwendet. Rechnen Sie mit den Zahlen und Konstanten aus der Aufgabe und behalten Sie unterwegs mindestens vier Stellen."
+  ],
+  [
+   "Wie werden die Zahlen gewählt?",
+   "Für jeden Typ sind Bereiche festgelegt, die für reale Werkstoffe realistisch sind, und daraus werden jedes Mal Werte gezogen. Stoffwerte wie Gitterkonstanten, Dichten, E-Moduln und Ausdehnungskoeffizienten stammen aus denselben Daten wie das Periodensystem für Werkstoffe, das Werkstoffschaubild und das Labor für binäre Zustandsdiagramme dieser Website. Bei Stoffwerten, die als Bereich angegeben sind (etwa dem E-Modul), wird ein Wert innerhalb des Bereichs gewählt und in der Aufgabe als Annahme genannt."
+  ],
+  [
+   "Kann ich dieselbe Aufgabe noch einmal lösen oder sie jemandem weitergeben?",
+   "Ja. Öffnen Sie die URL aus „Link zu dieser Aufgabe kopieren“ (?t=Typ&s=Seed), dann erhalten Sie dieselbe Aufgabe mit denselben Zahlen. Die URL enthält die Lösung nicht; Sie können sich damit also gegenseitig Aufgaben stellen."
+  ],
+  [
+   "Wo werden meine Ergebnisse gespeichert? Kann ich sie löschen?",
+   "Nur im localStorage dieses Browsers; nichts wird an einen Server gesendet, und die Daten werden nicht mit anderen Geräten oder Browsern geteilt. Mit „Ergebnisse löschen“ unten auf der Seite entfernen Sie sie. Im privaten Modus oder wenn das Speichern blockiert ist, bleiben keine Ergebnisse erhalten, die Aufgaben funktionieren aber normal."
+  ],
+  [
+   "Wie wählt „Schwache Typen häufiger“ aus?",
+   "Für jeden Typ gilt: Je höher der Anteil Ihrer falschen Antworten im Verhältnis zu den richtigen, desto eher wird er gewählt. Typen, die Sie noch nicht bearbeitet haben, kommen trotzdem in angemessenem Umfang vor. Innerhalb eines Satzes kommt derselbe Typ nie zweimal direkt hintereinander."
+  ],
+  [
+   "Was bringt es, den Rechner zu öffnen?",
+   "Der passende Rechner öffnet sich mit denselben Zahlen, sodass Sie das Ergebnis auf anderem Weg prüfen oder sehen können, was sich bei geänderten Bedingungen ändert. Bei einer Aufgabe zum Bragg-Winkel zeigt zum Beispiel die XRD-Analyse-Werkbank das ganze Beugungsdiagramm, bei einer Aufgabe zum Aufkohlen der Simulator für Diffusion und Oberflächenbehandlung das Konzentrationsprofil. Für Typen, die kein Rechner abdeckt, werden stattdessen Links zu verwandten Begriffen und Artikeln angezeigt."
+  ],
+  [
+   "Das Ergebnis im Lehrbuch ist etwas anders.",
+   "Lehrbücher runden oft Zwischenwerte oder verwenden gekürzte Konstanten (N_A = 6,02 × 10²³; R = 8,31), sodass die dritte Stelle abweichen kann. Die Lösungen hier werden ohne Rundung von Zwischenwerten aus den Zahlen und Konstanten der Aufgabe berechnet. Was innerhalb der Toleranz liegt, wird in beiden Fällen als richtig gewertet."
+  ],
+  [
+   "Muss ich mir merken, welche Elemente BCC und welche FCC sind?",
+   "In diesem Rechentrainer steht die Kristallstruktur in der Aufgabe. In Prüfungen ist das nicht immer so; es hilft daher, sich zu merken, dass Fe (α), Cr, Mo, W, V, Nb und Ta kubisch-raumzentriert (BCC, krz) und Al, Cu, Ni, Ag, Au, Pt, Pb und Pd kubisch-flächenzentriert (FCC, kfz) sind."
+  ]
+ ],
+ "sources": [
+  {
+   "name": "Gitterkonstanten, Dichten, Kristallstrukturen und Atommassen",
+   "text": "Daten des Periodensystems für Werkstoffe (Gitterkonstanten und Dichten aus dem CRC Handbook of Chemistry and Physics; Standardatomgewichte nach IUPAC/CIAAW)."
+  },
+  {
+   "name": "Wertebereiche von E-Modul, Ausdehnungskoeffizient, Wärmeleitfähigkeit und Bruchzähigkeit",
+   "text": "Daten des Werkstoffschaubilds (Bereiche aus M. F. Ashby, „Material property data for engineering materials“, 5. Aufl., 2021). Gewählt wird ein Wert innerhalb des Bereichs, der in der Aufgabe als Annahme genannt wird."
+  },
+  {
+   "name": "Werte der Zustandsdiagramme (Cu–Ni, Pb–Sn, Ag–Cu, Al–Si, Al–Cu, Pt–Ag) und eutektoider Punkt von Fe–C",
+   "text": "Daten des Labors für binäre Zustandsdiagramme und des interaktiven Eisen-Kohlenstoff-Diagramms (Werte u. a. aus Callister, „Materials Science and Engineering“; die Seite des jeweiligen Rechners nennt die Quelle für jedes System). Für Fe–C gelten: eutektoider Punkt 0,76 wt% C; Löslichkeit von Kohlenstoff in Ferrit 0,022 wt% C; Fe₃C 6,70 wt% C."
+  },
+  {
+   "name": "Röntgenwellenlängen",
+   "text": "Dieselben Kα1-Werte wie in der XRD-Analyse-Werkbank (λ = hc/E aus den Photonenenergien im X-ray Data Booklet)."
+  },
+  {
+   "name": "D₀ und Q der Diffusion, Fehlerfunktion",
+   "text": "Dieselben Werte wie in der Datensammlung des Simulators für Diffusion und Oberflächenbehandlung (Tabelle 5.2 aus W. D. Callister, Jr., D. G. Rethwisch, „Materials Science and Engineering: An Introduction“, 9. Aufl.). Auch die Fehlerfunktion und ihre Umkehrfunktion werden wie in diesem Rechner berechnet. Die Temperaturen werden so gewählt, dass der Rechner keine Warnung ausgibt (innerhalb des Phasengebiets; bei Substitutionsdiffusion oberhalb des 0,75-Fachen der Schmelztemperatur), und die Oberflächenkonzentration beim Aufkohlen bleibt unterhalb der Acm-Linie bei dieser Temperatur."
+  },
+  {
+   "name": "Spezifische Widerstände der Leiter",
+   "text": "Weichgeglühtes Normkupfer (IEC 60028: 1,7241 × 10⁻⁸ Ω·m bei 20 °C, Temperaturkoeffizient 0,00393 K⁻¹) und Leitaluminium (61 % IACS: 2,8264 × 10⁻⁸ Ω·m, Temperaturkoeffizient 0,00403 K⁻¹)."
+  },
+  {
+   "name": "Physikalische Konstanten",
+   "text": "CODATA-Werte, gerundet auf 3–4 Stellen (N_A = 6,022 × 10²³ mol⁻¹; R = 8,314 J/(mol·K); k = 8,617 × 10⁻⁵ eV/K; e = 1,602 × 10⁻¹⁹ C; F = 96485 C/mol)."
+  },
+  {
+   "name": "Angenommene Werte",
+   "text": "Bildungsenergien von Leerstellen, Querkontraktionszahlen, Hall-Petch-Konstanten, kritische Schubspannungen, E-Moduln der Fasern, Ionenradien, die Larson-Miller-Konstante C = 20 und Ähnliches sind Übungswerte, die aus einem für den Werkstoff plausiblen Bereich gewählt werden. Die Elektronenbeweglichkeit von n-Silizium liegt innerhalb von ±5 % des Werts, der sich nach Caughey–Thomas aus der Donatorkonzentration N ergibt: µ = 52,2 + 1365/[1 + (N/9,68 × 10¹⁶ cm⁻³)^0,68] cm²/(V·s) (300 K, Koeffizienten nach Jacoboni et al. 1977)."
+  }
+ ],
+ "types": {
+  "d-spacing": {
+   "name": "Netzebenenabstand (kubisch)",
+   "short": "Abstand der (hkl)-Ebenen aus Gitterkonstante und Millerschen Indizes",
+   "formula": "d = a/√(h² + k² + l²)",
+   "q": "Berechnen Sie den Netzebenenabstand d der {hkl}-Ebenen von {mat} ({st}, Gitterkonstante a = {a} nm).",
+   "steps": [
+    "Für ein kubisches Gitter gilt d = a/√(h² + k² + l²).",
+    "h² + k² + l² = {N}; √{N} = {sq}.",
+    "d = {a} nm / {sq} = {d} nm."
+   ],
+   "mistakes": {
+    "sum": "Sie haben durch h + k + l geteilt statt durch die Wurzel aus h² + k² + l². Die Indizes quadrieren, addieren und dann die Wurzel ziehen.",
+    "nosqrt": "Sie haben durch h² + k² + l² geteilt, ohne die Wurzel zu ziehen.",
+    "times": "Sie haben a mit √(h² + k² + l²) multipliziert. Der Netzebenenabstand ist kleiner als die Gitterkonstante, also wird geteilt."
+   }
+  },
+  "bragg-angle": {
+   "name": "Beugungswinkel 2θ (Bragg-Gleichung)",
+   "short": "Winkel 2θ, unter dem ein (hkl)-Reflex eines kubischen Metalls auftritt",
+   "formula": "2d sinθ = λ, d = a/√(h² + k² + l²)",
+   "q": "Eine Probe aus {mat} ({st}, a = {a} nm) wird mit {src} (λ = {lam} nm) gemessen. Berechnen Sie den Beugungswinkel 2θ des {hkl}-Reflexes erster Ordnung.",
+   "steps": [
+    "d = a/√(h² + k² + l²) = {a}/√{N} = {d} nm.",
+    "Aus der Bragg-Gleichung 2d sinθ = λ folgt sinθ = λ/(2d) = {lam}/(2 × {d}) = {s}.",
+    "θ = {th}°, 2θ = {tt}°."
+   ],
+   "mistakes": {
+    "theta": "Das ist θ. Die Achse im XRD-Diagramm ist 2θ, also verdoppeln.",
+    "sum": "Sie haben h + k + l statt √(h² + k² + l²) verwendet.",
+    "no2": "Sie haben sinθ = λ/d verwendet. Die Bragg-Gleichung lautet 2d sinθ = nλ (die 2 nicht vergessen)."
+   }
+  },
+  "lattice-from-peak": {
+   "name": "Gitterkonstante aus der Reflexlage",
+   "short": "Gitterkonstante a eines kubischen Kristalls aus dem 2θ eines (hkl)-Reflexes im XRD-Diagramm",
+   "formula": "d = λ/(2 sinθ), a = d√(h² + k² + l²)",
+   "q": "Eine Probe aus {mat} ({st}) wird mit {src} (λ = {lam} nm) gemessen; der {hkl}-Reflex erscheint bei 2θ = {tt}°. Berechnen Sie die Gitterkonstante a.",
+   "steps": [
+    "θ = 2θ/2 = {th}°.",
+    "Aus der Bragg-Gleichung folgt d = λ/(2 sinθ) = {d} nm.",
+    "a = d√(h² + k² + l²) = {d} × √{N} = {a} nm (Wert in der Datensammlung des Periodensystems für Werkstoffe: {a0} nm)."
+   ],
+   "mistakes": {
+    "twotheta": "Sie haben 2θ so in den Sinus eingesetzt, als wäre es θ. Zuerst halbieren.",
+    "donly": "Sie haben beim Netzebenenabstand d aufgehört. Für ein kubisches Gitter gilt a = d√(h² + k² + l²)."
+   }
+  },
+  "density": {
+   "name": "Theoretische Dichte (kubisches Metall)",
+   "short": "Dichte eines Kristalls aus Gitterkonstante, Atommasse und Zahl der Atome je Elementarzelle",
+   "formula": "ρ = nM/(N_A a³)",
+   "q": "Das Metall {mat} hat {st}-Struktur mit der Gitterkonstante a = {a} nm und der molaren Masse M = {M} g/mol. Berechnen Sie die theoretische Dichte ρ. Verwenden Sie für die Avogadro-Konstante N_A = {NA} mol⁻¹.",
+   "steps": [
+    "Die {st}-Elementarzelle enthält n = {n} Atome.",
+    "a = {a} nm = {a} × 10⁻⁷ cm, also a³ = {V} cm³.",
+    "Masse einer Elementarzelle nM/N_A = {m} g.",
+    "ρ = nM/(N_A a³) = {rho} g/cm³ (gemessene Dichte {d} g/cm³)."
+   ],
+   "mistakes": {
+    "n": "Sie haben eine falsche Zahl von Atomen je Elementarzelle verwendet (BCC: 2, FCC: 4).",
+    "n1": "Sie haben nicht mit der Zahl der Atome je Zelle n multipliziert (also n = 1 verwendet)."
+   }
+  },
+  "atomic-radius": {
+   "name": "Gitterkonstante und Atomradius",
+   "short": "Für BCC und FCC den Atomradius aus der Gitterkonstante bestimmen oder umgekehrt",
+   "formula": "BCC: √3a = 4r, FCC: √2a = 4r",
+   "q": {
+    "a2r": "Die Gitterkonstante von {mat} ({st}) beträgt a = {a} nm. Berechnen Sie den Atomradius r unter der Annahme, dass die Atome harte Kugeln sind, die ihre nächsten Nachbarn berühren.",
+    "r2a": "Die Atome von {mat} ({st}) werden als harte Kugeln mit dem Radius r = {rr} nm betrachtet, die ihre nächsten Nachbarn berühren. Berechnen Sie die Gitterkonstante a."
+   },
+   "steps": {
+    "a2r": [
+     "{touch}.",
+     "r = ({f}) × a = ({f}) × {a} nm = {r} nm."
+    ],
+    "r2a": [
+     "{touch}.",
+     "a = ({f}) × r = ({f}) × {rr} nm = {a} nm."
+    ]
+   },
+   "mistakes": {
+    "diam": "Sie haben Durchmesser (2r) und Radius verwechselt.",
+    "other": "Sie haben die Beziehungen für BCC und FCC vertauscht (BCC: Berührung entlang der Raumdiagonalen, √3a = 4r; FCC: entlang der Flächendiagonalen, √2a = 4r).",
+    "half": "Sie haben a = 2r verwendet (kubisch-primitiv, Berührung entlang der Würfelkante)."
+   }
+  },
+  "planar-density": {
+   "name": "Flächenbelegung (BCC, FCC)",
+   "short": "Zahl der Atome je Flächeneinheit auf den Ebenen (100), (110) und (111)",
+   "formula": "Flächenbelegung = Atome mit Mittelpunkt auf der Ebene / Ebenenfläche",
+   "q": "Berechnen Sie die Flächenbelegung (Atome je nm²) der {hkl}-Ebene von {mat} ({st}, a = {a} nm).",
+   "steps": [
+    "Die {hkl}-Ebene schneidet aus der Elementarzelle eine Fläche von {af} × a² = {A} nm² heraus.",
+    "Zählen Sie die Atome, deren Mittelpunkt in der Schnittfläche liegt, mit dem Anteil, den sie sich mit Nachbarzellen teilen: {cnt}.",
+    "Flächenbelegung = {n} / {A} nm² = {pd} nm⁻²."
+   ],
+   "mistakes": {
+    "area": "Sie haben für jede Ebene a² als Fläche verwendet. Die Schnittfläche der (110)-Ebene ist √2·a², die der (111)-Ebene (√3/2)·a².",
+    "whole": "Sie haben Atome an den Ecken oder Kanten der Schnittfläche als ganze Atome gezählt. Zählen Sie nur den Anteil innerhalb der Schnittfläche (Ecken nach dem Winkel, Kanten 1/2)."
+   }
+  },
+  "ionic-apf": {
+   "name": "Packungsdichte eines Ionenkristalls",
+   "short": "Packungsdichte von Steinsalz- und CsCl-Struktur aus den Ionenradien",
+   "formula": "Packungsdichte = n·(4/3)π(r₊³ + r₋³)/a³",
+   "q": "Eine Verbindung mit {st} hat den Kationenradius r₊ = {rc} nm und den Anionenradius r₋ = {ra} nm. Berechnen Sie unter der Annahme, dass sich Kationen und Anionen berühren, die Packungsdichte der Ionen (den Anteil des Volumens der Elementarzelle, den die Ionen einnehmen).",
+   "steps": {
+    "nacl": [
+     "In der Steinsalzstruktur berühren sich die Ionen entlang der Würfelkante, also a = 2(r₊ + r₋) = {a} nm.",
+     "Die Zelle enthält 4 Kationen und 4 Anionen (n = {n} Paare).",
+     "Volumen eines Ionenpaars (4/3)π(r₊³ + r₋³) = {Vi} nm³, a³ = {V} nm³.",
+     "Packungsdichte = {n} × {Vi} / {V} = {apf}."
+    ],
+    "cscl": [
+     "In der CsCl-Struktur berühren sich die Ionen entlang der Raumdiagonalen, also √3a = 2(r₊ + r₋), a = {a} nm.",
+     "Die Zelle enthält 1 Kation und 1 Anion (n = {n} Paar).",
+     "Volumen eines Ionenpaars (4/3)π(r₊³ + r₋³) = {Vi} nm³, a³ = {V} nm³.",
+     "Packungsdichte = {n} × {Vi} / {V} = {apf}."
+    ]
+   },
+   "mistakes": {
+    "contact": "Sie haben die falsche Berührungsrichtung verwendet (Steinsalz: Würfelkante; CsCl: Raumdiagonale).",
+    "n": "Sie haben eine falsche Zahl von Ionenpaaren je Zelle verwendet (Steinsalz 4, CsCl 1)."
+   }
+  },
+  "lever": {
+   "name": "Hebelgesetz (Massenanteile der Phasen)",
+   "short": "Massenanteile der Phasen an einem Punkt im Zweiphasengebiet aus den Enden der Konode",
+   "formula": "W = (C_anderes Ende − C₀)/(C_anderes Ende − C_Phase)",
+   "q": "Eine Legierung des Systems {A}–{B} mit {c0} wt% {B} wird bei {t} °C gehalten. Laut Konode im Zustandsdiagramm enthält die {p1} {c1} wt% {B} und die {p2} {c2} wt% {B}. Berechnen Sie den Massenanteil der {pa}.",
+   "steps": [
+    "Hebelgesetz: Der Massenanteil einer Phase ist die Länge von der Legierungszusammensetzung bis zum gegenüberliegenden Ende der Konode, geteilt durch die Gesamtlänge der Konode.",
+    "W = |{co} − {c0}| / |{co} − {ca}| = {num} / {den} = {w}.",
+    "Die andere Phase hat den Anteil 1 − W = {w2}."
+   ],
+   "mistakes": {
+    "swap": "Das ist der Anteil der anderen Phase. Das Hebelgesetz verwendet die Länge von der Legierungszusammensetzung bis zum gegenüberliegenden Ende."
+   }
+  },
+  "proeutectoid": {
+   "name": "Voreutektoider Ferrit und Zementit",
+   "short": "Anteile der Gefügebestandteile knapp unter 727 °C in unter- und übereutektoiden Stählen",
+   "formula": "untereutektoid: W_α′ = (0,76 − C₀)/(0,76 − 0,022); übereutektoid: W_Fe₃C′ = (C₀ − 0,76)/(6,70 − 0,76)",
+   "q": {
+    "hypo-pro": "Ein untereutektoider Stahl mit {c0} wt% C wird langsam aus dem Austenitgebiet abgekühlt. Berechnen Sie den Massenanteil des voreutektoiden Ferrits knapp unterhalb von 727 °C. Nehmen Sie für die eutektoide Zusammensetzung {S} wt% C und für die Löslichkeit von Kohlenstoff in Ferrit {P} wt% C an.",
+    "hypo-pearl": "Ein untereutektoider Stahl mit {c0} wt% C wird langsam aus dem Austenitgebiet abgekühlt. Berechnen Sie den Massenanteil des Perlits knapp unterhalb von 727 °C. Nehmen Sie für die eutektoide Zusammensetzung {S} wt% C und für die Löslichkeit von Kohlenstoff in Ferrit {P} wt% C an.",
+    "hyper-pro": "Ein übereutektoider Stahl mit {c0} wt% C wird langsam aus dem Austenitgebiet abgekühlt. Berechnen Sie den Massenanteil des voreutektoiden Zementits knapp unterhalb von 727 °C. Nehmen Sie für die eutektoide Zusammensetzung {S} wt% C und für Zementit (Fe₃C) {CM} wt% C an.",
+    "hyper-pearl": "Ein übereutektoider Stahl mit {c0} wt% C wird langsam aus dem Austenitgebiet abgekühlt. Berechnen Sie den Massenanteil des Perlits knapp unterhalb von 727 °C. Nehmen Sie für die eutektoide Zusammensetzung {S} wt% C und für Zementit (Fe₃C) {CM} wt% C an."
+   },
+   "steps": {
+    "hypo": [
+     "Knapp oberhalb von 727 °C liegen zwei Phasen vor: voreutektoider Ferrit (α, {P} wt% C) und Austenit (γ, {S} wt% C). Dieser Austenit wandelt durch die eutektoide Reaktion vollständig in Perlit um.",
+     "Voreutektoider Ferrit W_α′ = ({S} − {c0})/({S} − {P}) = {wpro}.",
+     "Perlit W_P = ({c0} − {P})/({S} − {P}) = {wp}."
+    ],
+    "hyper": [
+     "Knapp oberhalb von 727 °C liegen zwei Phasen vor: voreutektoider Zementit (Fe₃C, {CM} wt% C) und Austenit (γ, {S} wt% C). Dieser Austenit wandelt vollständig in Perlit um.",
+     "Voreutektoider Zementit W_Fe₃C′ = ({c0} − {S})/({CM} − {S}) = {wpro}.",
+     "Perlit W_P = ({CM} − {c0})/({CM} − {S}) = {wp}."
+    ]
+   },
+   "mistakes": {
+    "swap": "Sie haben den voreutektoiden Bestandteil und den Perlit vertauscht (beide ergeben zusammen 1).",
+    "total": "Sie haben den Anteil der Phase berechnet (gesamter Ferrit bzw. gesamter Zementit, einschließlich des Anteils im Perlit), nicht den des Gefügebestandteils. Voreutektoide Bestandteile werden mit der Konode knapp oberhalb von 727 °C berechnet (die am eutektoiden Punkt {S} wt% C endet).",
+    "noP": "Sie haben die Löslichkeit von Kohlenstoff in Ferrit, {P} wt% C, gleich null gesetzt."
+   }
+  },
+  "eutectic": {
+   "name": "Anteile von Primärkristallen und Eutektikum",
+   "short": "In einer eutektischen Legierung die Anteile von Primärkristallen, Eutektikum und Phasen knapp unter der eutektischen Temperatur",
+   "formula": "untereutektisch: W_E = (C₀ − C_α)/(C_E − C_α)",
+   "q": {
+    "prim": "Im Zustandsdiagramm {A}–{B} läuft bei {TE} °C die eutektische Reaktion L ({ce} wt% {B}) → {pa} ({ca} wt% {B}) + {pb} ({cb} wt% {B}) ab. Eine Legierung mit {c0} wt% {B} wird langsam aus der Schmelze abgekühlt. Berechnen Sie den Massenanteil an primärem {pp} knapp unterhalb der eutektischen Temperatur.",
+    "eut": "Im Zustandsdiagramm {A}–{B} läuft bei {TE} °C die eutektische Reaktion L ({ce} wt% {B}) → {pa} ({ca} wt% {B}) + {pb} ({cb} wt% {B}) ab. Eine Legierung mit {c0} wt% {B} wird langsam aus der Schmelze abgekühlt. Berechnen Sie den Massenanteil des Eutektikums knapp unterhalb der eutektischen Temperatur.",
+    "phase": "Im Zustandsdiagramm {A}–{B} läuft bei {TE} °C die eutektische Reaktion L ({ce} wt% {B}) → {pa} ({ca} wt% {B}) + {pb} ({cb} wt% {B}) ab. Eine Legierung mit {c0} wt% {B} wird langsam aus der Schmelze abgekühlt. Berechnen Sie den gesamten Massenanteil der Phase {pp} (primäres {pp} plus das {pp} im Eutektikum) knapp unterhalb der eutektischen Temperatur."
+   },
+   "steps": {
+    "hypo": [
+     "Knapp oberhalb der eutektischen Temperatur liegen zwei Phasen vor: primäres {pa} ({ca} wt% {B}) und Schmelze ({ce} wt% {B}). Diese Schmelze erstarrt vollständig als Eutektikum.",
+     "Eutektikum W_E = ({c0} − {ca})/({ce} − {ca}) = {we}; primäres {pa} = 1 − W_E = {wprim}.",
+     "Für die gesamte Phase {pa} gilt die Konode knapp unterhalb der eutektischen Temperatur ({ca} bis {cb} wt% {B}): W = ({cb} − {c0})/({cb} − {ca}) = {wph}."
+    ],
+    "hyper": [
+     "Knapp oberhalb der eutektischen Temperatur liegen zwei Phasen vor: primäres {pb} ({cb} wt% {B}) und Schmelze ({ce} wt% {B}). Diese Schmelze erstarrt vollständig als Eutektikum.",
+     "Eutektikum W_E = ({cb} − {c0})/({cb} − {ce}) = {we}; primäres {pb} = 1 − W_E = {wprim}.",
+     "Für die gesamte Phase {pb} gilt die Konode knapp unterhalb der eutektischen Temperatur ({ca} bis {cb} wt% {B}): W = ({c0} − {ca})/({cb} − {ca}) = {wph}."
+    ]
+   },
+   "mistakes": {
+    "prim": "Das ist der Anteil an primärem {pp}. Anteile von Primärkristallen und Eutektikum werden mit der Konode knapp oberhalb der eutektischen Temperatur berechnet, Gesamtanteile der Phasen mit der Konode knapp darunter.",
+    "eut": "Das ist der Anteil des Eutektikums. Anteile von Primärkristallen und Eutektikum werden mit der Konode knapp oberhalb der eutektischen Temperatur berechnet, Gesamtanteile der Phasen mit der Konode knapp darunter.",
+    "phase": "Das ist der Gesamtanteil der Phase {pp} (einschließlich des {pp} im Eutektikum). Anteile von Primärkristallen und Eutektikum werden mit der Konode knapp oberhalb der eutektischen Temperatur berechnet."
+   }
+  },
+  "wt-at": {
+   "name": "Umrechnung von wt% und at%",
+   "short": "Massenprozent und Atomprozent einer binären Legierung über die Atommassen umrechnen",
+   "formula": "x_B = (w_B/M_B)/(w_A/M_A + w_B/M_B)",
+   "q": {
+    "w2a": "Eine Legierung des Systems {A}–{B} enthält {x} wt% {nB} ({B}). Berechnen Sie den Gehalt an {B} in Atomprozent (at%). Atommassen: {A} {MA}; {B} {MB}.",
+    "a2w": "Eine Legierung des Systems {A}–{B} enthält {x} at% {nB} ({B}). Berechnen Sie den Gehalt an {B} in Massenprozent (wt%). Atommassen: {A} {MA}; {B} {MB}."
+   },
+   "steps": {
+    "w2a": [
+     "Stoffmengen in 100 g Legierung: {B} {x}/{MB} = {a} mol, {A} {xa}/{MA} = {b} mol.",
+     "x_B = {a}/({a} + {b}) × 100 = {y} at%."
+    ],
+    "a2w": [
+     "Massen in 100 mol Atomen: {B} {x} × {MB} = {a} g, {A} {xa} × {MA} = {b} g.",
+     "w_B = {a}/({a} + {b}) × 100 = {y} wt%."
+    ]
+   },
+   "mistakes": {
+    "same": "Sie haben den Ausgangswert ohne Umrechnung angegeben.",
+    "inv": "Sie haben in die falsche Richtung umgerechnet. Von wt% nach at% durch die Atommassen teilen, von at% nach wt% mit ihnen multiplizieren."
+   }
+  },
+  "arrhenius": {
+   "name": "Diffusionskoeffizient (Arrhenius)",
+   "short": "Diffusionskoeffizient bei einer Temperatur aus D₀ und der Aktivierungsenergie Q",
+   "formula": "D = D₀ exp(−Q/RT)",
+   "q": "Der Diffusionskoeffizient von {pair} folgt D = D₀exp(−Q/RT) mit D₀ = {D0} m²/s und Q = {Q} kJ/mol. Berechnen Sie D bei {tc} °C. Verwenden Sie R = {R} J/(mol·K).",
+   "steps": [
+    "Umrechnen in die absolute Temperatur: T = {tc} + 273,15 = {T} K.",
+    "Q/(RT) = {Q} × 10³ / ({R} × {T}) = {e}.",
+    "exp(−{e}) = {x}.",
+    "D = {D0} × {x} = {D} m²/s."
+   ],
+   "mistakes": {
+    "celsius": "Sie haben die Temperatur in °C eingesetzt. T in der Arrhenius-Gleichung ist die absolute Temperatur (K).",
+    "kj": "Sie haben Q in kJ/mol eingesetzt. R ist in J/(mol·K) angegeben, also muss Q in J/mol stehen (× 1000)."
+   }
+  },
+  "carb-depth": {
+   "name": "Aufkohlungstiefe (Fehlerfunktion)",
+   "short": "Tiefe, in der bei konstanter Oberflächenkonzentration ein bestimmter Kohlenstoffgehalt erreicht wird",
+   "formula": "(Cₓ − C₀)/(Cₛ − C₀) = 1 − erf(x/(2√(Dt)))",
+   "q": "Ein Stahl mit {c0} wt% C wird {hours} h lang bei {tc} °C aufgekohlt, wobei die Oberfläche auf {cs} wt% C gehalten wird. Berechnen Sie die Tiefe x, in der der Kohlenstoffgehalt {cx} wt% beträgt. Bestimmen Sie den Diffusionskoeffizienten von Kohlenstoff in γ-Eisen aus D₀ = {D0} m²/s, Q = {Q} kJ/mol und R = {R} J/(mol·K).",
+   "steps": [
+    "T = {T} K, D = D₀exp(−Q/RT) = {D} m²/s.",
+    "(Cₓ − C₀)/(Cₛ − C₀) = ({cx} − {c0})/({cs} − {c0}) = {ratio}; also erf(z) = 1 − {ratio} = {er}.",
+    "Aus einer Tabelle der Fehlerfunktion (oder ihrer Umkehrfunktion): z = x/(2√(Dt)) = {z}.",
+    "t = {hours} h = {s} s, √(Dt) = {sq} m.",
+    "x = 2z√(Dt) = {x} mm."
+   ],
+   "mistakes": {
+    "erf": "Sie haben erf(z) gleich (Cₓ − C₀)/(Cₛ − C₀) gesetzt. Dieses Verhältnis ist 1 − erf(z).",
+    "no2": "Sie haben x = z√(Dt) verwendet. Wegen z = x/(2√(Dt)) ist mit 2 zu multiplizieren.",
+    "hours": "Sie haben die Stunden nicht in Sekunden umgerechnet (1 h = 3600 s)."
+   }
+  },
+  "carb-time": {
+   "name": "Aufkohlungsdauer (Fehlerfunktion)",
+   "short": "Aufkohlungsdauer, bis in einer bestimmten Tiefe der Ziel-Kohlenstoffgehalt erreicht ist",
+   "formula": "(Cₓ − C₀)/(Cₛ − C₀) = 1 − erf(x/(2√(Dt)))",
+   "q": "Ein Stahl mit {c0} wt% C wird bei {tc} °C aufgekohlt, wobei die Oberfläche auf {cs} wt% C gehalten wird. Berechnen Sie die Zeit t, bis der Kohlenstoffgehalt in {x} mm Tiefe {cx} wt% erreicht. Bestimmen Sie den Diffusionskoeffizienten von Kohlenstoff in γ-Eisen aus D₀ = {D0} m²/s, Q = {Q} kJ/mol und R = {R} J/(mol·K).",
+   "steps": [
+    "T = {T} K, D = D₀exp(−Q/RT) = {D} m²/s.",
+    "(Cₓ − C₀)/(Cₛ − C₀) = ({cx} − {c0})/({cs} − {c0}) = {ratio}; also erf(z) = 1 − {ratio} = {er}.",
+    "Aus einer Tabelle der Fehlerfunktion (oder ihrer Umkehrfunktion): z = x/(2√(Dt)) = {z}.",
+    "x = {xm} m, also √(Dt) = x/(2z) = {q} m.",
+    "t = (√(Dt))²/D = {ts} s = {th} h."
+   ],
+   "mistakes": {
+    "erf": "Sie haben erf(z) gleich (Cₓ − C₀)/(Cₛ − C₀) gesetzt. Dieses Verhältnis ist 1 − erf(z).",
+    "no2": "Sie haben z = x/√(Dt) verwendet (die 2 fehlt); dadurch wird die Zeit 4-mal zu groß."
+   }
+  },
+  "time-temp": {
+   "name": "Diffusionszeit bei anderer Temperatur",
+   "short": "Da gleiches Dt dasselbe Profil ergibt: die nötige Zeit bei einer anderen Temperatur",
+   "formula": "t₂ = t₁·D₁/D₂ = t₁ exp[(Q/R)(1/T₂ − 1/T₁)]",
+   "q": "Eine Behandlung, die von der Diffusion von {pair} bestimmt wird, liefert nach {h1} h bei {t1c} °C das gewünschte Konzentrationsprofil. Der Diffusionskoeffizient folgt der Arrhenius-Gleichung mit D₀ = {D0} m²/s und Q = {Q} kJ/mol. Wie lange dauert es, dasselbe Profil bei {t2c} °C zu erhalten? Verwenden Sie R = {R} J/(mol·K).",
+   "steps": [
+    "Dasselbe Profil ergibt sich bei gleichem Dt (D₁t₁ = D₂t₂).",
+    "T₁ = {T1} K, T₂ = {T2} K. D₁ = {D1} m²/s, D₂ = {D2} m²/s.",
+    "t₂ = t₁·D₁/D₂ = t₁·exp[(Q/R)(1/T₂ − 1/T₁)], Exponent {e}.",
+    "t₂ = {h2} h."
+   ],
+   "mistakes": {
+    "inv": "Sie haben mit D₂/D₁ multipliziert. Eine niedrigere Temperatur bedeutet langsamere Diffusion und eine längere Zeit (eine höhere eine kürzere).",
+    "celsius": "Sie haben die Temperaturen in °C eingesetzt."
+   }
+  },
+  "fick1": {
+   "name": "Stationäre Diffusionsstromdichte (1. Ficksches Gesetz)",
+   "short": "Stationäre Diffusionsstromdichte aus den Konzentrationen an zwei Stellen einer Platte",
+   "formula": "J = −D dC/dx ≈ D(C₁ − C₂)/(x₂ − x₁)",
+   "q": "Kohlenstoff diffundiert von einer Seite durch eine Metallplatte; der stationäre Zustand ist erreicht. Die Kohlenstoffkonzentration beträgt {c1} kg/m³ in {x1} mm Tiefe unter der Oberfläche und {c2} kg/m³ in {x2} mm Tiefe. Berechnen Sie mit D = {D} m²/s die Diffusionsstromdichte J des Kohlenstoffs.",
+   "steps": [
+    "Konzentrationsdifferenz C₁ − C₂ = {dc} kg/m³, Abstand x₂ − x₁ = {dx} m.",
+    "Betrag des Gradienten (C₁ − C₂)/(x₂ − x₁) = {g} kg/m⁴.",
+    "J = D × {g} = {J} kg/(m²·s)."
+   ],
+   "mistakes": {
+    "x2": "Sie haben x₂ selbst als Abstand verwendet statt x₂ − x₁."
+   }
+  },
+  "vacancy": {
+   "name": "Gleichgewichtskonzentration der Leerstellen",
+   "short": "Zahl der Leerstellen je Kubikmeter aus Bildungsenergie und Temperatur",
+   "formula": "N_v = N exp(−Q_v/kT), N = N_A ρ/M",
+   "q": "Berechnen Sie die Gleichgewichtszahl der Leerstellen je Kubikmeter, N_v, in {mat} (Dichte {d} g/cm³, molare Masse {M} g/mol) bei {tc} °C. Verwenden Sie für die Bildungsenergie einer Leerstelle Q_v = {Qv} eV, N_A = {NA} mol⁻¹ und für die Boltzmann-Konstante k = {kB} eV/K.",
+   "steps": [
+    "Atome je Kubikmeter N = N_A ρ/M = {NA} × {d} × 10⁶ / {M} = {N} m⁻³ (ρ in g/m³).",
+    "T = {T} K, Q_v/(kT) = {e}.",
+    "exp(−{e}) = {f} (Anteil der unbesetzten Gitterplätze).",
+    "N_v = N × {f} = {Nv} m⁻³."
+   ],
+   "mistakes": {
+    "celsius": "Sie haben die Temperatur in °C eingesetzt.",
+    "frac": "Das ist der Leerstellenanteil N_v/N. Mit N multiplizieren, um die Zahl je Kubikmeter zu erhalten."
+   }
+  },
+  "elongation": {
+   "name": "Elastische Verlängerung",
+   "short": "Elastische Verlängerung eines Rundstabs aus Kraft, Durchmesser, Länge und E-Modul",
+   "formula": "Δl = Fl₀/(AE), A = πd²/4",
+   "q": "Ein Rundstab (Werkstoff: {mat}; E-Modul E = {E} GPa) mit {d} mm Durchmesser und {L} mm Länge wird mit {F} kN auf Zug belastet. Die Verformung ist elastisch. Berechnen Sie die Verlängerung Δl.",
+   "steps": [
+    "Querschnittsfläche A = πd²/4 = {A} mm².",
+    "Spannung σ = F/A = {F} × 10³ N / {A} mm² = {s} MPa (1 N/mm² = 1 MPa).",
+    "Dehnung ε = σ/E = {s} / ({E} × 10³) = {e}.",
+    "Δl = εl₀ = {dl} mm."
+   ],
+   "mistakes": {
+    "radius": "Sie haben den Durchmesser als Radius behandelt und πd² als Fläche verwendet.",
+    "diam2": "Sie haben πd²/2 als Fläche verwendet. Richtig ist πd²/4."
+   }
+  },
+  "poisson": {
+   "name": "Querkontraktionszahl und Durchmesseränderung",
+   "short": "Abnahme des Durchmessers eines Rundstabs aus Spannung, E-Modul und Querkontraktionszahl",
+   "formula": "Δd = ν(σ/E)d₀",
+   "q": "Ein Rundstab (Werkstoff: {mat}; E = {E} GPa und Querkontraktionszahl ν = {nu} angenommen) mit {d} mm Durchmesser wird elastisch mit einer Zugspannung von {s} MPa belastet. Berechnen Sie die Abnahme des Durchmessers Δd.",
+   "steps": [
+    "Längsdehnung ε_z = σ/E = {s} / ({E} × 10³) = {ez}.",
+    "Querdehnung ε_x = −νε_z = {ex}.",
+    "Δd = |ε_x| × d₀ = {dd} µm (der Stab wird dünner)."
+   ],
+   "mistakes": {
+    "nonu": "Sie haben nicht mit der Querkontraktionszahl multipliziert (Längsdehnung × Durchmesser).",
+    "radius": "Sie haben die Änderung des Radius berechnet, nicht des Durchmessers."
+   }
+  },
+  "true-stress": {
+   "name": "Wahre Spannung und wahre Dehnung",
+   "short": "Technische Spannung und Dehnung vor der Einschnürung in wahre Spannung und wahre Dehnung umrechnen",
+   "formula": "σ_T = σ(1 + ε), ε_T = ln(1 + ε)",
+   "q": {
+    "stress": "In einem Zugversuch wurden vor Beginn der Einschnürung eine technische Spannung von {s} MPa und eine technische Dehnung von {e} gemessen. Berechnen Sie unter der Annahme konstanten Volumens bei plastischer Verformung die wahre Spannung an diesem Punkt.",
+    "strain": "In einem Zugversuch wurden vor Beginn der Einschnürung eine technische Spannung von {s} MPa und eine technische Dehnung von {e} gemessen. Berechnen Sie die wahre Dehnung an diesem Punkt."
+   },
+   "steps": [
+    "Bei konstantem Volumen gilt A = A₀/(1 + ε), also σ_T = F/A = σ(1 + ε).",
+    "σ_T = {s} × (1 + {e}) = {st} MPa.",
+    "Wahre Dehnung ε_T = ln(l/l₀) = ln(1 + ε) = {et}."
+   ],
+   "mistakes": {
+    "minus": "Sie haben mit (1 − ε) multipliziert. Beim Dehnen wird der Querschnitt kleiner, also ist die wahre Spannung größer als die technische.",
+    "same": "Das ist der technische Wert.",
+    "log10": "Sie haben den dekadischen Logarithmus log₁₀ verwendet. Die wahre Dehnung verwendet den natürlichen Logarithmus ln."
+   }
+  },
+  "reduction-area": {
+   "name": "Brucheinschnürung und wahre Bruchspannung",
+   "short": "Aus den Durchmessern vor und nach dem Bruch: Brucheinschnürung, wahre Bruchdehnung und wahre Bruchspannung",
+   "formula": "RA = (A₀ − A_f)/A₀, ε_T = ln(A₀/A_f), σ_T = F/A_f",
+   "q": {
+    "ra": "Eine runde Zugprobe mit {d0} mm Durchmesser bricht; an der Bruchstelle beträgt der Durchmesser {df} mm. Berechnen Sie die Brucheinschnürung (%).",
+    "strain": "Eine runde Zugprobe mit {d0} mm Durchmesser bricht; an der Bruchstelle beträgt der Durchmesser {df} mm. Berechnen Sie die wahre Dehnung an der Bruchstelle (wahre Bruchdehnung).",
+    "tsf": "Eine runde Zugprobe mit {d0} mm Durchmesser bricht bei einer technischen Spannung von {sf} MPa; an der Bruchstelle beträgt der Durchmesser {df} mm. Berechnen Sie die wahre Bruchspannung."
+   },
+   "steps": {
+    "ra": [
+     "A₀ = π × {d0}²/4 = {A0} mm², A_f = π × {df}²/4 = {Af} mm².",
+     "Brucheinschnürung = (A₀ − A_f)/A₀ = {rap} %."
+    ],
+    "strain": [
+     "A₀ = π × {d0}²/4 = {A0} mm², A_f = π × {df}²/4 = {Af} mm².",
+     "Wahre Bruchdehnung ε_T = ln(A₀/A_f) = {et} (= 2 ln(d₀/d_f))."
+    ],
+    "tsf": [
+     "A₀ = π × {d0}²/4 = {A0} mm², A_f = π × {df}²/4 = {Af} mm².",
+     "Kraft beim Bruch F = σ_f × A₀ = {F} N.",
+     "Wahre Bruchspannung σ_T = F/A_f = {st} MPa."
+    ]
+   },
+   "mistakes": {
+    "diam": "Sie haben das Verhältnis der Durchmesser statt der Flächen verwendet (die Fläche geht mit dem Quadrat des Durchmessers).",
+    "af": "Sie haben durch A_f statt durch A₀ geteilt.",
+    "eng": "Sie haben (A₀ − A_f)/A_f verwendet. Die wahre Dehnung ist ln(A₀/A_f).",
+    "same": "Das ist die technische Bruchspannung. Für die wahre Bruchspannung wird durch die Fläche an der Bruchstelle geteilt."
+   }
+  },
+  "hall-petch": {
+   "name": "Hall-Petch-Beziehung",
+   "short": "σ₀ und k aus den Streckgrenzen bei zwei Korngrößen, daraus die Streckgrenze bei einer weiteren Korngröße",
+   "formula": "σ_y = σ₀ + k/√d",
+   "q": "Ein Metall hat bei einer mittleren Korngröße von {d1} µm eine Streckgrenze von {s1} MPa und bei {d2} µm von {s2} MPa. Berechnen Sie unter der Annahme der Hall-Petch-Beziehung σ_y = σ₀ + k/√d die Streckgrenze bei einer mittleren Korngröße von {d3} µm.",
+   "steps": [
+    "Mit d in Metern ergibt sich 1/√d zu {x1} für {d1} µm, {x2} für {d2} µm und {x3} für {d3} µm (Einheit m^(−1/2)).",
+    "k = ({s1} − {s2})/({x1} − {x2}) = {k} MPa·√m.",
+    "σ₀ = {s1} − k × {x1} = {s0} MPa.",
+    "σ_y = σ₀ + k × {x3} = {s3} MPa."
+   ],
+   "mistakes": {
+    "linear": "Sie haben angenommen, dass die Streckgrenze linear von d abhängt. Die Hall-Petch-Beziehung ist linear in 1/√d.",
+    "inv": "Sie haben 1/d statt 1/√d verwendet."
+   }
+  },
+  "schmid": {
+   "name": "Schubspannung im Gleitsystem (Schmidsches Schubspannungsgesetz)",
+   "short": "Aus Zugachse und Gleitsystem eines Einkristalls die Schubspannung im Gleitsystem oder die Spannung bei Gleitbeginn",
+   "formula": "τ_R = σ cosφ cosλ",
+   "q": {
+    "tau": "Ein Einkristall mit {st}-Struktur wird in Richtung {ax} mit {s} MPa auf Zug belastet. Berechnen Sie die Schubspannung τ_R im Gleitsystem {pl}{b}.",
+    "sigma": "Ein Einkristall mit {st}-Struktur wird in Richtung {ax} auf Zug belastet. Die kritische Schubspannung beträgt {tc} MPa. Berechnen Sie die Zugspannung, bei der im Gleitsystem {pl}{b} das Gleiten beginnt."
+   },
+   "steps": {
+    "tau": [
+     "cosφ = |Zugachse · Gleitebenennormale| / (Produkt der Beträge) = {dp} / {lp} = {cp} (φ ist der Winkel zwischen Zugachse und Gleitebenennormale).",
+     "cosλ = |Zugachse · Gleitrichtung| / (Produkt der Beträge) = {dl} / {ll} = {cl} (λ ist der Winkel zwischen Zugachse und Gleitrichtung).",
+     "Schmid-Faktor m = cosφ cosλ = {m}.",
+     "τ_R = σm = {tau} MPa."
+    ],
+    "sigma": [
+     "cosφ = |Zugachse · Gleitebenennormale| / (Produkt der Beträge) = {dp} / {lp} = {cp}.",
+     "cosλ = |Zugachse · Gleitrichtung| / (Produkt der Beträge) = {dl} / {ll} = {cl}.",
+     "Schmid-Faktor m = cosφ cosλ = {m}.",
+     "Das Gleiten beginnt bei τ_R = τ_crss: σ_y = τ_crss/m = {sy} MPa."
+    ]
+   },
+   "mistakes": {
+    "onep": "Sie haben nur einen der Faktoren cosφ und cosλ verwendet. Der Schmid-Faktor ist ihr Produkt.",
+    "onel": "Sie haben nur einen der Faktoren cosφ und cosλ verwendet. Der Schmid-Faktor ist ihr Produkt.",
+    "sin": "Sie haben Sinus statt Kosinus verwendet.",
+    "mult": "Sie haben τ_crss mit m multipliziert, statt durch m zu teilen."
+   }
+  },
+  "stress-conc": {
+   "name": "Spannungskonzentration an der Rissspitze",
+   "short": "Höchstspannung an der Rissspitze aus Nennspannung, Risslänge und Krümmungsradius an der Rissspitze",
+   "formula": "σ_max = σ₀(1 + 2√(a/ρ))",
+   "q": {
+    "surface": "Eine Platte hat einen Oberflächenriss der Tiefe a = {a} mm, dessen Spitze den Krümmungsradius ρ = {rho} µm hat. Die Platte wird mit einer Zugspannung von {s0} MPa belastet. Schätzen Sie die Höchstspannung an der Rissspitze mit σ_max = σ₀(1 + 2√(a/ρ)) ab.",
+    "internal": "Eine Platte hat einen Innenriss der Gesamtlänge 2a = {a2} mm, dessen Spitze den Krümmungsradius ρ = {rho} µm hat. Die Platte wird mit einer Zugspannung von {s0} MPa belastet. Schätzen Sie die Höchstspannung an der Rissspitze mit σ_max = σ₀(1 + 2√(a/ρ)) ab."
+   },
+   "steps": [
+    "a und ρ in derselben Einheit: a = {a} mm (bei einem Innenriss die halbe Länge), a/ρ = {q}.",
+    "√(a/ρ) = {sq}; Kerbformzahl K_t = 1 + 2√(a/ρ) = {kt}.",
+    "σ_max = σ₀K_t = {s0} × {kt} = {sm} MPa."
+   ],
+   "mistakes": {
+    "approx": "Das ist die Näherung σ_max ≈ 2σ₀√(a/ρ). In dieser Aufgabe gilt 1 + 2√(a/ρ) (der Unterschied wird mit wachsendem a/ρ kleiner).",
+    "unit": "Sie haben a (mm) und ρ (µm) nicht in dieselbe Einheit gebracht.",
+    "full": "Sie haben die Gesamtlänge 2a des Innenrisses als a verwendet. Bei einem Innenriss ist a die halbe Länge."
+   }
+  },
+  "kic-stress": {
+   "name": "Bruchzähigkeit und Bruchspannung",
+   "short": "Aus K_IC und Rissgröße die Spannung, bei der Bruch eintritt, mit K = Yσ√(πa)",
+   "formula": "σ_c = K_IC/(Y√(πa))",
+   "q": {
+    "surface": "Ein Bauteil (Werkstoff: {mat}; Bruchzähigkeit K_IC = {K} MPa·√m) hat einen Oberflächenriss der Tiefe a = {a} mm. Berechnen Sie mit dem Geometriefaktor Y = {Y} die Zugspannung, bei der es bricht.",
+    "internal": "Ein Bauteil (Werkstoff: {mat}; Bruchzähigkeit K_IC = {K} MPa·√m) hat einen Innenriss der Gesamtlänge 2a = {a2} mm. Berechnen Sie mit dem Geometriefaktor Y = {Y} die Zugspannung, bei der es bricht."
+   },
+   "steps": [
+    "a in Meter umrechnen: a = {am} m (bei einem Innenriss die halbe Länge).",
+    "√(πa) = {sq} m^(1/2).",
+    "σ_c = K_IC/(Y√(πa)) = {K} / ({Y} × {sq}) = {s} MPa."
+   ],
+   "mistakes": {
+    "mm": "Sie haben a in mm eingesetzt. Bei K_IC in MPa·√m muss a in Metern stehen.",
+    "nopi": "Das π in √(πa) fehlt.",
+    "full": "Sie haben die Gesamtlänge 2a des Innenrisses als a verwendet."
+   }
+  },
+  "kic-crack": {
+   "name": "Kritische Rissgröße",
+   "short": "Aus K_IC und Betriebsspannung die Risslänge, bei der Bruch eintritt",
+   "formula": "a_c = (1/π)(K_IC/(Yσ))²",
+   "q": {
+    "surface": "Ein Bauteil (Werkstoff: {mat}; Bruchzähigkeit K_IC = {K} MPa·√m) wird bei einer Zugspannung von {s} MPa betrieben. Berechnen Sie mit dem Geometriefaktor Y = {Y} die kritische Tiefe a_c eines Oberflächenrisses.",
+    "internal": "Ein Bauteil (Werkstoff: {mat}; Bruchzähigkeit K_IC = {K} MPa·√m) wird bei einer Zugspannung von {s} MPa betrieben. Berechnen Sie mit dem Geometriefaktor Y = {Y} die kritische Gesamtlänge 2a_c eines Innenrisses."
+   },
+   "steps": {
+    "surface": [
+     "K_IC/(Yσ) = {K} / ({Y} × {s}) = {r} m^(1/2).",
+     "a_c = (1/π)(K_IC/(Yσ))² = {a} mm (von m in mm umgerechnet)."
+    ],
+    "internal": [
+     "K_IC/(Yσ) = {K} / ({Y} × {s}) = {r} m^(1/2).",
+     "a_c = (1/π)(K_IC/(Yσ))² = {a} mm (von m in mm umgerechnet).",
+     "Die Gesamtlänge des Innenrisses ist 2a_c = {a2} mm."
+    ]
+   },
+   "mistakes": {
+    "full": "Sie haben die Tiefe a eines Oberflächenrisses und die Gesamtlänge 2a eines Innenrisses verwechselt.",
+    "nosq": "Sie haben K_IC/(Yσ) nicht quadriert.",
+    "nopi": "Sie haben nicht durch π geteilt."
+   }
+  },
+  "thermal-expansion": {
+   "name": "Wärmeausdehnung",
+   "short": "Freie Längenänderung aus Ausdehnungskoeffizient und Temperaturänderung",
+   "formula": "ΔL = αL₀ΔT",
+   "q": "Ein Stab (Werkstoff: {mat}) mit {L} mm Länge und dem Längenausdehnungskoeffizienten α = {al} × 10⁻⁶ K⁻¹ wird von {t1} °C auf {t2} °C erwärmt. Berechnen Sie die Längenänderung ΔL bei freier Ausdehnung.",
+   "steps": [
+    "ΔT = {t2} − {t1} = {dT} K (eine Temperaturdifferenz hat in °C und K denselben Zahlenwert).",
+    "Wärmedehnung ε = αΔT = {e}.",
+    "ΔL = εL₀ = {dl} mm."
+   ],
+   "mistakes": {
+    "abs": "Sie haben die absolute Endtemperatur statt ΔT verwendet.",
+    "final": "Sie haben die Endlänge L₀ + ΔL angegeben."
+   }
+  },
+  "thermal-stress": {
+   "name": "Wärmespannung in einem eingespannten Stab",
+   "short": "Wärmespannung in einem zwischen starren Wänden eingespannten Stab oder die zulässige Erwärmungstemperatur",
+   "formula": "σ = −EαΔT",
+   "q": {
+    "stress": "Ein Stab (Werkstoff: {mat}; E = {E} GPa, α = {al} × 10⁻⁶ K⁻¹) wird bei {t1} °C spannungsfrei zwischen starren Wänden eingespannt und auf {t2} °C erwärmt. Berechnen Sie den Betrag der Druckspannung im Stab.",
+    "temp": "Ein Stab (Werkstoff: {mat}; E = {E} GPa, α = {al} × 10⁻⁶ K⁻¹) wird bei {t1} °C spannungsfrei zwischen starren Wänden eingespannt. Der Betrag der Druckspannung soll {sa} MPa nicht überschreiten. Berechnen Sie die höchste Temperatur, auf die der Stab erwärmt werden darf."
+   },
+   "steps": {
+    "stress": [
+     "Die Wände drücken die Dehnung αΔT zurück, um die sich der Stab frei ausdehnen würde: σ = −EαΔT.",
+     "Eα = {E} × 10³ MPa × {al} × 10⁻⁶ K⁻¹ = {Ea} MPa/K, ΔT = {dT} K.",
+     "|σ| = {Ea} × {dT} = {s} MPa (Druck)."
+    ],
+    "temp": [
+     "|σ| = EαΔT ≤ {sa} MPa.",
+     "Eα = {Ea} MPa/K, also ΔT = {sa} / {Ea} = {dT} K.",
+     "Höchste Temperatur = {t1} + {dT} = {t2} °C."
+    ]
+   },
+   "mistakes": {
+    "abs": "Sie haben die Endtemperatur (K) statt ΔT verwendet.",
+    "gpa": "Sie haben den GPa-Wert von E so verwendet, als wäre er in MPa (1 GPa = 1000 MPa).",
+    "dt": "Das ist der Temperaturanstieg ΔT. Für die höchste Temperatur wird ΔT zur Anfangstemperatur addiert.",
+    "kelvin": "Sie haben die absolute Temperatur (K) so angegeben, als wäre sie in °C."
+   }
+  },
+  "film-stress": {
+   "name": "Wärmespannung in dünnen Schichten (äquibiaxial)",
+   "short": "Spannung in einer Schicht auf einem Substrat nach dem Abkühlen von der Beschichtungstemperatur",
+   "formula": "σ = −E(α_f − α_s)ΔT/(1 − ν)",
+   "q": "Eine dünne Schicht (Werkstoff: {film}; E = {E} GPa; ν = {nu}; α_f = {af} × 10⁻⁶ K⁻¹) wird bei {t1} °C spannungsfrei auf ein dickes Substrat (Werkstoff: {sub}) aufgebracht und auf {t2} °C abgekühlt. Der Ausdehnungskoeffizient des Substrats beträgt α_s = {as} × 10⁻⁶ K⁻¹. Berechnen Sie die Spannung in der Schichtebene, mit Zug positiv und Druck negativ.",
+   "steps": [
+    "ΔT = {t2} − {t1} = {dT} K, α_f − α_s = {da} K⁻¹.",
+    "Die Schicht wird vom Substrat in beiden Richtungen der Ebene festgehalten (äquibiaxial), daher wird der biaxiale Modul E/(1 − ν) = {b} MPa verwendet.",
+    "σ = −E(α_f − α_s)ΔT/(1 − ν) = {s} MPa ({st})."
+   ],
+   "mistakes": {
+    "nonu": "Sie haben nicht mit 1/(1 − ν) multipliziert (das ist das einachsige σ = EΔαΔT). Eine dünne Schicht ist in beiden Richtungen der Ebene behindert.",
+    "onlyf": "Sie haben die Ausdehnung des Substrats nicht abgezogen (das ist der Wert für ein Substrat, das sich nicht ausdehnt)."
+   }
+  },
+  "conduction": {
+   "name": "Wärmestromdichte durch eine Platte",
+   "short": "Stationäre Wärmestromdichte aus Temperaturdifferenz und Wärmeleitfähigkeit",
+   "formula": "q = κΔT/L",
+   "q": "Bei einer Platte (Werkstoff: {mat}) mit {L} mm Dicke und der Wärmeleitfähigkeit κ = {k} W/(m·K) wird eine Seite auf {th} °C und die andere auf {tl} °C gehalten. Berechnen Sie die stationäre Wärmestromdichte q durch die Platte.",
+   "steps": [
+    "ΔT = {th} − {tl} = {dT} K, L = {Lm} m.",
+    "q = κΔT/L = {k} × {dT} / {Lm} = {q} W/m²."
+   ],
+   "mistakes": {
+    "inv": "Die Formel ist umgekehrt (Sie haben L/(κΔT) berechnet)."
+   }
+  },
+  "bimetal": {
+   "name": "Wärmespannung in einem Verbundstab (Bimetall)",
+   "short": "Spannung in zwei Stäben aus verschiedenen Metallen, die an beiden Enden verbunden sind und erwärmt werden",
+   "formula": "σ₁A₁ + σ₂A₂ = 0, α₁ΔT + σ₁/E₁ = α₂ΔT + σ₂/E₂",
+   "q": "Ein Stab (Werkstoff: {m1}; α = {a1} × 10⁻⁶ K⁻¹, E = {E1} GPa, Querschnitt {A1} mm²) und ein Stab (Werkstoff: {m2}; α = {a2} × 10⁻⁶ K⁻¹, E = {E2} GPa, Querschnitt {A2} mm²) gleicher Länge sind an beiden Enden durch starre Platten verbunden (keine Biegung). Ausgehend vom spannungsfreien Zustand werden sie um {dT} K erwärmt. Berechnen Sie den Betrag der Spannung im Stab aus dem Werkstoff „{mq}“.",
+   "steps": [
+    "Stab 1 = {m1}, Stab 2 = {m2}. Kräftegleichgewicht σ₁A₁ + σ₂A₂ = 0; gleiche Verlängerung α₁ΔT + σ₁/E₁ = α₂ΔT + σ₂/E₂.",
+    "Die Differenz (α₁ − α₂)ΔT = {da} teilt sich auf beide Stäbe auf: σ₁ = −(α₁ − α₂)ΔT / (1/E₁ + A₁/(A₂E₂)) = {s1} MPa.",
+    "σ₂ = −σ₁A₁/A₂ = {s2} MPa (der Stab mit der größeren Ausdehnung steht unter Druck, der andere unter Zug).",
+    "Im Stab aus „{mq}“: |σ| = {s} MPa."
+   ],
+   "mistakes": {
+    "rigid": "Hier wurde der andere Stab wie eine starre Wand behandelt (EΔαΔT). Auch der andere Stab verformt sich, daher ist die Spannung kleiner.",
+    "noA": "Sie haben die unterschiedlichen Querschnitte nicht berücksichtigt."
+   }
+  },
+  "rom": {
+   "name": "Mischungsregel (E-Modul in Faserrichtung)",
+   "short": "E-Modul eines Verbundwerkstoffs mit unidirektionalen Endlosfasern in Faserrichtung mit der Gleichung für gleiche Dehnung",
+   "formula": "E₁ = V_f E_f + V_m E_m",
+   "q": {
+    "vol": "Ein Verbundwerkstoff enthält {fib} (E_f = {ef} GPa), die mit einem Volumenanteil von {f} % unidirektional in einer Matrix aus {mx} mit E_m = {em} GPa ausgerichtet sind. Berechnen Sie den E-Modul E₁ in Faserrichtung.",
+    "mass": "Ein Verbundwerkstoff enthält {fib} (E_f = {ef} GPa, Dichte {rf} g/cm³), die mit einem Massenanteil von {f} % unidirektional in einer Matrix aus {mx} mit E_m = {em} GPa und der Dichte {rm} g/cm³ ausgerichtet sind. Berechnen Sie unter der Annahme, dass keine Poren vorhanden sind, den E-Modul E₁ in Faserrichtung."
+   },
+   "steps": {
+    "vol": [
+     "V_f = {vf}; V_m = 1 − V_f = {vm}.",
+     "In Faserrichtung haben Faser und Matrix die gleiche Dehnung, also E₁ = V_f E_f + V_m E_m.",
+     "E₁ = {vf} × {ef} + {vm} × {em} = {e1} GPa."
+    ],
+    "mass": [
+     "Massenanteile in Volumenanteile umrechnen: V_f = (W_f/ρ_f)/(W_f/ρ_f + W_m/ρ_m) = {a} / ({a} + {b}) = {vf}; V_m = {vm}.",
+     "In Faserrichtung haben Faser und Matrix die gleiche Dehnung, also E₁ = V_f E_f + V_m E_m.",
+     "E₁ = {vf} × {ef} + {vm} × {em} = {e1} GPa."
+    ]
+   },
+   "mistakes": {
+    "reuss": "Sie haben die Gleichung für gleiche Spannung verwendet (E₂ quer zur Faser). In Faserrichtung gilt gleiche Dehnung.",
+    "wf": "Sie haben den Massenanteil als Volumenanteil verwendet. Mit den Dichten umrechnen."
+   }
+  },
+  "rom-trans": {
+   "name": "Inverse Mischungsregel (quer zur Faser)",
+   "short": "E-Modul eines unidirektionalen Verbundwerkstoffs quer zur Faser mit der Gleichung für gleiche Spannung",
+   "formula": "1/E₂ = V_f/E_f + V_m/E_m",
+   "q": {
+    "vol": "Ein Verbundwerkstoff enthält {fib} (E_f = {ef} GPa), die mit einem Volumenanteil von {f} % unidirektional in einer Matrix aus {mx} mit E_m = {em} GPa ausgerichtet sind. Berechnen Sie den E-Modul E₂ quer zur Faser mit der Gleichung für gleiche Spannung.",
+    "mass": "Ein Verbundwerkstoff enthält {fib} (E_f = {ef} GPa, Dichte {rf} g/cm³), die mit einem Massenanteil von {f} % unidirektional in einer Matrix aus {mx} mit E_m = {em} GPa und der Dichte {rm} g/cm³ ausgerichtet sind. Berechnen Sie unter der Annahme, dass keine Poren vorhanden sind, den E-Modul E₂ quer zur Faser mit der Gleichung für gleiche Spannung."
+   },
+   "steps": {
+    "vol": [
+     "V_f = {vf}; V_m = 1 − V_f = {vm}.",
+     "Quer zur Faser tragen Faser und Matrix die gleiche Spannung, also 1/E₂ = V_f/E_f + V_m/E_m = {i} GPa⁻¹.",
+     "E₂ = {e2} GPa."
+    ],
+    "mass": [
+     "Massenanteile in Volumenanteile umrechnen: V_f = (W_f/ρ_f)/(W_f/ρ_f + W_m/ρ_m) = {a} / ({a} + {b}) = {vf}; V_m = {vm}.",
+     "Quer zur Faser tragen Faser und Matrix die gleiche Spannung, also 1/E₂ = V_f/E_f + V_m/E_m = {i} GPa⁻¹.",
+     "E₂ = {e2} GPa."
+    ]
+   },
+   "mistakes": {
+    "voigt": "Sie haben die Gleichung für gleiche Dehnung verwendet (E₁ in Faserrichtung). Bei Belastung quer zur Faser gilt gleiche Spannung.",
+    "wf": "Sie haben den Massenanteil als Volumenanteil verwendet. Mit den Dichten umrechnen."
+   }
+  },
+  "load-share": {
+   "name": "Lastaufteilung zwischen Faser und Matrix",
+   "short": "Bei Belastung in Faserrichtung der Lastanteil der Fasern oder das Lastverhältnis von Faser zu Matrix",
+   "formula": "F_f/F_m = V_f E_f/(V_m E_m)",
+   "q": {
+    "ratio": "Ein Verbundwerkstoff enthält {fib} (E_f = {ef} GPa), die mit einem Volumenanteil von {f} % unidirektional in einer Matrix aus {mx} mit E_m = {em} GPa ausgerichtet sind, und wird in Faserrichtung belastet. Berechnen Sie das Verhältnis der von Faser und Matrix getragenen Kräfte F_f/F_m.",
+    "frac": "Ein Verbundwerkstoff enthält {fib} (E_f = {ef} GPa), die mit einem Volumenanteil von {f} % unidirektional in einer Matrix aus {mx} mit E_m = {em} GPa ausgerichtet sind, und wird in Faserrichtung belastet. Berechnen Sie den Anteil der Last, den die Fasern tragen, F_f/F."
+   },
+   "steps": [
+    "Bei gleicher Dehnung gilt für jede Spannung σ = Eε; die Kraft ist Spannung × Fläche, und das Flächenverhältnis entspricht dem Verhältnis der Volumenanteile.",
+    "F_f ∝ V_f E_f = {a}; F_m ∝ V_m E_m = {b}.",
+    "F_f/F_m = {r}; F_f/F = F_f/(F_f + F_m) = {fr}."
+   ],
+   "mistakes": {
+    "inv": "Sie haben F_m/F_f angegeben.",
+    "noV": "Sie haben die Volumenanteile nicht berücksichtigt (das ist E_f/E_m).",
+    "vf": "Das ist der Faservolumenanteil selbst. Die Lastaufteilung folgt V_f E_f.",
+    "ratio": "Sie haben das Verhältnis F_f/F_m angegeben. Der Anteil ist F_f/(F_f + F_m)."
+   }
+  },
+  "wire-resistance": {
+   "name": "Drahtwiderstand und Temperatur",
+   "short": "Widerstand eines Drahts bei einer Temperatur über den Temperaturkoeffizienten des spezifischen Widerstands",
+   "formula": "R = ρ(T)L/A, ρ(T) = ρ₂₀[1 + α_R(T − 20 °C)]",
+   "q": "Ein Draht (Werkstoff: {cond}) hat {d} mm Durchmesser und {L} m Länge. Nehmen Sie für den spezifischen Widerstand bei 20 °C ρ₂₀ = {r20} Ω·m und für seinen Temperaturkoeffizienten α_R = {aR} K⁻¹ an. Berechnen Sie den Widerstand des Drahts bei {tc} °C.",
+   "steps": [
+    "ρ(T) = ρ₂₀[1 + α_R(T − 20)] = {rt} Ω·m.",
+    "Querschnittsfläche A = πd²/4 = {A} m² (d in Metern).",
+    "R = ρL/A = {R} Ω."
+   ],
+   "mistakes": {
+    "noT": "Sie haben die Temperaturabhängigkeit des spezifischen Widerstands nicht berücksichtigt (das ist der Wert bei 20 °C).",
+    "radius": "Sie haben den Durchmesser als Radius behandelt und πd² als Fläche verwendet."
+   }
+  },
+  "semiconductor": {
+   "name": "Spezifischer Widerstand von n-Silizium",
+   "short": "Leitfähigkeit und spezifischer Widerstand von n-Silizium aus Donatorkonzentration und Elektronenbeweglichkeit",
+   "formula": "σ = n e µ_e, ρ = 1/σ",
+   "q": {
+    "rho": "Berechnen Sie den spezifischen Widerstand von n-Silizium mit einer Donatorkonzentration von {Nd} cm⁻³ (Raumtemperatur, alle Donatoren ionisiert). Verwenden Sie für die Elektronenbeweglichkeit µ_e = {mu} cm²/(V·s) und für die Elementarladung e = {e} C; Löcher werden vernachlässigt.",
+    "sigma": "Berechnen Sie die elektrische Leitfähigkeit von n-Silizium mit einer Donatorkonzentration von {Nd} cm⁻³ (Raumtemperatur, alle Donatoren ionisiert). Verwenden Sie für die Elektronenbeweglichkeit µ_e = {mu} cm²/(V·s) und für die Elementarladung e = {e} C; Löcher werden vernachlässigt."
+   },
+   "steps": [
+    "In SI-Einheiten: n = {n} m⁻³, µ_e = {muSI} m²/(V·s).",
+    "σ = n e µ_e = {s} S/m.",
+    "ρ = 1/σ = {rho} Ω·m (= {rcm} Ω·cm)."
+   ],
+   "mistakes": {
+    "recip": "Sie haben Leitfähigkeit und spezifischen Widerstand verwechselt (ρ = 1/σ)."
+   }
+  },
+  "faraday": {
+   "name": "Korrosionsabtrag (Faradaysches Gesetz)",
+   "short": "Aus dem Korrosionsstrom die gelöste Metallmasse oder die Geschwindigkeit, mit der die Oberfläche zurückweicht",
+   "formula": "m = ItM/(nF)",
+   "q": {
+    "mass": "Ein Stück {mat} korrodiert, indem es als {ion} in Lösung geht; dabei fließt {days} Tage lang ein mittlerer Korrosionsstrom von {I} A. Berechnen Sie die Masse des gelösten Metalls ({mat}). Molare Masse {M} g/mol; Faraday-Konstante F = {F} C/mol.",
+    "rate": "Die Oberfläche von {mat} (Dichte {d} g/cm³) löst sich gleichmäßig als {ion} auf, bei einer Korrosionsstromdichte von {i} µA/cm². Berechnen Sie die Geschwindigkeit, mit der die Oberfläche zurückweicht (µm pro Jahr). Molare Masse {M} g/mol, F = {F} C/mol, 1 Jahr = 365 Tage."
+   },
+   "steps": {
+    "mass": [
+     "t = {days} × 86400 = {t} s, Ladung Q = It = {Q} C.",
+     "m = QM/(nF) = {Q} × {M} / ({n} × {F}) = {m} g."
+    ],
+    "rate": [
+     "Je Sekunde von 1 cm² gelöste Masse iM/(nF) = {g} g/(cm²·s).",
+     "Geteilt durch die Dichte ergibt sich eine Abtragsgeschwindigkeit von {c} cm/s.",
+     "Über ein Jahr (3,1536 × 10⁷ s): {um} µm/Jahr."
+    ]
+   },
+   "mistakes": {
+    "n1": "Sie haben nicht durch die Ladungszahl n des Ions geteilt.",
+    "hours": "Sie haben die Zeit in Stunden eingesetzt (in Sekunden umrechnen).",
+    "days": "Sie haben die Zeit in Tagen eingesetzt (in Sekunden umrechnen; 1 Tag = 86400 s)."
+   }
+  },
+  "larson-miller": {
+   "name": "Larson-Miller-Parameter",
+   "short": "Aus einem Zeitstandversuch die Bruchzeit bei einer anderen Temperatur oder die Temperatur für eine Ziel-Lebensdauer",
+   "formula": "P = T(C + log₁₀t_r)",
+   "q": {
+    "time": "Eine warmfeste Legierung erlitt unter einer bestimmten Spannung nach {h1} h bei {t1c} °C einen Kriechbruch. Berechnen Sie die Bruchzeit bei {t2c} °C unter derselben Spannung, unter der Annahme, dass der Larson-Miller-Parameter P = T(C + log₁₀t_r) konstant ist (T absolut, t_r in Stunden, C = {C}).",
+    "temp": "Eine warmfeste Legierung erlitt unter einer bestimmten Spannung nach {h1} h bei {t1c} °C einen Kriechbruch. Für eine Bruchzeit von {h2} h unter derselben Spannung ist die höchste zulässige Temperatur zu berechnen, unter der Annahme, dass der Larson-Miller-Parameter P = T(C + log₁₀t_r) konstant ist (T absolut, t_r in Stunden, C = {C})."
+   },
+   "steps": {
+    "time": [
+     "T₁ = {T1} K, log₁₀t₁ = {lg}.",
+     "P = T₁(C + log₁₀t₁) = {P} (Zwischenwerte nicht zu stark runden).",
+     "Bei T₂ = {T2} K gilt log₁₀t₂ = P/T₂ − C = {e}.",
+     "t₂ = 10^{e} = {h2} h."
+    ],
+    "temp": [
+     "T₁ = {T1} K, log₁₀t₁ = {lg}; P = T₁(C + log₁₀t₁) = {P}.",
+     "log₁₀t₂ = {lg2}; T₂ = P/(C + log₁₀t₂) = {T2} K.",
+     "T₂ = {t2} °C."
+    ]
+   },
+   "mistakes": {
+    "celsius": "Sie haben die Temperatur in °C in P eingesetzt. T in P ist die absolute Temperatur.",
+    "ln": "Sie haben den natürlichen Logarithmus ln statt log₁₀ verwendet.",
+    "kelvin": "Sie haben die absolute Temperatur (K) so angegeben, als wäre sie in °C."
+   }
+  }
+ }
+}
