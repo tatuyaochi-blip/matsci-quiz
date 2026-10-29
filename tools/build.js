@@ -133,6 +133,8 @@ const tools = exists('data/tools') ? fs.readdirSync(path.join(root, 'data/tools'
   .map(f => readJSON(`data/tools/${f}`)).sort((a, b) => (a.order ?? 0) - (b.order ?? 0)) : [];
 const toolsIn = code => tools.filter(x => x.text[code]);
 const compares = readOpt('data/compare.json', []); // 用語の違い比較ページ(/compare/{slug}/)。英語などの訳は data/i18n/{言語}/compare.json
+// 比較ページが1つでもある言語(ない言語へは /compare/ の言語切り替え・hreflang を出さない)
+const cmpLangCodes = new Set(langs.filter(x => x.code === defLang || compares.some(e => readOpt(`data/i18n/${x.code}/compare.json`, {})[e.slug])).map(x => x.code));
 // ニュースに出た用語(/news-terms/)。用語集の語に「なぜ今話題なのか」などを足す。訳は data/i18n/{言語}/news-terms.json
 const newsTerms = readOpt('data/news-terms.json', []);
 const figs = figures();
@@ -768,7 +770,7 @@ function buildLang(L) {
     if ((name === 'compare' && !cmp.length) || (name === 'figures' && !figList.length)) continue;
     const src = cond(read(`src/pages/${code}/${name}.html`), pageFlags);
     const m = src.match(/^<!--\s*(\{[\s\S]*?\})\s*-->/);
-    const alt = Object.fromEntries(langs.filter(x => pageNames(x.code).includes(name)).map(x => [x.code, pagePath(x, name)]));
+    const alt = Object.fromEntries(langs.filter(x => pageNames(x.code).includes(name) && (name !== 'compare' || cmpLangCodes.has(x.code))).map(x => [x.code, pagePath(x, name)]));
     // トップ: 検索結果のサイト名になる WebSite(各言語のサイト名を別名として添える)
     // あわせて運営者の Organization(サイト名で検索した人にトップを示し、ロゴを伝える)
     // 別名は公開している言語(config.languages)のサイト名だけ(siteName に先に書いた、まだ公開していない言語の名前は入れない)
@@ -2591,7 +2593,7 @@ ${used.length ? `<section>
       page({
         path: `${L.path}compare/${e.slug}/`,
         alt: Object.fromEntries(cmpLangs(e.slug).map(x => [x.code, `${x.path}compare/${e.slug}/`])),
-        fallback: x => `${x.path}compare/`,
+        fallback: x => (cmpLangCodes.has(x.code) ? `${x.path}compare/` : x.path),
         title: e.title,
         description: e.description,
         scripts: ['compare.js', 'answer.js'],
