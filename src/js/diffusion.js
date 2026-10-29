@@ -14,8 +14,8 @@ export function erf(x) {
 }
 
 function update() {
-  const d0 = val('d0', 0), q = val('q', 0) * 1000, tc = val('t'), hours = val('hours', 0), xmm = val('x', 0);
-  const T = tc + 273.15;
+  const d0 = val('d0', 0), q = val('q', 0) * 1000, tc = val('t', -273.15), hours = val('hours', 0), xmm = val('x', 0);
+  const T = tc + 273.15; // 絶対零度より低い温度は既定値に戻す(reader の下限)
   const D = d0 * Math.exp(-q / (R * T));
   const t = hours * 3600;
   const L = Math.sqrt(D * t);
