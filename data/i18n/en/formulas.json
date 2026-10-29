@@ -220,7 +220,7 @@
     "lattice parameter (cube edge)",
     "Miller indices (integers)"
    ],
-   "when": "Cubic lattices only (simple cubic, BCC, FCC, diamond, NaCl type, …). For tetragonal, hexagonal and other lattices use the non-cubic formula below. It gives the spacing of the plane family and holds numerically even for (hkl) whose reflection is extinct.",
+   "when": "Cubic lattices only (simple cubic, BCC, FCC, diamond, NaCl type, …). For tetragonal, hexagonal and other lattices use “Interplanar spacing (tetragonal, orthorhombic, hexagonal)” below. It gives the spacing of the plane family and holds numerically even for (hkl) whose reflection is extinct.",
    "miss": "Forgetting the square root or dividing by h + k + l. Confusing (100) and (200): in BCC the (100) reflection is extinct and appears as (200) with d/2. Mixing nm and Å (1 Å = 0.1 nm).",
    "ex": "Cu (FCC, a = 0.36146 nm), (111) planes: d = 0.36146/√3 = 0.2087 nm. For BCC Fe (a = 0.28665 nm), (110): 0.28665/√2 = 0.2027 nm.",
    "kw": "d-spacing interplanar spacing Miller indices cubic"
@@ -810,7 +810,7 @@
     "elongation and original length",
     "Young’s modulus"
    ],
-   "when": "Linear elasticity (below the proportional limit), small strain, uniaxial load on a uniform bar. After yielding, or for stepped bars, treat sections separately.",
+   "when": "Linear elasticity (below the proportional limit), small strain, uniaxial load on a uniform bar. It does not apply after yielding. For a stepped bar, find the extension of each section and add them.",
    "miss": "Using the diameter as the radius (πd² is four times too big); MPa vs GPa (N/mm² vs kN/mm²); applying it above the yield stress.",
    "ex": "A Cu bar pulled at σ = 276 MPa (l₀ = 305 mm, E = 110 GPa, elastic): ε = 276/110000 = 2.51 × 10⁻³, Δl = εl₀ = 0.765 mm. For a 10 mm diameter bar, F = σA = 276 × 78.54 = 21.68 kN.",
    "kw": "Hooke law Young modulus stress strain elongation elastic"
@@ -1084,7 +1084,7 @@
     "crack size (initial, critical)",
     "cycles to failure"
    ],
-   "when": "Stage II growth: above the threshold ΔK and well below K_IC. This form ignores mean-stress (R) effects. Integrate numerically when Y varies with a.",
+   "when": "Stage II growth: ΔK above the threshold and K_max well below K_IC. This form ignores mean-stress (R) effects. Integrate numerically when Y varies with a.",
    "miss": "Using C without checking its unit basis (MPa·√m and m?); using K_max for ΔK; applying the formula at m = 2 (it becomes logarithmic).",
    "ex": "Δσ = 100 MPa (compressive part ignored), initial surface crack 2.0 mm, K_IC = 25 MPa·√m, Y = 1.0, C = 1.0 × 10⁻¹², m = 3 (MPa·√m and m units): final crack a_c = (1/π)(25/100)² = 19.9 mm, N_f = [a_c^(−1/2) − a₀^(−1/2)]/[C(Δσ√π)³(−1/2)] = 5.48 × 10⁶ cycles (same conditions as the Callister Ch. 8 example).",
    "kw": "Paris law fatigue crack growth delta K life"
@@ -1251,7 +1251,7 @@
    ],
    "when": "Two parallel bars joined at both ends, no external load, uniform temperature, linear elastic, no bending. With an external load, put it on the right-hand side of the force balance.",
    "miss": "Using the fully constrained value (EαΔT) for one bar; ignoring different areas.",
-   "ex": "Steel (E = 200 GPa, α = 12 × 10⁻⁶) and Al (70 GPa, 23 × 10⁻⁶) bars of equal section (100 mm²) joined at both ends and heated by 100 K: σ_steel = −(12 − 23) × 10⁻⁶ × 100/(1/200000 + 1/70000) = 57.0 MPa (tension), σ_Al = −57.0 MPa (compression).",
+   "ex": "Steel (E = 200 GPa, α = 12 × 10⁻⁶) and Al (70 GPa, 23 × 10⁻⁶) bars of equal section (100 mm²) joined at both ends and heated by 100 K: σ₁ (steel) = −(12 − 23) × 10⁻⁶ × 100/(1/200000 + 1/70000) = 57.0 MPa (tension), σ₂ (Al) = −57.0 MPa (compression).",
    "kw": "compound bar bimetal thermal stress compatibility"
   },
   "bimetal-curvature": {
@@ -1541,7 +1541,7 @@
     "major Poisson’s ratio",
     "angle between load and fibres"
    ],
-   "when": "A single orthotropic ply in plane stress pulled uniaxially at θ to the fibres. Laminates need classical laminate theory (A matrix). Because of the G₁₂ term the value near 45° can drop close to or below E₂.",
+   "when": "A single orthotropic ply in plane stress pulled uniaxially at θ to the fibres. Laminates need classical laminate theory (A matrix). Because of the G₁₂ term, materials with G₁₂ below about E₂/2 dip below E₂ between 45° and 90° (for the material in the example, E_x stays at or above E₂ at every angle).",
    "miss": "Rotating E with cos²θ (it needs fourth powers and the shear term); forgetting to invert; degrees vs radians.",
    "ex": "T300/5208 ply (E₁ = 181 GPa, E₂ = 10.3 GPa, G₁₂ = 7.17 GPa, ν₁₂ = 0.28, values from the composite designer): E_x = 28.8 GPa at θ = 30° and 16.7 GPa at 45°. A 30° misalignment already drops the stiffness to 1/6.3 of the fibre direction.",
    "kw": "off-axis ply transformation orthotropic laminate"
@@ -1597,7 +1597,7 @@
     "constant for the solute–solvent pair",
     "solute atom fraction"
    ],
-   "when": "Metals where the scattering mechanisms are independent. Only ρ_t depends on temperature; ρ_i and ρ_d remain at low temperature (residual resistivity). The Nordheim form is for solid-solution alloys.",
+   "when": "Metals where the scattering mechanisms are independent. Only ρ_t depends on temperature; ρ_i and ρ_d remain at low temperature (residual resistivity). The Nordheim form is for alloys forming complete solid solutions, at dilute to moderate concentrations.",
    "miss": "Adding conductivities instead of resistivities; using at% instead of a fraction.",
    "ex": "Cu with 3 at% Ni in solid solution (room-temperature ρ_t of Cu 1.72 × 10⁻⁸ Ω·m; A for Cu–Ni read from the Callister figure, about 1.2 × 10⁻⁶ Ω·m): ρ_i = 1.2 × 10⁻⁶ × 0.03 × 0.97 = 3.49 × 10⁻⁸ Ω·m, ρ ≈ 5.21 × 10⁻⁸ Ω·m (3.03 times pure copper).",
    "kw": "Matthiessen residual resistivity Nordheim solid solution resistivity"
@@ -1660,7 +1660,7 @@
    ],
    "when": "Thin layers with current parallel to the surface. The four-point probe value R_s = 4.53 V/I holds for samples much wider than the probe spacing and thin. N is the net concentration (N − N_B) for a layer of opposite type to the substrate.",
    "miss": "Using one mobility regardless of doping (it falls at high N); x_j in µm.",
-   "ex": "An n-type layer uniformly doped to 10¹⁹ cm⁻³ (= 10²⁵ m⁻³), 0.5 µm deep (electron mobility 114 cm²/(V·s) from Arora, as in the diffusion lab): R_s = 1/(qμNx_j) = 1/(1.602 × 10⁻¹⁹ × 0.0114 × 10²⁵ × 0.5 × 10⁻⁶) = 109 Ω/□.",
+   "ex": "An n-type layer uniformly doped to 10¹⁹ cm⁻³ (= 10²⁵ m⁻³), 0.5 µm deep (electron mobility 114 cm²/(V·s) from Arora, as in the Diffusion and Surface-Treatment Simulator): R_s = 1/(qμNx_j) = 1/(1.602 × 10⁻¹⁹ × 0.0114 × 10²⁵ × 0.5 × 10⁻⁶) = 109 Ω/□.",
    "kw": "sheet resistance four point probe junction depth diffused layer mobility"
   },
   "faraday": {

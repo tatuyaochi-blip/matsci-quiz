@@ -78,7 +78,7 @@ body {
 }
 /* 韓国語: 韓国語のフォントを先にし、語(分かち書きの単位)の途中では折り返さない。ドイツ語: 長い複合語はハイフンを入れて折り返す */
 html:lang(ko) body { font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "Noto Sans CJK KR", system-ui, sans-serif; word-break: keep-all; }
-html:lang(de) :is(p, li, dd, td, th) { hyphens: auto; -webkit-hyphens: auto; }
+html:lang(de) :is(p, li, dd, td, th, h1, h2, h3, .fm-l) { hyphens: auto; -webkit-hyphens: auto; }
 a { color: var(--accent); }
 h1 { font-size: 1.55rem; line-height: 1.4; margin: 1.2rem 0 .6rem; }
 h2 { font-size: 1.25rem; line-height: 1.45; margin: 2rem 0 .8rem; }

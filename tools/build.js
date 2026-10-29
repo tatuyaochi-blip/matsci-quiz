@@ -3331,6 +3331,8 @@ ${relCats.length ? `<section>
     // 式の文字: 「_x」「_{…}」は下付き、「^{…}」「^x」は上付き(ほかは Unicode のまま。「^(」はそのまま残す)
     const ss = h => h.replace(/_([A-Za-z0-9Ͱ-Ͽ]+)/g, '<sub>$1</sub>').replace(/_\{([^{}]*)\}/g, '<sub>$1</sub>').replace(/\^\{([^{}]*)\}/g, '<sup>$1</sup>').replace(/\^([A-Za-z0-9]+)/g, '<sup>$1</sup>');
     const fx = s => ss(esc(s));
+    // ドイツ語では式と定数の値の小数点もコンマにする(並びのコンマは「; 」にして紛れないように)
+    const dec = v => (/^de/.test(code) && /\d\.\d/.test(v) ? v.replace(/(\d), /g, '$1; ').replace(/(\d)\.(\d)/g, '$1,$2') : v);
     const fxLinked = s => linked(s).replace(/(^|>)([^<]+)/g, (m, a, b) => a + ss(b)); // 用語のリンクをつけた文(タグの外だけ変える)
     const plain = s => s.replace(/[_{}^]/g, '');
     // 検索の文字: どの言語の名前・語でも引ける(訳のファイルの名前・語も入れる)。正規化は formulas.js
@@ -3355,7 +3357,7 @@ ${relCats.length ? `<section>
   <article class="fm-card" id="f-${f.id}" data-id="${f.id}" data-g="${f.g}" data-k="${esc(keyOf(f))}">
     <div class="fm-head"><h3><a href="#f-${f.id}">${esc(f.name)}</a></h3><label class="fm-pick"><input type="checkbox" data-pick="${f.id}"> ${esc(t('formulas_pick'))}</label></div>
     <div class="fm-eqs">${f.f.map(y => `
-      <p class="fm-eq"><span class="fm-f">${fx(y.t)}</span>${y.l ? `<span class="fm-l">${fx(y.l)}</span>` : ''}<span class="fm-d" title="${esc(t('formulas_dim'))}">[${esc(y.d)}]</span></p>`).join('')}
+      <p class="fm-eq"><span class="fm-f">${fx(dec(y.t))}</span>${y.l ? `<span class="fm-l">${fx(y.l)}</span>` : ''}<span class="fm-d" title="${esc(t('formulas_dim'))}">[${esc(y.d)}]</span></p>`).join('')}
     </div>
     <table class="fm-sym"><thead><tr><th scope="col">${esc(t('formulas_sym'))}</th><th scope="col">${esc(t('formulas_meaning'))}</th><th scope="col">${esc(t('formulas_unit'))}</th></tr></thead><tbody>${f.sym.map(y => `
       <tr><td class="fm-s">${fx(y.s)}</td><td>${fx(y.m)}</td><td class="fm-u">${esc(y.u)}</td></tr>`).join('')}
@@ -3435,7 +3437,7 @@ ${D.guide.map(g => `<section id="${g.id}" class="fm-guide">
   <h2>${esc(D.const_h)}</h2>
   <p>${esc(D.const_lead)}</p>
   <div class="fm-scroll"><table><thead><tr><th scope="col">${esc(t('formulas_const_s'))}</th><th scope="col">${esc(t('formulas_const_n'))}</th><th scope="col">${esc(t('formulas_const_v'))}</th><th scope="col">${esc(t('formulas_const_u'))}</th><th scope="col">${esc(t('formulas_const_x'))}</th></tr></thead><tbody>${D.constants.map(c => `
-    <tr><td class="fm-nw">${fx(c.s)}</td><td>${fx(c.n)}</td><td class="fm-num">${esc(c.v)}</td><td class="fm-nw">${esc(c.u)}</td><td>${c.x ? '✓' : ''}</td></tr>`).join('')}
+    <tr><td class="fm-nw">${fx(c.s)}</td><td>${fx(c.n)}</td><td class="fm-num">${esc(dec(c.v))}</td><td class="fm-nw">${esc(c.u)}</td><td>${c.x ? '✓' : ''}</td></tr>`).join('')}
   </tbody></table></div>
 </section>
 <section id="sources" class="fn-sources fm-refs">
