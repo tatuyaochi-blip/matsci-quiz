@@ -135,6 +135,60 @@ const toolsIn = code => tools.filter(x => x.text[code]);
 const compares = readOpt('data/compare.json', []); // 用語の違い比較ページ(/compare/{slug}/)。英語などの訳は data/i18n/{言語}/compare.json
 // 比較ページが1つでもある言語(ない言語へは /compare/ の言語切り替え・hreflang を出さない)
 const cmpLangCodes = new Set(langs.filter(x => x.code === defLang || compares.some(e => readOpt(`data/i18n/${x.code}/compare.json`, {})[e.slug])).map(x => x.code));
+// 破損解析(/failure/ の診断ナビと /failure/{slug}/ の事故事例)。data/failure.json(既定言語の文章・点数表・事例)と、
+// 訳 data/i18n/{言語}/failure.json(文章だけ。点数表・リンク先・出典のURLは既定言語のものを使う)。
+// その言語の src/i18n に nav_failure があり、文章の訳もある言語でだけ作る(訳のない言語に既定言語の文を出さない)。ファイルがなければ何も作らない
+const failureBase = readOpt('data/failure.json', null);
+const failureTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/failure.json`, null));
+const failureOn = code => !!failureBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_failure') && (code === defLang || !!failureTr(code)?.navi);
+const failureCaseOn = (code, slug) => failureOn(code) && (code === defLang || !!failureTr(code)?.cases?.[slug]);
+// 訳を既定言語のデータに重ねる。足りない訳があれば止める(半端な訳のページを出さない)
+function failureText(code) {
+  const d = failureBase;
+  const T = failureTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/failure.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  const same = (a, b, k) => {
+    if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+    return b;
+  };
+  const tn = T.navi;
+  const navi = {
+    ...d.navi,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note'].map(k => [k, need(tn[k], `navi.${k}`)])),
+    faq: tn.faq ?? [],
+    questions: d.navi.questions.map(q => {
+      const tq = need(tn.questions?.[q.id], `navi.questions.${q.id}`);
+      return { ...q, label: need(tq.label, `navi.questions.${q.id}.label`), help: need(tq.help, `navi.questions.${q.id}.help`),
+        options: q.options.map(o => ({ ...o, label: need(tq.options?.[o.id], `navi.questions.${q.id}.options.${o.id}`) })) };
+    }),
+    combos: d.navi.combos.map(c => ({ ...c, label: need(tn.combos?.[c.if.join('+')], `navi.combos.${c.if.join('+')}`) })),
+    modes: d.navi.modes.map(m => {
+      const tm = need(tn.modes?.[m.id], `navi.modes.${m.id}`);
+      const k = x => `navi.modes.${m.id}.${x}`;
+      return { ...m, name: need(tm.name, k('name')), abbr: need(tm.abbr, k('abbr')), short: need(tm.short, k('short')),
+        look: need(tm.look, k('look')), tests: need(tm.tests, k('tests')), confusions: need(tm.confusions, k('confusions')),
+        measures: Object.fromEntries(Object.keys(m.measures).map(x => [x, need(tm.measures?.[x], k(`measures.${x}`))])) };
+    }),
+  };
+  const cases = d.cases.filter(c => T.cases?.[c.slug]).map(c => {
+    const tc = T.cases[c.slug];
+    const k = x => `cases.${c.slug}.${x}`;
+    return {
+      ...c,
+      ...Object.fromEntries(['title', 'description', 'lead', 'facts', 'happened', 'chainTitle', 'mechanism', 'presetNote', 'changes', 'lessons'].map(x => [x, need(tc[x], k(x))])),
+      note: c.note ? need(tc.note, k('note')) : undefined,
+      chain: same(c.chain, tc.chain, k('chain')).map((s, i) => ({ ...c.chain[i], lines: need(s.lines, k(`chain[${i}].lines`)), sub: c.chain[i].sub ? need(s.sub, k(`chain[${i}].sub`)) : undefined })),
+      clues: same(c.clues, tc.clues, k('clues')).map((x, i) => ({ ...c.clues[i], text: need(x, k(`clues[${i}]`)) })),
+      sources: c.sources.map((x, i) => ({ ...x, name: tc.sources?.[i] ?? x.name })),
+    };
+  });
+  return { navi, cases };
+}
 // ニュースに出た用語(/news-terms/)。用語集の語に「なぜ今話題なのか」などを足す。訳は data/i18n/{言語}/news-terms.json
 const newsTerms = readOpt('data/news-terms.json', []);
 const figs = figures();
@@ -154,6 +208,30 @@ const figSize = svg => (svg.match(/viewBox="[\d.]+ [\d.]+ ([\d.]+) ([\d.]+)"/) |
 function standaloneSvg(svg) {
   const [w, h] = figSize(svg);
   return svg.replace(/^(<svg[^>]*>)/, `$1<style>${figStyle}</style><rect width="${w}" height="${h}" style="fill:var(--surface)"/>`);
+}
+// 原因の連鎖の図(破損解析の事例)。上から下へ箱を矢印でつなぐ縦長の SVG(幅360で、スマートフォンでも文字が小さくなりすぎない)。
+// 色は .fig のクラス(ok: ふつうの箱、ng: 最後の結果)なのでダークモードでも切り替わる。行は data に書いた区切りのまま出し、幅を超える行は止める
+function chainSvg(title, steps, where) {
+  const W = 360, BW = 320, X = 20, LH = 22, SH = 19, GAP = 28;
+  const width = (s, px) => [...s].reduce((n, ch) => n + (/[⺀-￿]/.test(ch) ? px : /[A-Z0-9]/.test(ch) ? px * 0.62 : px * 0.52), 0);
+  const parts = [];
+  let y = 6;
+  steps.forEach((s, i) => {
+    const sub = s.sub ?? [];
+    for (const l of s.lines) if (width(l, 15) > BW - 16) throw new Error(`${where}: 図の行「${l}」が長すぎます(箱の幅を超えます)`);
+    for (const l of sub) if (width(l, 13) > BW - 16) throw new Error(`${where}: 図の行「${l}」が長すぎます(箱の幅を超えます)`);
+    const h = 16 + s.lines.length * LH + sub.length * SH;
+    parts.push(`<rect x="${X}" y="${y}" width="${BW}" height="${h}" rx="10" class="${s.end ? 'ng' : 'ok'}"/>`);
+    let ty = y + 8 + 16;
+    for (const l of s.lines) { parts.push(`<text x="${W / 2}" y="${ty}" text-anchor="middle"${s.end ? ' font-weight="700"' : ''}>${esc(l)}</text>`); ty += LH; }
+    for (const l of sub) { parts.push(`<text x="${W / 2}" y="${ty - 3}" text-anchor="middle" class="sm m">${esc(l)}</text>`); ty += SH; }
+    y += h;
+    if (i < steps.length - 1) {
+      parts.push(`<line x1="${W / 2}" y1="${y + 3}" x2="${W / 2}" y2="${y + GAP - 9}" class="ln"/><path d="M${W / 2 - 6} ${y + GAP - 11}L${W / 2} ${y + GAP - 3}L${W / 2 + 6} ${y + GAP - 11}Z" class="ink"/>`);
+      y += GAP;
+    }
+  });
+  return `<svg viewBox="0 0 ${W} ${y + 6}" role="img"><title>${esc(title)}</title>${parts.join('')}</svg>`;
 }
 const layout = read('src/templates/layout.html');
 const catTpl = read('src/templates/category.html');
@@ -238,6 +316,8 @@ function buildLang(L) {
   const catT = tr('categories');
   const gloT = tr('glossary');
   const figT = tr('figures');
+  // 破損解析(この言語で作るときだけ。訳を重ねた文章)
+  const fail = failureOn(code) ? failureText(code) : null;
   // ニュース用語: 日付・問題・リンク先は既定言語のファイルのものを使い、文章だけ訳で置き換える(訳がなければその言語では出さない)
   const nwT = tr('news-terms');
   const news = newsTerms.filter(e => isDef || nwT[e.term]).map(e => {
@@ -388,6 +468,7 @@ function buildLang(L) {
     ${interviewText[code] ? feature(`${home}interview-questions/`, interviewText[code].nav, interviewText[code].card, 'home_feat_interview') : ''}
     ${beyondText[code] && pageNames(code).includes('beyond-scaling') ? feature(`${home}beyond-scaling/`, beyondText[code].nav, beyondText[code].card, 'home_feat_beyond') : ''}
     ${compares.some(e => isDef || tr('compare')[e.slug]) ? feature(`${home}compare/`, S.nav_compare, t('home_feat_compare_desc'), 'home_feat_compare') : ''}
+    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}
     ${Object.keys(figs).length ? feature(`${home}figures/`, S.footer_figures, t('home_feat_figures_desc'), 'home_feat_figures') : ''}
     ${toolsIn(code).length ? feature(`${home}tools/`, S.nav_tools, t('home_feat_tools_desc'), 'home_feat_tools') : ''}
     ${news.length ? feature(`${home}news-terms/`, S.news_title, t('home_feat_news_desc'), 'home_feat_news') : ''}
@@ -613,13 +694,15 @@ function buildLang(L) {
   const searchItems = [
     ...learnArts.map(a => ({ t: 'l', n: a.title, u: `learn/${a.slug}/`, x: a.description })),
     ...cmp.map(e => ({ t: 'c', n: e.title, u: `compare/${e.slug}/`, x: `${e.description} ${e.items.join(' ')}` })),
+    ...(fail ? [{ t: 'x', n: fail.navi.h1, u: 'failure/', x: `${fail.navi.description} ${fail.navi.modes.map(m => m.name).join(' ')}` },
+      ...fail.cases.map(e => ({ t: 'x', n: e.title, u: `failure/${e.slug}/`, x: e.description }))] : []),
     ...terms.map(g => ({ t: 't', n: g.term, u: `term/${termSlug[g.key]}/`, x: g.desc, ...(isDef ? {} : { k: g.key }) })),
     ...live.map(c => ({ t: 'k', n: c.name, u: `c/${c.id}/`, x: c.description })),
     ...figList.map(x => ({ t: 'f', n: x.title, u: figPage(x.id) ? `figures/${x.id}/` : `figures/#fig-${x.id}`, x: '' })),
     ...live.flatMap(c => qs[c.id].map(q => ({ t: 'q', n: q.question, u: `q/${c.id}/${q.id}/`, x: c.name }))),
   ];
   write(`data/${code}/search.json`, JSON.stringify({
-    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}) },
+    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}), ...(fail ? { search_g_x: S.nav_failure } : {}) },
     items: searchItems,
   }));
 
@@ -663,6 +746,7 @@ function buildLang(L) {
     // サイトについて: 中身のあるコンテンツだけを並べる
     // 項目名と説明の区切りは、日本語・中国語は全角のコロン、ほかの言語(韓国語も)は「: 」(固定ページの項目と同じ書き方)
     aboutCompare: cmp.length ? `  <li><strong><a href="${home}compare/">${esc(S.nav_compare)}</a></strong>${itemSep}${esc(t('about_compare'))}</li>\n` : '',
+    aboutFailure: fail ? `  <li><strong><a href="${home}failure/">${esc(S.nav_failure)}</a></strong>${itemSep}${esc(t('about_failure'))}</li>\n` : '',
     aboutFigures: figList.length ? `  <li><strong><a href="${home}figures/">${esc(S.footer_figures)}</a></strong>${itemSep}${esc(t('about_figures'))}</li>\n` : '',
     // トップの開始ボタンの下: 学習コースへの案内(コースの一覧は分野の一覧より下にある)
     courseHint: liveCourses.length ? `<p class="hero-note"><a href="#courses">${esc(t('home_course_hint'))} → ${esc(t('course_heading'))}</a></p>` : '',
@@ -731,7 +815,8 @@ function buildLang(L) {
     // ヘッダーのナビ(いまいるページには aria-current を付ける)。
     // PC: Topics / 用語集 / 比較 / 図解 / 計算ツール / Progress。スマートフォン: ホームを加えて Menu に縦に並べる
     const navLink = ([sub, label]) => `<a href="${home}${sub}"${p === L.path + sub ? ' aria-current="page"' : ''}>${esc(label)}</a>`;
-    const resources = [...(learnArts.length ? [['learn/', LT.nav]] : []), ['glossary/', S.nav_glossary], ...(cmp.length ? [['compare/', S.nav_compare]] : []), ...(figList.length ? [['figures/', S.footer_figures]] : []),
+    const resources = [...(learnArts.length ? [['learn/', LT.nav]] : []), ['glossary/', S.nav_glossary], ...(cmp.length ? [['compare/', S.nav_compare]] : []),
+      ...(fail ? [['failure/', S.nav_failure]] : []), ...(figList.length ? [['figures/', S.footer_figures]] : []),
       ...(numbers.length && code === numbersLang ? [['numbers/', 'Key numbers']] : []),
       ...(toolsIn(code).length ? [['tools/', S.nav_tools]] : [])];
     // 用語集・比較・図解・計算ツールはそれぞれ独立した項目として並べる(PC ではホームはロゴから戻る)
@@ -2650,6 +2735,234 @@ ${cmpSection(t('compare_more'), relatedCmp(e))}`,
     }
   }
 
+  // 破損解析: 診断ナビ /failure/ と事故事例 /failure/{slug}/(動きは failure.js)
+  if (fail) buildFailure();
+  function buildFailure() {
+    const F = fail.navi;
+    const where = 'data/failure.json';
+    const modeIds = new Set(F.modes.map(m => m.id));
+    const optKey = new Set(F.questions.flatMap(q => q.options.map(o => `${q.id}.${o.id}`)));
+    // 点数表とリンク先の検査(既定言語のデータで決まるので、どの言語でも同じ結果になる)
+    for (const q of F.questions) for (const o of q.options) for (const id of Object.keys(o.s)) if (!modeIds.has(id)) throw new Error(`${where}: ${q.id}.${o.id} の点に存在しない形態 ${id}`);
+    for (const c of F.combos) {
+      for (const k of c.if) if (!optKey.has(k)) throw new Error(`${where}: combos の条件 ${k} が質問にありません`);
+      for (const id of Object.keys(c.s)) if (!modeIds.has(id)) throw new Error(`${where}: combos に存在しない形態 ${id}`);
+    }
+    for (const m of F.modes) {
+      for (const k of m.terms ?? []) if (!glossary.some(g => g.term === k)) throw new Error(`${where}: 形態 ${m.id} の用語集にない語 ${k}`);
+      for (const id of m.questions ?? []) if (isDef && !qById.has(id)) throw new Error(`${where}: 形態 ${m.id} の存在しない問題 ${id}`);
+      for (const s of m.cases ?? []) if (!failureBase.cases.some(c => c.slug === s)) throw new Error(`${where}: 形態 ${m.id} の存在しない事例 ${s}`);
+      for (const k of ['material', 'design', 'environment', 'manufacturing']) if (!m.measures?.[k]) throw new Error(`${where}: 形態 ${m.id} の対策 ${k} がありません`);
+    }
+    const presetOk = p => Object.entries(p).every(([qid, v]) => (Array.isArray(v) ? v : [v]).every(o => optKey.has(`${qid}.${o}`)));
+    for (const c of fail.cases) {
+      if (!/^[a-z0-9-]+$/.test(c.slug)) throw new Error(`${where}: slug「${c.slug}」は英小文字・数字・ハイフンだけにしてください`);
+      for (const k of c.terms ?? []) if (!glossary.some(g => g.term === k)) throw new Error(`${where}: 事例 ${c.slug} の用語集にない語 ${k}`);
+      for (const id of c.questions ?? []) if (isDef && !qById.has(id)) throw new Error(`${where}: 事例 ${c.slug} の存在しない問題 ${id}`);
+      for (const x of c.clues) if (!F.questions.some(q => q.id === x.q) || (x.o && !optKey.has(`${x.q}.${x.o}`))) throw new Error(`${where}: 事例 ${c.slug} の手がかりの質問 ${x.q}.${x.o ?? ''} がありません`);
+      if (!presetOk(c.preset)) throw new Error(`${where}: 事例 ${c.slug} の preset に存在しない答えがあります`);
+      if (!c.sources?.length || c.sources.some(x => !/^https:\/\//.test(x.url))) throw new Error(`${where}: 事例 ${c.slug} の出典(https の URL)がありません`);
+    }
+    const fHome = `${home}failure/`;
+    const fPath = (l, slug = '') => `${l.path}failure/${slug ? `${slug}/` : ''}`;
+    const fAlt = slug => Object.fromEntries(langs.filter(x => (slug ? failureCaseOn(x.code, slug) : failureOn(x.code))).map(x => [x.code, fPath(x, slug)]));
+    const presetUrl = p => `${fHome}?${Object.entries(p).map(([k, v]) => `${k}=${(Array.isArray(v) ? v : [v]).join(',')}`).join('&amp;')}`;
+    const modeOf = id => F.modes.find(m => m.id === id);
+    const optLabel = (qid, oid) => F.questions.find(q => q.id === qid).options.find(o => o.id === oid).label;
+    const pts = n => (n > 0 ? `+${n}` : String(n).replace('-', '−'));
+    const termChips = keys => keys.map(k => terms.find(x => x.key === k)).filter(Boolean).map(x => `<a class="chip" href="${home}term/${termSlug[x.key]}/">${esc(x.term)}</a>`).join(' ');
+    const caseCards = list => `<ul class="cmp-list fn-cases">${list.map(e => `
+  <li><a class="cmp-card" href="${fHome}${e.slug}/"><strong>${esc(e.title)}</strong><span>${esc(short(e.description, 120))}</span></a></li>`).join('')}
+</ul>`;
+    const li = list => `<ul>${list.map(x => `<li>${linked(x)}</li>`).join('')}</ul>`;
+    // 形態ごとの、点が入る手がかり・点が下がる手がかり(点数表から作る)
+    const clueList = (id, sign) => [
+      ...F.questions.flatMap(q => q.options.filter(o => Math.sign(o.s[id] ?? 0) === sign).map(o => ({ n: o.s[id], label: o.label }))),
+      ...F.combos.filter(c => Math.sign(c.s[id] ?? 0) === sign).map(c => ({ n: c.s[id], label: c.label })),
+    ].sort((a, b) => Math.abs(b.n) - Math.abs(a.n));
+    const MEAS = ['material', 'design', 'environment', 'manufacturing'];
+    const modeHtml = m => {
+      const qs2 = (m.questions ?? []).map(id => qById.get(id)).filter(Boolean);
+      const cs = (m.cases ?? []).map(s => fail.cases.find(c => c.slug === s)).filter(Boolean);
+      return `
+  <details class="fn-mode" id="mode-${m.id}">
+    <summary><strong>${esc(m.name)}</strong><span>${esc(m.short)}</span></summary>
+    <div class="fn-mode-body">
+    <h3>${esc(t('failure_look'))}</h3>
+    ${li(m.look)}
+    <h3>${esc(t('failure_tests'))}</h3>
+    ${li(m.tests)}
+    <h3>${esc(t('failure_confusions'))}</h3>
+    ${li(m.confusions)}
+    <h3>${esc(t('failure_measures'))}</h3>
+    <dl class="fn-measures">${MEAS.map(k => `<div><dt>${esc(t(`failure_m_${k}`))}</dt><dd>${linked(m.measures[k])}</dd></div>`).join('')}</dl>
+    <h3>${esc(t('failure_score_for'))}</h3>
+    <p class="fn-score-list"><span class="fn-plus">${clueList(m.id, 1).map(x => `<span>${esc(x.label)} <b>${pts(x.n)}</b></span>`).join('')}</span>${clueList(m.id, -1).length ? `<span class="fn-minus">${clueList(m.id, -1).map(x => `<span>${esc(x.label)} <b>${pts(x.n)}</b></span>`).join('')}</span>` : ''}</p>
+    ${m.terms?.length ? `<p class="term-chips"><span class="muted">${esc(t('failure_terms'))}:</span> ${termChips(m.terms)}</p>` : ''}
+    ${qs2.length ? `<p class="fn-qlinks"><span class="muted">${esc(t('failure_check_q'))}:</span></p>${qLinks(qs2)}` : ''}
+    ${cs.length ? `<p><span class="muted">${esc(t('failure_cases'))}:</span> ${cs.map(c => `<a href="${fHome}${c.slug}/">${esc(c.title)}</a>`).join(' / ')}</p>` : ''}
+    </div>
+  </details>`;
+    };
+    const qHtml = (q, i) => `
+  <fieldset class="fn-q" id="q-${q.id}">
+    <legend><span class="fn-qn">${i + 1}</span>${esc(q.label)}${q.multi ? ` <small>${esc(t('failure_multi'))}</small>` : ''}</legend>
+    <p class="fn-help">${esc(q.help)}</p>
+    <div class="fn-opts">${q.options.map(o => `
+      <label class="fn-opt"><input type="${q.multi ? 'checkbox' : 'radio'}" name="${q.id}" value="${o.id}"><span>${esc(o.label)}</span></label>`).join('')}
+      <label class="fn-opt fn-unknown"><input type="${q.multi ? 'checkbox' : 'radio'}" name="${q.id}" value="" checked><span>${esc(t('failure_unknown'))}</span></label>
+    </div>
+  </fieldset>`;
+    // 点数表(質問の答え × 形態)。横に長いので表の枠の中だけで横にスクロールする
+    const cell = n => (n ? `<td class="${n > 0 ? 'fn-p' : 'fn-n'}">${pts(n)}</td>` : '<td></td>');
+    const scoreTable = `<div class="table-wrap fn-table-wrap"><table class="fn-table">
+      <thead><tr><th scope="col">${esc(t('failure_table_clue'))}</th>${F.modes.map(m => `<th scope="col"><a href="#mode-${m.id}">${esc(m.abbr)}</a></th>`).join('')}</tr></thead>
+      <tbody>${F.questions.map(q => `
+        <tr class="fn-tq"><th scope="rowgroup" colspan="${F.modes.length + 1}">${esc(q.label)}</th></tr>${q.options.map(o => `
+        <tr><th scope="row">${esc(o.label)}</th>${F.modes.map(m => cell(o.s[m.id])).join('')}</tr>`).join('')}`).join('')}
+        <tr class="fn-tq"><th scope="rowgroup" colspan="${F.modes.length + 1}">${esc(t('failure_table_combo'))}</th></tr>${F.combos.map(c => `
+        <tr><th scope="row">${esc(c.label)}</th>${F.modes.map(m => cell(c.s[m.id])).join('')}</tr>`).join('')}
+      </tbody>
+    </table></div>`;
+    // failure.js に渡すデータ(点数表と表示の文言)
+    const jsData = {
+      q: F.questions.map(q => ({ id: q.id, multi: !!q.multi, label: q.label, o: q.options.map(o => ({ id: o.id, label: o.label, s: o.s })) })),
+      combos: F.combos,
+      modes: F.modes.map(m => ({ id: m.id, name: m.name })),
+      t: Object.fromEntries(['failure_empty', 'failure_n_answered', 'failure_points', 'failure_for', 'failure_against', 'failure_next', 'failure_unlikely', 'failure_top', 'failure_to_result', 'failure_details', 'failure_none_fit'].map(k => [k, S[k]])),
+    };
+    const relCats = ['fracture-fatigue', 'mechanical', 'corrosion', 'high-temperature', 'tribology', 'polymers'].map(catOf).filter(c => c && live.includes(c));
+    const modified = p => lastmodPrev[p]?.date ?? new Date().toLocaleDateString('sv-SE');
+    page({
+      path: fPath(L),
+      alt: fAlt(),
+      title: F.title,
+      fullTitle: `${F.title} | ${siteName}`,
+      description: F.description,
+      scripts: ['failure.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_failure, fHome]),
+        { '@context': 'https://schema.org', '@type': 'WebApplication', name: F.h1, description: F.description, url: abs(fHome), inLanguage: L.htmlLang,
+          applicationCategory: 'EducationalApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+        ...(F.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: F.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(F.h1)}</h1>
+<p class="lead">${esc(F.lead)}</p>
+<p class="fn-caution">${esc(F.note)}</p>
+<noscript><p class="muted">${esc(t('failure_noscript'))}</p></noscript>
+<form class="fn-form" id="fn-form" autocomplete="off">${F.questions.map(qHtml).join('')}
+</form>
+<section class="fn-result" id="fn-result" aria-live="polite">
+  <h2>${esc(t('failure_result'))}</h2>
+  <p class="fn-summary">${esc(t('failure_empty'))}</p>
+  <ol class="fn-cands"></ol>
+  <p class="fn-next" hidden></p>
+  <details class="fn-unlikely" hidden><summary>${esc(t('failure_unlikely'))}</summary><ul></ul></details>
+  <div class="cmp-tools">
+    <button type="button" class="btn btn-ghost" data-share data-done="${esc(t('compare_link_copied'))}">${esc(t('failure_share'))}</button>
+    <button type="button" class="btn btn-ghost" data-reset>${esc(t('failure_reset'))}</button>
+  </div>
+  <p class="muted fn-note">${esc(t('failure_url_note'))}</p>
+</section>
+<a class="fn-float" href="#fn-result" hidden></a>
+<script type="application/json" id="fn-data">${JSON.stringify(jsData).replace(/</g, '\\u003c')}</script>
+<section class="fn-modes" id="modes">
+  <h2>${esc(t('failure_modes_h'))}</h2>
+  <p class="muted">${esc(t('failure_modes_lead', { n: F.modes.length }))}</p>${F.modes.map(modeHtml).join('')}
+</section>
+${fail.cases.length ? `<section id="cases">
+  <h2>${esc(t('failure_cases_h'))}</h2>
+  <p class="muted">${esc(t('failure_cases_lead'))}</p>
+  ${caseCards(fail.cases)}
+</section>` : ''}
+<section id="table">
+  <h2>${esc(t('failure_table_h'))}</h2>
+  <p class="muted">${esc(t('failure_table_lead'))}</p>
+  <details class="fn-table-box"><summary>${esc(t('failure_table_open'))}</summary>
+  ${scoreTable}
+  </details>
+</section>
+<div data-ad="compare"></div>
+${F.faq.length ? `<section class="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${F.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+${relCats.length ? `<section>
+  <h2>${esc(t('failure_rel_cats'))}</h2>
+  ${catCards(relCats)}
+</section>` : ''}`,
+    });
+
+    // 事故事例 /failure/{slug}/
+    for (const e of fail.cases) {
+      const url = `${fHome}${e.slug}/`;
+      const quiz = (e.questions ?? []).map(id => qById.get(id)).filter(Boolean);
+      const mini = quiz.filter(q => !q.code).slice(0, 4);
+      const svg = chainSvg(e.chainTitle, e.chain, `${where} ${e.slug}(${code})`);
+      const others = fail.cases.filter(x => x !== e);
+      const relModes = F.modes.filter(m => (m.cases ?? []).includes(e.slug));
+      page({
+        path: fPath(L, e.slug),
+        alt: fAlt(e.slug),
+        fallback: x => (failureOn(x.code) ? fPath(x) : x.path),
+        title: e.title,
+        description: e.description,
+        scripts: ['answer.js'],
+        jsonld: [
+          crumbs([t('breadcrumb_top'), home], [S.nav_failure, fHome], [e.title, url]),
+          { '@context': 'https://schema.org', '@type': 'Article', headline: e.title, description: e.description, inLanguage: L.htmlLang,
+            datePublished: e.updated, dateModified: modified(fPath(L, e.slug)), mainEntityOfPage: abs(url),
+            citation: e.sources.map(x => x.url),
+            author: { '@type': 'Organization', name: siteName }, publisher: { '@type': 'Organization', name: siteName } },
+        ],
+        content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a> <span>›</span> <a href="${fHome}">${esc(S.nav_failure)}</a></nav>
+<article class="prose fn-case">
+<h1>${esc(e.title)}</h1>
+<p class="lead">${esc(e.lead)}</p>
+<h2>${esc(t('failure_case_facts'))}</h2>
+<dl class="fn-facts">${e.facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+<h2>${esc(t('failure_case_happened'))}</h2>
+${e.happened.map(p => `<p>${linked(p)}</p>`).join('\n')}
+<h2>${esc(t('failure_case_chain'))}</h2>
+<figure class="fig fn-chain">${svg}<figcaption class="fig-cap">${esc(e.chainTitle)}</figcaption></figure>
+${e.mechanism.map(p => `<p>${linked(p)}</p>`).join('\n')}
+${e.note ? `<p class="fn-caution">${esc(e.note)}</p>` : ''}
+<h2>${esc(t('failure_case_clues'))}</h2>
+<ul class="fn-clues">${e.clues.map(x => `<li>${esc(x.text)} <a class="chip" href="${fHome}${x.o ? `?${x.q}=${x.o}` : ''}#q-${x.q}">${esc(F.questions.find(q => q.id === x.q).label)}${x.o ? `: ${esc(short(optLabel(x.q, x.o), 26))}` : ''}</a></li>`).join('')}</ul>
+<p><a class="btn btn-primary" href="${presetUrl(e.preset)}">${esc(t('failure_open_preset'))}</a></p>
+<p class="muted">${esc(e.presetNote)}</p>
+${relModes.length ? `<p>${esc(t('failure_case_modes'))}: ${relModes.map(m => `<a href="${fHome}#mode-${m.id}">${esc(m.name)}</a>`).join(' / ')}</p>` : ''}
+<h2>${esc(t('failure_case_changes'))}</h2>
+${li(e.changes)}
+<h2>${esc(t('failure_case_lessons'))}</h2>
+${li(e.lessons)}
+</article>
+<div data-ad="compare"></div>
+${quiz.length ? `<section>
+  <h2>${esc(t('failure_case_check'))}</h2>${mini.map(miniQ).join('')}
+  ${quiz.length > mini.length ? qLinks(quiz.filter(q => !mini.includes(q))) : ''}
+</section>` : ''}
+${(e.terms ?? []).some(k => terms.some(x => x.key === k)) ? `<section>
+  <h2>${esc(t('failure_terms'))}</h2>
+  <p class="term-chips">${termChips(e.terms)}</p>
+</section>` : ''}
+<section class="fn-sources">
+  <h2>${esc(t('failure_case_sources'))}</h2>
+  <ol>${e.sources.map(x => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a></li>`).join('')}</ol>
+  <p class="muted">${esc(t('failure_case_sources_note'))}</p>
+</section>
+${others.length ? `<section>
+  <h2>${esc(t('failure_case_more'))}</h2>
+  ${caseCards(others)}
+</section>` : ''}
+<p><a class="btn btn-ghost" href="${fHome}">${esc(t('failure_back'))}</a></p>`,
+      });
+    }
+  }
+
   // ニュース用語の一覧 /news-terms/(新しい順)。各語のページは用語ページ(/term/{slug}/)に「なぜ今話題なのか」などを足したもの
   const ym = /^\d{4}-(?:\d{2}(?:-\d{2})?|Q[1-4])$/;
   for (const e of news) {
@@ -2850,7 +3163,7 @@ fs.writeFileSync(lastmodFile, '{\n' + Object.entries(lastmod).map(([k, v]) => ` 
 // /sitemap.xml の場所は変えないので、Search Console と robots.txt はそのままでよい
 const SITEMAP_MAX = 40000;
 const langOfUrl = url => [...langs].sort((a, b) => b.path.length - a.path.length).find(x => pageKey(url).startsWith(x.path)).code; // 既定言語(path が空)は最後に当たる
-const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools']; // これ以外(トップ・分野・図解集など)は other にまとめる
+const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools', 'failure']; // これ以外(トップ・分野・図解集など)は other にまとめる
 const typeOfUrl = url => {
   const L = langs.find(x => x.code === langOfUrl(url));
   const first = pageKey(url).slice(L.path.length).split('/')[0];
