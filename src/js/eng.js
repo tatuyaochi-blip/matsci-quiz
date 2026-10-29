@@ -38,5 +38,6 @@ export const sci = (x, d = 4) => {
   if (!Number.isFinite(x)) return '–';
   if (x === 0) return '0';
   const [m, e] = x.toExponential(d - 1).split('e');
-  return Number(e) === 0 ? minus(m) : `${minus(m)} × 10${String(Number(e)).replace(/./g, c => SUP[c])}`;
+  const t = minus(Number(m).toLocaleString(lang, { minimumSignificantDigits: d, maximumSignificantDigits: d })); // 小数点はその言語の書き方(de は 5,913)
+  return Number(e) === 0 ? t : `${t} × 10${String(Number(e)).replace(/./g, c => SUP[c])}`;
 };
