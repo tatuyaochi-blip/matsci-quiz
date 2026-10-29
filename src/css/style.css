@@ -118,6 +118,16 @@ main.wrap { padding-block: 8px 48px; min-height: 60vh; }
 .menu-panel a, .menu-panel span { padding: 9px 12px; border-radius: 8px; text-decoration: none; white-space: nowrap; font-size: .9rem; }
 .menu-panel a:hover, .menu-panel a[aria-current] { background: var(--accent-soft); }
 .menu-panel span[aria-current] { color: var(--muted); font-weight: 600; }
+/* ヘッダーのナビのグループ(学ぶ・練習する・調べる/計算する。build.js の navGroups)。各サービスに1行の説明を添える */
+.nav-group > .menu-panel { width: max-content; min-width: 220px; max-width: min(21rem, calc(100vw - 32px)); }
+.header-nav .nav-group:last-of-type > .menu-panel { left: auto; right: 0; }  /* 右端のグループは、中身が画面の右へはみ出さないよう右にそろえる */
+.nav-group .menu-panel a { display: flex; flex-direction: column; gap: 1px; white-space: normal; }
+.nav-group .menu-panel strong { font-weight: 600; }
+.nav-group .menu-panel small { font-size: .78rem; line-height: 1.45; color: var(--muted); overflow-wrap: normal; hyphens: auto; }
+/* スマートフォンのメニューのグループ見出し(いまいるページのグループは色で示す) */
+.menu-group { display: flex; flex-direction: column; margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--border); }
+.menu-head { margin: 0; padding: 6px 12px 2px; font-size: .75rem; font-weight: 700; color: var(--muted); letter-spacing: .02em; }
+.menu-group:has([aria-current]) > .menu-head { color: var(--accent); }
 .lang-menu > summary { color: var(--text); border: 1px solid var(--border); padding-block: 6px; }
 .icon-btn { display: none; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; color: var(--text); }
 .icon-btn:hover { background: var(--accent-soft); }

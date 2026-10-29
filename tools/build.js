@@ -1007,17 +1007,32 @@ function buildLang(L) {
       : alt[x.code] != null
         ? `<a href="${base}${alt[x.code]}" hreflang="${x.htmlLang}" lang="${x.htmlLang}" data-lang="${x.code}">${esc(x.label)}</a>`
         : `<a href="${base}${fallback(x)}" lang="${x.htmlLang}" data-lang="${x.code}">${esc(x.label)}</a>`).join('');
-    // ヘッダーのナビ(いまいるページには aria-current を付ける)。
-    // PC: Topics / 用語集 / 比較 / 図解 / 計算ツール / Progress。スマートフォン: ホームを加えて Menu に縦に並べる
-    const navLink = ([sub, label]) => `<a href="${home}${sub}"${p === L.path + sub ? ' aria-current="page"' : ''}>${esc(label)}</a>`;
-    // 材料データ集・公式集はスマートフォンのメニューにだけ並べる(PC のナビは項目が多く、もう1つ足すと 1040px の幅に収まらない。PC ではトップの機能カード・サイト内検索から)
-    const resources = withMat => [...(learnArts.length ? [['learn/', LT.nav]] : []), ['glossary/', S.nav_glossary], ...(cmp.length ? [['compare/', S.nav_compare]] : []),
-      ...(fail ? [['failure/', S.nav_failure]] : []), ...(atl ? [['atlas/', S.nav_atlas]] : []), ...(drl ? [['drill/', S.nav_drill]] : []), ...(withMat && mtl ? [['materials/', S.nav_materials]] : []), ...(withMat && fml ? [['formulas/', S.nav_formulas]] : []), ...(figList.length ? [['figures/', S.footer_figures]] : []),
-      ...(numbers.length && code === numbersLang ? [['numbers/', 'Key numbers']] : []),
-      ...(toolsIn(code).length ? [['tools/', S.nav_tools]] : [])];
-    // 用語集・比較・図解・計算ツールはそれぞれ独立した項目として並べる(PC ではホームはロゴから戻る)
-    const headerNav = [['c/', S.nav_topics], ...resources(false), ['stats/', S.nav_stats]].map(navLink).join('');
-    const navMenu = [['', S.nav_home], ['c/', S.nav_topics], ...resources(true), ['stats/', S.nav_stats]].map(navLink).join('');
+    // ヘッダーのナビ: サービスを使う目的でグループにまとめる(学ぶ・練習する・調べる/計算する)。この言語・このサイトにあるサービスだけを入れる
+    // 項目: [行き先, 名前, 説明(トップの「できること」の文言), このページの下にあるほかのパス]
+    // いまいるページのリンクには aria-current="page"、その下のページ(用語・記事など)では "true"、それを含むグループの見出しにも "true" を付ける
+    const navGroups = [
+      ['learn', S.nav_group_learn, [['c/', S.nav_topics, t('home_feat_topics_desc', { n: live.length }), ['q/', 'course/']],
+        ...(learnArts.length ? [['learn/', LT.nav, LT.card]] : []), ['glossary/', S.nav_glossary, t('home_feat_glossary_desc'), ['term/']],
+        ...(cmp.length ? [['compare/', S.nav_compare, t('home_feat_compare_desc')]] : []), ...(atl ? [['atlas/', S.nav_atlas, t('home_feat_atlas_desc')]] : []),
+        ...(figList.length ? [['figures/', S.footer_figures, t('home_feat_figures_desc')]] : [])]],
+      ['practice', S.nav_group_practice, [...(drl ? [['drill/', S.nav_drill, t('home_feat_drill_desc')]] : []), ['stats/', S.nav_stats]]],
+      ['lookup', S.nav_group_lookup, [...(toolsIn(code).length ? [['tools/', S.nav_tools, t('home_feat_tools_desc')]] : []),
+        ...(mtl ? [['materials/', S.nav_materials, t('home_feat_materials_desc')]] : []), ...(fml ? [['formulas/', S.nav_formulas, t('home_feat_formulas_desc', { n: fml.formulas.length })]] : []),
+        ...(fail ? [['failure/', S.nav_failure, t('home_feat_failure_desc')]] : []), ...(numbers.length && code === numbersLang ? [['numbers/', 'Key numbers']] : [])]],
+    ].filter(g => g[2].length);
+    const here = ([sub, , , also = []]) => (p === L.path + sub ? 'page' : [sub, ...also].some(s => s && p.startsWith(L.path + s)) ? 'true' : '');
+    const cur = it => (here(it) ? ` aria-current="${here(it)}"` : '');
+    const navLink = it => `<a href="${home}${it[0]}"${cur(it)}>${esc(it[1])}</a>`;
+    // 項目が5つまでのサイト(兄弟サイトなど)はグループにせず、前と同じようにリンクを並べる(成績は最後)
+    const navAll = navGroups.flatMap(g => g[2]), flat = navAll.length <= 5 && [...navAll.filter(it => it[0] !== 'stats/'), ...navAll.filter(it => it[0] === 'stats/')];
+    // PC: グループは <details> で開く(JS なしでも開閉できる。name が同じなので1つ開くとほかは閉じる)。中身が1つだけのグループはリンクにする。ホームはロゴから戻る
+    // 説明は aria-describedby で読ませ、リンクの名前に重ならないよう aria-hidden にする
+    const headerNav = flat ? flat.map(navLink).join('') : navGroups.map(([id, name, items]) => (items.length === 1 ? navLink(items[0])
+      : `<details class="menu nav-group" name="nav-group"><summary${items.some(here) ? ' aria-current="true"' : ''}>${esc(name)}</summary><div class="menu-panel">${items.map((it, i) =>
+        `<a href="${home}${it[0]}"${cur(it)}${it[2] ? ` aria-describedby="nd-${id}-${i}"` : ''}><strong>${esc(it[1])}</strong>${it[2] ? `<small id="nd-${id}-${i}" aria-hidden="true">${esc(it[2])}</small>` : ''}</a>`).join('')}</div></details>`)).join('');
+    // スマートフォン: Menu の中に、ホームのあと同じグループを見出しつきで縦に並べる(1つだけのグループも区切り線で分け、前のグループの項目に見えないようにする)
+    const navMenu = [navLink(['', S.nav_home]), ...(flat ? flat.map(navLink) : navGroups.map(([id, name, items]) => (items.length === 1 ? `<div class="menu-group">${navLink(items[0])}</div>`
+      : `<div class="menu-group" role="group" aria-labelledby="mg-${id}"><p class="menu-head" id="mg-${id}">${esc(name)}</p>${items.map(navLink).join('')}</div>`)))].join('');
     // 既定言語以外のページ: ブラウザの言語がこのページの言語でない人に、既定言語版への案内を出す(閉じたら以後出さない)
     const mainHref = langBanner && code !== mainLang ? base + (alt[mainLang] ?? fallback(mainL)) : null;
     const bannerHtml = mainHref ? `<div class="lang-banner" lang="${mainL.htmlLang}" hidden><div class="wrap"><a href="${mainHref}" hreflang="${mainL.htmlLang}">${esc(mainS.lang_banner)}</a><button type="button" aria-label="${esc(mainS.lang_banner_close)}">×</button></div></div>
