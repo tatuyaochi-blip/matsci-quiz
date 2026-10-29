@@ -3,7 +3,9 @@
   "siteName": {
     "ja": "材料科学教室",
     "en": "Materials Science Room",
-    "zh-hant": "材料科學教室"
+    "zh-hant": "材料科學教室",
+    "ko": "재료과학 교실",
+    "de": "Lernraum Materialwissenschaft"
   },
   "languages": [
     {
@@ -81,11 +83,42 @@
       "hero": "用三選一測驗學材料科學",
       "hero_lead": "從晶體結構、相圖與機械性質，到薄膜以及XRD、SEM等材料分析，每一題都附有解說。",
       "tools_lead": "免費的瀏覽器計算工具，可確認布拉格定律與晶面間距、槓桿法則、擴散係數等材料科學常用的計算。"
+    },
+    "ko": {
+      "subject": "재료과학",
+      "subject_title": "재료과학",
+      "site": "재료과학 교실",
+      "site_en": "Materials Science Room",
+      "search_example": "밀러 지수",
+      "tools_example": "XRD 피크 위치와 확산 거리",
+      "full_title": "재료과학 교실 | 결정 구조·상태도·재료 분석 연습 문제와 해설",
+      "scope": "결정 구조, 결함과 확산, 기계적 성질, 상태도와 열처리, 세라믹스·고분자·전자 재료, 박막, SEM·TEM·XRD를 이용한 재료 분석",
+      "hero": "3지선다 퀴즈로 배우는 재료과학",
+      "hero_lead": "결정 구조, 상태도, 기계적 성질부터 박막과 XRD·SEM을 이용한 재료 분석까지. 모든 문제에 해설이 있습니다.",
+      "tools_lead": "브래그 법칙과 면간 거리, 지렛대 법칙, 확산 계수 등 재료과학에서 자주 쓰는 계산을 브라우저에서 바로 확인할 수 있는 무료 도구입니다."
+    },
+    "de": {
+      "subject": "Materialwissenschaft",
+      "subject_title": "Materialwissenschaft",
+      "site": "Lernraum Materialwissenschaft",
+      "site_en": "Materials Science Room",
+      "search_example": "Millersche Indizes",
+      "tools_example": "XRD-Peaklagen und Diffusionslängen",
+      "full_title": "Lernraum Materialwissenschaft | Übungsfragen zu Kristallen, Phasendiagrammen und Materialanalytik",
+      "scope": "Kristallstrukturen, Defekte und Diffusion, mechanische Eigenschaften, Phasendiagramme und Wärmebehandlung, Keramiken, Polymere und elektronische Materialien, Dünnschichten sowie Materialanalytik mit REM, TEM und XRD",
+      "hero": "Materialwissenschaft lernen – mit kurzen Quizfragen",
+      "hero_lead": "Von Kristallstrukturen, Phasendiagrammen und mechanischen Eigenschaften bis zu Dünnschichten und Materialanalytik mit XRD und REM – zu jeder Frage gibt es eine Erläuterung.",
+      "tools_lead": "Kostenlose Rechner im Browser für den Alltag in der Materialwissenschaft: Bragg-Gleichung und Netzebenenabstand, Hebelgesetz, Diffusionskoeffizienten und mehr."
     }
   },
   "icon": {
     "c1": "#5b3fc4",
     "c2": "#1d64c8",
     "glyph": "lattice"
-  }
+  },
+  "indexQuestionLangs": [
+    "ja",
+    "en",
+    "zh-hant"
+  ]
 }
