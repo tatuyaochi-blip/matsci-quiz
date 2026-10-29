@@ -24,6 +24,13 @@
   --fig-dep: #f1f4f8;
   --fig-band: #e3ecf7;
   --fig-ng: #f6c9c9;
+  /* 金属組織の模式図(mg0 がいちばん明るい相、mg5 がいちばん暗い相。atlas の micro.js) */
+  --mg-0: #f5f2eb;
+  --mg-1: #e4dfd3;
+  --mg-2: #d0c9ba;
+  --mg-3: #a39b8b;
+  --mg-4: #6a6253;
+  --mg-5: #29241e;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -48,6 +55,13 @@
     --fig-dep: #1b2533;
     --fig-band: #1f2d40;
     --fig-ng: #5a2a2e;
+    /* 模式図はダークでも明暗を反転しない(明るい相は明るいまま、全体を少し暗くする) */
+    --mg-0: #c2bdb2;
+    --mg-1: #b0aa9e;
+    --mg-2: #9c9689;
+    --mg-3: #777165;
+    --mg-4: #4d473d;
+    --mg-5: #1b1814;
   }
 }
 
@@ -405,6 +419,21 @@ body:has(#quiz) .header-nav, body:has(#quiz) .site-search, body:has(#quiz) .sear
 .fig .band { fill: var(--fig-band); }
 .fig .ng { fill: var(--fig-ng); stroke: var(--muted); }
 .fig .ok { fill: var(--surface); stroke: var(--muted); }
+.fig .mg0 { fill: var(--mg-0); }
+.fig .mg1 { fill: var(--mg-1); }
+.fig .mg2 { fill: var(--mg-2); }
+.fig .mg3 { fill: var(--mg-3); }
+.fig .mg4 { fill: var(--mg-4); }
+.fig .mg5 { fill: var(--mg-5); }
+.fig .mgs0 { stroke: var(--mg-0); fill: none; }
+.fig .mgs1 { stroke: var(--mg-1); fill: none; }
+.fig .mgs2 { stroke: var(--mg-2); fill: none; }
+.fig .mgs3 { stroke: var(--mg-3); fill: none; }
+.fig .mgs4 { stroke: var(--mg-4); fill: none; }
+.fig .mgs5 { stroke: var(--mg-5); fill: none; }
+.fig .mg-frame { fill: none; stroke: var(--border); stroke-width: 1; }
+.fig .mg-test { stroke: var(--accent); fill: none; stroke-dasharray: 6 4; }
+.fig .mg-hit { fill: var(--accent); stroke: var(--surface); stroke-width: 1; }
 .q-code { position: relative; margin: -.4rem 0 1.2rem; padding: 14px 16px; border-radius: 10px; background: var(--surface); border: 1px solid var(--border);
   overflow-x: auto; font: .9rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; tab-size: 4; }
 .q-code[data-lang]:not([data-lang=""])::before { content: attr(data-lang); position: absolute; top: 4px; right: 10px; font-size: .72rem; color: var(--muted); }
@@ -1213,3 +1242,76 @@ html:lang(en) .fn-facts div { grid-template-columns: 8em 1fr; }
 .fn-clues .chip { display: inline-block; margin-top: 4px; text-decoration: none; font-size: .8rem; line-height: 1.5; }
 .fn-sources ol { padding-left: 1.4em; font-size: .9rem; line-height: 1.7; }
 .fn-sources li { margin: 4px 0; }
+/* 組織の見分け方アトラス(/atlas/) */
+.at-toc { display: flex; flex-wrap: wrap; gap: 8px; margin: .9rem 0; }
+.at-toc .chip { text-decoration: none; }
+.at-gallery { list-style: none; padding: 0; margin: .5rem 0 1rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.at-card { display: flex; flex-direction: column; gap: 4px; height: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--text); text-decoration: none; }
+.at-card:hover { border-color: var(--accent); }
+.at-card strong { font-size: .9rem; line-height: 1.4; color: var(--accent); }
+.at-card > span:last-child { font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.fig.at-thumb { display: block; margin: 0 0 4px; padding: 0; border: 0; border-radius: 6px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--mg-1); }
+.at-entry { margin: 10px 0; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); scroll-margin-top: 12px; }
+.at-entry > summary { cursor: pointer; padding: 12px 14px; display: grid; gap: 2px; list-style: none; }
+.at-entry > summary::-webkit-details-marker { display: none; }
+.at-entry > summary strong { color: var(--accent); }
+.at-entry > summary strong::after { content: " +"; color: var(--muted); font-weight: 400; }
+.at-entry[open] > summary strong::after { content: " −"; }
+.at-entry > summary span { font-size: .88rem; color: var(--muted); line-height: 1.65; }
+.at-entry:target, .at-entry.at-hit { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.at-body { padding: 0 14px 12px; border-top: 1px solid var(--border); min-width: 0; }
+.at-body h3 { font-size: .98rem; margin: 1rem 0 .3rem; }
+.at-body ul { margin: .2rem 0; padding-left: 1.3em; }
+.at-body li { line-height: 1.75; margin: 3px 0; }
+.at-group { margin-top: 1.4rem; }
+.at-fig { margin: 12px 0 8px; }
+.at-svg { max-width: 560px; margin: 0 auto; aspect-ratio: 400 / 334; }
+.at-fig figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; font-size: .82rem; line-height: 1.5; color: var(--muted); }
+.at-lever, .at-gctl { display: grid; gap: 6px; margin: 8px 0; min-width: 0; }
+.at-lever input[type="range"], .at-gctl input[type="range"] { width: 100%; padding: 0; min-height: 32px; background: none; border: 0; accent-color: var(--accent); }
+.at-lever output, .at-gctl output { font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
+.at-frac { margin: 0; font-size: .88rem; line-height: 1.6; }
+.at-ref { margin-left: 2px; font-size: .75rem; text-decoration: none; white-space: nowrap; }
+.at-tools { line-height: 1.8; }
+.at-sources ol { font-size: .84rem; }
+.at-grain, .at-practice { margin: 1.5rem 0; scroll-margin-top: 12px; }
+.at-grain-box, .at-pbox { display: grid; gap: 12px; }
+@media (min-width: 860px) { .at-grain-box, .at-pbox { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: start; } }
+.at-grain-box .at-fig, .at-pbox .at-fig { margin: 0; }
+.at-std { margin: 0; padding: 0; border: 0; display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.at-std legend { padding: 0; margin-bottom: 4px; font-weight: 700; }
+.at-std label { display: inline-flex; align-items: center; gap: 6px; }
+.at-std input { accent-color: var(--accent); }
+.at-gout { margin: 4px 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.at-gout div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; padding: 6px 12px; border-bottom: 1px solid var(--border); align-items: baseline; }
+.at-gout div:last-child { border-bottom: 0; }
+.at-gout dt { font-size: .84rem; line-height: 1.5; color: var(--muted); }
+.at-gout dd { margin: 0; font-weight: 700; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.at-count { margin-top: 6px; padding: 10px 12px; border-radius: 12px; background: var(--accent-soft); font-size: .86rem; line-height: 1.7; }
+.at-count p { margin: .25rem 0; }
+.at-cmp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; max-width: 640px; }
+.at-cmp figure { margin: 0; }
+.at-cmp .fig.at-thumb { margin: 0; }
+.at-cmp figcaption { margin-top: 4px; text-align: center; font-size: .8rem; color: var(--muted); }
+.at-cmp .at-cur figcaption { color: var(--accent); font-weight: 700; }
+.at-formulas li { font-size: .9rem; overflow-wrap: anywhere; }
+.at-pq { margin: 0 0 8px; }
+.at-opts { display: grid; gap: 8px; }
+@media (min-width: 520px) and (max-width: 859px) { .at-opts { grid-template-columns: 1fr 1fr; } }
+.at-opt { padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); color: var(--text); font: inherit; font-size: .92rem; line-height: 1.5; text-align: left; cursor: pointer; }
+.at-opt:hover:not(:disabled) { border-color: var(--accent); }
+.at-opt:disabled { cursor: default; }
+.at-opt.at-ok { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); font-weight: 700; }
+.at-opt.at-ng { border-color: var(--ng); background: var(--ng-bg); color: var(--ng); }
+.at-pres { margin-top: 10px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); font-size: .9rem; line-height: 1.7; }
+.at-pres:empty { display: none; }
+.at-pres > p:first-child { margin-top: 0; font-weight: 700; }
+.at-pres .at-r-ok { color: var(--ok); }
+.at-pres .at-r-ng { color: var(--ng); }
+.at-pres ul { margin: .2rem 0 .5rem; padding-left: 1.3em; }
+.at-weak-mode { display: flex; align-items: center; gap: 6px; margin-top: 10px; font-size: .88rem; }
+.at-weak-mode input { accent-color: var(--accent); }
+.at-stats { margin-top: 8px; font-size: .86rem; line-height: 1.7; color: var(--muted); }
+.at-stats p { margin: .2rem 0; }
+.at-stats ol { margin: .2rem 0; padding-left: 1.4em; }
+.at-stats .btn { margin-top: 6px; }
