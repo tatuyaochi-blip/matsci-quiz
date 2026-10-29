@@ -1,0 +1,1448 @@
+{
+ "title": "Materials property data with sources",
+ "description": "Density, Young’s modulus, strength, thermal conductivity and expansion, melting point, lattice constants and diffusion data for more than 160 metals, alloys, ceramics, polymers, fibers and semiconductors, each value with its source and conditions. Switch units, compare 2–4 materials and export CSV.",
+ "h1": "Materials data",
+ "lead": "A page to find, compare and export materials property values with their sources and conditions. The values are collected from the checked data sets used by the calculators on this site, and every value tells you which source it comes from and which calculator uses it. Search by name (English, Japanese, other names or symbols), filter by class and property, switch units and sort the table.",
+ "note": "Values for the same material change with grade, heat treatment, temperature and direction. Check the condition (marked cells) and the source before using a value. For designing parts, use the guaranteed values of standards or the manufacturer’s data.",
+ "lowerNames": false,
+ "classes": {
+  "metal": "Pure metals (elements)",
+  "alloy": "Alloys",
+  "ceramic": "Ceramics",
+  "glass": "Glasses",
+  "polymer": "Polymers",
+  "elastomer": "Elastomers",
+  "fiber": "Fibers for composites",
+  "composite": "Composites",
+  "semi": "Semiconductors",
+  "nonmetal": "Nonmetals and metalloids",
+  "foam": "Foams",
+  "natural": "Natural materials"
+ },
+ "props": {
+  "rho": {
+   "name": "Density",
+   "sym": "ρ"
+  },
+  "E": {
+   "name": "Young’s modulus",
+   "sym": "E"
+  },
+  "G": {
+   "name": "Shear modulus",
+   "sym": "G"
+  },
+  "nu": {
+   "name": "Poisson’s ratio",
+   "sym": "ν"
+  },
+  "s": {
+   "name": "Strength",
+   "sym": "σ"
+  },
+  "K": {
+   "name": "Fracture toughness",
+   "sym": "K_IC"
+  },
+  "eu": {
+   "name": "Elongation at break",
+   "sym": "ε_u"
+  },
+  "k": {
+   "name": "Thermal conductivity",
+   "sym": "κ"
+  },
+  "a": {
+   "name": "Thermal expansion coefficient",
+   "sym": "α"
+  },
+  "mp": {
+   "name": "Melting point",
+   "sym": "T_m"
+  },
+  "tg": {
+   "name": "Glass transition temperature",
+   "sym": "T_g"
+  },
+  "sp": {
+   "name": "Strain point",
+   "sym": "T_st"
+  },
+  "curie": {
+   "name": "Curie temperature",
+   "sym": "T_C"
+  },
+  "dT": {
+   "name": "Thermal shock resistance",
+   "sym": "ΔT"
+  },
+  "la": {
+   "name": "Lattice constant a",
+   "sym": "a"
+  },
+  "lb": {
+   "name": "Lattice constant b",
+   "sym": "b"
+  },
+  "lc": {
+   "name": "Lattice constant c",
+   "sym": "c"
+  },
+  "lal": {
+   "name": "Rhombohedral angle",
+   "sym": "α"
+  },
+  "struct": {
+   "name": "Crystal structure",
+   "sym": ""
+  },
+  "rm": {
+   "name": "Metallic radius",
+   "sym": "r"
+  },
+  "aw": {
+   "name": "Atomic weight",
+   "sym": "A_r"
+  },
+  "hf": {
+   "name": "Heat of fusion",
+   "sym": "ΔH_f"
+  },
+  "res": {
+   "name": "Electrical resistivity",
+   "sym": "ρ_e"
+  },
+  "aR": {
+   "name": "Temperature coefficient of resistance",
+   "sym": "α_R"
+  },
+  "D0": {
+   "name": "Diffusion pre-exponential factor",
+   "sym": "D₀"
+  },
+  "Q": {
+   "name": "Activation energy for diffusion",
+   "sym": "Q"
+  },
+  "df": {
+   "name": "Fiber diameter",
+   "sym": "d"
+  },
+  "comp": {
+   "name": "Chemical composition",
+   "sym": ""
+  },
+  "tr": {
+   "name": "Transformations (1 atm)",
+   "sym": ""
+  }
+ },
+ "kinds": {
+  "y": "yield strength (0.2 % proof stress)",
+  "t": "tensile strength",
+  "f": "flexural strength",
+  "c": "compressive strength",
+  "sh": "shear strength",
+  "A": "Ashby strength σf (yield strength for metals and polymers; close to the tensile strength for ceramics and glasses)"
+ },
+ "conds": {
+  "rt": "room temperature",
+  "c25": "25 °C",
+  "k300": "300 K",
+  "mean": "mean over {a}–{b} °C",
+  "at": "at {a} °C",
+  "liq25": "liquid at 25 °C",
+  "atm1": "1 atm",
+  "orient": "depends on crystal direction (min–max)",
+  "c25atm": "25 °C, 1 atm",
+  "cn12": "12-coordination",
+  "calc_cij": "calculated from elastic constants",
+  "wq": "water quench test",
+  "dsc": "DSC",
+  "ashc": "geometric mean of Ashby’s range",
+  "inplane": "in-plane (XY)",
+  "fax": "along the fiber axis",
+  "ftr": "transverse to the fiber",
+  "g12": "in-plane shear (1–2)",
+  "nu12": "ν₁₂ (major Poisson’s ratio)",
+  "l1": "fiber direction (1)",
+  "l2": "transverse (2)",
+  "l12": "in-plane shear (1–2)",
+  "ge": "source gives “more than 50 %” (lower bound)",
+  "mid": "middle of the source’s {a}–{b}",
+  "k300c": "300 K",
+  "meta": "metastable at room temperature and pressure",
+  "eut": "eutectic temperature",
+  "wt": "wt%",
+  "jis": "JIS specified range",
+  "ann": "annealed",
+  "rtc": "room temperature",
+  "mrange": "melting range (solidus–liquidus)",
+  "dself": "self-diffusion",
+  "dsolute": "diffusion of {el}",
+  "ph_a": "in α phase (BCC)",
+  "ph_g": "in γ phase (FCC)",
+  "dk_int": "interstitial",
+  "dk_sub": "substitutional (listed under interdiffusion in Callister’s table)",
+  "dk_imp": "impurity diffusion",
+  "dk_dop": "dopant"
+ },
+ "structs": {
+  "s_bcc": "Body-centered cubic (BCC)",
+  "s_dia": "Diamond structure",
+  "s_fcc": "Face-centered cubic (FCC)",
+  "s_hcp": "Hexagonal close-packed (HCP)",
+  "st_I2": "orthorhombic (I₂ molecules)",
+  "st_In": "body-centered tetragonal",
+  "st_P": "many allotropes (white, black phosphorus and others)",
+  "st_Sm": "rhombohedral (samarium type, nine-layer close packing)",
+  "st_alphaAs": "rhombohedral (arsenic type)",
+  "st_alphaGa": "orthorhombic (α-gallium)",
+  "st_alphaMn": "cubic (α-manganese, 58 atoms per unit cell)",
+  "st_alphaS": "orthorhombic (α-sulfur, S₈ molecules)",
+  "st_betaSn": "body-centered tetragonal (white tin, β-Sn)",
+  "st_dhcp": "double hexagonal close-packed (dhcp, ABAC stacking)",
+  "st_gammaSe": "trigonal (helical chains)",
+  "st_graphite": "hexagonal (graphite)",
+  "st_rhombB": "rhombohedral (β-boron)",
+  "st_sc": "simple cubic",
+  "type_diamond": "Diamond cubic",
+  "type_fluorite": "Fluorite (CaF₂ type)",
+  "type_nacl": "Rock salt (NaCl type)",
+  "type_wurtzite": "Wurtzite",
+  "type_zb": "Zinc blende (ZnS type)"
+ },
+ "mpNotes": {
+  "mp_he": "— (does not solidify at 1 atm)",
+  "mp_c": "— (sublimes without melting at 1 atm)",
+  "mp_as": "— (sublimes at 615 °C at 1 atm; 817 °C is the triple point at 3.70 MPa)"
+ },
+ "tr": {
+  "up": "Above {t} °C: {p} phase ({s})",
+  "down": "Below {t} °C: {p} phase ({s})",
+  "meta": "Diamond (diamond structure) is metastable at room temperature and pressure",
+  "st": {
+   "hcp": "HCP",
+   "bcc": "BCC",
+   "cP20": "cubic, 20 atoms per cell",
+   "fcc": "FCC",
+   "dia": "diamond structure",
+   "orth": "orthorhombic",
+   "rhomb": "rhombohedral",
+   "mono": "monoclinic"
+  }
+ },
+ "units": {
+  "gcc": "g/cm³",
+  "kgm3": "kg/m³",
+  "GPa": "GPa",
+  "MPa": "MPa",
+  "none": "",
+  "MPam": "MPa·m¹ᐟ²",
+  "pct": "%",
+  "Wm": "W/(m·K)",
+  "Wcm": "W/(cm·K)",
+  "ppmK": "10⁻⁶ K⁻¹",
+  "mK": "10⁻³ K⁻¹",
+  "perK": "K⁻¹",
+  "C": "°C",
+  "K": "K",
+  "dC": "°C",
+  "dK": "K",
+  "nm": "nm",
+  "A": "Å",
+  "pm": "pm",
+  "deg": "°",
+  "kJmol": "kJ/mol",
+  "Jmol": "J/mol",
+  "eV": "eV",
+  "calmol": "cal/mol",
+  "uOcm": "µΩ·cm",
+  "Om": "Ω·m",
+  "nOm": "nΩ·m",
+  "m2s": "m²/s",
+  "cm2s": "cm²/s",
+  "um": "µm"
+ },
+ "sources": {
+  "pt:LAT_ASM": "P. Villars (ed.), “Crystal Structures and Cell Parameters of Allotropes of the Chemical Elements”, ASM Alloy Phase Diagram Database (ASM International, 2007), values at 25 °C",
+  "pt:LAT_WEL": "WebElements crystal structure pages (Zn: Jette 1935; Tc: Mooney 1948)",
+  "pt:RHO_CRC": "CRC Handbook of Chemistry and Physics densities (CRC row of Wikipedia “Densities of the elements (data page)”)",
+  "pt:RHO_ED": "Wolfram ElementData densities (periodictable.com list)",
+  "pt:RHO_WP": "Wikipedia “Densities of the elements (data page)”, adopted value",
+  "pt:MP_CRC": "CRC Handbook melting points (CRC row of Wikipedia “Melting points of the elements (data page)”)",
+  "pt:MP_WEL": "Wikipedia “Melting points of the elements (data page)”, WebElements / adopted row",
+  "pt:E_WEL": "WebElements Young’s moduli (WEL row of Wikipedia “Elastic properties of the elements (data page)”)",
+  "pt:E_CRC": "CRC Handbook Young’s moduli (CRC row of Wikipedia “Elastic properties of the elements (data page)”)",
+  "pt:RM": "Wikipedia “Atomic radii of the elements (data page)”, metallic radius (12-coordination, from WebElements)",
+  "pt:TR": "ASM Alloy Phase Diagram Database table of allotropes (transformation temperatures at 1 atm)",
+  "aw:CIAAW": "CIAAW/IUPAC abridged standard atomic weights (2021)",
+  "th:WPa": "Wikipedia, \"Thermal expansion coefficients of the elements (data page)\" (values from the CRC Handbook, Lange and WebElements, near 25 °C)",
+  "th:WPe": "Wikipedia, \"Elastic properties of the elements (data page)\" (Poisson ratios from WebElements)",
+  "th:WPk": "Wikipedia, \"Thermal conductivities of the elements (data page)\" (near 300 K)",
+  "th:A": "M. F. Ashby, Material property data for engineering materials, 5th ed. (Ansys Granta, 2021) (same ranges as the material selection chart; representative value = geometric mean of the range)",
+  "th:EC3": "EN 1993-1-1 (E = 210 GPa, ν = 0.3, α = 12×10⁻⁶ K⁻¹) and EN 1993-1-2 (thermal strain and conductivity equations for structural steel, 20–1200 °C)",
+  "th:RA": "Rolled Alloys, Invar 36 data sheet (mean CTE from 70 °F, 0.2 % proof stress)",
+  "th:HTI": "High Temp Metals, Invar 36 technical data (annealed E, density, thermal conductivity, Curie temperature)",
+  "th:HTK": "High Temp Metals, Kovar technical data (mean CTE from 25 °C, E, density, thermal conductivity, yield strength)",
+  "th:KY": "Kyocera fine ceramics material properties (data sheets; flexural strength by three-point bending JIS R 1601, thermal shock by water quench JIS R 1648)",
+  "th:ISO": "ISO 16293-1:2008 (general physical properties of soda-lime silicate glass for building)",
+  "th:SCH": "SCHOTT BOROFLOAT 33 technical data (α 20–300 °C, E, ν, flexural strength, strain point)",
+  "th:COR": "Corning HPFS 7980 fused silica data (E, ν, density, thermal conductivity, mean CTE, strain point, flexural strength of abraded samples)",
+  "th:WSL": "Wikipedia, \"Soda–lime glass\" (table: Tg of float glass 564 °C)",
+  "th:ISOLA": "Isola 370HR data sheet (FR-4 class laminate: CTE x/y, E, ν, thermal conductivity, flexural strength, Tg)",
+  "th:H10": "M. A. Hopcroft, W. D. Nix, T. W. Kenny, J. Microelectromech. Syst. 19 (2010) 229 (E and ν of Si, biaxial modulus of (100) 180 GPa, C11 = 165.7, C12 = 63.9, C44 = 79.6 GPa)",
+  "as:A": "M. F. Ashby, \"Material property data for engineering materials\", 5th ed., Oct 2021, Ansys Granta EduPack teaching resource (Tables A2 density, A3 Young's modulus & yield strength, A4 tensile strength & fracture toughness, A6 thermal conductivity & expansion)",
+  "as:C": "CoorsTek, “Advanced Alumina” material properties (94–99.9 % Al₂O₃)",
+  "as:W": "Wikipedia “Soda–lime glass”, table of properties (citing Seward & Vascott eds., High temperature glass melt property database, ACerS 2005, and Janssen & Warmoeskerken, Transport phenomena data companion, 2006)",
+  "as:Q": "Corning HPFS 7980 fused silica product data (as reproduced by UQG Optics)",
+  "as:N": "NIST Structural Ceramics Database, alumina (AD-999 3.96, sintered 99.6 % 3.98 g/cm³)",
+  "as:L": "A. F. Liu, Mechanics and Mechanisms of Fracture, ASM International 2005, Appendix 7 (published by NIST); K_IC of 2124-T351 L-T 47.9",
+  "as:P": "Aircraft Materials, 17-4PH (AMS 5643/5604): 0.2 % proof stress in H900, 170 ksi (= 1170 MPa)",
+  "as:T": "ASM Aerospace Specification Metals, Ti-6Al-4V (Grade 5) annealed: thermal conductivity 6.7 W/(m·K)",
+  "as:I": "Special Metals, INCONEL alloy 718 technical bulletin: room-temperature thermal conductivity 77 Btu·in/(ft²·h·°F) (= 11.1 W/(m·K))",
+  "as:R": "Natural Stone Institute, R-Value for Natural Stone (granite 1.73–3.98, limestone 1.26–2.15, marble 2.07–2.94, sandstone 1.83–2.90, quartzite 5.38 W/(m·K))",
+  "as:Z": "NETZSCH Polymers, CR: Chloroprene rubber (linear CTE 185–250 ×10⁻⁶/K, thermal conductivity 0.18–0.20 W/(m·K))",
+  "cp:TOR_T300": "Toray Composite Materials America, TORAYCA T300 Technical Data Sheet (No. CFA-001)",
+  "cp:TOR_T700S": "Toray Composite Materials America, TORAYCA T700S Technical Data Sheet (No. CFA-005)",
+  "cp:TOR_T800S": "Toray Composite Materials America, TORAYCA T800S Technical Data Sheet",
+  "cp:TOR_M40J": "Toray Composite Materials America, TORAYCA M40J Technical Data Sheet (No. CFA-014)",
+  "cp:TOR_M55J": "Toray Composite Materials America, TORAYCA M55J Technical Data Sheet (No. CFA-017)",
+  "cp:TEI_HTS40": "Teijin Tenax HTS40 (12K/24K roving), values as listed by the distributor compositeshop.de",
+  "cp:WWFE": "P. D. Soden, M. J. Hinton, A. S. Kaddour, Compos. Sci. Technol. 58 (1998) 1011 (WWFE), as tabulated in NPTEL course 101104010, Lecture 25 (IIT Kanpur), Tables 7.1–7.2",
+  "cp:AGY": "AGY, “S-Series High Performance Materials for Automotive Applications” (E-Glass / S-2 Glass property table)",
+  "cp:OC": "Owens Corning, “Higher Performance Composites” sell sheet, Pub. 10023976 (2021), Advantex E-CR glass",
+  "cp:DUP": "DuPont, Kevlar Aramid Fiber Technical Guide, Tables II-1 and II-4 (Kevlar 49)",
+  "cp:DUP_TR": "Kevlar 49 transverse constants from the DuPont Kevlar 49 Data Manual (1986), as listed in Autodesk Helius PFA Material Manager, Appendix A",
+  "cp:MAFIC": "Mafic, Basalt Direct Roving 17 µm technical data (impregnated strand, ASTM D2343)",
+  "cp:ZHU": "J. Zhu, H. Zhu, J. Njuguna, H. Abhyankar, Materials 6 (2013) 5171, Table 2 (after Sparnins 2009; Symington et al. 2009)",
+  "cp:HEX8552": "Hexcel, HexPly 8552 Product Data Sheet (neat resin)",
+  "cp:ASHBY": "M. F. Ashby, Material property data for engineering materials, 5th ed. (Ansys Granta, 2021) – centre of the range, as in this site’s material selection chart",
+  "cp:DER": "Ashland, DERAKANE MOMENTUM 411-350 Technical Datasheet (cured casting)",
+  "cp:VIC": "Victrex, VICTREX PEEK 450G Typical Properties",
+  "cp:BASF": "BASF, Ultramid B3S (PA6) datasheet (ISO 527, ISO 11359)",
+  "cp:LYB": "LyondellBasell, Moplen HP500N datasheet (ISO 527)",
+  "cp:ASM6061": "ASM Aerospace Specification Metals, Aluminum 6061-T6 data sheet",
+  "cp:UC3M": "T300/5208 (Tsai & Hahn), as given in Universidad Carlos III de Madrid, Mecánica de Materiales Compuestos, Ejercicios Tema 5",
+  "cp:NTNU": "N. P. Vedvik, TMM4175 Lightweight Design, NTNU, “Material properties”, Table 1 (V_f = 0.55)",
+  "cp:EC3": "EN 1993-1-1 §3.2.6 (E = 210 GPa, ν = 0.3) and EN 10025-2 S355 (f_y = 355 MPa, t ≤ 16 mm); ρ = 7.85 g/cm³",
+  "df:C9": "W. D. Callister, D. G. Rethwisch, Materials Science and Engineering: An Introduction, 9th ed. (Wiley, 2014), Table 5.2",
+  "df:C7": "W. D. Callister, Materials Science and Engineering: An Introduction, 7th ed. (Wiley, 2007), Table 5.2",
+  "df:ASK": "D. R. Askeland, The Science and Engineering of Materials, Table 5-1 (C in FCC iron: D0 = 0.23 cm²/s, Q = 32,900 cal/mol)",
+  "df:FUJ": "S. Fujikawa, K. Hirano, Y. Fukushima, Metall. Trans. A 9 (1978) 1811 (753–893 K)",
+  "df:FAIR": "R. B. Fair (1981), intrinsic diffusivity, as tabulated in S. W. Jones, Diffusion in Silicon (IC Knowledge, 2000), Table 1.4",
+  "df:CEX": "Callister & Rethwisch 9th ed., Section 5.6, example of boron diffusion into silicon (D0 = 2.4 × 10⁻³ m²/s, Qd = 3.87 eV/atom)",
+  "xr:HOM": "Handbook of Mineralogy (data sheets: Halite, Sylvite, Griceite, Periclase, Fluorite, Sphalerite, Zincite)",
+  "xr:VMR": "I. Vurgaftman, J. R. Meyer, L. R. Ram-Mohan, J. Appl. Phys. 89 (2001) 5815 (lattice constants at 300 K)",
+  "xr:KE": "S. Kisi, M. M. Elcombe, Acta Cryst. C45 (1989) 1867 (a, c and u of wurtzite ZnS; u of ZnO)",
+  "lv:UW": "Univ. of Washington MSE 170 Lecture 16 (Callister’s diagrams and examples: Pb–Sn 183 °C, 61.9 wt% Sn; Cu–Ag 779 °C, 71.9 wt% Ag)",
+  "lv:AFS": "Modern Casting (AFS), the Al–Si phase diagram (eutectic 577 °C, 12.6 wt% Si)",
+  "lv:PRIN": "Princeton MAE 324 09mae_45 (Al–Cu: eutectic 548 °C, eutectic liquid 33.2 wt% Cu)",
+  "lv:HF": "Wikipedia “Heats of fusion of the elements”, Lange’s Handbook column",
+  "dr:IEC": "IEC 60028 (international annealed copper standard: 1.7241 × 10⁻⁸ Ω·m at 20 °C, temperature coefficient 0.00393 K⁻¹)",
+  "dr:EC": "Electrical-grade aluminum, 61 % IACS (conductivity relative to 1.7241 µΩ·cm: 2.8264 × 10⁻⁸ Ω·m, temperature coefficient 0.00403 K⁻¹)",
+  "dg:JSSA": "Japan Stainless Steel Association, piping manual (basics): composition table (JIS ranges)",
+  "dg:NBK": "Nabeya Bi-tech, chemical composition of aluminum alloys (A6061 and others)",
+  "add:CLF304": "Cleveland-Cliffs, “304/304L Stainless Steel” Product Data Bulletin (2021): physical properties and the 70 °F (21 °C) row of Table 3 (annealed)",
+  "add:CLF316": "Cleveland-Cliffs, “316/316L Stainless Steel” Product Data Bulletin (2021): physical properties and the typical room-temperature properties of Table 1"
+ },
+ "materials": {
+  "li": {
+   "name": "Lithium",
+   "al": []
+  },
+  "be": {
+   "name": "Beryllium",
+   "al": []
+  },
+  "na": {
+   "name": "Sodium",
+   "al": []
+  },
+  "mg": {
+   "name": "Magnesium",
+   "al": [],
+   "note": "The lowest-density structural metal (1.74 g/cm³), used as magnesium alloys to save weight."
+  },
+  "al": {
+   "name": "Aluminum",
+   "al": [
+    "pure aluminium",
+    "aluminium"
+   ],
+   "note": "An FCC metal with a low density of 2.70 g/cm³; aluminum alloys are used for structural parts where light weight matters.",
+   "vars": {
+    "ec": "electrical-grade aluminum (61 % IACS)"
+   }
+  },
+  "k": {
+   "name": "Potassium",
+   "al": []
+  },
+  "ca": {
+   "name": "Calcium",
+   "al": []
+  },
+  "sc": {
+   "name": "Scandium",
+   "al": []
+  },
+  "ti": {
+   "name": "Titanium",
+   "al": [
+    "pure titanium"
+   ],
+   "note": "About 60% of the density of iron (4.51 g/cm³); titanium alloys such as Ti-6Al-4V are used in aircraft parts and as biomaterials."
+  },
+  "v": {
+   "name": "Vanadium",
+   "al": []
+  },
+  "cr": {
+   "name": "Chromium",
+   "al": [],
+   "note": "Adding about 11% or more (10.5% in the standard definition) to steel forms a passive Cr oxide film on the surface, making stainless steel."
+  },
+  "mn": {
+   "name": "Manganese",
+   "al": []
+  },
+  "fe": {
+   "name": "Iron",
+   "al": [
+    "pure iron"
+   ],
+   "note": "The main constituent of steel and cast iron. The BCC–FCC transformation at 912 °C is the basis of heat treatments such as quenching.",
+   "trn": "At the Curie temperature near 770 °C (ferromagnetic to paramagnetic) the crystal structure does not change."
+  },
+  "co": {
+   "name": "Cobalt",
+   "al": [],
+   "note": "Used as the binder phase that holds WC particles together in WC-Co cemented carbides, and in superalloys and magnetic materials.",
+   "trn": "Some sources give 427 °C or 450 °C. Phase names follow the ASM table: room-temperature HCP is ε and high-temperature FCC is α (some sources call HCP α and FCC β)."
+  },
+  "ni": {
+   "name": "Nickel",
+   "al": [],
+   "note": "A main element of austenitic stainless steels and nickel-based superalloys."
+  },
+  "cu": {
+   "name": "Copper",
+   "al": [
+    "pure copper"
+   ],
+   "note": "Its high electrical conductivity makes it the metal of wires and interconnects. Its alloy with zinc is brass.",
+   "vars": {
+    "iacs": "annealed copper standard (IEC 60028)"
+   }
+  },
+  "zn": {
+   "name": "Zinc",
+   "al": [],
+   "note": "Used for galvanizing steel (where the steel is exposed at a scratch, the zinc corrodes first and protects it) and in brass (Cu–Zn alloys)."
+  },
+  "ga": {
+   "name": "Gallium",
+   "al": []
+  },
+  "rb": {
+   "name": "Rubidium",
+   "al": []
+  },
+  "sr": {
+   "name": "Strontium",
+   "al": []
+  },
+  "y": {
+   "name": "Yttrium",
+   "al": []
+  },
+  "zr": {
+   "name": "Zirconium",
+   "al": [],
+   "trn": "Some textbooks give 872 °C."
+  },
+  "nb": {
+   "name": "Niobium",
+   "al": []
+  },
+  "mo": {
+   "name": "Molybdenum",
+   "al": [],
+   "note": "A BCC metal with a high melting point of 2623 °C, used as an alloying element in steel and for high-temperature parts."
+  },
+  "tc": {
+   "name": "Technetium",
+   "al": []
+  },
+  "ru": {
+   "name": "Ruthenium",
+   "al": []
+  },
+  "rh": {
+   "name": "Rhodium",
+   "al": []
+  },
+  "pd": {
+   "name": "Palladium",
+   "al": []
+  },
+  "ag": {
+   "name": "Silver",
+   "al": []
+  },
+  "cd": {
+   "name": "Cadmium",
+   "al": []
+  },
+  "in": {
+   "name": "Indium",
+   "al": []
+  },
+  "sn": {
+   "name": "Tin",
+   "al": [
+    "white tin"
+   ],
+   "trn": "Below 13 °C gray tin (diamond structure) is stable. The density drops from 7.265 g/cm³ for white tin to 5.769 g/cm³, a volume increase of about 26% (densities from CRC)."
+  },
+  "cs": {
+   "name": "Cesium",
+   "al": [
+    "caesium"
+   ]
+  },
+  "ba": {
+   "name": "Barium",
+   "al": []
+  },
+  "la": {
+   "name": "Lanthanum",
+   "al": []
+  },
+  "ce": {
+   "name": "Cerium",
+   "al": []
+  },
+  "pr": {
+   "name": "Praseodymium",
+   "al": []
+  },
+  "nd": {
+   "name": "Neodymium",
+   "al": []
+  },
+  "pm": {
+   "name": "Promethium",
+   "al": []
+  },
+  "sm": {
+   "name": "Samarium",
+   "al": []
+  },
+  "eu": {
+   "name": "Europium",
+   "al": []
+  },
+  "gd": {
+   "name": "Gadolinium",
+   "al": []
+  },
+  "tb": {
+   "name": "Terbium",
+   "al": []
+  },
+  "dy": {
+   "name": "Dysprosium",
+   "al": []
+  },
+  "ho": {
+   "name": "Holmium",
+   "al": []
+  },
+  "er": {
+   "name": "Erbium",
+   "al": []
+  },
+  "tm": {
+   "name": "Thulium",
+   "al": []
+  },
+  "yb": {
+   "name": "Ytterbium",
+   "al": []
+  },
+  "lu": {
+   "name": "Lutetium",
+   "al": []
+  },
+  "hf": {
+   "name": "Hafnium",
+   "al": []
+  },
+  "ta": {
+   "name": "Tantalum",
+   "al": []
+  },
+  "w": {
+   "name": "Tungsten",
+   "al": [
+    "wolfram"
+   ],
+   "note": "The metal with the highest melting point (3422 °C). Tungsten carbide (WC) is the main constituent of cemented carbides."
+  },
+  "re": {
+   "name": "Rhenium",
+   "al": []
+  },
+  "os": {
+   "name": "Osmium",
+   "al": []
+  },
+  "ir": {
+   "name": "Iridium",
+   "al": []
+  },
+  "pt": {
+   "name": "Platinum",
+   "al": []
+  },
+  "au": {
+   "name": "Gold",
+   "al": []
+  },
+  "hg": {
+   "name": "Mercury",
+   "al": []
+  },
+  "tl": {
+   "name": "Thallium",
+   "al": []
+  },
+  "pb": {
+   "name": "Lead",
+   "al": []
+  },
+  "bi": {
+   "name": "Bismuth",
+   "al": []
+  },
+  "po": {
+   "name": "Polonium",
+   "al": []
+  },
+  "low-carbon-steel": {
+   "name": "Low carbon steel",
+   "al": [
+    "mild steel",
+    "carbon steel"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "low-alloy-steel": {
+   "name": "Low alloy steel",
+   "al": [
+    "alloy steel"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "stainless-steel": {
+   "name": "Stainless steel",
+   "al": [
+    "stainless"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "gray-cast-iron": {
+   "name": "Gray cast iron",
+   "al": [
+    "cast iron",
+    "grey cast iron"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "al-alloys": {
+   "name": "Aluminum alloys",
+   "al": [
+    "aluminium alloys",
+    "duralumin"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "cu-alloys": {
+   "name": "Copper alloys",
+   "al": [
+    "brass",
+    "bronze"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "mg-alloys": {
+   "name": "Magnesium alloys",
+   "al": [],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "ti-alloys": {
+   "name": "Titanium alloys",
+   "al": [
+    "Ti-6Al-4V"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "ni-alloys": {
+   "name": "Nickel alloys",
+   "al": [
+    "Inconel",
+    "superalloy"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "pb-alloys": {
+   "name": "Lead alloys",
+   "al": [],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "w-alloys": {
+   "name": "Tungsten alloys",
+   "al": [
+    "tungsten heavy alloy"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "structural-steel": {
+   "name": "Structural steel (S235, S355)",
+   "al": [
+    "steel",
+    "mild steel"
+   ],
+   "vars": {
+    "s235": "S235",
+    "s355": "S355 (t ≤ 16 mm)"
+   }
+  },
+  "invar": {
+   "name": "Invar (Fe-36Ni)",
+   "al": []
+  },
+  "kovar": {
+   "name": "Kovar (Fe-29Ni-17Co)",
+   "al": []
+  },
+  "a6061-t6": {
+   "name": "Aluminum alloy 6061-T6",
+   "al": [
+    "aluminium 6061"
+   ]
+  },
+  "pb-sn-eutectic": {
+   "name": "Pb–Sn eutectic solder",
+   "al": [
+    "solder",
+    "tin-lead solder"
+   ]
+  },
+  "al-si-eutectic": {
+   "name": "Al–Si eutectic alloy",
+   "al": []
+  },
+  "ag-cu-eutectic": {
+   "name": "Ag–Cu eutectic alloy (silver brazing alloy)",
+   "al": [
+    "silver solder"
+   ]
+  },
+  "al-cu-eutectic": {
+   "name": "Al–Cu eutectic (Al-rich side)",
+   "al": []
+  },
+  "sus304": {
+   "name": "Stainless steel 304 (SUS304)",
+   "al": [
+    "austenitic stainless steel"
+   ]
+  },
+  "sus316": {
+   "name": "Stainless steel 316 (SUS316)",
+   "al": [
+    "austenitic stainless steel",
+    "marine grade"
+   ]
+  },
+  "alumina": {
+   "name": "Alumina",
+   "al": [
+    "aluminium oxide",
+    "Al2O3"
+   ],
+   "vars": {
+    "ky": "Kyocera AO479O",
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "aln": {
+   "name": "Aluminum nitride",
+   "al": [
+    "AlN"
+   ],
+   "vars": {
+    "ky": "Kyocera AN216A",
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "sic": {
+   "name": "Silicon carbide",
+   "al": [
+    "SiC",
+    "carborundum"
+   ],
+   "vars": {
+    "ky": "Kyocera SC1000",
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "wc": {
+   "name": "Tungsten carbide",
+   "al": [
+    "WC",
+    "cemented carbide"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "brick": {
+   "name": "Brick",
+   "al": [],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "concrete": {
+   "name": "Concrete",
+   "al": [],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "stone": {
+   "name": "Stone",
+   "al": [],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "si3n4": {
+   "name": "Silicon nitride Si₃N₄",
+   "al": [
+    "Si3N4"
+   ],
+   "vars": {
+    "ky": "Kyocera SN240"
+   }
+  },
+  "zro2": {
+   "name": "Zirconia ZrO₂ (partially stabilized)",
+   "al": [
+    "ZrO2",
+    "PSZ"
+   ],
+   "vars": {
+    "ky": "Kyocera ZO201N"
+   }
+  },
+  "cordierite": {
+   "name": "Cordierite",
+   "al": [],
+   "vars": {
+    "ky": "Kyocera CO220O"
+   }
+  },
+  "nacl": {
+   "name": "Sodium chloride (halite)",
+   "al": [
+    "salt",
+    "rock salt",
+    "halite"
+   ]
+  },
+  "kcl": {
+   "name": "Potassium chloride (sylvite)",
+   "al": []
+  },
+  "lif": {
+   "name": "Lithium fluoride",
+   "al": []
+  },
+  "mgo": {
+   "name": "Magnesium oxide (magnesia)",
+   "al": [
+    "periclase"
+   ]
+  },
+  "caf2": {
+   "name": "Calcium fluoride (fluorite)",
+   "al": [
+    "fluorspar"
+   ]
+  },
+  "soda-lime-glass": {
+   "name": "Soda-lime glass",
+   "al": [
+    "float glass",
+    "window glass"
+   ],
+   "vars": {
+    "iso": "ISO 16293-1 (flat glass for building)",
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "borosilicate-glass": {
+   "name": "Borosilicate glass",
+   "al": [
+    "Pyrex"
+   ],
+   "vars": {
+    "schott": "SCHOTT BOROFLOAT 33",
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "silica-glass": {
+   "name": "Silica glass",
+   "al": [
+    "fused silica",
+    "quartz glass",
+    "SiO2"
+   ],
+   "vars": {
+    "hpfs": "Corning HPFS 7980",
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "pe": {
+   "name": "Polyethylene (PE)",
+   "al": [
+    "HDPE",
+    "LDPE"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "pp": {
+   "name": "Polypropylene (PP)",
+   "al": [],
+   "vars": {
+    "hp500n": "Moplen HP500N",
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "ps": {
+   "name": "Polystyrene (PS)",
+   "al": [
+    "styrene"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "pvc": {
+   "name": "Polyvinyl chloride (PVC)",
+   "al": [
+    "vinyl"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "pmma": {
+   "name": "Acrylic (PMMA)",
+   "al": [
+    "acrylic",
+    "Plexiglas",
+    "Perspex"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "pa": {
+   "name": "Polyamide (nylon, PA)",
+   "al": [
+    "nylon",
+    "PA6",
+    "PA66"
+   ],
+   "vars": {
+    "b3sc": "PA6 Ultramid B3S (conditioned)",
+    "b3s": "PA6 Ultramid B3S (dry)",
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "pc": {
+   "name": "Polycarbonate (PC)",
+   "al": [
+    "Lexan"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "peek": {
+   "name": "Polyether ether ketone (PEEK)",
+   "al": [],
+   "vars": {
+    "vic450g": "Victrex 450G",
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "ptfe": {
+   "name": "Polytetrafluoroethylene (PTFE)",
+   "al": [
+    "Teflon"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "epoxy": {
+   "name": "Epoxy",
+   "al": [
+    "epoxy resin"
+   ],
+   "vars": {
+    "hex8552": "Hexcel 8552 (aerospace)",
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "vinyl-ester": {
+   "name": "Vinyl ester (Derakane 411-350)",
+   "al": [],
+   "vars": {
+    "der": "Derakane Momentum 411-350"
+   }
+  },
+  "iir": {
+   "name": "Butyl rubber",
+   "al": [
+    "IIR"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "nr": {
+   "name": "Natural rubber",
+   "al": [
+    "rubber",
+    "NR"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "cr-rubber": {
+   "name": "Polychloroprene (neoprene)",
+   "al": [
+    "CR",
+    "neoprene"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "silicone-rubber": {
+   "name": "Silicone rubber",
+   "al": [
+    "silicone",
+    "VMQ"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "cf-t300": {
+   "name": "Carbon T300 (Toray, standard modulus)",
+   "al": [
+    "carbon fibre",
+    "Torayca"
+   ]
+  },
+  "cf-t700s": {
+   "name": "Carbon T700S (Toray, high strength)",
+   "al": [
+    "carbon fibre",
+    "Torayca"
+   ]
+  },
+  "cf-t800s": {
+   "name": "Carbon T800S (Toray, intermediate modulus)",
+   "al": [
+    "carbon fibre",
+    "Torayca"
+   ]
+  },
+  "cf-m40j": {
+   "name": "Carbon M40J (Toray, high modulus)",
+   "al": [
+    "carbon fibre",
+    "Torayca"
+   ]
+  },
+  "cf-m55j": {
+   "name": "Carbon M55J (Toray, high modulus)",
+   "al": [
+    "carbon fibre",
+    "Torayca"
+   ]
+  },
+  "cf-hts40": {
+   "name": "Carbon HTS40 (Teijin Tenax)",
+   "al": [
+    "carbon fibre",
+    "Tenax"
+   ]
+  },
+  "e-glass-fiber": {
+   "name": "E-glass (AGY)",
+   "al": [
+    "glass fibre"
+   ]
+  },
+  "ecr-glass-fiber": {
+   "name": "E-CR glass Advantex (Owens Corning)",
+   "al": [
+    "glass fibre"
+   ]
+  },
+  "s2-glass-fiber": {
+   "name": "S-2 glass (AGY)",
+   "al": [
+    "glass fibre"
+   ]
+  },
+  "kevlar49": {
+   "name": "Aramid Kevlar 49 (DuPont)",
+   "al": [
+    "Kevlar",
+    "aramid fibre"
+   ]
+  },
+  "basalt-fiber": {
+   "name": "Basalt fibre (Mafic)",
+   "al": [
+    "basalt fibre"
+   ]
+  },
+  "flax-fiber": {
+   "name": "Flax fibre",
+   "al": [
+    "linen",
+    "natural fibre"
+   ]
+  },
+  "hemp-fiber": {
+   "name": "Hemp fibre",
+   "al": [
+    "natural fibre"
+   ]
+  },
+  "cfrp": {
+   "name": "CFRP (epoxy matrix, quasi-isotropic)",
+   "al": [
+    "carbon fibre reinforced plastic",
+    "carbon fiber composite"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "gfrp": {
+   "name": "GFRP (epoxy matrix, quasi-isotropic)",
+   "al": [
+    "glass fibre reinforced plastic",
+    "fiberglass"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "fr4": {
+   "name": "FR-4 type circuit board (in-plane)",
+   "al": [
+    "PCB laminate",
+    "glass epoxy"
+   ],
+   "vars": {
+    "isola": "Isola 370HR"
+   }
+  },
+  "ud-t300-5208": {
+   "name": "T300/5208 carbon/epoxy (Tsai–Hahn)",
+   "al": []
+  },
+  "ud-cf-standard": {
+   "name": "Carbon/epoxy, standard modulus (NTNU table, Vf 55 %)",
+   "al": []
+  },
+  "ud-cf-high-modulus": {
+   "name": "Carbon/epoxy, high modulus (NTNU table)",
+   "al": []
+  },
+  "ud-e-glass": {
+   "name": "E-glass/epoxy (NTNU table)",
+   "al": []
+  },
+  "ud-s-glass": {
+   "name": "S-glass/epoxy (NTNU table)",
+   "al": []
+  },
+  "ud-kevlar49": {
+   "name": "Kevlar 49/epoxy (NTNU table)",
+   "al": []
+  },
+  "si": {
+   "name": "Silicon",
+   "al": [
+    "silicon wafer"
+   ],
+   "note": "The material of the substrates of semiconductor devices (single-crystal silicon wafers). Its Young’s modulus ranges from 130 to 188 GPa depending on the crystal direction.",
+   "vars": {
+    "poly": "polycrystal, isotropic average",
+    "w100": "(100) wafer, in-plane",
+    "w111": "(111) wafer, in-plane"
+   }
+  },
+  "ge": {
+   "name": "Germanium",
+   "al": []
+  },
+  "zns": {
+   "name": "Zinc sulfide (zinc blende)",
+   "al": []
+  },
+  "gaas": {
+   "name": "Gallium arsenide",
+   "al": []
+  },
+  "alas": {
+   "name": "Aluminum arsenide",
+   "al": []
+  },
+  "inas": {
+   "name": "Indium arsenide",
+   "al": []
+  },
+  "inp": {
+   "name": "Indium phosphide",
+   "al": []
+  },
+  "gap": {
+   "name": "Gallium phosphide",
+   "al": []
+  },
+  "zns-w": {
+   "name": "Zinc sulfide (wurtzite)",
+   "al": []
+  },
+  "zno": {
+   "name": "Zinc oxide",
+   "al": []
+  },
+  "b": {
+   "name": "Boron",
+   "al": []
+  },
+  "c": {
+   "name": "Carbon",
+   "al": [
+    "graphite"
+   ]
+  },
+  "p": {
+   "name": "Phosphorus",
+   "al": []
+  },
+  "s": {
+   "name": "Sulfur",
+   "al": []
+  },
+  "as": {
+   "name": "Arsenic",
+   "al": []
+  },
+  "se": {
+   "name": "Selenium",
+   "al": []
+  },
+  "br": {
+   "name": "Bromine",
+   "al": []
+  },
+  "sb": {
+   "name": "Antimony",
+   "al": []
+  },
+  "te": {
+   "name": "Tellurium",
+   "al": []
+  },
+  "i": {
+   "name": "Iodine",
+   "al": []
+  },
+  "diamond": {
+   "name": "Diamond",
+   "al": []
+  },
+  "flexible-foam": {
+   "name": "Flexible polymer foam (low density)",
+   "al": [
+    "polyurethane foam"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "rigid-foam": {
+   "name": "Rigid polymer foam (low density)",
+   "al": [
+    "expanded polystyrene"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "rigid-foam-hd": {
+   "name": "Rigid polymer foam (high density)",
+   "al": [],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "cork": {
+   "name": "Cork",
+   "al": [],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "paper": {
+   "name": "Paper and cardboard",
+   "al": [],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "wood-along": {
+   "name": "Wood (along the grain)",
+   "al": [
+    "timber"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  },
+  "wood-across": {
+   "name": "Wood (across the grain)",
+   "al": [
+    "timber"
+   ],
+   "vars": {
+    "ash": "Ashby’s range for the class"
+   }
+  }
+ },
+ "guide": [
+  {
+   "id": "read",
+   "h": "Representative values and ranges",
+   "p": [
+    "There are two kinds of values: a single value for a grade or a standard (for example, Young’s modulus of Kyocera AO479O, 360 GPa) and a range for a class of materials (for example, 340–390 GPa for Ashby’s “alumina”). A range covers many grades with different compositions and processing; it does not mean every grade lies inside it.",
+    "The representative value of a range is the geometric mean of its ends, √(low × high), to 3 significant figures. It is the center of the ellipse in the materials selection chart, and for properties spanning an order of magnitude or more (foam strength, polymer thermal conductivity) it describes the position in the range better than the arithmetic mean.",
+    "When a material has several values for one property, the table shows the first (the grade’s value if there is one, otherwise the range) and marks the number of other values as “+n”. The card shows every value with its condition and source."
+   ]
+  },
+  {
+   "id": "vary",
+   "h": "Values change with temperature, microstructure and direction",
+   "p": [
+    "The thermal expansion coefficient depends on the temperature range. For 304 stainless steel the mean over 0–100 °C is 16.9 × 10⁻⁶ K⁻¹ and over 0–649 °C it is 18.7 × 10⁻⁶ K⁻¹. Thermal conductivity, Young’s modulus and strength also change with temperature; the modulus of most metals falls as the temperature rises. Compare values at the same temperature.",
+    "Strength depends more on microstructure (heat treatment, working) than on composition. Yield, tensile and flexural strength are different quantities, and the flexural strength of ceramics comes out higher than the tensile strength. The table always states which strength it shows. Polymers also change with moisture: PA6 has a modulus of 3.5 GPa dry and 1.2 GPa conditioned.",
+    "Single crystals, fibers and unidirectional plies differ with direction. Young’s modulus of silicon is 130–188 GPa depending on the crystal direction, and T300 carbon fiber expands negatively along its axis and positively across it. Values for polycrystals are averages over directions."
+   ]
+  },
+  {
+   "id": "spec",
+   "h": "Specified, typical and measured values",
+   "p": [
+    "Standards give guaranteed minimums (the yield strength of 355 MPa for S355 in EN 10025-2 is the minimum guaranteed for thickness up to 16 mm) and specified ranges of composition (Cr 18.00–20.00 % in JIS, for example). A manufacturer’s “typical” value is an average of measurements, not a guarantee.",
+    "Values for the same material name often differ slightly between sources because of the sample, test method and temperature, not because one of them is wrong. Where the calculators use different values, this page shows both with their conditions and sources rather than correcting either."
+   ]
+  },
+  {
+   "id": "cite",
+   "h": "When you cite a value",
+   "p": [
+    "Cite the source of the value (listed on the card and in the source list), not this page. It is safest to open the source and check the condition (temperature, state, direction, test method) before using a value.",
+    "Write the unit and condition together with the value. Converted values are shown with the significant figures of the original value. The CSV gives both the value in the displayed unit and the value in its original unit."
+   ]
+  },
+  {
+   "id": "how",
+   "h": "How this data was made",
+   "p": [
+    "The values are extracted by script from the data sets used by the calculators on this site (periodic table, thermal expansion and stress, materials selection chart, composite designer, diffusion simulator, XRD workbench, binary phase diagrams, calculation drill and material designations). No calculator value is copied by hand, and every extracted value is checked against the calculator.",
+    "The only values not in the calculators are the properties of 304 and 316 stainless steel from Cleveland-Cliffs product data (US 304/304L and 316/316L bulletins). They are copied from the tables of those bulletins and checked against them again; values whose US-unit and SI figures disagree within the bulletin are left out (where only the stated temperature disagrees, the °F temperature is used). Values that the composite designer assumes (with no source) and values calculated by assuming isotropy are left out.",
+    "“Open in calculator” on a material card opens the calculator with that material’s values filled in, in the same state as picking the material in the calculator."
+   ]
+  }
+ ],
+ "faq": [
+  [
+   "A handbook gives a slightly different value. Which one is right?",
+   "Usually both: the sample, test method or temperature differs. Every value here comes with its source and condition, so check first whether the conditions match. If they match and the values still differ a lot, please check the source and let us know."
+  ],
+  [
+   "Why is the representative value of a range not the midpoint?",
+   "For properties spanning several times or more, the geometric mean, which is the midpoint on a logarithmic scale, describes the position in the range better. It is the same as the center of the ellipse in the materials selection chart. For example, the arithmetic mean of 0.01–1 is 0.505, while the geometric mean is 0.1."
+  ],
+  [
+   "Can I design a part with these values?",
+   "They are fine for narrowing down and comparing materials, but not for design. For design, use guaranteed values from standards or data for the actual grade from its manufacturer (minimums and values at temperature)."
+  ],
+  [
+   "Should I look at yield strength or tensile strength?",
+   "Use the yield strength (0.2 % proof stress) for parts that must not deform plastically, and the tensile strength to compare strength to fracture. Ceramics and glasses do not yield, so look at the flexural or tensile strength. The table always states which strength it shows."
+  ],
+  [
+   "Why are some properties blank?",
+   "Only values confirmed in a source are included. Values that are not in the calculators’ data or not given in the sources are not filled in by estimation."
+  ],
+  [
+   "How many digits does the CSV give?",
+   "Values converted to the displayed unit are rounded to the significant figures of the original value. Each row also gives the value in its original unit and its source, so you can check the original."
+  ]
+ ]
+}
