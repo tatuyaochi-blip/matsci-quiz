@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://tatuyaochi-blip.github.io/matsci-quiz/",
+  "baseUrl": "https://matsciroom.com/",
   "siteName": {
     "ja": "材料科学教室",
     "en": "Materials Science Room",
@@ -29,8 +29,8 @@
     }
   ],
   "mainLang": "ja",
-  "cname": null,
-  "noindex": true,
+  "cname": "matsciroom.com",
+  "noindex": false,
   "onlyReviewed": false,
   "contactFormUrl": {
     "ja": "https://forms.gle/VZFqdvB4m1fLpBEg7",
