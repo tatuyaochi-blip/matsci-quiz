@@ -1,0 +1,387 @@
+<!--
+{
+  "title": "金属はなぜ曲がるのに、ガラスや陶器は割れるの?",
+  "description": "金属が曲がり、ガラスや陶器が割れるのは、原子のつながり方の違いで、原子の面がずれられるかどうかが決まるからです。すべりと転位、小さな傷から割れが一気に広がる理由、強化ガラスが割れにくい理由、針金を曲げ続けると折れる理由を解説します。",
+  "series": "everyday-materials",
+  "order": 2,
+  "minutes": 14,
+  "updated": "2026-10-29",
+  "review": "2027-10",
+  "cats": [
+    "mechanical",
+    "defects-diffusion",
+    "ceramics",
+    "fracture-fatigue",
+    "glass-amorphous",
+    "metals"
+  ],
+  "terms": [
+    "転位",
+    "加工硬化",
+    "破壊靭性",
+    "グリフィスの理論",
+    "応力集中係数",
+    "強化ガラス",
+    "化学強化ガラス"
+  ],
+  "sources": [
+    {
+      "title": "Seoul National University, E. S. Park, Introduction to Materials Science and Engineering (2019) 講義資料 11(金属結合は向きがなく転位が最も動きやすい、共有結合は向きがあり、イオン結合は同符号のイオンを避ける必要があるため転位が動きにくい。FCCのすべり系12)",
+      "url": "https://ocw.snu.ac.kr/sites/default/files/NOTE/11_IMSE%20102419.pdf"
+    },
+    {
+      "title": "Penn State, MATSE 81: What is a Brittle Material?(イオン結合のセラミックスでは、列をずらすと同符号の原子が隣り合って反発し、すべれない)",
+      "url": "https://courses.ems.psu.edu/matse81/book/export/html/2106"
+    },
+    {
+      "title": "MIT OpenCourseWare 3.40J Physical Metallurgy (Fall 2009), Lecture 3(原子面を一体でずらす理論と実験の間に1万〜10万倍の開き、転位による説明)",
+      "url": "https://www.ocw.mit.edu/courses/3-40j-physical-metallurgy-fall-2009/30c3376b489ed9a63f821e8f20214ba9_MIT3_40JF09_lec03.pdf"
+    },
+    {
+      "title": "DoITPoMS(University of Cambridge): Dislocations — Introduction(1934年にオロワン・テイラー・ポランニーが独立に提唱、1947年に実験で確認、その約10年後に電子顕微鏡で運動を観察)",
+      "url": "https://www.doitpoms.ac.uk/tlplib/dislocations/intro.php"
+    },
+    {
+      "title": "DoITPoMS(University of Cambridge): Slip via dislocation motion(完全結晶のすべりと転位によるすべりに必要な応力の比較)",
+      "url": "https://www.doitpoms.ac.uk/tlplib/dislocations/slip_via_dislocation.php"
+    },
+    {
+      "title": "MIT OpenCourseWare 3.071 Amorphous Materials (Fall 2015), Lecture 8(シリカガラスの理論強度 約35 GPa、ふつうのガラス 約30 MPa、シリカのナノワイヤ 約26 GPa、き裂の進む速さ 約1540 m/s)",
+      "url": "https://ocw.mit.edu/courses/3-071-amorphous-materials-fall-2015/d40eb6c6d4abcdee2d66b83cbc736954_MIT3_071F15_Lecture8.pdf"
+    },
+    {
+      "title": "Royal Society: Phenomena of rupture and flow in solids(グリフィスがガラスの強さを研究し、内在する傷とエネルギーの収支で破壊を説明した Phil. Trans. A の論文の紹介)",
+      "url": "https://royalsociety.org/blog/2015/04/phenomena-of-rupture-and-flow-in-solids"
+    },
+    {
+      "title": "A. A. Griffith, The Phenomena of Rupture and Flow in Solids, Phil. Trans. R. Soc. A 221 (Internet Archive の原論文の写し)(1920年2月11日受理・2月26日朗読、1920年10月21日刊行、221巻の163ページから)",
+      "url": "https://ia802702.us.archive.org/31/items/philtrans01457975/01457975.pdf"
+    },
+    {
+      "title": "Lehigh University, J. J. Mecholsky, Glass Properties Lecture 12(ソーダ石灰ガラスの破壊靭性 0.7 MPa·√m、強さはき裂の大きさで決まる)",
+      "url": "https://www.lehigh.edu/imi/teched/GlassProp/Slides/GlassProp_Lecture12_Mecholsky.pdf"
+    },
+    {
+      "title": "Seoul National University, Mechanical Strength and Behavior of Solids, Chapter 8(AISI 4130鋼の K_IC 110 MPa·√m、金属はおよそ20〜200 MPa·√m)",
+      "url": "https://ocw.snu.ac.kr/sites/default/files/NOTE/Mechanical%20Strength%20and%20Behavior%20of%20Solids_ch8.pdf"
+    },
+    {
+      "title": "UNSW Sydney, School of Materials: Ceramics — Properties(セラミックスとガラスは硬い、引張の強さは最も長い傷で決まる、靭性は金属の約50分の1)",
+      "url": "https://www.unsw.edu.au/science/our-schools/materials/engage-with-us/high-school-students-and-teachers/online-tutorials/ceramics/properties"
+    },
+    {
+      "title": "UNSW Sydney, School of Materials: Ceramics — Properties 2(圧縮の強さは引張の約10倍、傷は圧縮では広がらない)",
+      "url": "https://www.unsw.edu.au/science/our-schools/materials/engage-with-us/high-school-students-and-teachers/online-tutorials/ceramics/properties/properties-2"
+    },
+    {
+      "title": "G. Gralik ほか, Effect of different sources of alumina on the microstructure and mechanical properties of the triaxial porcelain, Cerâmica 60, 471–481 (2014)(磁器のムライト・石英・ガラス相・気孔、石英の粒のまわりの熱膨張差によるひび)",
+      "url": "https://www.scielo.br/pdf/ce/v60n356/v60n356a04.pdf"
+    },
+    {
+      "title": "L. R. Bunnell (Pacific Northwest Laboratory), Tempered Glass / Thermal Shock of Ceramic Materials, NASA Technical Reports Server(急冷で表面が先に固まり内部があとから縮むしくみ、セラミックスやガラスは0.01〜0.1%のひずみで割れる)",
+      "url": "https://ntrs.nasa.gov/api/citations/19920021022/downloads/19920021022.pdf"
+    },
+    {
+      "title": "Glass Association of North America, FB45-14 Recommended Applications for Heat-Treated Glass (2019)(ASTM C1048 で強化ガラスの表面圧縮は 69 MPa 以上、強さは徐冷ガラスの約4倍、割れると小さな粒になる)",
+      "url": "https://glass.org/sites/default/files/2021-08/FB45-14_2019_Recommended_Applications_for_Heat-Treated_Glass_0521_0.pdf"
+    },
+    {
+      "title": "Vitro Architectural Glass: Heat-Strengthened vs. Tempered Glass(約1200 °F に加熱して強制冷却、強化ガラスは徐冷ガラスの4〜5倍の強さ)",
+      "url": "https://glassed.vitroglazings.com/topics/heat-strengthened-vs-tempered-glass"
+    },
+    {
+      "title": "J. H. Nielsen, M. A. Kraus, J. Schneider, The In-plane Expansion of Fractured Thermally Pre-stressed Glass Panes, arXiv:2110.09293 (2021)(残留応力はほぼ放物線、表面は中央の約2倍、圧縮層は表面から厚さの約21%)",
+      "url": "https://arxiv.org/pdf/2110.09293"
+    },
+    {
+      "title": "Corning: How It Works — Strengthening Glass(溶融塩の中でカリウムイオンが小さなナトリウムイオンと入れ替わり、表面に圧縮の層ができる)",
+      "url": "https://www.corning.com/au/en/innovation/the-glass-age/science-of-glass/how-it-works-strengthening-glass.html"
+    },
+    {
+      "title": "Corning: History of Strengthening Glass(薄いガラスは表面と内部の冷え方の差をつけにくく、温度差による強化に限界があるため、イオン交換で化学的に強化する)",
+      "url": "https://www.corning.com/worldwide/en/innovation/materials-science/glass/history-strengthening-glass.html"
+    },
+    {
+      "title": "Corning Gorilla Glass for Large Format Applications, Product Information Sheet (2015)(イオン交換後の表面圧縮 650 MPa 以上、圧縮層の深さ 40 µm 以上)",
+      "url": "https://www.corning.com/microsites/csm/gorillaglass/PI_Sheets/CGG_PI_Sheet_Large_Cover.pdf"
+    },
+    {
+      "title": "DoITPoMS(University of Cambridge): Work hardening in polycrystals — background(転位密度は焼なましで約10¹⁰ m⁻²、冷間加工で約10¹⁶ m⁻²、塑性変形で転位が増えて動きにくくなる)",
+      "url": "https://doitpoms.ac.uk/ldplib/work-hardening-polycrystals/background.php"
+    },
+    {
+      "title": "University of Washington, MSE 170 Lecture 11(冷間加工で転位がからみ合い強さが上がり延性が下がる、焼なましで回復・再結晶)",
+      "url": "https://courses.washington.edu/mse170/lecture_notes/zhangF08/lecture11.pdf"
+    },
+    {
+      "title": "University of Cambridge, Department of Materials Science & Metallurgy: Kitchen Science! — Stiffening paperclips(クリップを曲げ伸ばしすると転位で硬くなり、炎で熱してゆっくり冷ますと軟らかく戻る。水で急冷するとマルテンサイトができて逆に硬くなる)",
+      "url": "https://www.eng-atoms.msm.cam.ac.uk/sites/default/files/Paperclips.pdf"
+    },
+    {
+      "title": "Isfahan University of Technology, Fracture Mechanics 講義資料: Fatigue(繰り返しの微小な塑性変形で表面に入り込み・突き出しができ、すべり帯に微小き裂が生まれる、低サイクル疲労は大きな塑性変形を伴う)",
+      "url": "https://mashayekhi.iut.ac.ir/sites/mashayekhi.iut.ac.ir/files//files_course/lesson_15_4.pdf"
+    },
+    {
+      "title": "DoITPoMS(University of Cambridge): Ductile-brittle transition temperature(軟鋼などBCC金属は低温で脆くなり、FCC金属はふつう延性脆性遷移を示さない、ケンブリッジ大学工学部のコンスタンス・ティッパーがリバティ船の破壊を調べる中で最初に見いだした)",
+      "url": "https://doitpoms.ac.uk/tlplib/mechanical_properties/ductile.php"
+    },
+    {
+      "title": "DoITPoMS(University of Cambridge): The Glass Transition — The myth of flowing cathedral windows(室温の緩和時間は約10²³年で宇宙の年齢約10¹⁰年をはるかに超える、厚さの不ぞろいは昔の製法による)",
+      "url": "https://www.doitpoms.ac.uk/tlplib/glass-transition/myth.php"
+    }
+  ]
+}
+-->
+<p class="lead">金属が曲がるのは、原子の並びが、つながりを保ったまま少しずつずれられるからです。ガラスや陶器の原子は、向きや相手の決まった強い結合でつながっていて、ずれる前に結合が切れてしまいます。しかも、表面の目に見えないほど小さな傷の先に力が集まるので、一度割れ始めると一気に広がります。</p>
+
+<div class="learn-box"><p class="learn-box-h">この記事でわかること</p><ul>
+<li>「曲がる」には、元に戻る曲がり方と、戻らない曲がり方があること</li>
+<li>金属・イオン結合・共有結合で、原子のつながり方がどう違うか</li>
+<li>金属が小さな力で曲がるしくみ(すべりと転位)</li>
+<li>ガラスや陶器で、小さな傷から割れが一気に広がる理由</li>
+<li>強化ガラスやスマホのガラスが割れにくい理由</li>
+<li>針金を何度も曲げると硬くなり、やがて折れる理由</li>
+</ul><p class="muted">前提知識: 中学の理科(原子・イオン・電子)くらい。式はほとんど使いません。</p></div>
+
+<section>
+<h2>身近なところでは</h2>
+<p>スプーンを強く押すと、ぐにゃりと曲がって、曲がったまま残ります。アルミの針金は指で好きな形に曲げられますし、アルミ箔は丸めても破れません。どれも金属です。</p>
+<p>一方、ガラスのコップや陶器の茶わんを床に落とすと、曲がらずに割れます。割れた破片をつなぎ合わせると、元の形にほぼぴったり戻ります。割れる前に、形がほとんど変わっていなかったということです。</p>
+<p>どちらも硬い固体なのに、強い力がかかったときのふるまいは正反対です。この違いは、材料の中で原子がどうつながっているかに行き着きます。</p>
+</section>
+
+<section>
+<h2>まず区別: 2種類の「曲がる」</h2>
+<p>じつは、ガラスもほんの少しは曲がります。原子どうしの間がわずかに伸び縮みし、力を抜くと戻ります。この元に戻る変形を、弾性変形と呼びます。</p>
+<p>弾性変形の大きさには限りがあります。ガラスやセラミックス(陶器や磁器のなかま)は、長さがおよそ0.01〜0.1%変わると割れるのがふつうです(米国の国立研究所の教材)。1 mの棒なら、0.1〜1 mmほど伸びただけで割れる計算です。</p>
+<p>スプーンが曲がったまま残るのは、もう一つの変形です。原子の並びそのものが別の位置へ移ってしまい、力を抜いても戻りません。これを塑性変形と呼びます。金属とガラスの違いは、割れる前にこれができるかどうかです。</p>
+</section>
+
+<section>
+<h2>しくみ1: 原子のつながり方が違う</h2>
+<p>原子どうしをつなぐ力(化学結合)のうち、金属・イオン結合・共有結合の3つを比べます。実際には混ざり合うことも多いのですが、典型的な形だけを考えます。</p>
+<h3>金属: 電子を全体で共有する</h3>
+<p>金属の原子は、外側の電子を手放して、プラスの電気を帯びた粒(イオン)になります。その電子は特定の原子に属さず全体を動き回り、プラスのイオンの集まりをまとめてつなぎとめます。これが金属結合です。</p>
+<p>金属結合には、決まった向きがありません。原子の列が隣へずれても、電子がすぐに回り込んで、新しい位置でもつながりを保ちます。結合が「切れずに付け替わる」ので、金属は割れずに形を変えられます。</p>
+<h3>イオン結合: プラスとマイナスが交互に並ぶ</h3>
+<p>食塩(塩化ナトリウム)は、プラスのナトリウムイオンとマイナスの塩化物イオンが、交互に並んだ結晶です。プラスとマイナスが引き合う力でつながっています。これがイオン結合です。</p>
+<p>この結晶で、原子の列をイオン1つ分ずらしてみます。すると同じ符号のイオンどうしが向き合い、強く反発し合います(図1)。そのため、ずれることのできる向きや面がごく限られます。</p>
+<figure class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 376" role="img"><title>原子の列をずらしたとき: 金属は電子がつなぎ続けるが、イオン結合では同じ符号のイオンが向き合って反発する</title>
+<text x="16" y="22" text-anchor="start">金属: ずれても電子がつなぐ</text>
+<circle cx="60" cy="56" r="14" class="ok"/><text x="60" y="61" text-anchor="middle" class="sm">+</text>
+<circle cx="108" cy="56" r="14" class="ok"/><text x="108" y="61" text-anchor="middle" class="sm">+</text>
+<circle cx="156" cy="56" r="14" class="ok"/><text x="156" y="61" text-anchor="middle" class="sm">+</text>
+<circle cx="204" cy="56" r="14" class="ok"/><text x="204" y="61" text-anchor="middle" class="sm">+</text>
+<circle cx="252" cy="56" r="14" class="ok"/><text x="252" y="61" text-anchor="middle" class="sm">+</text>
+<circle cx="300" cy="56" r="14" class="ok"/><text x="300" y="61" text-anchor="middle" class="sm">+</text>
+<circle cx="60" cy="96" r="14" class="ok"/><text x="60" y="101" text-anchor="middle" class="sm">+</text>
+<circle cx="108" cy="96" r="14" class="ok"/><text x="108" y="101" text-anchor="middle" class="sm">+</text>
+<circle cx="156" cy="96" r="14" class="ok"/><text x="156" y="101" text-anchor="middle" class="sm">+</text>
+<circle cx="204" cy="96" r="14" class="ok"/><text x="204" y="101" text-anchor="middle" class="sm">+</text>
+<circle cx="252" cy="96" r="14" class="ok"/><text x="252" y="101" text-anchor="middle" class="sm">+</text>
+<circle cx="300" cy="96" r="14" class="ok"/><text x="300" y="101" text-anchor="middle" class="sm">+</text>
+<circle cx="84" cy="76" r="3.5" class="fa"/>
+<circle cx="180" cy="74" r="3.5" class="fa"/>
+<circle cx="276" cy="78" r="3.5" class="fa"/>
+<circle cx="132" cy="118" r="3.5" class="fa"/>
+<circle cx="228" cy="34" r="3.5" class="fa"/>
+<circle cx="36" cy="36" r="3.5" class="fa"/>
+<circle cx="320" cy="116" r="3.5" class="fa"/>
+<circle cx="132" cy="34" r="3.5" class="fa"/>
+<circle cx="228" cy="118" r="3.5" class="fa"/>
+<circle cx="36" cy="116" r="3.5" class="fa"/>
+<text x="16" y="148" text-anchor="start" class="m">小さな点は、全体で共有される電子</text>
+<text x="16" y="184" text-anchor="start">イオン結合: 1つ分ずらすと</text>
+<text x="22" y="227" text-anchor="middle" class="m">前</text>
+<circle cx="60" cy="206" r="14" class="hole"/><text x="60" y="211" text-anchor="middle" class="sm">+</text>
+<circle cx="108" cy="206" r="14" class="ok"/><text x="108" y="211" text-anchor="middle" class="sm">−</text>
+<circle cx="156" cy="206" r="14" class="hole"/><text x="156" y="211" text-anchor="middle" class="sm">+</text>
+<circle cx="204" cy="206" r="14" class="ok"/><text x="204" y="211" text-anchor="middle" class="sm">−</text>
+<circle cx="252" cy="206" r="14" class="hole"/><text x="252" y="211" text-anchor="middle" class="sm">+</text>
+<circle cx="300" cy="206" r="14" class="ok"/><text x="300" y="211" text-anchor="middle" class="sm">−</text>
+<circle cx="60" cy="242" r="14" class="ok"/><text x="60" y="247" text-anchor="middle" class="sm">−</text>
+<circle cx="108" cy="242" r="14" class="hole"/><text x="108" y="247" text-anchor="middle" class="sm">+</text>
+<circle cx="156" cy="242" r="14" class="ok"/><text x="156" y="247" text-anchor="middle" class="sm">−</text>
+<circle cx="204" cy="242" r="14" class="hole"/><text x="204" y="247" text-anchor="middle" class="sm">+</text>
+<circle cx="252" cy="242" r="14" class="ok"/><text x="252" y="247" text-anchor="middle" class="sm">−</text>
+<circle cx="300" cy="242" r="14" class="hole"/><text x="300" y="247" text-anchor="middle" class="sm">+</text>
+<line x1="140" y1="268" x2="200" y2="268" class="ln"/><polygon points="210,268 198,262 198,274" class="ink"/>
+<text x="22" y="313" text-anchor="middle" class="m">後</text>
+<circle cx="60" cy="292" r="14" class="ok"/><text x="60" y="297" text-anchor="middle" class="sm">−</text>
+<circle cx="108" cy="292" r="14" class="hole"/><text x="108" y="297" text-anchor="middle" class="sm">+</text>
+<circle cx="156" cy="292" r="14" class="ok"/><text x="156" y="297" text-anchor="middle" class="sm">−</text>
+<circle cx="204" cy="292" r="14" class="hole"/><text x="204" y="297" text-anchor="middle" class="sm">+</text>
+<circle cx="252" cy="292" r="14" class="ok"/><text x="252" y="297" text-anchor="middle" class="sm">−</text>
+<circle cx="300" cy="292" r="14" class="hole"/><text x="300" y="297" text-anchor="middle" class="sm">+</text>
+<circle cx="60" cy="328" r="14" class="ok"/><text x="60" y="333" text-anchor="middle" class="sm">−</text>
+<circle cx="108" cy="328" r="14" class="hole"/><text x="108" y="333" text-anchor="middle" class="sm">+</text>
+<circle cx="156" cy="328" r="14" class="ok"/><text x="156" y="333" text-anchor="middle" class="sm">−</text>
+<circle cx="204" cy="328" r="14" class="hole"/><text x="204" y="333" text-anchor="middle" class="sm">+</text>
+<circle cx="252" cy="328" r="14" class="ok"/><text x="252" y="333" text-anchor="middle" class="sm">−</text>
+<circle cx="300" cy="328" r="14" class="hole"/><text x="300" y="333" text-anchor="middle" class="sm">+</text>
+<text x="16" y="368" text-anchor="start" class="a">同じ符号が向き合い、反発する</text>
+</svg><figcaption class="fig-cap">上は金属で、列を1つ分ずらしても同じ並びになり、電子がつなぎ続ける。下はイオン結合の結晶で、上の列を1つ分ずらす前と後。どちらも2列だけで描いた。省略していること: 実際の結晶は立体で、イオン結合の結晶にも、同じ符号が向き合わずに済む特別なずれ方がわずかにある。電子の位置は決まっておらず、図の点は目印。</figcaption></figure>
+<h3>共有結合: 手をつなぐ相手と向きが決まっている</h3>
+<p>ダイヤモンドやケイ素(シリコン)では、隣り合う原子が電子を出し合って、決まった相手と決まった角度で結びついています。これが共有結合です。原子の列をずらすには、この結合をいったん切らなければなりません。</p>
+<p>ガラスの主な成分は、ケイ素と酸素です。ケイ素1個を4個の酸素が三角すいの形に囲む小さな単位が、角の酸素を隣の単位と共有して、不規則な網のようにつながっています。このように網をつくる酸化物(ここでは二酸化ケイ素)を{{term:網目形成酸化物}}と呼びます。ケイ素と酸素の結合は共有結合の性格をもち、向きが決まっているので、ずれようとすると結合が切れます。</p>
+<p>陶器や磁器は、粘土などを焼き固めたものです。中には石英(水晶と同じ成分の鉱物)などの結晶の粒と、焼くときに溶けて固まったガラス質、小さなすき間(気孔)があります。結晶の粒もガラス質も、ずれにくい結合でできています。</p>
+</section>
+
+<section>
+<h2>しくみ2: 金属は「すべり」で曲がる</h2>
+<p>金属の中では、原子が規則正しく並んでいます。この並びを結晶と呼び、ふつうの金属は小さな結晶の粒がたくさん集まってできています。金属を曲げると、原子がきれいに並んだ面どうしが、一段ずつずれていきます。これを「すべり」と呼びます。すべった面の数だけ形が変わり、力を抜いても戻りません。これが金属の塑性変形の正体です。</p>
+<p>ところが、ここに一つ謎がありました。原子の面を丸ごと一度にずらすのに必要な力を計算すると、実際に金属が曲がり始める力よりずっと大きくなるのです。MITの講義資料では、この計算と実験の間に1万〜10万倍の開きがあるとしています。</p>
+<p>この謎を解いたのが、結晶の中にある「線状の乱れ」です。原子の並びが1列分だけ食い違っていて、その線に沿って並びが乱れています。これを{{term:転位}}と呼びます。1934年にオロワン、テイラー、ポランニーがそれぞれ独立に考え出し、1947年に実験で確かめられました(ケンブリッジ大学の教材)。</p>
+<p>転位があると、面全体を一度にずらす必要がありません。乱れのところの原子だけが少し位置を変えると、乱れが隣へ移ります。乱れが結晶の端まで通り抜けると、面全体が原子1つ分ずれたことになります(図2)。</p>
+<figure class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 330" role="img"><title>転位が動く様子: 原子1列分の乱れが端から端へ移ると、上の列全体が原子1つ分ずれる</title>
+<text x="16" y="46" text-anchor="start" class="m">① 乱れ(転位)が入る</text>
+<circle cx="36" cy="90" r="9" class="ok"/>
+<circle cx="72" cy="90" r="9" class="ok"/>
+<circle cx="108" cy="90" r="9" class="ok"/>
+<circle cx="144" cy="90" r="9" class="ok"/>
+<circle cx="180" cy="90" r="9" class="ok"/>
+<circle cx="216" cy="90" r="9" class="ok"/>
+<circle cx="252" cy="90" r="9" class="ok"/>
+<circle cx="288" cy="90" r="9" class="ok"/>
+<circle cx="33.2" cy="66" r="9" class="ink"/>
+<circle cx="67.8" cy="66" r="9" class="ink"/>
+<circle cx="99.5" cy="66" r="9" class="fa"/>
+<circle cx="121.5" cy="66" r="9" class="fa"/>
+<circle cx="149.5" cy="66" r="9" class="ink"/>
+<circle cx="183.3" cy="66" r="9" class="ink"/>
+<circle cx="218.3" cy="66" r="9" class="ink"/>
+<circle cx="253.8" cy="66" r="9" class="ink"/>
+<circle cx="289.4" cy="66" r="9" class="ink"/>
+<text x="16" y="146" text-anchor="start" class="m">② 乱れが右へ進む</text>
+<circle cx="36" cy="190" r="9" class="ok"/>
+<circle cx="72" cy="190" r="9" class="ok"/>
+<circle cx="108" cy="190" r="9" class="ok"/>
+<circle cx="144" cy="190" r="9" class="ok"/>
+<circle cx="180" cy="190" r="9" class="ok"/>
+<circle cx="216" cy="190" r="9" class="ok"/>
+<circle cx="252" cy="190" r="9" class="ok"/>
+<circle cx="288" cy="190" r="9" class="ok"/>
+<circle cx="34.5" cy="166" r="9" class="ink"/>
+<circle cx="70.2" cy="166" r="9" class="ink"/>
+<circle cx="105.7" cy="166" r="9" class="ink"/>
+<circle cx="140.7" cy="166" r="9" class="ink"/>
+<circle cx="174.3" cy="166" r="9" class="ink"/>
+<circle cx="201.7" cy="166" r="9" class="fa"/>
+<circle cx="224.1" cy="166" r="9" class="fa"/>
+<circle cx="256.1" cy="166" r="9" class="ink"/>
+<circle cx="290.7" cy="166" r="9" class="ink"/>
+<text x="16" y="246" text-anchor="start" class="m">③ 通り抜けると1つ分ずれる</text>
+<circle cx="36" cy="290" r="9" class="ok"/>
+<circle cx="72" cy="290" r="9" class="ok"/>
+<circle cx="108" cy="290" r="9" class="ok"/>
+<circle cx="144" cy="290" r="9" class="ok"/>
+<circle cx="180" cy="290" r="9" class="ok"/>
+<circle cx="216" cy="290" r="9" class="ok"/>
+<circle cx="252" cy="290" r="9" class="ok"/>
+<circle cx="288" cy="290" r="9" class="ok"/>
+<circle cx="36.0" cy="266" r="9" class="ink"/>
+<circle cx="72.0" cy="266" r="9" class="ink"/>
+<circle cx="108.0" cy="266" r="9" class="ink"/>
+<circle cx="144.0" cy="266" r="9" class="ink"/>
+<circle cx="180.0" cy="266" r="9" class="ink"/>
+<circle cx="216.0" cy="266" r="9" class="ink"/>
+<circle cx="252.0" cy="266" r="9" class="ink"/>
+<circle cx="288.0" cy="266" r="9" class="ink"/>
+<circle cx="324.0" cy="266" r="9" class="ink"/>
+<line x1="230" y1="18" x2="300" y2="18" class="ln"/><polygon points="310,18 298,12 298,24" class="ink"/>
+<text x="222" y="23" text-anchor="end" class="m">上を押す向き</text>
+</svg><figcaption class="fig-cap">上の列を右へ押すと、色のついた原子の乱れ(転位)が右へ移り、通り抜けると上の列が原子1つ分ずれる。省略していること: 実際の転位は立体の結晶の中の線で、断面の2列だけを描いた。間隔のずれは誇張している。</figcaption></figure>
+<p>金属結合には向きがないので、転位は結晶の中を比較的楽に動けます。イオン結合や共有結合の結晶では、転位を動かそうとしても、反発や結合の切断が邪魔をします。動かす力が大きすぎて、その前に割れてしまうのです。ガラスにはそもそも規則正しい原子の面がなく、すべりの舞台がありません。</p>
+<aside class="analogy"><p class="analogy-h">たとえで言うと</p><p>大きなじゅうたんを、床の上で1 mずらしたいとします。端を持って引っぱると、床との摩擦で動きません。そこで、端に小さなしわを作り、そのしわを反対の端まで押していきます。しわが通り過ぎると、じゅうたん全体が少しずれています。一度に全部を動かさず、一部分ずつ動かすので小さな力で済む点が、転位と似ています。</p><p class="analogy-limit"><strong>たとえが当てはまらない点:</strong> 結晶の転位は、立体の中を走る線で、変形するうちに自分で増え、互いにからみ合います(後の針金の話)。じゅうたんのしわは、ひとりでに増えたりしません。このたとえが表すのは「一部分ずつずらせば小さな力で済む」という点だけです。</p></aside>
+</section>
+
+<section>
+<h2>しくみ3: ガラスや陶器は、小さな傷から一気に割れる</h2>
+<p>ガラスが割れやすい理由は、ずれられないことだけではありません。傷のないガラスは、じつはとても強いのです。傷が一つもないとして計算した強さを、理論上の強さと呼びます。MITの講義資料では、シリカ(二酸化ケイ素)のガラスの理論上の強さを約35 GPaと見積もっています。GPa(ギガパスカル)は圧力の単位で、1 GPaは1 mm²あたり約100 kgの重さがかかる圧力です。見積もり方で値は変わり、{{term:ヤング率}}(引っぱったときの伸びにくさを表す値)の10分の1、約7 GPaという大まかな目安もあります。</p>
+<p>ところが、ふつうのガラスが引っぱられて割れるのは、同じ資料で約30 MPaです。MPa(メガパスカル)は、GPaの1000分の1です。どちらの見積もりと比べても、数百分の1から1000分の1ほどにすぎません。一方、ごく細いシリカの線(ナノワイヤ)には、大きな傷がほとんどありません。その強さは約26 GPaと測られていて、35 GPaの見積もりに近い値です。</p>
+<p>強さを下げているのは、表面や内部の目に見えないほど小さな傷です。引っぱる力がかかると、力は傷を避けて回り込み、傷の先端に集まります。先端が鋭いほど、集まり方は激しくなります。先端の力が平均の何倍になるかを表す数を、{{term:応力集中係数}}と呼びます(応力は、面積あたりにかかる力のことです)。</p>
+<p>金属でも、傷の先端に力は集まります。しかし金属では、先端の近くで転位が動いて少し変形し、鋭い先端が丸く鈍ります。変形するのにエネルギーも使われるので、傷はなかなか進みません。ガラスや陶器にはこの逃げ道がなく、先端は鋭いまま、原子の結合が次々に切れていきます。</p>
+<p>さらに、傷が少し伸びると、先端に集まる力はもっと大きくなります。傷が伸びるほど進みやすくなるので、割れは止まらずに加速します。ガラスの中を割れが進む速さは約1540 m/sで(MITの講義資料)、幅1 mの窓なら0.001秒もかからずに走りきります。</p>
+<p>傷が伸びると、引っぱられて材料にたまっていたエネルギーが放たれます。一方で、新しい割れ目の面をつくるにはエネルギーが要ります。放たれる分が要る分を上回ると、傷は伸びます。この「傷が伸びる条件」をエネルギーの出入りで説明したのが、{{term:グリフィスの理論}}です。</p>
+<p>ガラスの強さを調べていたグリフィスが、1920年に英国王立協会の学術誌で発表しました(論文を収めた巻は1921年の発行)。この考えから、同じガラスでも、傷が深いほど弱くなることがわかります。割れる力は傷の深さの平方根に反比例するので、深さが4倍になると、割れる力はおよそ半分になります。</p>
+<h3>陶器が「押す力」には強い理由</h3>
+<p>陶器や磁器も、事情は同じです。粒の境目や気孔、石英の粒のまわりにできる細かいひび(焼いたあと冷えるときの縮み方の差でできる)が、傷の役目をします。ニューサウスウェールズ大学(豪州)の教材は、セラミックスの引っぱりの強さは最も長い傷で決まるとしています。</p>
+<p>ただし、押しつぶす力(圧縮)には強く、同じ教材では、引っぱりの約10倍の強さがあるとしています。押されると傷の口は閉じる向きになり、先端に力が集まらないからです。落としたときに割れるのは、ぶつかった衝撃で一部が曲げられるからです。曲がった部分の外側は引き伸ばされ、そこにある傷の口が開きます。</p>
+</section>
+
+<section>
+<h2>数字で見る: どれくらいの傷で割れるか</h2>
+<p>傷のある材料が、割れの広がりにどれだけ抵抗できるかを表す数を、{{term:破壊靭性}}と呼びます。単位は MPa·√m という少し変わったものですが、ここでは数の大小だけを見れば十分です。この値が大きいほど、傷があっても割れにくい材料です。</p>
+<table>
+<thead><tr><th>材料</th><th>破壊靭性(MPa·√m)</th></tr></thead>
+<tbody>
+<tr><td>ソーダ石灰ガラス(窓やびんのガラス)</td><td>約0.7</td></tr>
+<tr><td>鋼の例(AISI 4130)</td><td>約110</td></tr>
+<tr><td>金属のおおよその範囲</td><td>20〜200</td></tr>
+</tbody>
+</table>
+<p>ガラスの値はリーハイ大学、鋼と金属の範囲はソウル大学の講義資料によります。この値を使って、板に100 MPaの引っぱり(1 mm²あたり約10 kgの重さ)がかかるとき、どの深さの傷で割れるかを計算します。表面に入った浅い傷の式を使い、板は十分に広いとして単純化しています。</p>
+<ul>
+<li>ガラス: 深さ約0.012 mm(12 µm)の傷で割れる</li>
+<li>鋼(約110): 計算上は深さ約30 cmの傷まで割れない(傷がほぼ問題にならないという意味)</li>
+</ul>
+<p>同じ引っぱりの力のもとでは、許せる傷の深さは破壊靭性の2乗に比例します。破壊靭性が約160倍違うと、許せる傷の深さはその2乗で、約2万5000倍も違うのです。ガラスでは、目に見えないほどの細かな傷でも、割れの起点になりえます。金属の部品では、一度の力で割れるかという点では、表面の小さな傷はふつう問題になりません。ただし、力が何度も繰り返しかかると、小さな傷も壊れる起点になります(後の針金の話)。</p>
+</section>
+
+<section>
+<h2>強化ガラスは、なぜ割れにくいのか</h2>
+<p>ガラスの割れは、表面の傷に引っぱりがかかって始まります。そこで、表面をはじめから押し縮めておくのが{{term:強化ガラス}}です。</p>
+<p>作り方はこうです。板ガラスを約650 ℃まで加熱し(米国のメーカーの資料では華氏約1200度)、両面に空気を吹き付けて急に冷やします。表面が先に冷えて固まり、中の部分はあとからゆっくり冷えて縮みます。縮む中身に引き込まれて、表面は押し縮められた状態(圧縮)で固まります。</p>
+<p>こうして、表面には圧縮、厚さの中央には引っぱり(引張)の力が残ります(図3)。欧州の研究者の論文(2021年)によると、分布はほぼ放物線の形です。表面の圧縮は中央の引張の約2倍で、表面から厚さの約21%までが圧縮の層です。</p>
+<figure class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 320" role="img"><title>強化ガラスの厚さ方向の応力: 両側の表面は圧縮、中央は引張</title>
+<rect x="20" y="50" width="80" height="200" class="ok"/>
+<polygon points="52,50 60,50 56,72" class="fa"/>
+<text x="60" y="40" text-anchor="middle" class="sm">表面の傷</text>
+<text x="60" y="270" text-anchor="middle" class="m">ガラスの断面</text>
+<line x1="232" y1="44" x2="232" y2="256" class="thin"/>
+<path d="M152.0,50.0 L156.8,52.0 L161.4,54.0 L166.0,56.0 L170.4,58.0 L174.8,60.0 L179.1,62.0 L183.2,64.0 L187.3,66.0 L191.3,68.0 L195.2,70.0 L199.0,72.0 L202.7,74.0 L206.3,76.0 L209.8,78.0 L213.2,80.0 L216.5,82.0 L219.7,84.0 L222.8,86.0 L225.9,88.0 L228.8,90.0 L231.6,92.0 L234.4,94.0 L237.0,96.0 L239.6,98.0 L242.0,100.0 L244.4,102.0 L246.6,104.0 L248.8,106.0 L250.8,108.0 L252.8,110.0 L254.7,112.0 L256.4,114.0 L258.1,116.0 L259.7,118.0 L261.2,120.0 L262.6,122.0 L263.9,124.0 L265.1,126.0 L266.2,128.0 L267.2,130.0 L268.1,132.0 L268.9,134.0 L269.6,136.0 L270.3,138.0 L270.8,140.0 L271.2,142.0 L271.6,144.0 L271.8,146.0 L272.0,148.0 L272.0,150.0 L272.0,152.0 L271.8,154.0 L271.6,156.0 L271.2,158.0 L270.8,160.0 L270.3,162.0 L269.6,164.0 L268.9,166.0 L268.1,168.0 L267.2,170.0 L266.2,172.0 L265.1,174.0 L263.9,176.0 L262.6,178.0 L261.2,180.0 L259.7,182.0 L258.1,184.0 L256.4,186.0 L254.7,188.0 L252.8,190.0 L250.8,192.0 L248.8,194.0 L246.6,196.0 L244.4,198.0 L242.0,200.0 L239.6,202.0 L237.0,204.0 L234.4,206.0 L231.6,208.0 L228.8,210.0 L225.9,212.0 L222.8,214.0 L219.7,216.0 L216.5,218.0 L213.2,220.0 L209.8,222.0 L206.3,224.0 L202.7,226.0 L199.0,228.0 L195.2,230.0 L191.3,232.0 L187.3,234.0 L183.2,236.0 L179.1,238.0 L174.8,240.0 L170.4,242.0 L166.0,244.0 L161.4,246.0 L156.8,248.0 L152.0,250.0" class="ac"/>
+<line x1="20" y1="92.3" x2="320" y2="92.3" class="dash"/>
+<line x1="20" y1="207.7" x2="320" y2="207.7" class="dash"/>
+<text x="152" y="40" text-anchor="middle" class="a">圧縮 100</text>
+<text x="276" y="155" text-anchor="start" class="a">引張 50</text>
+<text x="152" y="270" text-anchor="middle" class="a">圧縮 100</text>
+<text x="170" y="79" text-anchor="end" class="sm">圧縮の層</text>
+<text x="232" y="294" text-anchor="middle" class="m">← 圧縮 | 引張 →(MPa)</text>
+</svg><figcaption class="fig-cap">厚さ5 mmの強化ガラスで、表面の圧縮を100 MPaとした場合の例。曲線は場所ごとの残った力の向きと大きさで、点線の外側が圧縮の層(各面から約1.06 mm)。省略していること: 実際の値は製品ごとに違う。縁の近くでは分布が変わる。表面の傷は誇張して描いた。</figcaption></figure>
+<p>表面の傷は、この圧縮の層の中にあります。外から曲げられても、まず表面の圧縮を打ち消すまでは、傷の口が開きません。米国の規格(ASTM C1048)では、強化ガラスの表面の圧縮は69 MPa以上と決められています。強さはふつうのガラスの約4倍が目安です(北米の業界団体 GANA の資料)。</p>
+<p>中央には引張の力がたくわえられています。傷がこの層まで届くと、たくわえられたエネルギーが一気に放たれ、割れが枝分かれしながら全体に広がります。強化ガラスが割れると小さな粒になるのはこのためで、大きな鋭い破片ができにくくなります。</p>
+<h3>スマホのガラス: イオンの入れ替えで押し縮める</h3>
+<p>スマホの画面のガラスは薄いので、温度差をつける方法ではうまく強化できません。そこで、カリウムを含む塩(えん)を熱で溶かした液にガラスを浸します。ガラスの表面近くに含まれるナトリウムイオンが、より大きなカリウムイオンと入れ替わります。小さなイオンのいた場所に大きなイオンが押し込まれるので、表面が押し縮められます。これが{{term:化学強化ガラス}}です。</p>
+<p>この方式のガラスの例として、コーニング社の大型画面向けの製品資料(2015年)を見ます。表面の圧縮は650 MPa以上、圧縮の層の深さは40 µm以上です。図3の例(表面の圧縮100 MPa、圧縮の層は約1 mm)と比べてみます。表面の圧縮は6倍以上で、層の深さ(40 µm)は約25分の1です。層が薄いので、それより深い傷がつくと、強化の効果は失われます。</p>
+</section>
+
+<section>
+<h2>針金を何度も曲げると、硬くなってやがて折れる</h2>
+<p>針金を同じところで何度も曲げ伸ばしすると、だんだん硬くなり、最後にはそこで折れます。金属なのに、なぜ折れるのでしょう。</p>
+<h3>転位が増えて、からみ合う</h3>
+<p>曲げるたびに、金属の中では転位が動くだけでなく、新しく生まれて増えていきます。増えた転位どうしは、互いにぶつかり、からみ合います。からみ合った転位は動きにくいので、さらに曲げるには大きな力が要ります。これが{{term:加工硬化}}です。</p>
+<p>転位の量は、断面1 m²を横切る本数で表します。ケンブリッジ大学の教材によると、熱して軟らかくした金属では約10¹⁰本です。強く加工すると、10¹⁵〜10¹⁶本ほど、つまり10万〜100万倍に増えます。転位どうしの平均の間隔でいえば、約10 µmから約10〜30 nm(1 nmは1 µmの1000分の1)へ詰まる計算です。</p>
+<h3>傷が生まれ、少しずつ育つ</h3>
+<p>硬くなるのと引きかえに、金属は伸びにくくなります。曲げるといちばん大きく伸び縮みするのは、曲がりの外側と内側の表面です。そこで、すべりが同じ場所で繰り返されると、表面に細かな出っぱりとへこみができ、それが小さな傷になります。</p>
+<p>傷は、曲げ伸ばしのたびに少しずつ深くなります。残った部分が力を支えきれなくなったところで、針金は折れます。このように、繰り返しの力で傷が育って壊れることを「疲労」と呼びます。針金の曲げ伸ばしは、疲労の中でも1回ごとに大きく変形させる場合にあたり、そのぶん少ない回数で折れます。</p>
+<h3>熱すると、軟らかさが戻る</h3>
+<p>硬くなった針金も、ガスの炎などでよく熱してからゆっくり冷ますと、また軟らかくなります(ケンブリッジ大学の教材の実験)。熱で原子が動きやすくなり、からみ合った転位が動けるようになるからです。</p>
+<p>低めの温度では、まず転位が消えたり整列したりして、内部のひずみ(原子の並びのゆがみ)が減ります。これを{{term:回復}}と呼びますが、硬さはまだあまり下がりません。さらに高い温度では、転位の少ない新しい結晶の粒が生まれ、軟らかさが戻ります。これを{{term:再結晶}}と呼びます。</p>
+<p>ただし、冷まし方には注意が要ります。炭素をある程度含む鋼の針金は、よく熱したあと水に入れて急に冷やすと、逆に硬くなります(同じ教材)。これを焼入れと呼びます。急に冷やすと、鋼の中の原子が別の並び方に変わり、とても硬い組織ができるためです。</p>
+</section>
+
+<section>
+<h2>よくある誤解</h2>
+<div class="myth"><p class="myth-q">誤解: 硬くて強い材料ほど、割れにくい</p><p>実際は、材料の「強さ」にはいくつかの意味があります。どれだけの力に耐えるか(強度)、傷があっても割れが広がりにくいか(靭性)、こすっても傷がつきにくいか(硬さ)は別々の性質です。セラミックスやガラスはとても硬く、押しつぶす力にも強い一方、靭性は金属の約50分の1しかありません(ニューサウスウェールズ大学の教材)。ふだんの言葉では「硬い」「強い」「割れにくい」を同じような意味で使うので、一つにまとめてしまいがちです。それが誤解のもとです。</p></div>
+<div class="myth"><p class="myth-q">誤解: ガラスは、じつはゆっくり流れる液体である</p><p>実際は、ガラスは室温では固体としてふるまい、流れません。原子の並びが液体のように不規則なので、そう言われることがあります。古い教会の窓ガラスが下ほど厚いことが証拠とされます。しかしケンブリッジ大学の教材によると、昔の手作りの板ガラスは、もともと厚さが不ぞろいでした。厚いほうを下にしてはめたと考えられています。室温のガラスの構造がゆるむのにかかる時間は約10²³年と見積もられ、宇宙の年齢(約10¹⁰年)をはるかに超えます。ガラスが液体のように軟らかくなるのは、{{term:ガラス転移温度}}を超えるほど熱したときです。</p></div>
+<div class="myth"><p class="myth-q">誤解: 金属なら、どんな温度でも曲がる</p><p>実際は、軟鋼のようなふつうの鋼は、低い温度で転位が動きにくくなり、ガラスのように割れることがあります。主に、立方体の頂点と中心に原子が並ぶ形({{term:体心立方格子}})の金属で起こる現象で、常温の鉄もこの形です。アルミニウムや銅など、立方体の頂点と各面の中心に原子が並ぶ形({{term:面心立方格子}})の金属では、ふつうはっきりとは現れません。ケンブリッジ大学の教材によると、この性質を最初に見いだしたのは、同大学のコンスタンス・ティッパーです。第二次世界大戦中に、輸送船(リバティ船)が割れた原因を調べる中でのことでした。</p></div>
+</section>
+
+<section>
+<h2>もっと詳しく学ぶ</h2>
+<ul>
+<li>原子の並びと乱れ: {{term:転位}} / {{term:バーガースベクトル}} / {{term:面心立方格子}} / {{term:体心立方格子}}</li>
+<li>割れのしくみ: {{term:破壊靭性}} / {{term:応力拡大係数}} / {{term:グリフィスの理論}} / {{term:応力集中係数}} / {{term:ワイブル係数}}</li>
+<li>強くするしくみ: {{term:加工硬化}} / {{term:回復}} / {{term:再結晶}} / {{term:強化ガラス}} / {{term:化学強化ガラス}} / {{term:変態強化}}</li>
+</ul>
+</section>
