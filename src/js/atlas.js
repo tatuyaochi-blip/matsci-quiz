@@ -10,8 +10,9 @@ if (dataEl) {
   const lang = document.documentElement.lang;
   const byId = Object.fromEntries(D.s.map(s => [s.id, s]));
   const fmt = (s, v) => s.replace(/\{(\w+)\|([^|}]*)\|([^}]*)\}/g, (m, k, one, many) => (Number(v[k]) === 1 ? one : many)).replace(/\{(\w+)\}/g, (m, k) => (k in v ? v[k] : m));
-  const nf = (v, d = 2) => v.toLocaleString(lang, { maximumFractionDigits: d });
-  const sig = (v, n = 3) => v.toLocaleString(lang, { maximumSignificantDigits: n });
+  // 負の数はマイナス記号(−)で書く
+  const nf = (v, d = 2) => v.toLocaleString(lang, { maximumFractionDigits: d, useGrouping: !/^de/.test(lang) }).replace(/^-/, '−');
+  const sig = (v, n = 3) => v.toLocaleString(lang, { maximumSignificantDigits: n, useGrouping: !/^de/.test(lang) }).replace(/^-/, '−');
   const width = um => (um >= 1000 ? `${nf(um / 1000)} mm` : `${nf(um)} µm`);
   const el = (tag, cls, text) => {
     const e = document.createElement(tag);
