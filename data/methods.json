@@ -1,0 +1,4120 @@
+{
+ "title": "分析・評価手法ナビ(知りたいことと試料の条件から装置を選ぶ)",
+ "description": "SEM・EDS・EBSD・TEM・XRD・XPS・SIMS・ICP・DSC・硬さ・疲労・超音波探傷など、材料の分析・評価の手法を、知りたいことと試料の条件(壊してよいか・大きさ・導電性・元素・分解能・深さ)で絞り込み、分解能・検出限界・試料の準備・落とし穴を並べて比べられます。",
+ "h1": "分析・評価手法ナビ",
+ "lead": "「この試料で、これを知りたい。どの装置で測ればよいか」を決めるためのページです。知りたいことと試料の条件を選ぶと、使える手法を順に並べ、合わない手法は理由を付けて分けます。2〜4 個の手法を選んで並べて比べ、測る前の準備と、結果を読むときの落とし穴まで確かめられます。",
+ "note": "数値は出典に書かれた典型の値で、装置・条件・材料で大きく変わります。手法を比べて候補を絞るための目安として使い、測る前に装置の担当者や依頼先に確かめてください。規格は名前と番号と対象だけを挙げています(試験片の寸法や条件は規格の本文で)。",
+ "sources_h": "主な出典",
+ "groups": [
+  {
+   "id": "shape",
+   "name": "組織と形",
+   "cat": "characterization"
+  },
+  {
+   "id": "comp",
+   "name": "組成",
+   "cat": "characterization"
+  },
+  {
+   "id": "xtal",
+   "name": "結晶構造",
+   "cat": "crystal"
+  },
+  {
+   "id": "therm",
+   "name": "熱",
+   "cat": "thermal-properties"
+  },
+  {
+   "id": "mech",
+   "name": "機械的性質",
+   "cat": "mechanical"
+  },
+  {
+   "id": "chem",
+   "name": "化学結合・その他",
+   "cat": "corrosion"
+  },
+  {
+   "id": "ndt",
+   "name": "非破壊検査",
+   "cat": "fracture-fatigue"
+  }
+ ],
+ "needs": [
+  {
+   "id": "surf",
+   "name": "表面の形・粗さ"
+  },
+  {
+   "id": "fract",
+   "name": "破面の観察"
+  },
+  {
+   "id": "micro",
+   "name": "断面の組織"
+  },
+  {
+   "id": "grain",
+   "name": "結晶粒の大きさと方位・集合組織"
+  },
+  {
+   "id": "phase",
+   "name": "相の同定・結晶構造"
+  },
+  {
+   "id": "bulk",
+   "name": "平均の組成"
+  },
+  {
+   "id": "trace",
+   "name": "微量元素・不純物"
+  },
+  {
+   "id": "map",
+   "name": "局所の組成・元素の分布"
+  },
+  {
+   "id": "depth",
+   "name": "深さ方向の組成"
+  },
+  {
+   "id": "chem",
+   "name": "化学状態(酸化数・結合)"
+  },
+  {
+   "id": "ppt",
+   "name": "析出物"
+  },
+  {
+   "id": "thick",
+   "name": "膜・層の厚さ"
+  },
+  {
+   "id": "stress",
+   "name": "残留応力"
+  },
+  {
+   "id": "hard",
+   "name": "硬さ・強さ・延性"
+  },
+  {
+   "id": "tough",
+   "name": "靱性・疲労・クリープ"
+  },
+  {
+   "id": "trans",
+   "name": "転移温度・反応"
+  },
+  {
+   "id": "thprop",
+   "name": "熱膨張・熱伝導"
+  },
+  {
+   "id": "defect",
+   "name": "内部の欠陥"
+  },
+  {
+   "id": "crack",
+   "name": "表面のき裂(非破壊で)"
+  },
+  {
+   "id": "organic",
+   "name": "有機物・高分子・汚れの同定"
+  },
+  {
+   "id": "corr",
+   "name": "腐食のしやすさ"
+  },
+  {
+   "id": "dens",
+   "name": "密度・気孔率"
+  },
+  {
+   "id": "decomp",
+   "name": "分解・水分・充填材の量(加熱での重さの変化)"
+  }
+ ],
+ "guide": [
+  {
+   "id": "scale",
+   "h": "分解能・検出限界・分析の体積の考え方",
+   "p": [
+    "手法の数字が何桁も違うのは、何を当てて何を拾うかで、信号の出てくる場所の大きさが決まるからです。SEM の二次電子は表面から約 15 nm の所からしか出てこないので像は細かく、同じ電子線で出る X 線(EDS)は電子が広がる 1〜数 µm の体積全体から出るので、組成の地図は µm 単位になります。XPS・AES は表面の数 nm、XRD は数 µm〜数十 µm、中性子は鋼の数 cm の奥まで届きます。",
+    "検出限界は「信号の強さとバックグラウンド(雑音)の比」で決まります。EDS は X 線のピークが広く(数十〜250 eV 程度)、連続 X 線の上に乗るので 0.1 wt% 程度が限界ですが、分光結晶で波長を分ける WDS はピークが細く(数〜数十 eV)、100 ppm 程度まで下がります。試料を溶かしてプラズマに入れる ICP-MS は、イオンを 1 個ずつ数えるので固体中で ppb の桁まで届きます。",
+    "分解能と検出限界は引き換えになりがちです。小さな体積を測るほど原子の数が減るので、少ない元素は見えにくくなります。APT は 0.3 nm の分解能で約 10 ppm、TEM-EDS は nm の点で約 0.5 wt%、ICP は場所の情報を捨てて ppb、という具合です。「どこを」「どれだけの量まで」知りたいかの両方を決めてから手法を選ぶと、迷いが減ります。",
+    "表の値は、出典の典型の値です。装置の世代・条件・材料で大きく変わるので、装置の担当者や依頼先に、その試料での値を確かめてください。"
+   ]
+  },
+  {
+   "id": "quant",
+   "h": "定性と定量、標準試料の要る分析と要らない分析",
+   "p": [
+    "「何があるか」(定性)と「どれだけあるか」(定量)は別の問いです。EDS の点分析は数秒で定性ができますが、平らに研磨した試料を組成の分かった標準試料と比べて初めて、主成分で相対数 % の定量になります。標準を使わない計算(standardless)の値は半定量として扱い、論文の定量値にはしません。",
+    "標準試料がほぼ必須なのは、WDS(EPMA)、SIMS(イオン注入した標準)、XRF(組成の近い標準)、ICP(溶液の検量線)、燃焼法・融解法(認証標準物質)、GD-OES です。XPS・AES は感度係数による半定量が多く、XRD では 1% 程度より少ない相は見えにくくなります。",
+    "標準試料は「母材が近いこと」が大切です。信号の強さは、同じ量の元素でも、まわりの元素による吸収や励起(マトリックス効果)で変わるからです。依頼するときは、どの標準で校正したかを結果と一緒にもらってください。"
+   ]
+  },
+  {
+   "id": "plan",
+   "h": "測る前に決めること",
+   "p": [
+    "目的を 1 文にします。「熱処理で硬さが下がった原因を知りたい」なら、知りたいのは組織の変化(光学顕微鏡・SEM)と析出物(TEM)と硬さの分布(硬さ試験)で、組成の精密な値ではないかもしれません。",
+    "比べる相手を決めます。不良品だけを測っても、良品と比べなければ違いは分かりません。同じ手法・同じ条件で、良品・不良品・処理前などを並べて測ります。",
+    "数と統計を決めます。硬さは何点、粒径は何視野、疲労は何本、と先に決め、ばらつき(標準偏差)を書きます。顕微鏡の 1 視野や APT の 1 本の針は、試料全体を代表するとは限りません。",
+    "試料の準備で結果が変わることを前提にします。研磨のきず、FIB の損傷、コーティング、研削による応力、保管中の水素の抜けなど、準備と保管の条件も記録に残します。"
+   ]
+  },
+  {
+   "id": "request",
+   "h": "依頼分析を出すときに伝えること",
+   "p": [
+    "知りたいこと(目的)と、その結果で何を決めるのか。手法の名前だけでなく目的を伝えると、より適した手法や条件を提案してもらえます。",
+    "試料のこと: 材料の種類と予想される組成、熱処理や加工の履歴、大きさと数、導電性、磁性、真空に入れてよいか、水分・油・有機物の有無、毒性のある物質や放射性物質を含むかどうか。",
+    "測る場所と範囲: どの面・どの深さ・どの部分か(写真に印を付ける)、良品と比べたいか。",
+    "欲しい結果の形: 必要な検出限界・分解能・精度、測る元素や相の候補、標準試料と校正の方法の記載、生データが要るか、納期と予算。試料を返してほしいか(壊す分析か)も先に伝えます。"
+   ]
+  }
+ ],
+ "faq": [
+  [
+   "EDS で C や O の量を出してよいですか?",
+   "C・N・O などの軽元素は、X 線が吸収されやすく、ピークの形も化合物で変わるので、EDS の定量値は大きくずれることがあります。炭素でコーティングした試料では C は測れず、O は計算で出していることも多いです。あるかないか(定性)の目安にとどめ、量は WDS(標準試料つき)や、鋼の C なら燃焼法で測ってください。"
+  ],
+  [
+   "XRD の結晶子の大きさと、顕微鏡で見る粒径はなぜ違うのですか?",
+   "シェラーの式で出す結晶子の大きさは、X 線が揃って回折する領域(1 つの結晶の中の、乱れのない部分)の平均の大きさで、1 つの粒子や結晶粒は多くの結晶子からできていることがあります。また 100 nm を超えると見積もりは信頼できず、ひずみによるピークの広がりも混ざります。粒径は光学顕微鏡・SEM・EBSD で測ってください。"
+  ],
+  [
+   "BSE 像で明るい所は重い元素ですか?",
+   "平らな研磨面では、BSE 像の明るさは主に平均の原子番号で決まるので、明るい所は平均として重い傾向があります。ただし凹凸や結晶の向き(チャネリング)でも明るさは変わるので、破面や研磨の不十分な面では明暗を組成と決めつけず、EDS で確かめてください。"
+  ],
+  [
+   "非破壊で内部のきずを見たいとき、超音波・X 線透過・X 線 CT はどう使い分けますか?",
+   "超音波は厚い部品や現場の構造物に向き、きずの深さも分かりますが、接触媒質と熟練が要り、粗い結晶粒の材料は苦手です。放射線透過は記録が残り、ブローホールなど体積のあるきずに強い一方、き裂は向きによって写らず、深さは分かりません。X 線 CT は 3 次元で形と位置まで分かりますが、試料が大きいほど分解能が下がり、装置に入る大きさに限られます。"
+  ],
+  [
+   "表の値は、うちの装置でもそのまま使えますか?",
+   "表の値は出典に書かれた典型の値で、装置の世代・条件・試料で大きく変わります。手法どうしを比べて候補を絞るための目安として使い、測る前に装置の担当者や依頼先に、その試料での値を確かめてください。"
+  ]
+ ],
+ "refs": [
+  {
+   "k": "eag-chart",
+   "s": "EAG 手法一覧表",
+   "full": "Eurofins EAG Laboratories, Technique Chart (M-037719, 2023), eag.com"
+  },
+  {
+   "k": "eag-xps",
+   "s": "EAG XPS",
+   "full": "EAG Laboratories, X-ray Photoelectron Spectroscopy (XPS/ESCA), eag.com/techniques"
+  },
+  {
+   "k": "eag-aes",
+   "s": "EAG AES",
+   "full": "EAG Laboratories, Auger Electron Spectroscopy (AES), eag.com/techniques"
+  },
+  {
+   "k": "eag-sims",
+   "s": "EAG SIMS",
+   "full": "EAG Laboratories, Secondary Ion Mass Spectrometry (SIMS); Technique Note M-006016, eag.com"
+  },
+  {
+   "k": "eag-apt",
+   "s": "EAG APT",
+   "full": "EAG Laboratories, Atom Probe Tomography (APT), eag.com/techniques"
+  },
+  {
+   "k": "eag-xrd",
+   "s": "EAG XRD",
+   "full": "EAG Laboratories, X-ray Diffraction (XRD), eag.com/techniques"
+  },
+  {
+   "k": "eag-raman",
+   "s": "EAG ラマン",
+   "full": "EAG Laboratories, Raman Spectroscopy, eag.com/techniques"
+  },
+  {
+   "k": "eag-ftir",
+   "s": "EAG FT-IR",
+   "full": "EAG Laboratories, Fourier Transform Infrared Spectroscopy (FTIR), eag.com/techniques"
+  },
+  {
+   "k": "eag-afm",
+   "s": "EAG AFM",
+   "full": "EAG Laboratories, Atomic Force Microscopy (AFM), eag.com/techniques"
+  },
+  {
+   "k": "eag-op",
+   "s": "EAG 光学式形状測定",
+   "full": "EAG Laboratories, Optical Profilometry (white light interferometry), eag.com/techniques"
+  },
+  {
+   "k": "eag-dsc",
+   "s": "EAG DSC",
+   "full": "EAG Laboratories, Differential Scanning Calorimetry (DSC), eag.com/techniques"
+  },
+  {
+   "k": "eag-tga",
+   "s": "EAG TGA",
+   "full": "EAG Laboratories, Thermogravimetric Analysis (TGA), eag.com/techniques"
+  },
+  {
+   "k": "eag-nano",
+   "s": "EAG ナノインデンテーション",
+   "full": "EAG Laboratories, Nanoindentation, eag.com/techniques"
+  },
+  {
+   "k": "eag-icp",
+   "s": "EAG ICP",
+   "full": "EAG Laboratories, ICP-OES and ICP-MS Detection Limit Guidance, eag.com/techniques"
+  },
+  {
+   "k": "myscope-sem",
+   "s": "MyScope SEM",
+   "full": "Microscopy Australia, MyScope: Scanning Electron Microscopy (myscope.training)"
+  },
+  {
+   "k": "myscope-eds",
+   "s": "MyScope EDS",
+   "full": "Microscopy Australia, MyScope: Energy Dispersive Spectroscopy (myscope.training)"
+  },
+  {
+   "k": "techfi",
+   "s": "Microscopy Australia TechFi",
+   "full": "Microscopy Australia, Technique Finder: TEM imaging, Focused ion beam, Compositional analysis (micro.org.au/techniquefinder)"
+  },
+  {
+   "k": "ican",
+   "s": "デュイスブルク・エッセン大学 ICAN",
+   "full": "University of Duisburg-Essen, ICAN: Transmission electron microscopy (uni-due.de/cenide/ican)"
+  },
+  {
+   "k": "newbury",
+   "s": "Newbury & Ritchie 2013",
+   "full": "D. E. Newbury, N. W. M. Ritchie, Is scanning electron microscopy/energy dispersive X-ray spectrometry (SEM/EDS) quantitative?, Scanning 35 (2013) 141–168"
+  },
+  {
+   "k": "dtu-ebsd",
+   "s": "DTU Nanolab EBSD",
+   "full": "A. B. da Silva Fanta, Diffraction in the SEM (part 2), DTU Nanolab NNUM 2019 slides"
+  },
+  {
+   "k": "serc",
+   "s": "SERC(カールトン大学)",
+   "full": "Science Education Resource Center, Carleton College, Geochemical Instrumentation and Analysis: EBSD, EPMA, XRF, X-ray CT (serc.carleton.edu)"
+  },
+  {
+   "k": "arizona",
+   "s": "アリゾナ大学 EPMA",
+   "full": "University of Arizona, Lunar and Planetary Laboratory, EPMA lab: Quantitative analysis (lpl.arizona.edu/EPMA)"
+  },
+  {
+   "k": "oxinst",
+   "s": "Oxford Instruments(EDS と WDS)",
+   "full": "Oxford Instruments, Difference between EDS and WDS? (oxinst.com blog)"
+  },
+  {
+   "k": "horiba-xrf",
+   "s": "HORIBA XRF",
+   "full": "HORIBA, XRF analysis (horiba.com, ED-XRF technology)"
+  },
+  {
+   "k": "evident-xrf",
+   "s": "Evident 携帯型 XRF",
+   "full": "Evident, 3 Important Considerations when Using X-ray Fluorescence for Positive Material Identification"
+  },
+  {
+   "k": "psi-icp",
+   "s": "PSI ICP-OES",
+   "full": "Paul Scherrer Institut, ICP-OES information (psi.ch)"
+  },
+  {
+   "k": "astm-e1019",
+   "s": "ASTM E1019",
+   "full": "ASTM E1019-24, Determination of Carbon, Sulfur, Nitrogen, and Oxygen in Steel, Iron, Nickel, and Cobalt Alloys by Various Combustion and Inert Gas Fusion Techniques"
+  },
+  {
+   "k": "astm-e1447",
+   "s": "ASTM E1447",
+   "full": "ASTM E1447-22, Determination of Hydrogen in Reactive Metals and Reactive Metal Alloys by Inert Gas Fusion with Detection by Thermal Conductivity or Infrared Spectrometry"
+  },
+  {
+   "k": "klett",
+   "s": "Klett ら 2020",
+   "full": "J. Klett, T. Wolf, H. J. Maier, T. Hassel, The applicability of the standard DIN EN ISO 3690 for the analysis of diffusible hydrogen content in underwater wet welding, Materials 13 (2020) 3750"
+  },
+  {
+   "k": "ifw-gdoes",
+   "s": "IFW ドレスデン GD-OES",
+   "full": "Leibniz IFW Dresden, Methods: GD-OES (ifw-dresden.de)"
+  },
+  {
+   "k": "horiba-gdoes",
+   "s": "HORIBA GD-OES",
+   "full": "HORIBA, Glow Discharge Optical Emission Spectrometry (horiba.com/gdoes)"
+  },
+  {
+   "k": "rigaku",
+   "s": "Rigaku 結晶子サイズ",
+   "full": "Rigaku, Powder X-ray Diffraction Basic Course, 6: Evaluation of crystallite size"
+  },
+  {
+   "k": "npl52",
+   "s": "NPL GPG 52",
+   "full": "M. E. Fitzpatrick et al., Determination of residual stresses by X-ray diffraction, NPL Measurement Good Practice Guide No. 52 (2005)"
+  },
+  {
+   "k": "czigany",
+   "s": "Czigány & Kis 2023",
+   "full": "Z. Czigány, V. K. Kis, Acquisition and evaluation procedure to improve the accuracy of SAED, Microsc. Res. Tech. 86 (2023) 144–156"
+  },
+  {
+   "k": "nist-ncnr",
+   "s": "NIST NCNR",
+   "full": "NIST Center for Neutron Research, How neutrons are useful (nist.gov/ncnr)"
+  },
+  {
+   "k": "veqter",
+   "s": "Veqter 中性子回折",
+   "full": "Veqter, Neutron diffraction technique (residual stress measurement technique sheet)"
+  },
+  {
+   "k": "bhadeshia",
+   "s": "Bhadeshia(ケンブリッジ大学)",
+   "full": "H. K. D. H. Bhadeshia, Thermal analysis techniques, University of Cambridge (phase-trans.msm.cam.ac.uk)"
+  },
+  {
+   "k": "labcompare",
+   "s": "Labcompare(DSC と DTA)",
+   "full": "Labcompare, Tech Compare: Differential Scanning Calorimetry vs. Differential Thermal Analysis"
+  },
+  {
+   "k": "astm-a1033",
+   "s": "ASTM A1033",
+   "full": "ASTM A1033, Quantitative Measurement and Reporting of Hypoeutectoid Carbon and Low-Alloy Steel Phase Transformations"
+  },
+  {
+   "k": "astm-e1461",
+   "s": "ASTM E1461",
+   "full": "ASTM E1461-13, Thermal Diffusivity by the Flash Method"
+  },
+  {
+   "k": "netzsch",
+   "s": "NETZSCH AN 066",
+   "full": "NETZSCH, Application Note 066: When and how must samples be coated during LFA measurements"
+  },
+  {
+   "k": "chen",
+   "s": "Chen & Vlassak 2000",
+   "full": "X. Chen, J. J. Vlassak, Finite element study on the nanoindentation of thin films, MRS Proc. 649 (2000) Q1.3"
+  },
+  {
+   "k": "instron",
+   "s": "Instron TechNotes 35",
+   "full": "Instron, TechNotes Issue 35 (hardness testing, 2010)"
+  },
+  {
+   "k": "astm-e140",
+   "s": "ASTM E140",
+   "full": "ASTM E140-12B(2019)e1, Standard Hardness Conversion Tables for Metals"
+  },
+  {
+   "k": "twi-charpy",
+   "s": "TWI(衝撃試験)",
+   "full": "TWI, Job Knowledge 71: Mechanical testing — notched bar or impact testing"
+  },
+  {
+   "k": "twi-fatigue",
+   "s": "TWI(疲労試験の統計)",
+   "full": "TWI, Statistical analysis of fatigue test data (published paper)"
+  },
+  {
+   "k": "nims",
+   "s": "NIMS(STAM の紹介記事)",
+   "full": "STAM, Measuring the wear and tear of metals (on the NIMS Creep and Fatigue Data Sheets, 2019)"
+  },
+  {
+   "k": "metrohm",
+   "s": "Metrohm AN-COR-003",
+   "full": "Metrohm Autolab, Application Note AN-COR-003: Corrosion part 3 – Measurement of polarization resistance"
+  },
+  {
+   "k": "metkon",
+   "s": "Metkon(ASTM E407)",
+   "full": "Metkon, What is ASTM E407? (microetching of metals and alloys)"
+  },
+  {
+   "k": "evident-lext",
+   "s": "Evident レーザー顕微鏡の原理",
+   "full": "Evident, レーザー顕微鏡の原理・分解能 (LEXT knowledge)"
+  },
+  {
+   "k": "twente",
+   "s": "トウェンテ大学 NanoLab",
+   "full": "University of Twente MESA+ NanoLab, Ion beam induced artifacts; focus on FIB"
+  },
+  {
+   "k": "itu",
+   "s": "イスタンブール工科大学(非破壊検査)",
+   "full": "Istanbul Technical University, Nondestructive testing (course notes, web.itu.edu.tr/~arana/ndt.pdf)"
+  },
+  {
+   "k": "twi-ec",
+   "s": "TWI(渦電流の浸透)",
+   "full": "TWI, FAQ: How far can eddy currents penetrate?"
+  },
+  {
+   "k": "iso3887",
+   "s": "ISO 3887",
+   "full": "ISO 3887:2017, Steels — Determination of the depth of decarburization (metallographic, micro-indentation hardness and carbon-content methods incl. EPMA and GDOES), iso.org"
+  },
+  {
+   "k": "cameca-neg",
+   "s": "CAMECA 絶縁膜の SIMS",
+   "full": "CAMECA, Dopant quantification in insulating thin films (news, November 2023), cameca.com"
+  },
+  {
+   "k": "twi-tensile",
+   "s": "TWI 引張試験",
+   "full": "TWI, Mechanical Testing - Tensile Testing Part 1 (Job Knowledge 69), twi-global.com"
+  },
+  {
+   "k": "princeton-neck",
+   "s": "Princeton MAE 324 くびれ",
+   "full": "Princeton University MAE 324, Glossary: Neck, Necking, princeton.edu"
+  },
+  {
+   "k": "jsndi",
+   "s": "日本非破壊検査協会",
+   "full": "日本非破壊検査協会 (JSNDI), 非破壊試験関係の JIS 一覧, jsndi.jp"
+  },
+  {
+   "k": "vub-xps",
+   "s": "VUB SURF XPS",
+   "full": "Vrije Universiteit Brussel, SURF research group, X-ray Photoelectron Spectroscopy (XPS), surf.research.vub.be"
+  },
+  {
+   "k": "kit-aes",
+   "s": "KIT KNMFi AES",
+   "full": "Karlsruhe Institute of Technology, KNMFi, Auger electron spectroscopy (AES), knmf.kit.edu"
+  },
+  {
+   "k": "psu-afm",
+   "s": "ペンシルベニア州立大学 AFM",
+   "full": "Penn State University, CNEU, AFM details (cneu.psu.edu)"
+  },
+  {
+   "k": "wcnt-tga",
+   "s": "ウィスコンシン大学 WCNT TGA",
+   "full": "University of Wisconsin–Madison, Wisconsin Centers for Nanoscale Technology, Thermogravimetric Analysis (wcnt.wisc.edu)"
+  },
+  {
+   "k": "uibk-atr",
+   "s": "インスブルック大学 ATR-FTIR",
+   "full": "Universität Innsbruck, FunMat, ATR-FTIR spectroscopy (uibk.ac.at)"
+  },
+  {
+   "k": "shimadzu-raman",
+   "s": "島津 さびの分析",
+   "full": "Shimadzu, Rust Analysis — Using Infrared Raman Microscopes and Energy-Dispersive X-Ray Fluorescence Spectrometers (application, shimadzu.com)"
+  },
+  {
+   "k": "nist-xcom",
+   "s": "NIST X 線の減衰係数",
+   "full": "NIST, X-Ray Mass Attenuation Coefficients (J. H. Hubbell, S. M. Seltzer), physics.nist.gov — Fe, Al, polyethylene at 8 keV"
+  },
+  {
+   "k": "asm-ebsd",
+   "s": "ASM EDFAS(EBSD の検出器)",
+   "full": "ASM International, EDFAS news: CMOS-based electron backscatter diffraction detector acquires 3000 patterns/second"
+  },
+  {
+   "k": "khanchandani",
+   "s": "Khanchandani ほか(APT の水素)",
+   "full": "H. Khanchandani, S.-H. Kim, R. S. Varanasi, T. S. Prithiv, L. T. Stephenson, B. Gault, Hydrogen and deuterium charging of site-specific specimen for atom probe tomography, arXiv:2109.13650 (2021)"
+  },
+  {
+   "k": "cameca-h",
+   "s": "CAMECA SIMS の水素",
+   "full": "CAMECA, Unveiling hydrogen (learning zone blog, March 2026), cameca.com"
+  },
+  {
+   "k": "astm-e415",
+   "s": "ASTM E415",
+   "full": "ASTM E415-14, Standard Test Method for Analysis of Carbon and Low-Alloy Steel by Spark Atomic Emission Spectrometry (scope)"
+  },
+  {
+   "k": "hitachi-oes",
+   "s": "日立ハイテク OES",
+   "full": "Hitachi High-Tech Analytical Science, Tight control of material specification from supply to shipment with OES (blog, 2021)"
+  },
+  {
+   "k": "iso16413",
+   "s": "ISO 16413",
+   "full": "ISO 16413:2020, Evaluation of thickness, density and interface width of thin films by X-ray reflectometry (scope)"
+  },
+  {
+   "k": "diamond-xrr",
+   "s": "Diamond Light Source XRR",
+   "full": "Diamond Light Source, X-ray Reflectivity (XRR), diamond.ac.uk"
+  },
+  {
+   "k": "vanderbilt-se",
+   "s": "ヴァンダービルト大学 エリプソメーター",
+   "full": "Vanderbilt University, VINSE, Spectroscopic Ellipsometer (vanderbilt.edu/vinse)"
+  },
+  {
+   "k": "jcbose-se",
+   "s": "J.C. Bose 大学 エリプソメーター",
+   "full": "J.C. Bose University of Science and Technology, YMCA, Spectroscopic Ellipsometer (Semilab SE-1000) instrument sheet"
+  },
+  {
+   "k": "rochester-prof",
+   "s": "ロチェスター大学 段差計",
+   "full": "University of Rochester, URnano, KLA Tencor P-6 surface profiler (rochester.edu/urnano)"
+  },
+  {
+   "k": "mu-archimedes",
+   "s": "ムーラ大学 アルキメデス法",
+   "full": "Muğla Sıtkı Koçman University, Metallurgical and Materials Engineering, MME 4021 Materials Processing Laboratory, Experiment 3 manual (Archimedes method)"
+  },
+  {
+   "k": "iso18754",
+   "s": "ISO 18754",
+   "full": "ISO 18754:2020, Fine ceramics — Determination of density and apparent porosity (abstract, iso.org)"
+  },
+  {
+   "k": "tapia",
+   "s": "Tapia-Bastidas ほか(TDS)",
+   "full": "C. V. Tapia-Bastidas, A. Atrens, E. MacA. Gray, Thermal desorption spectrometer for measuring ppm concentrations of trapped hydrogen, Int. J. Hydrogen Energy 43 (2018)"
+  },
+  {
+   "k": "aist-tds",
+   "s": "産総研 HYDROGENIUS(TDS)",
+   "full": "T. Kanezaki, Report of Hydrogen Analysis (Measurement of Binding Energy), AIST HYDROGENIUS (2008), osti.gov"
+  },
+  {
+   "k": "ta-dma",
+   "s": "TA Instruments DMA",
+   "full": "TA Instruments, Measurement of Glass Transition Temperatures by Dynamic Mechanical Analysis and Rheology (application note)"
+  },
+  {
+   "k": "astm-e110",
+   "s": "ASTM E110",
+   "full": "ASTM E110-14, Standard Test Method for Rockwell and Brinell Hardness of Metallic Materials by Portable Hardness Testers (title)"
+  },
+  {
+   "k": "enomoto-tda",
+   "s": "Enomoto・Hirakami 2015(ISIJ Int.)",
+   "full": "M. Enomoto, D. Hirakami, Influence of Specimen Thickness on Thermal Desorption Spectrum of Hydrogen in High Strength SCM435 Steel, ISIJ International 55 (2015) 2492 — TDA with a gas chromatograph and Ar carrier gas"
+  },
+  {
+   "k": "rigaku-ovonyx",
+   "s": "Rigaku 多層膜の分光結晶",
+   "full": "Rigaku, Ovonyx multilayer analyzers for WDXRF (Be, B, C, N, O), rigaku.com"
+  }
+ ],
+ "methods": [
+  {
+   "id": "om",
+   "g": "shape",
+   "need": {
+    "micro": 2,
+    "grain": 2,
+    "thick": 2,
+    "ppt": 1,
+    "fract": 1,
+    "defect": 1,
+    "surf": 1,
+    "phase": 1
+   },
+   "x": {
+    "rl": 2e-07,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "n",
+     "m",
+     "b"
+    ],
+    "ds": 1,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 1
+   },
+   "pair": [
+    "sem",
+    "ebsd",
+    "hardness"
+   ],
+   "links": {
+    "terms": [
+     "パーライト",
+     "マルテンサイト",
+     "ホール・ペッチの関係"
+    ],
+    "atlas": [
+     "ferrite-pearlite",
+     "lath-martensite",
+     "grain"
+    ],
+    "formulas": [
+     "grain-size",
+     "hall-petch"
+    ],
+    "tools": [
+     {
+      "id": "fe-c"
+     }
+    ],
+    "learn": [
+     "why-quenching-hardens-steel"
+    ]
+   },
+   "src": [
+    "myscope-sem",
+    "metkon",
+    "iso3887"
+   ],
+   "name": "光学顕微鏡(金属顕微鏡)",
+   "abbr": "OM",
+   "what": "研磨して腐食した断面で、結晶粒の大きさ、相の分布、介在物、層の厚さを見る。組織を調べるときの最初の一歩。",
+   "how": "金属は反射光で見る。腐食液で粒界や相ごとの溶け方の違いを付けて、明暗にする。",
+   "rl": "約 0.2 µm(光の波長で決まる限界)",
+   "rd": "研磨した面の像(深さ方向の情報はない)",
+   "dl": "—(元素は測らない)",
+   "vol": "研磨した断面の表面",
+   "el": "測れない(色・形・腐食のされ方から相を推定するだけ)",
+   "q": "面積率や粒度は画像の解析で数にできる",
+   "size": "樹脂に埋めれば粉・小片も見られる。大きな部品は切り出す",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "切断・研磨するので、その部分は壊す",
+   "prep": "切断 → 樹脂に埋める → 研磨 → 腐食。半日〜1 日(材料と腐食液による)",
+   "time": "準備ができれば観察は数分〜数十分",
+   "cost": "学内の装置で安く測れることが多い",
+   "miss": [
+    "研磨のきずや、だれ(表面を引きずった層)が、腐食で強調されて組織に見える。前の工程の傷は腐食では消えない",
+    "分解能は約 0.2 µm なので、微細な析出物やマルテンサイトのラスの中は見えない(SEM・TEM へ)",
+    "断面は 2 次元の切り口なので、粒の形と大きさは切った向きで違って見える。圧延材などは向きを決めて複数の断面を見る"
+   ],
+   "std": [
+    "ASTM E3(金属組織の試料の作り方の指針)",
+    "ASTM E407(金属・合金のミクロ組織の腐食)",
+    "JIS G 0551・ASTM E112(結晶粒度の測り方)",
+    "ISO 3887(鋼の脱炭層の深さの測り方)"
+   ]
+  },
+  {
+   "id": "sem",
+   "g": "shape",
+   "need": {
+    "surf": 2,
+    "fract": 2,
+    "micro": 2,
+    "thick": 2,
+    "ppt": 1,
+    "defect": 1,
+    "grain": 1
+   },
+   "x": {
+    "rl": 3e-09,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n",
+     "m",
+     "b"
+    ],
+    "ds": 0,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 1,
+    "vac": 1,
+    "t": 1,
+    "c": 1,
+    "p": 0,
+    "dsBy": {
+     "micro": 1,
+     "defect": 1,
+     "thick": 1
+    }
+   },
+   "pair": [
+    "eds",
+    "ebsd",
+    "fib"
+   ],
+   "links": {
+    "terms": [
+     "SEM(走査電子顕微鏡)",
+     "ストライエーション"
+    ],
+    "atlas": [
+     "precipitates"
+    ],
+    "failure": [
+     "fatigue",
+     "hydrogen",
+     "ductile",
+     "brittle"
+    ]
+   },
+   "src": [
+    "myscope-sem",
+    "eag-chart"
+   ],
+   "name": "走査電子顕微鏡(SE 像・BSE 像)",
+   "abbr": "SEM",
+   "what": "表面の凹凸(SE 像)と、平均の原子番号の違い(BSE 像)を、光学顕微鏡より高い分解能と深い焦点深度で見る。破面と微細な組織の観察の中心。",
+   "how": "細く絞った電子線で表面を走査し、出てくる二次電子(SE)と反射電子(BSE)の数を像の明るさにする。",
+   "rl": "1〜5 nm 程度(電界放出形で 1 nm 前後、一般の装置で 5 nm 程度)",
+   "rd": "SE は表面から約 15 nm、BSE はより深い所から(加速電圧で変わる)",
+   "dl": "—(組成は EDS で)",
+   "vol": "SE は最表面、BSE は電子が広がる体積の上の部分",
+   "el": "像からは分からない(BSE の明暗は平均の原子番号の目安)",
+   "q": "寸法を測るなら、標準試料で倍率を校正する",
+   "size": "試料室に入る大きさ(装置による)。大きな部品は切り出す",
+   "cond": "絶縁体は約 10 nm の導電性の膜を付けるか、低真空の観察にする",
+   "vac": "ふつうは真空。水分のある試料は乾かすか低真空の観察で",
+   "ds": "表面をそのまま見るなら壊さない。断面を見るなら切って研磨する",
+   "prep": "表面ならほとんど要らない。断面は研磨、絶縁体はコーティング",
+   "time": "1 試料で数十分〜数時間",
+   "cost": "学内の共用装置で安く使えることが多い",
+   "miss": [
+    "BSE 像の明暗を組成の違いと決めつける。凹凸や結晶の向き(チャネリング)でも明暗が変わるので、平らに研磨した面で、EDS と合わせて確かめる",
+    "絶縁体の帯電(明るく流れる像)や、コーティングの粒を組織と見誤る",
+    "画面の寸法の目盛りをそのまま信じる。寸法を測るなら標準試料で倍率を校正する"
+   ],
+   "std": []
+  },
+  {
+   "id": "ebsd",
+   "g": "shape",
+   "need": {
+    "grain": 2,
+    "phase": 2,
+    "micro": 1
+   },
+   "x": {
+    "rl": 5e-08,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n",
+     "m",
+     "b"
+    ],
+    "ds": 1,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 1,
+    "vac": 1,
+    "t": 2,
+    "c": 2,
+    "p": 2
+   },
+   "pair": [
+    "sem",
+    "xrdrs",
+    "om"
+   ],
+   "links": {
+    "terms": [
+     "再結晶",
+     "ホール・ペッチの関係"
+    ],
+    "atlas": [
+     "grain"
+    ],
+    "formulas": [
+     "grain-size",
+     "hall-petch"
+    ]
+   },
+   "src": [
+    "dtu-ebsd",
+    "serc",
+    "eag-chart",
+    "asm-ebsd"
+   ],
+   "name": "電子線後方散乱回折",
+   "abbr": "EBSD",
+   "what": "結晶粒の一つ一つの方位を地図にして、粒径、集合組織、粒界の方位差、相の分布(結晶構造の違い)、局所のひずみの目安を出す。",
+   "how": "SEM の中で 70° 傾けた試料に電子線を当て、回折した反射電子の模様(菊池パターン)を撮って、点ごとに結晶の方位を決める。",
+   "rl": "20〜80 nm(材料による)。50 nm より小さい粒は苦手(薄膜試料の TKD なら 2〜20 nm)",
+   "rd": "表面の約 10 nm",
+   "dl": "—(元素は測らない)",
+   "vol": "表面の約 10 nm の層",
+   "el": "測れない(EDS と同時に測って相を分ける)",
+   "q": "方位の精度は約 0.2°(相互相関の解析でひずみを見る場合は約 0.001°)",
+   "size": "SEM の試料室に入る大きさ",
+   "cond": "絶縁体へのコーティングは模様を弱めるので避けたい。低真空の観察を使う",
+   "vac": "ふつうは真空(低真空の装置もある)",
+   "ds": "研磨した平らな面が要るので、その部分は切って削る",
+   "prep": "機械研磨のあと、ひずみを残さない仕上げ(化学研磨・電解研磨など)。手間がかかる",
+   "time": "マップ 1 枚に数十分〜数時間(速い検出器では毎秒 3000 点を超える例)",
+   "cost": "中くらい(EBSD の付いた SEM は限られる)",
+   "miss": [
+    "研磨のひずみが表面に残ると模様が出ず、解析できない点が増える。機械研磨だけでは足りないことが多い",
+    "粒径は、何度以上の方位差を粒界とみなすかと、測る点の間隔で変わる。比べるときは条件を書いておく",
+    "測れる面は狭い(数百 µm〜mm 角)。板全体の集合組織は XRD の極点図と合わせて確かめる"
+   ],
+   "std": []
+  },
+  {
+   "id": "tem",
+   "g": "shape",
+   "need": {
+    "ppt": 2,
+    "micro": 2,
+    "phase": 2,
+    "thick": 2,
+    "map": 1,
+    "defect": 1,
+    "grain": 1,
+    "chem": 1
+   },
+   "x": {
+    "rl": 2e-10,
+    "avg": false,
+    "dlx": -2.3,
+    "h": 0,
+    "li": 1,
+    "cno": 1,
+    "dp": [
+     "s",
+     "n",
+     "b"
+    ],
+    "ds": 1,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 2,
+    "t": 3,
+    "c": 3,
+    "p": 2
+   },
+   "pair": [
+    "fib",
+    "ed",
+    "apt"
+   ],
+   "links": {
+    "terms": [
+     "転位",
+     "バーガースベクトル",
+     "析出硬化"
+    ],
+    "atlas": [
+     "precipitates"
+    ],
+    "formulas": [
+     "burgers",
+     "structure-factor"
+    ]
+   },
+   "src": [
+    "ican",
+    "techfi",
+    "eag-chart",
+    "myscope-eds"
+   ],
+   "name": "透過電子顕微鏡(明視野・暗視野・HRTEM・STEM-HAADF)",
+   "abbr": "TEM・STEM",
+   "what": "100 nm より薄くした試料を透過した電子で、転位・析出物・界面から原子の並びまで見る。電子線回折と EDS・EELS を組み合わせれば、構造と組成もその場で分かる。",
+   "how": "明視野・暗視野像は回折の強さの違いで明暗が付き、HRTEM は透過波と回折波の干渉で格子の像になる。STEM-HAADF は高い角度に散乱した電子で、原子番号が大きいほど明るい像(Z コントラスト)を作る。",
+   "rl": "0.1〜0.3 nm(TEM の点分解能 0.14 nm、収差補正付きの STEM で 0.1 nm の例。補正なしの装置で 0.2〜0.25 nm 程度)",
+   "rd": "試料の厚さ(100 nm 未満)全体を重ねた像",
+   "dl": "EDS で 0.5 wt% 程度(条件により 0.01〜0.1 wt%)",
+   "vol": "厚さ 100 nm 未満の薄片の、µm 角以下の範囲",
+   "el": "EDS は B 以上(軽元素は感度が低い)、EELS は Li まで",
+   "q": "EDS は数 % 程度の半定量",
+   "size": "直径 3 mm 程度の薄片や、グリッドにのせた粒子・FIB の薄片",
+   "cond": "特に要らない(薄くすることが要る)",
+   "vac": "必須(乾いた、電子線に耐える試料)",
+   "ds": "薄片を作るので、その部分は壊す",
+   "prep": "電解研磨・イオン研磨・FIB・ウルトラミクロトームで薄くする。熟練と時間が要る",
+   "time": "試料作製を含めて数日〜数週間",
+   "cost": "高い(外部依頼が多い)",
+   "miss": [
+    "見ている体積がとても小さい(厚さ 100 nm 未満・µm 角)。1 視野が試料全体を代表するとは限らないので、SEM などで全体を見てから場所を選ぶ",
+    "試料作製の傷を組織と見誤る。FIB で作った薄片には Ga イオンで壊れた層が両面にでき、30 kV の加工だけでは Si で片面約 20 nm になる",
+    "明視野・暗視野の明暗は主に回折の強さによる。組成の違いかどうかは HAADF(明るさが原子番号で決まる)や EDS で確かめる"
+   ],
+   "std": []
+  },
+  {
+   "id": "fib",
+   "g": "shape",
+   "need": {
+    "thick": 2,
+    "micro": 1,
+    "defect": 1
+   },
+   "x": {
+    "rl": 5e-09,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n"
+    ],
+    "ds": 1,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 1,
+    "vac": 2,
+    "t": 2,
+    "c": 2,
+    "p": 1
+   },
+   "pair": [
+    "sem",
+    "tem",
+    "apt"
+   ],
+   "links": {},
+   "src": [
+    "techfi",
+    "twente",
+    "eag-chart"
+   ],
+   "name": "集束イオンビーム",
+   "abbr": "FIB",
+   "what": "狙った場所を µm 単位で削って断面を出し、TEM の薄片や APT の針を作る。SEM と組み合わせた装置では、削っては撮るを繰り返して 3 次元の組織も得られる。",
+   "how": "Ga イオンを 10 nm 以下に絞って当て、表面の原子をはじき飛ばして削る。削った面は電子線(SEM)で見る。",
+   "rl": "ビームは 10 nm 未満。観察は SEM の分解能(1 nm 程度)",
+   "rd": "連続して削れば 3 次元(100 nm〜10 µm の大きさの領域)",
+   "dl": "—(組成は EDS などを併用)",
+   "vol": "µm〜数十 µm 角の局所",
+   "el": "—",
+   "q": "—",
+   "size": "SEM の試料室に入る大きさ",
+   "cond": "絶縁体は帯電するのでコーティングする",
+   "vac": "必須",
+   "ds": "削った所は壊す(局所)",
+   "prep": "観察する場所を先に決めておく。保護膜を付けてから削る",
+   "time": "断面 1 か所で数時間、TEM の薄片で半日〜1 日",
+   "cost": "中くらい〜高い(装置の時間が高い)",
+   "miss": [
+    "削った面に Ga イオンで壊れた層(Si で 30 kV なら片面約 20 nm)が残る。TEM の薄片は最後を低い電圧(2 kV で 3〜7 nm)で仕上げる",
+    "見られる範囲が狭いので、場所を選ぶ前に SEM や光学顕微鏡で目星をつける"
+   ],
+   "std": []
+  },
+  {
+   "id": "afm",
+   "g": "shape",
+   "need": {
+    "surf": 2,
+    "thick": 1
+   },
+   "x": {
+    "rl": 5e-09,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s"
+    ],
+    "ds": 0,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 0
+   },
+   "pair": [
+    "optprof",
+    "sem",
+    "nano"
+   ],
+   "links": {},
+   "src": [
+    "eag-afm",
+    "eag-chart",
+    "psu-afm"
+   ],
+   "name": "原子間力顕微鏡",
+   "abbr": "AFM",
+   "what": "先の鋭い探針で表面をなぞり、高さの地図を nm 単位で描く。粗さ・段差・粒の高さを、真空なしで、絶縁体でも測れる。",
+   "how": "探針を付けた板ばね(カンチレバー)のたわみをレーザーで読み、探針と表面の力が一定になるように高さを追う。",
+   "rl": "2〜150 nm(探針の先の大きさで決まる)",
+   "rd": "高さの分解能 0.01 nm",
+   "dl": "—",
+   "vol": "表面だけ(走査は最大 90 µm 角・高さ 5 µm 程度)",
+   "el": "測れない",
+   "q": "高さの値は、探針の形と走査の条件で変わる",
+   "size": "小片〜ウェーハ(300 mm まで載る装置もある)",
+   "cond": "不要(絶縁体も測れる)",
+   "vac": "不要",
+   "ds": "壊さない",
+   "prep": "ほとんど要らない(表面をきれいにしておく)",
+   "time": "1 か所で数分〜数十分",
+   "cost": "学内の装置で安く測れることが多い",
+   "miss": [
+    "探針の形が像に写る。先が太いと、細い溝や穴は浅く狭く、突起は太く見える",
+    "一度に見られる範囲が狭い(最大 90 µm 角程度)。光学顕微鏡で全体を見て、代表する場所を選ぶ",
+    "数 µm を超える段差や粗い面は苦手(レーザー顕微鏡・白色干渉計へ)"
+   ],
+   "std": []
+  },
+  {
+   "id": "optprof",
+   "g": "shape",
+   "need": {
+    "surf": 2,
+    "thick": 1,
+    "fract": 1
+   },
+   "x": {
+    "rl": 4e-07,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s"
+    ],
+    "ds": 0,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 0
+   },
+   "pair": [
+    "afm",
+    "om",
+    "hardness"
+   ],
+   "links": {},
+   "src": [
+    "evident-lext",
+    "eag-op"
+   ],
+   "name": "レーザー顕微鏡・白色干渉計",
+   "abbr": "",
+   "what": "光を使って非接触で表面の 3 次元の形を測り、粗さ・段差・摩耗痕の深さ・圧痕の形を数にする。",
+   "how": "レーザー顕微鏡は焦点の合った点だけを拾う共焦点の光学系で高さを、白色干渉計は干渉縞が最も強くなる位置で表面の高さを求める。",
+   "rl": "0.3〜0.5 µm 程度(横は光の回折で決まり 0.61λ/NA。405 nm・NA 0.95 なら約 0.26 µm、白色干渉計の例で 0.5 µm)",
+   "rd": "白色干渉計で 0.1 nm(位相を使う方式)〜6 nm(走査する方式)",
+   "dl": "—",
+   "vol": "表面だけ(1 枚の視野は mm 角、つなげて数 cm)",
+   "el": "測れない",
+   "q": "急な斜面・透明な膜の上では値が欠けたり誤ったりする",
+   "size": "小片〜数十 cm の部品(載る台の大きさによる)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "壊さない",
+   "prep": "ほとんど要らない",
+   "time": "1 か所で数分",
+   "cost": "学内の装置で安く測れることが多い",
+   "miss": [
+    "急な斜面や粗い面では光が戻らず、データが欠けたりノイズになったりする",
+    "透明な膜の上では、膜の表面と下の面の両方から光が返って形を誤る。膜厚を測れるのは屈折率の分かった透明な膜だけ",
+    "粗さの値は、測る長さ・範囲とフィルター(カットオフ)の条件で変わる。比べるときは条件をそろえる"
+   ],
+   "std": []
+  },
+  {
+   "id": "stylus",
+   "g": "shape",
+   "need": {
+    "surf": 2,
+    "thick": 1
+   },
+   "x": {
+    "rl": 2e-06,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s"
+    ],
+    "ds": 0,
+    "sz": [
+     1,
+     2
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 0
+   },
+   "pair": [
+    "optprof",
+    "afm",
+    "ellips"
+   ],
+   "links": {},
+   "src": [
+    "rochester-prof"
+   ],
+   "name": "触針式の表面粗さ計・段差計",
+   "abbr": "",
+   "what": "ダイヤモンドの針で表面をなぞり、段差(膜の厚さ)と表面の粗さを測る。長い距離(装置の例で 150 mm まで)を一度に測れる。",
+   "how": "小さな力で押し当てた針を横に動かし、針の上下の動きを記録して表面の断面の形を描く。",
+   "rl": "針の先の半径で決まる(標準の針で 2 µm)",
+   "rd": "高さは Å の桁まで(装置の例)",
+   "dl": "—",
+   "vol": "針がなぞった線",
+   "el": "—",
+   "q": "針より細い谷や急な斜面は、針の形で丸まって測られる",
+   "size": "小片〜台に載る板。携帯型なら大きな部品の上でも測る(1 回の走査は装置の例で 150 mm まで)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "針で触る(押す力は小さく設定できる)",
+   "prep": "ほとんど要らない(膜の厚さは段差を作って測る)",
+   "time": "短い",
+   "cost": "安い",
+   "miss": [
+    "針の先(2 µm など)より細い凹凸は測れず、谷は浅く・山は太く出る",
+    "線の上だけを測るので、場所による違いは何本か測って確かめる",
+    "膜の厚さは段差として測るので、膜の一部を除いた段差が要る"
+   ],
+   "std": []
+  },
+  {
+   "id": "xrr",
+   "g": "shape",
+   "need": {
+    "thick": 2,
+    "surf": 1
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n"
+    ],
+    "ds": 0,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 2,
+    "c": 2,
+    "p": 0
+   },
+   "pair": [
+    "ellips",
+    "xrd",
+    "xps"
+   ],
+   "links": {},
+   "src": [
+    "iso16413",
+    "diamond-xrr"
+   ],
+   "name": "X 線反射率法",
+   "abbr": "XRR",
+   "what": "平らな基板の上の薄膜に X 線をすれすれに当て、反射率の角度による変化から、膜の厚さ・密度・界面の幅(粗さ)を出す。1 nm〜1 µm 程度の単層・多層の膜に。",
+   "how": "全反射の臨界角の近くから角度を変えて反射率を測り、膜の模型で計算した曲線に合わせて、厚さ・密度・界面の幅を求める。",
+   "rl": "—(X 線の当たる範囲の平均。その範囲で横に均一であることが前提)",
+   "rd": "厚さ 1 nm〜1 µm 程度の膜",
+   "dl": "—",
+   "vol": "X 線の当たる範囲 × 膜",
+   "el": "元素は直接は測らない(化学の情報はない)",
+   "q": "膜の模型(層の数・順番)を仮定して合わせるので、模型が違えば値も違う",
+   "size": "平らな基板の上の膜(ウェーハ・板)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "壊さない(測っている間に変わらない膜であること)",
+   "prep": "ほとんど要らない(表面を汚さない)",
+   "time": "測定と、模型に合わせる解析に時間がかかる",
+   "cost": "中くらい",
+   "miss": [
+    "基板が平らでないか、X 線の当たる範囲で膜が横に不均一だと解析できない",
+    "表面の汚れや反応した層も 1 つの層として効く。測る前に表面を汚さない",
+    "XRR だけでは元素や化学状態は分からない。組成は XPS などと合わせる"
+   ],
+   "std": [
+    "ISO 16413(X 線反射率法による薄膜の厚さ・密度・界面の幅の評価)"
+   ]
+  },
+  {
+   "id": "ellips",
+   "g": "shape",
+   "need": {
+    "thick": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n"
+    ],
+    "ds": 0,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 2,
+    "p": 0
+   },
+   "pair": [
+    "xrr",
+    "stylus",
+    "sem"
+   ],
+   "links": {},
+   "src": [
+    "vanderbilt-se",
+    "jcbose-se"
+   ],
+   "name": "分光エリプソメトリー",
+   "abbr": "",
+   "what": "反射した光の偏光の変わり方(Ψ と Δ)を波長ごとに測り、薄膜の厚さと屈折率などの光学定数を、触らず壊さずに出す。単分子層より薄い変化から、透明な膜なら数十 µm まで。",
+   "how": "偏光した光を斜めに当て、反射光の偏光の変化を測る。測った値は直接は厚さにならないので、層の模型と光学定数の式で計算した値に合わせて求める。",
+   "rl": "—(光を当てた範囲の平均)",
+   "rd": "単分子層より薄い変化に敏感。透明な膜で 0.5 nm〜20 µm 程度(装置の例)",
+   "dl": "—",
+   "vol": "光を当てた範囲 × 膜",
+   "el": "元素は測らない(光学定数を見る)",
+   "q": "層の模型と光学定数の式を仮定して合わせるので、模型が違えば値も違う",
+   "size": "平らで光を反射する面の試料(ウェーハ・ガラス板など)",
+   "cond": "不要(誘電体・有機物・半導体・金属の膜)",
+   "vac": "不要",
+   "ds": "壊さない(触らない)",
+   "prep": "表面をきれいにして乾かす",
+   "time": "1 点の測定は短いが、模型に合わせる解析に時間がかかることがある",
+   "cost": "中くらい",
+   "miss": [
+    "測った Ψ・Δ に模型を合わせて厚さを出すので、層の数や光学定数の仮定が違うと値も違う",
+    "面が平らでない・光を反射しないと測れない",
+    "XRR や断面の観察と比べて、模型が妥当か確かめる"
+   ],
+   "std": []
+  },
+  {
+   "id": "xct",
+   "g": "shape",
+   "need": {
+    "defect": 2,
+    "micro": 1,
+    "thick": 1,
+    "dens": 1
+   },
+   "x": {
+    "rl": 1e-06,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "m",
+     "b"
+    ],
+    "ds": 0,
+    "sz": [
+     0,
+     2
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 2,
+    "c": 2,
+    "p": 0
+   },
+   "pair": [
+    "rt",
+    "ut",
+    "sem"
+   ],
+   "links": {},
+   "src": [
+    "serc",
+    "eag-chart"
+   ],
+   "name": "X 線 CT",
+   "abbr": "CT",
+   "what": "試料を回しながら X 線の透過像を撮り、内部の空洞・き裂・介在物・繊維の向きを、切らずに 3 次元で見る。",
+   "how": "多くの向きからの透過像から、各点の X 線の吸収(密度と原子番号で決まる)を計算で組み立てる。",
+   "rl": "試料の太さの 1/1000〜1/2000 程度(小さい試料ほど細かい。mm の試料で µm 単位、0.1 µm の装置の例もある)",
+   "rd": "横と同じ(3 次元の画素)",
+   "dl": "—(密度の差が小さいと見分けにくい)",
+   "vol": "試料全体(数 mm〜数十 cm。X 線が通る厚さまで)",
+   "el": "分からない(吸収の差だけ)",
+   "q": "空隙率や欠陥の体積は、画像のしきい値の決め方で変わる",
+   "size": "粉の固まり〜大きな部品(大きいほど分解能が下がる)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "壊さない",
+   "prep": "ほとんど要らない",
+   "time": "撮影と再構成で数時間〜1 日",
+   "cost": "中くらい(装置が限られる)",
+   "miss": [
+    "分解能は試料の大きさで決まる。大きな部品のまま撮ると細かいき裂は写らないので、必要なら小さく切り出す",
+    "ビームハードニング(縁が明るく中心が暗く見える)などの偽像を、密度の違いと取り違える",
+    "閉じたき裂や、密度の近い相どうしは見分けにくい"
+   ],
+   "std": []
+  },
+  {
+   "id": "eds",
+   "g": "comp",
+   "need": {
+    "map": 2,
+    "bulk": 1,
+    "ppt": 1,
+    "thick": 1,
+    "depth": 1
+   },
+   "x": {
+    "rl": 1e-06,
+    "avg": false,
+    "dlx": -3,
+    "h": 0,
+    "li": 0,
+    "cno": 1,
+    "dp": [
+     "n",
+     "m",
+     "b"
+    ],
+    "ds": 0,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 1,
+    "vac": 1,
+    "t": 1,
+    "c": 1,
+    "p": 1,
+    "dsBy": {
+     "depth": 1,
+     "thick": 1
+    }
+   },
+   "pair": [
+    "wds",
+    "sem",
+    "xps"
+   ],
+   "links": {
+    "terms": [
+     "EDS(エネルギー分散型X線分光法)"
+    ]
+   },
+   "src": [
+    "myscope-eds",
+    "newbury",
+    "techfi",
+    "oxinst"
+   ],
+   "name": "エネルギー分散型 X 線分光",
+   "abbr": "EDS(EDX)",
+   "what": "SEM・TEM の電子線を当てた点・線・面に、どの元素がどれだけあるかを短い時間でまとめて調べる。元素の分布を見るのに向く。",
+   "how": "電子線で原子の内殻の電子をはじき出し、出てくる特性 X 線のエネルギーを半導体の検出器で分けて数える。",
+   "rl": "SEM では 1〜数 µm(電子の広がる体積で決まる)。TEM の薄い試料なら数 nm",
+   "rd": "SEM では 1〜数 µm",
+   "dl": "0.1〜0.5 wt%(条件がよければ 0.02〜0.05 wt% の報告)",
+   "vol": "µm 単位の体積",
+   "el": "Be〜U(Be〜F は検出できても定量は難しい。H・He・Li は測れない)",
+   "q": "平らな研磨面で標準試料と比べれば、主成分で相対数 %。標準を使わない計算は誤差が大きく半定量",
+   "size": "SEM の試料室に入る大きさ",
+   "cond": "絶縁体は炭素などのコーティングか低真空(低真空では半定量)",
+   "vac": "ふつうは真空",
+   "ds": "表面をそのまま測れる(定量するなら研磨した面。深さ方向や層の厚さは断面を切って測る)",
+   "prep": "定性ならほとんど要らない。定量には平らな研磨面",
+   "time": "点分析は数秒〜数分、マップは数十分〜数時間",
+   "cost": "SEM に付いていることが多く安い",
+   "miss": [
+    "C・N・O の定量値を信じる。軽元素の X 線は吸収されやすく、ピークの形も化合物で変わる。炭素でコーティングした試料では C は測れず、O は計算で出していることも多い",
+    "ピークの重なり(S・Mo・Pb が 2.3 keV 付近、Ti と Ba、Ti と V)で、ない元素を「ある」と読む",
+    "1〜2 µm より小さい粒子や薄い層を点で測ると、まわりや下地の元素も一緒に出る",
+    "凹凸のある破面や粉のままでは定量値が合わない(定量は平らな研磨面で)"
+   ],
+   "std": [
+    "ISO 22309(EDS による Na 以上の元素の定量分析)"
+   ]
+  },
+  {
+   "id": "wds",
+   "g": "comp",
+   "need": {
+    "map": 2,
+    "bulk": 1,
+    "trace": 1,
+    "ppt": 1,
+    "thick": 1,
+    "depth": 1
+   },
+   "x": {
+    "rl": 1e-06,
+    "avg": false,
+    "dlx": -4,
+    "h": 0,
+    "li": 0,
+    "cno": 2,
+    "dp": [
+     "n",
+     "m",
+     "b"
+    ],
+    "ds": 1,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 1,
+    "vac": 2,
+    "t": 2,
+    "c": 2,
+    "p": 1
+   },
+   "pair": [
+    "eds",
+    "xrf",
+    "xps"
+   ],
+   "links": {
+    "terms": [
+     "浸炭"
+    ],
+    "tools": [
+     {
+      "id": "diffusion",
+      "mode": "carb"
+     }
+    ],
+    "formulas": [
+     "erfc"
+    ]
+   },
+   "src": [
+    "serc",
+    "arizona",
+    "oxinst",
+    "iso3887"
+   ],
+   "name": "波長分散型 X 線分光(EPMA)",
+   "abbr": "WDS・EPMA",
+   "what": "EDS より分光の分解能が約 10 倍高く、100 ppm 程度の微量の元素や、重なるピークの元素を、標準試料と比べて精度よく定量する。浸炭層の C の分布などの線分析にも。",
+   "how": "特性 X 線を分光結晶でブラッグ反射させ、波長ごとに数える。1 つの分光器で一度に測れるのは 1 つの波長。",
+   "rl": "1〜数 µm(電子の広がりで決まる)",
+   "rd": "1〜数 µm",
+   "dl": "100〜300 ppm(条件がよければ数 ppm)",
+   "vol": "µm 単位の体積",
+   "el": "Be(装置により B)〜U。H・He・Li は測れない。Be〜O は誤差が大きくなる",
+   "q": "主成分(1 wt% 超)で相対 0.5〜1.5%(標準試料が必須)",
+   "size": "数百 µm〜50 mm 程度の平らな試料(施設の例)",
+   "cond": "絶縁体は炭素の膜を付ける",
+   "vac": "必須",
+   "ds": "平らに研磨した面が要る",
+   "prep": "平らな鏡面に研磨し、炭素の膜を付ける",
+   "time": "1 点に数分。多くの元素を測ると長くなる",
+   "cost": "中くらい(装置が限られる)",
+   "miss": [
+    "標準試料がないと精度は出ない。組成の近い標準で校正する",
+    "Fe²⁺ と Fe³⁺ のような価数は分からない",
+    "分光器を順に動かして測るので、元素が多いと時間がかかる。先に EDS で元素を絞る"
+   ],
+   "std": [
+    "ISO 3887(鋼の脱炭層の深さの測り方)"
+   ]
+  },
+  {
+   "id": "xrf",
+   "g": "comp",
+   "need": {
+    "bulk": 2,
+    "trace": 1,
+    "thick": 1,
+    "map": 1
+   },
+   "x": {
+    "rl": 0.0001,
+    "avg": false,
+    "dlx": -5,
+    "h": 0,
+    "li": 0,
+    "cno": 1,
+    "dp": [
+     "n",
+     "b"
+    ],
+    "ds": 0,
+    "sz": [
+     0,
+     2
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 0
+   },
+   "pair": [
+    "icp",
+    "eds",
+    "gdoes"
+   ],
+   "links": {},
+   "src": [
+    "serc",
+    "horiba-xrf",
+    "evident-xrf",
+    "eag-chart",
+    "rigaku-ovonyx"
+   ],
+   "name": "蛍光 X 線分析",
+   "abbr": "XRF",
+   "what": "X 線を当てて出る蛍光 X 線から、Na〜U の元素を、壊さず短い時間でまとめて調べる。合金の判別、めっきの成分と厚さ、粉や液体の組成に。",
+   "how": "一次 X 線で内殻の電子をはじき出し、戻るときに出る元素に固有の蛍光 X 線を、エネルギー(ED)か波長(WD)で分ける。",
+   "rl": "ふつうは mm 単位の面の平均(微小部の装置で数十 µm)",
+   "rd": "数 µm〜数 mm(元素の X 線のエネルギーと母材で大きく変わる)",
+   "dl": "ppm 程度(装置と元素による。軽元素は悪い)",
+   "vol": "照らした面 × 情報の深さ",
+   "el": "ふつう Na〜U。WDXRF は多層膜の分光結晶で Be〜O(C・N・O を含む)も測れるが、Na より軽い元素は感度と精度が落ちる(H・Li は測れない。携帯型は Mg より軽い元素を測れない)",
+   "q": "組成の近い標準試料で校正すると正確。標準を使わない FP 法は手軽だが、母材によっては誤差が大きい",
+   "size": "粉・液体〜大きな部品(大きな部品は携帯型で現場で)",
+   "cond": "不要",
+   "vac": "不要(軽元素は真空やヘリウムの中で測ると感度が上がる)",
+   "ds": "壊さない",
+   "prep": "そのまま測れる。精度を上げるなら粉をガラスビードやペレットにする",
+   "time": "数分",
+   "cost": "安い",
+   "miss": [
+    "表面のめっき・酸化膜・塗装・汚れの組成を、母材の組成と取り違える。情報の深さは元素によって数 µm〜数 mm と違う",
+    "母材の違い(マトリックス効果)で強さが変わるので、組成の近い標準で校正しないと値が合わない",
+    "軽元素(Na より軽い)は WDXRF でも感度と精度が落ち、ED や携帯型では測れない。鋼の C は燃焼法などで"
+   ],
+   "std": [
+    "ISO 3497(金属めっきの厚さの X 線分光による測定)"
+   ]
+  },
+  {
+   "id": "icp",
+   "g": "comp",
+   "need": {
+    "bulk": 2,
+    "trace": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": -8,
+    "h": 0,
+    "li": 2,
+    "cno": 0,
+    "dp": [
+     "b"
+    ],
+    "ds": 2,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 2,
+    "c": 2,
+    "p": 2
+   },
+   "pair": [
+    "xrf",
+    "gas",
+    "gdoes"
+   ],
+   "links": {},
+   "src": [
+    "psi-icp",
+    "eag-icp",
+    "eag-chart"
+   ],
+   "name": "ICP 発光分光・ICP 質量分析",
+   "abbr": "ICP-OES・ICP-MS",
+   "what": "試料を酸で溶かした液を高温のプラズマに入れ、70 前後の元素を定量する。固体中で ICP-OES は ppm、ICP-MS は ppb の桁まで。平均の組成と微量の不純物の定番。",
+   "how": "高温のアルゴンのプラズマで原子を励起・イオン化し、発光の波長(OES)かイオンの質量(MS)で元素を分けて数える。",
+   "rl": "—(溶かした試料全体の平均)",
+   "rd": "—",
+   "dl": "固体中で ICP-OES 約 1 ppm、ICP-MS 約 10 ppb(溶液での限界に、溶かして薄めた倍率を掛けた値。干渉があると 1 桁以上悪くなる)",
+   "vol": "溶かした量の全体(施設の例で固体 1 g 以上)",
+   "el": "約 70 元素。ICP-OES では C・N・O・ハロゲン・貴ガス・H は測れない(施設の例)",
+   "q": "不確かさ 5% 以下(検出限界の近くでは 20% 以下)の例",
+   "size": "粉・切りくず・小片(大きな部品は切り取る)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "溶かすので試料はなくなる",
+   "prep": "酸で完全に溶かす(溶けにくいものはフッ化水素酸や融解)。手間がかかる",
+   "time": "溶かすのに数時間〜1 日、依頼なら数週間〜1 か月",
+   "cost": "中くらい(外部依頼も多い)",
+   "miss": [
+    "溶け残りや揮発で元素を失う。完全に溶かすことが前提",
+    "スペクトルの重なり(OES)や多原子イオン(MS)の干渉で、ない元素が出たり多めに出たりする",
+    "溶液での検出限界を、そのまま固体中の値と思う(溶かして薄めた倍率を掛ける)",
+    "場所ごとの分布(偏析・表面の層)は分からない"
+   ],
+   "std": []
+  },
+  {
+   "id": "gas",
+   "g": "comp",
+   "need": {
+    "bulk": 2,
+    "trace": 1
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": -7,
+    "h": 2,
+    "li": 0,
+    "cno": 2,
+    "dp": [
+     "b"
+    ],
+    "ds": 2,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 2,
+    "p": 1,
+    "only": [
+     "cno",
+     "h"
+    ]
+   },
+   "pair": [
+    "spark",
+    "icp",
+    "gdoes"
+   ],
+   "links": {
+    "failure": [
+     "hydrogen"
+    ]
+   },
+   "src": [
+    "astm-e1019",
+    "astm-e1447",
+    "klett",
+    "eag-chart"
+   ],
+   "name": "燃焼法・不活性ガス融解法(C・S・O・N・H)",
+   "abbr": "",
+   "what": "金属の中の C・S(燃焼法)と O・N・H(不活性ガス融解法)を、ppm の桁まで速く定量する。鋼の炭素量、チタンの酸素と水素、溶接金属の水素などに。",
+   "how": "燃焼法は酸素の中で試料を燃やし、出た CO₂・SO₂ を赤外線の吸収で測る。不活性ガス融解法は黒鉛のるつぼで試料を融かし、出た CO(O から)・N₂・H₂ を赤外線の吸収や熱伝導度で測る。",
+   "rl": "—(試料全体の平均)",
+   "rd": "—",
+   "dl": "0.1 ppm 程度から(元素と装置による)",
+   "vol": "燃やす・融かす試料の全体",
+   "el": "C・S・O・N・H だけ",
+   "q": "標準試料で校正して測る",
+   "size": "切りくず・小片(大きな部品は切り取る)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "燃やす・融かすので試料はなくなる",
+   "prep": "決まった大きさの小片に切り、表面の汚れを除く",
+   "time": "1 試料で数分",
+   "cost": "中くらい(装置は限られるが分析は速い)",
+   "miss": [
+    "拡散性の水素は室温でも速く抜ける。溶接金属では、測るまでの時間が延びるほど値が下がる(液体窒素に入れるまで 20 秒と 300 秒で約 2 割の差の報告)ので、冷やして保管する",
+    "全部の水素(融解法)と、加熱で出てくる拡散性の水素は別の量。何を測ったかを書く",
+    "場所ごとの分布(偏析・脱炭層・浸炭層)は分からない。断面の EPMA・GD-OES・硬さの分布で見る"
+   ],
+   "std": [
+    "ASTM E1019(鋼・鉄・Ni 合金・Co 合金の C・S・N・O)",
+    "ASTM E1447(Ti・Zr など活性金属の H)",
+    "ISO 3690(溶接金属の拡散性水素)"
+   ]
+  },
+  {
+   "id": "spark",
+   "g": "comp",
+   "need": {
+    "bulk": 2,
+    "trace": 1
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": -5,
+    "h": 0,
+    "li": 1,
+    "cno": 2,
+    "dp": [
+     "b"
+    ],
+    "ds": 1,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 2,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 1
+   },
+   "pair": [
+    "gas",
+    "xrf",
+    "icp"
+   ],
+   "links": {},
+   "src": [
+    "astm-e415",
+    "hitachi-oes"
+   ],
+   "name": "スパーク放電発光分光分析",
+   "abbr": "スパーク OES",
+   "what": "金属の試料と電極の間に火花(スパーク)を飛ばし、出てくる光から C・N・P・S・B を含む多くの元素の量を同時に出す。鋼・鋳物・非鉄金属の成分の管理に使う。",
+   "how": "アルゴンの中で火花の放電を起こして試料の表面を蒸発・励起し、元素ごとの発光線の強さを測る。C・N・P・S などの光は空気に吸収される真空紫外にあるので、分光器を真空にする。",
+   "rl": "—(放電の跡の範囲の平均)",
+   "rd": "—",
+   "dl": "元素によって 10 ppm を下回る(B・Pb などで 10 ppm 未満、Zn で 1 ppm 未満の装置の例)",
+   "vol": "放電の跡の範囲 × 表面の層",
+   "el": "金属中の多くの元素(C・N・P・S・B を含む)。N は対応した装置で。O・H はガス分析で(銅の O・Ti 合金の H を測れる装置の例もある)",
+   "q": "組成の近い標準試料で校正する(標準試料も同じように研削する)",
+   "size": "平らに研削できる金属の塊(放電の台の口をふさぐ大きさ)",
+   "cond": "導体の金属だけ(試料が電極になる)",
+   "vac": "不要(試料はアルゴンの中。分光器は真空)",
+   "ds": "放電の跡が残る。表面を研削する",
+   "prep": "表面を研削して平らにし、汚さない。巣やくぼみのない所で放電させる",
+   "time": "1 回の測定は短い",
+   "cost": "安い",
+   "miss": [
+    "巣やくぼみのある所で放電すると、放電の種類が変わって値が狂う。健全な所を研削して測る",
+    "研削した面を触ったり汚したりすると値が変わる。研削したら面をきれいに保つ",
+    "標準試料と同じ方法で研削しないと、校正が合わない"
+   ],
+   "std": [
+    "ASTM E415(炭素鋼・低合金鋼のスパーク放電発光分光分析)"
+   ]
+  },
+  {
+   "id": "gdoes",
+   "g": "comp",
+   "need": {
+    "depth": 2,
+    "thick": 2,
+    "bulk": 1,
+    "trace": 1
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": -5,
+    "h": 2,
+    "li": 2,
+    "cno": 2,
+    "dp": [
+     "s",
+     "n",
+     "m",
+     "b"
+    ],
+    "ds": 1,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 0,
+    "vac": 1,
+    "t": 1,
+    "c": 2,
+    "p": 0,
+    "dpNb": {
+     "s": "dpS",
+     "m": "dpM"
+    }
+   },
+   "pair": [
+    "xps",
+    "sims",
+    "icp"
+   ],
+   "links": {
+    "terms": [
+     "窒化処理",
+     "浸炭"
+    ],
+    "formulas": [
+     "erfc",
+     "diffusion-length"
+    ],
+    "tools": [
+     {
+      "id": "diffusion",
+      "mode": "carb"
+     }
+    ]
+   },
+   "src": [
+    "ifw-gdoes",
+    "horiba-gdoes",
+    "iso3887"
+   ],
+   "name": "グロー放電発光分光",
+   "abbr": "GD-OES",
+   "what": "グロー放電で表面を削りながら発光を測り、表面の nm から 100 µm 程度までの深さ方向の組成(めっき・窒化層・酸化膜・塗膜)を、H を含むほぼ全元素で短い時間に出す。",
+   "how": "試料を陰極にしたアルゴンのグロー放電で表面の原子をはじき出し、プラズマの中での発光を分光して、元素ごとに時間(= 深さ)とともに記録する。",
+   "rl": "—(直径数 mm の円の範囲の平均。場所ごとの分布は見られない)",
+   "rd": "深さの約 10%(10 nm より厚い層)",
+   "dl": "1〜100 ppm(元素と母材による)",
+   "vol": "削る円の範囲 × 深さ(nm〜100 µm 程度、150 µm を超える例も)",
+   "el": "H・C・N・O を含むほぼ全元素",
+   "q": "標準試料で校正する(母材によらない校正が使える)",
+   "size": "直径 4 mm より大きい平らな面のある小片〜板",
+   "cond": "不要(絶縁体は高周波の放電で)",
+   "vac": "高真空は要らないが、低い圧力のアルゴンに試料の面がさらされる",
+   "ds": "削った跡(くぼみ)が残る",
+   "prep": "平らな面があればそのまま",
+   "time": "1 回の測定は数分",
+   "cost": "中くらい(装置が限られる)",
+   "miss": [
+    "深さの分解能は深さの約 10% なので、深い界面ほどなだらかに見える。界面の幅を拡散の幅と取り違えない",
+    "横は平均してしまう。島のような局所の析出や不均一な層は見えない(層が横に均一であることが前提)",
+    "時間から深さへの換算は、削る速さ(材料で違う)と、くぼみの深さの実測で決める"
+   ],
+   "std": [
+    "ISO 3887(鋼の脱炭層の深さの測り方)"
+   ]
+  },
+  {
+   "id": "tds",
+   "g": "comp",
+   "need": {
+    "bulk": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": -6,
+    "h": 2,
+    "li": 0,
+    "cno": 0,
+    "dp": [
+     "b"
+    ],
+    "ds": 1,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 2,
+    "c": 2,
+    "p": 2,
+    "only": [
+     "h"
+    ]
+   },
+   "pair": [
+    "gas",
+    "sims",
+    "sem"
+   ],
+   "links": {
+    "failure": [
+     "hydrogen"
+    ]
+   },
+   "src": [
+    "tapia",
+    "aist-tds",
+    "enomoto-tda"
+   ],
+   "name": "昇温脱離分析(水素)",
+   "abbr": "TDS・TDA",
+   "what": "試料を一定の速さで加熱しながら、出てくる水素の量を温度ごとに測る。鋼の中の水素の量と、水素がどんな所(トラップ)にとらえられているかを調べる。",
+   "how": "試料を加熱し、出てくる水素を測る。真空の中で質量分析計で測る方式(TDS)と、アルゴンのキャリアガスに乗せてガスクロマトグラフで測る方式(TDA)がある。加熱の速さを変えると放出のピークの温度がずれ、そのずれからトラップが水素をとらえる強さ(結合エネルギー)を求める。",
+   "rl": "—(試料全体)",
+   "rd": "—",
+   "dl": "鋼で約 1 wt ppm(約 50 原子 ppm)を測る装置の例",
+   "vol": "試料全体",
+   "el": "水素",
+   "q": "温度ごとの放出の曲線(ピーク)から、とらえられ方の違う水素を分ける",
+   "size": "小片(切り出す)",
+   "cond": "不要",
+   "vac": "方式による(TDS は真空の中。ガスクロマトグラフの TDA はアルゴンを流した炉の中)",
+   "ds": "切り出す。加熱で水素は抜ける",
+   "prep": "水素を入れた試料は、測るまで液体窒素で冷やして水素が抜けないようにする",
+   "time": "中くらい(ゆっくり加熱すると長くなる)",
+   "cost": "中くらい(装置が限られる)",
+   "miss": [
+    "表面に付いた水も水素のピークになる(大気に約 1 分さらしただけで約 350 ℃ にピークが出た報告)。試料の扱いを決めておく",
+    "拡散性の水素は室温でも抜ける。水素を入れてから測るまで冷やして保管する",
+    "薄く切った試料は、表面の加工や状態でピークの温度が変わる(切り出しで水素量が減った報告も)"
+   ],
+   "std": []
+  },
+  {
+   "id": "xps",
+   "g": "comp",
+   "need": {
+    "chem": 2,
+    "depth": 2,
+    "thick": 1,
+    "organic": 1
+   },
+   "x": {
+    "rl": 3e-05,
+    "avg": false,
+    "dlx": -3,
+    "h": 0,
+    "li": 2,
+    "cno": 2,
+    "dp": [
+     "s",
+     "n"
+    ],
+    "ds": 0,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 2,
+    "t": 2,
+    "c": 2,
+    "p": 0,
+    "dsBy": {
+     "depth": 1,
+     "thick": 1
+    },
+    "dsByNotS": true
+   },
+   "pair": [
+    "aes",
+    "sims",
+    "gdoes"
+   ],
+   "links": {
+    "terms": [
+     "XPS(X線光電子分光法)",
+     "不動態"
+    ],
+    "learn": [
+     "why-iron-rusts"
+    ]
+   },
+   "src": [
+    "eag-xps",
+    "vub-xps"
+   ],
+   "name": "X 線光電子分光",
+   "abbr": "XPS(ESCA)",
+   "what": "表面から数 nm にある元素と、その化学状態(金属か酸化物か、結合の相手)を調べる。不動態膜・汚れ・めっきの密着不良の原因探しの定番。",
+   "how": "X 線で飛び出す光電子の運動エネルギーから結合エネルギーを出す。結合エネルギーは元素で決まり、化学状態でわずかにずれる(化学シフト)。",
+   "rl": "10 µm〜2 mm(装置による。最小の分析域は約 30 µm〜100 µm の例)",
+   "rd": "表面の 1〜10 nm",
+   "dl": "約 0.1 at%(0.1〜1 at%)",
+   "vol": "数十 µm〜mm 角 × 数 nm",
+   "el": "Li〜U(H・He は測れない)",
+   "q": "感度係数を使った半定量が多い。イオンで削る深さ分析では、削ることで化学状態が変わることがある",
+   "size": "装置に入る小片(ウェーハが載る装置もある)",
+   "cond": "不要(絶縁体も測れる)",
+   "vac": "必須(超高真空に耐える試料)",
+   "ds": "表面の分析は壊さない。深さ分析では削る",
+   "prep": "ほとんど要らない(表面を触らず汚さない)",
+   "time": "1 試料で数時間",
+   "cost": "中くらい(装置が限られる)",
+   "miss": [
+    "最表面の数 nm しか見ないので、大気で付いた炭素の汚れや自然の酸化膜を、材料そのものの組成と取り違える",
+    "イオンで削りながらの深さ分析では、削ることで化学状態が変わる(還元など)。深い所の状態は信じすぎない",
+    "0.1 at% より少ない元素は見えない"
+   ],
+   "std": []
+  },
+  {
+   "id": "aes",
+   "g": "comp",
+   "need": {
+    "depth": 2,
+    "map": 1,
+    "ppt": 1
+   },
+   "x": {
+    "rl": 2e-08,
+    "avg": false,
+    "dlx": -3,
+    "h": 0,
+    "li": 2,
+    "cno": 2,
+    "dp": [
+     "s",
+     "n"
+    ],
+    "ds": 0,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 1,
+    "vac": 2,
+    "t": 2,
+    "c": 2,
+    "p": 0,
+    "dsBy": {
+     "depth": 1
+    },
+    "dsByNotS": true
+   },
+   "pair": [
+    "xps",
+    "sem",
+    "sims"
+   ],
+   "links": {},
+   "src": [
+    "eag-aes",
+    "kit-aes"
+   ],
+   "name": "オージェ電子分光",
+   "abbr": "AES",
+   "what": "表面から数 nm の元素を、10〜20 nm に絞った電子線で場所を選んで調べる。微小な異物、粒界の偏析、薄膜の深さ方向の組成に。",
+   "how": "電子線で励起された原子が出すオージェ電子のエネルギーで元素を見分ける。オージェ電子は表面の数 nm からしか出てこられない。",
+   "rl": "10 nm 以上(10〜20 nm に絞れる)",
+   "rd": "表面の 3〜10 nm、深さ分析で 2〜20 nm",
+   "dl": "0.1〜5 at%(元素と装置による)",
+   "vol": "10 nm 程度の点 × 数 nm",
+   "el": "H・He 以外",
+   "q": "感度係数による半定量(組成の分かった試料と比べると精度が上がる)",
+   "size": "装置に入る小片(300 mm のウェーハまで載る装置もある)",
+   "cond": "絶縁体は帯電して測りにくい",
+   "vac": "必須",
+   "ds": "表面の分析は壊さない。深さ分析では削る",
+   "prep": "ほとんど要らない",
+   "time": "1 試料で数時間",
+   "cost": "中くらい(装置が限られる)",
+   "miss": [
+    "絶縁体は帯電しやすく測りにくい(絶縁体の表面の化学状態は XPS で)",
+    "化学状態の情報は少ない(状態を知りたいなら XPS)",
+    "0.1〜1 at% より少ない元素は見えない"
+   ],
+   "std": []
+  },
+  {
+   "id": "sims",
+   "g": "comp",
+   "need": {
+    "depth": 2,
+    "trace": 2,
+    "map": 2
+   },
+   "x": {
+    "rl": 1e-06,
+    "avg": false,
+    "dlx": -8,
+    "h": 1,
+    "li": 2,
+    "cno": 2,
+    "dp": [
+     "s",
+     "n"
+    ],
+    "ds": 1,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 1,
+    "vac": 2,
+    "t": 2,
+    "c": 3,
+    "p": 0
+   },
+   "pair": [
+    "xps",
+    "apt",
+    "gdoes"
+   ],
+   "links": {
+    "terms": [
+     "SIMS(二次イオン質量分析法)"
+    ],
+    "formulas": [
+     "gaussian",
+     "erfc"
+    ]
+   },
+   "src": [
+    "eag-sims",
+    "cameca-neg",
+    "cameca-h"
+   ],
+   "name": "二次イオン質量分析",
+   "abbr": "SIMS",
+   "what": "イオンで表面を削りながら出てくる二次イオンの質量を測り、ドーパントや不純物の深さ方向の分布を ppm 以下(10¹⁰〜10¹⁶ atoms/cm³)まで出す。",
+   "how": "一次イオン(O₂⁺・Cs⁺ など)で試料を削り、はじき出されたイオンを質量分析計で同位体ごとに数える。",
+   "rl": "深さ分析は 10 µm 以上の範囲、像では約 1 µm",
+   "rd": "0.5 nm 程度から(数 Å〜)",
+   "dl": "10¹⁰〜10¹⁶ atoms/cm³(ppm 以下)",
+   "vol": "µm〜数百 µm 角 × 深さ(数 Å〜数十 µm)",
+   "el": "H〜U と同位体(H は試料室の水や炭化水素が背景になるので、超高真空と冷却トラップで抑える)",
+   "q": "標準試料(イオン注入した試料など)がないと濃度にできない",
+   "size": "装置に入る小片",
+   "cond": "絶縁体は表面が帯電するので、電子線を当てて帯電を打ち消す(装置による)",
+   "vac": "必須(固体で真空に耐える)",
+   "ds": "削った穴が残る(破壊分析)",
+   "prep": "ほとんど要らない",
+   "time": "1 試料で数時間",
+   "cost": "高い(外部依頼が多い)",
+   "miss": [
+    "標準試料なしでは濃度にできない。同じ母材の標準(イオン注入した試料など)で校正する",
+    "削った穴が残る破壊分析。測った場所は使えない",
+    "化学結合の情報はない(結合は XPS で)"
+   ],
+   "std": []
+  },
+  {
+   "id": "apt",
+   "g": "comp",
+   "need": {
+    "ppt": 2,
+    "map": 1,
+    "trace": 1
+   },
+   "x": {
+    "rl": 5e-10,
+    "avg": false,
+    "dlx": -5,
+    "h": 1,
+    "li": 2,
+    "cno": 2,
+    "dp": [
+     "s",
+     "n",
+     "b"
+    ],
+    "ds": 1,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 1,
+    "vac": 2,
+    "t": 3,
+    "c": 3,
+    "p": 2
+   },
+   "pair": [
+    "tem",
+    "fib",
+    "sims"
+   ],
+   "links": {
+    "terms": [
+     "析出硬化"
+    ],
+    "atlas": [
+     "precipitates"
+    ]
+   },
+   "src": [
+    "eag-apt",
+    "khanchandani"
+   ],
+   "name": "3 次元アトムプローブ",
+   "abbr": "APT",
+   "what": "針の形にした試料から原子を 1 個ずつ電界で蒸発させ、どの原子がどこにあったかを 3 次元で組み立てる。nm の析出物・クラスター・粒界の偏析の組成に。",
+   "how": "25〜80 K に冷やした針に高い電圧をかけ、電圧かレーザーのパルスで表面の原子をイオンにして飛ばし、飛行時間で質量を、検出器の位置で元の位置を決める。",
+   "rl": "金属で横 0.5 nm・深さ 0.3 nm(半導体・絶縁体では 1 nm 程度)",
+   "rd": "0.3 nm",
+   "dl": "約 10 ppm",
+   "vol": "50 nm 角 × 深さ 100〜500 nm 程度",
+   "el": "H〜U(H は分析室の残留ガスの H が背景になるので、重水素を入れて区別することがある)",
+   "q": "質量のピークが重なる元素は精度が落ちる",
+   "size": "先端の半径 100 nm 未満の針(FIB などで作る)",
+   "cond": "導体は電圧のパルス、半導体・絶縁体はレーザーのパルスで",
+   "vac": "必須(極低温・超高真空)",
+   "ds": "針を作るので、その部分は壊す",
+   "prep": "FIB などで針を作る(1 本に数時間)。熟練が要る",
+   "time": "試料作製を含めて数日〜数週間",
+   "cost": "高い(装置が少ない)",
+   "miss": [
+    "見る体積がとても小さい(50 nm 角 × 数百 nm)。狙う場所を TEM や SEM で決めてから針を作る",
+    "強い電界で針が途中で折れ、測れないことがある(材料による)",
+    "界面や複雑な形の所では、位置と組成の精度が落ちる"
+   ],
+   "std": []
+  },
+  {
+   "id": "xrd",
+   "g": "xtal",
+   "need": {
+    "phase": 2,
+    "grain": 1,
+    "ppt": 1
+   },
+   "x": {
+    "rl": 2e-05,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n",
+     "b"
+    ],
+    "ds": 0,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 0
+   },
+   "pair": [
+    "xrdrs",
+    "ed",
+    "tem"
+   ],
+   "links": {
+    "terms": [
+     "XRD(X線回折)",
+     "ブラッグの法則",
+     "シェラーの式",
+     "消滅則"
+    ],
+    "formulas": [
+     "bragg",
+     "d-cubic",
+     "scherrer",
+     "williamson-hall",
+     "vegard"
+    ],
+    "tools": [
+     {
+      "id": "xrd",
+      "mode": "sim"
+     },
+     {
+      "id": "xrd",
+      "mode": "size"
+     }
+    ]
+   },
+   "src": [
+    "eag-xrd",
+    "rigaku",
+    "nist-xcom"
+   ],
+   "name": "X 線回折(粉末・薄膜)",
+   "abbr": "XRD",
+   "what": "結晶の相の同定、格子定数、結晶子の大きさ、ひずみ、結晶化度を、粉・板・薄膜のまま短い時間で調べる。",
+   "how": "X 線を当て、ブラッグの条件(2d sinθ = λ)を満たす角度に出る回折線の位置と強さを、データベース(ICDD)のパターンと照らし合わせる。",
+   "rl": "ふつうは 0.1〜数 mm の面の平均(微小部の装置で 20〜25 µm)",
+   "rd": "X 線(Cu Kα)の強さが 1/e になる深さは、鉄で約 4 µm、Al で約 70 µm、ポリエチレンで約 3 mm(NIST の減衰係数から計算)。斜入射なら数 nm から",
+   "dl": "ほかの相の中の少ない相は 1% 程度から",
+   "vol": "照らした面 × X 線の入る深さ(材料で大きく違う)",
+   "el": "元素は直接は測らない(結晶の相として見る)",
+   "q": "相の割合は目安(1% 程度より少ない相は見落とす)",
+   "size": "mg に満たない粉〜板・部品(台に載る大きさ)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "壊さない",
+   "prep": "ほとんど要らない(粉は平らに詰める)",
+   "time": "1 試料で数分〜1 時間",
+   "cost": "安い(学内に装置があることが多い)",
+   "miss": [
+    "シェラーの式の「結晶子の大きさ」を粒径(結晶粒・粒子の大きさ)と取り違える。1 つの粒子は多くの結晶子からなりうる。100 nm を超えると信頼できず、装置による広がりの補正と、ひずみによる広がりとの分離が要る",
+    "アモルファスの相はピークが出ないので同定できない",
+    "1% より少ない相は見落とす",
+    "粉の詰め方や圧延板の集合組織で強さの比が変わり、データベースと合わないことがある"
+   ],
+   "std": []
+  },
+  {
+   "id": "xrdrs",
+   "g": "xtal",
+   "need": {
+    "stress": 2,
+    "grain": 1
+   },
+   "x": {
+    "rl": 0.0001,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "n",
+     "m"
+    ],
+    "ds": 0,
+    "sz": [
+     1,
+     2
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 2,
+    "c": 2,
+    "p": 0,
+    "dsZ": {
+     "m": 1
+    },
+    "dpNb": {
+     "m": "layer"
+    }
+   },
+   "pair": [
+    "nd",
+    "xrd",
+    "ebsd"
+   ],
+   "links": {
+    "formulas": [
+     "peak-shift",
+     "hooke",
+     "stoney"
+    ],
+    "tools": [
+     {
+      "id": "xrd",
+      "mode": "shift"
+     }
+    ],
+    "failure": [
+     "fatigue",
+     "scc"
+    ]
+   },
+   "src": [
+    "npl52",
+    "eag-xrd"
+   ],
+   "name": "X 線回折による残留応力・集合組織",
+   "abbr": "XRD(sin²ψ 法・極点図)",
+   "what": "試料を傾けながら回折線の位置(面間隔)の変化を測って表面近くの残留応力を、向きを変えながら回折の強さを測って集合組織(極点図)を出す。",
+   "how": "sin²ψ 法では、傾き ψ を変えて面間隔 d を測り、d と sin²ψ の直線の傾きと、測った面の弾性定数から応力を出す。",
+   "rl": "照らした面(0.1〜数 mm)の平均",
+   "rd": "表面から数〜数十 µm の平均(多くの材料で 5〜50 µm。鋼には Cr Kα を使う)。深い所は電解研磨で層を除いて測る",
+   "dl": "—",
+   "vol": "照らした面 × 数〜数十 µm",
+   "el": "—",
+   "q": "結晶粒が大きいと回折する粒が少なく、精度が落ちる(10〜100 µm の粒なら測りやすい)",
+   "size": "台に載る小片〜部品(携帯型の装置なら大きな構造物も)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "壊さない(深さ方向に測るなら電解研磨で層を除く)",
+   "prep": "受け取ったままの面で測る。研削・研磨はしない",
+   "time": "1 点で数十分〜数時間",
+   "cost": "中くらい",
+   "miss": [
+    "研削・機械加工・ワイヤーブラシで表面に応力が加わる。受け取ったままの面で測り、層を除くなら電解研磨か化学的に溶かす",
+    "測れるのは表面から数〜数十 µm の応力で、内部の応力ではない(内部は中性子回折)",
+    "集合組織や粗い結晶粒があると、d と sin²ψ が直線にならない。そのまま傾きを取ると誤る",
+    "弾性定数はバルクの値ではなく、測った面の値(X 線的弾性定数)を使う"
+   ],
+   "std": [
+    "ASTM E2860(軸受鋼の X 線回折による残留応力の測定)",
+    "ASTM E81(定量的な極点図の作り方)"
+   ]
+  },
+  {
+   "id": "ed",
+   "g": "xtal",
+   "need": {
+    "phase": 2,
+    "ppt": 2,
+    "grain": 1
+   },
+   "x": {
+    "rl": 5e-09,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n",
+     "b"
+    ],
+    "ds": 1,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 2,
+    "t": 3,
+    "c": 3,
+    "p": 2
+   },
+   "pair": [
+    "tem",
+    "xrd",
+    "ebsd"
+   ],
+   "links": {
+    "terms": [
+     "消滅則"
+    ],
+    "formulas": [
+     "structure-factor",
+     "d-cubic"
+    ]
+   },
+   "src": [
+    "ican",
+    "czigany"
+   ],
+   "name": "電子線回折(制限視野回折・収束電子回折)",
+   "abbr": "SAED・CBED",
+   "what": "TEM の中で、nm〜数百 nm の領域を選んで結晶構造・方位・方位関係を決める。析出物 1 個の相の同定に。",
+   "how": "試料を透過した電子の回折図形を撮る。制限視野回折(SAED)は絞りで領域を選び、収束電子回折(CBED)は細く絞った電子線を当てた点から図形を得る。",
+   "rl": "SAED は約 250 nm(絞りで決まる)、CBED は数 nm",
+   "rd": "試料の厚さ(100 nm 未満)全体",
+   "dl": "—",
+   "vol": "薄片の小さな領域",
+   "el": "—(組成は EDS・EELS で)",
+   "q": "面間隔の精度はふつう 1〜3%(注意深く校正すると 0.1%)で、XRD より劣る",
+   "size": "TEM の薄片",
+   "cond": "特に要らない(薄くすることが要る)",
+   "vac": "必須",
+   "ds": "薄片を作るので壊す",
+   "prep": "TEM と同じ(薄片を作る)",
+   "time": "試料作製を含めて数日〜数週間",
+   "cost": "高い(外部依頼が多い)",
+   "miss": [
+    "面間隔の精度は 1〜3% 程度。格子定数の精密な値は XRD で",
+    "カメラ長(試料の高さで変わる)の誤差で d がずれる。標準試料で校正する",
+    "選んだ領域が小さいので、試料全体の相の割合は分からない"
+   ],
+   "std": []
+  },
+  {
+   "id": "nd",
+   "g": "xtal",
+   "need": {
+    "stress": 2,
+    "phase": 1,
+    "grain": 1
+   },
+   "x": {
+    "rl": 0.001,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "m",
+     "b"
+    ],
+    "ds": 0,
+    "sz": [
+     1,
+     2
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 3,
+    "c": 3,
+    "p": 0,
+    "dpNb": {
+     "m": "coarse"
+    }
+   },
+   "pair": [
+    "xrdrs",
+    "xct"
+   ],
+   "links": {
+    "failure": [
+     "fatigue"
+    ]
+   },
+   "src": [
+    "nist-ncnr",
+    "veqter"
+   ],
+   "name": "中性子回折",
+   "abbr": "ND",
+   "what": "中性子が金属の奥まで入ることを使い、部品の内部の残留応力の分布や、H・Li など軽元素を含む結晶構造、磁気構造を調べる。",
+   "how": "原子核で散乱される中性子の回折を測る。散乱の強さは原子番号の順にならないので、X 線では見えにくい軽元素や、同じ元素の同位体を見分けられる。",
+   "rl": "測る体積(ゲージ体積)1〜10 mm³ 程度",
+   "rd": "同じ(mm 単位)",
+   "dl": "—",
+   "vol": "鋼で約 60 mm、Al で約 100 mm の通り道まで(合計の透過長)",
+   "el": "軽元素(H)や同位体も見分けやすい",
+   "q": "応力の精度は Al で約 10 MPa、鋼で約 30 MPa の例",
+   "size": "小片〜大きな部品",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "壊さない(応力のない基準の試料を切り出すことはある)",
+   "prep": "応力のない基準の試料(d₀)を用意する",
+   "time": "施設の利用申請から数か月、測定は数日",
+   "cost": "高い(原子炉・加速器の施設を使う)",
+   "miss": [
+    "応力のない基準の試料(d₀)が要り、その用意の仕方で結果が大きく変わる",
+    "大きな施設(原子炉・加速器)でしか測れず、申請から測定まで時間がかかる",
+    "表面のごく近く(数十 µm)は、ゲージ体積が大きくて測りにくい(表面は XRD で)"
+   ],
+   "std": [
+    "ISO 21432(中性子回折による残留応力の測定)"
+   ]
+  },
+  {
+   "id": "dsc",
+   "g": "therm",
+   "need": {
+    "trans": 2,
+    "organic": 1,
+    "ppt": 1
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "b"
+    ],
+    "ds": 2,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 1
+   },
+   "pair": [
+    "tga",
+    "dil",
+    "dma"
+   ],
+   "links": {
+    "terms": [
+     "ガラス転移温度",
+     "結晶化度",
+     "析出硬化"
+    ],
+    "tools": [
+     {
+      "id": "fe-c"
+     }
+    ]
+   },
+   "src": [
+    "eag-dsc",
+    "bhadeshia",
+    "labcompare"
+   ],
+   "name": "示差走査熱量測定・示差熱分析",
+   "abbr": "DSC・DTA",
+   "what": "一定の速さで温めたり冷やしたりしながら、融解・結晶化・ガラス転移・析出・相変態の温度と熱量を測る。高分子のガラス転移温度・結晶化度、合金の変態温度に。",
+   "how": "DTA は試料と基準の温度差を、DSC は試料と基準に流れる熱の差を記録する。DSC は校正すればピークの面積から熱量が出る。",
+   "rl": "—(試料全体)",
+   "rd": "—",
+   "dl": "DSC は DTA より感度がよく、ガラス転移のような弱い変化も見やすい",
+   "vol": "少量の試料の全体",
+   "el": "—",
+   "q": "熱量の定量は DSC で。DTA は高温(800 ℃ 超)に向き、温度を知るのが主",
+   "size": "容器に入る少量の小片・粉(大きなものは切り取る)",
+   "cond": "不要",
+   "vac": "不要(不活性ガスを流すことが多い)",
+   "ds": "小片を切り取り、加熱で変わる",
+   "prep": "小片に切って容器に入れる",
+   "time": "1 回 1〜数時間",
+   "cost": "安い(学内に装置があることが多い)",
+   "miss": [
+    "温める速さで転移の温度がずれる。比べる試料は同じ速さで測り、正確に知りたいなら遅くする",
+    "分解や蒸発が重なると熱量を誤る(試料の質量が変わらない範囲で使う)",
+    "金属の固体の中の変態は熱が小さいことがあり、見落とす(熱膨張計と組み合わせる)"
+   ],
+   "std": []
+  },
+  {
+   "id": "tga",
+   "g": "therm",
+   "need": {
+    "trans": 1,
+    "organic": 1,
+    "decomp": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "b"
+    ],
+    "ds": 2,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 1
+   },
+   "pair": [
+    "dsc",
+    "ftir"
+   ],
+   "links": {
+    "terms": [
+     "酸化の放物線則"
+    ],
+    "formulas": [
+     "oxidation-rate"
+    ]
+   },
+   "src": [
+    "eag-tga",
+    "wcnt-tga"
+   ],
+   "name": "熱重量分析",
+   "abbr": "TGA",
+   "what": "温度を上げながら試料の重さの変化を測り、水分・揮発分・分解の温度・充てん材(フィラー)の量、酸化による増量を調べる。",
+   "how": "天びんにのせた試料を炉で加熱し、不活性ガスか酸化性のガスの中で質量を記録する。",
+   "rl": "—(試料全体)",
+   "rd": "—",
+   "dl": "µg に満たない重さの変化(装置の例。試料は 1〜150 mg 程度)",
+   "vol": "試料の全体(最大 1 g 程度の例)",
+   "el": "—",
+   "q": "秤量の精度 ±0.01% の例",
+   "size": "容器に入る小片・粉",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "小片を切り取り、加熱で変わる",
+   "prep": "小片に切って容器に入れる",
+   "time": "1 回 1〜数時間",
+   "cost": "安い",
+   "miss": [
+    "何が抜けたかは分からない。出てきたガスは TGA-MS や TGA-FTIR で調べる",
+    "雰囲気(不活性ガスか空気か)で結果が変わり、酸化による増量と分解による減量が重なることがある"
+   ],
+   "std": []
+  },
+  {
+   "id": "dil",
+   "g": "therm",
+   "need": {
+    "trans": 2,
+    "thprop": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "b"
+    ],
+    "ds": 1,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 2,
+    "c": 2,
+    "p": 1
+   },
+   "pair": [
+    "dsc",
+    "om",
+    "lfa"
+   ],
+   "links": {
+    "terms": [
+     "線膨張係数",
+     "マルテンサイト"
+    ],
+    "formulas": [
+     "thermal-expansion"
+    ],
+    "tools": [
+     {
+      "id": "thermal"
+     },
+     {
+      "id": "fe-c"
+     }
+    ],
+    "learn": [
+     "why-quenching-hardens-steel"
+    ]
+   },
+   "src": [
+    "astm-a1033"
+   ],
+   "name": "熱膨張計(ディラトメーター)",
+   "abbr": "",
+   "what": "温度を変えながら試料の長さの変化を測り、熱膨張係数と、鋼の変態温度(Ac₁・Ac₃・Ms など)や焼結の収縮を調べる。",
+   "how": "棒の試料の伸びを押し棒で炉の外の変位計に伝えて測る。相変態では体積が変わるので、伸びの曲線が折れ曲がる。",
+   "rl": "—(試料全体)",
+   "rd": "—",
+   "dl": "—",
+   "vol": "棒の試料の全体",
+   "el": "—",
+   "q": "変態の温度と量は、伸びの曲線と組織の観察を合わせて決める",
+   "size": "数 mm〜数 cm の棒(削り出す)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "試験片を削り出す",
+   "prep": "決まった形の棒に加工する",
+   "time": "1 回数時間(加熱と冷却の条件による)",
+   "cost": "中くらい",
+   "miss": [
+    "加熱・冷却の速さで変態の温度が変わる(連続冷却と等温保持でも違う)。条件を書いて比べる",
+    "伸びの折れ曲がりだけで相を決めない。組織を観察して確かめる",
+    "圧延材や複合材は向きで膨張係数が違う。試験片をどの向きに取ったか書く"
+   ],
+   "std": [
+    "ASTM E228(押し棒式の熱膨張計による線膨張)",
+    "ASTM A1033(亜共析の炭素鋼・低合金鋼の変態の測定)"
+   ]
+  },
+  {
+   "id": "lfa",
+   "g": "therm",
+   "need": {
+    "thprop": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "b"
+    ],
+    "ds": 1,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 2,
+    "c": 2,
+    "p": 1
+   },
+   "pair": [
+    "dil",
+    "dsc"
+   ],
+   "links": {
+    "terms": [
+     "熱拡散率"
+    ],
+    "formulas": [
+     "thermal-diffusivity",
+     "conduction"
+    ]
+   },
+   "src": [
+    "astm-e1461",
+    "netzsch"
+   ],
+   "name": "レーザーフラッシュ法",
+   "abbr": "LFA",
+   "what": "薄い円板の表をパルス光で一瞬温め、裏の温度が上がる速さから熱拡散率を、比熱と密度を掛けて熱伝導率を出す。",
+   "how": "裏面の温度上昇を赤外線検出器で記録し、厚さと、上昇が最大の決まった割合に達する時間から熱拡散率を計算する。",
+   "rl": "—(円板全体の厚さ方向の値)",
+   "rd": "—",
+   "dl": "—",
+   "vol": "円板の全体",
+   "el": "—",
+   "q": "熱伝導率は熱拡散率に比熱と密度を掛けて出すので、その誤差も入る",
+   "size": "円板に加工できる小片",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "円板に加工する",
+   "prep": "円板に加工し、多くは黒鉛を塗る",
+   "time": "1 温度で数分、温度を変えると数時間",
+   "cost": "中くらい",
+   "miss": [
+    "半透明(高分子・ガラス)や光る金属は、黒鉛を塗らないと正しく測れない。塗りすぎると、熱をよく通す Cu・Al では値が下がる(約 5 µm の膜で 4% の例)",
+    "均質・等方で不透明な試料が前提。層状や異方性の材料は、向きと構造を考えて解析する",
+    "熱伝導率は熱拡散率 × 比熱 × 密度なので、比熱と密度の値の誤差もそのまま入る"
+   ],
+   "std": [
+    "ASTM E1461(フラッシュ法による熱拡散率)"
+   ]
+  },
+  {
+   "id": "dma",
+   "g": "therm",
+   "need": {
+    "trans": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "b"
+    ],
+    "ds": 1,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 2,
+    "c": 2,
+    "p": 1
+   },
+   "pair": [
+    "dsc",
+    "tga",
+    "tensile"
+   ],
+   "links": {
+    "terms": [
+     "ガラス転移温度",
+     "熱硬化性樹脂"
+    ],
+    "compare": [
+     "thermoplastic-vs-thermosetting"
+    ]
+   },
+   "src": [
+    "ta-dma"
+   ],
+   "name": "動的粘弾性測定",
+   "abbr": "DMA",
+   "what": "試料に小さな振動の変形を与えながら温度を変え、貯蔵弾性率・損失弾性率・tan δ を測る。高分子のガラス転移を、DSC よりも敏感にとらえる。",
+   "how": "振動の力と変形の位相のずれから、弾性の成分(E′)と粘性の成分(E″)を分ける。E′ の低下の始まり・E″ のピーク・tan δ のピークのどれかを Tg とする。",
+   "rl": "—(試料全体)",
+   "rd": "—",
+   "dl": "—(DSC では見えにくい転移も見えやすい)",
+   "vol": "試料全体",
+   "el": "—",
+   "q": "Tg は定義(E′ の低下の始まり<E″ のピーク<tan δ のピーク)と振動数で値が違う。比べるときは定義と振動数をそろえる",
+   "size": "棒・短冊の試料(つかみ具に挟む)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "試料を切り出す",
+   "prep": "平らでねじれのない棒や短冊に切る",
+   "time": "中くらい(ゆっくり加熱すると長くなる)",
+   "cost": "中くらい",
+   "miss": [
+    "Tg の定義(E′ の低下の始まり・E″ のピーク・tan δ のピーク)で値が違う。どれを使ったか書く",
+    "振動数が高いほど Tg は高く出る。同じ振動数で比べる",
+    "厚い試料を速く加熱すると、試料の温度が遅れる。厚い試料はゆっくり加熱する"
+   ],
+   "std": [
+    "ASTM E1640(動的粘弾性測定によるガラス転移温度の決め方)"
+   ]
+  },
+  {
+   "id": "tensile",
+   "g": "mech",
+   "need": {
+    "hard": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "b"
+    ],
+    "ds": 2,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 2,
+    "c": 1,
+    "p": 2
+   },
+   "pair": [
+    "hardness",
+    "charpy",
+    "sem"
+   ],
+   "links": {
+    "terms": [
+     "0.2%耐力",
+     "ヤング率",
+     "加工硬化"
+    ],
+    "compare": [
+     "yield-point-vs-proof-stress",
+     "hardness-strength-toughness"
+    ],
+    "formulas": [
+     "hooke",
+     "true-stress",
+     "ductility",
+     "hollomon"
+    ],
+    "failure": [
+     "ductile"
+    ]
+   },
+   "src": [
+    "twi-tensile",
+    "princeton-neck"
+   ],
+   "name": "引張試験",
+   "abbr": "",
+   "what": "試験片を引っ張って、ヤング率・降伏点または 0.2% 耐力・引張強さ・伸び・絞りを測る。材料の強さの基本の値。",
+   "how": "一定の速さで引き、荷重と伸び(伸び計)を記録して、公称応力–公称ひずみの曲線を描く。",
+   "rl": "—(試験片の平行部全体)",
+   "rd": "—",
+   "dl": "—",
+   "vol": "試験片の平行部",
+   "el": "—",
+   "q": "伸びは試験片の形と標点距離で変わるので、試験片の種類をそろえて比べる",
+   "size": "規格の形の試験片を削り出せる大きさ(小型の試験片もある)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "破断させる",
+   "prep": "規格の形の試験片に機械加工する",
+   "time": "1 本数分〜数十分(試験片の加工に数日)",
+   "cost": "安い(学内に試験機があることが多い)",
+   "miss": [
+    "降伏点(上降伏点)と 0.2% 耐力を取り違える。はっきりした降伏点が出ない材料は 0.2% 耐力で",
+    "くびれた後の公称応力の低下を、材料が弱くなったと読む(断面が減っている。真応力で見る)",
+    "伸びは試験片の形と標点距離で変わる。違う形の試験片の伸びをそのまま比べない"
+   ],
+   "std": [
+    "JIS Z 2241(金属材料の引張試験方法)",
+    "ISO 6892-1(金属材料の室温の引張試験)"
+   ]
+  },
+  {
+   "id": "hardness",
+   "g": "mech",
+   "need": {
+    "hard": 2,
+    "thick": 2
+   },
+   "x": {
+    "rl": 3e-05,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "m",
+     "b"
+    ],
+    "ds": 0,
+    "sz": [
+     1,
+     2
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 1,
+    "mark": true,
+    "dsBy": {
+     "thick": 1
+    }
+   },
+   "pair": [
+    "tensile",
+    "nano",
+    "om"
+   ],
+   "links": {
+    "terms": [
+     "加工硬化",
+     "焼入れ性",
+     "浸炭",
+     "窒化処理"
+    ],
+    "compare": [
+     "hardness-strength-toughness",
+     "quenching-vs-tempering"
+    ],
+    "tools": [
+     {
+      "id": "diffusion",
+      "mode": "carb"
+     }
+    ],
+    "learn": [
+     "why-quenching-hardens-steel"
+    ]
+   },
+   "src": [
+    "instron",
+    "astm-e140",
+    "iso3887",
+    "astm-e110"
+   ],
+   "name": "硬さ試験(ビッカース・ロックウェル・ブリネル)",
+   "abbr": "HV・HR・HBW",
+   "what": "圧子を押し込んだ痕の大きさや深さで硬さを測る。速く、部品のままでも測れ、熱処理・浸炭層・溶接部の硬さの分布に使う。",
+   "how": "ビッカースは正四角すいのダイヤモンドの痕の対角線、ブリネルは球の痕の直径、ロックウェルは円すいか球を押し込んだ深さから硬さを出す。",
+   "rl": "痕の大きさで決まる(例: 200 HV の鋼に 0.98 N なら対角線は約 30 µm)",
+   "rd": "痕の深さとそのまわり",
+   "dl": "—",
+   "vol": "痕のまわりの小さな体積",
+   "el": "—",
+   "q": "硬さどうし・引張強さへの換算は近似で、材料の種類ごとの表に限る",
+   "size": "小片〜部品(ロックウェルや携帯型の試験機なら部品のまま)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "小さな痕が残る(携帯型の試験機なら部品のまま測れる)。層の硬さの分布は断面を切って測る",
+   "prep": "マイクロビッカースは研磨した面。ロックウェル・ブリネルは平らな面",
+   "time": "1 点数十秒〜数分",
+   "cost": "安い",
+   "miss": [
+    "痕どうし・試料の端との間隔が近すぎると、前の痕のまわりの加工硬化や、端の支えの不足で値が変わる。規格の決める間隔を守る",
+    "薄い試料や薄い層では、下の台や下地の影響が出る。規格の最小の厚さを守り、薄膜はナノインデンテーションで",
+    "硬さの換算(HV・HRC・HB)と引張強さへの換算は近似で、材料の種類と熱処理が合う表だけで使う"
+   ],
+   "std": [
+    "JIS Z 2244-1(ビッカース硬さ試験)",
+    "JIS Z 2245(ロックウェル硬さ試験)",
+    "JIS Z 2243-1(ブリネル硬さ試験)",
+    "ASTM E92(ビッカース硬さ・ヌープ硬さ)",
+    "ASTM E110(携帯型の試験機によるロックウェル硬さ・ブリネル硬さ)",
+    "ASTM E140(硬さの換算表)",
+    "ISO 3887(鋼の脱炭層の深さの測り方)"
+   ]
+  },
+  {
+   "id": "nano",
+   "g": "mech",
+   "need": {
+    "hard": 2
+   },
+   "x": {
+    "rl": 1e-06,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n"
+    ],
+    "ds": 1,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 2,
+    "p": 1
+   },
+   "pair": [
+    "hardness",
+    "afm",
+    "sem"
+   ],
+   "links": {
+    "terms": [
+     "ヤング率"
+    ]
+   },
+   "src": [
+    "eag-nano",
+    "chen"
+   ],
+   "name": "ナノインデンテーション",
+   "abbr": "",
+   "what": "nm〜µm の深さまで押し込みながら荷重と深さを連続して測り、薄膜・微小な相・表面処理層の硬さとヤング率を出す。",
+   "how": "押し込みと抜くときの荷重–深さの曲線から、接触の面積と、抜き始めの傾き(接触の剛さ)を求め、硬さと弾性率を計算する。",
+   "rl": "位置決めは 50 nm 未満(痕と痕の間は µm 単位が要る)",
+   "rd": "変位のノイズ 0.1 nm 未満、最大 20 µm 程度",
+   "dl": "—",
+   "vol": "痕のまわりの小さな体積",
+   "el": "—",
+   "q": "膜の厚さの 10〜20% より浅く押すのが通例。ただし柔らかい下地の上の硬い膜では 5% でも下地の影響が出る",
+   "size": "小片〜ウェーハ",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "小さな痕が残る",
+   "prep": "平らで滑らかな面(粗いと値がばらつく)",
+   "time": "1 点数分、マップで数時間",
+   "cost": "中くらい",
+   "miss": [
+    "膜の値に下地の値が混ざる。硬い膜が柔らかい下地にのっていると、浅く押しても下地の影響が出る",
+    "粗い面や 10 nm より薄い膜では半定量",
+    "押し込み硬さ(計装化押込み)とビッカース硬さは定義が違う。数値をそのまま比べない"
+   ],
+   "std": [
+    "ISO 14577-1(計装化押込み試験による硬さと材料の値)"
+   ]
+  },
+  {
+   "id": "charpy",
+   "g": "mech",
+   "need": {
+    "tough": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "b"
+    ],
+    "ds": 2,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 2,
+    "c": 1,
+    "p": 2
+   },
+   "pair": [
+    "tensile",
+    "sem"
+   ],
+   "links": {
+    "terms": [
+     "破壊靭性"
+    ],
+    "compare": [
+     "hardness-strength-toughness"
+    ],
+    "formulas": [
+     "stress-intensity"
+    ],
+    "failure": [
+     "brittle"
+    ]
+   },
+   "src": [
+    "twi-charpy"
+   ],
+   "name": "シャルピー衝撃試験",
+   "abbr": "",
+   "what": "切り欠きを付けた試験片を振り子で一撃で折り、吸収したエネルギーで靱性(もろく割れるかどうか)を比べる。温度を変えて延性–脆性の遷移を調べる。",
+   "how": "振り子の持ち上げた高さと、折ったあとの振り上がりの高さの差から、破壊に使われたエネルギーを求める。",
+   "rl": "—(試験片全体)",
+   "rd": "—",
+   "dl": "—",
+   "vol": "切り欠きのまわり",
+   "el": "—",
+   "q": "同じ温度でもばらつくので、何本かの平均で見る。値は仕様と比べるためのもので、破壊靱性には直せない",
+   "size": "規格の形の試験片を削り出せる大きさ",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "破断させる",
+   "prep": "規格の形に加工し、切り欠きを付ける。温度をそろえる",
+   "time": "1 本数分(試験片の加工と温度の調整に日数)",
+   "cost": "安い",
+   "miss": [
+    "吸収エネルギーを設計に使う破壊靱性の値として使う。結果は互いに比べるか、仕様と照らすためのもの",
+    "1 つの温度だけで比べる。遷移の温度域では少しの温度の差で値が大きく変わるので、温度を変えて曲線を描く",
+    "破面の結晶状(もろい)と繊維状(延性)の割合と、横の膨らみ(横膨出)も記録しておく"
+   ],
+   "std": [
+    "JIS Z 2242(金属材料のシャルピー衝撃試験)",
+    "ISO 148-1(シャルピー振り子衝撃試験)",
+    "ASTM E23(切欠き棒の衝撃試験)"
+   ]
+  },
+  {
+   "id": "fatigue",
+   "g": "mech",
+   "need": {
+    "tough": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "b"
+    ],
+    "ds": 2,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 3,
+    "c": 3,
+    "p": 2
+   },
+   "pair": [
+    "sem",
+    "xrdrs",
+    "tensile"
+   ],
+   "links": {
+    "terms": [
+     "疲労限度",
+     "ストライエーション",
+     "パリス則",
+     "マイナー則",
+     "修正グッドマン線図"
+    ],
+    "formulas": [
+     "fatigue-life",
+     "paris",
+     "goodman",
+     "miner"
+    ],
+    "failure": [
+     "fatigue"
+    ]
+   },
+   "src": [
+    "twi-fatigue",
+    "nims"
+   ],
+   "name": "疲労試験",
+   "abbr": "",
+   "what": "繰り返しの荷重をかけて破断までの回数を測り、S–N 曲線と疲労限度(疲労強度)を求める。き裂の進む速さ(da/dN)を測る試験もある。",
+   "how": "応力の振幅を変えた何本もの試験片を、破断するか、決めた回数(打ち切り)まで繰り返し負荷する。",
+   "rl": "—(試験片全体)",
+   "rd": "—",
+   "dl": "—",
+   "vol": "試験片の平行部",
+   "el": "—",
+   "q": "寿命のばらつきが大きい(寿命の対数が正規分布に近い)ので、本数をそろえて統計で扱う",
+   "size": "規格の形の試験片を何本も削り出せる量",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "破断させる",
+   "prep": "試験片を加工し、表面を仕上げる",
+   "time": "10⁷ 回は 10 Hz で約 12 日。全体で数週間〜数か月",
+   "cost": "高い(試験機を長く使う)",
+   "miss": [
+    "本数の少ないデータから、平均から標準偏差の 2 倍を引いた「設計の曲線」を出す。本数が少ないと標準偏差を小さく見積もり、危険側になる",
+    "打ち切り(壊れなかった)試験片を、破断と同じに回帰に入れる",
+    "破面のストライエーションの間隔は 1 回あたりのき裂の進みの目安。SEM で破面と合わせて読む"
+   ],
+   "std": [
+    "ASTM E466(荷重制御の一定振幅の軸荷重疲労試験)"
+   ]
+  },
+  {
+   "id": "creep",
+   "g": "mech",
+   "need": {
+    "tough": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "b"
+    ],
+    "ds": 2,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 3,
+    "c": 3,
+    "p": 2
+   },
+   "pair": [
+    "tensile",
+    "sem",
+    "tem"
+   ],
+   "links": {
+    "terms": [
+     "クリープ",
+     "べき乗則クリープ",
+     "ラーソン・ミラー・パラメータ",
+     "変形機構図"
+    ],
+    "formulas": [
+     "larson-miller",
+     "creep"
+    ],
+    "failure": [
+     "creep"
+    ]
+   },
+   "src": [
+    "nims"
+   ],
+   "name": "クリープ試験",
+   "abbr": "",
+   "what": "高温で一定の荷重をかけ続け、ひずみの時間変化(クリープ曲線)と破断までの時間を測る。高温で使う部材の寿命の基礎。",
+   "how": "炉の中の試験片に一定の荷重をかけ、伸びを長い時間記録する。破断時間を温度と応力で整理する(ラーソン・ミラー・パラメータなど)。",
+   "rl": "—(試験片全体)",
+   "rd": "—",
+   "dl": "—",
+   "vol": "試験片の平行部",
+   "el": "—",
+   "q": "長いものは 10 万時間(約 11 年)で破断する応力を求める試験もある",
+   "size": "規格の形の試験片を何本も削り出せる量",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "破断させる(または長時間変形させる)",
+   "prep": "試験片を加工する",
+   "time": "数百〜数万時間",
+   "cost": "高い(炉と試験機を長く使う)",
+   "miss": [
+    "短い時間の結果を長い時間へ外挿しすぎる。パラメータ法の前提(機構が変わらないこと)を確かめ、外挿の幅を書く",
+    "温度のわずかな差で破断時間が大きく変わる。温度の制御と測定を確かめる"
+   ],
+   "std": [
+    "ASTM E139(金属材料のクリープ・クリープ破断試験)"
+   ]
+  },
+  {
+   "id": "raman",
+   "g": "chem",
+   "need": {
+    "organic": 2,
+    "phase": 2,
+    "chem": 1,
+    "stress": 1
+   },
+   "x": {
+    "rl": 1e-06,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n"
+    ],
+    "ds": 0,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 0,
+    "mo": 2,
+    "moBy": {
+     "organic": 1,
+     "chem": 1
+    },
+    "moS": {
+     "phase": 1
+    }
+   },
+   "pair": [
+    "ftir",
+    "xrd",
+    "xps"
+   ],
+   "links": {
+    "terms": [
+     "グラフェン",
+     "カーボンナノチューブ"
+    ]
+   },
+   "src": [
+    "eag-raman",
+    "shimadzu-raman"
+   ],
+   "name": "ラマン分光",
+   "abbr": "",
+   "what": "レーザーの散乱光のわずかな波長のずれから、分子や結晶の振動を測り、炭素の形(ダイヤモンド・黒鉛・非晶質)、酸化物、高分子、半導体の応力を、1 µm の点で調べる。真空なしで壊さない。",
+   "how": "光が分子や結晶の振動とエネルギーをやりとりして波長が変わった散乱光(ラマン散乱)を分光する。",
+   "rl": "1 µm 以上",
+   "rd": "共焦点で 1〜5 µm",
+   "dl": "1 wt% 以上",
+   "vol": "1 µm 程度の点",
+   "el": "元素ではなく、結合と結晶の種類を見る(金属の単体はピークが出ない。酸化物・さびは測れる)",
+   "q": "定量には標準試料が要る",
+   "size": "粒子〜小片",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "ふつうは壊さない",
+   "prep": "ほとんど要らない",
+   "time": "1 点数分",
+   "cost": "安い",
+   "miss": [
+    "蛍光が強いと、ずっと弱いラマンの信号が埋もれる(励起の波長を変えて試す)",
+    "標準試料がないと定量は難しい",
+    "見ているのは 1 µm 程度の点。不均一な試料では何点も測る"
+   ],
+   "std": []
+  },
+  {
+   "id": "ftir",
+   "g": "chem",
+   "need": {
+    "organic": 2,
+    "chem": 1
+   },
+   "x": {
+    "rl": 3e-05,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "n",
+     "b"
+    ],
+    "ds": 0,
+    "sz": [
+     0,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 0,
+    "mo": 1
+   },
+   "pair": [
+    "raman",
+    "tga",
+    "xps"
+   ],
+   "links": {
+    "terms": [
+     "熱硬化性樹脂"
+    ],
+    "compare": [
+     "thermoplastic-vs-thermosetting"
+    ]
+   },
+   "src": [
+    "eag-ftir",
+    "uibk-atr"
+   ],
+   "name": "フーリエ変換赤外分光",
+   "abbr": "FT-IR",
+   "what": "赤外線の吸収から官能基を調べ、高分子・有機物・汚れ・塗膜を同定する。ATR なら固体を押し当てるだけで、表面の 0.1〜2 µm 程度を測れる。",
+   "how": "分子の振動と同じ振動数の赤外線が吸収される。干渉計とフーリエ変換で、全部の波長を同時に測る。",
+   "rl": "15〜50 µm(顕微 FT-IR)",
+   "rd": "ATR で約 0.1〜2 µm",
+   "dl": "既知の成分の定量で 1〜10 wt%、未知の物の同定で 5〜20%",
+   "vol": "照らした範囲 × 入る深さ",
+   "el": "元素ではなく官能基を見る",
+   "q": "定量には標準試料と一定の厚さが要る",
+   "size": "目で見える大きさの異物〜小片",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "ふつうは壊さない",
+   "prep": "ATR ならそのまま。KBr の錠剤や抽出にすることもある",
+   "time": "1 試料数分",
+   "cost": "安い",
+   "miss": [
+    "金属そのものは測れない(金属の上の汚れや膜を見る)",
+    "水が強く吸収するので、湿った試料は乾かしてから",
+    "100 nm より薄い汚れの膜は見えにくい(最表面は XPS で)"
+   ],
+   "std": []
+  },
+  {
+   "id": "echem",
+   "g": "chem",
+   "need": {
+    "corr": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n"
+    ],
+    "ds": 1,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 2,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 1
+   },
+   "pair": [
+    "sem",
+    "xps",
+    "eds"
+   ],
+   "links": {
+    "terms": [
+     "標準電極電位",
+     "不動態",
+     "孔食",
+     "ガルバニック腐食",
+     "応力腐食割れ"
+    ],
+    "formulas": [
+     "faraday",
+     "nernst"
+    ],
+    "learn": [
+     "why-iron-rusts"
+    ],
+    "failure": [
+     "scc"
+    ]
+   },
+   "src": [
+    "metrohm"
+   ],
+   "name": "電気化学測定(分極曲線・EIS)",
+   "abbr": "",
+   "what": "溶液の中で電位を変えて電流を測り、腐食電位・腐食速度・不動態の範囲・孔食電位を調べる。交流のインピーダンス(EIS)では、皮膜や塗膜の抵抗と変化を追う。",
+   "how": "試料(作用極)・対極・参照電極の 3 電極で、ポテンショスタットで電位を走査する。腐食電流は、ターフェル外挿か、分極抵抗とターフェル勾配(Stern–Geary の式)から求める。",
+   "rl": "—(電極の面全体の平均)",
+   "rd": "—",
+   "dl": "—",
+   "vol": "溶液に触れた面",
+   "el": "—",
+   "q": "分極抵抗は腐食電位のまわりの直線の範囲(約 10 mV 以下)で求める。走査の速さと溶液の抵抗で値が変わる",
+   "size": "面積を決めて露出できる小片",
+   "cond": "導電性の試料(電極)が要る",
+   "vac": "不要",
+   "ds": "表面を腐食させる",
+   "prep": "測る面積だけを出して、ほかを被覆する。研磨して面をそろえる",
+   "time": "1 回数十分〜数時間(安定を待つ時間を含む)",
+   "cost": "安い",
+   "miss": [
+    "速く走査すると充電の電流が混じる(0.1 mV/s のような遅い走査の例)",
+    "溶液の抵抗による電位の誤差(IR 降下)を補正しない",
+    "電位がどの参照電極の値か(SCE・Ag/AgCl・SHE)を書かないと、ほかの結果と比べられない",
+    "試験液と温度で結果が変わる。使う環境に近い条件で"
+   ],
+   "std": [
+    "JIS G 0577(ステンレス鋼の孔食電位の測定)",
+    "ASTM G59(動電位分極による分極抵抗の測定)",
+    "ASTM G61(局部腐食の感受性を見る繰り返し動電位分極)"
+   ]
+  },
+  {
+   "id": "archi",
+   "g": "chem",
+   "need": {
+    "dens": 2,
+    "defect": 1
+   },
+   "x": {
+    "rl": null,
+    "avg": true,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "b"
+    ],
+    "ds": 0,
+    "sz": [
+     1,
+     1
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 1
+   },
+   "pair": [
+    "xct",
+    "om",
+    "sem"
+   ],
+   "links": {},
+   "src": [
+    "mu-archimedes",
+    "iso18754"
+   ],
+   "name": "アルキメデス法(密度と開気孔率)",
+   "abbr": "",
+   "what": "乾いた試料、水を含ませた試料、水の中の試料の重さを量り、かさ密度と、外につながった気孔(開気孔)の割合を出す。焼結体の緻密さの基本の値。",
+   "how": "水を含ませた重さと水の中の重さの差から試料の体積を、含ませた水の重さから開気孔の体積を出す。",
+   "rl": "—(試料全体)",
+   "rd": "—",
+   "dl": "—",
+   "vol": "試料全体",
+   "el": "—",
+   "q": "外につながらない気孔(閉気孔)は数えられない",
+   "size": "天秤で量れる小片〜部品",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "壊さない(水を含ませる)",
+   "prep": "乾かして量り、水を含ませて量り、水の中で量る",
+   "time": "短い(乾燥と含水の時間を除く)",
+   "cost": "安い",
+   "miss": [
+    "閉気孔は数えられないので、開気孔率だけで緻密さを決めない(閉気孔は断面の組織や X 線 CT で)",
+    "水を十分に含ませないと、開気孔率を低く見積もる",
+    "水と反応したり溶けたりする材料には、そのままでは使えない"
+   ],
+   "std": [
+    "ISO 18754(ファインセラミックスの密度と見掛け気孔率の求め方)"
+   ]
+  },
+  {
+   "id": "ut",
+   "g": "ndt",
+   "need": {
+    "defect": 2,
+    "thick": 1
+   },
+   "x": {
+    "rl": null,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "m",
+     "b"
+    ],
+    "ds": 0,
+    "sz": [
+     1,
+     2
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 0
+   },
+   "pair": [
+    "rt",
+    "xct",
+    "et"
+   ],
+   "links": {
+    "terms": [
+     "溶接熱影響部"
+    ]
+   },
+   "src": [
+    "itu",
+    "jsndi"
+   ],
+   "name": "超音波探傷",
+   "abbr": "UT",
+   "what": "超音波を当てて、内部のきず(き裂・空洞・介在物・溶接の欠陥)からの反射を受け、位置と大きさの目安を出す。肉厚の測定にも。",
+   "how": "探触子から 1〜25 MHz 程度の超音波を接触媒質(水・油など)を通して入れ、きずや裏面からの反射(エコー)の時間と高さを見る。",
+   "rl": "—(周波数が高いほど小さなきずに敏感)",
+   "rd": "反射の時間から深さが分かる",
+   "dl": "—",
+   "vol": "部品の厚さ方向の全体",
+   "el": "—",
+   "q": "エコーの高さを対比試験片と比べて、きずの大きさの目安にする",
+   "size": "小片〜大きな構造物(現場で)",
+   "cond": "不要(音が通ればよい)",
+   "vac": "不要",
+   "ds": "壊さない",
+   "prep": "当てる面をならし、接触媒質を塗る",
+   "time": "1 か所で数分〜",
+   "cost": "安い",
+   "miss": [
+    "粗い結晶粒の材料(オーステナイト系の溶接部・鋳物など)では、減衰と雑音が大きく見にくい",
+    "対比試験片で感度を合わせないと、きずの大きさの判断が合わない。熟練が要る",
+    "接触媒質がないと音が入らない"
+   ],
+   "std": [
+    "JIS Z 2344(金属材料のパルス反射法による超音波探傷試験方法通則)",
+    "JIS Z 2355-1(超音波厚さ測定の方法)"
+   ]
+  },
+  {
+   "id": "pt",
+   "g": "ndt",
+   "need": {
+    "crack": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n"
+    ],
+    "ds": 0,
+    "sz": [
+     1,
+     2
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 1
+   },
+   "pair": [
+    "mt",
+    "et",
+    "sem"
+   ],
+   "links": {
+    "failure": [
+     "fatigue"
+    ]
+   },
+   "src": [
+    "itu",
+    "jsndi"
+   ],
+   "name": "浸透探傷",
+   "abbr": "PT",
+   "what": "表面に開いたき裂・ピンホールを、浸透液と現像剤で色や蛍光の模様にして見つける。金属・セラミックス・樹脂など、多孔質でない材料なら何にでも。",
+   "how": "浸透液をきずにしみ込ませ、表面の余分を除いたあと、現像剤できずの中の液を吸い出して模様(指示模様)にする。",
+   "rl": "—",
+   "rd": "表面に開いたきずだけ",
+   "dl": "—",
+   "vol": "表面",
+   "el": "—",
+   "q": "模様の大きさはきずの大きさそのものではない(にじむ)",
+   "size": "小片〜大きな部品(現場で)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "壊さない(液を塗る)",
+   "prep": "油・塗膜・汚れをよく洗って乾かす",
+   "time": "数十分(浸透と現像の待ち時間を含む)",
+   "cost": "安い",
+   "miss": [
+    "表面に開いていないきず(内部・表面の下)は見つからない",
+    "多孔質の材料では全面に液が残り、使えない",
+    "前の洗浄が足りないと、油や塗膜できずの口がふさがって見落とす"
+   ],
+   "std": [
+    "JIS Z 2343-1(浸透探傷試験の一般通則)"
+   ]
+  },
+  {
+   "id": "mt",
+   "g": "ndt",
+   "need": {
+    "crack": 2,
+    "defect": 1
+   },
+   "x": {
+    "rl": null,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n",
+     "m"
+    ],
+    "ds": 0,
+    "sz": [
+     1,
+     2
+    ],
+    "cd": 3,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 1
+   },
+   "pair": [
+    "pt",
+    "et",
+    "ut"
+   ],
+   "links": {
+    "failure": [
+     "fatigue",
+     "hydrogen"
+    ]
+   },
+   "src": [
+    "itu",
+    "jsndi"
+   ],
+   "name": "磁粉探傷",
+   "abbr": "MT",
+   "what": "鋼などの強磁性体を磁化し、表面と表面のすぐ下のき裂から漏れる磁束に磁粉を集めて見つける。浸透探傷より細いき裂に敏感なことが多い。",
+   "how": "きずの所で磁束が外に漏れ、そこに磁粉(蛍光のものもある)が集まって模様になる。磁束がきずに直角のときいちばんよく見える。",
+   "rl": "—",
+   "rd": "表面と表面のすぐ下",
+   "dl": "—",
+   "vol": "表面近く",
+   "el": "—",
+   "q": "模様の長さでき裂の長さの目安を付ける",
+   "size": "小片〜大きな部品(現場で)",
+   "cond": "強磁性体だけ(鋼・鋳鉄・Ni・Co など)",
+   "vac": "不要",
+   "ds": "壊さない",
+   "prep": "表面の汚れや厚い塗膜を除く",
+   "time": "数分〜数十分",
+   "cost": "安い",
+   "miss": [
+    "強磁性でない材料(オーステナイト系ステンレス・Al・Cu など)には使えない(浸透探傷か渦流探傷へ)",
+    "磁束と平行なき裂は見えにくい。磁化の向きを変えて 2 方向で調べる"
+   ],
+   "std": [
+    "JIS Z 2320-1(磁粉探傷試験の一般通則)"
+   ]
+  },
+  {
+   "id": "et",
+   "g": "ndt",
+   "need": {
+    "crack": 2,
+    "thick": 1,
+    "defect": 1
+   },
+   "x": {
+    "rl": null,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "s",
+     "n",
+     "m"
+    ],
+    "ds": 0,
+    "sz": [
+     1,
+     2
+    ],
+    "cd": 2,
+    "vac": 0,
+    "t": 1,
+    "c": 1,
+    "p": 0
+   },
+   "pair": [
+    "pt",
+    "mt",
+    "ut"
+   ],
+   "links": {
+    "terms": [
+     "渦電流損失"
+    ]
+   },
+   "src": [
+    "itu",
+    "twi-ec",
+    "jsndi"
+   ],
+   "name": "渦流探傷",
+   "abbr": "ET",
+   "what": "コイルで導体に渦電流を流し、表面と表面近くのき裂、材質の違い(導電率)、めっき・塗膜の厚さを、非接触で速く調べる。管や線材の全数検査に。",
+   "how": "きずや材質の違いで渦電流の流れが乱れ、コイルのインピーダンスが変わるのを捉える。周波数が高いほど浅い所しか見ない(表皮効果)。",
+   "rl": "—",
+   "rd": "浸透の深さは周波数・導電率・透磁率で決まる(表面で 37% に減る深さを標準の浸透深さという)",
+   "dl": "—",
+   "vol": "表面近く",
+   "el": "—",
+   "q": "対比試験片と比べて信号の大きさを判断する",
+   "size": "小片〜大きな部品・管・線材",
+   "cond": "導体だけ",
+   "vac": "不要",
+   "ds": "壊さない",
+   "prep": "ほとんど要らない(表面の状態は信号に影響する)",
+   "time": "数分(ラインでは高速)",
+   "cost": "安い",
+   "miss": [
+    "導体にしか使えない",
+    "深い所のきずは見えない。浸透の深さは周波数・導電率・透磁率で決まる",
+    "コイルの巻きの向き・走査の向きと平行なきずは見落としやすい",
+    "対比試験片がないと、信号の大きさをきずの大きさに結び付けられない"
+   ],
+   "std": [
+    "JIS Z 2316-1(渦電流試験の一般通則)"
+   ]
+  },
+  {
+   "id": "rt",
+   "g": "ndt",
+   "need": {
+    "defect": 2
+   },
+   "x": {
+    "rl": null,
+    "avg": false,
+    "dlx": null,
+    "h": null,
+    "li": null,
+    "cno": null,
+    "dp": [
+     "m",
+     "b"
+    ],
+    "ds": 0,
+    "sz": [
+     1,
+     2
+    ],
+    "cd": 0,
+    "vac": 0,
+    "t": 1,
+    "c": 2,
+    "p": 0
+   },
+   "pair": [
+    "ut",
+    "xct"
+   ],
+   "links": {
+    "terms": [
+     "溶接熱影響部",
+     "引け巣"
+    ]
+   },
+   "src": [
+    "itu"
+   ],
+   "name": "放射線透過試験",
+   "abbr": "RT",
+   "what": "X 線や γ 線を透過させてフィルムや検出器に写し、溶接部・鋳物の内部のブローホール・溶込み不良・き裂を見つける。記録が残る。",
+   "how": "空洞や密度の低い所は放射線をよく通すので、像の上で濃く写る。",
+   "rl": "—(厚さの約 2% の大きさの空洞が見える目安。25 mm の鋼で約 0.5 mm)",
+   "rd": "厚さ方向は重なって写る(深さは分からない)",
+   "dl": "—",
+   "vol": "透過した厚さ全体",
+   "el": "—",
+   "q": "像の濃さの差で判断する(透過度計で像の質を確かめる)",
+   "size": "小片〜大きな構造物(現場で)",
+   "cond": "不要",
+   "vac": "不要",
+   "ds": "壊さない",
+   "prep": "ほとんど要らない(フィルムや検出器を裏に置ける形)",
+   "time": "撮影は数分〜、現像・判定を含め数時間",
+   "cost": "中くらい(放射線の管理が要る)",
+   "miss": [
+    "薄いき裂は、放射線がき裂の面と平行なときしか写らない。向きを変えて何方向から撮る",
+    "放射線の管理(区域・資格)が要る",
+    "像は厚さ方向に重なるので、きずの深さの位置は分からない(超音波や CT で)"
+   ],
+   "std": [
+    "JIS Z 3104(鋼溶接継手の放射線透過試験方法)"
+   ]
+  }
+ ]
+}
