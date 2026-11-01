@@ -91,7 +91,7 @@ function init() {
       const li = el('li', 'mt-hit pp-hit');
       const src = s.querySelector(`[data-c="${x.id}"]`);
       for (const n of [...copy(src).childNodes]) if (!(n.classList && n.classList.contains('pp-by'))) li.append(n);
-      if (x.up.length) li.append(el('p', 'pp-up', `${t('prep_up')} ${x.up.map(k => TR[k]).join('・')}`));
+      if (x.up.length) li.append(el('p', 'pp-up', `${t('prep_up')} ${x.up.map(k => TR[k]).join(t('prep_sep'))}`));
       else if (x.s === 0) li.append(el('p', 'pp-up', t('prep_by_mat')));
       ol.append(li);
     }
@@ -104,7 +104,7 @@ function init() {
         const li = el('li');
         const src = s.querySelector(`[data-c="${x.id}"] .pp-c`);
         li.append(copy(src));
-        li.append(el('p', 'pp-why muted', x.why === 'only' ? t('prep_low_only', { t: x.only.map(k => TR[k]).join('・') }) : t('prep_low_zero')));
+        li.append(el('p', 'pp-why muted', x.why === 'only' ? t('prep_low_only', { t: x.only.map(k => TR[k]).join(t('prep_sep')) }) : t('prep_low_zero')));
         ul.append(li);
       }
       det.append(ul);
