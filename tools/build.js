@@ -401,6 +401,58 @@ function mtdText(code) {
     }),
   };
 }
+// 試料調製・エッチングガイド(/prep/)。data/prep.json(既定言語の文章・材料・腐食液・危険・不具合と原因の重み・リンク・出典)と、
+// 訳 data/i18n/{言語}/prep.json(文章だけ。id・重み・性質・リンクは言語によらない)。
+// 「失敗から原因を探す」の順位と条件の URL は src/js/prep.js(rank は build の検査でも使う)。
+// その言語の src/i18n に nav_prep があり、文章の訳もある言語でだけ作る。ファイルがなければ何も作らない
+const prpBase = readOpt('data/prep.json', null);
+const prpTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/prep.json`, null));
+const prpOn = code => !!prpBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_prep') && (code === defLang || !!prpTr(code)?.materials);
+const prpJs = prpBase ? await import(pathToFileURL(path.join(root, 'src/js/prep.js')).href) : null;
+// 訳を既定言語のデータに重ねる。足りない訳や数の合わない訳があれば止める
+function prpText(code) {
+  const d = prpBase;
+  const T = prpTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/prep.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  // 文の形(文字列・文字列の並び・鍵つきの文)を既定言語にそろえて重ねる
+  const tx = (a, b, k) => {
+    if (typeof a === 'string') return a === '' ? '' : need(b, k);
+    if (Array.isArray(a)) {
+      if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+      return a.map((v, i) => tx(v, b[i], `${k}[${i}]`));
+    }
+    return Object.fromEntries(Object.keys(a).map(y => [y, tx(a[y], b?.[y], `${k}.${y}`)]));
+  };
+  const pick = (o, keys) => Object.fromEntries(keys.map(y => [y, o[y]]));
+  const over = (list, tr, name, keys) => list.map(x => ({ ...x, ...tx(pick(x, keys), need(tr?.[x.id], `${name}.${x.id}`), `${name}.${x.id}`) }));
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note', 'safety', 'sources_h'].map(k => [k, need(T[k], k)])),
+    refs: d.refs.map(r => ({ ...r, ...tx({ s: r.s, full: r.full }, need(T.refs?.[r.k], `refs.${r.k}`), `refs.${r.k}`) })),
+    groups: d.groups.map(g => ({ ...g, name: need(T.groups?.[g.id], `groups.${g.id}`) })),
+    traits: d.traits.map(g => ({ ...g, name: need(T.traits?.[g.id], `traits.${g.id}`) })),
+    flow: over(d.flow, T.flow, 'flow', ['name', 'p']),
+    materials: d.materials.map(m => {
+      const x = need(T.materials?.[m.id], `materials.${m.id}`), k = `materials.${m.id}`;
+      const steps = tx(m.steps.map(r => r.t), x.steps, `${k}.steps`);
+      return { ...m, ...tx(pick(m, ['name', 'hard', 'note', 'see', 'miss', 'fx', 'std']), x, k), steps: m.steps.map((r, i) => ({ ...r, t: steps[i] })) };
+    }),
+    hazards: over(d.hazards, T.hazards, 'hazards', ['name', 'short', 'p']),
+    not_listed: tx(d.not_listed, T.not_listed, 'not_listed'),
+    etchants: over(d.etchants, T.etchants, 'etchants', ['name', 'aka', 'comp', 'use', 'see', 'nb']),
+    defects: d.defects.map(f => {
+      const x = need(T.defects?.[f.id], `defects.${f.id}`), k = `defects.${f.id}`;
+      return { ...f, ...tx({ name: f.name, look: f.look }, x, k), causes: f.causes.map(c => ({ ...c, ...tx({ t: c.t, fix: c.fix }, x.causes?.[c.id], `${k}.causes.${c.id}`) })) };
+    }),
+    guide: tx(d.guide.map(g => ({ h: g.h, p: g.p })), T.guide, 'guide').map((g, i) => ({ ...d.guide[i], ...g })),
+    faq: T.faq ?? [],
+  };
+}
 // 材料英語の表現集(/phrases/)。data/phrases.json(既定言語の文型・例文・注意・誤りの例・点検の規則の文・読み物・画面の文言 ui)と、
 // 訳 data/i18n/{言語}/phrases.json(日本語の文だけ。英語の文型・例文・誤りの例は言語によらない)。
 // 既定言語だけで作るサービスなので、画面の文言も src/i18n でなくデータの ui に持つ。訳のファイルがある言語でだけ作る。ファイルがなければ何も作らない。
@@ -575,6 +627,8 @@ function buildLang(L) {
   const fml = fmlOn(code) ? fmlText(code) : null;
   // 分析・評価手法ナビ(この言語で作るときだけ。訳を重ねた文章)
   const mtd = mtdOn(code) ? mtdText(code) : null;
+  // 試料調製・エッチングガイド(この言語で作るときだけ。訳を重ねた文章)
+  const prp = prpOn(code) ? prpText(code) : null;
   // 材料英語の表現集(この言語で作るときだけ。訳を重ねた文章)
   const phr = phrOn(code) ? phrText(code) : null;
   // ニュース用語: 日付・問題・リンク先は既定言語のファイルのものを使い、文章だけ訳で置き換える(訳がなければその言語では出さない)
@@ -727,7 +781,7 @@ function buildLang(L) {
     ${interviewText[code] ? feature(`${home}interview-questions/`, interviewText[code].nav, interviewText[code].card, 'home_feat_interview') : ''}
     ${beyondText[code] && pageNames(code).includes('beyond-scaling') ? feature(`${home}beyond-scaling/`, beyondText[code].nav, beyondText[code].card, 'home_feat_beyond') : ''}
     ${compares.some(e => isDef || tr('compare')[e.slug]) ? feature(`${home}compare/`, S.nav_compare, t('home_feat_compare_desc'), 'home_feat_compare') : ''}
-    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}${atl ? feature(`${home}atlas/`, S.nav_atlas, t('home_feat_atlas_desc'), 'home_feat_atlas') : ''}${drl ? feature(`${home}drill/`, S.nav_drill, t('home_feat_drill_desc'), 'home_feat_drill') : ''}${mtl ? feature(`${home}materials/`, S.nav_materials, t('home_feat_materials_desc'), 'home_feat_materials') : ''}${fml ? feature(`${home}formulas/`, S.nav_formulas, t('home_feat_formulas_desc', { n: fml.formulas.length }), 'home_feat_formulas') : ''}${mtd ? feature(`${home}methods/`, S.nav_methods, t('home_feat_methods_desc', { n: mtd.methods.length }), 'home_feat_methods') : ''}${phr ? feature(`${home}phrases/`, phr.ui.nav, phr.ui.card.replace('{n}', phr.phrases.length), 'home_feat_phrases') : ''}
+    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}${atl ? feature(`${home}atlas/`, S.nav_atlas, t('home_feat_atlas_desc'), 'home_feat_atlas') : ''}${drl ? feature(`${home}drill/`, S.nav_drill, t('home_feat_drill_desc'), 'home_feat_drill') : ''}${mtl ? feature(`${home}materials/`, S.nav_materials, t('home_feat_materials_desc'), 'home_feat_materials') : ''}${fml ? feature(`${home}formulas/`, S.nav_formulas, t('home_feat_formulas_desc', { n: fml.formulas.length }), 'home_feat_formulas') : ''}${mtd ? feature(`${home}methods/`, S.nav_methods, t('home_feat_methods_desc', { n: mtd.methods.length }), 'home_feat_methods') : ''}${prp ? feature(`${home}prep/`, S.nav_prep, t('home_feat_prep_desc', { n: prp.materials.length }), 'home_feat_prep') : ''}${phr ? feature(`${home}phrases/`, phr.ui.nav, phr.ui.card.replace('{n}', phr.phrases.length), 'home_feat_phrases') : ''}
     ${Object.keys(figs).length ? feature(`${home}figures/`, S.footer_figures, t('home_feat_figures_desc'), 'home_feat_figures') : ''}
     ${toolsIn(code).length ? feature(`${home}tools/`, S.nav_tools, t('home_feat_tools_desc'), 'home_feat_tools') : ''}
     ${news.length ? feature(`${home}news-terms/`, S.news_title, t('home_feat_news_desc'), 'home_feat_news') : ''}
@@ -964,6 +1018,10 @@ function buildLang(L) {
       ...fml.formulas.map(f => ({ t: 'e', n: f.name, u: `formulas/#f-${f.id}`, x: `${f.f.map(y => y.t).join(' ').replace(/[_{}^]/g, '')} ${f.kw}` }))] : []),
     ...(mtd ? [{ t: 'v', n: mtd.h1, u: 'methods/', x: mtd.description },
       ...mtd.methods.map(m => ({ t: 'v', n: m.abbr ? `${m.name} / ${m.abbr}` : m.name, u: `methods/#m-${m.id}`, x: m.what }))] : []),
+    ...(prp ? [{ t: 'r', n: prp.h1, u: 'prep/', x: prp.description },
+      ...prp.materials.map(m => ({ t: 'r', n: m.name, u: `prep/#p-${m.id}`, x: m.see.join(' ') })),
+      ...prp.etchants.map(e => ({ t: 'r', n: e.name, u: `prep/#e-${e.id}`, x: `${e.comp.join(' ')} ${e.see}` })),
+      ...prp.defects.map(f => ({ t: 'r', n: f.name, u: `prep/#f-${f.id}`, x: f.look }))] : []),
     ...(phr ? [{ t: 'p', n: phr.h1, u: 'phrases/', x: phr.description },
       ...phr.phrases.map(x => ({ t: 'p', n: x.ja, u: `phrases/#p-${x.id}`, x: `${x.en} ${x.kw}` }))] : []),
     ...(mtl ? [{ t: 'm', n: mtl.h1, u: 'materials/', x: mtl.description },
@@ -974,7 +1032,7 @@ function buildLang(L) {
     ...live.flatMap(c => qs[c.id].map(q => ({ t: 'q', n: q.question, u: `q/${c.id}/${q.id}/`, x: c.name }))),
   ];
   write(`data/${code}/search.json`, JSON.stringify({
-    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}), ...(fail ? { search_g_x: S.nav_failure } : {}), ...(atl ? { search_g_a: S.nav_atlas } : {}), ...(drl ? { search_g_d: S.nav_drill } : {}), ...(mtl ? { search_g_m: S.nav_materials } : {}), ...(fml ? { search_g_e: S.nav_formulas } : {}), ...(mtd ? { search_g_v: S.nav_methods } : {}), ...(phr ? { search_g_p: phr.ui.nav } : {}) },
+    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}), ...(fail ? { search_g_x: S.nav_failure } : {}), ...(atl ? { search_g_a: S.nav_atlas } : {}), ...(drl ? { search_g_d: S.nav_drill } : {}), ...(mtl ? { search_g_m: S.nav_materials } : {}), ...(fml ? { search_g_e: S.nav_formulas } : {}), ...(mtd ? { search_g_v: S.nav_methods } : {}), ...(prp ? { search_g_r: S.nav_prep } : {}), ...(phr ? { search_g_p: phr.ui.nav } : {}) },
     items: searchItems,
   }));
 
@@ -1024,6 +1082,7 @@ function buildLang(L) {
     aboutMaterials: mtl ? `  <li><strong><a href="${home}materials/">${esc(S.nav_materials)}</a></strong>${itemSep}${esc(t('about_materials'))}</li>\n` : '',
     aboutFormulas: fml ? `  <li><strong><a href="${home}formulas/">${esc(S.nav_formulas)}</a></strong>${itemSep}${esc(t('about_formulas'))}</li>\n` : '',
     aboutMethods: mtd ? `  <li><strong><a href="${home}methods/">${esc(S.nav_methods)}</a></strong>${itemSep}${esc(t('about_methods'))}</li>\n` : '',
+    aboutPrep: prp ? `  <li><strong><a href="${home}prep/">${esc(S.nav_prep)}</a></strong>${itemSep}${esc(t('about_prep'))}</li>\n` : '',
     aboutPhrases: phr ? `  <li><strong><a href="${home}phrases/">${esc(phr.ui.nav)}</a></strong>${itemSep}${esc(phr.ui.about)}</li>\n` : '',
     aboutFigures: figList.length ? `  <li><strong><a href="${home}figures/">${esc(S.footer_figures)}</a></strong>${itemSep}${esc(t('about_figures'))}</li>\n` : '',
     // トップの開始ボタンの下: 学習コースへの案内(コースの一覧は分野の一覧より下にある)
@@ -1103,6 +1162,7 @@ function buildLang(L) {
         ...(mtl ? [['materials/', S.nav_materials, t('home_feat_materials_desc')]] : []), ...(fml ? [['formulas/', S.nav_formulas, t('home_feat_formulas_desc', { n: fml.formulas.length })]] : []),
         ...(phr ? [['phrases/', phr.ui.nav, phr.ui.card.replace('{n}', phr.phrases.length)]] : []),
         ...(mtd ? [['methods/', S.nav_methods, t('home_feat_methods_desc', { n: mtd.methods.length })]] : []),
+        ...(prp ? [['prep/', S.nav_prep, t('home_feat_prep_desc', { n: prp.materials.length })]] : []),
         ...(fail ? [['failure/', S.nav_failure, t('home_feat_failure_desc')]] : []), ...(numbers.length && code === numbersLang ? [['numbers/', 'Key numbers']] : [])]],
     ].filter(g => g[2].length);
     const here = ([sub, , , also = []]) => (p === L.path + sub ? 'page' : [sub, ...also].some(s => s && p.startsWith(L.path + s)) ? 'true' : '');
@@ -3764,6 +3824,282 @@ ${relCats.length ? `<section>
     });
   }
 
+  // 試料調製・エッチングガイド: /prep/(共通の流れ・材料ごとの手順・安全・腐食液・失敗の表は JS なしでも読める。「失敗から原因を探す」と条件の URL は prep.js。ページは1つだけ)
+  if (prp) buildPrep();
+  function buildPrep() {
+    const D = prp;
+    const where = 'data/prep.json';
+    // データの検査(既定言語のデータで決まるので、どの言語でも同じ結果になる。訳の欠けは prpText が止める)
+    const idsOf = list => list.map(x => x.id);
+    const uniq = (list, name) => {
+      const ids = idsOf(list);
+      if (new Set(ids).size !== ids.length) throw new Error(`${where}: ${name} の id が重なっています`);
+      for (const id of ids) if (!/^[a-z0-9-]+$/.test(id)) throw new Error(`${where}: ${name} の id ${id} は英小文字・数字・ハイフンで`);
+      return new Set(ids);
+    };
+    const gIds = uniq(D.groups, 'groups'), trIds = uniq(D.traits, 'traits'), stIds = uniq(D.flow, 'flow'), mIds = uniq(D.materials, 'materials'),
+      eIds = uniq(D.etchants, 'etchants'), hIds = uniq(D.hazards, 'hazards'), fIds = uniq(D.defects, 'defects');
+    uniq(D.guide, 'guide');
+    const refIds = new Set(D.refs.map(r => r.k));
+    if (refIds.size !== D.refs.length) throw new Error(`${where}: refs の k が重なっています`);
+    for (const r of D.refs) if (!/^https:\/\//.test(r.url ?? '')) throw new Error(`${where}: 出典 ${r.k} の url がありません`);
+    const srcOk = (list, at) => {
+      if (!list?.length) throw new Error(`${at} の出典がありません`);
+      for (const s of list) if (!refIds.has(s)) throw new Error(`${at} の出典 ${s} が refs にありません`);
+    };
+    for (const g of D.groups) if (!catOf(g.cat) && isDef) throw new Error(`${where}: 群 ${g.id} の存在しない分類 ${g.cat}`);
+    if (!hIds.has('general')) throw new Error(`${where}: どの液にも共通の注意(hazards の general)がありません`);
+    for (const f of D.flow) {
+      for (const id of f.f) if (!fIds.has(id)) throw new Error(`${where}: 流れ ${f.id} の存在しない不具合 ${id}`);
+      srcOk(f.src, `${where}: 流れ ${f.id}`);
+    }
+    for (const m of D.materials) {
+      const at = `${where}: 材料 ${m.id}`;
+      if (!gIds.has(m.g)) throw new Error(`${at} の存在しない群 ${m.g}`);
+      for (const k of m.tr) if (!trIds.has(k)) throw new Error(`${at} の存在しない性質 ${k}`);
+      if (!m.steps.length || m.steps.some(r => !['g', 'p', 'f'].includes(r.s) || r.t.length !== 4)) throw new Error(`${at} の段(steps)が正しくありません`);
+      for (const id of m.etch) if (!eIds.has(id)) throw new Error(`${at} の存在しない腐食液 ${id}`);
+      for (const id of Object.keys(m.fx)) if (!fIds.has(id)) throw new Error(`${at} の fx の存在しない不具合 ${id}`);
+      for (const s of m.atlas) if (!atlasBase?.structures.some(e => e.id === s)) throw new Error(`${at} の組織アトラスにない組織 ${s}`);
+      for (const s of m.methods) if (!mtdBase?.methods.some(e => e.id === s)) throw new Error(`${at} の手法ナビにない手法 ${s}`);
+      for (const k of m.terms) if (!glossary.some(g => g.term === k)) throw new Error(`${at} の用語集にない語 ${k}`);
+      if (!m.name || !m.hard.length || !m.note || !m.see.length) throw new Error(`${at} の文章が足りません`);
+      srcOk(m.src, at);
+    }
+    for (const e of D.etchants) {
+      const at = `${where}: 腐食液 ${e.id}`;
+      if (!e.comp.length || !e.use.length || !e.see) throw new Error(`${at} の組成・使い方・見えるものが足りません`);
+      if (!e.mat.length) throw new Error(`${at} の材料がありません`);
+      if (!e.hz.length) throw new Error(`${at} の危険(hz)がありません(どの液にも 1 つ以上)`);
+      for (const id of e.mat) if (!mIds.has(id)) throw new Error(`${at} の存在しない材料 ${id}`);
+      for (const id of e.hz) if (!hIds.has(id) || id === 'general') throw new Error(`${at} の危険 ${id}(general 以外の hazards の id)`);
+      srcOk(e.src, at);
+    }
+    for (const h of D.hazards) srcOk(h.src, `${where}: 危険 ${h.id}`);
+    // 番手の換算表: [米国 ANSI/CAMI, FEPA P, µm]。粗い順で、どちらの番号も増え、粒は小さくなる
+    if (!D.grit?.length || D.grit.some((r, i) => r.length !== 3 || !r.every(x => x > 0) || (i && !(r[0] > D.grit[i - 1][0] && r[1] > D.grit[i - 1][1] && r[2] < D.grit[i - 1][2])))) throw new Error(`${where}: grit(番手の換算表)が正しくありません`);
+    for (const f of D.defects) {
+      const at = `${where}: 不具合 ${f.id}`;
+      if (!stIds.has(f.step)) throw new Error(`${at} の存在しない段 ${f.step}`);
+      if (new Set(f.causes.map(c => c.id)).size !== f.causes.length) throw new Error(`${at} の原因の id が重なっています`);
+      for (const c of f.causes) {
+        if (!Number.isInteger(c.w) || c.w < 0) throw new Error(`${at} の原因 ${c.id} の重み w は 0 以上の整数`);
+        for (const [k, v] of Object.entries(c.up)) if (!trIds.has(k) || !Number.isInteger(v) || v <= 0) throw new Error(`${at} の原因 ${c.id} の加点 ${k}: ${v}`);
+        if (c.only && (!c.only.length || c.only.some(k => !trIds.has(k)))) throw new Error(`${at} の原因 ${c.id} の only`);
+        if (c.w === 0 && !Object.keys(c.up).length) throw new Error(`${at} の原因 ${c.id} は重み 0 で加点もありません`);
+      }
+      if (!f.causes.some(c => c.w > 0)) throw new Error(`${at}: 材料によらない原因(重み 1 以上)がありません`);
+      srcOk(f.src, at);
+    }
+    for (const g of D.guide) srcOk(g.src, `${where}: 読み物 ${g.id}`);
+    // 順位の自己検査: どの材料・どの不具合でも、確からしい原因が 1 つ以上出て、材料の fx の不具合でも同じ
+    for (const f of D.defects) {
+      if (prpJs.rank(f, null).hits.length !== f.causes.length) throw new Error(`${where}: 不具合 ${f.id} の順位(材料なし)が原因の数と合いません`);
+      for (const m of D.materials) if (!prpJs.rank(f, m.tr).hits.length) throw new Error(`${where}: 不具合 ${f.id} を材料 ${m.id} で選ぶと原因が空です`);
+    }
+    // ページの中の id が重ならないこと
+    const reserved = ['pp-app', 'flow', 'grit', 'defects', 'materials', 'safety', 'not-listed', 'etchants', 'sources', 'faq'];
+    if (D.guide.some(g => reserved.includes(g.id) || /^(p|e|f|hz|st|g)-/.test(g.id))) throw new Error(`${where}: guide の id が重なります`);
+    function need(k) { if (S[k] == null) throw new Error(`src/i18n/${code}.json: ${k} がありません`); return S[k]; }
+    const pHome = `${home}prep/`;
+    const pPath = l => `${l.path}prep/`;
+    const pAlt = Object.fromEntries(langs.filter(x => prpOn(x.code)).map(x => [x.code, pPath(x)]));
+    const ref = Object.fromEntries(D.refs.map(r => [r.k, r]));
+    const mOf = Object.fromEntries(D.materials.map(m => [m.id, m]));
+    const eOf = Object.fromEntries(D.etchants.map(e => [e.id, e]));
+    const hOf = Object.fromEntries(D.hazards.map(h => [h.id, h]));
+    const fOf = Object.fromEntries(D.defects.map(f => [f.id, f]));
+    const stOf = Object.fromEntries(D.flow.map(f => [f.id, f]));
+    const trName = Object.fromEntries(D.traits.map(x => [x.id, x.name]));
+    const termOf = k => terms.find(g => g.key === k);
+    const src = list => `<p class="fm-src">${esc(need('prep_src'))}: ${esc(list.map(s => ref[s].s).join('; '))}</p>`;
+    const linkRow = (label, items) => (items.filter(Boolean).length ? `<span class="fm-ln"><b>${esc(label)}</b> ${items.filter(Boolean).join(' ')}</span>` : '');
+    const atlasOf = id => (s => (s ? `<a href="${home}atlas/?s=${s.id}#s-${s.id}">${esc(s.name)}</a>` : ''))(atl?.structures.find(e => e.id === id));
+    const mtdOf = id => (m => (m ? `<a href="${home}methods/#m-${m.id}">${esc(m.abbr || m.name)}</a>` : ''))(mtd?.methods.find(e => e.id === id));
+    const fLink = id => `<a href="#f-${id}">${esc(fOf[id].name)}</a>`;
+    const eLink = id => `<a href="#e-${id}">${esc(eOf[id].name)}</a>`;
+    const mLink = id => `<a href="#p-${id}">${esc(mOf[id].name)}</a>`;
+    const hzTags = ids => ids.map(id => `<a class="pp-hzb" href="#hz-${id}">${esc(hOf[id].short)}</a>`).join(' ');
+    const ul = (list, cls = 'mt-miss') => `<ul class="${cls}">${list.map(s => `<li>${esc(s)}</li>`).join('')}</ul>`;
+    // 原因は基本の重みの順(同じ重みはデータの順)。重み 0 は材料によって起きる原因で、その性質を添える
+    const byW = f => f.causes.map((c, i) => [c, i]).sort((a, b) => b[0].w - a[0].w || a[1] - b[1]).map(x => x[0]);
+    const byTr = c => [...new Set([...(c.only ?? []), ...Object.keys(c.up)])].map(k => trName[k]).join('・');
+    const tips = f => D.materials.filter(m => m.fx[f.id]);
+    const flowHtml = D.flow.map((f, i) => `
+  <li class="pp-st" id="st-${f.id}">
+    <h3>${i + 1}. ${esc(f.name)}</h3>${f.p.map(p => `
+    <p>${linked(p)}</p>`).join('')}
+    <p class="pp-ff"><b>${esc(need('prep_flow_fail'))}</b> ${f.f.map(fLink).join(' · ')}</p>${f.id === 'grind' ? `
+    <div class="fm-scroll pp-scroll" id="grit"><table class="pp-tbl pp-grit"><caption>${esc(need('prep_grit_h'))}</caption><thead><tr>${['grit_p', 'grit_us', 'grit_um'].map(k => `<th scope="col">${esc(need(`prep_${k}`))}</th>`).join('')}</tr></thead><tbody>${D.grit.map(([us, pg, um]) => `
+      <tr><td>P${pg}</td><td>${us}</td><td>${um}</td></tr>`).join('')}
+    </tbody></table></div>` : ''}
+    ${src(f.src)}
+  </li>`).join('');
+    const defCard = f => `
+  <article class="mt-card pp-def" id="f-${f.id}">
+    <div class="mt-head"><h3><a href="#f-${f.id}">${esc(f.name)}</a></h3></div>
+    <p class="pp-look">${esc(f.look)}</p>
+    <p class="mt-std"><b>${esc(need('prep_def_step'))}</b> <a href="#st-${f.step}">${esc(stOf[f.step].name)}</a></p>
+    <h4>${esc(need('prep_causes_h'))}</h4>
+    <ol class="pp-causes">${byW(f).map(c => `
+      <li data-c="${c.id}"><p class="pp-c">${esc(c.t)}</p><p class="pp-fix"><b>${esc(need('prep_fix'))}</b> ${esc(c.fix)}</p>${c.w === 0 ? `<p class="pp-by muted">${esc(t('prep_by_tr', { t: byTr(c) }))}</p>` : ''}</li>`).join('')}
+    </ol>${tips(f).length ? `
+    <h4>${esc(need('prep_tips_h'))}</h4>
+    <ul class="mt-miss pp-tips">${tips(f).map(m => `<li data-p="${m.id}"><b>${mLink(m.id)}</b> <span class="pp-tt">${esc(m.fx[f.id])}</span></li>`).join('')}</ul>` : ''}
+    ${src(f.src)}
+  </article>`;
+    const stage = s => esc(need(`prep_stage_${s}`));
+    const matCard = m => {
+      const tm = m.terms.map(termOf).filter(Boolean).map(g => `<a class="chip" href="${home}term/${termSlug[g.key]}/">${esc(g.term)}</a>`);
+      const links = [linkRow(S.nav_atlas, m.atlas.map(atlasOf)), ...(mtd ? [linkRow(S.nav_methods, m.methods.map(mtdOf))] : [])].filter(Boolean).join('');
+      return `
+  <article class="mt-card pp-mat" id="p-${m.id}">
+    <div class="mt-head"><h3><a href="#p-${m.id}">${esc(m.name)}</a></h3></div>${m.tr.length ? `
+    <p class="mt-needs"><b>${esc(need('prep_traits'))}</b> ${m.tr.map(k => `<span class="mt-need">${esc(trName[k])}</span>`).join(' ')}</p>` : ''}
+    <h4>${esc(need('prep_hard'))}</h4>
+    ${ul(m.hard)}
+    <h4>${esc(need('prep_steps_h'))}</h4>
+    <div class="fm-scroll pp-scroll"><table class="pp-tbl pp-steps"><thead><tr>${['stage', 'abr', 'surf', 'lub', 'time'].map(k => `<th scope="col">${esc(need(`prep_${k}`))}</th>`).join('')}</tr></thead><tbody>${m.steps.map(r => `
+      <tr><td class="pp-sg">${stage(r.s)}</td>${r.t.map((x, i) => (i === 0 ? `<th scope="row">${esc(x)}</th>` : `<td data-l="${esc(need(`prep_${['abr', 'surf', 'lub', 'time'][i]}`))}">${esc(x)}</td>`)).join('')}</tr>`).join('')}
+    </tbody></table></div>
+    <p class="pp-note"><b>${esc(need('prep_cond'))}</b> ${esc(m.note)}</p>
+    <h4>${esc(need('prep_etch'))}</h4>
+    <p class="pp-etl">${m.etch.map(id => `${eLink(id)}${eOf[id].hz.length ? ` ${hzTags(eOf[id].hz)}` : ''}`).join(' · ')}</p>
+    ${ul(m.see)}${Object.keys(m.fx).length ? `
+    <h4>${esc(need('prep_fx_h'))}</h4>
+    <ul class="mt-miss">${Object.entries(m.fx).map(([id, x]) => `<li><b>${fLink(id)}</b> ${esc(x)}</li>`).join('')}</ul>` : ''}${m.miss.length ? `
+    <h4>${esc(need('prep_miss'))}</h4>
+    ${ul(m.miss)}` : ''}${m.std.length ? `
+    <p class="mt-std"><b>${esc(need('prep_std'))}</b> ${m.std.map(esc).join(' / ')}</p>` : ''}${links ? `
+    <p class="fm-links">${links}</p>` : ''}${tm.length ? `
+    <p class="fm-terms term-chips"><b>${esc(need('prep_terms'))}</b> ${tm.join(' ')}</p>` : ''}
+    ${src(m.src)}
+    <p class="pp-try"><a href="?p=${m.id}#pp-app" data-pp-try="${m.id}" hidden>${esc(need('prep_try'))}</a></p>
+  </article>`;
+    };
+    const etCard = e => `
+  <article class="mt-card pp-et" id="e-${e.id}">
+    <div class="mt-head"><h3><a href="#e-${e.id}">${esc(e.name)}</a>${e.aka ? ` <span class="mt-abbr">${esc(e.aka)}</span>` : ''}</h3></div>${e.hz.length ? `
+    <p class="pp-hz"><b>${esc(need('prep_et_hz'))}</b> ${hzTags(e.hz)}</p>` : ''}
+    <dl class="mt-dl pp-dl">
+      <div><dt>${esc(need('prep_comp'))}</dt><dd>${ul(e.comp)}</dd></div>
+      <div><dt>${esc(need('prep_use'))}</dt><dd>${ul(e.use)}</dd></div>
+      <div><dt>${esc(need('prep_see'))}</dt><dd>${esc(e.see)}</dd></div>
+      <div><dt>${esc(need('prep_et_mat'))}</dt><dd>${e.mat.map(mLink).join(' · ')}</dd></div>
+    </dl>${e.nb.length ? `
+    <h4>${esc(need('prep_nb'))}</h4>
+    ${ul(e.nb)}` : ''}
+    ${src(e.src)}
+  </article>`;
+    const jsText = Object.fromEntries(['prep_pick', 'prep_count', 'prep_count_m', 'prep_up', 'prep_by_mat', 'prep_low_h', 'prep_low_only', 'prep_low_zero', 'prep_tip_h', 'prep_mat_link', 'compare_link_copied'].map(k => [k, need(k)]));
+    const jsD = D.defects.map(f => ({ id: f.id, causes: f.causes.map(({ id, w, up, only }) => ({ id, w, up, ...(only ? { only } : {}) })) }));
+    const jsM = D.materials.map(m => ({ id: m.id, tr: m.tr }));
+    const relCats = [...new Set(D.groups.map(g => g.cat))].map(catOf).filter(c => c && live.includes(c));
+    const nOf = g => D.materials.filter(m => m.g === g.id).length;
+    const gen = hOf.general;
+    page({
+      path: pPath(L),
+      alt: pAlt,
+      title: D.title,
+      fullTitle: `${D.title} | ${siteName}`,
+      description: D.description,
+      scripts: ['prep.js'],
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_prep, pHome]),
+        ...(D.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: D.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(D.h1)}</h1>
+<p class="lead">${esc(D.lead)}</p>
+<p class="mt-nb pp-safe"><b>${esc(need('prep_safety_h'))}</b> ${esc(D.safety)} <a href="#safety">${esc(need('prep_safety_link'))}</a></p>
+<p class="fn-caution">${esc(D.note)}</p>
+<noscript><p class="muted">${esc(need('prep_noscript'))}</p></noscript>
+<section id="pp-app" class="mt-app" data-t="${esc(JSON.stringify(jsText))}" data-d="${esc(JSON.stringify(jsD))}" data-m="${esc(JSON.stringify(jsM))}" data-tr="${esc(JSON.stringify(trName))}" hidden>
+  <h2>${esc(need('prep_find_h'))}</h2>
+  <form class="mt-form">
+    <fieldset class="mt-fs">
+      <legend>${esc(need('prep_f_label'))}</legend>
+      <div class="mt-chips">${D.defects.map(f => `<label class="mt-chip"><input type="radio" name="f" value="${f.id}"> ${esc(f.name)}</label>`).join('')}</div>
+    </fieldset>
+    <div class="mt-grid pp-grid">
+      <label class="mt-sel"><span>${esc(need('prep_p_label'))}</span><select name="p"><option value="">${esc(need('prep_p_any'))}</option>${D.groups.map(g => `<optgroup label="${esc(g.name)}">${D.materials.filter(m => m.g === g.id).map(m => `<option value="${m.id}">${esc(m.name)}</option>`).join('')}</optgroup>`).join('')}</select></label>
+    </div>
+    <div class="fm-sel-btns">
+      <button type="button" class="btn btn-ghost btn-small" data-share>${esc(need('prep_share'))}</button>
+      <button type="button" class="btn btn-ghost btn-small" data-reset>${esc(need('prep_reset'))}</button>
+    </div>
+    <p class="fm-msg pp-msg" role="status" hidden></p>
+  </form>
+  <h3>${esc(need('prep_result_h'))}</h3>
+  <div class="pp-out" aria-live="polite"></div>
+</section>
+<nav class="at-toc" aria-label="${esc(need('prep_toc'))}"><a class="chip" href="#flow">${esc(need('prep_flow_h'))}</a> <a class="chip" href="#defects">${esc(need('prep_def_h'))}</a> <a class="chip" href="#materials">${esc(need('prep_mat_h'))}</a> <a class="chip" href="#safety">${esc(need('prep_safety_h'))}</a> <a class="chip" href="#etchants">${esc(need('prep_et_h'))}</a>${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')} <a class="chip" href="#sources">${esc(D.sources_h)}</a>${D.faq.length ? ` <a class="chip" href="#faq">${esc(t('compare_faq'))}</a>` : ''}</nav>
+<section id="flow" class="pp-flow-sec">
+  <h2>${esc(need('prep_flow_h'))}</h2>
+  <ol class="pp-flow">${flowHtml}
+  </ol>
+</section>
+<section id="defects" class="pp-defs">
+  <h2>${esc(need('prep_def_h'))} <span class="fm-n">${D.defects.length}</span></h2>
+  <p>${esc(need('prep_def_lead'))}</p>
+  <div class="fm-scroll pp-scroll"><table class="pp-tbl pp-ftbl"><thead><tr>${['def_name', 'def_look', 'def_main', 'def_step'].map(k => `<th scope="col">${esc(need(`prep_${k}`))}</th>`).join('')}</tr></thead><tbody>${D.defects.map(f => `
+    <tr><th scope="row">${fLink(f.id)}</th><td>${esc(f.look)}</td><td>${esc(byW(f)[0].t)}</td><td><a href="#st-${f.step}">${esc(stOf[f.step].name)}</a></td></tr>`).join('')}
+  </tbody></table></div>${D.defects.map(defCard).join('')}
+</section>
+<div data-ad="compare"></div>
+<section id="materials" class="pp-mats">
+  <h2>${esc(need('prep_mat_h'))} <span class="fm-n">${D.materials.length}</span></h2>
+  <p>${esc(need('prep_mat_lead'))}</p>
+  <nav class="at-toc" aria-label="${esc(need('prep_mat_h'))}">${D.groups.map(g => `<a class="chip" href="#g-${g.id}">${esc(g.name)}</a>`).join(' ')}</nav>${D.groups.map(g => `
+  <section class="mt-group" id="g-${g.id}">
+    <h3 class="pp-gh">${esc(g.name)} <span class="fm-n">${nOf(g)}</span></h3>${D.materials.filter(m => m.g === g.id).map(matCard).join('')}
+  </section>`).join('')}
+</section>
+<section id="safety" class="pp-safety">
+  <h2>${esc(need('prep_safety_h'))}</h2>
+  <p class="fn-caution">${esc(D.safety)}</p>
+  ${D.hazards.map(h => `<section class="pp-hz-sec" id="hz-${h.id}">
+    <h3>${esc(h.name)}</h3>${h.p.map(p => `
+    <p>${esc(p)}</p>`).join('')}
+    ${src(h.src)}
+  </section>`).join('\n  ')}
+  <section class="pp-hz-sec" id="not-listed">
+    <h3>${esc(need('prep_not_h'))}</h3>
+    <p>${esc(need('prep_not_lead'))}</p>
+    ${ul(D.not_listed)}
+  </section>
+</section>
+<section id="etchants" class="pp-ets">
+  <h2>${esc(need('prep_et_h'))} <span class="fm-n">${D.etchants.length}</span></h2>
+  <p>${esc(need('prep_et_lead'))} <a href="#hz-${gen.id}">${esc(gen.name)}</a></p>
+  <div class="fm-scroll pp-scroll"><table class="pp-tbl"><thead><tr>${['et_name', 'et_mat', 'et_hz'].map(k => `<th scope="col">${esc(need(`prep_${k}`))}</th>`).join('')}</tr></thead><tbody>${D.etchants.map(e => `
+    <tr><th scope="row">${eLink(e.id)}</th><td>${e.mat.map(mLink).join(' · ')}</td><td>${e.hz.length ? hzTags(e.hz) : '—'}</td></tr>`).join('')}
+  </tbody></table></div>${D.etchants.map(etCard).join('')}
+</section>
+${D.guide.map(g => `<section id="${g.id}" class="fm-guide">
+  <h2>${esc(g.h)}</h2>${g.p.map(p => `
+  <p>${linked(p)}</p>`).join('')}
+  ${src(g.src)}
+</section>`).join('\n')}
+<section id="sources" class="fn-sources fm-refs">
+  <h2>${esc(D.sources_h)}</h2>
+  <ul>${D.refs.map(r => `
+    <li><b>${esc(r.s)}</b>: <a href="${esc(r.url)}" rel="noopener" target="_blank">${esc(r.full)}</a></li>`).join('')}
+  </ul>
+</section>
+${D.faq.length ? `<section class="faq" id="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${D.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+${relCats.length ? `<section>
+  <h2>${esc(need('prep_rel_cats'))}</h2>
+  ${catCards(relCats)}
+</section>` : ''}`,
+    });
+  }
+
   // 材料英語の表現集: /phrases/(表現のカード・検索・場面で絞る・お気に入り・差し込み欄・印刷・英文の点検。動きは phrases.js。ページは1つだけ)
   if (phr) buildPhrases();
   function buildPhrases() {
@@ -4495,7 +4831,7 @@ fs.writeFileSync(lastmodFile, '{\n' + Object.entries(lastmod).map(([k, v]) => ` 
 // /sitemap.xml の場所は変えないので、Search Console と robots.txt はそのままでよい
 const SITEMAP_MAX = 40000;
 const langOfUrl = url => [...langs].sort((a, b) => b.path.length - a.path.length).find(x => pageKey(url).startsWith(x.path)).code; // 既定言語(path が空)は最後に当たる
-const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools', 'failure', 'atlas', 'drill', 'materials', 'formulas', 'methods', 'phrases']; // これ以外(トップ・分野・図解集など)は other にまとめる
+const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools', 'failure', 'atlas', 'drill', 'materials', 'formulas', 'methods', 'prep', 'phrases']; // これ以外(トップ・分野・図解集など)は other にまとめる
 const typeOfUrl = url => {
   const L = langs.find(x => x.code === langOfUrl(url));
   const first = pageKey(url).slice(L.path.length).split('/')[0];

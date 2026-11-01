@@ -1,0 +1,4371 @@
+{
+ "title": "試料調製・エッチングガイド(切断・埋め込み・研磨・腐食と失敗の原因)",
+ "description": "金属組織を観察する前の試料の作り方を、炭素鋼・焼入れ鋼・ステンレス鋼・鋳鉄・Al・Cu・Ti・Ni・Mg・はんだ・めっき・超硬・セラミックス・EBSD など材料ごとに、研削・研磨の段とエッチング液で引けます。傷・だれ・レリーフ・彗星状の尾・しみ・過エッチングなどの不具合から原因と直し方を探せ、腐食液の危険と注意も確かめられます。",
+ "h1": "試料調製・エッチングガイド",
+ "lead": "金属組織を観察する前の「観察できる試料」をつくるためのページです。切断・埋め込み・研削・研磨・エッチングの手順を材料ごとに引き、うまくいかなかったときは、見えた不具合と材料を選んで原因と直し方を確からしい順に探せます。見えた組織の見分け方は組織アトラス、どの装置で測るかは分析・評価手法ナビへ。",
+ "note": "研削・研磨の段と時間・力・回転は、出典(装置メーカーの手順書など)の自動研磨機での典型の値で、装置・研磨材・試料の大きさと数で変わります。初めての材料は、各段で前の傷が消えたかを見ながら加減してください。組成は出典どうしで突き合わせ、違うものは幅で書くか、違うと書いています。規格は名前と番号と対象だけを挙げています。",
+ "safety": "エッチング液には、フッ化水素酸・ピクリン酸・シアン化物を出すおそれのある液など、危険の大きいものがあります。液を作る・使う前に、使う薬品の SDS と所属の安全規則を必ず確かめ、ドラフトの中で保護具を着けて扱ってください。",
+ "sources_h": "主な出典",
+ "refs": [
+  {
+   "k": "pace-etch",
+   "s": "PACE 腐食液の解説",
+   "full": "PACE Technologies, Etchants(液ごとの解説ページ: 2% Nital, Picral, Vilella's, Klemm's, Beraha's, Keller's, Kroll's, Glyceregia, Marble's, Kalling's No. 2, Murakami's, 10% Oxalic acid electrolytic, Ammonium persulfate, Fry's, Adler's, Barker's, 0.5% HF, Al NaOH, Weck's), metallographic.com/etchants",
+   "url": "https://metallographic.com/etchants.html"
+  },
+  {
+   "k": "pace-steel",
+   "s": "PACE 炭素鋼",
+   "full": "PACE Technologies, Carbon steel preparation (guide), metallographic.com/guides",
+   "url": "https://www.metallographic.com/guides/carbon-steel-preparation.html"
+  },
+  {
+   "k": "pace-tool",
+   "s": "PACE 工具鋼",
+   "full": "PACE Technologies, Tool steel preparation (guide)",
+   "url": "https://www.metallographic.com/guides/tool-steel-preparation.html"
+  },
+  {
+   "k": "pace-ss",
+   "s": "PACE ステンレス鋼",
+   "full": "PACE Technologies, Stainless steel preparation (guide)",
+   "url": "https://www.metallographic.com/guides/stainless-steel-preparation.html"
+  },
+  {
+   "k": "pace-ci",
+   "s": "PACE 鋳鉄",
+   "full": "PACE Technologies, Cast iron preparation (guide)",
+   "url": "https://www.metallographic.com/guides/cast-iron-preparation.html"
+  },
+  {
+   "k": "pace-weld",
+   "s": "PACE 溶接部",
+   "full": "PACE Technologies, Welding analysis (guide)",
+   "url": "https://www.metallographic.com/guides/welding-analysis.html"
+  },
+  {
+   "k": "pace-al",
+   "s": "PACE アルミニウム",
+   "full": "PACE Technologies, Aluminum sample preparation (guide)",
+   "url": "https://www.metallographic.com/guides/aluminum-sample-preparation.html"
+  },
+  {
+   "k": "pace-cu",
+   "s": "PACE 銅合金",
+   "full": "PACE Technologies, Copper and copper alloys preparation (guide)",
+   "url": "https://www.metallographic.com/guides/copper-and-copper-alloys-preparation.html"
+  },
+  {
+   "k": "pace-ti",
+   "s": "PACE チタン",
+   "full": "PACE Technologies, Titanium preparation (guide)",
+   "url": "https://www.metallographic.com/guides/titanium-preparation.html"
+  },
+  {
+   "k": "pace-ni",
+   "s": "PACE ニッケル合金",
+   "full": "PACE Technologies, Nickel alloys preparation (guide)",
+   "url": "https://www.metallographic.com/guides/nickel-alloys-preparation.html"
+  },
+  {
+   "k": "pace-mg",
+   "s": "PACE マグネシウム",
+   "full": "PACE Technologies, Magnesium preparation (guide)",
+   "url": "https://www.metallographic.com/guides/magnesium-preparation.html"
+  },
+  {
+   "k": "pace-sn",
+   "s": "PACE 錫合金の腐食",
+   "full": "PACE Technologies, Tin alloy etching",
+   "url": "https://www.metallographic.com/etching/tin-alloy.html"
+  },
+  {
+   "k": "pace-zn",
+   "s": "PACE 亜鉛合金の腐食",
+   "full": "PACE Technologies, Zinc alloy etching",
+   "url": "https://www.metallographic.com/etching/zinc-alloy.html"
+  },
+  {
+   "k": "pace-tsc",
+   "s": "PACE 溶射皮膜",
+   "full": "PACE Technologies, Thermal spray coatings preparation (guide)",
+   "url": "https://www.metallographic.com/guides/thermal-spray-coatings-preparation.html"
+  },
+  {
+   "k": "pace-cermet",
+   "s": "PACE 超硬・サーメット",
+   "full": "PACE Technologies, Cermets and technical glasses preparation (guide)",
+   "url": "https://www.metallographic.com/guides/cermets-technical-glasses-preparation.html"
+  },
+  {
+   "k": "pace-ceramic",
+   "s": "PACE セラミックス",
+   "full": "PACE Technologies, Ceramics preparation (guide)",
+   "url": "https://www.metallographic.com/guides/ceramics-preparation.html"
+  },
+  {
+   "k": "pace-pcb",
+   "s": "PACE 基板・チップ",
+   "full": "PACE Technologies, PCB and chip preparation (guide)",
+   "url": "https://www.metallographic.com/guides/pcb-chip-preparation.html"
+  },
+  {
+   "k": "pace-trouble",
+   "s": "PACE 不具合の手引き",
+   "full": "PACE Technologies, Troubleshooting common issues (guide)",
+   "url": "https://metallographic.com/guides/troubleshooting-common-issues"
+  },
+  {
+   "k": "struers-metalog",
+   "s": "Struers Metalog Guide",
+   "full": "Struers A/S, Metalog Guide (4th revised ed., 2002; 大学の講義資料として公開された写し)",
+   "url": "https://sistemas.eel.usp.br/docentes/arquivos/6495737/LOM3046/Metalog_GuideStruers.pdf"
+  },
+  {
+   "k": "struers-zn",
+   "s": "Struers 亜鉛めっき",
+   "full": "Struers, Application Note: Metallographic preparation of zinc coatings",
+   "url": "https://www.struers.com/-/media/Struers-media-library/Materials/Application-reports/Application_Note_Zinc_English.pdf"
+  },
+  {
+   "k": "buehler-solder",
+   "s": "Buehler 鉛フリーはんだ",
+   "full": "N. Vahora, M. Keeble, M. Hasnine, Metallographic Preparation of Lead Free Solder, Buehler TECHNotes Vol. 7, Issue 5",
+   "url": "https://www.kester.com/Portals/0/Documents/Knowledge%20Base/Metallographic_Preparation_of_Lead_Free_Solder_Material_TechNote.pdf"
+  },
+  {
+   "k": "metkon-etch",
+   "s": "Metkon 腐食液の表",
+   "full": "Metkon, Etching (application details: etchant table)",
+   "url": "https://www.metkon.com/Applications-Details/63/etching/"
+  },
+  {
+   "k": "metkon-art",
+   "s": "Metkon 研磨の不具合 12",
+   "full": "Metkon, 12 common polishing artifacts and how to eliminate them",
+   "url": "https://www.metkon.com/12-common-polishing-artifacts-and-how-to-eliminate-them/"
+  },
+  {
+   "k": "vv-color",
+   "s": "Vander Voort 着色エッチング",
+   "full": "G. F. Vander Voort, Color Metallography, Microscopy Today, November 2005",
+   "url": "https://cambridge.org/core/services/aop-cambridge-core/content/view/578D4C265B396F2D78737BAE5A4A9947/S1551929500053943a.pdf/color_metallography.pdf"
+  },
+  {
+   "k": "vv-safety",
+   "s": "Vander Voort 実験室の安全",
+   "full": "G. F. Vander Voort, Laboratory Safety in Metallography, ASM Handbook Vol. 9, ASM International (2004)(ウォータールー大学の公開の写し)",
+   "url": "https://uwaterloo.ca/centre-advanced-materials-joining/sites/default/files/uploads/files/laboratory_safety_in_metallography_2.pdf"
+  },
+  {
+   "k": "btu-etch",
+   "s": "ブルサ工科大学 実験資料",
+   "full": "Bursa Technical University 金属工学科, Etching and Microscopical Examination(実験資料)",
+   "url": "https://depo.btu.edu.tr/dosyalar/metalurji/Dosyalar/Etching%20and%20Microscopical%20Examination.pdf"
+  },
+  {
+   "k": "witt-ebsd",
+   "s": "Witt・Nowell(EBSD の試料)",
+   "full": "R. Witt, M. M. Nowell, Specimen Preparation of Difficult Materials for EBSD Characterization, Microsc. Microanal. 17 (Suppl 2), 414–415 (2011)",
+   "url": "https://cambridge.org/core/services/aop-cambridge-core/content/view/088021AFC98A0DEC6D618520F588A2DC/S1431927611002947a.pdf/specimen-preparation-of-difficult-materials-for-ebsd-characterization.pdf"
+  },
+  {
+   "k": "lightform",
+   "s": "LightForm wiki 試料の作り方",
+   "full": "LightForm group wiki, Sample preparation (tutorial)",
+   "url": "https://lightform-group.github.io/wiki/tutorials/sample-preparation"
+  },
+  {
+   "k": "pinard",
+   "s": "Pinard ら(変形の深さ)",
+   "full": "P. T. Pinard, P. Hovington, M. Lagacé, G. F. Vander Voort, R. Gauvin, Towards a more quantitative measurement of the deformation during metallographic specimen preparation using EBSD and FIB, Microsc. Microanal. 16 (Suppl 2) (2010)",
+   "url": "https://cambridge.org/core/services/aop-cambridge-core/content/view/EB609D96067D5C0BE4E22145E7C98A3C/S1431927610059295a.pdf/towards-a-more-quantitative-measurement-of-the-deformation-during-metallographic-specimen-preparation-using-ebsd-and-fib.pdf"
+  },
+  {
+   "k": "lambda-ra",
+   "s": "Lambda Technologies 残留オーステナイト",
+   "full": "Lambda Technologies, Diffraction Notes No. 33: Determination of Volume Percent Retained Austenite by X-Ray Diffraction (2006)",
+   "url": "https://www.lambdatechs.com/wp-content/uploads/dn-33.pdf"
+  },
+  {
+   "k": "aga-hdg",
+   "s": "米国亜鉛めっき協会",
+   "full": "American Galvanizers Association, The HDG Coating",
+   "url": "https://galvanizeit.org/hot-dip-galvanizing/what-is-galvanizing/the-hdg-coating"
+  },
+  {
+   "k": "steeldata-126",
+   "s": "Steel Data(腐食液 No.126)",
+   "full": "Steel Data, ASTM etchant No. 126 (Mg–Al, Mg–Al–Zn)(F. Hargreaves の腐食液データによる)",
+   "url": "https://steeldata.info/etch/demo/data/4536.html"
+  },
+  {
+   "k": "fa-marker",
+   "s": "倍率の目盛りについて",
+   "full": "Failure Analysis of Engineering Materials, Appendix F: Comments on Magnification Markers(GlobalSpec のページ)",
+   "url": "https://www.globalspec.com/reference/61412/203279/appendix-f-comments-on-magnification-markers"
+  },
+  {
+   "k": "pace-safety",
+   "s": "PACE 安全の基本",
+   "full": "PACE Technologies, Safety Fundamentals for Metallography (guide)",
+   "url": "https://www.metallographic.com/guides/safety-fundamentals"
+  },
+  {
+   "k": "steeldata-grit",
+   "s": "Steel Data 番手の表",
+   "full": "Steel Data, Grit Size Table (FEPA P と ANSI/CAMI の粒の大きさ。ANSI B74.18-1996 の中央値)",
+   "url": "https://steeldata.info/semi/demo/help/others/grit_size_table.html"
+  },
+  {
+   "k": "tedpella-grit",
+   "s": "Ted Pella 番手の比べ方",
+   "full": "Ted Pella, Inc., Abrasive Grit Grading Systems (ANSI・FEPA・JIS の比べ方の表)",
+   "url": "https://www.tedpella.com/Material-Sciences_html/Abrasive_Grit_Grading_Systems.aspx"
+  },
+  {
+   "k": "pace-grit",
+   "s": "PACE 番手の換算",
+   "full": "PACE Technologies, Grit Size Converter (ANSI/CAMI・FEPA・JIS の換算の注記)",
+   "url": "https://www.metallographic.com/tools/grit-size-converter"
+  },
+  {
+   "k": "tinpest",
+   "s": "錫ペストの総説",
+   "full": "The phenomenon of tin pest: A review, Microelectronics Reliability 79, 175– (2017)(要旨)",
+   "url": "https://ui.adsabs.harvard.edu/abs/2017MiRe...79..175C/abstract"
+  },
+  {
+   "k": "astm-e2014",
+   "s": "ASTM E2014-17",
+   "full": "ASTM E2014-17, Standard Guide on Metallographic Laboratory Safety(規格の見本ページ)",
+   "url": "https://cdn.standards.iteh.ai/samples/97720/1c468df888574e66a1f53c5d0ab0454a/ASTM-E2014-17.pdf"
+  },
+  {
+   "k": "astm-e407",
+   "s": "ASTM E407-23",
+   "full": "ASTM E407-23, Standard Practice for Microetching Metals and Alloys(規格の概要)",
+   "url": "https://store.astm.org/e0407-23.html"
+  },
+  {
+   "k": "cdc-hf",
+   "s": "CDC フッ化水素",
+   "full": "U.S. CDC, Chemical Emergencies: Hydrogen Fluoride (fact sheet)",
+   "url": "https://www.cdc.gov/chemical-emergencies/chemical-fact-sheets/hydrogen-fluoride.html"
+  },
+  {
+   "k": "niosh-hf",
+   "s": "NIOSH Pocket Guide フッ化水素",
+   "full": "NIOSH Pocket Guide to Chemical Hazards: Hydrogen fluoride",
+   "url": "https://www.cdc.gov/niosh/npg/npgd0334.html"
+  },
+  {
+   "k": "columbia-hf",
+   "s": "コロンビア大学 HF の応急手当",
+   "full": "Columbia University EH&S, Hydrofluoric Acid Post Exposure Sheet (2016, rev. 2023)",
+   "url": "https://research.columbia.edu/sites/default/files/content/EHS/Homepage/HFPrintAndGo.pdf"
+  },
+  {
+   "k": "mhlw-picric",
+   "s": "職場のあんぜんサイト ピクリン酸",
+   "full": "厚生労働省 職場のあんぜんサイト, GHS 対応モデル SDS: ピクリン酸(CAS 88-89-1)",
+   "url": "https://anzeninfo.mhlw.go.jp/anzen/gmsds/88-89-1.html"
+  },
+  {
+   "k": "mhlw-perchloric",
+   "s": "職場のあんぜんサイト 過塩素酸",
+   "full": "厚生労働省 職場のあんぜんサイト, GHS 対応モデル SDS: 過塩素酸(CAS 7601-90-3)",
+   "url": "https://anzeninfo.mhlw.go.jp/anzen/gmsds/7601-90-3.html"
+  },
+  {
+   "k": "mhlw-cro3",
+   "s": "職場のあんぜんサイト 無水クロム酸",
+   "full": "厚生労働省 職場のあんぜんサイト, GHS 対応モデル SDS: 無水クロム酸(CAS 1333-82-0)",
+   "url": "https://anzeninfo.mhlw.go.jp/anzen/gmsds/1333-82-0.html"
+  },
+  {
+   "k": "mhlw-oxalic",
+   "s": "職場のあんぜんサイト シュウ酸",
+   "full": "厚生労働省 職場のあんぜんサイト, GHS 対応モデル SDS: しゅう酸(CAS 144-62-7)",
+   "url": "https://anzeninfo.mhlw.go.jp/anzen/gmsds/144-62-7.html"
+  },
+  {
+   "k": "mhlw-aps",
+   "s": "職場のあんぜんサイト 過硫酸アンモニウム",
+   "full": "厚生労働省 職場のあんぜんサイト, GHS 対応モデル SDS: ペルオキソ二硫酸アンモニウム(CAS 7727-54-0)",
+   "url": "https://anzeninfo.mhlw.go.jp/anzen/gmsds/0947.html"
+  },
+  {
+   "k": "mhlw-mg",
+   "s": "職場のあんぜんサイト マグネシウム粉",
+   "full": "厚生労働省 職場のあんぜんサイト, GHS 対応モデル SDS: マグネシウム粉(CAS 7439-95-4)",
+   "url": "https://anzeninfo.mhlw.go.jp/anzen/gmsds/1387.html"
+  },
+  {
+   "k": "columbus-hbf4",
+   "s": "フッ化ホウ素酸の SDS",
+   "full": "Columbus Chemical Industries, Safety Data Sheet: Fluoroboric Acid, 48–50% (rev. 2025-04-23)",
+   "url": "https://www.columbuschemical.com/MSDS/SDS/Fluoroboric%20Acid,%2048-50%25%20Purified,%20Low%20Sodium%202315.pdf"
+  },
+  {
+   "k": "laballey-kms",
+   "s": "メタ重亜硫酸カリウムの SDS",
+   "full": "Lab Alley, Safety Data Sheet: Potassium Metabisulfite (CAS 16731-55-8, rev. 2021-08-01)",
+   "url": "https://media.laballey.com/sds/C6490%20Potassium%20Metabisulfite%20SDS.pdf"
+  },
+  {
+   "k": "usask-picric",
+   "s": "サスカチュワン大学 ピクリン酸の手順",
+   "full": "University of Saskatchewan, Dept. of Mechanical Engineering, SOP Mat0026: Mixing and Using Etchants or Solutions that Contain Picric Acid",
+   "url": "https://engineering.usask.ca/documents/depts/mech/safety/material-science-and%20-metallurgy%20documents/mat0026-picric-acid-usage-and-storage.pdf"
+  }
+ ],
+ "groups": [
+  {
+   "id": "fe",
+   "name": "鉄鋼",
+   "cat": "metals"
+  },
+  {
+   "id": "join",
+   "name": "接合部",
+   "cat": "metals"
+  },
+  {
+   "id": "nonfe",
+   "name": "非鉄金属",
+   "cat": "metals"
+  },
+  {
+   "id": "layer",
+   "name": "層・皮膜・硬い材料",
+   "cat": "ceramics"
+  },
+  {
+   "id": "special",
+   "name": "目的別の仕上げ",
+   "cat": "characterization"
+  }
+ ],
+ "traits": [
+  {
+   "id": "soft",
+   "name": "柔らかい"
+  },
+  {
+   "id": "hard",
+   "name": "硬い"
+  },
+  {
+   "id": "phase",
+   "name": "硬さの違う相・層"
+  },
+  {
+   "id": "graphite",
+   "name": "黒鉛を残す"
+  },
+  {
+   "id": "brittle",
+   "name": "脆い"
+  },
+  {
+   "id": "porous",
+   "name": "気孔がある"
+  },
+  {
+   "id": "water",
+   "name": "水と反応する・水で傷む"
+  },
+  {
+   "id": "rust",
+   "name": "さびやすい"
+  },
+  {
+   "id": "passive",
+   "name": "不動態で腐食しにくい"
+  },
+  {
+   "id": "heat",
+   "name": "熱で組織が変わる"
+  },
+  {
+   "id": "edge",
+   "name": "縁・表面の層を見る"
+  },
+  {
+   "id": "twin",
+   "name": "機械的双晶ができやすい"
+  }
+ ],
+ "flow": [
+  {
+   "id": "cut",
+   "name": "切断",
+   "p": [
+    "冷却液を流し続け、刃に切らせて押しつけない。熱は組織を変え(焼入れ鋼の焼戻し、溶接の熱影響部)、熱の損傷は研磨では消えない。",
+    "砥石は、硬く脆い材料には結合の軟らかいもの(すり減って新しい砥粒が出る)、柔らかく粘い材料には結合の硬いものを選ぶ。薄い刃(0.5〜1.0 mm)ほど熱と変形が小さい。",
+    "超硬合金・セラミックス・皮膜は精密切断機のダイヤモンドの刃でゆっくり。白鋳鉄はダイヤモンドの刃で切らない。",
+    "見たい面と向きを決めて切る(表面の層には垂直に、溶接は中心線に印を)。"
+   ],
+   "f": [
+    "heat",
+    "scratch"
+   ],
+   "src": [
+    "struers-metalog",
+    "pace-steel",
+    "pace-tool",
+    "pace-ci",
+    "pace-ceramic",
+    "pace-weld"
+   ]
+  },
+  {
+   "id": "mount",
+   "name": "埋め込み",
+   "p": [
+    "熱間(圧縮)埋め込み: 150〜180 ℃で 5〜8 分保ち、加圧したまま室温まで冷やす(収縮が小さくなる)。縁を見るなら DAP や鉱物入りのエポキシ。",
+    "冷間(注型)埋め込み: 室温で 4〜8 時間ほどで固まる。熱に弱いもの(析出硬化した Al、はんだ)、脆いもの、多孔質のものに。鋭敏化を調べるステンレス鋼も、余計な熱の履歴を加えないよう冷間で埋める。ゆっくり固まるエポキシは収縮が小さく、よく付く。",
+    "多孔質の試料・皮膜は、低粘度のエポキシで真空含浸する。蛍光色素を混ぜると、樹脂の入った気孔と研磨で抜けた穴を見分けられる。"
+   ],
+   "f": [
+    "edge",
+    "stain",
+    "heat"
+   ],
+   "src": [
+    "pace-steel",
+    "struers-metalog",
+    "pace-al",
+    "pace-ss",
+    "struers-zn",
+    "pace-tsc"
+   ]
+  },
+  {
+   "id": "grind",
+   "name": "研削",
+   "p": [
+    "番手を順に細かくする(例: SiC 紙 P120 → P280 → P500 → P1200。米国の番手で 120 → 240 → 360 → 600 番。柔らかい材料は P1500・P2500(800・1200 番)を足す)。どの段も前の段の損傷を取り除き、自分の損傷はできるだけ少なくする。",
+    "段ごとに試料を 90° 回し、前の向きの傷が消えたか見る。水を流し、目づまりした紙は替える。",
+    "番手は、このページでは欧州の P 番手(FEPA)を主に書き、かっこに米国の番手(ANSI/CAMI)を書く。2 つは P220 より細かい側で番号が違い、粒の大きさで合わせる(下の換算表。表どうしで 1 段ずれることがある)。P2500 より細かい P 番手(P4000 など)は規格で決まっておらず、メーカーごとに違う。",
+    "日本の耐水研磨紙の「#600」などの番手は JIS の番手で、米国の 600 番(≒ P1200)とは違い、それより粗い。取り違えると粗い紙を選んでしまうので、P 番手か粒の大きさ(µm)で確かめる。",
+    "超硬合金・セラミックスは SiC ではほとんど削れないので、ダイヤモンドの円盤を使う。"
+   ],
+   "f": [
+    "scratch",
+    "embed",
+    "smear"
+   ],
+   "src": [
+    "struers-metalog",
+    "pace-steel",
+    "pace-trouble",
+    "pace-cermet",
+    "steeldata-grit",
+    "tedpella-grit",
+    "pace-grit"
+   ]
+  },
+  {
+   "id": "polish",
+   "name": "研磨",
+   "p": [
+    "ダイヤモンド(9・6・3・1 µm)を布の上で使う。硬く弾まない布は平らさと縁を保ち、柔らかい布は傷を消しやすいが、段差・脱落・尾が出やすい。",
+    "仕上げは 0.05 µm のアルミナかコロイダルシリカ(化学機械研磨)で変形の層を取る。コロイダルシリカは地を化学的に侵して細かい介在物を浮かせることがあるので、PACE は鋼の仕上げにアルミナを標準にしている。",
+    "コロイダルシリカは面の上で乾かさない。最後の 10〜30 秒は布に水だけを流す。",
+    "力の目安は 1 試料 22〜45 N(とても柔らかい Mg は 4〜9 N)。"
+   ],
+   "f": [
+    "relief",
+    "comet",
+    "pullout",
+    "edge",
+    "smear"
+   ],
+   "src": [
+    "struers-metalog",
+    "metkon-art",
+    "pace-steel",
+    "pace-ceramic",
+    "pace-mg"
+   ]
+  },
+  {
+   "id": "clean",
+   "name": "洗浄・乾燥",
+   "p": [
+    "段ごとに洗う(超音波洗浄 30〜60 秒)。粗い粒を次の段に持ち込まない。",
+    "水で流し、エタノールで置き換え、油のない温風で乾かす。拭かない。水に弱い材料(Mg)はエタノールだけで。"
+   ],
+   "f": [
+    "stain",
+    "scratch"
+   ],
+   "src": [
+    "pace-trouble",
+    "pace-tool",
+    "pace-mg"
+   ]
+  },
+  {
+   "id": "etch",
+   "name": "エッチング",
+   "p": [
+    "腐食の前に、研磨のままで見られるもの(黒鉛・介在物・気孔・鉛の粒)を先に見て記録する。",
+    "出典の時間の短い側から始め(ナイタールなら 5〜10 秒)、足りなければ足す。浸漬・ふき取り・電解は液ごとに決まっている。",
+    "腐食したらすぐ流し、エタノールで置き換えて乾かす。液を作る・使う前に、下の「安全」と SDS を読む。"
+   ],
+   "f": [
+    "over",
+    "under",
+    "pit",
+    "tint"
+   ],
+   "src": [
+    "pace-ci",
+    "pace-cu",
+    "pace-steel",
+    "pace-trouble",
+    "vv-safety"
+   ]
+  },
+  {
+   "id": "observe",
+   "name": "観察",
+   "p": [
+    "研磨のまま → 腐食後の明視野 → 必要なら偏光・微分干渉(DIC)・暗視野。Al の陽極酸化やはんだの錫の粒は偏光で見る。",
+    "倍率でなくスケールバーを入れ、腐食液と条件を記録する(下の読み物)。"
+   ],
+   "f": [
+    "pullout",
+    "relief"
+   ],
+   "src": [
+    "pace-al",
+    "buehler-solder",
+    "pace-ceramic",
+    "fa-marker"
+   ]
+  }
+ ],
+ "materials": [
+  {
+   "id": "steel-low",
+   "g": "fe",
+   "tr": [
+    "soft"
+   ],
+   "name": "炭素鋼・低合金鋼(焼なまし・焼ならし)",
+   "hard": [
+    "低炭素の鋼(1018 で約 126 HB)は柔らかく、P1200(600 番)の研削面からいきなり 1 µm ダイヤモンドに進むと表面が引きずられてだれる。P1500・P2500(800・1200 番)の研削を足す。",
+    "Cr・Mo・V を含む鋼は、研磨しすぎると介在物や第二相のまわりに段差(レリーフ)が出る。",
+    "腐食しすぎると出るピットを、気孔や介在物と見誤りやすい。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P120(120 番)",
+      "SiC 研磨紙",
+      "水",
+      "平らになるまで(30〜60 秒)"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "P280(240 番)",
+      "SiC 研磨紙",
+      "水",
+      "1 分"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "P500(360 番)",
+      "SiC 研磨紙",
+      "水",
+      "1 分"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "P1200(600 番)",
+      "SiC 研磨紙",
+      "水",
+      "1 分"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "P1500(800 番)・P2500(1200 番)— 柔らかい低炭素鋼だけ",
+      "SiC 研磨紙",
+      "水",
+      "各 1 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "30 秒"
+     ]
+    }
+   ],
+   "note": "力は 1 試料あたり 22〜45 N(5〜10 lb)、回転は研削とダイヤモンド 200 rpm・仕上げ 100 rpm(出典の自動機の値)。研削の段ごとに試料を 90° 回す。",
+   "etch": [
+    "nital",
+    "picral",
+    "fry",
+    "beraha-tio",
+    "klemm1"
+   ],
+   "see": [
+    "ナイタール 2%(5〜15 秒): フェライトの粒界とパーライト。粒の大きさを測るならナイタール。",
+    "ピクラール 4%: パーライトの層・球状化した炭化物(フェライトの粒界は出ない)。",
+    "Fry 液: 冷間加工のひずみの模様。"
+   ],
+   "miss": [
+    "研磨 → 軽いナイタール → 研磨 をくり返すと、柔らかい鋼のだれた層が取れる。",
+    "ピクリン酸を使えない所では、ピクラールの代わりに着色液や別の液を使う(PACE は 10% メタ重亜硫酸塩の液を挙げる)。"
+   ],
+   "fx": {
+    "smear": "柔らかい低炭素鋼は、P1500・P2500(800・1200 番)の研削を足し、研磨 → 軽いナイタール → 研磨 をくり返す(PACE)。",
+    "over": "ナイタールは 2% で 5〜10 秒から始め、硬い鋼でも 5% を超えない(PACE)。"
+   },
+   "std": [
+    "ASTM E3(金属組織の試料の作り方の指針)",
+    "ASTM E407(金属・合金のミクロ組織の腐食)"
+   ],
+   "atlas": [
+    "ferrite",
+    "ferrite-pearlite",
+    "pearlite",
+    "spheroidized",
+    "widmanstatten",
+    "cold-worked"
+   ],
+   "methods": [
+    "om",
+    "hardness",
+    "sem"
+   ],
+   "terms": [
+    "パーライト",
+    "加工硬化"
+   ],
+   "src": [
+    "pace-steel",
+    "pace-etch",
+    "btu-etch"
+   ]
+  },
+  {
+   "id": "steel-hard",
+   "g": "fe",
+   "tr": [
+    "hard",
+    "heat"
+   ],
+   "name": "焼入れ鋼・焼入れ焼戻し鋼(マルテンサイト・残留オーステナイト)",
+   "hard": [
+    "切断の熱で表面が焼戻され、軟らかく暗い帯ができることがある(硬さを測るときに誤る)。熱の損傷は研磨では消えない。",
+    "機械的な研削・研磨の変形で、不安定な残留オーステナイトが変わることがある。X 線回折で量を測るときは、電解研磨で変形層を取った面で測る(規格 ASTM E975)。",
+    "ラスマルテンサイトはナイタールのコントラストが弱い。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P120 → P280 → P500 → P1200(120 → 240 → 360 → 600 番)",
+      "SiC 研磨紙",
+      "水",
+      "平らになるまで、以後各 1 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 9 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "3 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 3 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "3 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "30 秒"
+     ]
+    }
+   ],
+   "note": "力は 1 試料あたり 22 N(5 lb)ほど〜45 N、回転 200 rpm(仕上げ 100 rpm)。熱間埋め込みはフェノール樹脂を避け、エポキシか DAP で。",
+   "etch": [
+    "nital",
+    "picral",
+    "vilella",
+    "beraha-tio",
+    "klemm2"
+   ],
+   "see": [
+    "ナイタール: マルテンサイトを腐食する(ラスは弱め)。",
+    "ピクラール: 焼戻しの炭化物の分布。",
+    "ビレラ液: 旧オーステナイト粒界、焼戻しマルテンサイト。",
+    "Beraha・Klemm II の着色: マルテンサイトは茶〜黒、残留オーステナイトは色が付かず白く残る。"
+   ],
+   "miss": [
+    "硬さの分布を測る試料は、切断面から熱の影響を受けた層を十分に削り取る。"
+   ],
+   "fx": {
+    "heat": "切断は冷却液を流し続け、ゆっくり押さずに。熱で焼戻された層は研磨で消えないので、その下まで削るか切り直す(PACE)。",
+    "tint": "残留オーステナイトは着色されず白く残るのが正しい見え方。色がまだらなら、まず研磨の変形を疑う(Vander Voort)。"
+   },
+   "std": [
+    "ASTM E975(X 線回折による鋼の残留オーステナイトの定量)"
+   ],
+   "atlas": [
+    "lath-martensite",
+    "plate-martensite",
+    "tempered-martensite",
+    "lower-bainite",
+    "upper-bainite"
+   ],
+   "methods": [
+    "om",
+    "hardness",
+    "xrd",
+    "ebsd"
+   ],
+   "terms": [
+    "マルテンサイト",
+    "焼戻し"
+   ],
+   "src": [
+    "pace-steel",
+    "pace-tool",
+    "lambda-ra",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "case",
+   "g": "fe",
+   "tr": [
+    "hard",
+    "edge",
+    "heat"
+   ],
+   "name": "浸炭層・窒化層・脱炭層(表面の層)",
+   "hard": [
+    "見たいのは表面のすぐ下なので、縁がだれると層の深さを誤る。",
+    "切断の熱で表面の硬い層が焼戻されることがある。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P120 → P280 → P500 → P1200(120 → 240 → 360 → 600 番)",
+      "SiC 研磨紙",
+      "水",
+      "平らになるまで、以後各 1 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 9 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "3 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 3 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "3 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "30 秒"
+     ]
+    }
+   ],
+   "note": "層に垂直に切り、層の縁を押し板の側に向けて埋める。縁を残すには DAP か鉱物入りのエポキシ。薄い層は無電解ニッケルめっきで縁を覆うとよい。",
+   "etch": [
+    "nital",
+    "picral"
+   ],
+   "see": [
+    "ナイタール 2〜4%: 浸炭層・窒化層(窒化層の第一の選択)。",
+    "ピクラールは焼戻しの炭化物の分布を見るのに。"
+   ],
+   "miss": [
+    "硬さの分布(ビッカース)で層の深さを測るときは、圧痕を縁から十分離して並べる(圧痕の間隔は規格で)。"
+   ],
+   "fx": {
+    "edge": "縁の残る樹脂(DAP・鉱物入りエポキシ)にし、加圧したまま冷やす。薄い層は無電解ニッケルめっきで覆ってから埋める(PACE)。"
+   },
+   "std": [
+    "ISO 3887(鋼の脱炭層の深さの測り方)"
+   ],
+   "atlas": [
+    "ferrite-pearlite",
+    "tempered-martensite"
+   ],
+   "methods": [
+    "om",
+    "hardness",
+    "gdoes"
+   ],
+   "terms": [
+    "浸炭",
+    "窒化処理"
+   ],
+   "src": [
+    "pace-tool",
+    "pace-steel",
+    "pace-trouble"
+   ]
+  },
+  {
+   "id": "tool",
+   "g": "fe",
+   "tr": [
+    "hard",
+    "phase",
+    "heat"
+   ],
+   "name": "工具鋼・高速度鋼",
+   "hard": [
+    "硬く脆い炭化物(M₆C・MC・M₂C・M₂₃C₆・M₇C₃)を残すのが要。炭化物は地と削れる速さが違い、脱落やレリーフが出やすい。",
+    "切断の局所的な熱でマルテンサイトが焼戻され、軟らかい暗い帯ができる。",
+    "炭化物にレリーフが出るなら、仕上げのアルミナをやめて最後までダイヤモンドで(PACE の不具合の手引き)。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "ダイヤモンド 120 µm",
+      "ダイヤモンドの研削円盤",
+      "水",
+      "平らになるまで"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 9 µm",
+      "硬い複合材の円盤",
+      "ダイヤモンド用の潤滑液",
+      "3 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 3 µm",
+      "硬い複合材の円盤",
+      "ダイヤモンド用の潤滑液",
+      "3 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "1 分"
+     ]
+    }
+   ],
+   "note": "1 試料 22〜45 N、200 rpm(仕上げ 100 rpm)。薄い精密刃(0.5〜1.0 mm)で冷却液を流し続けて切る。埋め込みはエポキシか DAP(150〜180 ℃、5〜8 分。多くの工具鋼の焼戻しの温度より十分低い)。",
+   "etch": [
+    "nital",
+    "vilella",
+    "murakami",
+    "picral"
+   ],
+   "see": [
+    "ナイタール 2〜4%: 一般の組織(第一の選択)。",
+    "ビレラ液: 旧オーステナイト粒界。",
+    "村上試薬(冷): D2・A2 などの Cr 炭化物、高速度鋼(M2・M42)の炭化物。",
+    "ピクラール 4%: 焼なましたパーライト・ベイナイト。"
+   ],
+   "miss": [
+    "腐食は 10〜15 秒から始め、とても硬い材料は 20〜30 秒まで延ばす。"
+   ],
+   "fx": {
+    "pullout": "炭化物の脱落は力が強すぎるか布が合わないため。力を下げ、細かい段は柔らかめの布で、段ごとに面を確かめる(PACE)。",
+    "relief": "炭化物のまわりの段差は研磨しすぎか布が柔らかすぎるため。研磨を短くし、少し硬い布に(PACE)。それでも出るなら仕上げをアルミナでなくダイヤモンドに。"
+   },
+   "std": [],
+   "atlas": [
+    "plate-martensite",
+    "tempered-martensite",
+    "spheroidized"
+   ],
+   "methods": [
+    "om",
+    "sem",
+    "hardness",
+    "xrd"
+   ],
+   "terms": [
+    "焼入れ性",
+    "焼戻し"
+   ],
+   "src": [
+    "pace-tool",
+    "pace-trouble"
+   ]
+  },
+  {
+   "id": "ss-aus",
+   "g": "fe",
+   "tr": [
+    "soft",
+    "passive"
+   ],
+   "name": "オーステナイト系ステンレス鋼(SUS304・316 など)",
+   "hard": [
+    "炭素鋼より柔らかく、研磨中に加工硬化してだれやすい。力を軽くし、1 µm の段を長めに。",
+    "耐食性が高い分、腐食しにくい(ナイタールではほとんど出ない)。",
+    "熱間埋め込み(150〜180 ℃)は鋭敏化の温度域(約 500〜800 ℃)よりずっと低いが、鋭敏化やシグマ相を調べる試料は、余計な熱の履歴を加えないよう室温で固まる冷間埋め込みにする(PACE)。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P280(240 番)",
+      "SiC 研磨紙",
+      "水",
+      "平らになるまで"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "P500 → P1200 → P1500 → P2500(360 → 600 → 800 → 1200 番)",
+      "SiC 研磨紙",
+      "水",
+      "各 1 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分(傷が腐食で出るなら 3〜4 分)"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "1 分"
+     ]
+    }
+   ],
+   "note": "1 試料 22〜45 N(だれるときは 22〜31 N に下げる)、200 rpm(仕上げ 100 rpm)。研削が P2500(1200 番)より粗く終わったら、9 µm・3 µm のダイヤモンドを各 3〜5 分足す。",
+   "etch": [
+    "oxalic",
+    "glyceregia",
+    "kalling2",
+    "naoh-e",
+    "marble",
+    "beraha-ss"
+   ],
+   "see": [
+    "電解 10% シュウ酸(6 V、15〜30 秒): 粒界(第一の選択)。鋭敏化の判定(ASTM A262 Practice A)にも使う。",
+    "グリセレジア: 粒界・双晶・炭化物・シグマ相。",
+    "電解 10% 水酸化ナトリウム: シグマ相を橙〜茶に。"
+   ],
+   "miss": [
+    "研磨して時間を置くと不動態皮膜で腐食しにくくなる。研磨後すぐ腐食する。",
+    "鉄の粒が別の鋼の試料から移ることがあるので、段ごとに超音波洗浄し、布をよく洗う。"
+   ],
+   "fx": {
+    "scratch": "腐食すると傷が出るのは、研磨で加工硬化しただれた層のため。1 µm を 3〜4 分に延ばし、力を 22〜31 N に下げ、だめなら P2500(1200 番)からやり直す(PACE)。",
+    "under": "研磨でできた不動態皮膜のため。グリセレジアで軽くふいて活性化してから電解シュウ酸に、または電解の時間を延ばす(PACE)。",
+    "pit": "電解シュウ酸なら 6 V から 3〜4 V に下げるか、短くする。反応の強い液は作りたてを(PACE)。"
+   },
+   "std": [
+    "ASTM A262(オーステナイト系ステンレス鋼の粒界腐食の感受性の試験)"
+   ],
+   "atlas": [
+    "austenite-twins",
+    "precipitates"
+   ],
+   "methods": [
+    "om",
+    "ebsd",
+    "sem"
+   ],
+   "terms": [
+    "ステンレス鋼",
+    "鋭敏化",
+    "不動態"
+   ],
+   "src": [
+    "pace-ss",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "ss-duplex",
+   "g": "fe",
+   "tr": [
+    "passive",
+    "phase"
+   ],
+   "name": "二相ステンレス鋼(2205・2507 など)",
+   "hard": [
+    "フェライトとオーステナイトの 2 相を見分けたいが、ビレラ液や電解シュウ酸では分かれにくい。着色エッチングが向く。",
+    "着色膜は研磨の損傷に敏感なので、白黒の腐食より丁寧に仕上げる。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P280(240 番)",
+      "SiC 研磨紙",
+      "水",
+      "平らになるまで"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "P500 → P1200 → P1500 → P2500(360 → 600 → 800 → 1200 番)",
+      "SiC 研磨紙",
+      "水",
+      "各 1 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "1 分"
+     ]
+    }
+   ],
+   "note": "力は 1 試料あたり 22〜45 N(5〜10 lb)、回転は研削とダイヤモンド 200 rpm・仕上げ 100 rpm(出典の自動機の値)。研削の段ごとに試料を 90° 回す。",
+   "etch": [
+    "beraha-ss",
+    "klemm1",
+    "kalling2",
+    "lb1"
+   ],
+   "see": [
+    "Beraha I: 相に色を付ける(第一の選択)。",
+    "LB1: オーステナイトに色を付け、フェライトには付けない。",
+    "Kalling 2: フェライトを腐食する(30 秒〜2 分)。"
+   ],
+   "miss": [
+    "着色した面で相の面積率を画像解析するなら、変形のない面に仕上げてから着色する。"
+   ],
+   "fx": {
+    "under": "ビレラ液や電解シュウ酸ではフェライトとオーステナイトが分かれにくい。Beraha I か Klemm I の着色に替える(PACE)。",
+    "tint": "着色膜は研磨の損傷に敏感なので、着色の前の仕上げを丁寧に(Vander Voort)。Beraha I は使う直前にメタ重亜硫酸カリウムを加える(PACE)。"
+   },
+   "std": [],
+   "atlas": [],
+   "methods": [
+    "om",
+    "ebsd"
+   ],
+   "terms": [
+    "ステンレス鋼"
+   ],
+   "src": [
+    "pace-ss",
+    "vv-color",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "ss-mart",
+   "g": "fe",
+   "tr": [
+    "hard",
+    "passive"
+   ],
+   "name": "マルテンサイト系・析出硬化系ステンレス鋼(410・420・440C・17-4PH など)",
+   "hard": [
+    "焼入れした鋼種(HRC 45 を超えるもの)は硬い。切断は遅く、硬い材料向けの砥石で。",
+    "磁性のある鋼種(マルテンサイト系・析出硬化系・フェライト系)は、残った磁気で自動研磨機の動きを乱すことがある。消磁し、磁性のないホルダーを使う。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P280(240 番)",
+      "SiC 研磨紙",
+      "水",
+      "平らになるまで"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "P500 → P1200 → P1500 → P2500(360 → 600 → 800 → 1200 番)",
+      "SiC 研磨紙",
+      "水",
+      "各 1 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "1 分"
+     ]
+    }
+   ],
+   "note": "力は 1 試料あたり 22〜45 N(5〜10 lb)、回転は研削とダイヤモンド 200 rpm・仕上げ 100 rpm(出典の自動機の値)。研削の段ごとに試料を 90° 回す。",
+   "etch": [
+    "vilella",
+    "kalling2",
+    "adler",
+    "murakami",
+    "marble",
+    "beraha-ss"
+   ],
+   "see": [
+    "ビレラ液: 旧オーステナイト粒界・焼戻しマルテンサイト・炭化物(第一の選択)。",
+    "村上試薬(50〜80 ℃、3〜10 分): 炭化物・シグマ相。",
+    "Adler 液: フェライト系・マルテンサイト系・析出硬化系の粒界。"
+   ],
+   "miss": [
+    "ビレラ液はピクリン酸を含む。液を乾かさない。"
+   ],
+   "fx": {},
+   "std": [],
+   "atlas": [
+    "tempered-martensite"
+   ],
+   "methods": [
+    "om",
+    "hardness"
+   ],
+   "terms": [
+    "ステンレス鋼",
+    "マルテンサイト"
+   ],
+   "src": [
+    "pace-ss",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "castiron",
+   "g": "fe",
+   "tr": [
+    "graphite",
+    "phase",
+    "rust"
+   ],
+   "name": "鋳鉄(ねずみ鋳鉄・球状黒鉛鋳鉄)",
+   "hard": [
+    "黒鉛を残すのがいちばん大事。黒鉛は柔らかく、研削・研磨で抜けたり壊れたりする。",
+    "柔らかいフェライトの地が黒鉛の上にだれて、黒鉛の本当の形を隠す。片状黒鉛より球状黒鉛のほうが残しやすく、可鍛鋳鉄の焼戻し炭素がいちばん難しい。",
+    "黒鉛のある鋳鉄は水でさびやすい。切ったらすぐ洗って乾かす。",
+    "白鋳鉄はダイヤモンドの切断砥石で切らない(切断の温度でダイヤモンドが鉄と反応する)。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P500(360 番)",
+      "アルミナ研磨紙",
+      "水",
+      "平らになるまで"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "P1200(600 番)",
+      "アルミナ研磨紙",
+      "水",
+      "1 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "1 分(段差が出たら 30〜45 秒)"
+     ]
+    }
+   ],
+   "note": "力は 1 試料あたり 22〜45 N(5〜10 lb)、回転は研削とダイヤモンド 200 rpm・仕上げ 100 rpm(出典の自動機の値)。研削の段ごとに試料を 90° 回す。",
+   "etch": [
+    "nital",
+    "picral",
+    "beraha-ss",
+    "klemm2"
+   ],
+   "see": [
+    "まず腐食せずに、黒鉛の形と分布を見る(×500 でよく研磨した黒鉛は黒でなく灰色に見える)。",
+    "ナイタール 2%(5〜15 秒)で地のフェライト・パーライト。ピクラール 4%(10〜30 秒)でパーライト・セメンタイト。",
+    "オーステンパー球状黒鉛鋳鉄の地は、ナイタールでは分かれにくいので Beraha か Klemm II の着色で。"
+   ],
+   "miss": [
+    "黒鉛が ×500 で黒く見えるなら、黒鉛の穴に地がだれ込んでいる。1 µm の段を 1〜2 分延ばす。"
+   ],
+   "fx": {
+    "pullout": "力を 1 試料 22 N(5 lb)に下げ、1 µm のダイヤモンドはナップの短い布で。SiC の紙を遅い段まで使わない。可鍛鋳鉄は細かい研削に硬い複合材の円盤を(PACE)。",
+    "stain": "水を残したため。水で流したらすぐエタノールで置き換え、温風で乾かす(PACE)。",
+    "smear": "黒鉛が黒く見えるのは、黒鉛の穴に地がだれ込んだため。1 µm の段を 1〜2 分延ばし、布が目づまりしていないか見る。だめなら新しいアルミナ紙で軽く研削し直す(PACE)。"
+   },
+   "std": [],
+   "atlas": [
+    "gray-iron",
+    "ductile-iron"
+   ],
+   "methods": [
+    "om",
+    "sem"
+   ],
+   "terms": [
+    "パーライト"
+   ],
+   "src": [
+    "pace-ci",
+    "pace-trouble",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "weld",
+   "g": "join",
+   "tr": [
+    "phase",
+    "heat"
+   ],
+   "name": "溶接部(溶接金属・熱影響部・母材)",
+   "hard": [
+    "1 つの試料に、硬さと組織の違う溶接金属・熱影響部・母材が並ぶので、場所によって削れ方が違い、段差(レリーフ)が出やすい。",
+    "異種金属の溶接は、融点・熱膨張・組成が違う。腐食液も片側ずつ選ぶ必要がある。",
+    "切断で熱を入れると、熱影響部の組織が変わる。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P120 → P280 → P600 → P1200(120 → 240 → 400 → 600 番)",
+      "SiC 研磨紙",
+      "水",
+      "各 60〜90 秒"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 9 µm",
+      "硬めのナップの短い布",
+      "ダイヤモンド用の潤滑液",
+      "3〜5 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 3 µm",
+      "中くらいの硬さの布",
+      "ダイヤモンド用の潤滑液",
+      "3〜5 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "柔らかい布",
+      "ダイヤモンド用の潤滑液",
+      "2〜3 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "コロイダルシリカ 0.05 µm(なくてもよい)",
+      "柔らかい布",
+      "—",
+      "1〜2 分"
+     ]
+    }
+   ],
+   "note": "試料の幅は 25〜32 mm あれば足りることが多い。埋める前に溶接の中心線などに印を付けて向きを残す。気孔を調べるなら真空で埋める。",
+   "etch": [
+    "nital",
+    "picral",
+    "oxalic",
+    "keller",
+    "barker"
+   ],
+   "see": [
+    "鋼の溶接: ナイタール 2%(5〜15 秒)、ピクラール 4%。",
+    "ステンレス鋼の溶接: 電解 10% シュウ酸(6 V、30〜60 秒)。",
+    "Al の溶接: ケラー液(10〜20 秒)、Barker 液の陽極酸化(20〜30 V、60〜120 秒)。"
+   ],
+   "miss": [
+    "脱落・だれ・汚れが、溶接の欠陥(気孔・割れ)に見えることがある。"
+   ],
+   "fx": {
+    "relief": "硬さの違う区域が並ぶので、研磨を短くし、硬めの布で平らに保つ(PACE・Struers)。",
+    "pullout": "脱落やだれは溶接の気孔・割れに見えることがある。短く研磨し直して同じ所を見る(本物の欠陥は残る)(PACE)。"
+   },
+   "std": [],
+   "atlas": [
+    "precipitates",
+    "dendrite"
+   ],
+   "methods": [
+    "om",
+    "hardness",
+    "sem",
+    "ebsd"
+   ],
+   "terms": [
+    "溶接熱影響部",
+    "炭素当量",
+    "鋭敏化"
+   ],
+   "src": [
+    "pace-weld"
+   ]
+  },
+  {
+   "id": "al",
+   "g": "nonfe",
+   "tr": [
+    "soft",
+    "heat"
+   ],
+   "name": "アルミニウム合金",
+   "hard": [
+    "柔らかく、地がだれて傷や介在物を隠す。SiC の粒が埋まりやすい。",
+    "酸化物の介在物が調べたいものであることが多いが、研磨が悪いと抜けたり引きずられたりする(抜けた酸化物は戻らない)。",
+    "析出硬化した質別(2024-T6・6061-T6・7075-T6・A356-T6 など)は、熱間埋め込みの熱で析出の状態が変わるので、室温で固まるエポキシで埋める。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P1200(600 番)",
+      "アルミナ研磨紙",
+      "水",
+      "平らになるまで"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "P1500 → P2500(800 → 1200 番)",
+      "SiC 研磨紙",
+      "水",
+      "P2500(1200 番)は 1 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 3 µm(熱処理材・鋳物だけ)",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2〜3 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "1 分"
+     ]
+    }
+   ],
+   "note": "1 試料 22〜45 N(1000 系・5000 系の柔らかい合金は 22〜31 N で 1 µm を長めに)、どの段も 100 rpm。仕上げの質は ×500 で確かめる。",
+   "etch": [
+    "keller",
+    "hf05",
+    "naoh-al",
+    "barker",
+    "weck-al"
+   ],
+   "see": [
+    "ケラー液(8〜20 秒): 粒界と第二相の粒子。2000 系で Cu の汚れが出たら 0.5% HF に。",
+    "Barker 液の陽極酸化 + 偏光: 粒の大きさと向き。",
+    "1% 水酸化ナトリウム: HF を使わない組織の腐食。"
+   ],
+   "miss": [
+    "Al をアルコールで流さない(ケラー液のあとは水で)。",
+    "鉄鋼と同じ布を使うと鉄の粒が移り、EDS に偽の鉄のピークが出る。布を材料ごとに分ける。"
+   ],
+   "fx": {
+    "pit": "液が強すぎるか長すぎる。薄めるか短くする(初めは 5〜10 秒)。2000 系にケラー液で汚れが出るなら 0.5% HF に(PACE)。",
+    "embed": "研削の SiC が埋まって明るい点に見える。新しい布で 1 µm をやり直し、目づまりした紙を替える(PACE)。",
+    "pullout": "酸化物が抜けた黒い穴は戻らない。力を 22〜45 N に保ち、平面研削にアルミナ紙を使い、必要なら切り直す(PACE)。"
+   },
+   "std": [],
+   "atlas": [
+    "dendrite",
+    "precipitates"
+   ],
+   "methods": [
+    "om",
+    "sem",
+    "ebsd",
+    "eds"
+   ],
+   "terms": [
+    "析出硬化",
+    "再結晶"
+   ],
+   "src": [
+    "pace-al",
+    "pace-etch",
+    "pace-trouble"
+   ]
+  },
+  {
+   "id": "cu",
+   "g": "nonfe",
+   "tr": [
+    "soft"
+   ],
+   "name": "銅・黄銅・青銅",
+   "hard": [
+    "柔らかく、変形してだれやすい。",
+    "酸化物の介在物が外れて面を引っかき、その傷が腐食で目立つ。",
+    "鉛の介在物は、ほとんどの腐食液で溶けてしまう。鉛は研磨のままで見る(腐食後は穴に見える)。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P500(360 番)— 青銅だけ",
+      "アルミナ研磨紙",
+      "水",
+      "1 分"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "P1200(600 番)",
+      "アルミナ研磨紙",
+      "水",
+      "平らになるまで"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "P1500 → P2500(800 → 1200 番)",
+      "SiC 研磨紙",
+      "水",
+      "各 1 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分(細かい傷が消えないなら 3〜4 分)"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "1 分"
+     ]
+    }
+   ],
+   "note": "1 試料 22〜45 N(だれるときは 22〜31 N)、100 rpm。コロイダルシリカで仕上げるなら、最後の 20〜30 秒は布に水だけを流す。",
+   "etch": [
+    "fecl3",
+    "aps",
+    "nh4oh",
+    "klemm1",
+    "klemm2"
+   ],
+   "see": [
+    "塩化鉄(III)の液: 粒界と相、青銅の Sn の偏析。",
+    "過硫酸アンモニウム: 粒界と焼なまし双晶、黄銅の α・β。",
+    "Klemm 液 + 偏光: 冷間加工した材料の粒界のコントラスト。"
+   ],
+   "miss": [
+    "白黒の腐食はたいてい 5〜15 秒で終わる。"
+   ],
+   "fx": {
+    "smear": "力を 22〜31 N に下げ、布の硬さを研磨材の大きさに合わせる。腐食のたびに変形が出るなら、粗い研削の損傷が残っている。軽い力で SiC の段からやり直す(PACE)。",
+    "pullout": "鉛の介在物は腐食で溶けて穴に見える。鉛は研磨のままで写す(PACE)。"
+   },
+   "std": [],
+   "atlas": [
+    "austenite-twins",
+    "dendrite",
+    "cold-worked"
+   ],
+   "methods": [
+    "om",
+    "ebsd"
+   ],
+   "terms": [
+    "黄銅",
+    "再結晶",
+    "加工硬化"
+   ],
+   "src": [
+    "pace-cu",
+    "btu-etch",
+    "vv-color"
+   ]
+  },
+  {
+   "id": "ti",
+   "g": "nonfe",
+   "tr": [
+    "soft",
+    "passive",
+    "twin"
+   ],
+   "name": "チタン・チタン合金",
+   "hard": [
+    "延性が大きく、粗い研磨材で加工硬化してだれ、傷が付きやすい。研削の番手を飛ばさない。",
+    "切り粉・研削くずは発火しやすい。冷却液を流し続け、乾いたまま切ったり研削したりしない。",
+    "切断・研削の力で機械的双晶ができることがある。",
+    "不動態の酸化皮膜のため、ふつうの腐食液はほとんど効かず、多くの腐食液は HF を含む。表面の酸素の多い硬い層(α ケース、5〜100 µm ほど)を調べることが多い。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P280(240 番)",
+      "SiC 研磨紙",
+      "水",
+      "平らになるまで"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "P500 → P1200 → P1500 → P2500(360 → 600 → 800 → 1200 番)",
+      "SiC 研磨紙",
+      "水",
+      "各 1 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 6 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "3 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "1 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "コロイダルシリカ + 過酸化水素(化学機械研磨。EBSD など)",
+      "研磨布",
+      "—",
+      "2〜5 分(強い力)〜15〜20 分(軽い力)"
+     ]
+    }
+   ],
+   "note": "1 試料 22〜45 N、200 rpm(仕上げ 100 rpm)。鉄鋼と同じ布を使うと鉄が移るので、Ti 専用の布にする。研磨したらすぐ腐食する(すぐ酸化する)。",
+   "etch": [
+    "kroll",
+    "weck-ti",
+    "keller"
+   ],
+   "see": [
+    "クロール液(ふき取り 3〜15 秒): α 相(明るい)と β 相(暗い)、粒界(第一の選択)。",
+    "Weck 液(改良): 向きで粒に色を付ける。偏光と合わせて α ケースを測る。"
+   ],
+   "miss": [
+    "腐食で傷が浮き出るのは、研磨のだれた層が傷を隠していたため。1 µm を軽く長く、または P2500(1200 番)に戻る。"
+   ],
+   "fx": {
+    "scratch": "腐食で浮き出る傷は、研磨のだれた層に隠れていたもの。1 µm を軽く長くするか、P2500(1200 番)からやり直す(PACE)。",
+    "under": "HF を含む液が劣化している。作り直すか、ふき取りから浸漬に替える。研磨後すぐ酸化するので、すぐ腐食する(PACE)。",
+    "smear": "機械的双晶は切断・研削の力でできる。力を下げ、薄い刃で精密に切る(Metkon)。仕上げはコロイダルシリカ + 過酸化水素で(Witt・Nowell)。",
+    "over": "クロール液を浸漬すると HF で侵されすぎる。ふき取りで 3〜15 秒(PACE)。"
+   },
+   "std": [],
+   "atlas": [],
+   "methods": [
+    "om",
+    "ebsd",
+    "sem"
+   ],
+   "terms": [
+    "チタン合金",
+    "β型チタン合金"
+   ],
+   "src": [
+    "pace-ti",
+    "witt-ebsd",
+    "lightform",
+    "metkon-art"
+   ]
+  },
+  {
+   "id": "ni",
+   "g": "nonfe",
+   "tr": [
+    "passive",
+    "phase"
+   ],
+   "name": "ニッケル基合金・超合金(インコネル・ハステロイなど)",
+   "hard": [
+    "硬く加工硬化しやすいので、遅く切り、丁寧に研削し、研磨を長めに。",
+    "γ′ の析出物や炭化物が研磨で抜けることがある。",
+    "ハステロイなどは耐食性が高く、腐食しにくい。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P120 → P280 → P600 → P1200(120 → 240 → 400 → 600 番)。超合金は P1500(800 番)も",
+      "SiC 研磨紙",
+      "水",
+      "各 2〜3 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 9 µm",
+      "硬めのナップの短い布",
+      "ダイヤモンド用の潤滑液",
+      "5〜8 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 6 µm",
+      "中くらいの硬さの布",
+      "ダイヤモンド用の潤滑液",
+      "4〜6 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 3 µm",
+      "中くらいの硬さの布",
+      "ダイヤモンド用の潤滑液",
+      "4〜6 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "柔らかい布",
+      "ダイヤモンド用の潤滑液",
+      "3〜5 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "コロイダルシリカ 0.05 µm または アルミナ 0.3 µm",
+      "柔らかい布",
+      "—",
+      "2〜4 分"
+     ]
+    }
+   ],
+   "note": "研削は 1 試料 9〜22 N(2〜5 lb)、240〜300 rpm。研磨は 9〜18 N(2〜4 lb)、120〜150 rpm。",
+   "etch": [
+    "glyceregia",
+    "kalling2",
+    "marble",
+    "adler",
+    "aqua",
+    "oxalic"
+   ],
+   "see": [
+    "グリセレジア(10〜30 秒): 粒界・双晶(一般の Ni 合金)。",
+    "マーブル液: 超合金の粒界・一次炭化物。",
+    "Adler 液: ハステロイなど。王水: 腐食しにくいインコネル。",
+    "電解 10% シュウ酸(3〜6 V、5〜30 秒): γ′・γ″、炭化物。"
+   ],
+   "miss": [
+    "硬い相の脱落には、力を下げ、仕上げを柔らかい布で、振動研磨も考える。"
+   ],
+   "fx": {
+    "under": "腐食しにくい合金なので、液を替える(Adler 液・王水)か、電解で(PACE)。",
+    "pullout": "γ′ や炭化物の脱落には、力を下げ、研磨を延ばし、仕上げを柔らかい布で、振動研磨も考える(PACE)。"
+   },
+   "std": [],
+   "atlas": [],
+   "methods": [
+    "om",
+    "sem",
+    "ebsd"
+   ],
+   "terms": [
+    "Ni基超合金"
+   ],
+   "src": [
+    "pace-ni",
+    "pace-etch",
+    "metkon-etch"
+   ]
+  },
+  {
+   "id": "mg",
+   "g": "nonfe",
+   "tr": [
+    "soft",
+    "water"
+   ],
+   "name": "マグネシウム合金",
+   "hard": [
+    "水と反応してすぐ酸化する(水素も出る)。切断から研磨まで水を使わない。",
+    "とても柔らかいので、力を軽く。",
+    "切り粉は発火しやすい。乾いたまま切らず、金属火災用の消火剤(乾燥砂など)を近くに置く。水や泡の消火剤は使わない(Mg は水と反応して水素を出す)。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P120 → P280 → P600 → P1200(120 → 240 → 400 → 600 番)。P1500(800 番)はなくてもよい",
+      "SiC 研磨紙",
+      "エタノール系(水を使わない)",
+      "各 2〜3 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 9 µm",
+      "硬めのナップの短い布",
+      "エタノール系(水を使わない)",
+      "4〜6 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 6 µm",
+      "中くらいの硬さの布",
+      "エタノール系(水を使わない)",
+      "3〜5 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 3 µm",
+      "中くらいの硬さの布",
+      "エタノール系(水を使わない)",
+      "3〜5 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "柔らかい布",
+      "エタノール系(水を使わない)",
+      "2〜4 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "コロイダルシリカ 0.05 µm(エタノールで)",
+      "研磨布",
+      "エタノール系(水を使わない)",
+      "2〜3 分"
+     ]
+    }
+   ],
+   "note": "研削は 1 試料 4〜13 N(1〜3 lb)、240〜300 rpm。研磨は 4〜9 N(1〜2 lb)、120〜150 rpm。切ったらすぐエタノールに入れ、埋め込みはできるだけ低い温度で。",
+   "etch": [
+    "acetic-picral",
+    "nital",
+    "weck-al"
+   ],
+   "see": [
+    "酢酸ピクラール(10〜30 秒): Mg 合金の組織。",
+    "薄いナイタール 1〜2%(5〜15 秒)。腐食のあとはエタノールで流す(水で流さない)。"
+   ],
+   "miss": [
+    "研磨したらすぐ乾かし、デシケーターかエタノールの中に保管する。"
+   ],
+   "fx": {
+    "stain": "白い粉のような面は水による酸化。エタノール系の潤滑で研磨し直し、器具を乾かし、湿度の低い所で。ひどければ切り直す(PACE)。",
+    "over": "時間を 2〜5 秒に縮め、弱い液に替え、すぐエタノールで流す。軽く研磨し直して腐食し直す(PACE)。"
+   },
+   "std": [],
+   "atlas": [],
+   "methods": [
+    "om",
+    "ebsd"
+   ],
+   "terms": [],
+   "src": [
+    "pace-mg",
+    "witt-ebsd",
+    "lightform",
+    "pace-safety",
+    "mhlw-mg"
+   ]
+  },
+  {
+   "id": "sn",
+   "g": "nonfe",
+   "tr": [
+    "soft",
+    "heat",
+    "twin"
+   ],
+   "name": "はんだ・錫(Sn–Pb・鉛フリー)",
+   "hard": [
+    "錫はとても柔らかく(約 5 HB)、融点が低い(232 ℃)。研削・研磨の力を小さく、切断で熱を入れない。",
+    "熱間の圧縮埋め込みは使わない。研削砥石の切断ははんだをだれさせるので避ける。",
+    "潤滑液が多すぎると削れにくくなり、研磨材が埋まりやすくなる。機械研磨はできるだけ短く。",
+    "基板の断面では、柔らかいはんだ・銅と硬い部品が並ぶので段差が出やすい。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P1200(600 番)",
+      "SiC 研磨紙",
+      "水",
+      "平らになるまで"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 3 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "5 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "2 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "コロイダルシリカ 0.06 µm(振動研磨)",
+      "研磨布",
+      "—",
+      "30〜60 分"
+     ]
+    }
+   ],
+   "note": "1 試料 22 N(5 lb)、150 rpm(アルミナは 130 rpm)。振動研磨は試料の重さだけで。研磨した試料は酸化を防ぐためデシケーターに。錫ペスト(β 錫から α 錫への変態)は湿気でなく 13.2 ℃より低い温度で起きるので、デシケーターでは防げない。寒い所に長く置かない。",
+   "etch": [
+    "hcl-dil",
+    "nital",
+    "fecl3"
+   ],
+   "see": [
+    "振動研磨まですれば、偏光で錫の粒が腐食せずに見える(Buehler)。",
+    "希塩酸(数分): 純錫・錫–鉛。塩化鉄(III)の液: 錫–銅。"
+   ],
+   "miss": [
+    "ナイタールは 10% を超えない。"
+   ],
+   "fx": {
+    "embed": "潤滑液を控え、機械研磨を短く、最後は振動研磨で埋まった粒を取る(Buehler)。",
+    "heat": "熱間埋め込みはしない。室温で固まる樹脂で埋め、砥石でなく精密切断で(Buehler)。",
+    "relief": "柔らかいはんだと硬い部品の段差には、研磨を短く、制御した除去で平らに保つ(PACE)。"
+   },
+   "std": [],
+   "atlas": [
+    "eutectic"
+   ],
+   "methods": [
+    "om",
+    "sem",
+    "ebsd"
+   ],
+   "terms": [],
+   "src": [
+    "buehler-solder",
+    "pace-sn",
+    "pace-pcb",
+    "tinpest"
+   ]
+  },
+  {
+   "id": "zn",
+   "g": "layer",
+   "tr": [
+    "soft",
+    "water",
+    "edge",
+    "twin",
+    "heat"
+   ],
+   "name": "亜鉛めっき層・亜鉛",
+   "hard": [
+    "亜鉛は柔らかく(約 30 HB)、純度が高いほど柔らかく水に弱い。水と反応するので洗浄が難しい。",
+    "樹脂と板のすき間に水やアルコールが残ってしみになる。収縮の小さい、ゆっくり固まるエポキシで埋める。",
+    "溶融亜鉛めっきの層は、外から η(純亜鉛)・ζ(Fe 約 6%)・δ(Fe 約 10%)・Γ(Fe 約 25%)。合金の層は鋼より硬く、η は延性がある。",
+    "融点が低い(419.5 ℃)ので、切断で熱を入れない。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P320(Struers の #320)",
+      "SiC 研磨紙",
+      "水",
+      "平らになるまで"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "ダイヤモンド(細かい研削)",
+      "硬い複合材の円盤",
+      "水",
+      "4 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 3 µm",
+      "研磨布",
+      "水を含まない潤滑液",
+      "4〜6 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "水を含まない潤滑液",
+      "4〜6 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "化学機械研磨(エタノールで)",
+      "研磨布",
+      "エタノール",
+      "15〜20 秒"
+     ]
+    }
+   ],
+   "note": "1 試料 15〜30 N、研磨は 150 rpm(Struers の手順)。研磨には水を含まないダイヤモンドの液と潤滑液を使い、絹の布で試料を平らに保つ。",
+   "etch": [
+    "nital",
+    "naoh-al",
+    "hcl-dil"
+   ],
+   "see": [
+    "ナイタール 0.5〜2%(数秒): めっきの層。腐食しすぎやすい。",
+    "水酸化ナトリウム 10%(1〜5 秒)・希塩酸: 純亜鉛・亜鉛合金。"
+   ],
+   "miss": [
+    "腐食のあとはすぐ流して乾かし、水のしみと酸化を防ぐ。",
+    "切断・研削の力で機械的双晶ができることがある。"
+   ],
+   "fx": {
+    "stain": "水に弱いので、水の段を短くし、水を含まない潤滑液とエタノールで仕上げる。樹脂のすき間が液を残すので、収縮の小さいエポキシで埋める(Struers)。",
+    "over": "めっき層はナイタールで数秒で腐食しすぎる。0.5〜1% から(Struers)。",
+    "edge": "ゆっくり固まる冷間のエポキシ(収縮が小さく、よく付く)で埋め、すき間をなくす(Struers)。"
+   },
+   "std": [],
+   "atlas": [],
+   "methods": [
+    "om",
+    "sem",
+    "eds"
+   ],
+   "terms": [],
+   "src": [
+    "struers-zn",
+    "aga-hdg",
+    "pace-zn",
+    "metkon-art"
+   ]
+  },
+  {
+   "id": "coat",
+   "g": "layer",
+   "tr": [
+    "edge",
+    "brittle",
+    "porous",
+    "phase"
+   ],
+   "name": "溶射皮膜・硬い皮膜",
+   "hard": [
+    "皮膜と母材の削れ方が違い、縁で皮膜がはがれたり欠けたりしやすい。",
+    "SiC の紙は気孔に粒を落とし、気孔率を多めに見せる。研削は金属の網の上のダイヤモンドで。",
+    "気孔と、研磨で抜けた穴を見分ける必要がある。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "ダイヤモンド 30 µm",
+      "金属の網の布",
+      "ダイヤモンド用の潤滑液",
+      "平らになるまで"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 9 µm",
+      "硬い複合材の円盤",
+      "ダイヤモンド用の潤滑液",
+      "3 分(WC-Co などの硬い皮膜は 4〜5 分)"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 3 µm",
+      "硬い複合材の円盤",
+      "ダイヤモンド用の潤滑液",
+      "3 分(硬い皮膜は 4〜5 分)"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm",
+      "研磨布",
+      "—",
+      "1 分"
+     ]
+    }
+   ],
+   "note": "1 試料 22〜45 N、100 rpm。精密切断機でダイヤモンドか CBN の刃を使い、皮膜に垂直に切る(研削砥石の切断は皮膜をはがす)。埋め込みは注型のエポキシ・アクリルだけ。低粘度のエポキシで真空含浸(25〜100 mbar、5〜10 分)し、蛍光色素を混ぜると樹脂の入った気孔が光り、抜けた穴は暗いまま。",
+   "etch": [
+    "murakami",
+    "nital",
+    "vilella",
+    "glyceregia"
+   ],
+   "see": [
+    "セラミックスの皮膜(Al₂O₃・YSZ)はふつう腐食しない。",
+    "WC-Co の皮膜は村上試薬(10〜30 秒)。合金の皮膜はその合金に合う液で(PACE はナイタール・ビレラ液・グリセレジアを挙げる)。"
+   ],
+   "miss": [
+    "切った面にはがれがあれば、あとの研磨では元の組織に戻せない。切ったらすぐ確かめる。"
+   ],
+   "fx": {
+    "pullout": "気孔に粒が入ったか、含浸が足りない。低粘度のエポキシで真空含浸し直し、SiC の紙を使わずにダイヤモンドで。蛍光色素で本物の気孔と抜けた穴を見分ける(PACE)。",
+    "edge": "縁で皮膜がはがれる・欠けるのは、切断・埋め込みの力と熱のため。精密切断・注型の真空含浸にし、研削の力を下げる(PACE)。"
+   },
+   "std": [
+    "ASTM E1920(溶射皮膜の金属組織の試料の作り方の指針)"
+   ],
+   "atlas": [],
+   "methods": [
+    "om",
+    "sem",
+    "eds"
+   ],
+   "terms": [
+    "遮熱コーティング"
+   ],
+   "src": [
+    "pace-tsc",
+    "pace-trouble"
+   ]
+  },
+  {
+   "id": "wc",
+   "g": "layer",
+   "tr": [
+    "hard",
+    "brittle",
+    "phase"
+   ],
+   "name": "超硬合金(WC-Co)・サーメット",
+   "hard": [
+    "1500〜2000 HV と硬く、SiC(約 2500 HV)に近いので SiC の紙はほとんど削れず、すぐすり減る。最初からダイヤモンドで。",
+    "Co・Ni の結合相が炭化物より速く削れ、脱落や段差が出る。織った布を 9・3 µm の段に使うと段差が出る。",
+    "研磨は金属の 2〜3 倍の時間がかかる。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "ダイヤモンド 70 µm または 45 µm",
+      "金属結合のダイヤモンド円盤",
+      "—",
+      "2〜5 分"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "ダイヤモンド 30 µm → 15 µm → 9 µm",
+      "ダイヤモンドのラッピングフィルム",
+      "—",
+      "各 1〜4 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 9 µm",
+      "硬い複合材の円盤",
+      "ダイヤモンド用の潤滑液",
+      "3〜5 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 3 µm",
+      "硬い複合材の円盤",
+      "ダイヤモンド用の潤滑液",
+      "3〜5 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2〜3 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "アルミナ 0.05 µm(またはコロイダルシリカ)",
+      "研磨布",
+      "—",
+      "1〜2 分"
+     ]
+    }
+   ],
+   "note": "研磨は 1 試料 22〜45 N、100 rpm。精密切断機でダイヤモンドの刃を 20〜50 rpm でゆっくり(割れ・欠けを防ぐ)。WC-Co・TiC-Ni は範囲の長いほうの時間が要ることがある。",
+   "etch": [
+    "murakami"
+   ],
+   "see": [
+    "村上試薬(室温 10〜60 秒): WC の粒と Co の結合相の分布、η 相。"
+   ],
+   "miss": [
+    "腐食が足りなければ、時間か濃さを上げる(サーメットは長めの腐食が要ることがある)。"
+   ],
+   "fx": {
+    "pullout": "結合相が炭化物より速く削れるため。柔らかめの布と軽い力で。段差が出るなら 9・3 µm を硬い複合材の円盤に(PACE)。",
+    "scratch": "SiC では削れないので、ダイヤモンドだけで各段を延ばす(PACE)。"
+   },
+   "std": [
+    "ISO 4499(超硬合金の組織の評価: 粒の大きさ・気孔・η 相など)"
+   ],
+   "atlas": [],
+   "methods": [
+    "om",
+    "sem"
+   ],
+   "terms": [
+    "焼結"
+   ],
+   "src": [
+    "pace-cermet",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "ceramic",
+   "g": "layer",
+   "tr": [
+    "hard",
+    "brittle",
+    "porous"
+   ],
+   "name": "セラミックス(アルミナ・ジルコニア・窒化ケイ素・炭化ケイ素)",
+   "hard": [
+    "脆く、切断・埋め込み・研削で欠け・割れが出る。切断の欠けは多くの場合あとで直せない。",
+    "研磨で粒が抜けやすく(窒化ケイ素のガラス質の粒界相は特に)、抜けた穴が気孔に見える。",
+    "ジルコニアは局所の熱や応力で正方晶から単斜晶に変わり、割れることがある。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "ダイヤモンド 約 75 µm",
+      "金属の網の布",
+      "水",
+      "1〜3 分(平らになるまで)"
+     ]
+    },
+    {
+     "s": "g",
+     "t": [
+      "ダイヤモンド 15 µm → 9 µm",
+      "硬い複合材の円盤",
+      "ダイヤモンド用の潤滑液",
+      "各 3〜5 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 9 µm",
+      "硬めのナップの短い布",
+      "ダイヤモンド用の潤滑液",
+      "5 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 3 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "3 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンド 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "2 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "コロイダルシリカ 0.05 µm",
+      "研磨布",
+      "—",
+      "1〜2 分(最後の 20〜30 秒は水だけ)"
+     ]
+    }
+   ],
+   "note": "研削は 1 試料 30〜40 N、研磨は 20〜30 N、仕上げは 10〜15 N(150 rpm)。SiC・B₄C・緻密な WC は各段を 1.5〜2 倍に。切断はダイヤモンドの刃で冷却液を十分に。多孔質のものは真空含浸が要る。コロイダルシリカを面の上で乾かさない。",
+   "etch": [],
+   "see": [
+    "まず微分干渉(DIC)・偏光・暗視野で見る。粒界が見えなければ熱腐食: 焼結の温度より 100〜200 ℃低く 30 分〜2 時間(例: アルミナ 1400〜1500 ℃・30〜60 分・大気中、ジルコニア 1200〜1300 ℃・30〜60 分・大気中、窒化ケイ素 1400〜1500 ℃・30〜60 分・N₂ 中)。ゆっくり冷やす。",
+    "コロイダルシリカの振動研磨(1〜2 時間)でも粒界が出ることがある。"
+   ],
+   "miss": [
+    "化学腐食(沸騰した酸・溶融塩・濃い HF)は危険が大きく、このページでは載せない。"
+   ],
+   "fx": {
+    "pullout": "力を下げる → 硬めの布 → 前の段を延ばす → 振動研磨やイオン研磨、の順で試す。多孔質なら低粘度のエポキシで真空含浸する(PACE)。",
+    "under": "まず微分干渉や偏光で見て、それでも粒界が見えなければ熱腐食に(PACE)。"
+   },
+   "std": [],
+   "atlas": [],
+   "methods": [
+    "om",
+    "sem",
+    "ebsd",
+    "archi"
+   ],
+   "terms": [
+    "焼結"
+   ],
+   "src": [
+    "pace-ceramic"
+   ]
+  },
+  {
+   "id": "ebsd",
+   "g": "special",
+   "tr": [],
+   "name": "EBSD 用の仕上げ(どの金属にも)",
+   "hard": [
+    "EBSD のパターンは表面から 10〜50 nm の所から出るので、わずかな変形・酸化膜・汚れでもパターンが弱くなる。平らで変形のない面が要る。",
+    "化学研磨・電解研磨は凹凸をつくることがあるので、腐食しすぎない。",
+    "試料が両面とも平らでないと、EBSD の地図を取るのが難しい。"
+   ],
+   "steps": [
+    {
+     "s": "g",
+     "t": [
+      "P280 → P400 → P600 → P1200 → P1500 → P2500(240 → 320 → 400 → 600 → 800 → 1200 番)",
+      "SiC 研磨紙",
+      "水",
+      "各 30 秒ほど"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "ダイヤモンドかアルミナ 1 µm",
+      "研磨布",
+      "ダイヤモンド用の潤滑液",
+      "5〜10 分"
+     ]
+    },
+    {
+     "s": "p",
+     "t": [
+      "0.3 µm",
+      "研磨布",
+      "—",
+      "5〜10 分"
+     ]
+    },
+    {
+     "s": "f",
+     "t": [
+      "コロイダルシリカ 0.05 µm または 0.02 µm",
+      "研磨布",
+      "—",
+      "数分〜数時間(材料による)"
+     ]
+    }
+   ],
+   "note": "柔らかい材料ほど長く、細かい研磨材で。Ti はコロイダルシリカに過酸化水素を混ぜた化学機械研磨、Mg は水を使わず(グリセリンとアルコールなど)。冷間埋め込みの樹脂は柔らかく縁が丸くなることがある。SEM の真空を守るため、よく洗って乾かす。",
+   "etch": [],
+   "see": [
+    "ふつうは腐食しない(パターンが弱くなる・凹凸ができる)。",
+    "電解研磨が要る材料もあるが、過塩素酸を含む液はこのページでは条件を載せない(安全の節)。"
+   ],
+   "miss": [
+    "Ti では、研磨の変形で立方晶として指数づけされる暗い部分が出ることがあり、コロイダルシリカ + 過酸化水素の研磨で消える。"
+   ],
+   "fx": {
+    "smear": "EBSD では機械研磨の変形が残るとパターンが出ない。コロイダルシリカの仕上げを延ばし(数分〜数時間)、Ti には過酸化水素を混ぜる(Witt・Nowell)。"
+   },
+   "std": [],
+   "atlas": [],
+   "methods": [
+    "ebsd",
+    "sem"
+   ],
+   "terms": [],
+   "src": [
+    "witt-ebsd",
+    "lightform",
+    "pace-ceramic"
+   ]
+  }
+ ],
+ "hazards": [
+  {
+   "id": "general",
+   "name": "どの液にも",
+   "short": "どの液にも",
+   "p": [
+    "液を作る前と使う前に、使う薬品すべての SDS(安全データシート)を読み、所属の安全規則と担当者の指示に従ってください。このページの組成と時間は手順を選ぶための目安で、所属の安全の手順書の代わりにはなりません。規格(ASTM E407)も、安全の手順を決めるのは使う人の責任だとしています。",
+    "腐食液は換気装置(ドラフト)の中で作り、使います。薬品を扱うときは手袋を常に着け、危険の大きい液では保護面も着けます。",
+    "作る順序: 溶媒を先に入れ、塩を溶かし、危険な酸は最後に少しずつかき混ぜながら加えます。硫酸は最後に、水へゆっくり加えます。液を一気に注ぎ合わせないでください。",
+    "使った液と洗い液は所属の規則に従って集め、流しや一般のごみに捨てないでください。"
+   ],
+   "src": [
+    "vv-safety",
+    "astm-e407",
+    "usask-picric"
+   ]
+  },
+  {
+   "id": "hf",
+   "name": "フッ化水素酸(HF)・二フッ化水素アンモニウムを含む液",
+   "short": "HF",
+   "p": [
+    "HF が皮膚に付いても、すぐには痛まず、見た目の傷も出ないことがあります。数時間は強い痛みだけのことがあり、見える傷は 12〜24 時間後に出ることもあります。気づかないうちに深い薬傷になるので、薄い液(0.5% HF など)でも同じように扱います。",
+    "HF は体の中で電解質の重い異常を起こすことがあり、治療にはグルコン酸カルシウム(ゲル・液・薬)が使われます。HF を含む液を使う前に、応急用のグルコン酸カルシウムのゲルを手の届く所に用意し、使い方を確かめておきます(HF を使う実験室は解毒用の用具を置くこと、と ASM Handbook の安全の章にもあります)。",
+    "付いたら: すぐに安全シャワーなどで大量の水で 15 分洗い、汚れた衣服を脱ぎ、洗ったあとグルコン酸カルシウムのゲルを塗って、すぐに医師にかかります。眼に入ったら洗眼器で 15 分洗い、医師にかかります。",
+    "HF はガラスを侵すので、ポリエチレン(PE)・ポリプロピレン(PP)の容器で作り、HF の表示を付けて保管します。",
+    "二フッ化水素アンモニウム(NH₄HF₂)を含む液(Beraha の着色液・LB1・Ti 用の Weck 液)も HF を出すので、HF と同じ対策で扱います。",
+    "フッ化ホウ素酸(HBF₄、Barker 液)も、皮膚と眼に重い薬傷を起こし、分解するとフッ化水素を出し、ガラスを侵します(SDS)。HF と同じ対策で扱い、PE の瓶で保管します。"
+   ],
+   "src": [
+    "cdc-hf",
+    "niosh-hf",
+    "columbia-hf",
+    "vv-safety",
+    "pace-etch",
+    "pace-ci",
+    "columbus-hbf4"
+   ]
+  },
+  {
+   "id": "picric",
+   "name": "ピクリン酸を含む液",
+   "short": "ピクリン酸",
+   "p": [
+    "乾いたピクリン酸は爆発物です(GHS の分類で爆発物 等級 1.1)。粉砕・衝撃・摩擦で爆発するおそれがあります。",
+    "金属(特に銅・鉛・水銀・亜鉛)と反応して衝撃に敏感な化合物(ピクリン酸塩)をつくり、乾いたピクリン酸塩はさらに爆発しやすくなります。金属のふた・さじ・台を使いません。",
+    "液を表面や瓶の口で乾かさないでください。固体は水で湿らせて保管し、月に 1 回ほど乾いていないか見て、減っていれば水を足します。作った液は長く置かず(日の終わりに捨てる、7 日までなど、出典と所属の規則による)、試料の上で乾かさないようすぐ流します。",
+    "瓶の口や中に乾いた結晶を見つけたら、触らず、動かさず、所属の安全・廃棄の担当者に連絡します。"
+   ],
+   "src": [
+    "mhlw-picric",
+    "vv-safety",
+    "usask-picric",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "nitric",
+   "name": "硝酸とアルコールの液(ナイタールなど)",
+   "short": "硝酸+アルコール",
+   "p": [
+    "エタノールに硝酸を 3% まで加えたナイタールは、少量なら安全に作って保管できるとされます。3% を超える液は、その日に使う分だけ作ってふたのない皿で使い、密栓して保管しません(瓶の中で圧がたまります)。",
+    "メタノールは体にたまる毒(累積毒)で、飲み込み・吸い込みのほか皮膚からも吸収され、中枢神経を傷めます。できるだけエタノールを使います。メタノールで作るなら硝酸は 5% までにします。",
+    "密栓した瓶は、ガス(NOx)の圧力がたまって破裂した例があります。ふたに小さな穴を開けて圧を逃がすか、ときどき圧を抜きます。",
+    "メタノールに硝酸 5% を超えて加えた液は、温めると激しく分解します。PACE の錫の腐食の表も、ナイタールは 10% を超えないとしています。",
+    "アルコールを先に入れ、硝酸をあとから加えます。"
+   ],
+   "src": [
+    "vv-safety",
+    "pace-safety",
+    "pace-etch",
+    "pace-sn"
+   ]
+  },
+  {
+   "id": "aqua",
+   "name": "王水・グリセレジア(塩酸と硝酸の液)",
+   "short": "塩酸+硝酸",
+   "p": [
+    "混ぜると熱が出て、時間とともに分解し、塩素・二酸化窒素が出ます。使う直前に少量を作り、混ぜてから約 15 分以上は置かず、使ったらすぐ捨てます。",
+    "作った液を密閉した容器に入れません(圧がかかります)。膨らんだ容器はすぐ廃液にします。ドラフトの中で扱います。",
+    "グリセレジアは硝酸とグリセリンを含みます。硝酸とグリセリン(やグリコール)の濃い混合は爆発することがあり、液はすぐ分解するので、少量だけ作って使ったらすぐ捨てます。硝酸と硫酸を含む水のない液にはグリセリンを使いません(ニトログリセリンができるおそれ)。"
+   ],
+   "src": [
+    "vv-safety",
+    "pace-etch",
+    "pace-ss"
+   ]
+  },
+  {
+   "id": "cyanide",
+   "name": "フェリシアン化カリウムの液(村上試薬)",
+   "short": "フェリシアン化物",
+   "p": [
+    "フェリシアン化カリウムは毒性がありますが、安定していて比較的安全に使えるとされます。ただし酸に触れるとシアン化水素が出るので、液はアルカリ性に保ち、酸と混ぜず、酸の廃液に入れません。",
+    "熱い液は吹きこぼれることがあるのでドラフトで使い、捨てる前に冷まします。",
+    "シアン化カリウム・シアン化ナトリウムは、これとは別の、きわめて毒性の強い物質で、酸や酸の蒸気に触れると特に危険です。扱いに慣れた訓練を受けた人だけが使うものなので、これらを含む液はこのページに載せません。"
+   ],
+   "src": [
+    "vv-safety",
+    "pace-etch",
+    "pace-ss",
+    "astm-e2014"
+   ]
+  },
+  {
+   "id": "caustic",
+   "name": "水酸化ナトリウム・水酸化カリウムの液",
+   "short": "強いアルカリ",
+   "p": [
+    "強いアルカリで、皮膚と眼を侵します。温めて使う液は PE・PP の容器で温め、ガラスの容器で温めません。"
+   ],
+   "src": [
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "acid",
+   "name": "塩酸を含む液(塩化鉄・塩化銅の液も)",
+   "short": "塩酸",
+   "p": [
+    "濃い塩酸は皮膚を強く侵して重い薬傷を起こし、眼にとても危険で、鼻とのどを刺激します。塩化水素のガスが出るので、ドラフトの中で扱います。",
+    "酸を薄めるときは水に酸を加え、逆にしません。濃い酸が金属に触れると水素が出ることがあり、火災・爆発の危険になります。"
+   ],
+   "src": [
+    "vv-safety",
+    "pace-safety"
+   ]
+  },
+  {
+   "id": "oxalic",
+   "name": "シュウ酸の液",
+   "short": "シュウ酸",
+   "p": [
+    "飲み込むと有害で、眼に重い損傷を起こし、皮膚と呼吸器を刺激します(GHS の分類)。",
+    "強い酸化剤と激しく反応するので、硝酸と混ぜません。ある種の銀化合物と反応して、爆発性のシュウ酸銀をつくります。"
+   ],
+   "src": [
+    "mhlw-oxalic",
+    "vv-safety"
+   ]
+  },
+  {
+   "id": "oxidizer",
+   "name": "酸化剤を含む液(過硫酸アンモニウム・過マンガン酸カリウム・過酸化水素)",
+   "short": "酸化剤",
+   "p": [
+    "過硫酸アンモニウムは酸化性の固体で、可燃物と混ざると発火して激しく燃えることがあります。吸い込むとぜんそくなどのアレルギーを、皮膚に付くとアレルギー性の反応を起こすおそれがあります(GHS の呼吸器感作性・皮膚感作性 区分 1)。粉を吸い込まないようにし、可燃物から離して保管します。",
+    "過マンガン酸カリウムは、特に有機物に触れると火災・爆発の危険があります。硫酸と混ぜると激しく爆発することがあるので、混ぜません。",
+    "過酸化水素は 3% の液なら比較的安全に使えますが、30% の液は非常に強い酸化剤です。どちらも眼をひどく傷めます。"
+   ],
+   "src": [
+    "mhlw-aps",
+    "vv-safety"
+   ]
+  },
+  {
+   "id": "sulfite",
+   "name": "メタ重亜硫酸カリウムを含む着色液(Klemm・Beraha・LB1)",
+   "short": "亜硫酸塩",
+   "p": [
+    "メタ重亜硫酸カリウムは眼に重い損傷を起こします(GHS 区分 1)。酸に触れると有毒なガスが出るので、酸の廃液に入れません。塩酸を含む Beraha I 液には使う直前に加え、ドラフトの中で使います。"
+   ],
+   "src": [
+    "laballey-kms",
+    "pace-ss"
+   ]
+  },
+  {
+   "id": "electro",
+   "name": "電解エッチング(シュウ酸・水酸化ナトリウム・Barker 液など)",
+   "short": "電解",
+   "p": [
+    "直流の電源と、電気を通す酸やアルカリの液を使います。濡れた手で触ると痛い感電をすることがあるので、電源の設定を変えるときは手を乾かしておきます。",
+    "電解では水素を含むガスや蒸気が出ます。ドラフトの中か、換気のよい所で行います。"
+   ],
+   "src": [
+    "pace-safety"
+   ]
+  },
+  {
+   "id": "perchloric",
+   "name": "過塩素酸を含む電解研磨液(このページでは条件を載せない)",
+   "short": "過塩素酸",
+   "p": [
+    "過塩素酸は強い酸化剤です。加熱すると爆発することがあり、濃度が 72% を超えると不安定で、乾くと衝撃や振動で爆発することがあります。可燃物・有機物と激しく反応し、紙などと混ざると室温で自然発火することがあります。",
+    "有機物に触れると非常に不安定な過塩素酸塩をつくります。過塩素酸と無水酢酸の電解研磨液は薦められていません。液は冷たく保ち(温度が上がると酸化力が増す)、保存せず、フェノール樹脂などで埋めた試料を過塩素酸の液で電解研磨してはいけません(爆発の例があります)。蒸気には、水で洗う方式の専用のドラフトが要ります。",
+    "このページは、過塩素酸系の電解研磨液の組成と条件を載せません。電解研磨が要るときは、専用の設備と手順書のある所で、担当者と一緒に行ってください。"
+   ],
+   "src": [
+    "mhlw-perchloric",
+    "vv-safety"
+   ]
+  },
+  {
+   "id": "cr6",
+   "name": "六価クロム(無水クロム酸)を含む液(このページでは載せない)",
+   "short": "六価クロム",
+   "p": [
+    "無水クロム酸は、GHS で発がん性 区分 1A、吸入・皮膚の接触で生命に危険、呼吸器感作性などに分類される強い酸化剤です。",
+    "このページは、六価クロムを含む液(亜鉛の Palmerton 液、Al の Graff–Sargent 液など)の手順を載せません。代わりの液はそれぞれの材料の欄にあります。"
+   ],
+   "src": [
+    "mhlw-cro3",
+    "pace-zn",
+    "pace-al"
+   ]
+  }
+ ],
+ "not_listed": [
+  "シアン化カリウム・シアン化ナトリウムを含む液(金などの貴金属に使われる)— 毒性がきわめて強い(上の「フェリシアン化カリウムの液」)",
+  "過塩素酸を含む電解研磨液(Ti・Al・鋼の EBSD 用など)— 爆発の危険(上の「過塩素酸」)",
+  "六価クロムを含む液(Palmerton 液・Graff–Sargent 液など)— 発がん性など(上の「六価クロム」)",
+  "カドミウム塩・鉛塩を使う着色液(Beraha の CdS 液・PbS 液)— 重金属の塩を使うため",
+  "溶融塩・沸騰した濃い酸・濃い HF を使うセラミックスの化学腐食 — PACE の手引きも重い危険として扱う。セラミックスはまず熱腐食や偏光・微分干渉で"
+ ],
+ "etchants": [
+  {
+   "id": "nital",
+   "name": "ナイタール(硝酸のアルコール液)",
+   "aka": "",
+   "comp": [
+    "硝酸 1〜10 mL + エタノール 90〜99 mL。ふつうは 2%(硝酸 2 mL + エタノール 98 mL)。メタノールも使われるが、累積毒で皮膚からも吸収されるので、できればエタノールで(メタノールなら硝酸 5% まで)。3% を超える液はその日に作り、密栓しない"
+   ],
+   "use": [
+    "浸漬かふき取り。2% で 5〜30 秒(5〜10 秒から始める)。硬い鋼は 3〜5%(5% を超えない)",
+    "亜鉛めっき層は 0.5〜2%、数秒(腐食しすぎやすい)。Mg 合金は 1〜2%、5〜15 秒でエタノールで流す"
+   ],
+   "mat": [
+    "steel-low",
+    "steel-hard",
+    "case",
+    "tool",
+    "castiron",
+    "weld",
+    "mg",
+    "zn",
+    "sn",
+    "coat"
+   ],
+   "see": "フェライトの粒界とパーライト(どちらも見える)、マルテンサイト、浸炭・窒化層、鋳鉄の地。鉄鋼でいちばんよく使う。",
+   "hz": [
+    "nitric"
+   ],
+   "nb": [],
+   "src": [
+    "pace-etch",
+    "pace-steel",
+    "btu-etch",
+    "metkon-etch",
+    "struers-zn",
+    "pace-mg"
+   ]
+  },
+  {
+   "id": "picral",
+   "name": "ピクラール(ピクリン酸のアルコール液)",
+   "aka": "",
+   "comp": [
+    "ピクリン酸 2〜4 g + エタノール 100 mL(4% がふつう)"
+   ],
+   "use": [
+    "浸漬 5〜60 秒(鋳鉄ではふき取り 10〜30 秒)。エタノール、次に水で流し、すぐ乾かす"
+   ],
+   "mat": [
+    "steel-low",
+    "steel-hard",
+    "case",
+    "tool",
+    "castiron",
+    "weld"
+   ],
+   "see": "セメンタイトを腐食し、パーライトの層・球状化した炭化物・焼戻しの炭化物の分布をはっきり出す。フェライトの粒界は出ないので、両方見たいときはナイタールと組み合わせる。",
+   "hz": [
+    "picric"
+   ],
+   "nb": [],
+   "src": [
+    "pace-etch",
+    "pace-steel",
+    "btu-etch",
+    "metkon-etch"
+   ]
+  },
+  {
+   "id": "vilella",
+   "name": "ビレラ液",
+   "aka": "",
+   "comp": [
+    "ピクリン酸 1 g + 塩酸 5 mL + エタノール 100 mL"
+   ],
+   "use": [
+    "浸漬かふき取り 5〜60 秒。エタノールで流す"
+   ],
+   "mat": [
+    "steel-hard",
+    "tool",
+    "ss-mart",
+    "coat"
+   ],
+   "see": "マルテンサイト系・析出硬化系ステンレス鋼と、焼入れした工具鋼・高速度鋼の標準。旧オーステナイト粒界、焼戻しマルテンサイト、炭化物。",
+   "hz": [
+    "picric",
+    "acid"
+   ],
+   "nb": [],
+   "src": [
+    "pace-etch",
+    "pace-ss",
+    "pace-tool",
+    "btu-etch"
+   ]
+  },
+  {
+   "id": "beraha-tio",
+   "name": "Beraha の着色液(チオ硫酸ナトリウム系)",
+   "aka": "",
+   "comp": [
+    "チオ硫酸ナトリウム 10 g + メタ重亜硫酸カリウム 3 g + 水 100 mL(Vander Voort の 10/3 液。市販の調合品は質量でチオ硫酸ナトリウム 5〜15%・メタ重亜硫酸カリウム 2〜5%)"
+   ],
+   "use": [
+    "浸漬 30〜120 秒。仕上げは 0.05 µm まで(変形のない面に)"
+   ],
+   "mat": [
+    "steel-low",
+    "steel-hard"
+   ],
+   "see": "フェライト(青緑・橙)、マルテンサイト(茶)、ベイナイト(中間)に色を付け、残留オーステナイトは色が付かず白く残る(色は結晶の向きと組成で変わる)。",
+   "hz": [
+    "sulfite"
+   ],
+   "nb": [],
+   "src": [
+    "vv-color",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "klemm1",
+   "name": "Klemm I 液",
+   "aka": "",
+   "comp": [
+    "チオ硫酸ナトリウムの飽和水溶液 50 mL + メタ重亜硫酸カリウム 1 g"
+   ],
+   "use": [
+    "浸漬 30 秒〜3 分(色が付くまで)。水、次にエタノールで流し、自然に乾かす(圧縮空気を当てない)"
+   ],
+   "mat": [
+    "ss-duplex",
+    "cu",
+    "steel-low"
+   ],
+   "see": "黄銅の双晶のある粒、二相ステンレス鋼の相、鋼のフェライト・パーライトなどに着色する(色は向きと組成で変わる)。",
+   "hz": [
+    "sulfite"
+   ],
+   "nb": [],
+   "src": [
+    "vv-color",
+    "pace-ss",
+    "pace-cu",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "klemm2",
+   "name": "Klemm II 液",
+   "aka": "",
+   "comp": [
+    "チオ硫酸ナトリウムの飽和水溶液 50 mL + メタ重亜硫酸カリウム 5 g"
+   ],
+   "use": [
+    "浸漬 60〜120 秒。約 40 ℃に温めると色がよく付く"
+   ],
+   "mat": [
+    "castiron",
+    "steel-hard",
+    "cu"
+   ],
+   "see": "フェライトを青、マルテンサイトを茶〜黒にし、残留オーステナイトは白く残る(オーステンパー球状黒鉛鋳鉄の地の見分けなど)。",
+   "hz": [
+    "sulfite"
+   ],
+   "nb": [],
+   "src": [
+    "pace-ci",
+    "pace-cu"
+   ]
+  },
+  {
+   "id": "beraha-ss",
+   "name": "Beraha I 液(ステンレス鋼用)",
+   "aka": "",
+   "comp": [
+    "原液: 水 1000 mL + 塩酸 200 mL + 二フッ化水素アンモニウム 24 g",
+    "使う液: 原液 100 mL + メタ重亜硫酸カリウム(マルテンサイト系 0.1〜0.2 g、オーステナイト系・フェライト系 0.3〜0.6 g、PACE は 1 g)。使う直前に加える"
+   ],
+   "use": [
+    "浸漬 30 秒〜2 分(色が付くまで)"
+   ],
+   "mat": [
+    "ss-duplex",
+    "ss-aus",
+    "ss-mart",
+    "castiron"
+   ],
+   "see": "ステンレス鋼の粒(双晶のある粒も)に着色する。二相ステンレス鋼の相の見分けに PACE の第一の選択。",
+   "hz": [
+    "hf",
+    "acid",
+    "sulfite"
+   ],
+   "nb": [],
+   "src": [
+    "vv-color",
+    "pace-ss",
+    "pace-ci"
+   ]
+  },
+  {
+   "id": "lb1",
+   "name": "LB1 液(Lichtenegger・Bloch)",
+   "aka": "",
+   "comp": [
+    "二フッ化水素アンモニウム 20 g + メタ重亜硫酸カリウム 0.5 g + 水 100 mL(温水で溶かす)"
+   ],
+   "use": [
+    "25〜30 ℃で浸漬"
+   ],
+   "mat": [
+    "ss-duplex"
+   ],
+   "see": "二相ステンレス鋼で、オーステナイトに色を付け、フェライトには付けない。",
+   "hz": [
+    "hf",
+    "sulfite"
+   ],
+   "nb": [],
+   "src": [
+    "vv-color"
+   ]
+  },
+  {
+   "id": "oxalic",
+   "name": "10% シュウ酸(電解)",
+   "aka": "",
+   "comp": [
+    "シュウ酸二水和物 10 g + 水 100 mL"
+   ],
+   "use": [
+    "電解: 試料を陽極、ステンレス鋼を陰極に、直流 6 V(電極の間 25 mm)。組織を見るなら 15〜30 秒(Ni 合金は 3〜6 V で 5〜30 秒)。鋭敏化の判定(ASTM A262 Practice A)の条件は規格の本文で",
+    "ピットが出たら 3〜4 V に下げるか短くする"
+   ],
+   "mat": [
+    "ss-aus",
+    "ni",
+    "weld"
+   ],
+   "see": "オーステナイト系ステンレス鋼の粒界(step・dual・ditch の判定)、シグマ相・炭化物。",
+   "hz": [
+    "oxalic",
+    "electro"
+   ],
+   "nb": [],
+   "src": [
+    "pace-etch",
+    "pace-ss",
+    "pace-ni",
+    "btu-etch",
+    "mhlw-oxalic"
+   ]
+  },
+  {
+   "id": "naoh-e",
+   "name": "10% 水酸化ナトリウム(電解)",
+   "aka": "",
+   "comp": [
+    "水酸化ナトリウム 10 g + 水 100 mL"
+   ],
+   "use": [
+    "電解: 試料を陽極、直流 2〜6 V、5〜30 秒"
+   ],
+   "mat": [
+    "ss-aus"
+   ],
+   "see": "ステンレス鋼のシグマ相を橙〜茶に出す。",
+   "hz": [
+    "caustic",
+    "electro"
+   ],
+   "nb": [],
+   "src": [
+    "pace-ss"
+   ]
+  },
+  {
+   "id": "glyceregia",
+   "name": "グリセレジア",
+   "aka": "",
+   "comp": [
+    "塩酸 15〜30 mL + 硝酸 5〜10 mL + グリセリン 10 mL(出典で割合に幅がある: PACE の液の解説 15:10:10、ステンレス鋼の手引き 硝酸 10・塩酸 20〜30・グリセリン 10、Ni 合金の手引き 15:5:10)"
+   ],
+   "use": [
+    "ふき取り 10〜60 秒(浸漬しない: 局所で熱が出る)。水、次にエタノールで流す。作りたてを使い、保存しない"
+   ],
+   "mat": [
+    "ss-aus",
+    "ni",
+    "coat"
+   ],
+   "see": "オーステナイト系ステンレス鋼と Ni 基合金の粒界・双晶・炭化物・シグマ相。電解シュウ酸の前に軽くふいて表面を活性化するのにも使う。",
+   "hz": [
+    "aqua"
+   ],
+   "nb": [
+    "硝酸とグリセリンの濃い混合は爆発することがある。少量だけ作り、使ったらすぐ捨てる(安全の節)"
+   ],
+   "src": [
+    "pace-etch",
+    "pace-ss",
+    "pace-ni",
+    "vv-safety"
+   ]
+  },
+  {
+   "id": "aqua",
+   "name": "王水",
+   "aka": "",
+   "comp": [
+    "塩酸 75 mL + 硝酸 25 mL"
+   ],
+   "use": [
+    "5〜15 秒。作りたてを使い、すぐ捨てる"
+   ],
+   "mat": [
+    "ni"
+   ],
+   "see": "インコネルなど、腐食しにくい Ni 基合金。",
+   "hz": [
+    "aqua"
+   ],
+   "nb": [],
+   "src": [
+    "pace-ni",
+    "vv-safety"
+   ]
+  },
+  {
+   "id": "marble",
+   "name": "マーブル液",
+   "aka": "",
+   "comp": [
+    "硫酸銅 10 g + 塩酸 50 mL + 水 50 mL(市販の調合品は質量で塩酸 10〜20%・硫酸銅 2〜10%)"
+   ],
+   "use": [
+    "浸漬かふき取り 5〜60 秒。硫酸を数滴加えると強くなる"
+   ],
+   "mat": [
+    "ni",
+    "ss-aus",
+    "ss-mart"
+   ],
+   "see": "Ni 基超合金(インコネル 600・625・718)・オーステナイト系ステンレス鋼・Co 基合金の粒界と炭化物。",
+   "hz": [
+    "acid"
+   ],
+   "nb": [],
+   "src": [
+    "metkon-etch",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "kalling2",
+   "name": "Kalling 2 液",
+   "aka": "",
+   "comp": [
+    "塩化銅(II) 5 g + 塩酸 100 mL + エタノール 100 mL"
+   ],
+   "use": [
+    "ふき取りか浸漬 5〜60 秒(二相ステンレス鋼は 30 秒〜2 分)"
+   ],
+   "mat": [
+    "ss-duplex",
+    "ss-aus",
+    "ss-mart",
+    "ni"
+   ],
+   "see": "ステンレス鋼の粒界、二相ステンレス鋼のフェライト、シグマ相、Ni 合金(モネルなど)の組織。",
+   "hz": [
+    "acid"
+   ],
+   "nb": [],
+   "src": [
+    "metkon-etch",
+    "pace-etch",
+    "pace-ss",
+    "pace-ni"
+   ]
+  },
+  {
+   "id": "adler",
+   "name": "Adler 液",
+   "aka": "",
+   "comp": [
+    "塩化鉄(III) 45 g + 塩化銅アンモニウム 9 g + 塩酸 150 mL + 水 75 mL"
+   ],
+   "use": [
+    "ふき取り 5〜60 秒"
+   ],
+   "mat": [
+    "ni",
+    "ss-mart"
+   ],
+   "see": "ハステロイなど耐食性の高い Ni 合金、フェライト系・マルテンサイト系・析出硬化系ステンレス鋼の粒界。",
+   "hz": [
+    "acid"
+   ],
+   "nb": [],
+   "src": [
+    "pace-ni",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "fry",
+   "name": "Fry 液",
+   "aka": "",
+   "comp": [
+    "塩化銅(II) 5 g + 塩酸 40 mL + 水 30 mL + エタノール 25 mL"
+   ],
+   "use": [
+    "ふき取り 30〜120 秒"
+   ],
+   "mat": [
+    "steel-low"
+   ],
+   "see": "低炭素鋼・マルエージング鋼の、冷間加工のひずみの模様(すべり線・変形帯)。",
+   "hz": [
+    "acid"
+   ],
+   "nb": [],
+   "src": [
+    "btu-etch",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "murakami",
+   "name": "村上試薬",
+   "aka": "",
+   "comp": [
+    "フェリシアン化カリウム 10 g + 水酸化カリウム 10 g(または水酸化ナトリウム 7〜10 g)+ 水 100 mL。アルカリを先に水に溶かしてから加える"
+   ],
+   "use": [
+    "超硬合金: 室温で 10〜60 秒。鋼の炭化物: 冷たい液で、または 50〜80 ℃で 3〜10 分。作りたてを使う。酸と混ぜない"
+   ],
+   "mat": [
+    "wc",
+    "tool",
+    "ss-mart",
+    "coat"
+   ],
+   "see": "WC-Co の WC と Co の結合相の分布(冷)、鋼の炭化物(D2・A2 の Cr 炭化物、高速度鋼の炭化物)、ステンレス鋼のシグマ相。",
+   "hz": [
+    "cyanide",
+    "caustic"
+   ],
+   "nb": [],
+   "src": [
+    "pace-etch",
+    "pace-cermet",
+    "pace-tool",
+    "metkon-etch",
+    "btu-etch"
+   ]
+  },
+  {
+   "id": "keller",
+   "name": "ケラー液",
+   "aka": "",
+   "comp": [
+    "フッ化水素酸 2 mL + 塩酸 3 mL + 硝酸 5 mL + 水 190 mL(PACE の Al の手引きの 1.0 : 1.5 : 2.5 : 95 mL も同じ割合)。PE・PP の容器で"
+   ],
+   "use": [
+    "浸漬 8〜20 秒。冷たい水(または温水)で十分に流す。Al をアルコールで流さない。作りたてを使う",
+    "Ti 合金: 浸漬 3〜10 秒(PACE の Ti の手引き)、10〜20 秒(Metkon)"
+   ],
+   "mat": [
+    "al",
+    "weld",
+    "ti"
+   ],
+   "see": "展伸用 Al 合金(1000〜7000 系)の粒界と第二相の粒子(Al₂Cu・Mg₂Si・MgZn₂)、加工したままの粒と再結晶した粒。Cu を含む 2000 系では Cu の汚れが残ることがあり、そのときは 0.5% HF に替える。Ti 合金にも使う。",
+   "hz": [
+    "hf",
+    "acid"
+   ],
+   "nb": [],
+   "src": [
+    "pace-etch",
+    "pace-al",
+    "pace-ti",
+    "metkon-etch"
+   ]
+  },
+  {
+   "id": "hf05",
+   "name": "0.5% フッ化水素酸",
+   "aka": "",
+   "comp": [
+    "フッ化水素酸 0.5 mL + 水 99.5 mL(PE・PP の容器で)"
+   ],
+   "use": [
+    "浸漬 5〜60 秒"
+   ],
+   "mat": [
+    "al"
+   ],
+   "see": "Al 合金の粒界と第二相の粒子。Cu を含む 2000 系でケラー液の代わりに。",
+   "hz": [
+    "hf"
+   ],
+   "nb": [],
+   "src": [
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "barker",
+   "name": "Barker 液(陽極酸化)",
+   "aka": "",
+   "comp": [
+    "フッ化ホウ素酸(HBF₄、48%)4〜5 mL + 水 200 mL"
+   ],
+   "use": [
+    "試料を陽極、Al かステンレス鋼を陰極に、直流 20〜30 V で 30 秒〜3 分。水で流し、偏光(鋭敏色板)で見る"
+   ],
+   "mat": [
+    "al",
+    "weld"
+   ],
+   "see": "陽極酸化の膜の厚さが結晶の向きで違うので、偏光で粒ごとに色が違って見える(粒の大きさ・向きの見分け)。",
+   "hz": [
+    "hf",
+    "electro"
+   ],
+   "nb": [
+    "フッ化ホウ素酸は腐食性。ドラフトで、保護具を着けて使う(PACE)",
+    "フッ化ホウ素酸は分解するとフッ化水素を出し、ガラスを侵す。HF と同じ対策で、PE の瓶で扱う(SDS)"
+   ],
+   "src": [
+    "pace-etch",
+    "pace-al",
+    "vv-color",
+    "columbus-hbf4"
+   ]
+  },
+  {
+   "id": "naoh-al",
+   "name": "水酸化ナトリウムの水溶液(Al・Zn)",
+   "aka": "",
+   "comp": [
+    "水酸化ナトリウム 1〜10 g + 水 100 mL(Al の組織は 1%、巨視組織は 10〜20%)"
+   ],
+   "use": [
+    "Al: 1% をふき取りか浸漬 30〜60 秒(できた汚れは硝酸で落とす)。巨視組織: 10〜20% を 50〜70 ℃で 30〜60 秒。Zn: 10% を 1〜5 秒"
+   ],
+   "mat": [
+    "al",
+    "zn"
+   ],
+   "see": "Al の組織(HF を使わない液)、Al の鍛流線・偏析・溶接部の巨視組織、純亜鉛・低合金の亜鉛。",
+   "hz": [
+    "caustic"
+   ],
+   "nb": [],
+   "src": [
+    "pace-al",
+    "pace-etch",
+    "pace-zn",
+    "btu-etch"
+   ]
+  },
+  {
+   "id": "weck-al",
+   "name": "Weck 液(Al の着色)",
+   "aka": "",
+   "comp": [
+    "過マンガン酸カリウム 4 g + 水酸化ナトリウム 1 g + 水 100 mL(PACE の液の解説は水酸化ナトリウム 4 g で温めて使う)"
+   ],
+   "use": [
+    "浸漬 20〜60 秒(色が付くまで)"
+   ],
+   "mat": [
+    "al",
+    "mg"
+   ],
+   "see": "Al 合金の粒に色を付ける。鋳造合金のほうが展伸材より色が付きやすい。",
+   "hz": [
+    "caustic",
+    "oxidizer"
+   ],
+   "nb": [
+    "過マンガン酸カリウムは皮膚や台を染めるので、トレーの中で扱う(PACE)"
+   ],
+   "src": [
+    "vv-color",
+    "pace-al",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "kroll",
+   "name": "クロール液",
+   "aka": "",
+   "comp": [
+    "フッ化水素酸 1〜3 mL + 硝酸 2〜6 mL + 水 100 mL ほど(Metkon: HF 2・HNO₃ 6・水 92 mL、PACE: 約 HF 2 mL + HNO₃ 6 mL + 水 100 mL)。PE・PP の容器で"
+   ],
+   "use": [
+    "ふき取り 3〜15 秒(浸漬すると HF で侵されすぎる)。冷たい水で十分に流す。PACE の Ti の手引きは浸漬 10〜30 秒も挙げているが、液の解説はふき取りとしている"
+   ],
+   "mat": [
+    "ti"
+   ],
+   "see": "Ti 合金(純 Ti・Ti-6Al-4V など)の α 相(明るい)と β 相(暗い)、変態した β のコロニー、粒界。Zr 合金にも。",
+   "hz": [
+    "hf"
+   ],
+   "nb": [],
+   "src": [
+    "pace-etch",
+    "pace-ti",
+    "metkon-etch"
+   ]
+  },
+  {
+   "id": "weck-ti",
+   "name": "Weck 液(Ti の着色、改良液)",
+   "aka": "",
+   "comp": [
+    "水 100 mL + エタノール 25 mL + 二フッ化水素アンモニウム 2 g(もとの 50 mL のエタノールでは腐食のむらが出る)"
+   ],
+   "use": [
+    "20 ℃で数秒浸漬"
+   ],
+   "mat": [
+    "ti"
+   ],
+   "see": "Ti の粒に向きで色を付ける(機械的双晶も見える)。偏光と組み合わせて α ケースの深さを測るのにも。",
+   "hz": [
+    "hf"
+   ],
+   "nb": [],
+   "src": [
+    "vv-color",
+    "pace-ti"
+   ]
+  },
+  {
+   "id": "aps",
+   "name": "過硫酸アンモニウム",
+   "aka": "",
+   "comp": [
+    "過硫酸アンモニウム 10 g + 水 90 mL"
+   ],
+   "use": [
+    "ふき取りか浸漬 5〜60 秒。作りたてを使う(1〜2 日で分解する)"
+   ],
+   "mat": [
+    "cu"
+   ],
+   "see": "無酸素銅・黄銅・洋白・青銅の粒界と焼なまし双晶、黄銅の α・β 相。",
+   "hz": [
+    "oxidizer"
+   ],
+   "nb": [],
+   "src": [
+    "pace-cu",
+    "pace-etch",
+    "mhlw-aps"
+   ]
+  },
+  {
+   "id": "fecl3",
+   "name": "塩化鉄(III)の液",
+   "aka": "",
+   "comp": [
+    "塩化鉄(III) 5〜10 g + 塩酸 5〜50 mL + 水・エタノールまたはメタノール 100〜120 mL(合金に合わせて濃さを変える)"
+   ],
+   "use": [
+    "浸漬かふき取り 5〜30 秒"
+   ],
+   "mat": [
+    "cu",
+    "sn"
+   ],
+   "see": "銅合金の粒界・相、青銅の Sn の偏析(デンドライト)、錫–銅合金。",
+   "hz": [
+    "acid"
+   ],
+   "nb": [
+    "メタノールで作るときは、メタノールの毒性(皮膚からも吸収される)に注意する。できればエタノールで(安全の節の「硝酸とアルコールの液」も参照)"
+   ],
+   "src": [
+    "pace-cu",
+    "btu-etch",
+    "pace-sn"
+   ]
+  },
+  {
+   "id": "nh4oh",
+   "name": "アンモニア水と過酸化水素",
+   "aka": "",
+   "comp": [
+    "アンモニア水(濃): 3% 過酸化水素: 水 = 1 : 1 : 1(水は省いてもよい)"
+   ],
+   "use": [
+    "ふき取り 5〜30 秒。混ぜて数分で弱るので、使う直前に作る"
+   ],
+   "mat": [
+    "cu"
+   ],
+   "see": "銅・黄銅の粒界。",
+   "hz": [
+    "oxidizer"
+   ],
+   "nb": [
+    "濃いアンモニア水は刺激の強い蒸気を出す。ドラフトの中で扱う(SDS)"
+   ],
+   "src": [
+    "btu-etch",
+    "pace-cu"
+   ]
+  },
+  {
+   "id": "acetic-picral",
+   "name": "酢酸ピクラール",
+   "aka": "",
+   "comp": [
+    "ピクリン酸 4.2〜6 g + 酢酸 5〜30 mL + 水 0〜15 mL + エタノール 100 mL(出典で割合に幅がある)"
+   ],
+   "use": [
+    "10〜30 秒。エタノールで流す(水で流さない)"
+   ],
+   "mat": [
+    "mg"
+   ],
+   "see": "Mg 合金(Mg–Al・Mg–Al–Zn など)の組織。",
+   "hz": [
+    "picric"
+   ],
+   "nb": [
+    "氷酢酸は腐食性で引火性がある。火気を避け、ドラフトで扱う(SDS)"
+   ],
+   "src": [
+    "pace-mg",
+    "usask-picric",
+    "steeldata-126"
+   ]
+  },
+  {
+   "id": "hcl-dil",
+   "name": "希塩酸(Sn・Zn)",
+   "aka": "",
+   "comp": [
+    "塩酸 1〜5 mL + エタノール・メタノールまたは水 100 mL"
+   ],
+   "use": [
+    "数分浸漬"
+   ],
+   "mat": [
+    "sn",
+    "zn"
+   ],
+   "see": "純錫・錫–鉛合金・錫–アンチモン–銅合金、亜鉛の粒界と第二相。",
+   "hz": [
+    "acid"
+   ],
+   "nb": [
+    "メタノールで作るときは、メタノールの毒性(皮膚からも吸収される)に注意する。できればエタノールで(安全の節の「硝酸とアルコールの液」も参照)"
+   ],
+   "src": [
+    "pace-sn",
+    "pace-zn"
+   ]
+  }
+ ],
+ "defects": [
+  {
+   "id": "scratch",
+   "name": "傷が残る",
+   "look": "一方向にそろった傷、今の研磨材より粗い傷、腐食したら出てきた傷。",
+   "step": "grind",
+   "causes": [
+    {
+     "id": "prev",
+     "t": "前の段の傷を消しきっていない(時間が短い・番手を飛ばした・力が足りない)",
+     "fix": "各段で前の段の傷が全部消えるまで続ける。試料を 90° 回して、前の向きの傷が消えたか見る。新しい傷の向きにそろうまでの時間のおよそ 3 倍を目安に。番手を飛ばさない。",
+     "w": 3,
+     "up": {}
+    },
+    {
+     "id": "etchout",
+     "t": "研磨で隠れていた変形が、腐食で出た(腐食液のせいではない)",
+     "fix": "最後の研磨を延ばし、力を下げる。だめなら前の研削の段からやり直す。研磨と軽い腐食をくり返すと確かめられる。",
+     "w": 1,
+     "up": {
+      "soft": 2,
+      "passive": 1
+     }
+    },
+    {
+     "id": "carry",
+     "t": "粗い粒を次の段に持ち込んだ(試料・ホルダー・手・布)。向きのそろわない傷",
+     "fix": "段ごとに超音波洗浄(30〜60 秒)し、手袋を替え、布は研磨材ごとに分けて覆っておく。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "embedsic",
+     "t": "柔らかい金属に埋まった SiC の粒が、あとの段で傷を付ける",
+     "fix": "細かい SiC を軽い力で使うか、硬い円盤のダイヤモンドに替える。",
+     "w": 0,
+     "up": {
+      "soft": 2
+     }
+    },
+    {
+     "id": "cutdmg",
+     "t": "切断の損傷を最初の研削で取りきっていない(1〜2 本の深い傷)",
+     "fix": "最初の研削を延ばすか、粗い番手に戻る。",
+     "w": 1,
+     "up": {
+      "hard": 1
+     }
+    },
+    {
+     "id": "worn",
+     "t": "紙・布がすり減った・目づまりした(削れなくなっている)",
+     "fix": "紙と布を替えるか、布を目立てし、研磨液を足す。硬い材料では SiC がすぐすり減るのでダイヤモンドに。",
+     "w": 1,
+     "up": {
+      "hard": 1
+     }
+    }
+   ],
+   "src": [
+    "pace-trouble",
+    "struers-metalog",
+    "metkon-art"
+   ]
+  },
+  {
+   "id": "edge",
+   "name": "エッジがだれる(縁が丸くなる)",
+   "look": "縁が中央より低く、焦点が合わない。層の厚さ・浸炭層の深さが正しく測れない。",
+   "step": "mount",
+   "causes": [
+    {
+     "id": "gap",
+     "t": "試料と樹脂のすき間(樹脂の収縮)",
+     "fix": "熱間埋め込みは加圧したまま冷やす。冷間は収縮の小さい、ゆっくり固まるエポキシにし、試料を室温にしておく。真空含浸も。",
+     "w": 2,
+     "up": {
+      "edge": 1
+     }
+    },
+    {
+     "id": "softmount",
+     "t": "樹脂が試料より柔らかい(硬さの差)",
+     "fix": "縁の残る樹脂(DAP・鉱物入りエポキシ・導電性フェノール)を選ぶ。",
+     "w": 2,
+     "up": {
+      "edge": 2,
+      "hard": 1
+     }
+    },
+    {
+     "id": "softcloth",
+     "t": "ナップの長い柔らかい布、仕上げの研磨が長い",
+     "fix": "硬めのナップの短い布にし、仕上げを短くする。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "noplate",
+     "t": "薄い層・酸化スケールを補強していない",
+     "fix": "無電解ニッケルめっきで縁を覆ってから埋める。",
+     "w": 0,
+     "up": {
+      "edge": 2
+     }
+    },
+    {
+     "id": "cutmount",
+     "t": "切断・圧縮埋め込みの力と熱で、皮膜がはがれた・欠けた",
+     "fix": "精密切断機でダイヤモンドか CBN の刃を使い、皮膜に垂直に切る(研削砥石の切断は皮膜をはがす)。注型のエポキシで真空含浸して埋め、研削の力を下げる。切ったらすぐ断面を見て、はがれていれば切り直す(あとの研磨では戻せない)。",
+     "w": 0,
+     "up": {
+      "edge": 2,
+      "brittle": 2,
+      "porous": 1
+     }
+    },
+    {
+     "id": "force",
+     "t": "力が強すぎる・研磨が長すぎる",
+     "fix": "力を下げ、研磨の時間を必要なだけにする。",
+     "w": 1,
+     "up": {}
+    }
+   ],
+   "src": [
+    "pace-trouble",
+    "struers-metalog",
+    "metkon-art",
+    "struers-zn",
+    "pace-tsc"
+   ]
+  },
+  {
+   "id": "relief",
+   "name": "レリーフ(相の段差)",
+   "look": "硬い相・粒・皮膜が浮き出て、柔らかい地が低い。片方の相に焦点が合わない。",
+   "step": "polish",
+   "causes": [
+    {
+     "id": "resil",
+     "t": "弾む柔らかい布が、凹凸に沿って柔らかい相を削る",
+     "fix": "弾まない硬めの布、ナップのない布にする。",
+     "w": 3,
+     "up": {}
+    },
+    {
+     "id": "long",
+     "t": "仕上げの研磨が長い",
+     "fix": "仕上げを 1〜3 分に短くする(必要なら短いコロイダルシリカの段に)。",
+     "w": 2,
+     "up": {
+      "phase": 1
+     }
+    },
+    {
+     "id": "mix",
+     "t": "硬さの大きく違う相・層が並んでいる",
+     "fix": "硬い複合材の円盤でダイヤモンドを使い、平らに保つ。力を小さく、速さを抑える。",
+     "w": 1,
+     "up": {
+      "phase": 2,
+      "graphite": 1
+     }
+    },
+    {
+     "id": "alumina",
+     "t": "とても硬い炭化物をアルミナで研磨した",
+     "fix": "硬い粒がある材料は、最後までダイヤモンドで研磨する。",
+     "w": 0,
+     "up": {
+      "phase": 2
+     },
+     "only": [
+      "hard"
+     ]
+    }
+   ],
+   "src": [
+    "struers-metalog",
+    "pace-trouble",
+    "metkon-art",
+    "pace-cermet"
+   ]
+  },
+  {
+   "id": "comet",
+   "name": "彗星状の尾(コメットテール)",
+   "look": "介在物・気孔・硬い粒のうしろに、同じ向きにのびる涙の形の筋。",
+   "step": "polish",
+   "causes": [
+    {
+     "id": "dyn",
+     "t": "試料と布の動きが一方向にかたよる(ホルダーと円盤の向き・速さがそろっていない)",
+     "fix": "ホルダーと円盤を同じ向き・同じ速さで回し、試料ホルダー(自動機)を使う。",
+     "w": 3,
+     "up": {}
+    },
+    {
+     "id": "nap",
+     "t": "ナップの長い布、研磨液が多すぎる・沈んでいる",
+     "fix": "ナップのない・短い布にし、布は湿る程度に。研磨液はよく振ってから。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "forcec",
+     "t": "力が強すぎる、柔らかい布で長く研磨した",
+     "fix": "力を下げ(PACE の目安で直径 32 mm の試料に 13〜18 N ほど)、柔らかい布の時間を短くする。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "hand",
+     "t": "手で持って研磨した",
+     "fix": "試料ホルダーを使う。",
+     "w": 1,
+     "up": {}
+    }
+   ],
+   "src": [
+    "struers-metalog",
+    "pace-trouble",
+    "metkon-art"
+   ]
+  },
+  {
+   "id": "stain",
+   "name": "汚れ・しみ",
+   "look": "黄・茶・虹色のむら、水滴の輪郭、まだらな黒ずみ。",
+   "step": "clean",
+   "causes": [
+    {
+     "id": "dry",
+     "t": "水や腐食液が表面で乾いた",
+     "fix": "水で流したらすぐエタノールで置き換え、きれいな温風で乾かす。しみが出たら軽く研磨し直して腐食し直す。",
+     "w": 3,
+     "up": {
+      "water": 2,
+      "rust": 2
+     }
+    },
+    {
+     "id": "gapst",
+     "t": "試料と樹脂のすき間に残った液が染み出す",
+     "fix": "すき間をなくす(加圧したまま冷やす・真空含浸・収縮の小さい樹脂)。試料はデシケーターに保管する。",
+     "w": 2,
+     "up": {
+      "edge": 1,
+      "water": 1,
+      "rust": 1
+     }
+    },
+    {
+     "id": "waterprep",
+     "t": "水に弱い材料を水で研磨・洗浄した",
+     "fix": "Mg はエタノール系の潤滑と洗浄だけにする。Zn は水の段を短くし、水を含まない潤滑液とエタノールで仕上げる。",
+     "w": 0,
+     "up": {
+      "water": 6
+     },
+     "only": [
+      "water"
+     ]
+    },
+    {
+     "id": "silica",
+     "t": "コロイダルシリカが乾いた・圧縮空気に油が混じった",
+     "fix": "コロイダルシリカの段の最後の 10〜30 秒は布に水だけを流す。乾かす空気は油のないものに。",
+     "w": 1,
+     "up": {}
+    },
+    {
+     "id": "hot",
+     "t": "熱い湯・熱い試料や液",
+     "fix": "熱い湯で洗わない。試料を冷ましてから腐食する。",
+     "w": 1,
+     "up": {}
+    }
+   ],
+   "src": [
+    "pace-trouble",
+    "metkon-art",
+    "struers-metalog",
+    "pace-mg",
+    "struers-zn"
+   ]
+  },
+  {
+   "id": "over",
+   "name": "過エッチング",
+   "look": "地が暗く、細部が溶けてなくなる。粒界が溝のように太い。ピットを気孔と見誤る。",
+   "step": "etch",
+   "causes": [
+    {
+     "id": "time",
+     "t": "腐食の時間が長い",
+     "fix": "研磨し直して、短い時間から(出典の範囲の下限。ナイタールなら 5〜10 秒)。",
+     "w": 3,
+     "up": {}
+    },
+    {
+     "id": "conc",
+     "t": "液が濃すぎる",
+     "fix": "出典の組成まで薄める(ナイタールは 5% を超えない)。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "warm",
+     "t": "試料や液が温かい",
+     "fix": "試料と液を室温にしてから腐食する。",
+     "w": 1,
+     "up": {}
+    },
+    {
+     "id": "immerse",
+     "t": "ふき取りで使う液に浸けた(HF 系・王水系)",
+     "fix": "クロール液・グリセレジアなどは浸漬せず、ふき取りで短く。",
+     "w": 0,
+     "up": {
+      "passive": 2
+     }
+    }
+   ],
+   "src": [
+    "pace-trouble",
+    "pace-steel",
+    "pace-etch"
+   ]
+  },
+  {
+   "id": "under",
+   "name": "エッチング不足(組織が出ない)",
+   "look": "長く腐食しても組織がほとんど出ない、コントラストが弱い。",
+   "step": "etch",
+   "causes": [
+    {
+     "id": "dmg",
+     "t": "研磨で乱れた層が残っている",
+     "fix": "研磨し直すか、化学機械研磨(コロイダルシリカ)の段を足す。",
+     "w": 2,
+     "up": {
+      "soft": 1,
+      "passive": 1
+     }
+    },
+    {
+     "id": "stale",
+     "t": "液が古い・弱っている",
+     "fix": "作り直す(過硫酸アンモニウムは 1〜2 日、アンモニア水と過酸化水素は数分で弱る。HF を含む液も劣化する)。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "wrong",
+     "t": "その材料に合わない液",
+     "fix": "材料に合う液に替える(ステンレス鋼にナイタールはほとんど効かない → 電解シュウ酸・グリセレジアなど)。",
+     "w": 2,
+     "up": {
+      "passive": 2
+     }
+    },
+    {
+     "id": "short",
+     "t": "時間が短い・液が薄い",
+     "fix": "少しずつ時間を延ばすか、少し濃い液に(ナイタール 2% → 3%)。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "film",
+     "t": "研磨後に不動態皮膜・酸化膜ができた",
+     "fix": "研磨したらすぐ腐食する。ステンレス鋼はグリセレジアで軽くふいて活性化してから電解に。",
+     "w": 0,
+     "up": {
+      "passive": 3
+     }
+    },
+    {
+     "id": "dirty",
+     "t": "油・指紋・研磨液の残り",
+     "fix": "エタノールで洗ってから腐食する。",
+     "w": 1,
+     "up": {}
+    }
+   ],
+   "src": [
+    "pace-trouble",
+    "pace-steel",
+    "pace-ss",
+    "pace-cu",
+    "pace-ti"
+   ]
+  },
+  {
+   "id": "pit",
+   "name": "ピッティング(腐食の穴)",
+   "look": "研磨のあとはきれいだった面に、腐食で穴が出る。",
+   "step": "etch",
+   "causes": [
+    {
+     "id": "strong",
+     "t": "液が強すぎる・時間が長すぎる",
+     "fix": "薄めるか短くする。HF を使わない穏やかな液に替える手もある。",
+     "w": 3,
+     "up": {}
+    },
+    {
+     "id": "stalep",
+     "t": "古い液",
+     "fix": "作りたての液を使う。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "pool",
+     "t": "液が面にたまって乾いた",
+     "fix": "すぐ流し、エタノールで置き換え、温風で乾かす。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "clip",
+     "t": "金属のクリップとの間で電池ができた",
+     "fix": "クリップを絶縁するか、ふき取りで腐食する。",
+     "w": 1,
+     "up": {}
+    },
+    {
+     "id": "volt",
+     "t": "電解の電圧が高い・時間が長い",
+     "fix": "電解シュウ酸なら 6 V から 3〜4 V に下げるか、短くする。",
+     "w": 0,
+     "up": {
+      "passive": 2
+     }
+    }
+   ],
+   "src": [
+    "pace-trouble",
+    "pace-al",
+    "pace-ss"
+   ]
+  },
+  {
+   "id": "pullout",
+   "name": "黒鉛・介在物・硬い粒の脱落",
+   "look": "あるはずの黒鉛・介在物・粒の所が、底のなめらかな黒い穴になる(縁の鋭い本当の穴とは違う)。短く研磨し直して同じ所を見ると、本物の気孔は残り、脱落は形が変わる。",
+   "step": "polish",
+   "causes": [
+    {
+     "id": "napp",
+     "t": "ナップの長い布",
+     "fix": "ナップのない・短い布にする。段ごとに面を確かめる。",
+     "w": 3,
+     "up": {
+      "graphite": 1,
+      "phase": 1
+     }
+    },
+    {
+     "id": "forcep",
+     "t": "力が強すぎる",
+     "fix": "力を下げる(鋼の介在物なら 13〜18 N ほど)。",
+     "w": 2,
+     "up": {
+      "brittle": 1
+     }
+    },
+    {
+     "id": "longp",
+     "t": "研磨が長すぎる",
+     "fix": "仕上げを短くする(鋼の介在物の判定なら約 2 分まで)。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "sic",
+     "t": "鋳鉄で SiC の紙を遅い段まで使った",
+     "fix": "早めにダイヤモンドに替え、1 µm のダイヤモンドをナップの短い布で仕上げる。",
+     "w": 0,
+     "up": {
+      "graphite": 4
+     },
+     "only": [
+      "graphite"
+     ]
+    },
+    {
+     "id": "noimp",
+     "t": "多孔質・脆い試料を含浸せずに研磨した",
+     "fix": "低粘度のエポキシで真空含浸してから、細かい番手から始める。",
+     "w": 0,
+     "up": {
+      "porous": 3,
+      "brittle": 1
+     },
+     "only": [
+      "porous",
+      "brittle"
+     ]
+    },
+    {
+     "id": "binder",
+     "t": "硬い粒と柔らかい地(結合相)の削れる速さが違う",
+     "fix": "力を下げ、細かい段は柔らかめの布で。段差も出るなら 9・3 µm を硬い複合材の円盤に。",
+     "w": 0,
+     "up": {
+      "phase": 5
+     },
+     "only": [
+      "hard"
+     ]
+    }
+   ],
+   "src": [
+    "pace-trouble",
+    "struers-metalog",
+    "metkon-art",
+    "pace-ci",
+    "pace-cermet",
+    "pace-tsc"
+   ]
+  },
+  {
+   "id": "smear",
+   "name": "変形層で組織がぼける(だれ)",
+   "look": "面は明るく光るのに組織がはっきりしない。粒界がかすれ、第二相がにじむ。",
+   "step": "polish",
+   "causes": [
+    {
+     "id": "mech",
+     "t": "機械研磨だけで終えた(乱れた層が残る)",
+     "fix": "コロイダルシリカや細かいアルミナで、柔らかい布に軽い力で化学機械的に仕上げる。研磨と腐食をくり返す。",
+     "w": 3,
+     "up": {
+      "soft": 2
+     }
+    },
+    {
+     "id": "forces",
+     "t": "最後の段の力が強い",
+     "fix": "最後の段は軽い力で(PACE の目安 9〜13 N)。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "carryd",
+     "t": "粗い研削の損傷を持ち越した",
+     "fix": "細かい研削(P1500・P2500、米国の 800・1200 番)を足す(純 Al・Cu・低炭素鋼)。",
+     "w": 2,
+     "up": {
+      "soft": 1
+     }
+    },
+    {
+     "id": "twin",
+     "t": "切断・研削の力で機械的双晶ができた(加工の履歴ではない)",
+     "fix": "切断と研削の力を下げ、薄い刃で精密に切り、変形層を段を追って取る。",
+     "w": 0,
+     "up": {
+      "twin": 4
+     },
+     "only": [
+      "twin"
+     ]
+    },
+    {
+     "id": "dull",
+     "t": "鈍った研磨材・潤滑の不足",
+     "fix": "新しい研磨材にし、潤滑を十分に。",
+     "w": 1,
+     "up": {}
+    }
+   ],
+   "src": [
+    "pace-trouble",
+    "metkon-art",
+    "pace-steel"
+   ]
+  },
+  {
+   "id": "tint",
+   "name": "色むら(着色エッチング)",
+   "look": "一部だけ色が付く、拭いた跡、まだらな色。※ 粒ごとに色が違うのは結晶の向きによる正常な見え方。",
+   "step": "etch",
+   "causes": [
+    {
+     "id": "dmgt",
+     "t": "研磨の損傷が残っている(着色膜は変形に敏感)",
+     "fix": "白黒の腐食より丁寧に仕上げ、変形のない面にしてから着色する(電解研磨でなくてもよい)。",
+     "w": 3,
+     "up": {}
+    },
+    {
+     "id": "uneven",
+     "t": "液を均一に当てていない・面が汚れている",
+     "fix": "浸漬して静かに動かす。腐食の前にエタノールで洗う。研磨の力をそろえる。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "stalet",
+     "t": "液が古い・にごっている",
+     "fix": "作りたてを使う(にごったら捨てる)。Beraha の液はメタ重亜硫酸カリウムを使う直前に加える。",
+     "w": 2,
+     "up": {}
+    },
+    {
+     "id": "airdry",
+     "t": "圧縮空気を当てて乾かした",
+     "fix": "Klemm 液は水、次にエタノールで流し、自然に乾かす。",
+     "w": 1,
+     "up": {}
+    }
+   ],
+   "src": [
+    "vv-color",
+    "pace-trouble",
+    "pace-etch",
+    "pace-ss"
+   ]
+  },
+  {
+   "id": "embed",
+   "name": "砥粒が埋まる",
+   "look": "動かない明るい点、どうしても消えない細かい傷。EDS で Si や C が出る。",
+   "step": "grind",
+   "causes": [
+    {
+     "id": "softab",
+     "t": "柔らかい金属に SiC や細かいダイヤモンドを使った",
+     "fix": "力を下げ、硬い円盤でダイヤモンドを使う。柔らかい材料では 3 µm 以下の細かい粒は弾む布で。最後に新しい布で 1 µm をやり直す。",
+     "w": 2,
+     "up": {
+      "soft": 3
+     }
+    },
+    {
+     "id": "lube",
+     "t": "潤滑液が多すぎる",
+     "fix": "潤滑液を控えめにし、機械研磨を短くする。はんだは最後に振動研磨で取る。",
+     "w": 0,
+     "up": {
+      "soft": 1,
+      "heat": 1
+     },
+     "only": [
+      "soft"
+     ]
+    },
+    {
+     "id": "oldpaper",
+     "t": "古い・目づまりした紙",
+     "fix": "紙をこまめに替え、水を十分に流す。",
+     "w": 1,
+     "up": {}
+    }
+   ],
+   "src": [
+    "pace-trouble",
+    "struers-metalog",
+    "metkon-art",
+    "buehler-solder",
+    "pace-ss"
+   ]
+  },
+  {
+   "id": "heat",
+   "name": "熱で組織が変わる・焼け",
+   "look": "研磨面の焼け色、縁の暗い帯、焼入れ鋼で硬さがばらつく。",
+   "step": "cut",
+   "causes": [
+    {
+     "id": "cool",
+     "t": "切断の冷却不足・押しつけすぎ",
+     "fix": "冷却液を流し続け、刃に切らせて押さない。熱の損傷は研磨では消えないので、その層の下まで削るか切り直す。",
+     "w": 3,
+     "up": {
+      "heat": 2,
+      "hard": 1
+     }
+    },
+    {
+     "id": "wheel",
+     "t": "砥石の結合度が材料に合わない",
+     "fix": "硬く脆い材料には結合の軟らかい砥石、柔らかく粘い材料には結合の硬い砥石。超硬・セラミックスはダイヤモンドの刃で。",
+     "w": 2,
+     "up": {
+      "hard": 1
+     }
+    },
+    {
+     "id": "hotmount",
+     "t": "熱間埋め込みの熱(150〜180 ℃)",
+     "fix": "室温で固まる注型のエポキシで埋める(析出硬化した Al、はんだなど)。",
+     "w": 0,
+     "up": {
+      "heat": 3
+     },
+     "only": [
+      "heat"
+     ]
+    },
+    {
+     "id": "drygrind",
+     "t": "乾いたまま研削した・紙が目づまりした",
+     "fix": "水で研削し、目づまりした紙を替える。",
+     "w": 1,
+     "up": {}
+    }
+   ],
+   "src": [
+    "pace-trouble",
+    "pace-tool",
+    "struers-metalog",
+    "pace-al",
+    "pace-ss",
+    "buehler-solder"
+   ]
+  }
+ ],
+ "grit": [
+  [
+   120,
+   120,
+   116
+  ],
+  [
+   180,
+   180,
+   78
+  ],
+  [
+   220,
+   220,
+   66
+  ],
+  [
+   240,
+   280,
+   51.8
+  ],
+  [
+   280,
+   360,
+   42.3
+  ],
+  [
+   320,
+   400,
+   34.3
+  ],
+  [
+   360,
+   500,
+   27.3
+  ],
+  [
+   400,
+   600,
+   22.1
+  ],
+  [
+   500,
+   1000,
+   18.2
+  ],
+  [
+   600,
+   1200,
+   14.5
+  ],
+  [
+   800,
+   1500,
+   12.2
+  ],
+  [
+   1000,
+   2000,
+   9.2
+  ],
+  [
+   1200,
+   2500,
+   6.5
+  ]
+ ],
+ "guide": [
+  {
+   "id": "why-scratch",
+   "h": "なぜ前の段の傷を完全に消すのか(変形の層)",
+   "p": [
+    "研削の傷は溝だけではありません。溝の下には、目に見えない塑性変形の層が残ります。次の段は溝を消すだけでなく、この層も取り除かなければなりません。Struers の手引きは「どの段も前の段の損傷を取り除き、自分の損傷はできるだけ少なくする」ことを原則にしています。",
+    "この層が残ると、研磨のままでは平らに見えても、腐食すると傷や乱れが浮き出ます。これは腐食液が傷を付けたのではなく、研磨で隠れていた変形が出てきたものです。柔らかい金属(Al・Cu・Sn・オーステナイト系ステンレス鋼・Ti)ほど起きやすく、出典は最後の研磨を延ばすこと、化学機械研磨(コロイダルシリカ)、研磨と軽い腐食のくり返しを勧めています。",
+    "変形の深さは見た目の溝からは分かりません。鉄・銅・チタンを研削紙で研削して変形の深さを EBSD と FIB で測った研究では、同じ研削紙でも EBSD で測った深さは FIB で見た深さよりずっと大きく出ました。測り方によっても値が変わるほど、見えない所まで及ぶということです。",
+    "変形の層を嫌う測り方ほど影響が大きくなります。EBSD は表面から 10〜50 nm の所の回折を使うので、わずかな変形でもパターンが弱くなります。焼入れ鋼の残留オーステナイトは研削・研磨の変形で変わることがあり、X 線回折で量を測るときは電解研磨した面で測ります。",
+    "確かめ方: 段ごとに試料を 90° 回して、前の段の向きの傷が残っていないか見ます。PACE は、新しい傷の向きにそろうまでにかかった時間のおよそ 3 倍を続けることを目安にしています。"
+   ],
+   "src": [
+    "struers-metalog",
+    "metkon-art",
+    "pace-trouble",
+    "pinard",
+    "witt-ebsd",
+    "lambda-ra"
+   ]
+  },
+  {
+   "id": "how-etch",
+   "h": "エッチングで何が起きているか",
+   "p": [
+    "粒界は原子の並びが乱れてエネルギーが高いので、粒の中より速く溶けて溝になります。溝では光がまっすぐ戻らないので、顕微鏡では黒い線に見えます。",
+    "化学的に違う相は溶ける速さが違います。電位の違う相が接すると局部電池になり、一方の相が選ばれて溶けます。同じ相でも結晶の向きで溶け方が違い、向きのそろった粒は同じ明るさに見えます。",
+    "着色エッチング(Klemm・Beraha・Weck など)は溶かすのではなく、表面に薄い膜(多くは硫化物)を析出させます。膜は結晶の向きや組成によって違う厚さに育ち、光の干渉で明視野でも色が付きます。色の幅がせまいと向きがそろっている(集合組織)ことを示します。膜は研磨の損傷に敏感なので、白黒の腐食より丁寧な準備が要ります。",
+    "電解エッチングは、試料を陽極にして直流を流し、電圧と時間で加減します(電解シュウ酸など)。Al の Barker 液の陽極酸化は、膜の厚さが結晶の向きで違うので、偏光で粒ごとに色が違って見えます。セラミックスの熱腐食は、焼結の温度より少し低く加熱して粒界に溝をつくります。"
+   ],
+   "src": [
+    "btu-etch",
+    "vv-color",
+    "pace-etch",
+    "pace-ceramic"
+   ]
+  },
+  {
+   "id": "record",
+   "h": "観察の倍率と、写真に入れるもの",
+   "p": [
+    "写真に書いた倍率は、写真を拡大・縮小すると合わなくなります。写真の上にスケールバー(長さの目盛り)を入れれば、大きさを変えても目盛りが一緒に変わるので正しいままです。目盛りには長さ(ふつうは µm)を書きます。",
+    "同じ組織でも、腐食液・腐食の時間・照明で明暗や色が大きく変わります。写真には、材料と熱処理、切断の位置と向き、最後の研磨の段、腐食液の名前と組成・時間(電解なら電圧)、照明(明視野・偏光・微分干渉)を添えます。そうすれば他の人が同じ条件で比べられます。",
+    "倍率は目的で選びます。出典の例では、各段の研磨の確かめは ×200(セラミックス)、仕上げの質と鋳鉄の黒鉛は ×500 で見ています。まず低い倍率で全体を見て、代表の場所を選んでから倍率を上げると、特別な場所だけを写すことを避けられます。"
+   ],
+   "src": [
+    "fa-marker",
+    "pace-ceramic",
+    "pace-al",
+    "pace-ci"
+   ]
+  }
+ ],
+ "faq": [
+  [
+   "ナイタールとピクラールはどう使い分けますか?",
+   "ナイタールはフェライトの粒界とパーライトの両方を出すので、鋼の一般の組織と粒の大きさに使います。ピクラールはセメンタイトを腐食し、フェライトの粒界は出さないので、パーライトの層や球状化・焼戻しの炭化物を見るのに向きます。両方を見たいときは組み合わせます。ピクラールはピクリン酸を含むので、液を乾かさないでください。"
+  ],
+  [
+   "腐食したら傷が出てきました。腐食液が悪いのですか?",
+   "たいていは違います。最後の研磨で平らに見えていた変形の層や浅い溝を、腐食が見えるようにしたものです。前の段に戻って研磨し直し、洗ってから腐食し直してください。研磨と軽い腐食をくり返すと確かめられます。"
+  ],
+  [
+   "仕上げはアルミナとコロイダルシリカのどちらがよいですか?",
+   "材料と目的によります。PACE は、コロイダルシリカが地を化学的に侵して細かい介在物を浮かせることがあるので、鋼の仕上げに 0.05 µm アルミナを標準にしています。EBSD、Ti(過酸化水素を混ぜる)、セラミックス、だれやすい柔らかい金属では、コロイダルシリカの化学機械研磨が役に立ちます。どちらでも、面の上で乾かさず、最後は水で流します。"
+  ],
+  [
+   "フッ化水素酸を使わずに Al や Ti を腐食できますか?",
+   "Al は、1% 水酸化ナトリウム、Weck 液(過マンガン酸カリウムと水酸化ナトリウムの着色液)、Barker 液の陽極酸化(フッ化ホウ素酸。腐食性)で組織を出せます。Ti はほとんどの腐食液が HF を含みます。PACE は HF を含まない液(希塩酸と硫酸を沸騰させて使う Ogden–Holden 液)も挙げていますが、沸騰した酸を使います。HF を使うなら、グルコン酸カルシウムのゲルを用意し、所属の手順に従ってください。"
+  ],
+  [
+   "ピクリン酸の瓶の口に乾いた結晶が付いていました。どうすればよいですか?",
+   "触らず、動かさず、ふたも開けないでください。乾いたピクリン酸やピクリン酸塩は衝撃・摩擦で爆発することがあります。所属の安全・廃棄の担当者にすぐ連絡してください。ふだんから固体は水で湿らせて保管し、定期的に乾いていないか見ます。"
+  ],
+  [
+   "マグネシウムを水で研磨してはいけないのはなぜですか?",
+   "Mg は水と反応してすぐ酸化し(白い粉のような面になる)、水素も出ます。切断から研磨・腐食後の洗浄まで、エタノール系の潤滑液と洗浄を使い、研磨したらすぐ乾かしてデシケーターかエタノールの中に保管します。切り粉は発火しやすいので、乾いたまま切らないでください。"
+  ]
+ ]
+}
