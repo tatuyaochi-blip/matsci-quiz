@@ -1,0 +1,242 @@
+{
+  "title": "Micrograph Measuring Room (grain size and phase fraction)",
+  "description": "Open your micrograph in the browser and count grain size (intercept and planimetric methods, ASTM E112) and phase fraction (point count, E562) on the image, with 95 % confidence interval and relative accuracy. Export CSV and PNG, and practice on synthetic structures. Images never leave your browser.",
+  "h1": "Micrograph Measuring Room",
+  "lead": "A tool for counting grain size and phase fraction on your own micrographs. Open an image, set the scale, and tap (click) intersections of test lines with grain boundaries, grains in a test figure or grid points; the page gives the grain size number G, the mean lineal intercept length ℓ̄, the number of grains per unit area N_A and volume fractions with their uncertainty, ready for a report. For making the specimen see the preparation guide; for recognizing structures see the atlas.",
+  "note": "Values on this page are estimates using equations and counting rules checked against public sources. Standards are given only by name, number and scope, with the equations that public sources confirm. For formal assessment and reports, follow the text of the standard and your organization’s procedures.",
+  "privacy": "Page views are recorded (web analytics), as on every other page of this site. The image you open, the marks you place and your counts are never sent anywhere (the measuring part makes no network requests). Your progress (mark positions and the scale, not the image) is kept only in this browser.",
+  "sources_h": "Main sources",
+  "refs": {
+    "umich-e112": {
+      "s": "Univ. of Michigan lab module (grain size)",
+      "full": "University of Michigan, Materials Science and Engineering, lab modules: Grain size determination (reproduces the text of ASTM E112-96(2004)e2)"
+    },
+    "umich-e562": {
+      "s": "Univ. of Michigan lab module (point count)",
+      "full": "University of Michigan, Materials Science and Engineering, lab modules: Manual point count (reproduces the text of ASTM E562-01)"
+    },
+    "iteh-e112": {
+      "s": "ASTM E112-13(2021) overview",
+      "full": "ASTM E112-13(2021) Standard Test Methods for Determining Average Grain Size (overview and sample pages, iTeh Standards)"
+    },
+    "astm-e562": {
+      "s": "ASTM E562 overview",
+      "full": "ASTM E562-19e1 Standard Test Method for Determining Volume Fraction by Systematic Manual Point Count (overview, ASTM)"
+    },
+    "iteh-e1181": {
+      "s": "ASTM E1181 overview",
+      "full": "ASTM E1181-02(2023) Standard Test Methods for Characterizing Duplex Grain Sizes (overview, iTeh Standards)"
+    },
+    "iso-643": {
+      "s": "ISO 643:2019 sample",
+      "full": "ISO 643:2019 Steels — Micrographic determination of the apparent grain size (sample pages)"
+    },
+    "vv-1991": {
+      "s": "Vander Voort (1991)",
+      "full": "G. F. Vander Voort, Committee E-4 and Grain Size Measurements: 75 Years of Progress, ASTM Standardization News (May 1991)"
+    },
+    "vv-buehler": {
+      "s": "Vander Voort, Buehler Tech-Notes",
+      "full": "G. F. Vander Voort, Introduction to Quantitative Metallography, Buehler Tech-Notes Vol. 1, Issue 5 (2015)"
+    },
+    "vv-mm2013": {
+      "s": "Vander Voort (2013) M&M",
+      "full": "G. F. Vander Voort, Grain Size Measurement Methods: A Review and Comparison, Microscopy and Microanalysis 19 (Suppl 2), 1760 (2013)"
+    },
+    "vv-pm2013": {
+      "s": "Vander Voort (2013) Pract. Metallogr.",
+      "full": "G. F. Vander Voort, Grain Size Measurements Using Circular or Rectangular Test Grids, Practical Metallography (2013), doi:10.3139/147.110208"
+    },
+    "niigata": {
+      "s": "Industrial Research Institute of Niigata Prefecture (2020)",
+      "full": "Industrial Research Institute of Niigata Prefecture, technical topic: Recognizing grain size in metal microstructures with deep learning (2020, in Japanese)"
+    },
+    "hiroshima": {
+      "s": "Terayama et al. (2022)",
+      "full": "A. Terayama et al., Metallographic Analysis for Steels by means of Image Processing, Report of the Western Region Industrial Research Center, Hiroshima Prefectural Technology Research Institute, No. 65 (2022, in Japanese)"
+    },
+    "rollett": {
+      "s": "Rollett, Stereology (2014)",
+      "full": "A. D. Rollett, Stereology, lecture slides for 27-750 Texture, Microstructure & Anisotropy, Carnegie Mellon University (2014; based on E. E. Underwood, Quantitative Stereology)"
+    }
+  },
+  "rules": {
+    "icpt": {
+      "h": "Counting for the intercept method (lines and circles)",
+      "items": [
+        "A point where the test line crosses a grain boundary (an intersection)",
+        "The test line passes through a triple point (where three grains meet)",
+        "The test line is tangent to a grain boundary",
+        "The end of a straight line exactly touches a grain boundary (an end that stops inside a grain is not counted)"
+      ],
+      "p": [
+        "With irregular grains, the line may cut the same grain twice; count both intersections.",
+        "E112 allows scoring a triple point on a circle as 2 when tallying with a counter (the error is small). This page uses the correct value, 1.5.",
+        "Do not count annealing twin boundaries (the two sides of a twin belong to one grain).",
+        "Choose fields blindly and spread them widely; do not pick the nicest-looking areas."
+      ]
+    },
+    "plan": {
+      "h": "Counting for the planimetric (Jeffries) method",
+      "items": [
+        "A grain completely inside the test figure",
+        "A grain intercepted by the outline of the figure",
+        "With a rectangle, do not count the four corner grains; add 1 for them together (on average one quarter of each lies inside)"
+      ],
+      "p": [
+        "Mark each grain as you count it, so that none is missed or counted twice.",
+        "Choose a magnification that puts at least 50 grains inside the figure (up to about 100).",
+        "N_A is the number per mm² at 1×; the area of the figure is converted to true size with the scale."
+      ]
+    },
+    "pt": {
+      "h": "Counting for the systematic point count",
+      "items": [
+        "A grid point lies inside the phase being counted",
+        "A point lies on the phase boundary (also ½ when in doubt whether it is inside)",
+        "Any other point (matrix, etc.); on this page it stays in \"remainder\""
+      ],
+      "p": [
+        "Place the grid without looking at the structure, and step a fixed amount to the next field.",
+        "Choose a magnification at which the features are about half the grid spacing, so that neighboring points rarely hit the same feature.",
+        "Count the minor constituent, and etch so that it alone is revealed when you can."
+      ]
+    }
+  },
+  "formulas": {
+    "icpt": {
+      "h": "Intercept method",
+      "sym": [
+        "number of intersections (triple points 1.5, line ends ½)",
+        "true length of the test lines",
+        "mean lineal intercept length (mm), the mean of the field values of ℓ"
+      ]
+    },
+    "plan": {
+      "h": "Planimetric method",
+      "sym": [
+        "grains completely inside",
+        "grains intercepted by the outline (corner grains excluded for a rectangle)",
+        "true area of the figure (mm²); upper equation for a circle, lower for a rectangle",
+        "grains per mm² (mm⁻²)"
+      ]
+    },
+    "pt": {
+      "h": "Point count",
+      "sym": [
+        "points falling in phase α (boundary points ½)",
+        "number of grid points",
+        "volume fraction, estimated by the mean of the field values of P_P"
+      ]
+    },
+    "stat": {
+      "h": "Scatter and precision",
+      "sym": [
+        "value of each field (ℓ, N_A or P_P)",
+        "number of fields",
+        "two-sided 95 % value of Student’s t with n − 1 degrees of freedom (2.776 for n = 5, 2.262 for n = 10)",
+        "relative accuracy; 10 % or less is considered adequate for most purposes"
+      ]
+    },
+    "jis": {
+      "h": "JIS and ISO definition by area",
+      "sym": [
+        "grains per mm² in JIS G 0551 and ISO 643",
+        "grains per mm² in ASTM E112 (2^(G−1) per square inch at 100×)",
+        "JIS/ISO number for the same N_A (the intercept relation was not verified)"
+      ]
+    }
+  },
+  "presets": [
+    "Proeutectoid ferrite",
+    "Pearlite",
+    "Nodular graphite",
+    "Flake graphite",
+    "Proeutectoid cementite",
+    "Martensite",
+    "Bainite",
+    "Spheroidized cementite",
+    "Precipitates",
+    "Eutectic"
+  ],
+  "guide": [
+    {
+      "h": "Intercept or planimetric: the difference and which to use",
+      "p": [
+        "The intercept method counts the intersections of test lines with grain boundaries and gives the mean lineal intercept length ℓ̄; the planimetric method counts the grains in a figure and gives the number of grains per mm², N_A. Both convert to the grain size number G with the ASTM E112 equations, but they count different things (boundaries along a line, grains in an area). Vander Voort notes that the two methods sense different geometric aspects, so they agree closely but not exactly.",
+        "The effort differs. In the planimetric method each grain has to be marked as it is counted, which takes time. E112 gives about 400 intersections with the intercept method and about 700 grains with the planimetric method as the counts that reach 10 % relative accuracy. Vander Voort also finds the intercept method much faster for the same precision.",
+        "For equiaxed grains and a quick result, use the intercept method, preferably with three concentric circles (orientation effects average out; E112 recommends it). Use the planimetric method when you need the number of grains itself or want to check grain shapes as you count. A rectangular figure (Saltykov’s method) has been reported to give consistent results even with few grains per field.",
+        "When rolling has elongated the grains, measure each direction separately (on this page, count with \"one horizontal line\" and \"one vertical line\" in separate sessions). E112 describes directed ℓ̄ values and their ratio as a measure of elongation. Duplex grain structures with two size populations are outside E112 and are treated by ASTM E1181.",
+        "For the grain size of one phase in a two-phase structure, combine its volume fraction (point count) with an intercept count of that phase only (E112: ℓ̄_α = V_Vα · L / N_α, where N_α is the number of α grains intercepted)."
+      ]
+    },
+    {
+      "h": "How many to count (relative accuracy and counts)",
+      "p": [
+        "Precision is governed less by the count in one field than by the scatter between fields. Like E112 and E562, this page computes the mean x̄, the standard deviation s, the 95 % confidence interval t·s/√n and the relative accuracy %RA = 100 × CI / mean from the field values. t is Student’s t with n − 1 degrees of freedom and grows when there are few fields (2.776 for n = 5, 2.262 for n = 10, 2.093 for n = 20).",
+        "E112 guidance: for the intercept method choose a magnification giving 40 to 100 counts per placement of the three circles (at least 50 for straight lines) and count three to five or more fields; for the planimetric method put at least 50 grains (up to about 100) in the figure and count at least three fields. 10 %RA or less is considered adequate for most purposes; above that, measure more fields and recalculate.",
+        "The confidence interval shrinks roughly as 1/√n, so four times as many fields halve it. For a point count with independent points, the %RA for a phase of fraction p, a grid of P_T points and n fields is about 200 √((1 − p) / (p · P_T · n)). Minor phases need much more counting: a 5 % phase counted with a 100-point grid needs about 76 fields for 10 %RA by this formula, and 80 fields in Table 3 of E562 (which assumes the features are randomly distributed).",
+        "E562 gives a table that picks the grid size from the visually estimated area fraction (100 points for 2–5 %, 49 for 5–10 %, 25 for 10–20 %, 16 above 20 %) and a table of the fields needed for a target %RA; the %RA itself must be calculated from your own data, not read from the table. E562 also says that at least 30 fields must be measured to calculate the 95 % confidence interval (Annex A1); with fewer fields, read the interval as a rough guide."
+      ]
+    },
+    {
+      "h": "When boundaries are not revealed, and whether to count twins",
+      "p": [
+        "Both methods assume that every grain boundary is visible. If part of the boundaries is missing, fewer intersections make ℓ̄ larger, fewer grains make N_A smaller, and both underestimate G (too coarse). Counting rules cannot correct this; re-etch. For under-etching, over-etching and scratches, see the preparation guide.",
+        "Choose an etchant that reveals the grain boundaries well. For ferrite grains in steel use nital. Picral attacks cementite and does not reveal ferrite boundaries (see picral in the preparation guide), so it is unsuitable for ferrite grain size. For austenitic steels ISO 643 lists electrolytic etching in 60 % nitric acid, which reveals grain boundaries but not twin boundaries.",
+        "For the grain size number, annealing twin boundaries are ignored (both sides of a twin count as one grain), as in the E112 definition. Face-centered cubic metals (austenitic stainless steel, copper, brass, nickel alloys) often contain annealing twins, while body-centered cubic ferrite never does. Twin boundaries usually appear as straight, parallel pairs of lines; tell them apart from grain boundaries and do not mark them. Some studies use values that include twins, so state in the report which way you counted."
+      ]
+    },
+    {
+      "h": "Mean grain diameter and the grain size number: points to watch",
+      "p": [
+        "There are several \"mean grain diameters\": (1) the mean lineal intercept length ℓ̄ itself; (2) the square root of the mean grain area Ā = 1/N_A, d̄ = √Ā (the d̄ of the E112 table, which assumes square grains and, as E112 says, has no physical significance); (3) the equivalent circle diameter √(4Ā/π); (4) the spatial diameter D (D = 1.5 ℓ̄ for spheres of one size, and D = 1.571 ℓ̄ as an estimate based on tetrakaidecahedra with a size distribution).",
+        "For the same structure, the relations in the E112 table make d̄ about 12 % larger than ℓ̄, the equivalent circle diameter about 27 % larger, and D more than 50 % larger. When you write \"grain size 20 µm\", state which definition (ℓ̄, d̄ or equivalent circle diameter) and which method you used. The d in the Hall–Petch relation is ℓ̄ in some papers and an equivalent circle diameter in others.",
+        "The grain size number is a logarithmic scale: each step of G doubles N_A and multiplies ℓ̄ by 1/√2. The intercept and planimetric G are defined to agree for the grain shape assumed by E112; for real structures, and for the planar synthetic structures on this page, the two can differ by 0.1 to 0.3 for the same structure. Do not average G numbers; average ℓ̄ or N_A and then convert (E112)."
+      ]
+    },
+    {
+      "h": "Grain size numbers in JIS, ISO and ASTM",
+      "p": [
+        "JIS G 0551 (Steels — Micrographic determination of the apparent grain size) and ISO 643 relate the number of grains per mm², m, to the grain size number by m = 8 × 2^G (m = 16 at G = 1). ASTM E112 defines 2^(G−1) grains per square inch at 100×, which is N_A = 15.50 × 2^(G−1) = 7.75 × 2^G mm⁻² at true size.",
+        "For the same N_A, G_JIS = log₂(N_A/8) and G_ASTM = log₂(N_A/7.75), so the JIS/ISO number is smaller by log₂(8/7.75) = 0.046. Vander Voort describes the difference as negligible.",
+        "Whether JIS and ASTM use the same equation to convert the intercept length ℓ̄ into a number could not be confirmed from public sources. This page gives the grain size number by the ASTM E112 equations; if you report to JIS, check the text of JIS G 0551. The JIS G 0551 intercept procedure uses three concentric circles or four straight lines with a total test length of 500 mm at 100×, and normally averages N_L over at least five fields."
+      ]
+    },
+    {
+      "h": "The synthetic practice structures and their true values",
+      "p": [
+        "The synthetic structures are Voronoi tessellations of random points (each grain is the region nearest to one point). The points are kept a minimum distance apart, so grain sizes are fairly uniform. The image wraps around top to bottom and side to side, so it contains exactly one copy of every grain. In the two-phase structure some grains are made a dark phase (striped, like pearlite); the particle structure places non-overlapping discs (like graphite nodules) in a matrix.",
+        "True values come from the geometry, not from counting pixels. N_A is the number of grains divided by the area. The mean intercept length is ℓ̄ = πA / (2 L_B) from the total boundary length L_B (for boundaries with no preferred orientation, intersections per unit test length are P_L = (2/π) L_A). Volume fractions come from the areas of the polygons and discs. The scale is chosen so that N_A equals the value for the selected G.",
+        "In the answer check, \"counted ideally\" is what a machine counts on exactly the lines, figures and grids you placed: every change of grain, every point on the dark phase. Its difference from the true value is mainly sampling scatter from the limited fields; your difference from it is counting error. The planimetric count (grains inside plus half the grains cut) does run high when the frame holds few grains: re-counting these structures with frames placed all over the image gave about +9 % with some 13 grains in the frame, +3 to 4 % with 25, +2 % with 50 and +1 % with 100. A magnification that puts the E112 minimum of 50 or more grains in the frame keeps this bias small.",
+        "The synthetic grains are planar polygons, not sections of three-dimensional grains, so the intercept G comes out about 0.3 larger than the planimetric G. Compare each method with its own true value. Put the random seed in the URL to share the same image."
+      ]
+    }
+  ],
+  "faq": [
+    [
+      "Is my image sent anywhere?",
+      "No. The image is read inside your browser and drawn on a canvas; the measuring part of this page makes no network requests (page views are recorded by web analytics, as on every other page). Your progress (mark positions and the scale, not the image itself) is kept only in this browser and is removed with \"Clear all measurements\"."
+    ],
+    [
+      "What if the photo has no scale bar?",
+      "Enter the magnification together with the width of the photo as printed or displayed at that magnification (mm), or the length per pixel reported by the instrument (µm/px), or the specimen length that the photo width covers (µm). The zoom on your computer screen changes with the display size and cannot be used."
+    ],
+    [
+      "Is a triple point scored 1.5 or 2?",
+      "E112 gives 1.5 as the correct value and allows scoring 2 when tallying circles with a counter (the error is small). This page uses 1.5. A straight-line end that exactly touches a boundary scores ½."
+    ],
+    [
+      "How does this differ from the comparison (chart) method?",
+      "The comparison method is quick, but E112 says it appears to have a general bias toward coarser ratings (½ to 1 number) and that its repeatability and reproducibility are generally ±1 grain size number. For both the planimetric and the intercept methods, E112 says the results are free of bias, repeatability and reproducibility are better than ±0.5 grain size number, and a precision of ±0.25 can be reached with a reasonable amount of effort (E112-13, 4.1.2 and 4.1.3). The difference is that the intercept method reaches the same precision faster. The atlas has an illustration of the comparison method in its grain size section."
+    ],
+    [
+      "How is a point count different from automatic thresholding by brightness?",
+      "In a point count (E562) a regular grid is placed without looking at the structure and a person judges each point, which gives an unbiased estimate. Automatic thresholding by brightness depends on etching depth and uneven illumination. Automatic image analysis is covered by a separate standard (ASTM E1245)."
+    ],
+    [
+      "How many fields can I take from one photo?",
+      "If the photo is large and the pattern is small compared with the photo, \"Move elsewhere\" or \"Center of view\" lets you move the pattern to places that do not overlap earlier fields and take several fields from one photo. Fields close together miss the variation across the specimen, though; the proper way is several photos taken at widely separated places."
+    ]
+  ]
+}
