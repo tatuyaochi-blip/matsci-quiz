@@ -453,6 +453,47 @@ function prpText(code) {
     faq: T.faq ?? [],
   };
 }
+// 組織写真の計測室(/measure/)。data/measure.json(既定言語の文章・数え方の決まり・式・粒度番号の表・相の名前の候補・読み物・リンク・出典)と、
+// 訳 data/i18n/{言語}/measure.json(文章だけ。重み・式・表の数・リンクは言語によらない)。
+// 計測の道具(画像・スケール・切断法・面積法・点算法・合成組織・答え合わせ・書き出し)は src/js/measure.js(式と統計は build の検査でも使う)。
+// その言語の src/i18n に nav_measure があり、文章の訳もある言語でだけ作る。ファイルがなければ何も作らない
+const msrBase = readOpt('data/measure.json', null);
+const msrTr = code => (code === defLang ? null : readOpt(`data/i18n/${code}/measure.json`, null));
+const msrOn = code => !!msrBase && Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'nav_measure') && (code === defLang || !!msrTr(code)?.rules);
+const msrJs = msrBase ? await import(pathToFileURL(path.join(root, 'src/js/measure.js')).href) : null;
+// 訳を既定言語のデータに重ねる。足りない訳や数の合わない訳があれば止める
+function msrText(code) {
+  const d = msrBase;
+  const T = msrTr(code);
+  if (!T) return d;
+  const where = `data/i18n/${code}/measure.json`;
+  const need = (v, k) => {
+    if (v == null || v === '' || (Array.isArray(v) && !v.length)) throw new Error(`${where}: ${k} の訳がありません`);
+    return v;
+  };
+  const same = (a, b, k) => {
+    if (!Array.isArray(b) || b.length !== a.length) throw new Error(`${where}: ${k} の数を既定言語(${a.length})とそろえてください`);
+    return b.map((x, i) => need(x, `${k}[${i}]`));
+  };
+  return {
+    ...d,
+    ...Object.fromEntries(['title', 'description', 'h1', 'lead', 'note', 'privacy', 'sources_h'].map(k => [k, need(T[k], k)])),
+    refs: d.refs.map(r => ({ ...r, s: need(T.refs?.[r.k]?.s, `refs.${r.k}.s`), full: need(T.refs?.[r.k]?.full, `refs.${r.k}.full`) })),
+    rules: d.rules.map(r => {
+      const x = need(T.rules?.[r.id], `rules.${r.id}`), k = `rules.${r.id}`;
+      const items = same(r.items, x.items, `${k}.items`);
+      return { ...r, h: need(x.h, `${k}.h`), items: r.items.map(([w], i) => [w, items[i]]), p: same(r.p, x.p, `${k}.p`) };
+    }),
+    formulas: d.formulas.map(f => {
+      const x = need(T.formulas?.[f.id], `formulas.${f.id}`), k = `formulas.${f.id}`;
+      const sym = same(f.sym, x.sym, `${k}.sym`);
+      return { ...f, h: need(x.h, `${k}.h`), sym: f.sym.map(([y], i) => [y, sym[i]]) };
+    }),
+    presets: (n => d.presets.map((x, i) => ({ ...x, name: n[i] })))(same(d.presets, T.presets, 'presets')),
+    guide: (same(d.guide, T.guide, 'guide'), d.guide).map((g, i) => ({ ...g, h: need(T.guide[i].h, `guide[${i}].h`), p: same(g.p, T.guide[i].p, `guide[${i}].p`) })),
+    faq: T.faq ?? [],
+  };
+}
 // 材料英語の表現集(/phrases/)。data/phrases.json(既定言語の文型・例文・注意・誤りの例・点検の規則の文・読み物・画面の文言 ui)と、
 // 訳 data/i18n/{言語}/phrases.json(日本語の文だけ。英語の文型・例文・誤りの例は言語によらない)。
 // 既定言語だけで作るサービスなので、画面の文言も src/i18n でなくデータの ui に持つ。訳のファイルがある言語でだけ作る。ファイルがなければ何も作らない。
@@ -629,6 +670,8 @@ function buildLang(L) {
   const mtd = mtdOn(code) ? mtdText(code) : null;
   // 試料調製・エッチングガイド(この言語で作るときだけ。訳を重ねた文章)
   const prp = prpOn(code) ? prpText(code) : null;
+  // 組織写真の計測室(この言語で作るときだけ。訳を重ねた文章)
+  const msr = msrOn(code) ? msrText(code) : null;
   // 材料英語の表現集(この言語で作るときだけ。訳を重ねた文章)
   const phr = phrOn(code) ? phrText(code) : null;
   // ニュース用語: 日付・問題・リンク先は既定言語のファイルのものを使い、文章だけ訳で置き換える(訳がなければその言語では出さない)
@@ -781,7 +824,7 @@ function buildLang(L) {
     ${interviewText[code] ? feature(`${home}interview-questions/`, interviewText[code].nav, interviewText[code].card, 'home_feat_interview') : ''}
     ${beyondText[code] && pageNames(code).includes('beyond-scaling') ? feature(`${home}beyond-scaling/`, beyondText[code].nav, beyondText[code].card, 'home_feat_beyond') : ''}
     ${compares.some(e => isDef || tr('compare')[e.slug]) ? feature(`${home}compare/`, S.nav_compare, t('home_feat_compare_desc'), 'home_feat_compare') : ''}
-    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}${atl ? feature(`${home}atlas/`, S.nav_atlas, t('home_feat_atlas_desc'), 'home_feat_atlas') : ''}${drl ? feature(`${home}drill/`, S.nav_drill, t('home_feat_drill_desc'), 'home_feat_drill') : ''}${mtl ? feature(`${home}materials/`, S.nav_materials, t('home_feat_materials_desc'), 'home_feat_materials') : ''}${fml ? feature(`${home}formulas/`, S.nav_formulas, t('home_feat_formulas_desc', { n: fml.formulas.length }), 'home_feat_formulas') : ''}${mtd ? feature(`${home}methods/`, S.nav_methods, t('home_feat_methods_desc', { n: mtd.methods.length }), 'home_feat_methods') : ''}${prp ? feature(`${home}prep/`, S.nav_prep, t('home_feat_prep_desc', { n: prp.materials.length }), 'home_feat_prep') : ''}${phr ? feature(`${home}phrases/`, phr.ui.nav, phr.ui.card.replace('{n}', phr.phrases.length), 'home_feat_phrases') : ''}
+    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}${atl ? feature(`${home}atlas/`, S.nav_atlas, t('home_feat_atlas_desc'), 'home_feat_atlas') : ''}${drl ? feature(`${home}drill/`, S.nav_drill, t('home_feat_drill_desc'), 'home_feat_drill') : ''}${mtl ? feature(`${home}materials/`, S.nav_materials, t('home_feat_materials_desc'), 'home_feat_materials') : ''}${fml ? feature(`${home}formulas/`, S.nav_formulas, t('home_feat_formulas_desc', { n: fml.formulas.length }), 'home_feat_formulas') : ''}${mtd ? feature(`${home}methods/`, S.nav_methods, t('home_feat_methods_desc', { n: mtd.methods.length }), 'home_feat_methods') : ''}${prp ? feature(`${home}prep/`, S.nav_prep, t('home_feat_prep_desc', { n: prp.materials.length }), 'home_feat_prep') : ''}${msr ? feature(`${home}measure/`, S.nav_measure, t('home_feat_measure_desc'), 'home_feat_measure') : ''}${phr ? feature(`${home}phrases/`, phr.ui.nav, phr.ui.card.replace('{n}', phr.phrases.length), 'home_feat_phrases') : ''}
     ${Object.keys(figs).length ? feature(`${home}figures/`, S.footer_figures, t('home_feat_figures_desc'), 'home_feat_figures') : ''}
     ${toolsIn(code).length ? feature(`${home}tools/`, S.nav_tools, t('home_feat_tools_desc'), 'home_feat_tools') : ''}
     ${news.length ? feature(`${home}news-terms/`, S.news_title, t('home_feat_news_desc'), 'home_feat_news') : ''}
@@ -1022,6 +1065,9 @@ function buildLang(L) {
       ...prp.materials.map(m => ({ t: 'r', n: m.name, u: `prep/#p-${m.id}`, x: m.see.join(' ') })),
       ...prp.etchants.map(e => ({ t: 'r', n: e.name, u: `prep/#e-${e.id}`, x: `${e.comp.join(' ')} ${e.see}` })),
       ...prp.defects.map(f => ({ t: 'r', n: f.name, u: `prep/#f-${f.id}`, x: f.look }))] : []),
+    ...(msr ? [{ t: 'u', n: msr.h1, u: 'measure/', x: msr.description },
+      ...msr.rules.map(r => ({ t: 'u', n: r.h, u: `measure/#rules-${r.id}`, x: r.items.map(i => i[1]).join(' ') })),
+      ...msr.guide.map(g => ({ t: 'u', n: g.h, u: `measure/#${g.id}`, x: g.p[0] }))] : []),
     ...(phr ? [{ t: 'p', n: phr.h1, u: 'phrases/', x: phr.description },
       ...phr.phrases.map(x => ({ t: 'p', n: x.ja, u: `phrases/#p-${x.id}`, x: `${x.en} ${x.kw}` }))] : []),
     ...(mtl ? [{ t: 'm', n: mtl.h1, u: 'materials/', x: mtl.description },
@@ -1032,7 +1078,7 @@ function buildLang(L) {
     ...live.flatMap(c => qs[c.id].map(q => ({ t: 'q', n: q.question, u: `q/${c.id}/${q.id}/`, x: c.name }))),
   ];
   write(`data/${code}/search.json`, JSON.stringify({
-    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}), ...(fail ? { search_g_x: S.nav_failure } : {}), ...(atl ? { search_g_a: S.nav_atlas } : {}), ...(drl ? { search_g_d: S.nav_drill } : {}), ...(mtl ? { search_g_m: S.nav_materials } : {}), ...(fml ? { search_g_e: S.nav_formulas } : {}), ...(mtd ? { search_g_v: S.nav_methods } : {}), ...(prp ? { search_g_r: S.nav_prep } : {}), ...(phr ? { search_g_p: phr.ui.nav } : {}) },
+    strings: { ...Object.fromEntries(['search_none', 'search_hint', 'search_more', 'search_count', 'search_g_c', 'search_g_t', 'search_g_k', 'search_g_f', 'search_g_q'].map(k => [k, S[k]])), ...(LT ? { search_g_l: LT.search } : {}), ...(fail ? { search_g_x: S.nav_failure } : {}), ...(atl ? { search_g_a: S.nav_atlas } : {}), ...(drl ? { search_g_d: S.nav_drill } : {}), ...(mtl ? { search_g_m: S.nav_materials } : {}), ...(fml ? { search_g_e: S.nav_formulas } : {}), ...(mtd ? { search_g_v: S.nav_methods } : {}), ...(prp ? { search_g_r: S.nav_prep } : {}), ...(msr ? { search_g_u: S.nav_measure } : {}), ...(phr ? { search_g_p: phr.ui.nav } : {}) },
     items: searchItems,
   }));
 
@@ -1083,6 +1129,7 @@ function buildLang(L) {
     aboutFormulas: fml ? `  <li><strong><a href="${home}formulas/">${esc(S.nav_formulas)}</a></strong>${itemSep}${esc(t('about_formulas'))}</li>\n` : '',
     aboutMethods: mtd ? `  <li><strong><a href="${home}methods/">${esc(S.nav_methods)}</a></strong>${itemSep}${esc(t('about_methods'))}</li>\n` : '',
     aboutPrep: prp ? `  <li><strong><a href="${home}prep/">${esc(S.nav_prep)}</a></strong>${itemSep}${esc(t('about_prep'))}</li>\n` : '',
+    aboutMeasure: msr ? `  <li><strong><a href="${home}measure/">${esc(S.nav_measure)}</a></strong>${itemSep}${esc(t('about_measure'))}</li>\n` : '',
     aboutPhrases: phr ? `  <li><strong><a href="${home}phrases/">${esc(phr.ui.nav)}</a></strong>${itemSep}${esc(phr.ui.about)}</li>\n` : '',
     aboutFigures: figList.length ? `  <li><strong><a href="${home}figures/">${esc(S.footer_figures)}</a></strong>${itemSep}${esc(t('about_figures'))}</li>\n` : '',
     // トップの開始ボタンの下: 学習コースへの案内(コースの一覧は分野の一覧より下にある)
@@ -1163,6 +1210,7 @@ function buildLang(L) {
         ...(phr ? [['phrases/', phr.ui.nav, phr.ui.card.replace('{n}', phr.phrases.length)]] : []),
         ...(mtd ? [['methods/', S.nav_methods, t('home_feat_methods_desc', { n: mtd.methods.length })]] : []),
         ...(prp ? [['prep/', S.nav_prep, t('home_feat_prep_desc', { n: prp.materials.length })]] : []),
+        ...(msr ? [['measure/', S.nav_measure, t('home_feat_measure_desc')]] : []),
         ...(fail ? [['failure/', S.nav_failure, t('home_feat_failure_desc')]] : []), ...(numbers.length && code === numbersLang ? [['numbers/', 'Key numbers']] : [])]],
     ].filter(g => g[2].length);
     const here = ([sub, , , also = []]) => (p === L.path + sub ? 'page' : [sub, ...also].some(s => s && p.startsWith(L.path + s)) ? 'true' : '');
@@ -4100,6 +4148,173 @@ ${relCats.length ? `<section>
     });
   }
 
+  // 組織写真の計測室: /measure/(数え方の決まり・式・粒度番号の表・読み物・FAQ・つながるページは JS なしでも読める。計測の道具は measure.js。ページは1つだけ)
+  if (msr) buildMeasure();
+  function buildMeasure() {
+    const D = msr;
+    const where = 'data/measure.json';
+    // データの検査(既定言語のデータで決まるので、どの言語でも同じ結果になる。訳の欠けは msrText が止める)
+    const refIds = new Set(D.refs.map(r => r.k));
+    if (refIds.size !== D.refs.length) throw new Error(`${where}: refs の k が重なっています`);
+    for (const r of D.refs) if (!/^https:\/\//.test(r.url ?? '')) throw new Error(`${where}: 出典 ${r.k} の url がありません`);
+    const srcOk = (list, at) => {
+      if (!list?.length) throw new Error(`${at} の出典がありません`);
+      for (const s of list) if (!refIds.has(s)) throw new Error(`${at} の出典 ${s} が refs にありません`);
+    };
+    if (D.rules.map(r => r.id).join(',') !== 'icpt,plan,pt') throw new Error(`${where}: rules は icpt・plan・pt の順に`);
+    for (const r of D.rules) { if (!r.items.length || r.items.some(x => x.length !== 2 || !x[1])) throw new Error(`${where}: rules ${r.id} の items`); srcOk(r.src, `${where}: 決まり ${r.id}`); }
+    for (const f of D.formulas) { if (!f.f.length || !f.sym.length) throw new Error(`${where}: 式 ${f.id} の式か記号がありません`); srcOk(f.src, `${where}: 式 ${f.id}`); }
+    for (const g of D.guide) { if (!/^[a-z0-9-]+$/.test(g.id)) throw new Error(`${where}: guide の id ${g.id}`); srcOk(g.src, `${where}: 読み物 ${g.id}`); }
+    const reserved = ['ms-app', 'rules', 'formulas', 'gtable', 'related', 'sources', 'faq', 'ms-panel'];
+    if (new Set(D.guide.map(g => g.id)).size !== D.guide.length || D.guide.some(g => reserved.includes(g.id) || /^(rules|fml)-/.test(g.id))) throw new Error(`${where}: guide の id が重なります`);
+    // 粒度番号の表: measure.js の式で計算した値が、E112 の表の値(出典に載った桁)と合うこと
+    srcOk(D.gtable.src, `${where}: gtable`);
+    const near = (a, b) => Math.abs(a - b) <= Math.max(Math.abs(b) * 0.003, 6e-5);
+    for (const [g, na, d, l] of D.gtable.rows) {
+      const cNa = msrJs.naFromG(g), cL = msrJs.lFromG(g), cD = 1 / Math.sqrt(cNa);
+      if (!near(cNa, na) || !near(cL, l) || !near(cD, d)) throw new Error(`${where}: 粒度番号の表 G = ${g} が式と合いません(N_A ${cNa}・ℓ̄ ${cL}・d̄ ${cD})`);
+      if (Math.abs(msrJs.gFromL(l) - g) > 0.02 || Math.abs(msrJs.gFromNA(na) - g) > 0.02) throw new Error(`${where}: 粒度番号の表 G = ${g} の逆の換算が合いません`);
+    }
+    // リンク先が存在すること(組織アトラス・試料調製ガイド・手法ナビ・公式集・用語集)
+    const has = (list, id) => (list ?? []).some(e => e.id === id);
+    for (const p of D.presets) if (!has(atlasBase?.structures, p.atlas)) throw new Error(`${where}: 相の候補 ${p.name} の組織アトラスにない組織 ${p.atlas}`);
+    const Lk = D.links;
+    for (const id of Lk.atlas) if (!has(atlasBase?.structures, id)) throw new Error(`${where}: links.atlas の組織アトラスにない組織 ${id}`);
+    for (const id of Lk.prep_e) if (!has(prpBase?.etchants, id)) throw new Error(`${where}: links.prep_e の試料調製ガイドにない腐食液 ${id}`);
+    for (const id of Lk.prep_f) if (!has(prpBase?.defects, id)) throw new Error(`${where}: links.prep_f の試料調製ガイドにない不具合 ${id}`);
+    for (const id of Lk.prep_g) if (!has(prpBase?.guide, id)) throw new Error(`${where}: links.prep_g の試料調製ガイドにない読み物 ${id}`);
+    for (const id of Lk.methods) if (!has(mtdBase?.methods, id)) throw new Error(`${where}: links.methods の手法ナビにない手法 ${id}`);
+    for (const id of Lk.formulas) if (!has(fmlBase?.formulas, id)) throw new Error(`${where}: links.formulas の公式集にない式 ${id}`);
+    for (const k of Lk.terms) if (!glossary.some(g => g.term === k)) throw new Error(`${where}: links.terms の用語集にない語 ${k}`);
+    // 計測の道具は通信しない: measure.js に通信の関数がないこと。画面の文言の鍵がこの言語の src/i18n にあること
+    const jsSrc = read('src/js/measure.js');
+    const net = jsSrc.match(/\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket|EventSource|\bimport\s*\(|RTCPeerConnection|\.src\s*=\s*['"`]https?:|window\.open\s*\(/);
+    if (net) throw new Error(`src/js/measure.js: 通信の関数(${net[0]})は使わない約束です`);
+    function need(k) { if (S[k] == null) throw new Error(`src/i18n/${code}.json: ${k} がありません`); return S[k]; }
+    const dyn = [...msrJs.SYN.kinds.map(k => `measure_syn_${k}`), ...['count', 'move'].map(k => `measure_mode_${k}`), ...['bar', 'px', 'mag', 'fov'].map(k => `measure_scale_${k}`),
+      ...['icpt', 'plan', 'pt'].flatMap(k => [`measure_m_${k}`, `measure_h_${k}`]), ...msrJs.PATS.map(k => `measure_pat_${k}`), ...['x', 'j', 't', 'e', 'in', 'cut', 'del'].map(k => `measure_k_${k}`)];
+    const jsKeys = [...new Set([...[...jsSrc.matchAll(/\bt\('(measure_[a-z0-9_]+)'/g)].map(m => m[1]), ...[...jsSrc.matchAll(/'(measure_[a-z0-9_]+)'/g)].map(m => m[1]), ...dyn, 'measure_csv_cols'])];
+    const jsText = Object.fromEntries([...jsKeys, 'compare_link_copied'].map(k => [k, need(k)]));
+    const pHome = `${home}measure/`;
+    const pPath = l => `${l.path}measure/`;
+    const pAlt = Object.fromEntries(langs.filter(x => msrOn(x.code)).map(x => [x.code, pPath(x)]));
+    const ref = Object.fromEntries(D.refs.map(r => [r.k, r]));
+    const src = list => `<p class="fm-src">${esc(need('measure_src'))}: ${esc(list.map(s => ref[s].s).join('; '))}</p>`;
+    const atlasOf = id => (x => (x ? { url: `${home}atlas/?s=${x.id}#s-${x.id}`, name: x.name } : null))(atl?.structures.find(e => e.id === id));
+    const jsData = {
+      rules: Object.fromEntries(D.rules.map(r => [r.id, [...r.items, ...r.p.map(x => ['', x])]])),
+      presets: D.presets.map(p => ({ name: p.name, ...(atlasOf(p.atlas) ? { url: atlasOf(p.atlas).url, atlasName: atlasOf(p.atlas).name } : {}) })),
+    };
+    // 切断法の数え方の図(数字だけの図。説明は図の下の文)
+    const fig = `<figure class="ms-fig">
+    <svg viewBox="0 0 360 150" role="img" aria-label="${esc(need('measure_fig_cap'))}">
+      <g class="ms-fig-gb" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <path d="M60 10 L80 140"/><path d="M150 75 L140 10 M150 75 L118 140 M150 75 L200 140"/><path d="M226 10 L234 140"/><path d="M255 140 Q285 10 315 140"/><path d="M336 10 L344 140"/>
+      </g>
+      <path class="ms-fig-line" d="M20 75 L340 75" stroke-width="3.2" stroke-linecap="round"/>
+      <g stroke="#fff" stroke-width="1.5"><circle cx="70" cy="75" r="6" fill="#f03e3e"/><path d="M150 67 L158 81 L142 81 Z" fill="#f59f00"/><circle cx="230" cy="75" r="6" fill="#f03e3e"/><path d="M285 67 L293 75 L285 83 L277 75 Z" fill="#7048e8"/><circle cx="340" cy="75" r="6" fill="#2f9e44"/></g>
+      <g class="ms-fig-t" font-size="15" font-weight="700" text-anchor="middle"><text x="76" y="58">1</text><text x="164" y="58">1.5</text><text x="240" y="58">1</text><text x="285" y="58">1</text><text x="340" y="104">½</text></g>
+    </svg>
+    <figcaption>${esc(need('measure_fig_cap'))}</figcaption>
+  </figure>`;
+    const ruleSec = r => `<section class="ms-rule" id="rules-${r.id}">
+    <h3>${esc(r.h)}</h3>${r.id === 'icpt' ? `\n    ${fig}` : ''}
+    <div class="fm-scroll"><table class="pp-tbl ms-rule-tbl"><thead><tr><th scope="col">${esc(need('measure_rule_what'))}</th><th scope="col">${esc(need('measure_rule_w'))}</th></tr></thead><tbody>${r.items.map(([w, x]) => `
+      <tr><td>${esc(x)}</td><td class="ms-w">${esc(w)}</td></tr>`).join('')}
+    </tbody></table></div>
+    <ul class="mt-miss">${r.p.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    ${src(r.src)}
+  </section>`;
+    const fmlCard = f => `<article class="mt-card ms-fml" id="fml-${f.id}">
+    <div class="mt-head"><h3><a href="#fml-${f.id}">${esc(f.h)}</a></h3></div>
+    <ul class="ms-eqs">${f.f.map(x => `<li><code>${esc(x)}</code></li>`).join('')}</ul>
+    <div class="fm-scroll"><table class="pp-tbl ms-sym"><thead><tr><th scope="col">${esc(need('measure_sym'))}</th><th scope="col">${esc(need('measure_sym_m'))}</th></tr></thead><tbody>${f.sym.map(([y, m]) => `
+      <tr><th scope="row"><code>${esc(y)}</code></th><td>${esc(m)}</td></tr>`).join('')}
+    </tbody></table></div>
+    ${src(f.src)}
+  </article>`;
+    const num = (x, d) => new Intl.NumberFormat(L.locale, { minimumFractionDigits: d, maximumFractionDigits: d }).format(x);
+    const gRows = D.gtable.rows.map(([g]) => { const na = msrJs.naFromG(g); return [g, na, msrJs.lFromG(g) * 1000, 1000 / Math.sqrt(na)]; });
+    const fmlPage = id => (fml?.formulas.find(f => f.id === id));
+    const chip = (href, text) => `<a class="chip" href="${href}">${esc(text)}</a>`;
+    const termOf = k => terms.find(g => g.key === k);
+    const prpOf = (list, id) => prp?.[list]?.find(e => e.id === id);
+    const rel = [
+      atl ? [S.nav_atlas, [...Lk.atlas.map(atlasOf).filter(Boolean).map(x => chip(x.url, x.name)), chip(`${home}atlas/#grain`, t('atlas_grain_h'))]] : null,
+      prp ? [S.nav_prep, [...Lk.prep_e.map(id => chip(`${home}prep/#e-${id}`, prpOf('etchants', id).name)), ...Lk.prep_f.map(id => chip(`${home}prep/#f-${id}`, prpOf('defects', id).name)), ...Lk.prep_g.map(id => chip(`${home}prep/#${id}`, prpOf('guide', id).h))]] : null,
+      mtd ? [S.nav_methods, Lk.methods.map(id => mtd.methods.find(e => e.id === id)).filter(Boolean).map(m => chip(`${home}methods/#m-${m.id}`, m.abbr || m.name))] : null,
+      fml ? [S.nav_formulas, Lk.formulas.map(fmlPage).filter(Boolean).map(f => chip(`${home}formulas/#f-${f.id}`, f.name))] : null,
+      [S.nav_glossary, Lk.terms.map(termOf).filter(Boolean).map(g => chip(`${home}term/${termSlug[g.key]}/`, g.term))],
+    ].filter(x => x && x[1].length);
+    page({
+      path: pPath(L),
+      alt: pAlt,
+      title: D.title,
+      fullTitle: `${D.title} | ${siteName}`,
+      description: D.description,
+      scripts: ['measure.js'],
+      // 広告を出さない: 利用者が自分の画像を開いて数える道具のページなので、第三者の広告のスクリプト(と、その通信)をここでは読み込まない。
+      // アクセス解析(GA4)はほかのページと同じく残す。ページの privacy の文に、閲覧の記録はあり、画像・印・数は送らないと書いてある
+      ads: false,
+      jsonld: [
+        crumbs([t('breadcrumb_top'), home], [S.nav_measure, pHome]),
+        ...(D.faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage',
+          mainEntity: D.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+      ],
+      content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
+<h1>${esc(D.h1)}</h1>
+<p class="lead">${esc(D.lead)}</p>
+<p class="ms-privacy">${esc(D.privacy)}</p>
+<p class="fn-caution">${esc(D.note)}</p>
+<noscript><p class="mt-nb">${esc(need('measure_noscript'))}</p></noscript>
+<section id="ms-app" class="mt-app ms-app" data-t="${esc(JSON.stringify(jsText))}" data-d="${esc(JSON.stringify(jsData))}" hidden>
+  <h2>${esc(need('measure_app_h'))}</h2>
+  <div class="ms-root"></div>
+</section>
+<nav class="at-toc" aria-label="${esc(need('measure_toc'))}"><a class="chip" href="#rules">${esc(need('measure_rules_h'))}</a> <a class="chip" href="#formulas">${esc(need('measure_fml_h'))}</a> <a class="chip" href="#gtable">${esc(need('measure_gtab_h'))}</a>${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')}${D.faq.length ? ` <a class="chip" href="#faq">${esc(t('compare_faq'))}</a>` : ''} <a class="chip" href="#related">${esc(need('measure_rel_h'))}</a> <a class="chip" href="#sources">${esc(D.sources_h)}</a></nav>
+<section id="rules" class="ms-rules-sec">
+  <h2>${esc(need('measure_rules_h'))}</h2>
+  <p>${esc(need('measure_rules_lead'))}</p>
+  ${D.rules.map(ruleSec).join('\n  ')}
+</section>
+<section id="formulas" class="ms-fml-sec">
+  <h2>${esc(need('measure_fml_h'))}</h2>
+  <p>${esc(need('measure_fml_lead'))}${fmlPage('grain-size') ? ` <a href="${home}formulas/#f-grain-size">${esc(fmlPage('grain-size').name)}</a>` : ''}</p>
+  ${D.formulas.map(fmlCard).join('\n  ')}
+</section>
+<section id="gtable" class="ms-gtab-sec">
+  <h2>${esc(need('measure_gtab_h'))}</h2>
+  <p>${esc(need('measure_gtab_lead'))}</p>
+  <div class="fm-scroll"><table class="pp-tbl ms-gtab"><thead><tr>${['g', 'na', 'l', 'd'].map(k => `<th scope="col">${esc(need(`measure_gtab_${k}`))}</th>`).join('')}</tr></thead><tbody>${gRows.map(([g, na, l, d]) => `
+    <tr><th scope="row">${g}</th><td>${num(na, na < 100 ? 2 : na < 1000 ? 1 : 0)}</td><td>${num(l, 1)}</td><td>${num(d, 1)}</td></tr>`).join('')}
+  </tbody></table></div>
+  ${src(D.gtable.src)}
+</section>
+${D.guide.map(g => `<section id="${g.id}" class="fm-guide">
+  <h2>${esc(g.h)}</h2>${g.p.map(p => `
+  <p>${linked(p)}</p>`).join('')}
+  ${src(g.src)}
+</section>`).join('\n')}
+${D.faq.length ? `<section class="faq" id="faq">
+  <h2>${esc(t('compare_faq'))}</h2>${D.faq.map(([q, a]) => `
+  <h3>${esc(q)}</h3>
+  <p>${linked(a)}</p>`).join('')}
+</section>` : ''}
+<section id="related" class="ms-rel">
+  <h2>${esc(need('measure_rel_h'))}</h2>
+  <p>${esc(need('measure_rel_lead'))}</p>${rel.map(([h, list]) => `
+  <h3>${esc(h)}</h3>
+  <p class="term-chips">${list.join(' ')}</p>`).join('')}
+</section>
+<section id="sources" class="fn-sources fm-refs">
+  <h2>${esc(D.sources_h)}</h2>
+  <ul>${D.refs.map(r => `
+    <li><b>${esc(r.s)}</b>: <a href="${esc(r.url)}" rel="noopener" target="_blank">${esc(r.full)}</a></li>`).join('')}
+  </ul>
+</section>`,
+    });
+  }
+
   // 材料英語の表現集: /phrases/(表現のカード・検索・場面で絞る・お気に入り・差し込み欄・印刷・英文の点検。動きは phrases.js。ページは1つだけ)
   if (phr) buildPhrases();
   function buildPhrases() {
@@ -4831,7 +5046,7 @@ fs.writeFileSync(lastmodFile, '{\n' + Object.entries(lastmod).map(([k, v]) => ` 
 // /sitemap.xml の場所は変えないので、Search Console と robots.txt はそのままでよい
 const SITEMAP_MAX = 40000;
 const langOfUrl = url => [...langs].sort((a, b) => b.path.length - a.path.length).find(x => pageKey(url).startsWith(x.path)).code; // 既定言語(path が空)は最後に当たる
-const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools', 'failure', 'atlas', 'drill', 'materials', 'formulas', 'methods', 'prep', 'phrases']; // これ以外(トップ・分野・図解集など)は other にまとめる
+const SITEMAP_TYPES = ['term', 'compare', 'q', 'learn', 'tools', 'failure', 'atlas', 'drill', 'materials', 'formulas', 'methods', 'prep', 'measure', 'phrases']; // これ以外(トップ・分野・図解集など)は other にまとめる
 const typeOfUrl = url => {
   const L = langs.find(x => x.code === langOfUrl(url));
   const first = pageKey(url).slice(L.path.length).split('/')[0];
