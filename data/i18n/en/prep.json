@@ -1,6 +1,6 @@
 {
  "title": "Specimen Preparation and Etching Guide: steps and troubleshooting",
- "description": "Metallographic specimen preparation by material (steels, stainless, cast iron, Al, Cu, Ti, Ni, Mg, solders, coatings, carbides, ceramics, EBSD) with grinding and polishing steps and etchants. Find causes and fixes for scratches, edge rounding, relief, comet tails, stains and over-etching, and check etchant hazards.",
+ "description": "Metallographic specimen preparation by material (carbon and hardened steels, stainless, cast iron, Al, Cu, Ti, Ni, Mg, solders, coatings, carbides, ceramics, EBSD) with grinding and polishing steps and etchants. Find causes and fixes for scratches, edge rounding, relief, comet tails, stains and over-etching, and check etchant hazards.",
  "h1": "Specimen Preparation and Etching Guide",
  "lead": "This page is about making a specimen you can actually examine. Look up sectioning, mounting, grinding, polishing and etching material by material, and when something goes wrong, pick the defect you see and your material to get likely causes and fixes in order. For identifying what you see, use the Microstructure Atlas; for choosing an instrument, the Characterization Method Finder.",
  "note": "Steps, times, forces and speeds are typical values from the sources (mostly equipment makers' procedures for automatic machines) and change with equipment, consumables and the size and number of specimens. On a new material, adjust while checking that each step has removed the previous scratches. Compositions were compared between sources; where they differ, a range or the difference is given. Standards are cited by name, number and scope only.",
@@ -538,7 +538,7 @@
    "hard": [
     "Softer than hardened steels and work-hardens during preparation, so it smears: use lighter force and a longer 1 µm step.",
     "The same corrosion resistance makes it hard to etch (nital hardly works).",
-    "Hot compression mounting (150–180 °C) is far below the sensitization range (about 500–800 °C), but specimens for sensitization or sigma-phase studies are still cold-mounted in castable resin so that no extra thermal history is added (PACE)"
+    "Hot compression mounting (150–180 °C) is far below the sensitization range (about 500–800 °C), but specimens for sensitization or sigma-phase studies are still cold-mounted in castable resin so that no extra thermal history is added (PACE)."
    ],
    "steps": [
     [
@@ -1620,7 +1620,7 @@
    "nb": []
   },
   "lb1": {
-   "name": "LB1 (Lichtenegger and Bloch)",
+   "name": "LB1 (Lichtenegger and Bloech)",
    "aka": "",
    "comp": [
     "20 g NH₄HF₂ + 0.5 g K₂S₂O₅ + 100 mL water (dissolve in hot water)"
@@ -1749,7 +1749,7 @@
     "2 mL HF + 3 mL HCl + 5 mL HNO₃ + 190 mL water (the 1.0 : 1.5 : 2.5 : 95 mL in PACE's Al guide is the same ratio); mix in PE/PP"
    ],
    "use": [
-    "Immerse 8–20 s. Rinse thoroughly with water; do not rinse aluminum with alcohol. Use fresh",
+    "Immerse 8–20 s. Rinse thoroughly with cold (or warm) water; do not rinse aluminum with alcohol. Use fresh",
     "Ti alloys: immerse 3–10 s (PACE Ti guide) or 10–20 s (Metkon)"
    ],
    "see": "Grain boundaries and second-phase particles (Al₂Cu, Mg₂Si, MgZn₂) in wrought Al alloys (1xxx–7xxx), cold-worked vs recrystallized grains. May leave a Cu stain on 2xxx alloys; switch to 0.5% HF there. Also used on Ti alloys.",
