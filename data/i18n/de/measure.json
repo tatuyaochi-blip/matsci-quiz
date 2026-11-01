@@ -1,0 +1,242 @@
+{
+  "title": "Messraum für Gefügebilder (Korngröße und Phasenanteile)",
+  "description": "Eigene Schliffbilder im Browser auszählen: Korngrößenkennzahl G nach ASTM E112 (Linienschnitt- und planimetrisches Verfahren) und Phasenanteile nach E562 (Punktzählverfahren), mit 95-%-Konfidenzintervall und relativer Genauigkeit. Export als CSV und PNG, Übungsgefüge. Die Bilder verlassen den Browser nicht.",
+  "h1": "Messraum für Gefügebilder",
+  "lead": "Ein Werkzeug, um Korngröße und Phasenanteile auf eigenen Schliffbildern auszuzählen. Sie öffnen ein Bild, legen den Maßstab fest und tippen (klicken) auf die Schnittpunkte der Messlinien mit den Korngrenzen, auf die Körner im Messrahmen oder auf die Rasterpunkte. Die Seite gibt die Korngrößenkennzahl G, die mittlere Sehnenlänge ℓ̄, die Zahl der Körner je Flächeneinheit N_A und die Volumenanteile mit ihrer Unsicherheit so aus, dass sie in einen Bericht übernommen werden können. Wie die Probe präpariert wird, steht im Leitfaden Probenpräparation und Ätzen, wie man Gefüge erkennt, im Gefügeatlas.",
+  "note": "Die Werte auf dieser Seite sind Schätzungen mit Formeln und Zählregeln, die anhand öffentlich zugänglicher Quellen geprüft wurden. Normen sind nur mit Bezeichnung, Nummer und Gegenstand genannt, dazu die Formeln, die sich in öffentlichen Quellen bestätigen ließen. Für eine verbindliche Beurteilung und für Berichte gelten der Normtext und die Verfahrensanweisungen Ihrer Einrichtung.",
+  "privacy": "Wie auf allen anderen Seiten dieser Website werden Seitenaufrufe erfasst (Webanalyse). Das geöffnete Bild, die gesetzten Markierungen und die gezählten Werte werden nirgendwohin gesendet (der Messteil stellt keine Netzwerkverbindungen her). Der Zwischenstand (Lage der Markierungen und Maßstab, nicht das Bild) bleibt nur in diesem Browser gespeichert.",
+  "sources_h": "Wichtigste Quellen",
+  "refs": {
+    "umich-e112": {
+      "s": "Univ. of Michigan, Praktikumsunterlagen (Korngröße)",
+      "full": "University of Michigan, Materials Science and Engineering, Lab modules: Grain size determination (Praktikumsunterlagen mit dem Text von ASTM E112-96(2004)e2)"
+    },
+    "umich-e562": {
+      "s": "Univ. of Michigan, Praktikumsunterlagen (Punktzählung)",
+      "full": "University of Michigan, Materials Science and Engineering, Lab modules: Manual point count (Praktikumsunterlagen mit dem Text von ASTM E562-01)"
+    },
+    "iteh-e112": {
+      "s": "ASTM E112-13(2021), Übersicht",
+      "full": "ASTM E112-13(2021) Standard Test Methods for Determining Average Grain Size (Übersicht und Leseprobe der Norm, iTeh Standards)"
+    },
+    "astm-e562": {
+      "s": "ASTM E562, Übersicht",
+      "full": "ASTM E562-19e1 Standard Test Method for Determining Volume Fraction by Systematic Manual Point Count (Übersicht der Norm, ASTM)"
+    },
+    "iteh-e1181": {
+      "s": "ASTM E1181, Übersicht",
+      "full": "ASTM E1181-02(2023) Standard Test Methods for Characterizing Duplex Grain Sizes (Übersicht der Norm, iTeh Standards)"
+    },
+    "iso-643": {
+      "s": "ISO 643:2019, Leseprobe",
+      "full": "ISO 643:2019 Steels — Micrographic determination of the apparent grain size (Leseprobe der Norm)"
+    },
+    "vv-1991": {
+      "s": "Vander Voort (1991)",
+      "full": "G. F. Vander Voort, Committee E-4 and Grain Size Measurements: 75 Years of Progress, ASTM Standardization News (Mai 1991)"
+    },
+    "vv-buehler": {
+      "s": "Vander Voort, Buehler Tech-Notes",
+      "full": "G. F. Vander Voort, Introduction to Quantitative Metallography, Buehler Tech-Notes Vol. 1, Issue 5 (2015)"
+    },
+    "vv-mm2013": {
+      "s": "Vander Voort (2013) M&M",
+      "full": "G. F. Vander Voort, Grain Size Measurement Methods: A Review and Comparison, Microscopy and Microanalysis 19 (Suppl 2), 1760 (2013)"
+    },
+    "vv-pm2013": {
+      "s": "Vander Voort (2013) Pract. Metallogr.",
+      "full": "G. F. Vander Voort, Grain Size Measurements Using Circular or Rectangular Test Grids, Practical Metallography (2013), doi:10.3139/147.110208"
+    },
+    "niigata": {
+      "s": "Industrieforschungsinstitut der Präfektur Niigata (2020)",
+      "full": "Industrieforschungsinstitut der Präfektur Niigata, technisches Thema: Erkennung der Korngröße von Metallgefügen mit Deep Learning (2020, japanisch)"
+    },
+    "hiroshima": {
+      "s": "Terayama u. a. (2022)",
+      "full": "A. Terayama u. a., Automatisierung der Gefügeprüfung durch Bildverarbeitung, Forschungsbericht des Western Region Industrial Research Center, Hiroshima Prefectural Technology Research Institute, Nr. 65 (2022, japanisch)"
+    },
+    "rollett": {
+      "s": "Rollett, Stereology (2014)",
+      "full": "A. D. Rollett, Stereology, Vorlesungsfolien zu 27-750 Texture, Microstructure & Anisotropy, Carnegie Mellon University (2014; nach E. E. Underwood, Quantitative Stereology)"
+    }
+  },
+  "rules": {
+    "icpt": {
+      "h": "Zählregeln für das Linienschnittverfahren (Geraden und Kreise)",
+      "items": [
+        "Die Messlinie schneidet eine Korngrenze (Schnittpunkt)",
+        "Die Messlinie geht durch einen Tripelpunkt (Treffpunkt dreier Körner)",
+        "Die Messlinie berührt eine Korngrenze (tangential)",
+        "Das Ende einer Geraden liegt genau auf einer Korngrenze (ein Ende, das im Korninneren liegt, wird nicht gezählt)"
+      ],
+      "p": [
+        "Schneidet die Linie bei unregelmäßig geformten Körnern dasselbe Korn zweimal, werden beide Schnittpunkte gezählt.",
+        "Beim Auszählen von Kreisen mit einem Handzähler lässt E112 zu, Tripelpunkte vereinfachend mit 2 zu zählen (der Fehler ist klein). Diese Seite zählt mit dem richtigen Wert 1,5.",
+        "Grenzen von Glühzwillingen werden nicht gezählt (beide Seiten eines Zwillings gehören zu einem Korn).",
+        "Bildfelder ohne Blick auf das Gefüge wählen und weit verteilt legen (keine besonders schönen Stellen aussuchen)."
+      ]
+    },
+    "plan": {
+      "h": "Zählregeln für das planimetrische Verfahren (Flächenzählverfahren nach Jeffries)",
+      "items": [
+        "Korn vollständig innerhalb des Messrahmens",
+        "Korn, das von der Umrandung des Rahmens geschnitten wird",
+        "Beim Rechteckrahmen werden die Körner an den vier Ecken nicht einzeln gezählt; stattdessen wird für sie zusammen 1 addiert (von jedem Eckkorn liegt im Mittel ein Viertel im Rahmen)"
+      ],
+      "p": [
+        "Jedes gezählte Korn markieren, damit keines vergessen oder doppelt gezählt wird.",
+        "Die Vergrößerung so wählen, dass mindestens 50 Körner im Rahmen liegen (bis etwa 100).",
+        "N_A ist die Zahl der Körner je mm² in Originalgröße; die Fläche des Rahmens wird mit dem Maßstab auf Originalgröße umgerechnet."
+      ]
+    },
+    "pt": {
+      "h": "Zählregeln für das Punktzählverfahren (systematische Punktzählung)",
+      "items": [
+        "Der Rasterpunkt liegt in der zu zählenden Phase",
+        "Der Punkt liegt auf der Phasengrenze (auch ½, wenn unklar ist, ob er innen oder außen liegt)",
+        "Alle übrigen Punkte (Matrix usw.); auf dieser Seite bleiben sie im „Rest“"
+      ],
+      "p": [
+        "Das Raster ohne Blick auf das Gefüge auflegen und um einen festen Betrag zum nächsten Bildfeld verschieben.",
+        "Die Vergrößerung so wählen, dass die Teilchen der Phase etwa halb so groß sind wie der Punktabstand des Rasters (damit benachbarte Punkte selten dasselbe Teilchen treffen).",
+        "Die Phase mit dem kleineren Anteil zählen; am leichtesten geht es mit einer Ätzung, die nur diese Phase sichtbar macht."
+      ]
+    }
+  },
+  "formulas": {
+    "icpt": {
+      "h": "Linienschnittverfahren",
+      "sym": [
+        "Zahl der Schnittpunkte (Tripelpunkte 1,5, Linienenden ½)",
+        "Länge der Messlinien in Originalgröße",
+        "mittlere Sehnenlänge (mm), Mittelwert der ℓ-Werte der Bildfelder"
+      ]
+    },
+    "plan": {
+      "h": "Planimetrisches Verfahren",
+      "sym": [
+        "Zahl der Körner vollständig im Rahmen",
+        "Zahl der vom Rahmen geschnittenen Körner (beim Rechteckrahmen ohne die Eckkörner)",
+        "Fläche des Rahmens in Originalgröße (mm²); obere Formel für den Kreis, untere für den Rechteckrahmen",
+        "Zahl der Körner je mm² (mm⁻²)"
+      ]
+    },
+    "pt": {
+      "h": "Punktzählverfahren",
+      "sym": [
+        "Zahl der Punkte in der Phase α (Punkte auf der Grenze ½)",
+        "Zahl der Rasterpunkte",
+        "Volumenanteil (geschätzt aus dem Mittelwert der P_P-Werte der Bildfelder)"
+      ]
+    },
+    "stat": {
+      "h": "Streuung und Genauigkeit",
+      "sym": [
+        "Wert eines Bildfelds (ℓ, N_A oder P_P)",
+        "Zahl der Bildfelder",
+        "zweiseitiger 95-%-Wert der Student-t-Verteilung mit n − 1 Freiheitsgraden (2,776 bei n = 5; 2,262 bei n = 10)",
+        "relative Genauigkeit; 10 % oder weniger gilt für die meisten Zwecke als ausreichend"
+      ]
+    },
+    "jis": {
+      "h": "Flächenbezogene Definition nach JIS und ISO",
+      "sym": [
+        "Zahl der Körner je mm² nach der japanischen Norm JIS G 0551 und nach ISO 643",
+        "Zahl der Körner je mm² nach ASTM E112 (2^(G−1) Körner je Quadratzoll bei 100-facher Vergrößerung)",
+        "Kennzahl nach JIS bzw. ISO für dasselbe N_A (die Formel für das Linienschnittverfahren wurde nicht geprüft)"
+      ]
+    }
+  },
+  "presets": [
+    "Voreutektoider Ferrit",
+    "Perlit",
+    "Kugelgraphit",
+    "Lamellengraphit",
+    "Voreutektoider Zementit",
+    "Martensit",
+    "Bainit",
+    "Kugeliger Zementit",
+    "Ausscheidungen",
+    "Eutektikum"
+  ],
+  "guide": [
+    {
+      "h": "Linienschnittverfahren oder planimetrisches Verfahren: Unterschied und Wahl",
+      "p": [
+        "Beim Linienschnittverfahren werden die Schnittpunkte der Messlinien mit den Korngrenzen gezählt; es liefert die mittlere Sehnenlänge ℓ̄. Beim planimetrischen Verfahren werden die Körner in einem Rahmen gezählt; es liefert die Zahl der Körner je mm², N_A. Beide Werte lassen sich mit den Formeln aus ASTM E112 in die Korngrößenkennzahl G umrechnen, gezählt wird aber Verschiedenes (Korngrenzen entlang einer Linie bzw. Körner in einer Fläche). Vander Voort weist darauf hin, dass die beiden Verfahren unterschiedliche geometrische Merkmale des Gefüges erfassen; ihre Ergebnisse liegen daher nahe beieinander, stimmen aber nicht genau überein.",
+        "Der Aufwand ist verschieden. Beim planimetrischen Verfahren muss jedes gezählte Korn markiert werden, was Zeit kostet. Als Richtwert für eine relative Genauigkeit von 10 % nennt E112 etwa 400 Schnittpunkte beim Linienschnittverfahren und etwa 700 Körner beim planimetrischen Verfahren. Auch nach Vander Voort ist das Linienschnittverfahren bei gleicher Genauigkeit deutlich schneller.",
+        "Für gleichachsige Körner und ein schnelles Ergebnis eignet sich das Linienschnittverfahren, besonders mit drei konzentrischen Kreisen (Orientierungseinflüsse mitteln sich heraus; E112 empfiehlt diese Anordnung). Das planimetrische Verfahren wird verwendet, wenn die Kornzahl selbst gebraucht wird oder die Kornform beim Zählen geprüft werden soll. Mit einem Rechteckrahmen (Verfahren nach Saltykov) wurden auch bei wenigen Körnern im Rahmen stabile Werte berichtet.",
+        "Sind die Körner etwa durch Walzen in einer Richtung gestreckt, wird jede Richtung getrennt gemessen (auf dieser Seite in getrennten Durchgängen mit „Eine waagerechte Gerade“ und „Eine senkrechte Gerade“ zählen). E112 beschreibt richtungsbezogene ℓ̄-Werte und ihr Verhältnis als Maß für die Streckung. Mischkorn, dessen Korngrößen sich in zwei Häufungen teilen, fällt nicht unter E112 und wird in ASTM E1181 behandelt.",
+        "Für die Korngröße einer Phase in einem zweiphasigen Gefüge wird ihr Volumenanteil (Punktzählverfahren) mit einem Linienschnittverfahren kombiniert, bei dem nur die Körner dieser Phase gezählt werden (E112: ℓ̄_α = V_Vα · L / N_α, wobei N_α die Zahl der geschnittenen α-Körner ist)."
+      ]
+    },
+    {
+      "h": "Wie viel gezählt werden muss (relative Genauigkeit und Anzahl)",
+      "p": [
+        "Die Genauigkeit hängt weniger von der Zahl in einem Bildfeld ab als von der Streuung zwischen den Bildfeldern. Wie E112 und E562 berechnet diese Seite aus den Werten der Bildfelder den Mittelwert x̄, die Standardabweichung s, das 95-%-Konfidenzintervall t·s/√n und die relative Genauigkeit %RA = 100 × Konfidenzintervall / Mittelwert. t ist der Wert der Student-t-Verteilung mit n − 1 Freiheitsgraden und wird bei wenigen Bildfeldern größer (2,776 bei n = 5; 2,262 bei n = 10; 2,093 bei n = 20).",
+        "Richtwerte nach E112: Beim Linienschnittverfahren eine Vergrößerung wählen, bei der je Auflegen 40 bis 100 Schnittpunkte (drei konzentrische Kreise) bzw. mit Geraden mindestens 50 gezählt werden, und mindestens drei bis fünf Bildfelder auszählen. Beim planimetrischen Verfahren mindestens 50 Körner (bis etwa 100) in den Rahmen legen und mindestens drei Bildfelder auszählen. Für die meisten Zwecke gelten 10 %RA oder weniger als ausreichend; liegt der Wert darüber, weitere Bildfelder messen und neu berechnen.",
+        "Das Konfidenzintervall nimmt etwa mit 1/√n ab; viermal so viele Bildfelder halbieren es. Beim Punktzählverfahren mit unabhängigen Punkten beträgt die %RA für eine Phase mit dem Anteil p, ein Raster mit P_T Punkten und n Bildfelder etwa 200 √((1 − p) / (p · P_T · n)). Phasen mit kleinem Anteil erfordern viel mehr Zählarbeit: Für eine Phase mit 5 % und ein Raster mit 100 Punkten sind für 10 %RA nach dieser Formel etwa 76 Bildfelder nötig, nach Tabelle 3 von E562 (die eine zufällige Verteilung der zu messenden Phase im Gefüge annimmt) 80 Bildfelder.",
+        "E562 enthält eine Tabelle, nach der die Rastergröße aus dem visuell geschätzten Flächenanteil gewählt wird (100 Punkte bei 2–5 %, 49 bei 5–10 %, 25 bei 10–20 %, 16 über 20 %), und eine Tabelle der für eine angestrebte %RA nötigen Bildfelder. Die %RA selbst wird jedoch nicht aus der Tabelle abgelesen, sondern aus den eigenen Daten berechnet. Außerdem verlangt E562 für die Berechnung des 95-%-Konfidenzintervalls mindestens 30 Bildfelder (Anhang A1); bei weniger Bildfeldern ist das Intervall nur als Anhaltspunkt zu lesen."
+      ]
+    },
+    {
+      "h": "Wenn Korngrenzen nicht sichtbar sind – und ob Zwillinge gezählt werden",
+      "p": [
+        "Beide Verfahren setzen voraus, dass alle Korngrenzen sichtbar sind. Fehlt ein Teil der Korngrenzen, wird ℓ̄ durch weniger Schnittpunkte größer und N_A durch weniger Körner kleiner; beide Verfahren unterschätzen dann G (zu grob). Zählregeln können das nicht ausgleichen; die Probe muss neu geätzt werden. Zu schwacher Ätzung, Überätzung und Kratzern siehe den Leitfaden Probenpräparation und Ätzen.",
+        "Zu wählen ist ein Ätzmittel, das die Korngrenzen gut entwickelt, für Ferritkörner im Stahl etwa Nital. Pikral greift den Zementit an und entwickelt die Ferritkorngrenzen nicht (siehe Pikral im Leitfaden Probenpräparation und Ätzen); für die Ferritkorngröße eignet es sich daher nicht. Für austenitische Stähle nennt ISO 643 elektrolytisches Ätzen in Salpetersäure (60 %), das die Korngrenzen, aber nicht die Zwillingsgrenzen sichtbar macht.",
+        "Für die Korngrößenkennzahl werden die Grenzen von Glühzwillingen nicht berücksichtigt (beide Seiten eines Zwillings zählen als ein Korn); so ist es in E112 definiert. Kubisch-flächenzentrierte Metalle (austenitischer nichtrostender Stahl, Kupfer, Messing, Nickellegierungen) enthalten oft Glühzwillinge, in kubisch-raumzentriertem Ferrit sind sie dagegen normalerweise nicht zu sehen. Zwillingsgrenzen erscheinen meist als gerade, parallele Linienpaare; sie sind von Korngrenzen zu unterscheiden und nicht zu markieren. Manche Untersuchungen verwenden Werte einschließlich der Zwillinge; im Bericht ist daher anzugeben, wie gezählt wurde."
+      ]
+    },
+    {
+      "h": "Mittlerer Korndurchmesser und Korngrößenkennzahl: Hinweise zur Umrechnung",
+      "p": [
+        "Für den „mittleren Korndurchmesser“ gibt es mehrere Definitionen: (1) die mittlere Sehnenlänge ℓ̄ (so auch in der Formelsammlung; unmittelbar der Wert des Linienschnittverfahrens); (2) die Quadratwurzel der mittleren Kornfläche Ā = 1/N_A, d̄ = √Ā (das d̄ der Tabelle in E112; es setzt quadratische Körner voraus und hat nach E112 keine physikalische Bedeutung); (3) der Kreisäquivalentdurchmesser √(4Ā/π); (4) der räumliche Korndurchmesser D (D = 1,5 ℓ̄ für gleich große Kugeln, D = 1,571 ℓ̄ als Schätzung unter Annahme von Tetrakaidekaedern mit Größenverteilung).",
+        "Für dasselbe Gefüge ist nach den Beziehungen der Tabelle in E112 d̄ etwa 12 % größer als ℓ̄, der Kreisäquivalentdurchmesser etwa 27 % größer und D mehr als 50 % größer. Bei einer Angabe wie „Korngröße 20 µm“ sind daher die Definition (ℓ̄, d̄ oder Kreisäquivalentdurchmesser) und das Messverfahren zu nennen. Auch das d in der Hall-Petch-Beziehung ist je nach Veröffentlichung ℓ̄ oder ein Kreisäquivalentdurchmesser.",
+        "Die Korngrößenkennzahl ist eine logarithmische Skala: Steigt G um 1, verdoppelt sich N_A, und ℓ̄ wird mit 1/√2 multipliziert. G aus dem Linienschnittverfahren und G aus dem planimetrischen Verfahren sind so festgelegt, dass sie für die in E112 angenommene Kornform übereinstimmen. In realen Gefügen und in den ebenen synthetischen Gefügen dieser Seite können die beiden Kennzahlen für dasselbe Gefüge um 0,1 bis 0,3 voneinander abweichen. Nicht die Kennzahlen mitteln, sondern ℓ̄ oder N_A mitteln und dann umrechnen (E112)."
+      ]
+    },
+    {
+      "h": "Korngrößenkennzahlen nach JIS, ISO und ASTM",
+      "p": [
+        "Die japanische Norm JIS G 0551 (Stahl – Mikroskopische Prüfung der Korngröße) und ISO 643 verknüpfen die Zahl der Körner je mm², m, mit der Korngrößenkennzahl G über m = 8 × 2^G (m = 16 bei G = 1). ASTM E112 legt 2^(G−1) Körner je Quadratzoll bei 100-facher Vergrößerung fest; in Originalgröße sind das N_A = 15,50 × 2^(G−1) = 7,75 × 2^G mm⁻².",
+        "Für dasselbe N_A gilt G_JIS = log₂(N_A/8) und G_ASTM = log₂(N_A/7,75); die Kennzahl nach JIS bzw. ISO ist daher um log₂(8/7,75) = 0,046 kleiner als nach ASTM. Vander Voort bezeichnet diesen Unterschied als vernachlässigbar.",
+        "Ob JIS und ASTM die mittlere Sehnenlänge ℓ̄ mit derselben Formel in eine Kennzahl umrechnen, ließ sich anhand öffentlicher Quellen nicht bestätigen. Diese Seite berechnet die Korngrößenkennzahl mit den Formeln aus ASTM E112; für einen Bericht nach JIS ist der Text von JIS G 0551 heranzuziehen. Das Linienschnittverfahren nach JIS G 0551 verwendet drei konzentrische Kreise oder vier Geraden mit einer gesamten Messlinienlänge von 500 mm bei 100-facher Vergrößerung und mittelt üblicherweise N_L über mindestens fünf Bildfelder."
+      ]
+    },
+    {
+      "h": "Die synthetischen Übungsgefüge und ihre wahren Werte",
+      "p": [
+        "Die synthetischen Gefüge sind Voronoi-Zerlegungen zufällig gesetzter Punkte (jedes Korn ist der Bereich, der einem Punkt am nächsten liegt). Die Punkte halten einen Mindestabstand voneinander, daher sind die Körner recht gleich groß. Das Bild setzt sich oben und unten sowie links und rechts periodisch fort, sodass jedes Korn genau einmal im Bild enthalten ist. Im zweiphasigen Gefüge wird ein Teil der Körner zu einer dunklen Phase (gestreift, als Andeutung von Perlit); im Teilchengefüge liegen nicht überlappende Kreisscheiben (als Andeutung von Graphitkugeln) in einer Matrix.",
+        "Die wahren Werte werden aus der Geometrie berechnet, nicht durch Zählen von Pixeln. N_A ist die Zahl der Körner geteilt durch die Fläche. Die mittlere Sehnenlänge folgt aus der gesamten Korngrenzenlänge L_B zu ℓ̄ = πA / (2 L_B) (bei Korngrenzen ohne Vorzugsorientierung gilt für die Zahl der Schnittpunkte je Längeneinheit der Messlinie P_L = (2/π) L_A). Die Volumenanteile ergeben sich aus den Flächen der Vielecke und Kreisscheiben. Der Maßstab ist so gewählt, dass N_A dem Wert für das gewählte G entspricht.",
+        "In der Lösungskontrolle ist „ideal gezählt“ der Wert, den eine maschinelle Zählung auf genau den von Ihnen gelegten Linien, Rahmen und Rastern ergibt: jeder Kornwechsel, jeder Punkt auf der dunklen Phase. Seine Abweichung vom wahren Wert ist vor allem die Streuung durch die begrenzte Zahl der Bildfelder; Ihre Abweichung von ihm ist der Zählfehler. Das planimetrische Verfahren (Körner innen + ½ der geschnittenen Körner) liefert allerdings bei wenigen Körnern im Rahmen zu hohe Werte: Bei erneuter Zählung dieser Gefüge mit über das ganze Bild verteilten Rahmen ergaben sich etwa +9 % bei rund 13 Körnern im Rahmen, +3 bis 4 % bei 25, +2 % bei 50 und +1 % bei 100. Eine Vergrößerung, bei der entsprechend dem Richtwert aus E112 mindestens 50 Körner im Rahmen liegen, hält diese Abweichung klein.",
+        "Die synthetischen Körner sind ebene Vielecke und keine Schnitte durch räumliche Körner; deshalb fällt G aus dem Linienschnittverfahren um etwa 0,3 größer aus als G aus dem planimetrischen Verfahren. Jedes Verfahren wird mit seinem eigenen wahren Wert verglichen. Steht der Startwert des Zufallsgenerators in der URL, lässt sich dasselbe Bild weitergeben."
+      ]
+    }
+  ],
+  "faq": [
+    [
+      "Wird mein Bild irgendwohin gesendet?",
+      "Nein. Das Bild wird im Browser eingelesen und nur auf ein Canvas gezeichnet; der Messteil dieser Seite stellt keine Netzwerkverbindungen her (Seitenaufrufe werden wie auf allen anderen Seiten durch die Webanalyse erfasst). Der Zwischenstand (Lage der Markierungen und Maßstab, nicht das Bild selbst) bleibt nur in diesem Browser gespeichert und wird mit „Alle Messungen löschen“ entfernt."
+    ],
+    [
+      "Was tun, wenn das Bild keinen Maßstabsbalken hat?",
+      "Geben Sie die Aufnahmevergrößerung zusammen mit der Breite des Bildes an, wie es bei dieser Vergrößerung gedruckt oder angezeigt wird (mm), oder die vom Gerät angegebene Länge je Pixel (µm/px) oder die Probenlänge, die der Bildbreite entspricht (µm). Die Vergrößerung beim Zoomen am Bildschirm hängt von der Anzeigegröße ab und ist nicht verwendbar."
+    ],
+    [
+      "Wird ein Tripelpunkt mit 1,5 oder mit 2 gezählt?",
+      "E112 nennt 1,5 als richtigen Wert und lässt beim Auszählen von Kreisen mit einem Handzähler die Vereinfachung auf 2 zu (der Fehler ist klein). Diese Seite zählt mit 1,5. Liegt das Ende einer Geraden genau auf einer Korngrenze, zählt es ½."
+    ],
+    [
+      "Worin unterscheidet sich das vom Vergleichsverfahren mit Richtreihenbildern?",
+      "Das Vergleichsverfahren ist schnell, neigt aber nach E112 insgesamt zu gröberen Bewertungen (um 0,5 bis 1 Kennzahl), und Wiederholbarkeit und Vergleichbarkeit liegen im Allgemeinen bei ±1 Kennzahl. Für das planimetrische Verfahren und das Linienschnittverfahren gibt E112 an, dass die Ergebnisse frei von systematischen Abweichungen sind, Wiederholbarkeit und Vergleichbarkeit besser als ±0,5 Kennzahl sind und sich mit vertretbarem Aufwand eine Genauigkeit von ±0,25 Kennzahl erreichen lässt (E112-13, Abschnitte 4.1.2 und 4.1.3). Der Unterschied zwischen den beiden: Das Linienschnittverfahren erreicht dieselbe Genauigkeit schneller. Ein Beispiel für das Vergleichsverfahren steht im Gefügeatlas im Abschnitt zur Korngröße."
+    ],
+    [
+      "Worin unterscheidet sich das Punktzählverfahren von einer automatischen Schwellwerttrennung nach Helligkeit?",
+      "Beim Punktzählverfahren (E562) wird ein regelmäßiges Raster ohne Blick auf das Gefüge aufgelegt, und eine Person beurteilt jeden Punkt; das ergibt eine erwartungstreue Schätzung. Eine automatische Trennung über einen Helligkeitsschwellwert hängt von der Ätztiefe und von ungleichmäßiger Beleuchtung ab. Die automatische Bildanalyse wird in einer eigenen Norm (ASTM E1245) behandelt."
+    ],
+    [
+      "Wie viele Bildfelder lassen sich aus einem Bild nehmen?",
+      "Ist das Bild groß und das Muster im Vergleich dazu klein, lässt sich das Muster mit „An andere Stelle“ oder „In die Mitte der Ansicht“ an Stellen verschieben, die frühere Bildfelder nicht überlappen; so ergeben sich mehrere Bildfelder aus einem Bild. Dicht beieinander liegende Bildfelder erfassen aber die Streuung über die Probe nicht; richtig ist es, mehrere Bilder von weit auseinander liegenden Stellen der Probe zu verwenden."
+    ]
+  ]
+}
