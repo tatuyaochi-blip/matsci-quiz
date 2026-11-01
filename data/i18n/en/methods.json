@@ -1354,7 +1354,7 @@
   "mt": {
    "name": "Magnetic particle testing",
    "abbr": "MT",
-   "what": "Magnetize steel or another ferromagnetic material and collect magnetic particles where flux leaks out at surface and near-surface cracks.",
+   "what": "Magnetize steel or another ferromagnetic material and collect magnetic particles where flux leaks out at surface and near-surface cracks. It is often more sensitive to fine cracks than penetrant testing.",
    "how": "Flux leaks out at a flaw and the particles (fluorescent ones exist) gather there to form an indication. Sensitivity is best when the flux is perpendicular to the flaw.",
    "rl": "—",
    "rd": "Surface and just below",

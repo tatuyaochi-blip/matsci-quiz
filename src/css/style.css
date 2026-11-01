@@ -1630,7 +1630,9 @@ th[aria-sort] .md-sort-i { color: var(--accent); }
 .mt-tbl th, .mt-tbl td { padding: 6px 5px !important; }
 .mt-tbl td { min-width: 5em; overflow-wrap: break-word; }
 .mt-tbl td.mt-nw { min-width: 4em; overflow-wrap: normal; }
-:lang(ja) .mt-tbl td.mt-nw { min-width: 5.4em; }
+:is(:lang(ja), :lang(ko)) .mt-tbl td.mt-nw { min-width: 5.4em; }
+:lang(de) .mt-tbl td.mt-nw { min-width: 7em; }
+:lang(de) .mt-tbl .mt-lv { hyphens: manual; }
 .mt-tbl thead th { overflow-wrap: normal; hyphens: auto; }
 .mt-tbl .mt-lv { white-space: normal; padding: 0 4px; }
 .mt-tbl tbody th[scope="row"] { min-width: 4.5em; overflow-wrap: anywhere; }
