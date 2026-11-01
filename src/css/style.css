@@ -1644,6 +1644,62 @@ th[aria-sort] .md-sort-i { color: var(--accent); }
   .mt-cmp th, .mt-cmp td { min-width: 9em; padding: 6px; }
   .mt-cmp tbody th { min-width: 5.5em; }
 }
+/* ---- 試料調製・エッチングガイド(/prep/。動きは prep.js。枠・選ぶ所・カードは手法ナビの mt-*、リンク・出典は公式集の fm-* を使う) ---- */
+.pp-safe { margin: 1rem 0; }
+.mt-grid.pp-grid { grid-template-columns: minmax(0, 36rem); }
+.pp-out h4 { margin: 0 0 4px; font-size: 1rem; }
+.pp-out .pp-look { margin: 0 0 8px; font-size: .92rem; }
+.pp-tip { margin: 8px 0 10px; }
+.pp-tip p { margin: 0; }
+.pp-tip-h { font-weight: 700; }
+.pp-hit .pp-c { font-weight: 700; line-height: 1.6; }
+.pp-hit .pp-fix, .pp-causes .pp-fix { margin-top: 4px; font-size: .9rem; line-height: 1.75; }
+.pp-fix b, .pp-note b, .pp-hz b, .pp-ff b { margin-right: 4px; }
+.pp-up { margin-top: 6px !important; font-size: .82rem; color: var(--muted); }
+.pp-why { margin: 2px 0 0; font-size: .84rem; }
+.pp-more { margin: 10px 0 0; font-size: .9rem; }
+.pp-tbl { width: 100%; border-collapse: collapse; font-size: .86rem; line-height: 1.6; }
+.pp-tbl th, .pp-tbl td { padding: 6px 8px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.pp-tbl thead th { font-size: .78rem; color: var(--muted); font-weight: 600; overflow-wrap: normal; }
+.pp-tbl td { min-width: 6em; }
+.pp-tbl tbody th { font-weight: 600; min-width: 8em; }
+.pp-tbl td.pp-sg { min-width: 0; white-space: nowrap; color: var(--muted); font-size: .8rem; }
+.pp-ftbl td { min-width: 9em; }
+.pp-note { margin: 8px 0 0; font-size: .86rem; line-height: 1.7; color: var(--muted); }
+.pp-note b { color: var(--text); }
+.pp-etl { margin: 0 0 4px; font-size: .92rem; line-height: 1.9; }
+.pp-hz { margin: 6px 0 0; font-size: .9rem; }
+.pp-hzb { display: inline-block; font-size: .75rem; font-weight: 600; padding: 0 8px; border-radius: 999px; border: 1px solid var(--accent); background: var(--accent-soft); text-decoration: none; white-space: nowrap; line-height: 1.6; }
+.pp-dl dd ul { margin: 0; padding-left: 1.1em; }
+.pp-flow { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.pp-st { scroll-margin-top: 12px; padding: 4px 0 8px; border-bottom: 1px solid var(--border); }
+.pp-st h3 { margin: .6rem 0 .3rem; }
+.pp-st p { line-height: 1.8; overflow-wrap: anywhere; }
+.pp-ff { font-size: .9rem; }
+.pp-causes { margin: 0; padding-left: 1.4em; display: grid; gap: 8px; }
+.pp-causes p { margin: 0; overflow-wrap: anywhere; }
+.pp-causes .pp-c { font-weight: 600; line-height: 1.65; }
+.pp-by { font-size: .82rem; margin-top: 2px !important; }
+.pp-try { margin: 8px 0 0; font-size: .9rem; }
+.pp-gh { scroll-margin-top: 12px; margin: 1.4rem 0 .6rem; font-size: 1.1rem; }
+.pp-hz-sec { scroll-margin-top: 12px; }
+.pp-hz-sec p { line-height: 1.8; overflow-wrap: anywhere; }
+#flow, #defects, #materials, #safety, #etchants { scroll-margin-top: 12px; }
+.pp-grit { width: auto; margin: 6px 0 2px; }
+.pp-grit caption { text-align: left; font-weight: 700; font-size: .88rem; padding-bottom: 4px; }
+.pp-grit td { min-width: 4.5em; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) {
+  .pp-tbl th, .pp-tbl td { padding: 5px 5px; }
+  /* 手順の表はせまい画面では行ごとのまとまりにして、どの列も見出しつきで縦に並べる(横に送らなくても時間まで読める) */
+  .pp-steps thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .pp-steps, .pp-steps tbody { display: block; }
+  .pp-steps tr { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .pp-steps tr > * { border: 0; padding: 0; min-width: 0; }
+  .pp-steps .pp-sg { grid-row: 1; }
+  .pp-steps tbody th { grid-row: 1; min-width: 0; }
+  .pp-steps td[data-l] { grid-column: 1 / -1; display: grid; grid-template-columns: 6.5em minmax(0, 1fr); gap: 8px; font-size: .84rem; }
+  .pp-steps td[data-l]::before { content: attr(data-l); color: var(--muted); font-size: .76rem; }
+}
 /* 印刷: 公式集のページだけ。ヘッダー・広告・ナビ・検索欄・説明の文は出さず、式のカードを2段に並べる。
    「選んだ式だけ印刷」は html.fm-print-sel(formulas.js)。説明(条件・間違い・例)は html.fm-print-more のときだけ */
 @media print {

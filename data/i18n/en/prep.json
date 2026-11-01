@@ -1,0 +1,2287 @@
+{
+ "title": "Specimen Preparation and Etching Guide: steps and troubleshooting",
+ "description": "Metallographic specimen preparation by material (steels, stainless, cast iron, Al, Cu, Ti, Ni, Mg, solders, coatings, carbides, ceramics, EBSD) with grinding and polishing steps and etchants. Find causes and fixes for scratches, edge rounding, relief, comet tails, stains and over-etching, and check etchant hazards.",
+ "h1": "Specimen Preparation and Etching Guide",
+ "lead": "This page is about making a specimen you can actually examine. Look up sectioning, mounting, grinding, polishing and etching material by material, and when something goes wrong, pick the defect you see and your material to get likely causes and fixes in order. For identifying what you see, use the Microstructure Atlas; for choosing an instrument, the Characterization Method Finder.",
+ "note": "Steps, times, forces and speeds are typical values from the sources (mostly equipment makers' procedures for automatic machines) and change with equipment, consumables and the size and number of specimens. On a new material, adjust while checking that each step has removed the previous scratches. Compositions were compared between sources; where they differ, a range or the difference is given. Standards are cited by name, number and scope only.",
+ "safety": "Some etchants are seriously hazardous — hydrofluoric acid, picric acid, solutions that can release cyanide, and others. Before mixing or using one, always check the SDS of each chemical and your institution's safety rules, and work in a fume hood with protective equipment.",
+ "sources_h": "Main sources",
+ "refs": {
+  "pace-etch": {
+   "s": "PACE etchant pages",
+   "full": "PACE Technologies, Etchants (individual etchant pages: 2% Nital, Picral, Vilella's, Klemm's, Beraha's, Keller's, Kroll's, Glyceregia, Marble's, Kalling's No. 2, Murakami's, 10% Oxalic acid electrolytic, Ammonium persulfate, Fry's, Adler's, Barker's, 0.5% HF, Al NaOH, Weck's), metallographic.com/etchants"
+  },
+  "pace-steel": {
+   "s": "PACE carbon steel",
+   "full": "PACE Technologies, Carbon steel preparation (guide), metallographic.com/guides"
+  },
+  "pace-tool": {
+   "s": "PACE tool steel",
+   "full": "PACE Technologies, Tool steel preparation (guide)"
+  },
+  "pace-ss": {
+   "s": "PACE stainless steel",
+   "full": "PACE Technologies, Stainless steel preparation (guide)"
+  },
+  "pace-ci": {
+   "s": "PACE cast iron",
+   "full": "PACE Technologies, Cast iron preparation (guide)"
+  },
+  "pace-weld": {
+   "s": "PACE welds",
+   "full": "PACE Technologies, Welding analysis (guide)"
+  },
+  "pace-al": {
+   "s": "PACE aluminum",
+   "full": "PACE Technologies, Aluminum sample preparation (guide)"
+  },
+  "pace-cu": {
+   "s": "PACE copper alloys",
+   "full": "PACE Technologies, Copper and copper alloys preparation (guide)"
+  },
+  "pace-ti": {
+   "s": "PACE titanium",
+   "full": "PACE Technologies, Titanium preparation (guide)"
+  },
+  "pace-ni": {
+   "s": "PACE nickel alloys",
+   "full": "PACE Technologies, Nickel alloys preparation (guide)"
+  },
+  "pace-mg": {
+   "s": "PACE magnesium",
+   "full": "PACE Technologies, Magnesium preparation (guide)"
+  },
+  "pace-sn": {
+   "s": "PACE tin alloy etching",
+   "full": "PACE Technologies, Tin alloy etching"
+  },
+  "pace-zn": {
+   "s": "PACE zinc alloy etching",
+   "full": "PACE Technologies, Zinc alloy etching"
+  },
+  "pace-tsc": {
+   "s": "PACE thermal spray",
+   "full": "PACE Technologies, Thermal spray coatings preparation (guide)"
+  },
+  "pace-cermet": {
+   "s": "PACE cermets",
+   "full": "PACE Technologies, Cermets and technical glasses preparation (guide)"
+  },
+  "pace-ceramic": {
+   "s": "PACE ceramics",
+   "full": "PACE Technologies, Ceramics preparation (guide)"
+  },
+  "pace-pcb": {
+   "s": "PACE PCB/chip",
+   "full": "PACE Technologies, PCB and chip preparation (guide)"
+  },
+  "pace-trouble": {
+   "s": "PACE troubleshooting",
+   "full": "PACE Technologies, Troubleshooting common issues (guide)"
+  },
+  "struers-metalog": {
+   "s": "Struers Metalog Guide",
+   "full": "Struers A/S, Metalog Guide (4th revised ed., 2002; copy published as university course material)"
+  },
+  "struers-zn": {
+   "s": "Struers zinc coatings",
+   "full": "Struers, Application Note: Metallographic preparation of zinc coatings"
+  },
+  "buehler-solder": {
+   "s": "Buehler lead-free solder",
+   "full": "N. Vahora, M. Keeble, M. Hasnine, Metallographic Preparation of Lead Free Solder, Buehler TECHNotes Vol. 7, Issue 5"
+  },
+  "metkon-etch": {
+   "s": "Metkon etchant table",
+   "full": "Metkon, Etching (application details: etchant table)"
+  },
+  "metkon-art": {
+   "s": "Metkon 12 polishing artifacts",
+   "full": "Metkon, 12 common polishing artifacts and how to eliminate them"
+  },
+  "vv-color": {
+   "s": "Vander Voort, color metallography",
+   "full": "G. F. Vander Voort, Color Metallography, Microscopy Today, November 2005"
+  },
+  "vv-safety": {
+   "s": "Vander Voort, lab safety",
+   "full": "G. F. Vander Voort, Laboratory Safety in Metallography, ASM Handbook Vol. 9, ASM International (2004) (public copy at the University of Waterloo)"
+  },
+  "btu-etch": {
+   "s": "Bursa Technical Univ. lab notes",
+   "full": "Bursa Technical University, Dept. of Metallurgical and Materials Engineering, Etching and Microscopical Examination (laboratory notes)"
+  },
+  "witt-ebsd": {
+   "s": "Witt & Nowell (EBSD)",
+   "full": "R. Witt, M. M. Nowell, Specimen Preparation of Difficult Materials for EBSD Characterization, Microsc. Microanal. 17 (Suppl 2), 414–415 (2011)"
+  },
+  "lightform": {
+   "s": "LightForm wiki",
+   "full": "LightForm group wiki, Sample preparation (tutorial)"
+  },
+  "pinard": {
+   "s": "Pinard et al. (deformation depth)",
+   "full": "P. T. Pinard, P. Hovington, M. Lagacé, G. F. Vander Voort, R. Gauvin, Towards a more quantitative measurement of the deformation during metallographic specimen preparation using EBSD and FIB, Microsc. Microanal. 16 (Suppl 2) (2010)"
+  },
+  "lambda-ra": {
+   "s": "Lambda Technologies, retained austenite",
+   "full": "Lambda Technologies, Diffraction Notes No. 33: Determination of Volume Percent Retained Austenite by X-Ray Diffraction (2006)"
+  },
+  "aga-hdg": {
+   "s": "American Galvanizers Association",
+   "full": "American Galvanizers Association, The HDG Coating"
+  },
+  "steeldata-126": {
+   "s": "Steel Data (etchant No. 126)",
+   "full": "Steel Data, ASTM etchant No. 126 (Mg–Al, Mg–Al–Zn) (from F. Hargreaves' etchant data)"
+  },
+  "fa-marker": {
+   "s": "On magnification markers",
+   "full": "Failure Analysis of Engineering Materials, Appendix F: Comments on Magnification Markers (GlobalSpec page)"
+  },
+  "pace-safety": {
+   "s": "PACE safety fundamentals",
+   "full": "PACE Technologies, Safety Fundamentals for Metallography (guide)"
+  },
+  "steeldata-grit": {
+   "s": "Steel Data grit table",
+   "full": "Steel Data, Grit Size Table (particle sizes for FEPA P and ANSI/CAMI grades; ANSI B74.18-1996 mid-points)"
+  },
+  "tedpella-grit": {
+   "s": "Ted Pella grit grading",
+   "full": "Ted Pella, Inc., Abrasive Grit Grading Systems (comparison table of ANSI, FEPA and JIS)"
+  },
+  "pace-grit": {
+   "s": "PACE grit converter",
+   "full": "PACE Technologies, Grit Size Converter (notes on ANSI/CAMI, FEPA and JIS equivalents)"
+  },
+  "tinpest": {
+   "s": "Tin pest review",
+   "full": "The phenomenon of tin pest: A review, Microelectronics Reliability 79, 175– (2017) (abstract)"
+  },
+  "astm-e2014": {
+   "s": "ASTM E2014-17",
+   "full": "ASTM E2014-17, Standard Guide on Metallographic Laboratory Safety (standard preview pages)"
+  },
+  "astm-e407": {
+   "s": "ASTM E407-23",
+   "full": "ASTM E407-23, Standard Practice for Microetching Metals and Alloys (scope summary)"
+  },
+  "cdc-hf": {
+   "s": "CDC hydrogen fluoride",
+   "full": "U.S. CDC, Chemical Emergencies: Hydrogen Fluoride (fact sheet)"
+  },
+  "niosh-hf": {
+   "s": "NIOSH Pocket Guide: HF",
+   "full": "NIOSH Pocket Guide to Chemical Hazards: Hydrogen fluoride"
+  },
+  "columbia-hf": {
+   "s": "Columbia Univ. HF first aid",
+   "full": "Columbia University EH&S, Hydrofluoric Acid Post Exposure Sheet (2016, rev. 2023)"
+  },
+  "mhlw-picric": {
+   "s": "MHLW model SDS: picric acid",
+   "full": "Ministry of Health, Labour and Welfare (Japan), Workplace Safety Site, GHS model SDS: picric acid (CAS 88-89-1)"
+  },
+  "mhlw-perchloric": {
+   "s": "MHLW model SDS: perchloric acid",
+   "full": "Ministry of Health, Labour and Welfare (Japan), Workplace Safety Site, GHS model SDS: perchloric acid (CAS 7601-90-3)"
+  },
+  "mhlw-cro3": {
+   "s": "MHLW model SDS: chromium trioxide",
+   "full": "Ministry of Health, Labour and Welfare (Japan), Workplace Safety Site, GHS model SDS: chromium trioxide (CAS 1333-82-0)"
+  },
+  "mhlw-oxalic": {
+   "s": "MHLW model SDS: oxalic acid",
+   "full": "Ministry of Health, Labour and Welfare (Japan), Workplace Safety Site, GHS model SDS: oxalic acid (CAS 144-62-7)"
+  },
+  "mhlw-aps": {
+   "s": "MHLW model SDS: ammonium persulfate",
+   "full": "Ministry of Health, Labour and Welfare (Japan), Workplace Safety Site, GHS model SDS: ammonium peroxodisulfate (CAS 7727-54-0)"
+  },
+  "mhlw-mg": {
+   "s": "MHLW model SDS: magnesium powder",
+   "full": "Ministry of Health, Labour and Welfare (Japan), Workplace Safety Site, GHS model SDS: magnesium powder (CAS 7439-95-4)"
+  },
+  "columbus-hbf4": {
+   "s": "Fluoroboric acid SDS",
+   "full": "Columbus Chemical Industries, Safety Data Sheet: Fluoroboric Acid, 48–50% (rev. 2025-04-23)"
+  },
+  "laballey-kms": {
+   "s": "Potassium metabisulfite SDS",
+   "full": "Lab Alley, Safety Data Sheet: Potassium Metabisulfite (CAS 16731-55-8, rev. 2021-08-01)"
+  },
+  "usask-picric": {
+   "s": "Univ. of Saskatchewan picric SOP",
+   "full": "University of Saskatchewan, Dept. of Mechanical Engineering, SOP Mat0026: Mixing and Using Etchants or Solutions that Contain Picric Acid"
+  }
+ },
+ "groups": {
+  "fe": "Irons and steels",
+  "join": "Joints",
+  "nonfe": "Non-ferrous metals",
+  "layer": "Layers, coatings and hard materials",
+  "special": "Finishing for a purpose"
+ },
+ "traits": {
+  "soft": "Soft",
+  "hard": "Hard",
+  "phase": "Phases or layers of different hardness",
+  "graphite": "Graphite to retain",
+  "brittle": "Brittle",
+  "porous": "Porous",
+  "water": "Reacts with or is damaged by water",
+  "rust": "Rusts easily",
+  "passive": "Passive, hard to etch",
+  "heat": "Heat-sensitive",
+  "edge": "Edge or surface layer of interest",
+  "twin": "Prone to mechanical twinning"
+ },
+ "flow": {
+  "cut": {
+   "name": "Sectioning",
+   "p": [
+    "Keep coolant flowing and let the wheel cut without forcing. Heat alters the structure (tempering of hardened steel, the weld HAZ), and heat damage cannot be polished out.",
+    "Choose a soft-bond wheel for hard, brittle materials (it wears to expose fresh abrasive) and a hard-bond wheel for soft, ductile ones. Thin blades (0.5–1.0 mm) give less heat and deformation.",
+    "Cut cemented carbides, ceramics and coatings slowly on a precision saw with a diamond blade; never cut white cast iron with diamond.",
+    "Decide the plane and orientation before cutting (perpendicular to surface layers; mark the weld centerline)."
+   ]
+  },
+  "mount": {
+   "name": "Mounting",
+   "p": [
+    "Hot compression mounting: hold 5–8 min at 150–180 °C and cool to room temperature under pressure (least shrinkage). For edges, use DAP or mineral-filled epoxy.",
+    "Cold (castable) mounting: cures in about 4–8 h at room temperature. Use it for heat-sensitive material (precipitation-hardened Al, solders), brittle parts and porous material; stainless steel for sensitization studies is also cold-mounted so that no extra thermal history is added. Slow-curing epoxy has negligible shrinkage and adheres well.",
+    "Vacuum-impregnate porous specimens and coatings with low-viscosity epoxy; fluorescent dye lets you tell resin-filled pores from pull-outs."
+   ]
+  },
+  "grind": {
+   "name": "Grinding",
+   "p": [
+    "Go through the grits in order (e.g. SiC 120 → 240 → 360 → 600 grit, i.e. P120 → P280 → P500 → P1200; add 800 and 1200 grit, P1500 and P2500, for soft materials). Every step must remove the damage of the previous one and add as little of its own as possible.",
+    "Rotate the specimen 90° between steps and check that the old scratch direction has gone. Keep water flowing and replace glazed paper.",
+    "On this page grits are given as US (ANSI/CAMI) numbers with European FEPA P grades in parentheses. The two scales diverge finer than 220 and are matched by particle size (conversion table below; tables from different makers can differ by one step). P grades finer than P2500 (such as P4000) are not standardized and vary by manufacturer.",
+    "Japanese waterproof papers are marked with JIS numbers (e.g. #600), which are not the same as US grits: JIS #600 is coarser than US 600 grit (≈ P1200). Check the P grade or particle size (µm) so that you do not pick a coarser paper by mistake.",
+    "Cemented carbides and ceramics are barely cut by SiC; use diamond discs."
+   ]
+  },
+  "polish": {
+   "name": "Polishing",
+   "p": [
+    "Polish with diamond (9, 6, 3, 1 µm) on cloths. Firm, low-resilience cloths keep flatness and edges; soft cloths remove scratches easily but promote relief, pull-out and comet tails.",
+    "Finish with 0.05 µm alumina or colloidal silica (chemo-mechanical) to remove the deformed layer. Colloidal silica can attack the matrix and lift fine inclusions, so PACE uses alumina as its default final step for steels.",
+    "Never let colloidal silica dry on the surface; run plain water on the cloth for the last 10–30 s.",
+    "Typical force is 22–45 N per specimen (4–9 N for very soft Mg)."
+   ]
+  },
+  "clean": {
+   "name": "Cleaning and drying",
+   "p": [
+    "Clean between steps (ultrasonic, 30–60 s) so that no coarse particles reach the next step.",
+    "Rinse with water, displace with ethanol and dry with clean, oil-free warm air; do not wipe. For water-sensitive materials (Mg) use ethanol only."
+   ]
+  },
+  "etch": {
+   "name": "Etching",
+   "p": [
+    "Before etching, examine and record what is visible as-polished (graphite, inclusions, porosity, lead particles).",
+    "Start at the short end of the published time (5–10 s for nital) and add more if needed. Immersion, swabbing or electrolytic etching is specified for each etchant.",
+    "Rinse immediately after etching, displace with ethanol and dry. Read the safety section below and the SDS before mixing or using any etchant."
+   ]
+  },
+  "observe": {
+   "name": "Examination",
+   "p": [
+    "As-polished → bright field after etching → polarized light, DIC or dark field as needed. Anodized Al and tin grains in solder are viewed in polarized light.",
+    "Add a scale bar rather than a magnification, and record the etchant and conditions (see the reading below)."
+   ]
+  }
+ },
+ "materials": {
+  "steel-low": {
+   "name": "Carbon and low-alloy steels (annealed, normalized)",
+   "hard": [
+    "Low-carbon steels (1018, about 126 HB) are soft and smear if taken straight from a 600-grit surface to 1 µm diamond; add 800 and 1200 grit.",
+    "In Cr-, Mo- and V-bearing steels, over-polishing causes relief around inclusions and second-phase particles.",
+    "Pits from over-etching are easily mistaken for porosity or inclusions."
+   ],
+   "steps": [
+    [
+     "120 grit (P120)",
+     "SiC paper",
+     "Water",
+     "Until plane (30–60 s)"
+    ],
+    [
+     "240 grit (P280)",
+     "SiC paper",
+     "Water",
+     "1 min"
+    ],
+    [
+     "360 grit (P500)",
+     "SiC paper",
+     "Water",
+     "1 min"
+    ],
+    [
+     "600 grit (P1200)",
+     "SiC paper",
+     "Water",
+     "1 min"
+    ],
+    [
+     "800 grit (P1500) and 1200 grit (P2500) — soft low-carbon steels only",
+     "SiC paper",
+     "Water",
+     "1 min each"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "30 s"
+    ]
+   ],
+   "note": "Force 22–45 N (5–10 lb) per specimen; 200 rpm for grinding and diamond, 100 rpm for the final step (values from the source's automatic machine). Rotate the specimen 90° between grits.",
+   "see": [
+    "2% nital (5–15 s): ferrite grain boundaries and pearlite; use nital for grain size.",
+    "4% picral: pearlite lamellae and spheroidized carbides (no ferrite grain boundaries).",
+    "Fry's reagent: strain patterns from cold work."
+   ],
+   "miss": [
+    "For persistent smearing on soft grades, alternate final polish → light 2% nital → final polish.",
+    "Where picric acid is restricted, use a tint etchant or another reagent instead of picral (PACE suggests a 10% metabisulfite solution)."
+   ],
+   "fx": {
+    "smear": "On soft low-carbon steel add 800 and 1200 grit and alternate polish → light nital → polish (PACE).",
+    "over": "Start 2% nital at 5–10 s and do not exceed 5% even for harder steels (PACE)."
+   },
+   "std": [
+    "ASTM E3 (guide for preparation of metallographic specimens)",
+    "ASTM E407 (microetching metals and alloys)"
+   ]
+  },
+  "steel-hard": {
+   "name": "Hardened and tempered steels (martensite, retained austenite)",
+   "hard": [
+    "Cutting heat can temper the surface and leave a soft, dark band that misleads hardness work; heat damage cannot be polished out.",
+    "Deformation from mechanical grinding and polishing can transform unstable retained austenite; for X-ray measurement of its amount, measure on an electropolished surface (ASTM E975).",
+    "Lath martensite gives weak contrast in nital."
+   ],
+   "steps": [
+    [
+     "120 → 240 → 360 → 600 grit (P120 → P280 → P500 → P1200)",
+     "SiC paper",
+     "Water",
+     "Until plane, then 1 min each"
+    ],
+    [
+     "9 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "3 min"
+    ],
+    [
+     "3 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "3 min"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "30 s"
+    ]
+   ],
+   "note": "About 22–45 N (5–10 lb) per specimen, 200 rpm (100 rpm for the final step). For hot mounting avoid phenolic; use epoxy or DAP.",
+   "see": [
+    "Nital etches martensite (lath martensite weakly).",
+    "Picral: distribution of tempered carbides.",
+    "Vilella's: prior-austenite grain boundaries and tempered martensite.",
+    "Beraha or Klemm's II tint: martensite brown to black, retained austenite stays white."
+   ],
+   "miss": [
+    "For hardness traverses, grind well below any heat-affected layer from cutting."
+   ],
+   "fx": {
+    "heat": "Cut slowly with flood coolant without forcing; heat-tempered layers cannot be polished out — grind below them or re-section (PACE).",
+    "tint": "Retained austenite should remain white (unstained). If colors are blotchy, suspect residual polishing damage first (Vander Voort)."
+   },
+   "std": [
+    "ASTM E975 (X-ray determination of retained austenite in steel)"
+   ]
+  },
+  "case": {
+   "name": "Carburized, nitrided and decarburized cases",
+   "hard": [
+    "The region of interest is right at the surface, so edge rounding falsifies case depth.",
+    "Cutting heat can temper the hard surface layer."
+   ],
+   "steps": [
+    [
+     "120 → 240 → 360 → 600 grit (P120 → P280 → P500 → P1200)",
+     "SiC paper",
+     "Water",
+     "Until plane, then 1 min each"
+    ],
+    [
+     "9 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "3 min"
+    ],
+    [
+     "3 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "3 min"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "30 s"
+    ]
+   ],
+   "note": "Section perpendicular to the case and mount with the case edge facing the ram. For edge retention use DAP or mineral-filled epoxy; electroless nickel plating protects thin layers.",
+   "see": [
+    "2–4% nital: carburized and nitrided cases (first choice for nitrided cases).",
+    "Picral for the distribution of tempered carbides."
+   ],
+   "miss": [
+    "When measuring case depth by a hardness traverse, keep indents well away from the edge (spacing per the standard)."
+   ],
+   "fx": {
+    "edge": "Use an edge-retentive resin (DAP, mineral-filled epoxy), cool under pressure, and plate thin layers with electroless nickel before mounting (PACE)."
+   },
+   "std": [
+    "ISO 3887 (depth of decarburization of steels)"
+   ]
+  },
+  "tool": {
+   "name": "Tool and high-speed steels",
+   "hard": [
+    "Keeping the hard, brittle carbides (M₆C, MC, M₂C, M₂₃C₆, M₇C₃) is essential; they polish at a different rate from the matrix and pull out or stand in relief.",
+    "Local heat at the cut tempers the martensite and leaves a soft dark band.",
+    "If carbides stand in relief, drop the alumina finish and polish with diamond to the end (PACE troubleshooting guide)."
+   ],
+   "steps": [
+    [
+     "120 µm diamond",
+     "Diamond grinding disc",
+     "Water",
+     "Until plane"
+    ],
+    [
+     "9 µm diamond",
+     "Rigid composite disc",
+     "Diamond lubricant",
+     "3 min"
+    ],
+    [
+     "3 µm diamond",
+     "Rigid composite disc",
+     "Diamond lubricant",
+     "3 min"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "22–45 N per specimen, 200 rpm (100 rpm final). Cut with a thin precision blade (0.5–1.0 mm) and continuous coolant. Mount in epoxy or DAP (150–180 °C, 5–8 min, well below the tempering temperature of most tool steels).",
+   "see": [
+    "2–4% nital: general structure (first choice).",
+    "Vilella's: prior-austenite grain boundaries.",
+    "Murakami's (cold): Cr carbides in D2/A2; carbides in high-speed steels (M2, M42).",
+    "4% picral: annealed pearlite and bainite."
+   ],
+   "miss": [
+    "Start etching at 10–15 s; very hard material may need 20–30 s."
+   ],
+   "fx": {
+    "pullout": "Carbide pull-out comes from excessive force or the wrong pad: reduce force, use softer pads for the fine steps and check after each step (PACE).",
+    "relief": "Relief at carbides: shorten polishing or use a slightly harder pad (PACE); if it persists, finish with diamond instead of alumina."
+   },
+   "std": []
+  },
+  "ss-aus": {
+   "name": "Austenitic stainless steels (304, 316, etc.)",
+   "hard": [
+    "Softer than hardened steels and work-hardens during preparation, so it smears: use lighter force and a longer 1 µm step.",
+    "The same corrosion resistance makes it hard to etch (nital hardly works).",
+    "Hot compression mounting (150–180 °C) is far below the sensitization range (about 500–800 °C), but specimens for sensitization or sigma-phase studies are still cold-mounted in castable resin so that no extra thermal history is added (PACE)"
+   ],
+   "steps": [
+    [
+     "240 grit (P280)",
+     "SiC paper",
+     "Water",
+     "Until plane"
+    ],
+    [
+     "360 → 600 → 800 → 1200 grit (P500 → P1200 → P1500 → P2500)",
+     "SiC paper",
+     "Water",
+     "1 min each"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min (3–4 min if scratches reappear after etching)"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "22–45 N per specimen (drop to 22–31 N if smearing), 200 rpm (100 rpm final). If grinding ended coarser than 1200 grit, add 9 µm and 3 µm diamond for 3–5 min each.",
+   "see": [
+    "10% oxalic, electrolytic (6 V, 15–30 s): grain boundaries (first choice); also used for the sensitization screening test (ASTM A262 Practice A).",
+    "Glyceregia: grain boundaries, twins, carbides, sigma.",
+    "10% NaOH, electrolytic: sigma phase in orange to brown."
+   ],
+   "miss": [
+    "Left after polishing, the passive film makes etching harder; etch promptly after polishing.",
+    "Iron particles can transfer from other steel specimens; clean ultrasonically between steps and rinse pads well."
+   ],
+   "fx": {
+    "scratch": "Scratches appearing after etching come from a smeared, work-hardened layer: extend 1 µm to 3–4 min, reduce force to 22–31 N, and if needed return to 1200 grit (PACE).",
+    "under": "A passive film from polishing: activate with a brief glyceregia swab before the oxalic etch, or lengthen the electrolytic time (PACE).",
+    "pit": "For oxalic electrolytic, drop from 6 V to 3–4 V or shorten; mix reactive etchants fresh (PACE)."
+   },
+   "std": [
+    "ASTM A262 (detecting susceptibility to intergranular attack in austenitic stainless steels)"
+   ]
+  },
+  "ss-duplex": {
+   "name": "Duplex stainless steels (2205, 2507, etc.)",
+   "hard": [
+    "The goal is to tell ferrite from austenite, but Vilella's and oxalic do not separate them well; tint etching works better.",
+    "Tint films are sensitive to residual polishing damage, so finish more carefully than for black-and-white etching."
+   ],
+   "steps": [
+    [
+     "240 grit (P280)",
+     "SiC paper",
+     "Water",
+     "Until plane"
+    ],
+    [
+     "360 → 600 → 800 → 1200 grit (P500 → P1200 → P1500 → P2500)",
+     "SiC paper",
+     "Water",
+     "1 min each"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "Force 22–45 N (5–10 lb) per specimen; 200 rpm for grinding and diamond, 100 rpm for the final step (values from the source's automatic machine). Rotate the specimen 90° between grits.",
+   "see": [
+    "Beraha's I: tints the phases (first choice).",
+    "LB1: colors austenite but not ferrite.",
+    "Kalling's No. 2: attacks ferrite (30 s–2 min)."
+   ],
+   "miss": [
+    "If phase fractions are to be measured by image analysis on tinted surfaces, polish to a damage-free surface before tinting."
+   ],
+   "fx": {
+    "under": "Vilella's and oxalic do not separate ferrite and austenite; switch to Beraha's I or Klemm's I (PACE).",
+    "tint": "Tint films are sensitive to residual damage, so polish carefully before tinting (Vander Voort); add the K₂S₂O₅ to Beraha's I just before use (PACE)."
+   },
+   "std": []
+  },
+  "ss-mart": {
+   "name": "Martensitic and PH stainless steels (410, 420, 440C, 17-4 PH, etc.)",
+   "hard": [
+    "Fully hardened grades (above HRC 45) are hard: cut slowly with a wheel for hard materials.",
+    "Magnetic grades (martensitic, PH and ferritic) can disturb automatic polishers through residual magnetism; demagnetize and use non-magnetic holders."
+   ],
+   "steps": [
+    [
+     "240 grit (P280)",
+     "SiC paper",
+     "Water",
+     "Until plane"
+    ],
+    [
+     "360 → 600 → 800 → 1200 grit (P500 → P1200 → P1500 → P2500)",
+     "SiC paper",
+     "Water",
+     "1 min each"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "Force 22–45 N (5–10 lb) per specimen; 200 rpm for grinding and diamond, 100 rpm for the final step (values from the source's automatic machine). Rotate the specimen 90° between grits.",
+   "see": [
+    "Vilella's: prior-austenite grain boundaries, tempered martensite and carbides (first choice).",
+    "Murakami's (50–80 °C, 3–10 min): carbides and sigma.",
+    "Adler's: grain boundaries in ferritic, martensitic and PH grades."
+   ],
+   "miss": [
+    "Vilella's contains picric acid; never let it dry."
+   ],
+   "fx": {},
+   "std": []
+  },
+  "castiron": {
+   "name": "Cast irons (gray, ductile)",
+   "hard": [
+    "Retaining the graphite matters most: it is soft and is plucked out or damaged during grinding and polishing.",
+    "A soft ferritic matrix smears over the graphite and hides its true shape. Spheroidal graphite is easier to keep than flake graphite; temper carbon in malleable iron is the hardest.",
+    "Graphitic irons corrode in water; clean and dry promptly after cutting.",
+    "Never cut white cast iron with diamond wheels (diamond reacts with iron at cutting temperatures)."
+   ],
+   "steps": [
+    [
+     "P500 (360 grit)",
+     "Alumina (Al₂O₃) paper",
+     "Water",
+     "Until plane"
+    ],
+    [
+     "P1200 (600 grit)",
+     "Alumina (Al₂O₃) paper",
+     "Water",
+     "1 min"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "1 min (30–45 s if relief appears)"
+    ]
+   ],
+   "note": "Force 22–45 N (5–10 lb) per specimen; 200 rpm for grinding and diamond, 100 rpm for the final step (values from the source's automatic machine). Rotate the specimen 90° between grits.",
+   "see": [
+    "First examine the graphite unetched (well-polished graphite looks gray, not black, at ×500).",
+    "2% nital (5–15 s) for the ferrite/pearlite matrix; 4% picral (10–30 s) for pearlite and cementite.",
+    "For the matrix of austempered ductile iron, nital is not enough; use Beraha or Klemm's II tint etching."
+   ],
+   "miss": [
+    "If graphite looks black at ×500, matrix metal has smeared into the graphite cavities; extend the 1 µm step by 1–2 min."
+   ],
+   "fx": {
+    "pullout": "Reduce force to 22 N (5 lb) per specimen, use 1 µm diamond on a short-nap pad, and do not use SiC paper too late. For malleable iron try a rigid composite disc for fine grinding (PACE).",
+    "stain": "Water was left on the specimen: rinse with ethanol right after water and dry with warm air (PACE).",
+    "smear": "Graphite looking black means matrix smeared into the cavities: extend 1 µm by 1–2 min, check the pad is not loaded, and if needed re-grind lightly on fresh alumina paper (PACE)."
+   },
+   "std": []
+  },
+  "weld": {
+   "name": "Welds (weld metal, HAZ, base metal)",
+   "hard": [
+    "One specimen holds weld metal, HAZ and base metal of different hardness and microstructure, so they polish at different rates and relief is common.",
+    "Dissimilar-metal welds differ in melting point, thermal expansion and composition; each side may need its own etchant.",
+    "Overheating during sectioning can alter the HAZ microstructure."
+   ],
+   "steps": [
+    [
+     "120 → 240 → 400 → 600 grit (P120 → P280 → P600 → P1200)",
+     "SiC paper",
+     "Water",
+     "60–90 s each"
+    ],
+    [
+     "9 µm diamond",
+     "Firm low-nap cloth",
+     "Diamond lubricant",
+     "3–5 min"
+    ],
+    [
+     "3 µm diamond",
+     "Medium-hard cloth",
+     "Diamond lubricant",
+     "3–5 min"
+    ],
+    [
+     "1 µm diamond",
+     "Soft cloth",
+     "Diamond lubricant",
+     "2–3 min"
+    ],
+    [
+     "0.05 µm colloidal silica (optional)",
+     "Soft cloth",
+     "—",
+     "1–2 min"
+    ]
+   ],
+   "note": "A width of 25–32 mm is usually enough. Mark the weld centerline before mounting to keep the orientation; vacuum-mount if porosity is to be analyzed.",
+   "see": [
+    "Steel welds: 2% nital (5–15 s), 4% picral.",
+    "Stainless welds: 10% oxalic, electrolytic (6 V, 30–60 s).",
+    "Aluminum welds: Keller's (10–20 s), Barker's anodizing (20–30 V, 60–120 s)."
+   ],
+   "miss": [
+    "Pull-outs, smearing and contamination can look like weld defects (pores, cracks)."
+   ],
+   "fx": {
+    "relief": "Zones of different hardness: keep polishing short and use firmer cloths to stay flat (PACE, Struers).",
+    "pullout": "Pull-outs and smearing can mimic weld porosity and cracks; re-polish briefly and look at the same spot (real defects stay) (PACE)."
+   },
+   "std": []
+  },
+  "al": {
+   "name": "Aluminum alloys",
+   "hard": [
+    "Soft: the matrix smears over scratches and inclusions, and SiC particles embed easily.",
+    "Oxide inclusions are often what you want to see, but poor preparation pulls them out or drags them (pulled oxides cannot be recovered).",
+    "Precipitation-hardened tempers (2024-T6, 6061-T6, 7075-T6, A356-T6, etc.) can change in a hot mounting press; use room-temperature castable epoxy."
+   ],
+   "steps": [
+    [
+     "600 grit (P1200)",
+     "Alumina (Al₂O₃) paper",
+     "Water",
+     "Until plane"
+    ],
+    [
+     "800 → 1200 grit (P1500 → P2500)",
+     "SiC paper",
+     "Water",
+     "1 min at 1200"
+    ],
+    [
+     "3 µm diamond (heat-treated and cast alloys only)",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2–3 min"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "22–45 N per specimen (soft 1xxx and 5xxx alloys: 22–31 N with a longer 1 µm step), 100 rpm for all steps. Check final quality at ×500.",
+   "see": [
+    "Keller's (8–20 s): grain boundaries and second-phase particles; switch to 0.5% HF if a Cu stain appears on 2xxx.",
+    "Barker's anodizing + polarized light: grain size and orientation.",
+    "1% NaOH: an HF-free microetch."
+   ],
+   "miss": [
+    "Do not rinse aluminum with alcohol after Keller's; use water.",
+    "Shared pads transfer iron from steel samples and give spurious Fe peaks in EDS; dedicate pads to material families."
+   ],
+   "fx": {
+    "pit": "Etchant too strong or too long: dilute or shorten (start at 5–10 s). If Keller's stains a 2xxx alloy, use 0.5% HF (PACE).",
+    "embed": "Embedded SiC from fine grinding shows as bright specks: re-run 1 µm on a fresh pad and replace glazed paper (PACE).",
+    "pullout": "Pulled-out oxides (black voids) cannot be recovered: keep force at 22–45 N, use alumina paper for planar grinding, and re-section if needed (PACE)."
+   },
+   "std": []
+  },
+  "cu": {
+   "name": "Copper, brass, bronze",
+   "hard": [
+    "Soft, deforms and smears easily.",
+    "Oxide inclusions can be dislodged and scratch the surface; the scratches become more apparent after etching.",
+    "Lead inclusions are destroyed by most etchants; image lead as-polished (after etching it shows as voids)."
+   ],
+   "steps": [
+    [
+     "360 grit (P500) — bronze only",
+     "Alumina (Al₂O₃) paper",
+     "Water",
+     "1 min"
+    ],
+    [
+     "600 grit (P1200)",
+     "Alumina (Al₂O₃) paper",
+     "Water",
+     "Until plane"
+    ],
+    [
+     "800 → 1200 grit (P1500 → P2500)",
+     "SiC paper",
+     "Water",
+     "1 min each"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min (3–4 min if fine scratches persist)"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "22–45 N per specimen (22–31 N if smearing), 100 rpm. If you finish with colloidal silica, run plain water on the cloth for the last 20–30 s.",
+   "see": [
+    "Ferric chloride: grain boundaries and phases, Sn segregation in bronze.",
+    "Ammonium persulfate: grain boundaries, annealing twins, alpha and beta in brass.",
+    "Klemm's reagent with polarized light: grain contrast in cold-worked material."
+   ],
+   "miss": [
+    "Black-and-white etches usually finish in 5–15 s."
+   ],
+   "fx": {
+    "smear": "Reduce force to 22–31 N and match pad stiffness to the abrasive size. If deformation reappears after each etch, coarse-grinding damage remains: return to the SiC sequence with light force (PACE).",
+    "pullout": "Lead inclusions dissolve on etching and look like voids; image lead as-polished (PACE)."
+   },
+   "std": []
+  },
+  "ti": {
+   "name": "Titanium and titanium alloys",
+   "hard": [
+    "Very ductile: it work-hardens and smears under coarse abrasive and scratches easily; do not skip grits.",
+    "Chips and fines are pyrophoric: use flood coolant and never cut or grind dry.",
+    "Sectioning and grinding forces can introduce mechanical twins.",
+    "The passive oxide resists most etchants, and most Ti etchants contain HF. Alpha case (an oxygen-rich brittle surface layer, typically 5–100 µm) is a frequent target."
+   ],
+   "steps": [
+    [
+     "240 grit (P280)",
+     "SiC paper",
+     "Water",
+     "Until plane"
+    ],
+    [
+     "360 → 600 → 800 → 1200 grit (P500 → P1200 → P1500 → P2500)",
+     "SiC paper",
+     "Water",
+     "1 min each"
+    ],
+    [
+     "6 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "3 min"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "1 min"
+    ],
+    [
+     "Colloidal silica + hydrogen peroxide (chemo-mechanical; e.g. for EBSD)",
+     "Polishing cloth",
+     "—",
+     "2–5 min (heavy force) to 15–20 min (light force)"
+    ]
+   ],
+   "note": "22–45 N per specimen, 200 rpm (100 rpm final). Use pads dedicated to Ti (iron transfers from steel samples). Etch right after polishing (Ti oxidizes quickly).",
+   "see": [
+    "Kroll's (swab 3–15 s): alpha (light) and beta (dark) phases and grain boundaries (first choice).",
+    "Modified Weck's: colors grains by orientation; with polarized light for alpha case."
+   ],
+   "miss": [
+    "Scratches that reappear after Kroll's were hidden by a smeared layer: run a longer, lighter 1 µm step or go back to 1200 grit."
+   ],
+   "fx": {
+    "scratch": "Scratches that reappear after Kroll's were hidden under a smeared layer: run a longer, lighter 1 µm step or go back to 1200 grit (PACE).",
+    "under": "The HF-containing etchant has degraded: mix fresh, or switch from swabbing to immersion; Ti oxidizes quickly after polishing, so etch promptly (PACE).",
+    "smear": "Mechanical twins come from sectioning and grinding force: reduce it and use a thin precision blade (Metkon); finish with colloidal silica + H₂O₂ (Witt & Nowell).",
+    "over": "Immersing in Kroll's over-attacks with HF; swab for 3–15 s (PACE)."
+   },
+   "std": []
+  },
+  "ni": {
+   "name": "Nickel-base alloys and superalloys (Inconel, Hastelloy, etc.)",
+   "hard": [
+    "Hard and work-hardens easily: cut slowly, grind carefully and polish longer.",
+    "Gamma-prime precipitates and carbides can pull out during polishing.",
+    "Hastelloy and similar alloys are hard to etch because of their corrosion resistance."
+   ],
+   "steps": [
+    [
+     "120 → 240 → 400 → 600 grit (P120 → P280 → P600 → P1200); plus 800 for superalloys",
+     "SiC paper",
+     "Water",
+     "2–3 min each"
+    ],
+    [
+     "9 µm diamond",
+     "Firm low-nap cloth",
+     "Diamond lubricant",
+     "5–8 min"
+    ],
+    [
+     "6 µm diamond",
+     "Medium-hard cloth",
+     "Diamond lubricant",
+     "4–6 min"
+    ],
+    [
+     "3 µm diamond",
+     "Medium-hard cloth",
+     "Diamond lubricant",
+     "4–6 min"
+    ],
+    [
+     "1 µm diamond",
+     "Soft cloth",
+     "Diamond lubricant",
+     "3–5 min"
+    ],
+    [
+     "0.05 µm colloidal silica or 0.3 µm alumina",
+     "Soft cloth",
+     "—",
+     "2–4 min"
+    ]
+   ],
+   "note": "Grinding 9–22 N (2–5 lb) per specimen at 240–300 rpm; polishing 9–18 N (2–4 lb) at 120–150 rpm.",
+   "see": [
+    "Glyceregia (10–30 s): grain boundaries and twins (general Ni alloys).",
+    "Marble's: grain boundaries and primary carbides in superalloys.",
+    "Adler's: Hastelloy and similar; aqua regia: hard-to-etch Inconel.",
+    "10% oxalic, electrolytic (3–6 V, 5–30 s): γ′/γ″ and carbides."
+   ],
+   "miss": [
+    "For pull-out of hard phases: reduce force, use softer final cloths, and consider vibratory polishing."
+   ],
+   "fx": {
+    "under": "These alloys resist etching: change etchant (Adler's, aqua regia) or etch electrolytically (PACE).",
+    "pullout": "For pull-out of γ′ and carbides: lower force, extend polishing, use softer final cloths and consider vibratory polishing (PACE)."
+   },
+   "std": []
+  },
+  "mg": {
+   "name": "Magnesium alloys",
+   "hard": [
+    "Reacts with water and oxidizes rapidly (also evolving hydrogen): no water from sectioning to polishing.",
+    "Very soft: use light force.",
+    "Swarf is pyrophoric: never dry-cut, and keep a Class D extinguisher (or dry sand) nearby. Never use water or foam (Mg reacts with water to give hydrogen)."
+   ],
+   "steps": [
+    [
+     "120 → 240 → 400 → 600 grit (P120 → P280 → P600 → P1200); 800 optional",
+     "SiC paper",
+     "Ethanol-based (no water)",
+     "2–3 min each"
+    ],
+    [
+     "9 µm diamond",
+     "Firm low-nap cloth",
+     "Ethanol-based (no water)",
+     "4–6 min"
+    ],
+    [
+     "6 µm diamond",
+     "Medium-hard cloth",
+     "Ethanol-based (no water)",
+     "3–5 min"
+    ],
+    [
+     "3 µm diamond",
+     "Medium-hard cloth",
+     "Ethanol-based (no water)",
+     "3–5 min"
+    ],
+    [
+     "1 µm diamond",
+     "Soft cloth",
+     "Ethanol-based (no water)",
+     "2–4 min"
+    ],
+    [
+     "0.05 µm colloidal silica (in ethanol)",
+     "Polishing cloth",
+     "Ethanol-based (no water)",
+     "2–3 min"
+    ]
+   ],
+   "note": "Grinding 4–13 N (1–3 lb) per specimen at 240–300 rpm; polishing 4–9 N (1–2 lb) at 120–150 rpm. Put cut pieces straight into ethanol and mount at the lowest practical temperature.",
+   "see": [
+    "Acetic picral (10–30 s): microstructure of Mg alloys.",
+    "Dilute nital 1–2% (5–15 s). Rinse with ethanol after etching, never water."
+   ],
+   "miss": [
+    "Dry immediately after polishing and store in a desiccator or in ethanol."
+   ],
+   "fx": {
+    "stain": "A white powdery surface is oxidation from water: re-polish with ethanol-based lubricants, dry all equipment, work at low humidity, and re-section if severe (PACE).",
+    "over": "Cut etch time to 2–5 s, use a weaker etchant and rinse with ethanol at once; lightly re-polish and re-etch (PACE)."
+   },
+   "std": []
+  },
+  "sn": {
+   "name": "Solders and tin (Sn–Pb, lead-free)",
+   "hard": [
+    "Tin is very soft (about 5 HB) with a low melting point (232 °C): use low grinding and polishing pressure and avoid heat when sectioning.",
+    "Never use hot compression mounting; avoid abrasive cut-off blades, which smear the solder.",
+    "Too much lubricant reduces removal and promotes embedding; keep mechanical polishing as short as possible.",
+    "In board cross-sections soft solder and copper sit next to hard parts, so relief forms easily."
+   ],
+   "steps": [
+    [
+     "600 grit (P1200)",
+     "SiC paper",
+     "Water",
+     "Until plane"
+    ],
+    [
+     "3 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "5 min"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "2 min"
+    ],
+    [
+     "0.06 µm colloidal silica (vibratory)",
+     "Polishing cloth",
+     "—",
+     "30–60 min"
+    ]
+   ],
+   "note": "22 N (5 lb) per specimen at 150 rpm (130 rpm for alumina); vibratory polishing with the holder weight only. Store prepared specimens in a desiccator against oxidation. Tin pest (the β-to-α tin transformation) is caused by temperatures below 13.2 °C, not by moisture, so a desiccator does not prevent it; do not keep specimens in the cold for long.",
+   "see": [
+    "After vibratory polishing, polarized light shows the tin grains without etching (Buehler).",
+    "Dilute HCl (several minutes): pure tin and tin–lead; ferric chloride: tin–copper."
+   ],
+   "miss": [
+    "Do not exceed 10% for nital."
+   ],
+   "fx": {
+    "embed": "Use less lubricant, keep mechanical polishing short, and finish with vibratory polishing to remove embedded particles (Buehler).",
+    "heat": "No hot mounting: use a room-temperature resin and precision sectioning rather than an abrasive blade (Buehler).",
+    "relief": "For relief between soft solder and hard parts, keep polishing short and use controlled removal to stay flat (PACE)."
+   },
+   "std": []
+  },
+  "zn": {
+   "name": "Zinc coatings and zinc",
+   "hard": [
+    "Zinc is soft (about 30 HB); the purer the coating, the softer and more water-sensitive. It reacts with water, which makes cleaning difficult.",
+    "Gaps between resin and sheet trap water and alcohol and cause stains; use a slow-curing cold-mounting epoxy with negligible shrinkage.",
+    "Hot-dip galvanized layers from the outside: eta (pure zinc), zeta (about 6% Fe), delta (about 10% Fe), gamma (about 25% Fe). The alloy layers are harder than the steel; eta is ductile.",
+    "Low melting point (419.5 °C): avoid heat when sectioning."
+   ],
+   "steps": [
+    [
+     "P320 (Struers #320)",
+     "SiC paper",
+     "Water",
+     "Until plane"
+    ],
+    [
+     "Diamond (fine grinding)",
+     "Rigid composite disc",
+     "Water",
+     "4 min"
+    ],
+    [
+     "3 µm diamond",
+     "Polishing cloth",
+     "Water-free lubricant",
+     "4–6 min"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Water-free lubricant",
+     "4–6 min"
+    ],
+    [
+     "Chemo-mechanical polish (with ethanol)",
+     "Polishing cloth",
+     "Ethanol",
+     "15–20 s"
+    ]
+   ],
+   "note": "15–30 N per specimen, 150 rpm for polishing (Struers' method). Use water-free diamond suspensions and lubricants, and silk cloths to keep the specimen flat.",
+   "see": [
+    "0.5–2% nital (a few seconds): the coating layers; over-etches easily.",
+    "10% NaOH (1–5 s) or dilute HCl: pure zinc and zinc alloys."
+   ],
+   "miss": [
+    "Rinse and dry right after etching to prevent water spots and oxidation.",
+    "Sectioning and grinding forces can introduce mechanical twins."
+   ],
+   "fx": {
+    "stain": "Zinc is water-sensitive: keep aqueous steps short, use water-free lubricants and finish with ethanol; mount in low-shrinkage epoxy so gaps do not trap liquid (Struers).",
+    "over": "Coating layers over-etch within seconds in nital; start at 0.5–1% (Struers).",
+    "edge": "Mount in slow-curing cold epoxy (negligible shrinkage, good adhesion) to avoid gaps (Struers)."
+   },
+   "std": []
+  },
+  "coat": {
+   "name": "Thermal spray and hard coatings",
+   "hard": [
+    "Coating and substrate remove at different rates; the coating easily delaminates or chips at the edge.",
+    "SiC paper sheds grit into pores and inflates porosity readings; grind with diamond on metal mesh.",
+    "Real porosity must be told apart from pull-out."
+   ],
+   "steps": [
+    [
+     "30 µm diamond",
+     "Metal mesh cloth",
+     "Diamond lubricant",
+     "Until plane"
+    ],
+    [
+     "9 µm diamond",
+     "Rigid composite disc",
+     "Diamond lubricant",
+     "3 min (4–5 min for hard coatings such as WC-Co)"
+    ],
+    [
+     "3 µm diamond",
+     "Rigid composite disc",
+     "Diamond lubricant",
+     "3 min (4–5 min for hard coatings)"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min"
+    ],
+    [
+     "0.05 µm alumina",
+     "Polishing cloth",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "22–45 N per specimen at 100 rpm. Section perpendicular to the coating with a diamond or CBN blade on a precision saw (abrasive cut-off wheels can delaminate it). Castable epoxy or acrylic only; vacuum-impregnate with low-viscosity epoxy (25–100 mbar, 5–10 min). With fluorescent dye, resin-filled pores glow while pulled-out voids stay dark.",
+   "see": [
+    "Ceramic coatings (Al₂O₃, YSZ) usually need no etch.",
+    "WC-Co coatings: Murakami's (10–30 s). Alloy coatings: an etchant suited to the alloy (PACE lists nital, Vilella's and glyceregia)."
+   ],
+   "miss": [
+    "If the cut shows delamination, later preparation cannot recover the as-deposited structure; inspect the cut immediately."
+   ],
+   "fx": {
+    "pullout": "Unfilled porosity or insufficient impregnation: re-impregnate under vacuum with low-viscosity epoxy, grind with diamond instead of SiC, and use fluorescent dye to tell pores from pull-outs (PACE).",
+    "edge": "Edge delamination and chipping come from force and heat in sectioning and mounting: use precision sectioning, castable vacuum impregnation and lower grinding force (PACE)."
+   },
+   "std": [
+    "ASTM E1920 (guide for metallographic preparation of thermal sprayed coatings)"
+   ]
+  },
+  "wc": {
+   "name": "Cemented carbides (WC-Co) and cermets",
+   "hard": [
+    "At 1500–2000 HV they are close to SiC (about 2500 HV), so SiC paper removes little and wears out fast; use diamond throughout.",
+    "The Co or Ni binder polishes faster than the carbide, causing pull-out and relief; woven cloths at the 9 and 3 µm steps cause relief.",
+    "Polishing takes 2–3 times longer than for metals."
+   ],
+   "steps": [
+    [
+     "70 or 45 µm diamond",
+     "Metal-bonded diamond disc",
+     "—",
+     "2–5 min"
+    ],
+    [
+     "30 → 15 → 9 µm diamond",
+     "Diamond lapping film",
+     "—",
+     "1–4 min each"
+    ],
+    [
+     "9 µm diamond",
+     "Rigid composite disc",
+     "Diamond lubricant",
+     "3–5 min"
+    ],
+    [
+     "3 µm diamond",
+     "Rigid composite disc",
+     "Diamond lubricant",
+     "3–5 min"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2–3 min"
+    ],
+    [
+     "0.05 µm alumina (or colloidal silica)",
+     "Polishing cloth",
+     "—",
+     "1–2 min"
+    ]
+   ],
+   "note": "Polishing 22–45 N per specimen at 100 rpm. Section on a precision saw with a diamond blade at 20–50 rpm to avoid cracking and chipping. WC-Co and TiC-Ni may need times at the upper end of the ranges.",
+   "see": [
+    "Murakami's (10–60 s at room temperature): WC grains, Co binder distribution and eta phase."
+   ],
+   "miss": [
+    "If under-etched, increase time or concentration (cermets may need longer)."
+   ],
+   "fx": {
+    "pullout": "The binder polishes faster than the carbide: use softer cloths and lighter force; for relief, do the 9 and 3 µm steps on rigid composite discs (PACE).",
+    "scratch": "SiC is ineffective here: use diamond only and lengthen each step (PACE)."
+   },
+   "std": [
+    "ISO 4499 (metallographic determination of microstructure of hardmetals: grain size, porosity, eta phase, etc.)"
+   ]
+  },
+  "ceramic": {
+   "name": "Ceramics (alumina, zirconia, silicon nitride, silicon carbide)",
+   "hard": [
+    "Brittle: chipping and cracking during sectioning, mounting and grinding; sectioning chips are often irreparable.",
+    "Grain pull-out is common (especially with the glassy boundary phase of Si₃N₄), and pull-out looks like porosity.",
+    "Zirconia can transform from tetragonal to monoclinic under local heat or stress and crack."
+   ],
+   "steps": [
+    [
+     "About 75 µm diamond",
+     "Metal mesh cloth",
+     "Water",
+     "1–3 min (until plane)"
+    ],
+    [
+     "15 → 9 µm diamond",
+     "Rigid composite disc",
+     "Diamond lubricant",
+     "3–5 min each"
+    ],
+    [
+     "9 µm diamond",
+     "Firm low-nap cloth",
+     "Diamond lubricant",
+     "5 min"
+    ],
+    [
+     "3 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "3 min"
+    ],
+    [
+     "1 µm diamond",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "2 min"
+    ],
+    [
+     "0.05 µm colloidal silica",
+     "Polishing cloth",
+     "—",
+     "1–2 min (plain water for the last 20–30 s)"
+    ]
+   ],
+   "note": "Grinding 30–40 N per specimen, polishing 20–30 N, final 10–15 N (150 rpm). Extend each step by 50–100% for SiC, B₄C and dense WC. Section with diamond blades and copious coolant; vacuum impregnation is required for porous ceramics. Never let colloidal silica dry on the surface.",
+   "see": [
+    "First look with DIC, polarized light or dark field. If grain boundaries do not show, thermal etch 100–200 °C below the sintering temperature for 30 min–2 h (e.g. alumina 1400–1500 °C, 30–60 min in air; zirconia 1200–1300 °C, 30–60 min in air; silicon nitride 1400–1500 °C, 30–60 min in N₂). Cool slowly.",
+    "Vibratory polishing with colloidal silica (1–2 h) can also reveal grain boundaries."
+   ],
+   "miss": [
+    "Chemical etching (boiling acids, molten salts, concentrated HF) is hazardous and not given on this page."
+   ],
+   "fx": {
+    "pullout": "Try in order: lower force, firmer pad, extend the previous step, then vibratory or ion-beam polishing. Vacuum-impregnate porous material with low-viscosity epoxy (PACE).",
+    "under": "Look first with DIC or polarized light; if grain boundaries still do not show, thermal etch (PACE)."
+   },
+   "std": []
+  },
+  "ebsd": {
+   "name": "Finishing for EBSD (any metal)",
+   "hard": [
+    "EBSD patterns come from the top 10–50 nm, so even slight deformation, oxide or contamination degrades them; the surface must be flat and deformation-free.",
+    "Chemical or electrolytic polishing can add topography; do not over-etch.",
+    "If the specimen is not flat on both sides, EBSD mapping is very difficult."
+   ],
+   "steps": [
+    [
+     "240 → 320 → 400 → 600 → 800 → 1200 grit (P280 → P400 → P600 → P1200 → P1500 → P2500)",
+     "SiC paper",
+     "Water",
+     "About 30 s each"
+    ],
+    [
+     "1 µm diamond or alumina",
+     "Polishing cloth",
+     "Diamond lubricant",
+     "5–10 min"
+    ],
+    [
+     "0.3 µm",
+     "Polishing cloth",
+     "—",
+     "5–10 min"
+    ],
+    [
+     "0.05 or 0.02 µm colloidal silica",
+     "Polishing cloth",
+     "—",
+     "A few minutes to several hours (material dependent)"
+    ]
+   ],
+   "note": "Softer materials need longer times and finer abrasives. Ti: chemo-mechanical polish with colloidal silica plus hydrogen peroxide; Mg: no water (e.g. glycerin and alcohol). Cold-mount resin can be too soft and round the surface. Clean and dry thoroughly to protect the SEM vacuum.",
+   "see": [
+    "Usually not etched (etching weakens patterns and adds topography).",
+    "Some materials need electropolishing, but perchloric-acid electrolytes are not given here (see the safety section)."
+   ],
+   "miss": [
+    "In Ti, polishing damage can produce dark regions that index as cubic; a colloidal silica + H₂O₂ polish removes them."
+   ],
+   "fx": {
+    "smear": "For EBSD any residual mechanical damage kills the patterns: extend the colloidal silica finish (minutes to hours) and add H₂O₂ for Ti (Witt & Nowell)."
+   },
+   "std": []
+  }
+ },
+ "hazards": {
+  "general": {
+   "name": "For every etchant",
+   "short": "Every etchant",
+   "p": [
+    "Before mixing or using any etchant, read the SDS (safety data sheet) of every chemical in it and follow your institution's safety rules and the instructions of the person in charge. Compositions and times on this page are guides for choosing a procedure; they do not replace your institution's safety procedures. The standard (ASTM E407) also states that setting safety practices is the user's responsibility.",
+    "Mix and use etchants in a fume hood. Always wear gloves when handling chemicals, and add a face shield for the more dangerous solutions.",
+    "Order of mixing: solvents first, then dissolve the salts, then add the dangerous acids last, slowly and with stirring. Sulfuric acid goes in last, slowly into water. Never just pour one liquid into another.",
+    "Collect used etchant and rinse liquids as your institution requires; do not pour them down the drain or put them in ordinary waste."
+   ]
+  },
+  "hf": {
+   "name": "Solutions containing hydrofluoric acid (HF) or ammonium bifluoride",
+   "short": "HF",
+   "p": [
+    "HF on the skin may cause no immediate pain or visible damage. Severe pain may be the only symptom for hours, and visible damage may appear only 12–24 hours later. Burns can become deep before they are noticed, so treat dilute solutions (such as 0.5% HF) the same way.",
+    "HF can cause severe electrolyte problems in the body, and calcium gluconate (gel, solution or medication) is used to treat it. Before using any HF-containing etchant, keep calcium gluconate first-aid gel within reach and know how to use it (the ASM Handbook safety article also says laboratories using HF should stock an antidote kit).",
+    "If exposed: rinse at once with plenty of water (safety shower) for 15 minutes, remove contaminated clothing, apply calcium gluconate gel after rinsing, and get medical attention immediately. For the eyes, rinse at an eyewash for 15 minutes and get medical attention.",
+    "HF attacks glass: mix and store it in polyethylene (PE) or polypropylene (PP) containers labeled for HF.",
+    "Solutions with ammonium bifluoride (NH₄HF₂) — Beraha's tint etchants, LB1, Weck's reagent for Ti — also release HF; use the same precautions as for HF.",
+    "Fluoroboric acid (HBF₄, in Barker's reagent) also causes severe skin burns and eye damage, gives hydrogen fluoride on decomposition and attacks glass (SDS). Handle it with the same precautions as HF and store it in PE bottles."
+   ]
+  },
+  "picric": {
+   "name": "Solutions containing picric acid",
+   "short": "Picric acid",
+   "p": [
+    "Dry picric acid is an explosive (GHS: explosive, division 1.1). Grinding, shock or friction can set it off.",
+    "It reacts with metals (especially copper, lead, mercury and zinc) to form shock-sensitive picrates, which detonate even more readily when dry. Do not use metal caps, spatulas or bench tops with it.",
+    "Never let the solution dry on a surface or on the bottle threads. Store the solid wetted with water, check about monthly that it has not dried out, and top up with water. Do not keep mixed etchant for long (discard at the end of the day, or within 7 days, depending on the source and your rules), and rinse it off the specimen before it can dry.",
+    "If you find dry crystals in the bottle or on its threads, do not touch or move it; contact your safety or waste-management staff."
+   ]
+  },
+  "nitric": {
+   "name": "Nitric acid in alcohol (nital and similar)",
+   "short": "Nitric acid + alcohol",
+   "p": [
+    "Nital with up to 3% nitric acid in ethanol can be mixed and stored safely in small quantities. Stronger solutions should be mixed daily, used in an open dish and never stored in a tightly stoppered bottle (pressure builds up).",
+    "Methanol is a cumulative poison: it is absorbed through the skin as well as by ingestion and inhalation, and damages the central nervous system. Use ethanol whenever possible; if methanol is used, keep nitric acid at 5% or less.",
+    "Tightly stoppered bottles have exploded from pressure build-up (NOx). Drill a small vent hole in the cap or vent the bottle from time to time.",
+    "Mixtures of methanol with more than 5% nitric acid can decompose violently if heated; PACE's tin etching table also says not to exceed 10% for nital.",
+    "Put the alcohol in first and add the nitric acid to it."
+   ]
+  },
+  "aqua": {
+   "name": "Aqua regia and glyceregia (HCl + HNO₃)",
+   "short": "HCl + HNO₃",
+   "p": [
+    "Mixing releases heat, and the solution decomposes with time, giving off chlorine and nitrogen dioxide. Mix a small amount just before use, do not let it stand for more than about 15 minutes, and discard it right after use.",
+    "Never close the mixed solution in a sealed container (it pressurizes); discard a pressurized container at once. Work in a fume hood.",
+    "Glyceregia contains nitric acid and glycerol. Strong mixtures of nitric acid with glycerol (or glycols) can be explosive, and the solution decomposes readily: mix only a small amount and discard it immediately after use. Never use glycerol in anhydrous solutions containing nitric and sulfuric acids (nitroglycerin can form)."
+   ]
+  },
+  "cyanide": {
+   "name": "Potassium ferricyanide solutions (Murakami's)",
+   "short": "Ferricyanide",
+   "p": [
+    "Potassium ferricyanide is poisonous but stable and reasonably safe to use. In contact with acid, however, it releases hydrogen cyanide: keep the solution alkaline, never acidify it, and never add it to acid waste.",
+    "Hot solution can boil over; use it in a fume hood and let it cool before disposal.",
+    "Potassium and sodium cyanide are a different matter: extremely toxic, and particularly hazardous in contact with acids or acid fumes. Only trained people familiar with them should use them, so etchants containing them are not given on this page."
+   ]
+  },
+  "caustic": {
+   "name": "Sodium or potassium hydroxide solutions",
+   "short": "Strong alkali",
+   "p": [
+    "Strongly caustic to skin and eyes. Heat warm-use solutions in PE or PP containers, not in glass."
+   ]
+  },
+  "acid": {
+   "name": "Solutions containing hydrochloric acid (including ferric and cupric chloride etchants)",
+   "short": "HCl",
+   "p": [
+    "Concentrated hydrochloric acid attacks the skin strongly, causing severe burns, is very dangerous to the eyes and irritates the nose and throat. It gives off hydrogen chloride gas, so handle it in a fume hood.",
+    "When diluting, add acid to water, never the reverse. Concentrated acids in contact with metals can liberate hydrogen, a fire and explosion hazard."
+   ]
+  },
+  "oxalic": {
+   "name": "Oxalic acid solutions",
+   "short": "Oxalic acid",
+   "p": [
+    "Harmful if swallowed; causes serious eye damage and irritates the skin and respiratory tract (GHS classification).",
+    "It reacts violently with strong oxidants, so never mix it with nitric acid. It can react with some silver compounds to form explosive silver oxalate."
+   ]
+  },
+  "oxidizer": {
+   "name": "Solutions with oxidizers (ammonium persulfate, potassium permanganate, hydrogen peroxide)",
+   "short": "Oxidizer",
+   "p": [
+    "Ammonium persulfate is an oxidizing solid: mixed with combustibles it ignites easily and burns violently. It may cause allergy or asthma if inhaled and allergic skin reactions (GHS respiratory and skin sensitizer, category 1). Avoid breathing the dust and store it away from combustibles.",
+    "Potassium permanganate is a fire and explosion hazard, especially in contact with organic material. Never mix it with sulfuric acid: a violent explosion can result.",
+    "3% hydrogen peroxide is reasonably safe to use, but the 30% solution is a very powerful oxidant. Both are very damaging to the eyes."
+   ]
+  },
+  "sulfite": {
+   "name": "Tint etchants with potassium metabisulfite (Klemm's, Beraha's, LB1)",
+   "short": "Metabisulfite",
+   "p": [
+    "Potassium metabisulfite causes serious eye damage (GHS category 1). Contact with acids liberates a toxic gas, so keep it out of acid waste. Add it to Beraha's I reagent (which contains HCl) just before use and work in a fume hood."
+   ]
+  },
+  "electro": {
+   "name": "Electrolytic etching (oxalic acid, NaOH, Barker's, etc.)",
+   "short": "Electrolytic",
+   "p": [
+    "Electrolytic etching uses a DC power supply with conductive acidic or alkaline solutions; conductive solution and wet hands can deliver a painful shock, so make sure your hands are dry before adjusting the power supply.",
+    "Electrolytic etching can generate fumes and gas, including hydrogen. Work in a fume hood or a well-ventilated area."
+   ]
+  },
+  "perchloric": {
+   "name": "Perchloric acid electropolishing solutions (no recipes on this page)",
+   "short": "Perchloric acid",
+   "p": [
+    "Perchloric acid is a strong oxidizer. It may explode when heated; above 72% it is unstable and, when dry or drying, can explode from shock or vibration. It reacts violently with combustible and organic material and can ignite paper and similar materials at room temperature.",
+    "Contact with organic material forms highly unstable perchlorates. Perchloric acid–acetic anhydride electrolytes are not recommended. Keep such solutions cold (oxidizing power rises with temperature), do not store them, and never electropolish specimens mounted in phenolic or other plastics in them (explosions have resulted). The fumes need a special hood with a water wash-down.",
+    "This page gives no compositions or conditions for perchloric-acid electrolytes. If electropolishing is needed, do it where dedicated equipment and written procedures exist, together with the person in charge."
+   ]
+  },
+  "cr6": {
+   "name": "Solutions with hexavalent chromium (CrO₃) (not given on this page)",
+   "short": "Hexavalent chromium",
+   "p": [
+    "Chromium trioxide is a strong oxidizer classified under GHS as a category 1A carcinogen, fatal by inhalation or skin contact, and a respiratory sensitizer, among other hazards.",
+    "This page does not give procedures for etchants containing hexavalent chromium (Palmerton's reagent for zinc, Graff–Sargent's reagent for aluminum, etc.). Alternatives are listed under each material."
+   ]
+  }
+ },
+ "not_listed": [
+  "Etchants containing potassium or sodium cyanide (used for gold and other precious metals) — extremely toxic (see the ferricyanide entry above)",
+  "Perchloric-acid electrolytes (e.g. for EBSD of Ti, Al and steel) — explosion hazard (see perchloric acid above)",
+  "Hexavalent-chromium etchants (Palmerton's, Graff–Sargent's, etc.) — carcinogenic (see above)",
+  "Tint etchants made with cadmium or lead salts (Beraha's CdS and PbS reagents) — they use heavy-metal salts",
+  "Chemical etching of ceramics with molten salts, boiling concentrated acids or concentrated HF — treated as serious hazards in the PACE guide. For ceramics, try optical contrast and thermal etching first"
+ ],
+ "etchants": {
+  "nital": {
+   "name": "Nital (nitric acid in alcohol)",
+   "aka": "",
+   "comp": [
+    "1–10 mL HNO₃ + 90–99 mL ethanol; usually 2% (2 mL HNO₃ + 98 mL ethanol). Methanol is also used, but it is a cumulative poison absorbed through the skin, so prefer ethanol (with methanol, keep HNO₃ at 5% or less). Mix solutions above 3% daily and do not stopper them tightly"
+   ],
+   "use": [
+    "Immerse or swab; 2% for 5–30 s (start at 5–10 s). Harder steels 3–5% (not above 5%)",
+    "Zinc coatings: 0.5–2% for a few seconds (over-etches easily). Mg alloys: 1–2% for 5–15 s, rinse with ethanol"
+   ],
+   "see": "Ferrite grain boundaries and pearlite (both), martensite, carburized and nitrided cases, the matrix of cast irons. The most common etchant for irons and steels.",
+   "nb": []
+  },
+  "picral": {
+   "name": "Picral (picric acid in ethanol)",
+   "aka": "",
+   "comp": [
+    "2–4 g picric acid + 100 mL ethanol (4% is usual)"
+   ],
+   "use": [
+    "Immerse 5–60 s (cast iron: swab 10–30 s). Rinse with ethanol, then water, and dry at once"
+   ],
+   "see": "Attacks cementite, not ferrite: resolves pearlite lamellae, spheroidized carbides and tempered-carbide distribution. It does not reveal ferrite grain boundaries; combine with nital when both are needed.",
+   "nb": []
+  },
+  "vilella": {
+   "name": "Vilella's reagent",
+   "aka": "",
+   "comp": [
+    "1 g picric acid + 5 mL HCl + 100 mL ethanol"
+   ],
+   "use": [
+    "Immerse or swab 5–60 s; rinse with ethanol"
+   ],
+   "see": "The standard for martensitic and PH stainless steels and hardened tool and high-speed steels: prior-austenite grain boundaries, tempered martensite, carbides.",
+   "nb": []
+  },
+  "beraha-tio": {
+   "name": "Beraha's tint etchant (sodium thiosulfate type)",
+   "aka": "",
+   "comp": [
+    "10 g Na₂S₂O₃ + 3 g K₂S₂O₅ + 100 mL water (Vander Voort's 10/3 reagent; a ready-made product is 5–15% thiosulfate and 2–5% metabisulfite by weight)"
+   ],
+   "use": [
+    "Immerse 30–120 s. Polish to 0.05 µm (damage-free surface)"
+   ],
+   "see": "Tints ferrite (cyan/orange), martensite (brown) and bainite (intermediate); retained austenite stays unstained (colors depend on orientation and composition).",
+   "nb": []
+  },
+  "klemm1": {
+   "name": "Klemm's I reagent",
+   "aka": "",
+   "comp": [
+    "50 mL saturated aqueous Na₂S₂O₃ + 1 g K₂S₂O₅"
+   ],
+   "use": [
+    "Immerse 30 s–3 min (until colored). Rinse with water then ethanol and air-dry only (no compressed air)"
+   ],
+   "see": "Tints twinned grains in brass, the phases of duplex stainless, and ferrite and pearlite in steels (colors depend on orientation and composition).",
+   "nb": []
+  },
+  "klemm2": {
+   "name": "Klemm's II reagent",
+   "aka": "",
+   "comp": [
+    "50 mL saturated aqueous Na₂S₂O₃ + 5 g K₂S₂O₅"
+   ],
+   "use": [
+    "Immerse 60–120 s; warming to about 40 °C improves staining"
+   ],
+   "see": "Colors ferrite blue and martensite brown to black; retained austenite stays white (e.g. to sort out the matrix of austempered ductile iron).",
+   "nb": []
+  },
+  "beraha-ss": {
+   "name": "Beraha's I reagent (for stainless steels)",
+   "aka": "",
+   "comp": [
+    "Stock: 1000 mL water + 200 mL HCl + 24 g NH₄HF₂",
+    "Working: 100 mL stock + K₂S₂O₅ (0.1–0.2 g for martensitic, 0.3–0.6 g for austenitic and ferritic grades; PACE uses 1 g), added just before use"
+   ],
+   "use": [
+    "Immerse 30 s–2 min (until colored)"
+   ],
+   "see": "Tints the grains of stainless steels, including twinned grains. PACE's first choice for telling the phases of duplex stainless apart.",
+   "nb": []
+  },
+  "lb1": {
+   "name": "LB1 (Lichtenegger and Bloch)",
+   "aka": "",
+   "comp": [
+    "20 g NH₄HF₂ + 0.5 g K₂S₂O₅ + 100 mL water (dissolve in hot water)"
+   ],
+   "use": [
+    "Immerse at 25–30 °C"
+   ],
+   "see": "In duplex stainless steels it colors the austenite, not the ferrite.",
+   "nb": []
+  },
+  "oxalic": {
+   "name": "10% oxalic acid (electrolytic)",
+   "aka": "",
+   "comp": [
+    "10 g oxalic acid dihydrate + 100 mL water"
+   ],
+   "use": [
+    "Electrolytic: specimen anode, stainless cathode, 6 V DC (electrodes 25 mm apart). 15–30 s for general structure (Ni alloys 5–30 s at 3–6 V); for the sensitization test (ASTM A262 Practice A) follow the standard",
+    "If pitting appears, lower to 3–4 V or shorten"
+   ],
+   "see": "Grain boundaries in austenitic stainless (step/dual/ditch per A262 Practice A), sigma phase, carbides.",
+   "nb": []
+  },
+  "naoh-e": {
+   "name": "10% sodium hydroxide (electrolytic)",
+   "aka": "",
+   "comp": [
+    "10 g NaOH + 100 mL water"
+   ],
+   "use": [
+    "Electrolytic: specimen anode, 2–6 V DC, 5–30 s"
+   ],
+   "see": "Reveals sigma phase in stainless steels as orange to brown.",
+   "nb": []
+  },
+  "glyceregia": {
+   "name": "Glyceregia",
+   "aka": "",
+   "comp": [
+    "15–30 mL HCl + 5–10 mL HNO₃ + 10 mL glycerol (ratios vary between sources: 15:10:10 on PACE's etchant page, 10 HNO₃ + 20–30 HCl + 10 glycerol in its stainless guide, 15:5:10 in its Ni-alloy guide)"
+   ],
+   "use": [
+    "Swab 10–60 s (do not immerse: heat builds locally). Rinse with water then ethanol. Use freshly mixed; never store"
+   ],
+   "see": "Grain boundaries, twins, carbides and sigma phase in austenitic stainless and Ni-base alloys; also used as a brief activating swab before oxalic electrolytic etching.",
+   "nb": [
+    "Strong mixtures of nitric acid and glycerol can be explosive; mix only a small amount and discard right after use (see the safety section)"
+   ]
+  },
+  "aqua": {
+   "name": "Aqua regia",
+   "aka": "",
+   "comp": [
+    "75 mL HCl + 25 mL HNO₃"
+   ],
+   "use": [
+    "5–15 s; use freshly mixed and discard at once"
+   ],
+   "see": "Inconel and other hard-to-etch Ni-base alloys.",
+   "nb": []
+  },
+  "marble": {
+   "name": "Marble's reagent",
+   "aka": "",
+   "comp": [
+    "10 g CuSO₄ + 50 mL HCl + 50 mL water (a ready-made product is 10–20% HCl and 2–10% CuSO₄ by weight)"
+   ],
+   "use": [
+    "Immerse or swab 5–60 s; a few drops of H₂SO₄ make it more active"
+   ],
+   "see": "Grain boundaries and carbides in Ni-base superalloys (Inconel 600/625/718), austenitic stainless and Co-base alloys.",
+   "nb": []
+  },
+  "kalling2": {
+   "name": "Kalling's No. 2",
+   "aka": "",
+   "comp": [
+    "5 g CuCl₂ + 100 mL HCl + 100 mL ethanol"
+   ],
+   "use": [
+    "Swab or immerse 5–60 s (duplex stainless 30 s–2 min)"
+   ],
+   "see": "Grain boundaries in stainless steels, ferrite in duplex grades, sigma phase, and the structure of Ni alloys such as Monel.",
+   "nb": []
+  },
+  "adler": {
+   "name": "Adler's etchant",
+   "aka": "",
+   "comp": [
+    "45 g FeCl₃ + 9 g copper ammonium chloride + 150 mL HCl + 75 mL water"
+   ],
+   "use": [
+    "Swab 5–60 s"
+   ],
+   "see": "Hastelloy and other highly corrosion-resistant Ni alloys; grain boundaries in ferritic, martensitic and PH stainless steels.",
+   "nb": []
+  },
+  "fry": {
+   "name": "Fry's reagent",
+   "aka": "",
+   "comp": [
+    "5 g CuCl₂ + 40 mL HCl + 30 mL water + 25 mL ethanol"
+   ],
+   "use": [
+    "Swab 30–120 s"
+   ],
+   "see": "Strain patterns (slip lines, deformation bands) from cold work in low-carbon and maraging steels.",
+   "nb": []
+  },
+  "murakami": {
+   "name": "Murakami's reagent",
+   "aka": "",
+   "comp": [
+    "10 g K₃Fe(CN)₆ + 10 g KOH (or 7–10 g NaOH) + 100 mL water; dissolve the alkali in the water first"
+   ],
+   "use": [
+    "Cemented carbide: 10–60 s at room temperature. Carbides in steels: cold, or at 50–80 °C for 3–10 min. Use fresh. Never acidify"
+   ],
+   "see": "WC grains and the Co binder distribution in WC-Co (cold); carbides in steels (Cr carbides in D2/A2, carbides in high-speed steel); sigma phase in stainless.",
+   "nb": []
+  },
+  "keller": {
+   "name": "Keller's reagent",
+   "aka": "",
+   "comp": [
+    "2 mL HF + 3 mL HCl + 5 mL HNO₃ + 190 mL water (the 1.0 : 1.5 : 2.5 : 95 mL in PACE's Al guide is the same ratio); mix in PE/PP"
+   ],
+   "use": [
+    "Immerse 8–20 s. Rinse thoroughly with water; do not rinse aluminum with alcohol. Use fresh",
+    "Ti alloys: immerse 3–10 s (PACE Ti guide) or 10–20 s (Metkon)"
+   ],
+   "see": "Grain boundaries and second-phase particles (Al₂Cu, Mg₂Si, MgZn₂) in wrought Al alloys (1xxx–7xxx), cold-worked vs recrystallized grains. May leave a Cu stain on 2xxx alloys; switch to 0.5% HF there. Also used on Ti alloys.",
+   "nb": []
+  },
+  "hf05": {
+   "name": "0.5% hydrofluoric acid",
+   "aka": "",
+   "comp": [
+    "0.5 mL HF + 99.5 mL water (in PE/PP)"
+   ],
+   "use": [
+    "Immerse 5–60 s"
+   ],
+   "see": "Grain boundaries and second-phase particles in Al alloys; an alternative to Keller's on Cu-bearing 2xxx alloys.",
+   "nb": []
+  },
+  "barker": {
+   "name": "Barker's reagent (anodizing)",
+   "aka": "",
+   "comp": [
+    "4–5 mL fluoroboric acid (HBF₄, 48%) + 200 mL water"
+   ],
+   "use": [
+    "Specimen anode, Al or stainless cathode, 20–30 V DC for 30 s–3 min. Rinse with water and view in polarized light (with a sensitive tint plate)"
+   ],
+   "see": "The anodic film thickness depends on grain orientation, so grains show different colors in polarized light (grain size and orientation contrast).",
+   "nb": [
+    "Fluoroboric acid is corrosive; use in a fume hood with PPE (PACE)",
+    "Fluoroboric acid gives HF on decomposition and attacks glass: use HF precautions and PE bottles (SDS)"
+   ]
+  },
+  "naoh-al": {
+   "name": "Aqueous sodium hydroxide (Al, Zn)",
+   "aka": "",
+   "comp": [
+    "1–10 g NaOH + 100 mL water (1% for Al microstructure; 10–20% for macrostructure)"
+   ],
+   "use": [
+    "Al: 1%, swab or immerse 30–60 s (remove smut with HNO₃). Macro: 10–20% at 50–70 °C for 30–60 s. Zn: 10% for 1–5 s"
+   ],
+   "see": "Al microstructure (an HF-free option); forging flow lines, segregation and weld macrostructure in Al; pure and low-alloy zinc.",
+   "nb": []
+  },
+  "weck-al": {
+   "name": "Weck's reagent (tint etch for Al)",
+   "aka": "",
+   "comp": [
+    "4 g KMnO₄ + 1 g NaOH + 100 mL water (PACE's etchant page uses 4 g NaOH, warm)"
+   ],
+   "use": [
+    "Immerse 20–60 s (until colored)"
+   ],
+   "see": "Colors the grains of Al alloys; cast alloys color more easily than wrought ones.",
+   "nb": [
+    "KMnO₄ stains skin and benches; handle in a tray (PACE)"
+   ]
+  },
+  "kroll": {
+   "name": "Kroll's reagent",
+   "aka": "",
+   "comp": [
+    "1–3 mL HF + 2–6 mL HNO₃ + about 100 mL water (Metkon: 2 HF + 6 HNO₃ + 92 water; PACE: about 2 mL HF + 6 mL HNO₃ + 100 mL water); in PE/PP"
+   ],
+   "use": [
+    "Swab 3–15 s (immersion over-attacks with HF). Rinse thoroughly with cold water. PACE's Ti guide also lists immersion for 10–30 s, but its etchant page specifies swabbing"
+   ],
+   "see": "Alpha (light) and beta (dark) phases, transformed-beta colonies and grain boundaries in Ti alloys (CP-Ti, Ti-6Al-4V, etc.); also Zr alloys.",
+   "nb": []
+  },
+  "weck-ti": {
+   "name": "Modified Weck's reagent (tint etch for Ti)",
+   "aka": "",
+   "comp": [
+    "100 mL water + 25 mL ethanol + 2 g NH₄HF₂ (the original 50 mL ethanol produces etch artifacts)"
+   ],
+   "use": [
+    "Immerse a few seconds at 20 °C"
+   ],
+   "see": "Colors Ti grains by orientation (mechanical twins are visible); with polarized light also used to measure alpha case.",
+   "nb": []
+  },
+  "aps": {
+   "name": "Ammonium persulfate",
+   "aka": "",
+   "comp": [
+    "10 g (NH₄)₂S₂O₈ + 90 mL water"
+   ],
+   "use": [
+    "Swab or immerse 5–60 s. Mix fresh (it decomposes within 1–2 days)"
+   ],
+   "see": "Grain boundaries and annealing twins in OFHC copper, brass, nickel silver and bronze; alpha and beta phases in brass.",
+   "nb": []
+  },
+  "fecl3": {
+   "name": "Ferric chloride solution",
+   "aka": "",
+   "comp": [
+    "5–10 g FeCl₃ + 5–50 mL HCl + 100–120 mL water, ethanol or methanol (adjust strength to the alloy)"
+   ],
+   "use": [
+    "Immerse or swab 5–30 s"
+   ],
+   "see": "Grain boundaries and phases in copper alloys, Sn segregation (dendrites) in bronze, tin–copper alloys.",
+   "nb": [
+    "If you make it with methanol, remember that methanol is toxic and is absorbed through the skin. Use ethanol where possible (see also the nitric acid and alcohol entry in the safety section)"
+   ]
+  },
+  "nh4oh": {
+   "name": "Ammonium hydroxide + hydrogen peroxide",
+   "aka": "",
+   "comp": [
+    "Concentrated NH₄OH : 3% H₂O₂ : water = 1 : 1 : 1 (water optional)"
+   ],
+   "use": [
+    "Swab 5–30 s. It loses activity within minutes, so mix just before use"
+   ],
+   "see": "Grain boundaries in copper and brass.",
+   "nb": [
+    "Concentrated ammonia gives off strongly irritating vapor. Handle it in the fume hood (SDS)"
+   ]
+  },
+  "acetic-picral": {
+   "name": "Acetic picral",
+   "aka": "",
+   "comp": [
+    "4.2–6 g picric acid + 5–30 mL acetic acid + 0–15 mL water + 100 mL ethanol (ratios vary between sources)"
+   ],
+   "use": [
+    "10–30 s; rinse with ethanol, never water"
+   ],
+   "see": "General microstructure of Mg alloys (Mg–Al, Mg–Al–Zn, etc.).",
+   "nb": [
+    "Glacial acetic acid is corrosive and flammable. Keep it away from ignition sources and use it in the fume hood (SDS)"
+   ]
+  },
+  "hcl-dil": {
+   "name": "Dilute hydrochloric acid (Sn, Zn)",
+   "aka": "",
+   "comp": [
+    "1–5 mL HCl + 100 mL ethanol, methanol or water"
+   ],
+   "use": [
+    "Immerse several minutes"
+   ],
+   "see": "Pure tin, tin–lead and tin–antimony–copper alloys; grain boundaries and second phases in zinc.",
+   "nb": [
+    "If you make it with methanol, remember that methanol is toxic and is absorbed through the skin. Use ethanol where possible (see also the nitric acid and alcohol entry in the safety section)"
+   ]
+  }
+ },
+ "defects": {
+  "scratch": {
+   "name": "Scratches remain",
+   "look": "Parallel scratches in one direction, scratches coarser than the current abrasive, or scratches that show up after etching.",
+   "causes": {
+    "prev": {
+     "t": "The previous step's scratches were not fully removed (too short, a grit skipped, too little force)",
+     "fix": "Continue each step until all of the previous scratches are gone; rotate 90° to check. Allow about three times the time needed to establish the new pattern, and do not skip grits."
+    },
+    "etchout": {
+     "t": "Deformation hidden by the final polish was revealed by etching (not caused by the etchant)",
+     "fix": "Extend the final polish and lower the force; if needed, go back to an earlier grinding step. Alternating polish and light etch confirms it."
+    },
+    "carry": {
+     "t": "Coarse particles carried into a later step (specimen, holder, hands, cloth): randomly oriented scratches",
+     "fix": "Clean ultrasonically (30–60 s) between steps, change gloves, dedicate each cloth to one abrasive and keep cloths covered."
+    },
+    "embedsic": {
+     "t": "SiC embedded in a soft metal scratches during later steps",
+     "fix": "Finish grinding on finer SiC with light force, or switch to diamond on a rigid disc."
+    },
+    "cutdmg": {
+     "t": "Sectioning damage was not removed by the first grinding step (one or two deep scratches)",
+     "fix": "Extend the first grinding step or go back to a coarser grit."
+    },
+    "worn": {
+     "t": "Worn, glazed or loaded paper or cloth (no longer cutting)",
+     "fix": "Replace or dress paper and cloth and recharge the abrasive; on very hard materials SiC wears out quickly, so use diamond."
+    }
+   }
+  },
+  "edge": {
+   "name": "Edge rounding",
+   "look": "The edge drops below the focal plane, so coating thickness and case depth cannot be measured correctly.",
+   "causes": {
+    "gap": {
+     "t": "A gap between specimen and resin (resin shrinkage)",
+     "fix": "Cool hot mounts under pressure; for cold mounting use a slow-curing, low-shrinkage epoxy with the specimen at room temperature; consider vacuum impregnation."
+    },
+    "softmount": {
+     "t": "The mount is much softer than the specimen",
+     "fix": "Use an edge-retentive mount (DAP, mineral-filled epoxy, conductive phenolic)."
+    },
+    "softcloth": {
+     "t": "A soft long-nap cloth or a long final polish",
+     "fix": "Use a firmer low-nap cloth and keep the final polish short."
+    },
+    "noplate": {
+     "t": "Thin layers or oxide scales are unsupported",
+     "fix": "Protect the edge with electroless nickel plating before mounting."
+    },
+    "cutmount": {
+     "t": "Sectioning or compression mounting delaminated or chipped the coating",
+     "fix": "Section perpendicular to the coating with a diamond or CBN blade on a precision saw (abrasive cut-off wheels can delaminate it), vacuum-impregnate in castable epoxy and reduce grinding force. Inspect the cut at once and re-section if it has delaminated (later polishing cannot recover it)."
+    },
+    "force": {
+     "t": "Too much force or unnecessary polishing time",
+     "fix": "Reduce force and keep polishing time to what is needed."
+    }
+   }
+  },
+  "relief": {
+   "name": "Relief between phases",
+   "look": "Hard particles, phases or coatings stand proud of a softer matrix; one phase is out of focus.",
+   "causes": {
+    "resil": {
+     "t": "A resilient soft cloth follows the topography and removes the soft phase",
+     "fix": "Use a less resilient, firmer or napless cloth."
+    },
+    "long": {
+     "t": "The final polish is too long",
+     "fix": "Cap the final polish at 1–3 minutes (if needed, a brief colloidal silica step)."
+    },
+    "mix": {
+     "t": "Phases or layers of very different hardness side by side",
+     "fix": "Use diamond on rigid composite discs to keep the surface flat, with minimal force and controlled speed."
+    },
+    "alumina": {
+     "t": "Alumina was used on very hard carbides",
+     "fix": "On materials with hard particles, polish with diamond to the end."
+    }
+   }
+  },
+  "comet": {
+   "name": "Comet tails",
+   "look": "Teardrop-shaped streaks trailing from inclusions, pores or hard particles, all in the same direction.",
+   "causes": {
+    "dyn": {
+     "t": "One-directional motion between specimen and cloth (holder and platen not matched in direction and speed)",
+     "fix": "Rotate holder and platen in the same direction at the same speed, and use a specimen holder (automatic machine)."
+    },
+    "nap": {
+     "t": "A long-nap cloth, too much slurry, or settled suspension",
+     "fix": "Use a napless or short-nap cloth kept moist but not wet; shake suspensions before use."
+    },
+    "forcec": {
+     "t": "Too much force, or long polishing on a resilient cloth",
+     "fix": "Reduce force (PACE suggests about 13–18 N, 3–4 lbf, for a 32 mm specimen) and shorten soft-cloth polishing."
+    },
+    "hand": {
+     "t": "Freehand polishing",
+     "fix": "Use a specimen holder."
+    }
+   }
+  },
+  "stain": {
+   "name": "Stains and water marks",
+   "look": "Yellow, brown or rainbow patches, outlines of water drops, uneven darkening.",
+   "causes": {
+    "dry": {
+     "t": "Water or etchant dried on the surface",
+     "fix": "Rinse with water, displace with ethanol and dry with clean warm air at once; if stained, lightly re-polish and re-etch."
+    },
+    "gapst": {
+     "t": "Liquid trapped in a gap between specimen and resin seeps out",
+     "fix": "Eliminate the gap (cool under pressure, vacuum impregnation, low-shrinkage resin) and store specimens in a desiccator."
+    },
+    "waterprep": {
+     "t": "A water-sensitive material was ground, polished or cleaned with water",
+     "fix": "For Mg use only ethanol-based lubricants and cleaning; for Zn keep aqueous steps short and finish with water-free lubricants and ethanol."
+    },
+    "silica": {
+     "t": "Colloidal silica dried on the surface, or oily compressed air",
+     "fix": "Run plain water on the cloth for the last 10–30 s of a colloidal silica step, and dry with oil-free air."
+    },
+    "hot": {
+     "t": "Hot water, or a hot specimen or etchant",
+     "fix": "Avoid hot water; let the specimen cool before etching."
+    }
+   }
+  },
+  "over": {
+   "name": "Over-etching",
+   "look": "Dark background with dissolved features and boundaries widened into trenches; pits may be mistaken for porosity.",
+   "causes": {
+    "time": {
+     "t": "Etching time too long",
+     "fix": "Re-polish and start short (the lower end of the source's range; 5–10 s for nital)."
+    },
+    "conc": {
+     "t": "Etchant too concentrated",
+     "fix": "Dilute to the published composition (nital no stronger than 5%)."
+    },
+    "warm": {
+     "t": "Warm specimen or etchant",
+     "fix": "Let specimen and etchant come to room temperature first."
+    },
+    "immerse": {
+     "t": "A swab etchant was used by immersion (HF or aqua-regia type)",
+     "fix": "Swab Kroll's, glyceregia and similar briefly instead of immersing."
+    }
+   }
+  },
+  "under": {
+   "name": "Under-etching (no structure)",
+   "look": "Little or no structure even after a long etch; weak contrast.",
+   "causes": {
+    "dmg": {
+     "t": "A disturbed layer from polishing remains",
+     "fix": "Re-polish or add a chemo-mechanical (colloidal silica) step."
+    },
+    "stale": {
+     "t": "Exhausted or expired etchant",
+     "fix": "Mix fresh (ammonium persulfate decomposes in 1–2 days, NH₄OH + H₂O₂ loses activity in minutes, and HF-based etchants degrade)."
+    },
+    "wrong": {
+     "t": "The wrong etchant for the alloy",
+     "fix": "Match the etchant to the alloy (nital hardly works on stainless steel: use oxalic electrolytic, glyceregia, etc.)."
+    },
+    "short": {
+     "t": "Too short or too weak",
+     "fix": "Lengthen time gradually or use a slightly stronger solution (2% → 3% nital)."
+    },
+    "film": {
+     "t": "A passive or oxide film formed after polishing",
+     "fix": "Etch right after polishing; for stainless, activate with a brief glyceregia swab before electrolytic etching."
+    },
+    "dirty": {
+     "t": "Oil, fingerprints or polishing residue",
+     "fix": "Clean with ethanol before etching."
+    }
+   }
+  },
+  "pit": {
+   "name": "Pitting after etching",
+   "look": "Pits appear during or after etching on a surface that was clean after polishing.",
+   "causes": {
+    "strong": {
+     "t": "Etchant too strong or time too long",
+     "fix": "Dilute or shorten; or choose a milder etchant."
+    },
+    "stalep": {
+     "t": "Stale etchant",
+     "fix": "Use fresh etchant."
+    },
+    "pool": {
+     "t": "Etchant pooled and dried on the surface",
+     "fix": "Rinse at once, displace with ethanol and dry with warm air."
+    },
+    "clip": {
+     "t": "Galvanic action with a metal clip",
+     "fix": "Insulate clips or swab-etch instead."
+    },
+    "volt": {
+     "t": "Electrolytic voltage too high or time too long",
+     "fix": "For oxalic electrolytic, drop from 6 V to 3–4 V or shorten."
+    }
+   }
+  },
+  "pullout": {
+   "name": "Pull-out of graphite, inclusions or hard particles",
+   "look": "Smooth-bottomed dark holes where graphite, inclusions or particles should be (unlike sharp-edged real pits). Re-polish briefly and look at the same spot: real pores stay, pull-outs shift.",
+   "causes": {
+    "napp": {
+     "t": "Long-nap cloth",
+     "fix": "Use a napless or short-nap cloth and check after every step."
+    },
+    "forcep": {
+     "t": "Excessive force",
+     "fix": "Reduce force (about 13–18 N, 3–4 lbf, for inclusion work on steel)."
+    },
+    "longp": {
+     "t": "Polishing too long",
+     "fix": "Shorten the final polish (about 2 minutes at most for inclusion rating in steel)."
+    },
+    "sic": {
+     "t": "SiC paper used too late on cast iron",
+     "fix": "Move to diamond early and finish with 1 µm diamond on a short-nap pad."
+    },
+    "noimp": {
+     "t": "Porous or brittle specimen polished without impregnation",
+     "fix": "Vacuum-impregnate with low-viscosity epoxy first and start from a finer grit."
+    },
+    "binder": {
+     "t": "Hard particles and a softer matrix or binder remove at different rates",
+     "fix": "Lower the force and use softer cloths for the fine steps; if relief also appears, do 9 and 3 µm on rigid composite discs."
+    }
+   }
+  },
+  "smear": {
+   "name": "Smeared, deformed surface (blurred structure)",
+   "look": "The surface looks bright but bland: faint grain boundaries and blurred second phases.",
+   "causes": {
+    "mech": {
+     "t": "Finished with mechanical polishing only (a disturbed layer remains)",
+     "fix": "Finish chemo-mechanically with colloidal silica or fine alumina on a soft cloth at light force; use polish–etch–polish cycles."
+    },
+    "forces": {
+     "t": "Excessive force in the final step",
+     "fix": "Use light force for the final step (PACE suggests 9–13 N, 2–3 lbf)."
+    },
+    "carryd": {
+     "t": "Damage from coarse grinding carried forward",
+     "fix": "Add fine grinding steps (800 and 1200 grit, P1500 and P2500) for pure Al, Cu and low-carbon steel."
+    },
+    "twin": {
+     "t": "Mechanical twins introduced by sectioning or grinding force (not from processing history)",
+     "fix": "Reduce sectioning and grinding force, use a thin precision blade, and remove the deformed layer step by step."
+    },
+    "dull": {
+     "t": "Dull abrasive or poor lubrication",
+     "fix": "Use fresh abrasive and adequate lubrication."
+    }
+   }
+  },
+  "tint": {
+   "name": "Uneven color in tint etching",
+   "look": "Color in only part of the surface, wipe marks, blotchy color. Note: different colors in different grains are normal (they depend on orientation).",
+   "causes": {
+    "dmgt": {
+     "t": "Residual preparation damage (tint films are sensitive to it)",
+     "fix": "Polish more carefully than for black-and-white etching, to a damage-free surface (electropolishing is not required)."
+    },
+    "uneven": {
+     "t": "Uneven application or a contaminated surface",
+     "fix": "Immerse and agitate gently; clean with ethanol before etching; polish with uniform pressure."
+    },
+    "stalet": {
+     "t": "Old or cloudy reagent",
+     "fix": "Use freshly made reagent (discard when cloudy); add the K₂S₂O₅ to Beraha's reagents just before use."
+    },
+    "airdry": {
+     "t": "Dried with compressed air",
+     "fix": "Rinse Klemm's with water then ethanol and let it air-dry."
+    }
+   }
+  },
+  "embed": {
+   "name": "Embedded abrasive",
+   "look": "Bright specks that do not move and a finish that will not come scratch-free; Si or C may show in EDS.",
+   "causes": {
+    "softab": {
+     "t": "SiC or fine diamond on a soft metal",
+     "fix": "Reduce force and use diamond on a rigid disc; for soft materials use grain sizes of 3 µm and finer only on resilient cloths; re-run 1 µm on a fresh pad."
+    },
+    "lube": {
+     "t": "Too much lubricant",
+     "fix": "Use less lubricant and keep mechanical polishing short; finish solders by vibratory polishing."
+    },
+    "oldpaper": {
+     "t": "Loaded or worn paper",
+     "fix": "Replace papers often and keep enough water flowing."
+    }
+   }
+  },
+  "heat": {
+   "name": "Heat damage (altered structure, burn)",
+   "look": "Temper colors on the polished surface, a dark band near the cut, scattered hardness on hardened steel.",
+   "causes": {
+    "cool": {
+     "t": "Inadequate coolant or forcing the cut",
+     "fix": "Keep coolant flowing and let the wheel cut without forcing. Heat damage cannot be polished out: grind below the affected zone or re-section."
+    },
+    "wheel": {
+     "t": "Cut-off wheel bond not suited to the material",
+     "fix": "Use a soft-bond wheel for hard, brittle materials and a hard-bond wheel for soft, ductile ones; diamond blades for cemented carbides and ceramics."
+    },
+    "hotmount": {
+     "t": "Heat of hot compression mounting (150–180 °C)",
+     "fix": "Mount in room-temperature castable epoxy (precipitation-hardened Al, solders, etc.)."
+    },
+    "drygrind": {
+     "t": "Dry grinding or glazed paper",
+     "fix": "Grind wet only and replace glazed paper."
+    }
+   }
+  }
+ },
+ "guide": [
+  {
+   "h": "Why every scratch from the previous step must go (the deformed layer)",
+   "p": [
+    "A grinding scratch is not just a groove: beneath it lies an invisible layer of plastic deformation. The next step has to remove that layer as well as the groove. Struers' guide makes it the rule that every step removes the damage of the previous one while introducing as little as possible of its own.",
+    "If the layer remains, the surface may look flat as-polished, but scratches and disturbance appear after etching. The etchant did not make them; it revealed deformation the final polish had hidden. Soft metals (Al, Cu, Sn, austenitic stainless, Ti) are most prone to it, and the sources recommend extending the final polish, a chemo-mechanical colloidal silica step, or polish–etch–polish cycles.",
+    "The depth of deformation cannot be judged from the visible grooves. In a study that ground iron, copper and titanium on SiC papers and measured the deformed depth by EBSD and FIB, the EBSD depths for the same paper were much larger than those seen by FIB — the damage extends well beyond what is visible, and even the measured value depends on the method.",
+    "The more a measurement depends on the surface, the more this matters. EBSD uses diffraction from the top 10–50 nm, so slight deformation weakens the patterns. Retained austenite in hardened steel can transform under grinding and polishing deformation, so its X-ray measurement is made on an electropolished surface.",
+    "How to check: rotate the specimen 90° at each step and look for any scratches in the previous direction. PACE suggests continuing for about three times as long as it took to establish the new scratch pattern."
+   ]
+  },
+  {
+   "h": "What etching does",
+   "p": [
+    "Grain boundaries are disordered and higher in energy, so they dissolve faster than the grain interiors and become grooves. Light is not reflected straight back from a groove, so boundaries appear as dark lines.",
+    "Chemically different phases dissolve at different rates; where phases of different potential touch, a local cell forms and one phase is attacked preferentially. Even within one phase, attack depends on crystal orientation, so grains of the same orientation look equally bright.",
+    "Tint etchants (Klemm's, Beraha's, Weck's and others) deposit a thin film, usually a sulfide, instead of dissolving the surface. The film grows to different thicknesses depending on orientation and composition, and interference produces color in bright field. A narrow range of colors indicates preferred orientation. The films are sensitive to residual damage, so preparation must be better than for black-and-white etching.",
+    "In electrolytic etching the specimen is the anode under DC, and the attack is controlled by voltage and time (e.g. oxalic acid). Barker's anodizing of Al builds a film whose thickness depends on orientation, so grains show different colors in polarized light. Thermal etching of ceramics heats the specimen somewhat below its sintering temperature to groove the grain boundaries."
+   ]
+  },
+  {
+   "h": "Magnification, and what to put in a micrograph",
+   "p": [
+    "A magnification printed on a micrograph becomes wrong as soon as the image is enlarged or reduced. A scale bar placed on the image changes size with it and stays correct; label it with its length, usually in micrometres.",
+    "The same microstructure can look very different with another etchant, etching time or illumination. Record with each image the material and heat treatment, the section location and orientation, the last polishing step, the etchant with its composition and time (voltage if electrolytic), and the illumination (bright field, polarized, DIC), so that others can compare under the same conditions.",
+    "Choose magnification for the purpose. In the sources, polishing progress is checked at ×200 (ceramics) and final quality and cast-iron graphite at ×500. Survey at low magnification first and then pick representative areas before going higher, to avoid photographing only unusual spots."
+   ]
+  }
+ ],
+ "faq": [
+  [
+   "Nital or picral — which should I use?",
+   "Nital reveals both ferrite grain boundaries and pearlite, so use it for general steel structures and grain size. Picral attacks cementite but not ferrite boundaries, so it suits pearlite lamellae and spheroidized or tempered carbides. Combine them when you need both. Picral contains picric acid: never let it dry."
+  ],
+  [
+   "Scratches appeared after etching. Is the etchant at fault?",
+   "Usually not. Etching has revealed deformation or shallow grooves that the final polish had hidden. Go back an earlier step, re-polish, clean and re-etch; a light etch–repolish cycle confirms it."
+  ],
+  [
+   "Should I finish with alumina or colloidal silica?",
+   "It depends on the material and the purpose. PACE uses 0.05 µm alumina as its default final step for steels because colloidal silica can attack the matrix and lift fine inclusions. For EBSD, titanium (with hydrogen peroxide), ceramics and soft metals that smear, chemo-mechanical polishing with colloidal silica helps. Either way, do not let it dry on the surface, and finish with water."
+  ],
+  [
+   "Can I etch Al or Ti without hydrofluoric acid?",
+   "For Al, 1% sodium hydroxide, Weck's reagent (a permanganate–NaOH tint etch) and Barker's anodizing (fluoroboric acid, corrosive) all work. For Ti, most etchants contain HF; PACE also lists an HF-free option (Ogden–Holden: dilute HCl and H₂SO₄, used boiling), but it involves boiling acid. If you use HF, have calcium gluconate gel at hand and follow your institution's procedure."
+  ],
+  [
+   "I found dry crystals on the neck of a picric acid bottle. What should I do?",
+   "Do not touch it, move it or open the cap. Dry picric acid and picrates can explode from shock or friction. Contact your safety or waste-management staff immediately. In normal use keep the solid wetted with water and inspect it regularly."
+  ],
+  [
+   "Why must magnesium not be polished with water?",
+   "Mg reacts with water and oxidizes quickly (a white, powdery surface) and evolves hydrogen. From sectioning through polishing and post-etch rinsing, use ethanol-based lubricants and cleaning, dry right after polishing and store in a desiccator or ethanol. The swarf is pyrophoric, so never cut it dry."
+  ]
+ ]
+}
