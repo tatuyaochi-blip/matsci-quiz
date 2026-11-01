@@ -1,0 +1,2287 @@
+{
+ "title": "Leitfaden Probenpräparation und Ätzen: Schritte und Fehlerursachen",
+ "description": "Probenpräparation für unlegierte, gehärtete und nichtrostende Stähle, Gusseisen, Al, Cu, Ti, Ni, Mg, Lote, Überzüge, Hartmetalle, Keramik und EBSD: Schleif- und Polierstufen, Ätzmittel. Ursachen und Abhilfen bei Kratzern, Kantenabrundung, Relief, Kometenschweifen, Flecken und Überätzung; Gefahren der Ätzmittel.",
+ "h1": "Leitfaden Probenpräparation und Ätzen",
+ "lead": "Diese Seite hilft, eine Probe herzustellen, an der sich das Gefüge tatsächlich untersuchen lässt. Trennen, Einbetten, Schleifen, Polieren und Ätzen lassen sich nach Werkstoff nachschlagen; wenn etwas misslingt, werden nach Auswahl des beobachteten Fehlers und des Werkstoffs die Ursachen und Abhilfen nach Wahrscheinlichkeit geordnet. Zum Erkennen des sichtbaren Gefüges dient der Gefügeatlas, zur Wahl des Messgeräts der Wegweiser Analyse- und Prüfverfahren.",
+ "note": "Die Schleif- und Polierstufen sowie Zeiten, Kräfte und Drehzahlen sind typische Werte aus den Quellen (meist Arbeitsanleitungen von Geräteherstellern) für automatische Präparationsgeräte; sie ändern sich mit Gerät, Verbrauchsmaterial sowie Größe und Anzahl der Proben. Bei einem neuen Werkstoff in jeder Stufe prüfen, ob die vorigen Kratzer verschwunden sind, und die Werte danach anpassen. Die Zusammensetzungen wurden zwischen den Quellen abgeglichen; wo sie abweichen, ist ein Bereich oder die Abweichung angegeben. Normen sind nur mit Bezeichnung, Nummer und Gegenstand genannt.",
+ "safety": "Einige Ätzmittel sind sehr gefährlich, etwa Flusssäure, Pikrinsäure und Lösungen, die Cyanid freisetzen können. Vor dem Ansetzen oder Verwenden einer Lösung unbedingt die Sicherheitsdatenblätter (SDB) aller verwendeten Chemikalien und die Sicherheitsvorschriften der eigenen Einrichtung prüfen und nur im Abzug mit Schutzausrüstung arbeiten.",
+ "sources_h": "Wichtigste Quellen",
+ "refs": {
+  "pace-etch": {
+   "s": "PACE, Seiten zu Ätzmitteln",
+   "full": "PACE Technologies, Etchants (Einzelseiten zu den Ätzmitteln: 2% Nital, Picral, Vilella's, Klemm's, Beraha's, Keller's, Kroll's, Glyceregia, Marble's, Kalling's No. 2, Murakami's, 10% Oxalic acid electrolytic, Ammonium persulfate, Fry's, Adler's, Barker's, 0.5% HF, Al NaOH, Weck's), metallographic.com/etchants"
+  },
+  "pace-steel": {
+   "s": "PACE, unlegierter Stahl",
+   "full": "PACE Technologies, Carbon steel preparation (Anleitung), metallographic.com/guides"
+  },
+  "pace-tool": {
+   "s": "PACE, Werkzeugstahl",
+   "full": "PACE Technologies, Tool steel preparation (Anleitung)"
+  },
+  "pace-ss": {
+   "s": "PACE, nichtrostender Stahl",
+   "full": "PACE Technologies, Stainless steel preparation (Anleitung)"
+  },
+  "pace-ci": {
+   "s": "PACE, Gusseisen",
+   "full": "PACE Technologies, Cast iron preparation (Anleitung)"
+  },
+  "pace-weld": {
+   "s": "PACE, Schweißverbindungen",
+   "full": "PACE Technologies, Welding analysis (Anleitung)"
+  },
+  "pace-al": {
+   "s": "PACE, Aluminium",
+   "full": "PACE Technologies, Aluminum sample preparation (Anleitung)"
+  },
+  "pace-cu": {
+   "s": "PACE, Kupferlegierungen",
+   "full": "PACE Technologies, Copper and copper alloys preparation (Anleitung)"
+  },
+  "pace-ti": {
+   "s": "PACE, Titan",
+   "full": "PACE Technologies, Titanium preparation (Anleitung)"
+  },
+  "pace-ni": {
+   "s": "PACE, Nickellegierungen",
+   "full": "PACE Technologies, Nickel alloys preparation (Anleitung)"
+  },
+  "pace-mg": {
+   "s": "PACE, Magnesium",
+   "full": "PACE Technologies, Magnesium preparation (Anleitung)"
+  },
+  "pace-sn": {
+   "s": "PACE, Ätzen von Zinnlegierungen",
+   "full": "PACE Technologies, Tin alloy etching"
+  },
+  "pace-zn": {
+   "s": "PACE, Ätzen von Zinklegierungen",
+   "full": "PACE Technologies, Zinc alloy etching"
+  },
+  "pace-tsc": {
+   "s": "PACE, thermisch gespritzte Schichten",
+   "full": "PACE Technologies, Thermal spray coatings preparation (Anleitung)"
+  },
+  "pace-cermet": {
+   "s": "PACE, Hartmetalle und Cermets",
+   "full": "PACE Technologies, Cermets and technical glasses preparation (Anleitung)"
+  },
+  "pace-ceramic": {
+   "s": "PACE, Keramik",
+   "full": "PACE Technologies, Ceramics preparation (Anleitung)"
+  },
+  "pace-pcb": {
+   "s": "PACE, Leiterplatten und Chips",
+   "full": "PACE Technologies, PCB and chip preparation (Anleitung)"
+  },
+  "pace-trouble": {
+   "s": "PACE, Fehlerbehebung",
+   "full": "PACE Technologies, Troubleshooting common issues (Anleitung)"
+  },
+  "struers-metalog": {
+   "s": "Struers Metalog Guide",
+   "full": "Struers A/S, Metalog Guide (4., überarbeitete Auflage, 2002; als Lehrmaterial einer Universität veröffentlichte Kopie)"
+  },
+  "struers-zn": {
+   "s": "Struers, Zinküberzüge",
+   "full": "Struers, Application Note: Metallographic preparation of zinc coatings"
+  },
+  "buehler-solder": {
+   "s": "Buehler, bleifreie Lote",
+   "full": "N. Vahora, M. Keeble, M. Hasnine, Metallographic Preparation of Lead Free Solder, Buehler TECHNotes Vol. 7, Issue 5"
+  },
+  "metkon-etch": {
+   "s": "Metkon, Ätzmitteltabelle",
+   "full": "Metkon, Etching (application details: etchant table)"
+  },
+  "metkon-art": {
+   "s": "Metkon, 12 Polierartefakte",
+   "full": "Metkon, 12 common polishing artifacts and how to eliminate them"
+  },
+  "vv-color": {
+   "s": "Vander Voort, Farbmetallographie",
+   "full": "G. F. Vander Voort, Color Metallography, Microscopy Today, November 2005"
+  },
+  "vv-safety": {
+   "s": "Vander Voort, Laborsicherheit",
+   "full": "G. F. Vander Voort, Laboratory Safety in Metallography, ASM Handbook Vol. 9, ASM International (2004) (öffentlich zugängliche Kopie der University of Waterloo)"
+  },
+  "btu-etch": {
+   "s": "Bursa Technical University, Praktikumsunterlagen",
+   "full": "Bursa Technical University, Fachbereich Metallurgie und Werkstofftechnik, Etching and Microscopical Examination (Praktikumsunterlagen)"
+  },
+  "witt-ebsd": {
+   "s": "Witt und Nowell (EBSD-Präparation)",
+   "full": "R. Witt, M. M. Nowell, Specimen Preparation of Difficult Materials for EBSD Characterization, Microsc. Microanal. 17 (Suppl 2), 414–415 (2011)"
+  },
+  "lightform": {
+   "s": "LightForm-Wiki, Probenpräparation",
+   "full": "LightForm group wiki, Sample preparation (Tutorial)"
+  },
+  "pinard": {
+   "s": "Pinard u. a. (Verformungstiefe)",
+   "full": "P. T. Pinard, P. Hovington, M. Lagacé, G. F. Vander Voort, R. Gauvin, Towards a more quantitative measurement of the deformation during metallographic specimen preparation using EBSD and FIB, Microsc. Microanal. 16 (Suppl 2) (2010)"
+  },
+  "lambda-ra": {
+   "s": "Lambda Technologies, Restaustenit",
+   "full": "Lambda Technologies, Diffraction Notes No. 33: Determination of Volume Percent Retained Austenite by X-Ray Diffraction (2006)"
+  },
+  "aga-hdg": {
+   "s": "American Galvanizers Association",
+   "full": "American Galvanizers Association, The HDG Coating"
+  },
+  "steeldata-126": {
+   "s": "Steel Data (Ätzmittel Nr. 126)",
+   "full": "Steel Data, ASTM etchant No. 126 (Mg–Al, Mg–Al–Zn) (nach den Ätzmitteldaten von F. Hargreaves)"
+  },
+  "fa-marker": {
+   "s": "Zu Vergrößerungsangaben",
+   "full": "Failure Analysis of Engineering Materials, Appendix F: Comments on Magnification Markers (Seite bei GlobalSpec)"
+  },
+  "pace-safety": {
+   "s": "PACE, Sicherheitsgrundlagen",
+   "full": "PACE Technologies, Safety Fundamentals for Metallography (Anleitung)"
+  },
+  "steeldata-grit": {
+   "s": "Steel Data, Körnungstabelle",
+   "full": "Steel Data, Grit Size Table (Korngrößen der FEPA-P- und ANSI/CAMI-Körnungen; Mittenwerte nach ANSI B74.18-1996)"
+  },
+  "tedpella-grit": {
+   "s": "Ted Pella, Körnungssysteme",
+   "full": "Ted Pella, Inc., Abrasive Grit Grading Systems (Vergleichstabelle ANSI, FEPA und JIS)"
+  },
+  "pace-grit": {
+   "s": "PACE, Körnungsumrechnung",
+   "full": "PACE Technologies, Grit Size Converter (Hinweise zu den Entsprechungen von ANSI/CAMI, FEPA und JIS)"
+  },
+  "tinpest": {
+   "s": "Übersichtsartikel Zinnpest",
+   "full": "The phenomenon of tin pest: A review, Microelectronics Reliability 79, 175– (2017) (Kurzfassung)"
+  },
+  "astm-e2014": {
+   "s": "ASTM E2014-17",
+   "full": "ASTM E2014-17, Standard Guide on Metallographic Laboratory Safety (Vorschauseiten der Norm)"
+  },
+  "astm-e407": {
+   "s": "ASTM E407-23",
+   "full": "ASTM E407-23, Standard Practice for Microetching Metals and Alloys (Zusammenfassung des Anwendungsbereichs)"
+  },
+  "cdc-hf": {
+   "s": "CDC, Fluorwasserstoff",
+   "full": "U.S. CDC, Chemical Emergencies: Hydrogen Fluoride (Merkblatt)"
+  },
+  "niosh-hf": {
+   "s": "NIOSH Pocket Guide, Fluorwasserstoff",
+   "full": "NIOSH Pocket Guide to Chemical Hazards: Hydrogen fluoride"
+  },
+  "columbia-hf": {
+   "s": "Columbia University, Erste Hilfe bei HF",
+   "full": "Columbia University EH&S, Hydrofluoric Acid Post Exposure Sheet (2016, Rev. 2023)"
+  },
+  "mhlw-picric": {
+   "s": "MHLW-Muster-SDB: Pikrinsäure",
+   "full": "Japanisches Ministerium für Gesundheit, Arbeit und Soziales (MHLW), Website zur Arbeitssicherheit, GHS-Muster-Sicherheitsdatenblatt: Pikrinsäure (CAS 88-89-1)"
+  },
+  "mhlw-perchloric": {
+   "s": "MHLW-Muster-SDB: Perchlorsäure",
+   "full": "Japanisches Ministerium für Gesundheit, Arbeit und Soziales (MHLW), Website zur Arbeitssicherheit, GHS-Muster-Sicherheitsdatenblatt: Perchlorsäure (CAS 7601-90-3)"
+  },
+  "mhlw-cro3": {
+   "s": "MHLW-Muster-SDB: Chromtrioxid",
+   "full": "Japanisches Ministerium für Gesundheit, Arbeit und Soziales (MHLW), Website zur Arbeitssicherheit, GHS-Muster-Sicherheitsdatenblatt: Chromtrioxid (CAS 1333-82-0)"
+  },
+  "mhlw-oxalic": {
+   "s": "MHLW-Muster-SDB: Oxalsäure",
+   "full": "Japanisches Ministerium für Gesundheit, Arbeit und Soziales (MHLW), Website zur Arbeitssicherheit, GHS-Muster-Sicherheitsdatenblatt: Oxalsäure (CAS 144-62-7)"
+  },
+  "mhlw-aps": {
+   "s": "MHLW-Muster-SDB: Ammoniumperoxodisulfat",
+   "full": "Japanisches Ministerium für Gesundheit, Arbeit und Soziales (MHLW), Website zur Arbeitssicherheit, GHS-Muster-Sicherheitsdatenblatt: Ammoniumperoxodisulfat (CAS 7727-54-0)"
+  },
+  "mhlw-mg": {
+   "s": "MHLW-Muster-SDB: Magnesiumpulver",
+   "full": "Japanisches Ministerium für Gesundheit, Arbeit und Soziales (MHLW), Website zur Arbeitssicherheit, GHS-Muster-Sicherheitsdatenblatt: Magnesiumpulver (CAS 7439-95-4)"
+  },
+  "columbus-hbf4": {
+   "s": "SDB Tetrafluoroborsäure",
+   "full": "Columbus Chemical Industries, Safety Data Sheet: Fluoroboric Acid, 48–50% (Rev. 2025-04-23)"
+  },
+  "laballey-kms": {
+   "s": "SDB Kaliumdisulfit",
+   "full": "Lab Alley, Safety Data Sheet: Potassium Metabisulfite (CAS 16731-55-8, Rev. 2021-08-01)"
+  },
+  "usask-picric": {
+   "s": "University of Saskatchewan, Arbeitsanweisung Pikrinsäure",
+   "full": "University of Saskatchewan, Dept. of Mechanical Engineering, SOP Mat0026: Mixing and Using Etchants or Solutions that Contain Picric Acid"
+  }
+ },
+ "groups": {
+  "fe": "Eisen und Stahl",
+  "join": "Fügeverbindungen",
+  "nonfe": "Nichteisenmetalle",
+  "layer": "Schichten, Überzüge und Hartstoffe",
+  "special": "Präparation für bestimmte Zwecke"
+ },
+ "traits": {
+  "soft": "Weich",
+  "hard": "Hart",
+  "phase": "Phasen oder Schichten unterschiedlicher Härte",
+  "graphite": "Graphit muss erhalten bleiben",
+  "brittle": "Spröde",
+  "porous": "Porös",
+  "water": "Reagiert mit Wasser oder wird durch Wasser geschädigt",
+  "rust": "Rostet leicht",
+  "passive": "Passiv (schwer ätzbar)",
+  "heat": "Gefüge ändert sich durch Wärme",
+  "edge": "Rand oder Randschicht wird untersucht",
+  "twin": "Neigt zu mechanischer Zwillingsbildung"
+ },
+ "flow": {
+  "cut": {
+   "name": "Trennen",
+   "p": [
+    "Kühlschmiermittel ständig zuführen und die Trennscheibe schneiden lassen, ohne sie anzudrücken. Wärme verändert das Gefüge (Anlassen von gehärtetem Stahl, Wärmeeinflusszone bei Schweißverbindungen), und Wärmeschäden lassen sich durch Polieren nicht beseitigen.",
+    "Für harte, spröde Werkstoffe eine weich gebundene Trennscheibe wählen (sie nutzt sich ab und legt frische Schleifkörner frei), für weiche, zähe Werkstoffe eine hart gebundene. Je dünner die Scheibe (0,5–1,0 mm), desto geringer sind Erwärmung und Verformung.",
+    "Hartmetalle, Keramik und Schichten langsam auf einer Präzisionstrennmaschine mit Diamanttrennscheibe trennen. Weißes Gusseisen nicht mit Diamant trennen.",
+    "Vor dem Trennen die zu untersuchende Schnittebene und ihre Lage festlegen (senkrecht zu Randschichten; bei Schweißverbindungen die Nahtmitte markieren)."
+   ]
+  },
+  "mount": {
+   "name": "Einbetten",
+   "p": [
+    "Warmeinbetten (Heißpressen): 5–8 min bei 150–180 °C halten und unter Druck auf Raumtemperatur abkühlen (geringere Schwindung). Für die Untersuchung von Kanten DAP oder mineralgefülltes Epoxidharz verwenden.",
+    "Kalteinbetten (Gießen): härtet bei Raumtemperatur in etwa 4–8 h aus. Geeignet für wärmeempfindliche Proben (ausscheidungsgehärtetes Al, Lote) sowie spröde und poröse Proben. Auch nichtrostender Stahl, an dem die Sensibilisierung untersucht wird, wird kalt eingebettet, damit keine zusätzliche Wärmeeinwirkung hinzukommt. Langsam härtendes Epoxidharz schwindet wenig und haftet gut.",
+    "Poröse Proben und Schichten mit niedrigviskosem Epoxidharz vakuumimprägnieren. Mit beigemischtem Fluoreszenzfarbstoff lassen sich mit Harz gefüllte Poren von Ausbrüchen beim Polieren unterscheiden."
+   ]
+  },
+  "grind": {
+   "name": "Schleifen",
+   "p": [
+    "Die Körnung schrittweise verfeinern (z. B. SiC-Papier P120 → P280 → P500 → P1200, in US-Körnung 120 → 240 → 360 → 600; bei weichen Werkstoffen zusätzlich P1500 und P2500, US 800 und 1200). Jede Stufe muss die Schädigung der vorigen beseitigen und selbst möglichst wenig neue erzeugen.",
+    "Die Probe zwischen den Stufen um 90° drehen und prüfen, ob die Kratzer der vorigen Richtung verschwunden sind. Mit fließendem Wasser schleifen und zugesetztes Papier ersetzen.",
+    "Körnungen sind auf dieser Seite vorrangig als europäische P-Körnung (FEPA) angegeben, in Klammern die US-Körnung (ANSI/CAMI). Feiner als P220 weichen die Zahlen beider Systeme voneinander ab; sie werden über die Korngröße einander zugeordnet (Umrechnungstabelle unten; Tabellen verschiedener Quellen können um eine Stufe voneinander abweichen). P-Körnungen feiner als P2500 (etwa P4000) sind nicht genormt und unterscheiden sich je nach Hersteller.",
+    "Körnungsangaben wie „#600“ auf japanischen wasserfesten Schleifpapieren folgen der japanischen Norm JIS; sie entsprechen nicht der US-Körnung 600 (≈ P1200), sondern sind gröber. Wer sie verwechselt, wählt ein zu grobes Papier; daher die P-Körnung oder die Korngröße (µm) prüfen.",
+    "Hartmetalle und Keramik werden von SiC kaum abgetragen; dafür Diamantscheiben verwenden."
+   ]
+  },
+  "polish": {
+   "name": "Polieren",
+   "p": [
+    "Mit Diamant (9, 6, 3 und 1 µm) auf Poliertüchern polieren. Harte, wenig nachgiebige Tücher erhalten Ebenheit und Kanten; weiche Tücher beseitigen Kratzer leicht, fördern aber Relief, Ausbrüche und Kometenschweife.",
+    "Beim Endpolieren mit Aluminiumoxid 0,05 µm oder kolloidalem Siliciumdioxid (chemisch-mechanisches Polieren) die verformte Schicht abtragen. Kolloidales Siliciumdioxid kann die Matrix chemisch angreifen und feine Einschlüsse herauslösen; PACE verwendet deshalb für das Endpolieren von Stählen standardmäßig Aluminiumoxid.",
+    "Kolloidales Siliciumdioxid nicht auf der Oberfläche eintrocknen lassen. In den letzten 10–30 s nur Wasser auf das Tuch geben.",
+    "Richtwert für die Kraft: 22–45 N je Probe (sehr weiches Mg: 4–9 N)."
+   ]
+  },
+  "clean": {
+   "name": "Reinigen und Trocknen",
+   "p": [
+    "Nach jeder Stufe reinigen (Ultraschallreinigung 30–60 s), damit keine groben Körner in die nächste Stufe gelangen.",
+    "Mit Wasser spülen, mit Ethanol verdrängen und mit ölfreier Warmluft trocknen; nicht abwischen. Wasserempfindliche Werkstoffe (Mg) nur mit Ethanol behandeln."
+   ]
+  },
+  "etch": {
+   "name": "Ätzen",
+   "p": [
+    "Vor dem Ätzen zuerst untersuchen und festhalten, was im polierten Zustand sichtbar ist (Graphit, Einschlüsse, Poren, Bleiteilchen).",
+    "Mit der kürzesten in der Quelle genannten Zeit beginnen (bei Nital 5–10 s) und bei Bedarf verlängern. Ob getaucht, gewischt oder elektrolytisch geätzt wird, ist für jedes Ätzmittel festgelegt.",
+    "Nach dem Ätzen sofort spülen, mit Ethanol verdrängen und trocknen. Vor dem Ansetzen oder Verwenden eines Ätzmittels den Abschnitt „Sicherheit“ unten und das Sicherheitsdatenblatt lesen."
+   ]
+  },
+  "observe": {
+   "name": "Mikroskopieren",
+   "p": [
+    "Polierter Zustand → Hellfeld nach dem Ätzen → bei Bedarf polarisiertes Licht, Differentialinterferenzkontrast (DIC) oder Dunkelfeld. Anodisch oxidiertes Al und die Zinnkörner in Loten werden im polarisierten Licht betrachtet.",
+    "Statt einer Vergrößerungsangabe einen Maßstabsbalken einfügen und Ätzmittel und Bedingungen festhalten (siehe den Beitrag weiter unten)."
+   ]
+  }
+ },
+ "materials": {
+  "steel-low": {
+   "name": "Unlegierte und niedriglegierte Stähle (geglüht, normalgeglüht)",
+   "hard": [
+    "Stähle mit niedrigem Kohlenstoffgehalt (1018: etwa 126 HB) sind weich; geht man von der mit P1200 (US 600) geschliffenen Fläche direkt zu Diamant 1 µm über, wird die Oberfläche verschmiert. Zusätzlich mit P1500 und P2500 (US 800 und 1200) schleifen.",
+    "Bei Stählen mit Cr, Mo und V entsteht durch zu langes Polieren Relief um Einschlüsse und Zweitphasen.",
+    "Ätzgrübchen durch Überätzen werden leicht mit Poren oder Einschlüssen verwechselt."
+   ],
+   "steps": [
+    [
+     "P120 (US 120)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Bis plan (30–60 s)"
+    ],
+    [
+     "P280 (US 240)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "1 min"
+    ],
+    [
+     "P500 (US 360)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "1 min"
+    ],
+    [
+     "P1200 (US 600)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "1 min"
+    ],
+    [
+     "P1500 (US 800) und P2500 (US 1200) – nur weiche Stähle mit niedrigem Kohlenstoffgehalt",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Je 1 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "30 s"
+    ]
+   ],
+   "note": "Kraft 22–45 N (5–10 lb) je Probe, Drehzahl beim Schleifen und Diamantpolieren 200 U/min, beim Endpolieren 100 U/min (Werte des automatischen Geräts der Quelle). Die Probe nach jeder Schleifstufe um 90° drehen.",
+   "see": [
+    "Nital 2 % (5–15 s): Ferritkorngrenzen und Perlit. Zur Bestimmung der Korngröße Nital verwenden.",
+    "Pikral 4 %: Perlitlamellen und kugelige Carbide (keine Ferritkorngrenzen).",
+    "Fry-Ätzmittel: Verformungsmuster durch Kaltumformung."
+   ],
+   "miss": [
+    "Bleibt bei weichen Stählen Verschmierung zurück, lässt sich die verschmierte Schicht durch wiederholtes Endpolieren → leichtes Ätzen mit Nital 2 % → Endpolieren entfernen.",
+    "Wo Pikrinsäure nicht verwendet werden darf, statt Pikral eine Farbätzung oder ein anderes Ätzmittel verwenden (PACE nennt eine Metabisulfitlösung 10 %)."
+   ],
+   "fx": {
+    "smear": "Bei weichem Stahl mit niedrigem Kohlenstoffgehalt zusätzlich mit P1500 und P2500 (US 800 und 1200) schleifen und Polieren → leichtes Ätzen mit Nital → Polieren wiederholen (PACE).",
+    "over": "Mit Nital 2 % und 5–10 s beginnen; auch bei härteren Stählen 5 % nicht überschreiten (PACE)."
+   },
+   "std": [
+    "ASTM E3 (Leitfaden für die Präparation metallographischer Proben)",
+    "ASTM E407 (Mikroätzen von Metallen und Legierungen)"
+   ]
+  },
+  "steel-hard": {
+   "name": "Gehärtete sowie gehärtete und angelassene Stähle (Martensit, Restaustenit)",
+   "hard": [
+    "Die Wärme beim Trennen kann die Oberfläche anlassen und ein weiches, dunkles Band hinterlassen (das bei Härtemessungen zu Fehlern führt). Wärmeschäden lassen sich durch Polieren nicht beseitigen.",
+    "Durch die Verformung beim mechanischen Schleifen und Polieren kann sich instabiler Restaustenit umwandeln. Für die röntgenographische Bestimmung seines Anteils an einer elektrolytisch polierten Oberfläche messen, von der die verformte Schicht abgetragen ist (Norm ASTM E975).",
+    "Lattenmartensit gibt mit Nital nur schwachen Kontrast."
+   ],
+   "steps": [
+    [
+     "P120 → P280 → P500 → P1200 (US 120 → 240 → 360 → 600)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Bis plan, danach je 1 min"
+    ],
+    [
+     "Diamant 9 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "3 min"
+    ],
+    [
+     "Diamant 3 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "3 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "30 s"
+    ]
+   ],
+   "note": "Kraft 22–45 N (5–10 lb) je Probe, 200 U/min (Endpolieren 100 U/min). Beim Warmeinbetten kein Phenolharz, sondern Epoxidharz oder DAP verwenden.",
+   "see": [
+    "Nital: ätzt Martensit an (Lattenmartensit schwächer).",
+    "Pikral: Verteilung der Anlasscarbide.",
+    "Vilella-Ätzmittel: ehemalige Austenitkorngrenzen, angelassener Martensit.",
+    "Farbätzung nach Beraha oder Klemm II: Martensit braun bis schwarz, Restaustenit bleibt ungefärbt weiß."
+   ],
+   "miss": [
+    "Bei Proben für Härteverläufe die durch das Trennen wärmebeeinflusste Schicht ausreichend abschleifen."
+   ],
+   "fx": {
+    "heat": "Beim Trennen ständig Kühlschmiermittel zuführen und langsam, ohne Andrücken, trennen. Eine durch Wärme angelassene Schicht lässt sich durch Polieren nicht beseitigen; bis unter diese Schicht abschleifen oder neu trennen (PACE).",
+    "tint": "Richtig ist, dass Restaustenit ungefärbt weiß bleibt. Ist die Färbung fleckig, zuerst an Polierschäden denken (Vander Voort)."
+   },
+   "std": [
+    "ASTM E975 (röntgenographische Bestimmung des Restaustenits in Stahl)"
+   ]
+  },
+  "case": {
+   "name": "Aufgekohlte, nitrierte und entkohlte Schichten (Randschichten)",
+   "hard": [
+    "Untersucht wird der Bereich direkt unter der Oberfläche; eine abgerundete Kante verfälscht daher die gemessene Schichttiefe.",
+    "Die Wärme beim Trennen kann die harte Randschicht anlassen."
+   ],
+   "steps": [
+    [
+     "P120 → P280 → P500 → P1200 (US 120 → 240 → 360 → 600)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Bis plan, danach je 1 min"
+    ],
+    [
+     "Diamant 9 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "3 min"
+    ],
+    [
+     "Diamant 3 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "3 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "30 s"
+    ]
+   ],
+   "note": "Senkrecht zur Schicht trennen und die Probe mit der Schichtkante zum Pressstempel einbetten. Für gute Kantenschärfe DAP oder mineralgefülltes Epoxidharz verwenden. Dünne Schichten werden am besten geschützt, indem die Kante außenstromlos vernickelt wird.",
+   "see": [
+    "Nital 2–4 %: aufgekohlte und nitrierte Schichten (erste Wahl für Nitrierschichten).",
+    "Pikral: zur Untersuchung der Verteilung der Anlasscarbide."
+   ],
+   "miss": [
+    "Wird die Schichttiefe über einen Härteverlauf (Vickers) bestimmt, die Eindrücke ausreichend weit vom Rand entfernt setzen (Abstand der Eindrücke nach Norm)."
+   ],
+   "fx": {
+    "edge": "Ein kantenschonendes Einbettmittel (DAP, mineralgefülltes Epoxidharz) verwenden und unter Druck abkühlen. Dünne Schichten vor dem Einbetten außenstromlos vernickeln (PACE)."
+   },
+   "std": [
+    "ISO 3887 (Bestimmung der Entkohlungstiefe von Stählen)"
+   ]
+  },
+  "tool": {
+   "name": "Werkzeugstähle und Schnellarbeitsstähle",
+   "hard": [
+    "Entscheidend ist, die harten, spröden Carbide (M₆C, MC, M₂C, M₂₃C₆, M₇C₃) zu erhalten. Sie werden mit anderer Geschwindigkeit abgetragen als die Matrix, sodass leicht Ausbrüche oder Relief entstehen.",
+    "Örtliche Wärme beim Trennen lässt den Martensit an und erzeugt ein weiches, dunkles Band.",
+    "Zeigen die Carbide Relief, das Endpolieren mit Aluminiumoxid weglassen und bis zum Schluss mit Diamant polieren (Fehlerbehebungsanleitung von PACE)."
+   ],
+   "steps": [
+    [
+     "Diamant 120 µm",
+     "Diamant-Schleifscheibe",
+     "Wasser",
+     "Bis plan"
+    ],
+    [
+     "Diamant 9 µm",
+     "Starre Verbundscheibe",
+     "Diamant-Schmiermittel",
+     "3 min"
+    ],
+    [
+     "Diamant 3 µm",
+     "Starre Verbundscheibe",
+     "Diamant-Schmiermittel",
+     "3 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "22–45 N je Probe, 200 U/min (Endpolieren 100 U/min). Mit einer dünnen Präzisionstrennscheibe (0,5–1,0 mm) unter ständiger Kühlung trennen. In Epoxidharz oder DAP einbetten (150–180 °C, 5–8 min; deutlich unter der Anlasstemperatur der meisten Werkzeugstähle).",
+   "see": [
+    "Nital 2–4 %: allgemeines Gefüge (erste Wahl).",
+    "Vilella-Ätzmittel: ehemalige Austenitkorngrenzen.",
+    "Murakami-Ätzmittel (kalt): Cr-Carbide in D2, A2 u. a., Carbide in Schnellarbeitsstählen (M2, M42).",
+    "Pikral 4 %: geglühter Perlit, Bainit."
+   ],
+   "miss": [
+    "Mit 10–15 s Ätzzeit beginnen; sehr harte Werkstoffe bis 20–30 s ätzen."
+   ],
+   "fx": {
+    "pullout": "Carbidausbrüche entstehen durch zu hohe Kraft oder ein ungeeignetes Tuch. Kraft senken, für die feinen Stufen etwas weichere Tücher verwenden und die Oberfläche nach jeder Stufe prüfen (PACE).",
+    "relief": "Relief um die Carbide entsteht durch zu langes Polieren oder ein zu weiches Tuch. Kürzer polieren und ein etwas härteres Tuch verwenden (PACE). Tritt es weiterhin auf, statt mit Aluminiumoxid mit Diamant endpolieren."
+   },
+   "std": []
+  },
+  "ss-aus": {
+   "name": "Austenitische nichtrostende Stähle (SUS304, 316 u. a.)",
+   "hard": [
+    "Weicher als gehärtete Stähle; verfestigt sich beim Polieren und verschmiert leicht. Mit geringer Kraft arbeiten und die 1-µm-Stufe verlängern.",
+    "Die hohe Korrosionsbeständigkeit macht ihn zugleich schwer ätzbar (mit Nital zeigt sich kaum etwas).",
+    "Warmeinbetten (150–180 °C) liegt weit unter dem Sensibilisierungsbereich (etwa 500–800 °C); Proben, an denen Sensibilisierung oder Sigma-Phase untersucht wird, werden dennoch kalt in einem bei Raumtemperatur härtenden Harz eingebettet, damit keine zusätzliche Wärmeeinwirkung hinzukommt (PACE)."
+   ],
+   "steps": [
+    [
+     "P280 (US 240)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Bis plan"
+    ],
+    [
+     "P500 → P1200 → P1500 → P2500 (US 360 → 600 → 800 → 1200)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Je 1 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min (3–4 min, wenn nach dem Ätzen Kratzer erscheinen)"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "22–45 N je Probe (bei Verschmieren auf 22–31 N senken), 200 U/min (Endpolieren 100 U/min). Endet das Schleifen gröber als P2500 (US 1200), zusätzlich mit Diamant 9 µm und 3 µm je 3–5 min polieren.",
+   "see": [
+    "Oxalsäure 10 %, elektrolytisch (6 V, 15–30 s): Korngrenzen (erste Wahl). Auch für die Prüfung auf Sensibilisierung (ASTM A262 Practice A) verwendet.",
+    "Glyceregia: Korngrenzen, Zwillinge, Carbide, Sigma-Phase.",
+    "Natronlauge 10 %, elektrolytisch: Sigma-Phase orange bis braun."
+   ],
+   "miss": [
+    "Bleibt die Probe nach dem Polieren liegen, erschwert die Passivschicht das Ätzen. Sofort nach dem Polieren ätzen.",
+    "Eisenteilchen können von Proben anderer Stähle übertragen werden; daher nach jeder Stufe im Ultraschallbad reinigen und die Tücher gründlich spülen."
+   ],
+   "fx": {
+    "scratch": "Kratzer, die beim Ätzen erscheinen, stammen von einer beim Polieren kaltverfestigten, verschmierten Schicht. Die 1-µm-Stufe auf 3–4 min verlängern, die Kraft auf 22–31 N senken und notfalls ab P2500 (US 1200) neu beginnen (PACE).",
+    "under": "Ursache ist eine beim Polieren entstandene Passivschicht. Vor dem elektrolytischen Ätzen mit Oxalsäure kurz mit Glyceregia anwischen und so aktivieren oder die Elektrolysezeit verlängern (PACE).",
+    "pit": "Beim elektrolytischen Ätzen mit Oxalsäure die Spannung von 6 V auf 3–4 V senken oder kürzer ätzen. Stark reagierende Ätzmittel frisch ansetzen (PACE)."
+   },
+   "std": [
+    "ASTM A262 (Prüfung austenitischer nichtrostender Stähle auf Anfälligkeit für interkristalline Korrosion)"
+   ]
+  },
+  "ss-duplex": {
+   "name": "Nichtrostende Duplexstähle (2205, 2507 u. a.)",
+   "hard": [
+    "Ziel ist, die beiden Phasen Ferrit und Austenit zu unterscheiden; mit Vilella-Ätzmittel oder elektrolytischer Oxalsäureätzung trennen sie sich jedoch schlecht. Farbätzungen sind besser geeignet.",
+    "Farbschichten reagieren empfindlich auf Polierschäden; daher sorgfältiger endpolieren als für Schwarz-Weiß-Ätzungen."
+   ],
+   "steps": [
+    [
+     "P280 (US 240)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Bis plan"
+    ],
+    [
+     "P500 → P1200 → P1500 → P2500 (US 360 → 600 → 800 → 1200)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Je 1 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "Kraft 22–45 N (5–10 lb) je Probe, Drehzahl beim Schleifen und Diamantpolieren 200 U/min, beim Endpolieren 100 U/min (Werte des automatischen Geräts der Quelle). Die Probe nach jeder Schleifstufe um 90° drehen.",
+   "see": [
+    "Beraha I: färbt die Phasen (erste Wahl).",
+    "LB1: färbt den Austenit, nicht den Ferrit.",
+    "Kalling 2: greift den Ferrit an (30 s bis 2 min)."
+   ],
+   "miss": [
+    "Sollen Phasenanteile an farbgeätzten Flächen per Bildanalyse bestimmt werden, vor dem Farbätzen auf eine verformungsfreie Oberfläche polieren."
+   ],
+   "fx": {
+    "under": "Mit Vilella-Ätzmittel oder elektrolytischer Oxalsäureätzung lassen sich Ferrit und Austenit schlecht unterscheiden. Auf eine Farbätzung mit Beraha I oder Klemm I wechseln (PACE).",
+    "tint": "Farbschichten reagieren empfindlich auf Polierschäden; daher vor dem Farbätzen sorgfältig endpolieren (Vander Voort). Bei Beraha I das Kaliumdisulfit erst unmittelbar vor der Verwendung zugeben (PACE)."
+   },
+   "std": []
+  },
+  "ss-mart": {
+   "name": "Martensitische und ausscheidungshärtende nichtrostende Stähle (410, 420, 440C, 17-4PH u. a.)",
+   "hard": [
+    "Gehärtete Sorten (über HRC 45) sind hart. Langsam und mit einer Trennscheibe für harte Werkstoffe trennen.",
+    "Magnetische Sorten (martensitisch, ausscheidungshärtend, ferritisch) können durch Restmagnetismus den Lauf automatischer Präparationsgeräte stören. Entmagnetisieren und nichtmagnetische Probenhalter verwenden."
+   ],
+   "steps": [
+    [
+     "P280 (US 240)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Bis plan"
+    ],
+    [
+     "P500 → P1200 → P1500 → P2500 (US 360 → 600 → 800 → 1200)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Je 1 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "Kraft 22–45 N (5–10 lb) je Probe, Drehzahl beim Schleifen und Diamantpolieren 200 U/min, beim Endpolieren 100 U/min (Werte des automatischen Geräts der Quelle). Die Probe nach jeder Schleifstufe um 90° drehen.",
+   "see": [
+    "Vilella-Ätzmittel: ehemalige Austenitkorngrenzen, angelassener Martensit, Carbide (erste Wahl).",
+    "Murakami-Ätzmittel (50–80 °C, 3–10 min): Carbide, Sigma-Phase.",
+    "Adler-Ätzmittel: Korngrenzen ferritischer, martensitischer und ausscheidungshärtender Sorten."
+   ],
+   "miss": [
+    "Vilella-Ätzmittel enthält Pikrinsäure. Die Lösung nicht eintrocknen lassen."
+   ],
+   "fx": {},
+   "std": []
+  },
+  "castiron": {
+   "name": "Gusseisen (mit Lamellengraphit, mit Kugelgraphit)",
+   "hard": [
+    "Am wichtigsten ist, den Graphit zu erhalten. Graphit ist weich und wird beim Schleifen und Polieren herausgerissen oder beschädigt.",
+    "Eine weiche ferritische Matrix verschmiert über den Graphit und verdeckt seine wahre Form. Kugelgraphit ist leichter zu erhalten als Lamellengraphit; am schwierigsten ist die Temperkohle im Temperguss.",
+    "Gusseisen mit Graphit rostet in Wasser leicht. Nach dem Trennen sofort reinigen und trocknen.",
+    "Weißes Gusseisen nicht mit Diamanttrennscheiben trennen (bei der Trenntemperatur reagiert Diamant mit Eisen)."
+   ],
+   "steps": [
+    [
+     "P500 (US 360)",
+     "Aluminiumoxid-Schleifpapier",
+     "Wasser",
+     "Bis plan"
+    ],
+    [
+     "P1200 (US 600)",
+     "Aluminiumoxid-Schleifpapier",
+     "Wasser",
+     "1 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "1 min (bei Relief 30–45 s)"
+    ]
+   ],
+   "note": "Kraft 22–45 N (5–10 lb) je Probe, Drehzahl beim Schleifen und Diamantpolieren 200 U/min, beim Endpolieren 100 U/min (Werte des automatischen Geräts der Quelle). Die Probe nach jeder Schleifstufe um 90° drehen.",
+   "see": [
+    "Zuerst ungeätzt Form und Verteilung des Graphits untersuchen (gut polierter Graphit erscheint bei ×500 nicht schwarz, sondern grau).",
+    "Nital 2 % (5–15 s): Ferrit und Perlit der Matrix. Pikral 4 % (10–30 s): Perlit und Zementit.",
+    "Die Matrix von ausferritischem Gusseisen mit Kugelgraphit (ADI) lässt sich mit Nital schlecht unterscheiden; dafür eine Farbätzung nach Beraha oder Klemm II verwenden."
+   ],
+   "miss": [
+    "Erscheint Graphit bei ×500 schwarz, ist Matrixwerkstoff in die Graphithohlräume verschmiert. Die 1-µm-Stufe um 1–2 min verlängern."
+   ],
+   "fx": {
+    "pullout": "Kraft auf 22 N (5 lb) je Probe senken und mit Diamant 1 µm auf einem kurzflorigen Tuch polieren. SiC-Papier nicht bis in späte Stufen verwenden. Bei Temperguss zum Feinschleifen eine starre Verbundscheibe verwenden (PACE).",
+    "stain": "Ursache ist zurückgebliebenes Wasser. Nach dem Spülen mit Wasser sofort mit Ethanol verdrängen und mit Warmluft trocknen (PACE).",
+    "smear": "Schwarz erscheinender Graphit bedeutet, dass Matrixwerkstoff in die Graphithohlräume verschmiert ist. Die 1-µm-Stufe um 1–2 min verlängern und prüfen, ob das Tuch zugesetzt ist. Hilft das nicht, auf neuem Aluminiumoxid-Papier leicht nachschleifen (PACE)."
+   },
+   "std": []
+  },
+  "weld": {
+   "name": "Schweißverbindungen (Schweißgut, Wärmeeinflusszone, Grundwerkstoff)",
+   "hard": [
+    "Eine Probe enthält Schweißgut, Wärmeeinflusszone und Grundwerkstoff mit unterschiedlicher Härte und unterschiedlichem Gefüge; sie werden verschieden schnell abgetragen, und es entsteht leicht Relief.",
+    "Bei Mischverbindungen unterscheiden sich Schmelzpunkt, Wärmeausdehnung und Zusammensetzung. Auch das Ätzmittel muss für jede Seite getrennt gewählt werden.",
+    "Wärmeeintrag beim Trennen verändert das Gefüge der Wärmeeinflusszone."
+   ],
+   "steps": [
+    [
+     "P120 → P280 → P600 → P1200 (US 120 → 240 → 400 → 600)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Je 60–90 s"
+    ],
+    [
+     "Diamant 9 µm",
+     "Festes, kurzfloriges Tuch",
+     "Diamant-Schmiermittel",
+     "3–5 min"
+    ],
+    [
+     "Diamant 3 µm",
+     "Mittelhartes Tuch",
+     "Diamant-Schmiermittel",
+     "3–5 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Weiches Tuch",
+     "Diamant-Schmiermittel",
+     "2–3 min"
+    ],
+    [
+     "Kolloidales Siliciumdioxid 0,05 µm (optional)",
+     "Weiches Tuch",
+     "—",
+     "1–2 min"
+    ]
+   ],
+   "note": "Eine Probenbreite von 25–32 mm reicht meist aus. Vor dem Einbetten die Nahtmitte o. Ä. markieren, damit die Lage erkennbar bleibt. Sollen Poren untersucht werden, im Vakuum einbetten.",
+   "see": [
+    "Schweißverbindungen an Stahl: Nital 2 % (5–15 s), Pikral 4 %.",
+    "Schweißverbindungen an nichtrostendem Stahl: Oxalsäure 10 %, elektrolytisch (6 V, 30–60 s).",
+    "Schweißverbindungen an Al: Keller-Ätzmittel (10–20 s), anodische Oxidation mit Barker-Ätzmittel (20–30 V, 60–120 s)."
+   ],
+   "miss": [
+    "Ausbrüche, Verschmierungen und Verunreinigungen können wie Schweißfehler (Poren, Risse) aussehen."
+   ],
+   "fx": {
+    "relief": "Da Zonen unterschiedlicher Härte nebeneinanderliegen, kurz polieren und mit härteren Tüchern die Ebenheit erhalten (PACE, Struers).",
+    "pullout": "Ausbrüche und Verschmierungen können wie Poren oder Risse in der Schweißnaht aussehen. Kurz nachpolieren und dieselbe Stelle erneut betrachten (echte Fehler bleiben erhalten) (PACE)."
+   },
+   "std": []
+  },
+  "al": {
+   "name": "Aluminiumlegierungen",
+   "hard": [
+    "Weich; die Matrix verschmiert und verdeckt Kratzer und Einschlüsse. SiC-Körner drücken sich leicht ein.",
+    "Oft sollen gerade die Oxideinschlüsse untersucht werden, doch bei schlechter Präparation werden sie herausgerissen oder verschleppt (herausgerissene Oxide lassen sich nicht wiederherstellen).",
+    "Ausscheidungsgehärtete Zustände (2024-T6, 6061-T6, 7075-T6, A356-T6 u. a.) können sich durch die Wärme beim Warmeinbetten verändern; daher in einem bei Raumtemperatur härtenden Epoxidharz einbetten."
+   ],
+   "steps": [
+    [
+     "P1200 (US 600)",
+     "Aluminiumoxid-Schleifpapier",
+     "Wasser",
+     "Bis plan"
+    ],
+    [
+     "P1500 → P2500 (US 800 → 1200)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "P2500 (US 1200): 1 min"
+    ],
+    [
+     "Diamant 3 µm (nur wärmebehandelte Werkstoffe und Gusslegierungen)",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2–3 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "22–45 N je Probe (weiche Legierungen der 1000er- und 5000er-Serie: 22–31 N mit längerer 1-µm-Stufe), alle Stufen 100 U/min. Die Qualität des Endpolierens bei ×500 prüfen.",
+   "see": [
+    "Keller-Ätzmittel (8–20 s): Korngrenzen und Zweitphasenteilchen. Erscheint auf Legierungen der 2000er-Serie ein Cu-Belag, auf Flusssäure 0,5 % wechseln.",
+    "Anodische Oxidation mit Barker-Ätzmittel + polarisiertes Licht: Korngröße und Kornorientierung.",
+    "Natronlauge 1 %: Gefügeätzung ohne HF."
+   ],
+   "miss": [
+    "Al nicht mit Alkohol spülen (nach dem Keller-Ätzmittel mit Wasser).",
+    "Werden dieselben Tücher wie für Stahl verwendet, werden Eisenteilchen übertragen, und im EDX erscheinen falsche Fe-Peaks. Für jede Werkstoffgruppe eigene Tücher verwenden."
+   ],
+   "fx": {
+    "pit": "Das Ätzmittel ist zu stark oder die Ätzzeit zu lang. Verdünnen oder kürzer ätzen (anfangs 5–10 s). Bildet sich mit Keller-Ätzmittel auf Legierungen der 2000er-Serie ein Belag, auf Flusssäure 0,5 % wechseln (PACE).",
+    "embed": "Beim Schleifen eingedrückte SiC-Körner erscheinen als helle Punkte. Die 1-µm-Stufe auf einem neuen Tuch wiederholen und zugesetztes Papier ersetzen (PACE).",
+    "pullout": "Schwarze Löcher von herausgerissenen Oxiden lassen sich nicht wiederherstellen. Die Kraft bei 22–45 N halten, zum Planschleifen Aluminiumoxid-Papier verwenden und notfalls neu trennen (PACE)."
+   },
+   "std": []
+  },
+  "cu": {
+   "name": "Kupfer, Messing, Bronze",
+   "hard": [
+    "Weich; verformt sich und verschmiert leicht.",
+    "Oxideinschlüsse können sich lösen und die Oberfläche zerkratzen; diese Kratzer treten nach dem Ätzen deutlich hervor.",
+    "Bleieinschlüsse werden von den meisten Ätzmitteln aufgelöst. Blei im polierten Zustand untersuchen (nach dem Ätzen erscheint es als Löcher)."
+   ],
+   "steps": [
+    [
+     "P500 (US 360) – nur Bronze",
+     "Aluminiumoxid-Schleifpapier",
+     "Wasser",
+     "1 min"
+    ],
+    [
+     "P1200 (US 600)",
+     "Aluminiumoxid-Schleifpapier",
+     "Wasser",
+     "Bis plan"
+    ],
+    [
+     "P1500 → P2500 (US 800 → 1200)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Je 1 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min (3–4 min, wenn feine Kratzer bleiben)"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "22–45 N je Probe (bei Verschmieren 22–31 N), 100 U/min. Wird mit kolloidalem Siliciumdioxid endpoliert, in den letzten 20–30 s nur Wasser auf das Tuch geben.",
+   "see": [
+    "Eisen(III)-chlorid-Lösung: Korngrenzen und Phasen, Sn-Seigerung in Bronze.",
+    "Ammoniumperoxodisulfat: Korngrenzen und Glühzwillinge, α und β in Messing.",
+    "Klemm-Ätzmittel + polarisiertes Licht: Kornkontrast in kaltverformtem Werkstoff."
+   ],
+   "miss": [
+    "Schwarz-Weiß-Ätzungen sind meist nach 5–15 s abgeschlossen."
+   ],
+   "fx": {
+    "smear": "Kraft auf 22–31 N senken und die Härte des Tuchs auf die Korngröße des Poliermittels abstimmen. Erscheint nach jedem Ätzen wieder Verformung, ist noch Schädigung vom Grobschleifen vorhanden; mit geringer Kraft ab den SiC-Stufen neu beginnen (PACE).",
+    "pullout": "Bleieinschlüsse lösen sich beim Ätzen auf und erscheinen als Löcher. Blei im polierten Zustand aufnehmen (PACE)."
+   },
+   "std": []
+  },
+  "ti": {
+   "name": "Titan und Titanlegierungen",
+   "hard": [
+    "Sehr duktil; verfestigt sich unter groben Schleifmitteln, verschmiert und verkratzt leicht. Keine Körnung überspringen.",
+    "Späne und Schleifstaub entzünden sich leicht. Ständig Kühlschmiermittel zuführen und nie trocken trennen oder schleifen.",
+    "Durch die Kräfte beim Trennen und Schleifen können mechanische Zwillinge entstehen.",
+    "Wegen der passiven Oxidschicht wirken übliche Ätzmittel kaum, und viele Ätzmittel enthalten HF. Häufig wird die sauerstoffreiche, harte Randschicht (α-Case, etwa 5–100 µm) untersucht."
+   ],
+   "steps": [
+    [
+     "P280 (US 240)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Bis plan"
+    ],
+    [
+     "P500 → P1200 → P1500 → P2500 (US 360 → 600 → 800 → 1200)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Je 1 min"
+    ],
+    [
+     "Diamant 6 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "3 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "1 min"
+    ],
+    [
+     "Kolloidales Siliciumdioxid + Wasserstoffperoxid (chemisch-mechanisches Polieren, z. B. für EBSD)",
+     "Poliertuch",
+     "—",
+     "2–5 min (hohe Kraft) bis 15–20 min (geringe Kraft)"
+    ]
+   ],
+   "note": "22–45 N je Probe, 200 U/min (Endpolieren 100 U/min). Mit den Tüchern für Stahl wird Eisen übertragen; daher eigene Tücher für Ti verwenden. Sofort nach dem Polieren ätzen (Ti oxidiert schnell).",
+   "see": [
+    "Kroll-Ätzmittel (Wischätzen 3–15 s): α-Phase (hell) und β-Phase (dunkel), Korngrenzen (erste Wahl).",
+    "Weck-Ätzmittel (modifiziert): färbt die Körner nach ihrer Orientierung. Zusammen mit polarisiertem Licht zur Messung des α-Case."
+   ],
+   "miss": [
+    "Kratzer, die beim Ätzen hervortreten, waren unter einer verschmierten Polierschicht verborgen. Die 1-µm-Stufe mit geringer Kraft verlängern oder zu P2500 (US 1200) zurückgehen."
+   ],
+   "fx": {
+    "scratch": "Kratzer, die beim Ätzen hervortreten, waren unter einer verschmierten Polierschicht verborgen. Die 1-µm-Stufe mit geringer Kraft verlängern oder ab P2500 (US 1200) neu beginnen (PACE).",
+    "under": "Das HF-haltige Ätzmittel ist verbraucht. Neu ansetzen oder vom Wischätzen auf Tauchätzen wechseln. Ti oxidiert nach dem Polieren schnell; daher sofort ätzen (PACE).",
+    "smear": "Mechanische Zwillinge entstehen durch die Kräfte beim Trennen und Schleifen. Kraft senken und mit einer dünnen Scheibe präzise trennen (Metkon). Mit kolloidalem Siliciumdioxid + Wasserstoffperoxid endpolieren (Witt und Nowell).",
+    "over": "Beim Tauchätzen mit Kroll-Ätzmittel greift die HF zu stark an. Wischätzen, 3–15 s (PACE)."
+   },
+   "std": []
+  },
+  "ni": {
+   "name": "Nickelbasislegierungen und -Superlegierungen (Inconel, Hastelloy u. a.)",
+   "hard": [
+    "Hart und neigt zur Kaltverfestigung; daher langsam trennen, sorgfältig schleifen und länger polieren.",
+    "γ′-Ausscheidungen und Carbide können beim Polieren ausbrechen.",
+    "Hastelloy und ähnliche Legierungen sind sehr korrosionsbeständig und daher schwer ätzbar."
+   ],
+   "steps": [
+    [
+     "P120 → P280 → P600 → P1200 (US 120 → 240 → 400 → 600); bei Superlegierungen auch P1500 (US 800)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Je 2–3 min"
+    ],
+    [
+     "Diamant 9 µm",
+     "Festes, kurzfloriges Tuch",
+     "Diamant-Schmiermittel",
+     "5–8 min"
+    ],
+    [
+     "Diamant 6 µm",
+     "Mittelhartes Tuch",
+     "Diamant-Schmiermittel",
+     "4–6 min"
+    ],
+    [
+     "Diamant 3 µm",
+     "Mittelhartes Tuch",
+     "Diamant-Schmiermittel",
+     "4–6 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Weiches Tuch",
+     "Diamant-Schmiermittel",
+     "3–5 min"
+    ],
+    [
+     "Kolloidales Siliciumdioxid 0,05 µm oder Aluminiumoxid 0,3 µm",
+     "Weiches Tuch",
+     "—",
+     "2–4 min"
+    ]
+   ],
+   "note": "Schleifen: 9–22 N (2–5 lb) je Probe, 240–300 U/min. Polieren: 9–18 N (2–4 lb), 120–150 U/min.",
+   "see": [
+    "Glyceregia (10–30 s): Korngrenzen und Zwillinge (allgemeine Ni-Legierungen).",
+    "Marble-Ätzmittel: Korngrenzen und Primärcarbide in Superlegierungen.",
+    "Adler-Ätzmittel: Hastelloy u. a.; Königswasser: schwer ätzbares Inconel.",
+    "Oxalsäure 10 %, elektrolytisch (3–6 V, 5–30 s): γ′ und γ″, Carbide."
+   ],
+   "miss": [
+    "Bei Ausbrüchen harter Phasen die Kraft senken, mit weichen Tüchern endpolieren und auch Vibrationspolieren in Betracht ziehen."
+   ],
+   "fx": {
+    "under": "Diese Legierungen sind schwer ätzbar; das Ätzmittel wechseln (Adler-Ätzmittel, Königswasser) oder elektrolytisch ätzen (PACE).",
+    "pullout": "Bei Ausbrüchen von γ′ oder Carbiden die Kraft senken, länger polieren, mit weichen Tüchern endpolieren und auch Vibrationspolieren in Betracht ziehen (PACE)."
+   },
+   "std": []
+  },
+  "mg": {
+   "name": "Magnesiumlegierungen",
+   "hard": [
+    "Reagiert mit Wasser und oxidiert sofort (dabei entsteht auch Wasserstoff). Vom Trennen bis zum Polieren kein Wasser verwenden.",
+    "Sehr weich; mit geringer Kraft arbeiten.",
+    "Späne entzünden sich leicht. Nicht trocken trennen und ein Löschmittel für Metallbrände (z. B. trockenen Sand) bereithalten. Kein Wasser und keinen Schaum zum Löschen verwenden (Mg reagiert mit Wasser unter Bildung von Wasserstoff)."
+   ],
+   "steps": [
+    [
+     "P120 → P280 → P600 → P1200 (US 120 → 240 → 400 → 600); P1500 (US 800) optional",
+     "SiC-Schleifpapier",
+     "Auf Ethanolbasis (kein Wasser)",
+     "Je 2–3 min"
+    ],
+    [
+     "Diamant 9 µm",
+     "Festes, kurzfloriges Tuch",
+     "Auf Ethanolbasis (kein Wasser)",
+     "4–6 min"
+    ],
+    [
+     "Diamant 6 µm",
+     "Mittelhartes Tuch",
+     "Auf Ethanolbasis (kein Wasser)",
+     "3–5 min"
+    ],
+    [
+     "Diamant 3 µm",
+     "Mittelhartes Tuch",
+     "Auf Ethanolbasis (kein Wasser)",
+     "3–5 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Weiches Tuch",
+     "Auf Ethanolbasis (kein Wasser)",
+     "2–4 min"
+    ],
+    [
+     "Kolloidales Siliciumdioxid 0,05 µm (in Ethanol)",
+     "Poliertuch",
+     "Auf Ethanolbasis (kein Wasser)",
+     "2–3 min"
+    ]
+   ],
+   "note": "Schleifen: 4–13 N (1–3 lb) je Probe, 240–300 U/min. Polieren: 4–9 N (1–2 lb), 120–150 U/min. Getrennte Proben sofort in Ethanol legen und bei möglichst niedriger Temperatur einbetten.",
+   "see": [
+    "Essigsäure-Pikral (10–30 s): Gefüge von Mg-Legierungen.",
+    "Verdünntes Nital 1–2 % (5–15 s). Nach dem Ätzen mit Ethanol spülen (nicht mit Wasser)."
+   ],
+   "miss": [
+    "Nach dem Polieren sofort trocknen und im Exsikkator oder in Ethanol aufbewahren."
+   ],
+   "fx": {
+    "stain": "Eine weiße, pulverige Oberfläche ist Oxidation durch Wasser. Mit Schmiermittel auf Ethanolbasis nachpolieren, alle Geräte trocknen und bei niedriger Luftfeuchte arbeiten. In schweren Fällen neu trennen (PACE).",
+    "over": "Die Ätzzeit auf 2–5 s verkürzen, ein schwächeres Ätzmittel verwenden und sofort mit Ethanol spülen. Leicht nachpolieren und erneut ätzen (PACE)."
+   },
+   "std": []
+  },
+  "sn": {
+   "name": "Lote und Zinn (Sn–Pb, bleifrei)",
+   "hard": [
+    "Zinn ist sehr weich (etwa 5 HB) und hat einen niedrigen Schmelzpunkt (232 °C). Mit geringer Kraft schleifen und polieren und beim Trennen keine Wärme einbringen.",
+    "Nicht warm einbetten (Heißpressen). Das Trennen mit Trennschleifscheiben verschmiert das Lot und ist zu vermeiden.",
+    "Zu viel Schmiermittel verringert den Abtrag und fördert das Eindrücken von Poliermittel. Das mechanische Polieren möglichst kurz halten.",
+    "Im Querschliff von Leiterplatten liegen weiches Lot und Kupfer neben harten Bauteilen, sodass leicht Relief entsteht."
+   ],
+   "steps": [
+    [
+     "P1200 (US 600)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Bis plan"
+    ],
+    [
+     "Diamant 3 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "5 min"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "2 min"
+    ],
+    [
+     "Kolloidales Siliciumdioxid 0,06 µm (Vibrationspolieren)",
+     "Poliertuch",
+     "—",
+     "30–60 min"
+    ]
+   ],
+   "note": "22 N (5 lb) je Probe, 150 U/min (Aluminiumoxid 130 U/min). Vibrationspolieren nur mit dem Eigengewicht der Probe. Polierte Proben zum Schutz vor Oxidation im Exsikkator aufbewahren. Zinnpest (Umwandlung von β-Zinn in α-Zinn) wird nicht durch Feuchtigkeit, sondern durch Temperaturen unter 13,2 °C ausgelöst; ein Exsikkator verhindert sie daher nicht. Proben nicht lange in der Kälte lagern.",
+   "see": [
+    "Nach dem Vibrationspolieren sind die Zinnkörner im polarisierten Licht ohne Ätzen sichtbar (Buehler).",
+    "Verdünnte Salzsäure (einige Minuten): Reinzinn, Zinn–Blei. Eisen(III)-chlorid-Lösung: Zinn–Kupfer."
+   ],
+   "miss": [
+    "Nital nicht über 10 %."
+   ],
+   "fx": {
+    "embed": "Wenig Schmiermittel verwenden, kurz mechanisch polieren und eingedrückte Körner zum Schluss durch Vibrationspolieren entfernen (Buehler).",
+    "heat": "Nicht warm einbetten. In einem bei Raumtemperatur härtenden Harz einbetten und statt mit einer Trennschleifscheibe präzise trennen (Buehler).",
+    "relief": "Gegen Relief zwischen weichem Lot und harten Bauteilen kurz polieren und mit kontrolliertem Abtrag die Ebenheit erhalten (PACE)."
+   },
+   "std": []
+  },
+  "zn": {
+   "name": "Zinküberzüge und Zink",
+   "hard": [
+    "Zink ist weich (etwa 30 HB); je reiner, desto weicher und wasserempfindlicher. Da es mit Wasser reagiert, ist die Reinigung schwierig.",
+    "Im Spalt zwischen Harz und Blech bleiben Wasser oder Alkohol zurück und verursachen Flecken. Mit einem langsam härtenden Epoxidharz mit geringer Schwindung einbetten.",
+    "Die Schichten einer Feuerverzinkung sind von außen: η (Reinzink), ζ (etwa 6 % Fe), δ (etwa 10 % Fe), Γ (etwa 25 % Fe). Die Legierungsschichten sind härter als der Stahl; η ist duktil.",
+    "Niedriger Schmelzpunkt (419,5 °C); beim Trennen keine Wärme einbringen."
+   ],
+   "steps": [
+    [
+     "P320 (#320 bei Struers)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Bis plan"
+    ],
+    [
+     "Diamant (Feinschleifen)",
+     "Starre Verbundscheibe",
+     "Wasser",
+     "4 min"
+    ],
+    [
+     "Diamant 3 µm",
+     "Poliertuch",
+     "Wasserfreies Schmiermittel",
+     "4–6 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Wasserfreies Schmiermittel",
+     "4–6 min"
+    ],
+    [
+     "Chemisch-mechanisches Polieren (mit Ethanol)",
+     "Poliertuch",
+     "Ethanol",
+     "15–20 s"
+    ]
+   ],
+   "note": "15–30 N je Probe, Polieren mit 150 U/min (Verfahren von Struers). Zum Polieren wasserfreie Diamantsuspensionen und Schmiermittel verwenden und die Probe mit Seidentüchern eben halten.",
+   "see": [
+    "Nital 0,5–2 % (einige Sekunden): Schichten des Überzugs. Überätzt leicht.",
+    "Natronlauge 10 % (1–5 s) und verdünnte Salzsäure: Reinzink und Zinklegierungen."
+   ],
+   "miss": [
+    "Nach dem Ätzen sofort spülen und trocknen, um Wasserflecken und Oxidation zu vermeiden.",
+    "Durch die Kräfte beim Trennen und Schleifen können mechanische Zwillinge entstehen."
+   ],
+   "fx": {
+    "stain": "Zink ist wasserempfindlich; daher die wässrigen Stufen kurz halten und mit wasserfreiem Schmiermittel und Ethanol endpolieren. Spalte im Einbettmittel halten Flüssigkeit zurück; daher in Epoxidharz mit geringer Schwindung einbetten (Struers).",
+    "over": "Überzugsschichten sind mit Nital in wenigen Sekunden überätzt. Mit 0,5–1 % beginnen (Struers).",
+    "edge": "In langsam härtendem Epoxidharz zum Kalteinbetten (geringe Schwindung, gute Haftung) einbetten, damit keine Spalte entstehen (Struers)."
+   },
+   "std": []
+  },
+  "coat": {
+   "name": "Thermisch gespritzte Schichten und Hartstoffschichten",
+   "hard": [
+    "Schicht und Grundwerkstoff werden unterschiedlich abgetragen; am Rand löst sich die Schicht leicht ab oder bricht aus.",
+    "SiC-Papier lässt Körner in die Poren fallen und täuscht eine zu hohe Porosität vor. Mit Diamant auf Metallnetz schleifen.",
+    "Echte Poren müssen von beim Polieren entstandenen Ausbrüchen unterschieden werden."
+   ],
+   "steps": [
+    [
+     "Diamant 30 µm",
+     "Metallnetz-Unterlage",
+     "Diamant-Schmiermittel",
+     "Bis plan"
+    ],
+    [
+     "Diamant 9 µm",
+     "Starre Verbundscheibe",
+     "Diamant-Schmiermittel",
+     "3 min (harte Schichten wie WC-Co 4–5 min)"
+    ],
+    [
+     "Diamant 3 µm",
+     "Starre Verbundscheibe",
+     "Diamant-Schmiermittel",
+     "3 min (harte Schichten 4–5 min)"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "1 min"
+    ]
+   ],
+   "note": "22–45 N je Probe, 100 U/min. Auf einer Präzisionstrennmaschine mit Diamant- oder CBN-Trennscheibe senkrecht zur Schicht trennen (Trennschleifscheiben lösen die Schicht ab). Nur in gießbarem Epoxid- oder Acrylharz einbetten. Mit niedrigviskosem Epoxidharz vakuumimprägnieren (25–100 mbar, 5–10 min); mit beigemischtem Fluoreszenzfarbstoff leuchten die mit Harz gefüllten Poren, während Ausbrüche dunkel bleiben.",
+   "see": [
+    "Keramische Schichten (Al₂O₃, YSZ) werden normalerweise nicht geätzt.",
+    "WC-Co-Schichten: Murakami-Ätzmittel (10–30 s). Legierungsschichten: ein für die Legierung geeignetes Ätzmittel (PACE nennt Nital, Vilella-Ätzmittel und Glyceregia)."
+   ],
+   "miss": [
+    "Zeigt die Schnittfläche Ablösungen, lässt sich der ursprüngliche Schichtaufbau durch das spätere Polieren nicht wiederherstellen. Die Schnittfläche sofort nach dem Trennen prüfen."
+   ],
+   "fx": {
+    "pullout": "Körner sind in Poren gelangt, oder die Imprägnierung reicht nicht aus. Mit niedrigviskosem Epoxidharz erneut vakuumimprägnieren und statt mit SiC-Papier mit Diamant schleifen. Mit Fluoreszenzfarbstoff echte Poren von Ausbrüchen unterscheiden (PACE).",
+    "edge": "Ablösen oder Ausbrechen der Schicht am Rand entsteht durch Kraft und Wärme beim Trennen und Einbetten. Präzise trennen, gießbar mit Vakuumimprägnierung einbetten und die Schleifkraft senken (PACE)."
+   },
+   "std": [
+    "ASTM E1920 (Leitfaden für die metallographische Präparation thermisch gespritzter Schichten)"
+   ]
+  },
+  "wc": {
+   "name": "Hartmetalle (WC-Co) und Cermets",
+   "hard": [
+    "Mit 1500–2000 HV sind sie fast so hart wie SiC (etwa 2500 HV); SiC-Papier trägt daher kaum ab und nutzt sich schnell ab. Von Anfang an Diamant verwenden.",
+    "Die Co- oder Ni-Bindephase wird schneller abgetragen als die Carbide, sodass Ausbrüche und Relief entstehen. Gewebte Tücher in den Stufen 9 und 3 µm erzeugen Relief.",
+    "Das Polieren dauert 2- bis 3-mal so lange wie bei Metallen."
+   ],
+   "steps": [
+    [
+     "Diamant 70 µm oder 45 µm",
+     "Metallgebundene Diamantscheibe",
+     "—",
+     "2–5 min"
+    ],
+    [
+     "Diamant 30 µm → 15 µm → 9 µm",
+     "Diamant-Läppfolie",
+     "—",
+     "Je 1–4 min"
+    ],
+    [
+     "Diamant 9 µm",
+     "Starre Verbundscheibe",
+     "Diamant-Schmiermittel",
+     "3–5 min"
+    ],
+    [
+     "Diamant 3 µm",
+     "Starre Verbundscheibe",
+     "Diamant-Schmiermittel",
+     "3–5 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2–3 min"
+    ],
+    [
+     "Aluminiumoxid 0,05 µm (oder kolloidales Siliciumdioxid)",
+     "Poliertuch",
+     "—",
+     "1–2 min"
+    ]
+   ],
+   "note": "Polieren: 22–45 N je Probe, 100 U/min. Auf einer Präzisionstrennmaschine langsam mit Diamanttrennscheibe bei 20–50 U/min trennen (gegen Risse und Ausbrüche). WC-Co und TiC-Ni benötigen unter Umständen Zeiten am oberen Ende der Bereiche.",
+   "see": [
+    "Murakami-Ätzmittel (Raumtemperatur, 10–60 s): WC-Körner und Verteilung der Co-Bindephase, η-Phase."
+   ],
+   "miss": [
+    "Ist die Ätzung zu schwach, Zeit oder Konzentration erhöhen (Cermets benötigen unter Umständen längeres Ätzen)."
+   ],
+   "fx": {
+    "pullout": "Die Bindephase wird schneller abgetragen als die Carbide. Etwas weichere Tücher und geringe Kraft verwenden. Entsteht Relief, die Stufen 9 und 3 µm auf starren Verbundscheiben ausführen (PACE).",
+    "scratch": "SiC trägt hier nicht ab; nur Diamant verwenden und jede Stufe verlängern (PACE)."
+   },
+   "std": [
+    "ISO 4499 (metallographische Bestimmung des Gefüges von Hartmetallen: Korngröße, Porosität, η-Phase u. a.)"
+   ]
+  },
+  "ceramic": {
+   "name": "Keramik (Aluminiumoxid, Zirkonoxid, Siliciumnitrid, Siliciumcarbid)",
+   "hard": [
+    "Spröde; beim Trennen, Einbetten und Schleifen entstehen Ausbrüche und Risse. Ausbrüche vom Trennen lassen sich meist nachträglich nicht beheben.",
+    "Beim Polieren brechen leicht Körner aus (besonders bei der glasigen Korngrenzenphase von Siliciumnitrid), und die Ausbrüche sehen wie Poren aus.",
+    "Zirkonoxid kann sich durch örtliche Wärme oder Spannung von tetragonal in monoklin umwandeln und reißen."
+   ],
+   "steps": [
+    [
+     "Diamant etwa 75 µm",
+     "Metallnetz-Unterlage",
+     "Wasser",
+     "1–3 min (bis plan)"
+    ],
+    [
+     "Diamant 15 µm → 9 µm",
+     "Starre Verbundscheibe",
+     "Diamant-Schmiermittel",
+     "Je 3–5 min"
+    ],
+    [
+     "Diamant 9 µm",
+     "Festes, kurzfloriges Tuch",
+     "Diamant-Schmiermittel",
+     "5 min"
+    ],
+    [
+     "Diamant 3 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "3 min"
+    ],
+    [
+     "Diamant 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "2 min"
+    ],
+    [
+     "Kolloidales Siliciumdioxid 0,05 µm",
+     "Poliertuch",
+     "—",
+     "1–2 min (die letzten 20–30 s nur Wasser)"
+    ]
+   ],
+   "note": "Schleifen: 30–40 N je Probe, Polieren: 20–30 N, Endpolieren: 10–15 N (150 U/min). Bei SiC, B₄C und dichtem WC jede Stufe auf das 1,5- bis 2-Fache verlängern. Mit Diamanttrennscheibe und reichlich Kühlschmiermittel trennen. Poröse Keramik muss vakuumimprägniert werden. Kolloidales Siliciumdioxid nicht auf der Oberfläche eintrocknen lassen.",
+   "see": [
+    "Zuerst mit Differentialinterferenzkontrast (DIC), polarisiertem Licht oder Dunkelfeld betrachten. Sind keine Korngrenzen sichtbar, thermisch ätzen: 100–200 °C unter der Sintertemperatur für 30 min bis 2 h (z. B. Aluminiumoxid 1400–1500 °C, 30–60 min an Luft; Zirkonoxid 1200–1300 °C, 30–60 min an Luft; Siliciumnitrid 1400–1500 °C, 30–60 min in N₂). Langsam abkühlen.",
+    "Auch Vibrationspolieren mit kolloidalem Siliciumdioxid (1–2 h) kann die Korngrenzen sichtbar machen."
+   ],
+   "miss": [
+    "Chemisches Ätzen (siedende Säuren, Salzschmelzen, konzentrierte HF) ist sehr gefährlich und wird auf dieser Seite nicht angegeben."
+   ],
+   "fx": {
+    "pullout": "In dieser Reihenfolge versuchen: Kraft senken → härteres Tuch → vorige Stufe verlängern → Vibrations- oder Ionenstrahlpolieren. Poröse Werkstoffe mit niedrigviskosem Epoxidharz vakuumimprägnieren (PACE).",
+    "under": "Zuerst mit DIC oder polarisiertem Licht betrachten; sind dann noch keine Korngrenzen sichtbar, thermisch ätzen (PACE)."
+   },
+   "std": []
+  },
+  "ebsd": {
+   "name": "Präparation für EBSD (alle Metalle)",
+   "hard": [
+    "EBSD-Beugungsmuster entstehen in den obersten 10–50 nm; schon geringe Verformung, Oxidschichten oder Verunreinigungen schwächen die Muster. Erforderlich ist eine ebene, verformungsfreie Oberfläche.",
+    "Chemisches und elektrolytisches Polieren kann eine unebene Oberfläche erzeugen; daher nicht zu stark ätzen.",
+    "Ist die Probe nicht auf beiden Seiten eben, lassen sich EBSD-Karten nur schwer aufnehmen."
+   ],
+   "steps": [
+    [
+     "P280 → P400 → P600 → P1200 → P1500 → P2500 (US 240 → 320 → 400 → 600 → 800 → 1200)",
+     "SiC-Schleifpapier",
+     "Wasser",
+     "Je etwa 30 s"
+    ],
+    [
+     "Diamant oder Aluminiumoxid 1 µm",
+     "Poliertuch",
+     "Diamant-Schmiermittel",
+     "5–10 min"
+    ],
+    [
+     "0,3 µm",
+     "Poliertuch",
+     "—",
+     "5–10 min"
+    ],
+    [
+     "Kolloidales Siliciumdioxid 0,05 µm oder 0,02 µm",
+     "Poliertuch",
+     "—",
+     "Einige Minuten bis einige Stunden (je nach Werkstoff)"
+    ]
+   ],
+   "note": "Je weicher der Werkstoff, desto länger und mit desto feinerem Poliermittel polieren. Ti: chemisch-mechanisches Polieren mit kolloidalem Siliciumdioxid und Wasserstoffperoxid; Mg: ohne Wasser (z. B. Glycerin und Alkohol). Kalteinbettharze sind weich und können die Ränder abrunden. Zum Schutz des REM-Vakuums gründlich reinigen und trocknen.",
+   "see": [
+    "Normalerweise wird nicht geätzt (die Muster werden schwächer, und die Oberfläche wird uneben).",
+    "Manche Werkstoffe erfordern elektrolytisches Polieren; für perchlorsäurehaltige Elektrolyte sind auf dieser Seite jedoch keine Bedingungen angegeben (Abschnitt „Sicherheit“)."
+   ],
+   "miss": [
+    "Bei Ti können durch Polierverformung dunkle Bereiche entstehen, die als kubisch indiziert werden; sie verschwinden durch Polieren mit kolloidalem Siliciumdioxid + Wasserstoffperoxid."
+   ],
+   "fx": {
+    "smear": "Bei EBSD erscheinen keine Muster, wenn Verformung vom mechanischen Polieren zurückbleibt. Das Endpolieren mit kolloidalem Siliciumdioxid verlängern (einige Minuten bis einige Stunden), bei Ti Wasserstoffperoxid zusetzen (Witt und Nowell)."
+   },
+   "std": []
+  }
+ },
+ "hazards": {
+  "general": {
+   "name": "Für alle Ätzmittel",
+   "short": "Alle Ätzmittel",
+   "p": [
+    "Vor dem Ansetzen und vor der Verwendung die Sicherheitsdatenblätter (SDB) aller verwendeten Chemikalien lesen und die Sicherheitsvorschriften der eigenen Einrichtung sowie die Anweisungen der verantwortlichen Person befolgen. Zusammensetzungen und Zeiten auf dieser Seite sind Anhaltspunkte für die Wahl eines Verfahrens; sie ersetzen nicht die Sicherheitsanweisungen der eigenen Einrichtung. Auch die Norm (ASTM E407) stellt fest, dass die Festlegung der Sicherheitsmaßnahmen in der Verantwortung des Anwenders liegt.",
+    "Ätzmittel im Abzug ansetzen und verwenden. Beim Umgang mit Chemikalien immer Schutzhandschuhe tragen, bei besonders gefährlichen Lösungen zusätzlich einen Gesichtsschutzschild.",
+    "Reihenfolge beim Ansetzen: zuerst die Lösungsmittel vorlegen, dann die Salze lösen und die gefährlichen Säuren zuletzt langsam unter Rühren zugeben. Schwefelsäure zuletzt und langsam in das Wasser geben. Flüssigkeiten nie auf einmal zusammengießen.",
+    "Gebrauchte Ätzmittel und Spülflüssigkeiten nach den Vorschriften der eigenen Einrichtung sammeln; nicht in den Ausguss oder in den normalen Abfall geben."
+   ]
+  },
+  "hf": {
+   "name": "Lösungen mit Flusssäure (HF) oder Ammoniumhydrogendifluorid",
+   "short": "HF",
+   "p": [
+    "Gelangt HF auf die Haut, treten unter Umständen weder sofort Schmerzen noch sichtbare Schäden auf. Über Stunden kann starker Schmerz das einzige Anzeichen sein, und sichtbare Schäden zeigen sich mitunter erst nach 12–24 Stunden. Da unbemerkt tiefe Verätzungen entstehen, sind auch verdünnte Lösungen (z. B. HF 0,5 %) genauso zu behandeln.",
+    "HF kann im Körper schwere Störungen des Elektrolythaushalts verursachen; zur Behandlung wird Calciumgluconat (Gel, Lösung oder Arzneimittel) eingesetzt. Vor der Arbeit mit HF-haltigen Lösungen Calciumgluconat-Gel für die Erste Hilfe griffbereit halten und sich mit seiner Anwendung vertraut machen (auch der Sicherheitsbeitrag im ASM Handbook fordert, dass Labors, die mit HF arbeiten, ein Gegenmittel-Set vorhalten).",
+    "Bei Kontakt: sofort unter der Notdusche o. Ä. 15 Minuten lang mit viel Wasser spülen, verunreinigte Kleidung ausziehen, nach dem Spülen Calciumgluconat-Gel auftragen und sofort einen Arzt aufsuchen. Bei Augenkontakt 15 Minuten an der Augendusche spülen und einen Arzt aufsuchen.",
+    "HF greift Glas an; daher in Behältern aus Polyethylen (PE) oder Polypropylen (PP) ansetzen und mit HF-Kennzeichnung aufbewahren.",
+    "Lösungen mit Ammoniumhydrogendifluorid (NH₄HF₂) – Farbätzmittel nach Beraha, LB1, Weck-Ätzmittel für Ti – setzen ebenfalls HF frei; mit denselben Schutzmaßnahmen wie HF behandeln.",
+    "Auch Tetrafluoroborsäure (HBF₄, im Barker-Ätzmittel) verursacht schwere Verätzungen der Haut und schwere Augenschäden, setzt bei Zersetzung Fluorwasserstoff frei und greift Glas an (SDB). Mit denselben Schutzmaßnahmen wie HF behandeln und in PE-Flaschen aufbewahren."
+   ]
+  },
+  "picric": {
+   "name": "Lösungen mit Pikrinsäure",
+   "short": "Pikrinsäure",
+   "p": [
+    "Trockene Pikrinsäure ist ein Explosivstoff (GHS-Einstufung: explosiver Stoff, Unterklasse 1.1). Durch Zerreiben, Schlag oder Reibung kann sie explodieren.",
+    "Sie reagiert mit Metallen (besonders Kupfer, Blei, Quecksilber und Zink) zu schlagempfindlichen Verbindungen (Pikraten); trockene Pikrate explodieren noch leichter. Keine Deckel, Spatel oder Arbeitsflächen aus Metall verwenden.",
+    "Die Lösung nicht auf Oberflächen oder am Flaschenhals eintrocknen lassen. Den Feststoff mit Wasser angefeuchtet aufbewahren, etwa einmal im Monat prüfen, ob er ausgetrocknet ist, und Wasser nachfüllen, wenn der Wasserstand gesunken ist. Angesetzte Lösungen nicht lange aufbewahren (je nach Quelle und Vorschriften der eigenen Einrichtung am Ende des Tages oder spätestens nach 7 Tagen entsorgen) und sofort von der Probe abspülen, damit sie dort nicht eintrocknen.",
+    "Werden am Flaschenhals oder in der Flasche trockene Kristalle entdeckt: nicht berühren, nicht bewegen und die für Sicherheit und Entsorgung zuständigen Personen der eigenen Einrichtung verständigen."
+   ]
+  },
+  "nitric": {
+   "name": "Lösungen von Salpetersäure in Alkohol (Nital u. a.)",
+   "short": "Salpetersäure + Alkohol",
+   "p": [
+    "Nital mit bis zu 3 % Salpetersäure in Ethanol gilt in kleinen Mengen als sicher anzusetzen und aufzubewahren. Lösungen über 3 % nur in der für den Tag benötigten Menge ansetzen, in offenen Schalen verwenden und nicht dicht verschlossen aufbewahren (in der Flasche baut sich Druck auf).",
+    "Methanol ist ein kumulatives Gift: Es wird außer beim Verschlucken und Einatmen auch über die Haut aufgenommen und schädigt das Zentralnervensystem. Möglichst Ethanol verwenden. Wird Methanol verwendet, höchstens 5 % Salpetersäure zusetzen.",
+    "Dicht verschlossene Flaschen sind schon durch den Druck von Gasen (NOx) geplatzt. Ein kleines Loch in den Deckel bohren, um den Druck abzulassen, oder die Flasche regelmäßig entlüften.",
+    "Lösungen von mehr als 5 % Salpetersäure in Methanol zersetzen sich beim Erwärmen heftig. Auch die Tabelle von PACE zum Ätzen von Zinn gibt an, Nital nicht über 10 % zu verwenden.",
+    "Zuerst den Alkohol vorlegen und dann die Salpetersäure zugeben."
+   ]
+  },
+  "aqua": {
+   "name": "Königswasser und Glyceregia (Lösungen aus Salzsäure und Salpetersäure)",
+   "short": "Salzsäure + Salpetersäure",
+   "p": [
+    "Beim Mischen entsteht Wärme, und die Lösung zersetzt sich mit der Zeit unter Freisetzung von Chlor und Stickstoffdioxid. Kleine Mengen unmittelbar vor der Verwendung ansetzen, nach dem Mischen nicht länger als etwa 15 Minuten stehen lassen und nach der Verwendung sofort entsorgen.",
+    "Die angesetzte Lösung nicht in einen dicht verschlossenen Behälter füllen (es baut sich Druck auf). Aufgeblähte Behälter sofort als Abfall entsorgen. Im Abzug arbeiten.",
+    "Glyceregia enthält Salpetersäure und Glycerin. Konzentrierte Mischungen aus Salpetersäure und Glycerin (oder Glykolen) können explodieren, und die Lösung zersetzt sich schnell; daher nur kleine Mengen ansetzen und nach der Verwendung sofort entsorgen. In wasserfreien Lösungen mit Salpeter- und Schwefelsäure kein Glycerin verwenden (es kann sich Nitroglycerin bilden)."
+   ]
+  },
+  "cyanide": {
+   "name": "Lösungen mit Kaliumhexacyanoferrat(III) (Murakami-Ätzmittel)",
+   "short": "Hexacyanoferrat",
+   "p": [
+    "Kaliumhexacyanoferrat(III) ist giftig, gilt aber als stabil und vergleichsweise sicher in der Handhabung. Bei Kontakt mit Säuren wird jedoch Cyanwasserstoff freigesetzt; daher die Lösung alkalisch halten, nicht mit Säuren mischen und nicht in saure Abfälle geben.",
+    "Heiße Lösung kann überkochen; daher im Abzug verwenden und vor der Entsorgung abkühlen lassen.",
+    "Kaliumcyanid und Natriumcyanid sind davon zu unterscheiden: äußerst giftige Stoffe, die bei Kontakt mit Säuren oder Säuredämpfen besonders gefährlich sind. Sie sind nur für geschulte Personen mit Erfahrung im Umgang damit bestimmt; Lösungen, die sie enthalten, sind daher auf dieser Seite nicht aufgeführt."
+   ]
+  },
+  "caustic": {
+   "name": "Lösungen von Natriumhydroxid oder Kaliumhydroxid",
+   "short": "Starke Lauge",
+   "p": [
+    "Starke Laugen greifen Haut und Augen an. Warm anzuwendende Lösungen in Behältern aus PE oder PP erwärmen, nicht in Glasgefäßen."
+   ]
+  },
+  "acid": {
+   "name": "Lösungen mit Salzsäure (auch Eisen(III)- und Kupfer(II)-chlorid-Lösungen)",
+   "short": "Salzsäure",
+   "p": [
+    "Konzentrierte Salzsäure greift die Haut stark an und verursacht schwere Verätzungen, ist für die Augen sehr gefährlich und reizt Nase und Rachen. Da Chlorwasserstoffgas entweicht, im Abzug arbeiten.",
+    "Beim Verdünnen die Säure in das Wasser geben, nie umgekehrt. Kommen konzentrierte Säuren mit Metallen in Berührung, kann Wasserstoff entstehen – eine Brand- und Explosionsgefahr."
+   ]
+  },
+  "oxalic": {
+   "name": "Oxalsäurelösungen",
+   "short": "Oxalsäure",
+   "p": [
+    "Gesundheitsschädlich beim Verschlucken, verursacht schwere Augenschäden und reizt Haut und Atemwege (GHS-Einstufung).",
+    "Reagiert heftig mit starken Oxidationsmitteln; daher nicht mit Salpetersäure mischen. Mit bestimmten Silberverbindungen kann sich explosives Silberoxalat bilden."
+   ]
+  },
+  "oxidizer": {
+   "name": "Lösungen mit Oxidationsmitteln (Ammoniumperoxodisulfat, Kaliumpermanganat, Wasserstoffperoxid)",
+   "short": "Oxidationsmittel",
+   "p": [
+    "Ammoniumperoxodisulfat ist ein oxidierender Feststoff; in Mischung mit brennbaren Stoffen kann er sich entzünden und heftig brennen. Beim Einatmen kann er Allergien oder Asthma, auf der Haut allergische Reaktionen auslösen (GHS: Sensibilisierung der Atemwege und der Haut, Kategorie 1). Den Staub nicht einatmen und getrennt von brennbaren Stoffen lagern.",
+    "Kaliumpermanganat birgt vor allem bei Kontakt mit organischen Stoffen Brand- und Explosionsgefahr. Mit Schwefelsäure gemischt kann es heftig explodieren; daher nicht mischen.",
+    "Wasserstoffperoxid 3 % ist vergleichsweise sicher zu verwenden, Wasserstoffperoxid 30 % dagegen ein sehr starkes Oxidationsmittel. Beide schädigen die Augen schwer."
+   ]
+  },
+  "sulfite": {
+   "name": "Farbätzmittel mit Kaliumdisulfit (Klemm, Beraha, LB1)",
+   "short": "Disulfit",
+   "p": [
+    "Kaliumdisulfit (Kaliummetabisulfit) verursacht schwere Augenschäden (GHS-Kategorie 1). Bei Kontakt mit Säuren wird ein giftiges Gas freigesetzt; daher nicht in saure Abfälle geben. Dem salzsäurehaltigen Ätzmittel Beraha I erst unmittelbar vor der Verwendung zusetzen und im Abzug arbeiten."
+   ]
+  },
+  "electro": {
+   "name": "Elektrolytisches Ätzen (Oxalsäure, Natronlauge, Barker-Ätzmittel u. a.)",
+   "short": "Elektrolytisch",
+   "p": [
+    "Verwendet werden eine Gleichstromquelle und leitfähige saure oder alkalische Lösungen. Mit nassen Händen kann man einen schmerzhaften Stromschlag erhalten; daher vor dem Verstellen der Stromquelle die Hände abtrocknen.",
+    "Beim elektrolytischen Ätzen entstehen Gase und Dämpfe, darunter Wasserstoff. Im Abzug oder an einem gut belüfteten Ort arbeiten."
+   ]
+  },
+  "perchloric": {
+   "name": "Perchlorsäurehaltige Elektrolyte zum elektrolytischen Polieren (auf dieser Seite ohne Bedingungen)",
+   "short": "Perchlorsäure",
+   "p": [
+    "Perchlorsäure ist ein starkes Oxidationsmittel. Beim Erhitzen kann sie explodieren; über 72 % ist sie instabil und kann im eingetrockneten Zustand durch Schlag oder Erschütterung explodieren. Sie reagiert heftig mit brennbaren und organischen Stoffen und kann sich in Mischung mit Papier o. Ä. schon bei Raumtemperatur selbst entzünden.",
+    "Bei Kontakt mit organischen Stoffen bilden sich sehr instabile Perchlorate. Elektrolyte aus Perchlorsäure und Essigsäureanhydrid werden nicht empfohlen. Die Lösungen kalt halten (mit steigender Temperatur nimmt die Oxidationskraft zu), nicht aufbewahren und Proben, die in Phenolharz o. Ä. eingebettet sind, nicht in perchlorsäurehaltigen Lösungen elektrolytisch polieren (es ist zu Explosionen gekommen). Für die Dämpfe ist ein spezieller Abzug mit Wasserberieselung erforderlich.",
+    "Diese Seite gibt keine Zusammensetzungen und Bedingungen für perchlorsäurehaltige Elektrolyte an. Ist elektrolytisches Polieren erforderlich, dort arbeiten, wo eigene Einrichtungen und Arbeitsanweisungen vorhanden sind, und zusammen mit der verantwortlichen Person."
+   ]
+  },
+  "cr6": {
+   "name": "Lösungen mit sechswertigem Chrom (Chromtrioxid) (auf dieser Seite nicht angegeben)",
+   "short": "Chrom(VI)",
+   "p": [
+    "Chromtrioxid ist ein starkes Oxidationsmittel, das nach GHS unter anderem als karzinogen Kategorie 1A, lebensgefährlich beim Einatmen und bei Hautkontakt sowie als sensibilisierend für die Atemwege eingestuft ist.",
+    "Diese Seite gibt keine Arbeitsweisen für Lösungen mit sechswertigem Chrom an (Palmerton-Ätzmittel für Zink, Graff–Sargent-Ätzmittel für Al u. a.). Alternativen stehen beim jeweiligen Werkstoff."
+   ]
+  }
+ },
+ "not_listed": [
+  "Lösungen mit Kaliumcyanid oder Natriumcyanid (für Gold und andere Edelmetalle verwendet) – äußerst giftig (siehe oben „Lösungen mit Kaliumhexacyanoferrat(III)“)",
+  "Perchlorsäurehaltige Elektrolyte zum elektrolytischen Polieren (z. B. für EBSD an Ti, Al und Stahl) – Explosionsgefahr (siehe oben „Perchlorsäure“)",
+  "Lösungen mit sechswertigem Chrom (Palmerton-, Graff–Sargent-Ätzmittel u. a.) – karzinogen u. a. (siehe oben „Chrom(VI)“)",
+  "Farbätzmittel mit Cadmium- oder Bleisalzen (CdS- und PbS-Ätzmittel nach Beraha) – wegen der Verwendung von Schwermetallsalzen",
+  "Chemisches Ätzen von Keramik mit Salzschmelzen, siedenden konzentrierten Säuren oder konzentrierter HF – auch die Anleitung von PACE behandelt dies als schwere Gefahr. Keramik zuerst thermisch ätzen oder mit polarisiertem Licht und DIC betrachten"
+ ],
+ "etchants": {
+  "nital": {
+   "name": "Nital (alkoholische Salpetersäure)",
+   "aka": "",
+   "comp": [
+    "Salpetersäure 1–10 mL + Ethanol 90–99 mL. Üblich ist 2 % (Salpetersäure 2 mL + Ethanol 98 mL). Auch Methanol wird verwendet, ist aber ein kumulatives Gift und wird auch über die Haut aufgenommen; daher möglichst Ethanol verwenden (bei Methanol höchstens 5 % Salpetersäure). Lösungen über 3 % am Tag der Verwendung ansetzen und nicht dicht verschließen"
+   ],
+   "use": [
+    "Tauchen oder Wischen. 2 % für 5–30 s (mit 5–10 s beginnen). Harte Stähle 3–5 % (nicht über 5 %)",
+    "Zinküberzüge 0,5–2 %, einige Sekunden (überätzt leicht). Mg-Legierungen 1–2 %, 5–15 s, mit Ethanol spülen"
+   ],
+   "see": "Ferritkorngrenzen und Perlit (beide sichtbar), Martensit, aufgekohlte und nitrierte Schichten, Matrix von Gusseisen. Das am häufigsten verwendete Ätzmittel für Eisen und Stahl.",
+   "nb": []
+  },
+  "picral": {
+   "name": "Pikral (alkoholische Pikrinsäurelösung)",
+   "aka": "",
+   "comp": [
+    "Pikrinsäure 2–4 g + Ethanol 100 mL (üblich 4 %)"
+   ],
+   "use": [
+    "Tauchen 5–60 s (Gusseisen: Wischen 10–30 s). Mit Ethanol, dann mit Wasser spülen und sofort trocknen"
+   ],
+   "see": "Greift Zementit an und bildet Perlitlamellen, kugelige Carbide und die Verteilung der Anlasscarbide deutlich ab. Ferritkorngrenzen werden nicht sichtbar; sollen beide gesehen werden, mit Nital kombinieren.",
+   "nb": []
+  },
+  "vilella": {
+   "name": "Vilella-Ätzmittel",
+   "aka": "",
+   "comp": [
+    "Pikrinsäure 1 g + Salzsäure 5 mL + Ethanol 100 mL"
+   ],
+   "use": [
+    "Tauchen oder Wischen 5–60 s. Mit Ethanol spülen"
+   ],
+   "see": "Standardätzmittel für martensitische und ausscheidungshärtende nichtrostende Stähle sowie gehärtete Werkzeug- und Schnellarbeitsstähle: ehemalige Austenitkorngrenzen, angelassener Martensit, Carbide.",
+   "nb": []
+  },
+  "beraha-tio": {
+   "name": "Farbätzmittel nach Beraha (auf Natriumthiosulfatbasis)",
+   "aka": "",
+   "comp": [
+    "Natriumthiosulfat 10 g + Kaliumdisulfit 3 g + Wasser 100 mL (10/3-Ätzmittel nach Vander Voort; handelsübliche Fertigmischungen enthalten in Massenanteilen 5–15 % Natriumthiosulfat und 2–5 % Kaliumdisulfit)"
+   ],
+   "use": [
+    "Tauchen 30–120 s. Bis 0,05 µm endpolieren (verformungsfreie Oberfläche)"
+   ],
+   "see": "Färbt Ferrit (blaugrün, orange), Martensit (braun) und Bainit (dazwischen); Restaustenit bleibt ungefärbt weiß (die Farben hängen von Kornorientierung und Zusammensetzung ab).",
+   "nb": []
+  },
+  "klemm1": {
+   "name": "Klemm I",
+   "aka": "",
+   "comp": [
+    "Gesättigte wässrige Natriumthiosulfatlösung 50 mL + Kaliumdisulfit 1 g"
+   ],
+   "use": [
+    "Tauchen 30 s bis 3 min (bis zur Färbung). Mit Wasser, dann mit Ethanol spülen und an der Luft trocknen lassen (keine Druckluft)"
+   ],
+   "see": "Färbt Körner mit Zwillingen in Messing, die Phasen von Duplexstählen, Ferrit und Perlit in Stählen u. a. (die Farben hängen von Orientierung und Zusammensetzung ab).",
+   "nb": []
+  },
+  "klemm2": {
+   "name": "Klemm II",
+   "aka": "",
+   "comp": [
+    "Gesättigte wässrige Natriumthiosulfatlösung 50 mL + Kaliumdisulfit 5 g"
+   ],
+   "use": [
+    "Tauchen 60–120 s. Erwärmen auf etwa 40 °C verbessert die Färbung"
+   ],
+   "see": "Färbt Ferrit blau und Martensit braun bis schwarz; Restaustenit bleibt weiß (z. B. zur Unterscheidung der Matrix von ausferritischem Gusseisen mit Kugelgraphit).",
+   "nb": []
+  },
+  "beraha-ss": {
+   "name": "Beraha I (für nichtrostende Stähle)",
+   "aka": "",
+   "comp": [
+    "Stammlösung: Wasser 1000 mL + Salzsäure 200 mL + Ammoniumhydrogendifluorid 24 g",
+    "Gebrauchslösung: Stammlösung 100 mL + Kaliumdisulfit (martensitische Sorten 0,1–0,2 g; austenitische und ferritische Sorten 0,3–0,6 g; PACE: 1 g). Unmittelbar vor der Verwendung zugeben"
+   ],
+   "use": [
+    "Tauchen 30 s bis 2 min (bis zur Färbung)"
+   ],
+   "see": "Färbt die Körner nichtrostender Stähle (auch Körner mit Zwillingen). Erste Wahl von PACE zur Unterscheidung der Phasen von Duplexstählen.",
+   "nb": []
+  },
+  "lb1": {
+   "name": "LB1 (Lichtenegger und Bloech)",
+   "aka": "",
+   "comp": [
+    "Ammoniumhydrogendifluorid 20 g + Kaliumdisulfit 0,5 g + Wasser 100 mL (in warmem Wasser lösen)"
+   ],
+   "use": [
+    "Tauchen bei 25–30 °C"
+   ],
+   "see": "Färbt in Duplexstählen den Austenit, nicht aber den Ferrit.",
+   "nb": []
+  },
+  "oxalic": {
+   "name": "Oxalsäure 10 % (elektrolytisch)",
+   "aka": "",
+   "comp": [
+    "Oxalsäure-Dihydrat 10 g + Wasser 100 mL"
+   ],
+   "use": [
+    "Elektrolytisch: Probe als Anode, nichtrostender Stahl als Kathode, Gleichspannung 6 V (Elektrodenabstand 25 mm). Für das Gefüge 15–30 s (Ni-Legierungen: 3–6 V, 5–30 s). Die Bedingungen für die Prüfung auf Sensibilisierung (ASTM A262 Practice A) stehen im Normtext",
+    "Bei Ätzgrübchen auf 3–4 V senken oder kürzer ätzen"
+   ],
+   "see": "Korngrenzen in austenitischen nichtrostenden Stählen (Bewertung als step, dual oder ditch), Sigma-Phase, Carbide.",
+   "nb": []
+  },
+  "naoh-e": {
+   "name": "Natronlauge 10 % (elektrolytisch)",
+   "aka": "",
+   "comp": [
+    "Natriumhydroxid 10 g + Wasser 100 mL"
+   ],
+   "use": [
+    "Elektrolytisch: Probe als Anode, Gleichspannung 2–6 V, 5–30 s"
+   ],
+   "see": "Zeigt die Sigma-Phase in nichtrostenden Stählen orange bis braun.",
+   "nb": []
+  },
+  "glyceregia": {
+   "name": "Glyceregia",
+   "aka": "",
+   "comp": [
+    "Salzsäure 15–30 mL + Salpetersäure 5–10 mL + Glycerin 10 mL (die Verhältnisse schwanken zwischen den Quellen: PACE-Seite zum Ätzmittel 15:10:10; Anleitung für nichtrostende Stähle Salpetersäure 10, Salzsäure 20–30, Glycerin 10; Anleitung für Ni-Legierungen 15:5:10)"
+   ],
+   "use": [
+    "Wischen 10–60 s (nicht tauchen: örtliche Erwärmung). Mit Wasser, dann mit Ethanol spülen. Frisch angesetzt verwenden, nicht aufbewahren"
+   ],
+   "see": "Korngrenzen, Zwillinge, Carbide und Sigma-Phase in austenitischen nichtrostenden Stählen und Nickelbasislegierungen. Wird auch zum kurzen Anwischen verwendet, um die Oberfläche vor dem elektrolytischen Ätzen mit Oxalsäure zu aktivieren.",
+   "nb": [
+    "Konzentrierte Mischungen aus Salpetersäure und Glycerin können explodieren. Nur kleine Mengen ansetzen und nach der Verwendung sofort entsorgen (Abschnitt „Sicherheit“)"
+   ]
+  },
+  "aqua": {
+   "name": "Königswasser",
+   "aka": "",
+   "comp": [
+    "Salzsäure 75 mL + Salpetersäure 25 mL"
+   ],
+   "use": [
+    "5–15 s. Frisch angesetzt verwenden und sofort entsorgen"
+   ],
+   "see": "Schwer ätzbare Nickelbasislegierungen wie Inconel.",
+   "nb": []
+  },
+  "marble": {
+   "name": "Marble-Ätzmittel",
+   "aka": "",
+   "comp": [
+    "Kupfersulfat 10 g + Salzsäure 50 mL + Wasser 50 mL (handelsübliche Fertigmischungen enthalten in Massenanteilen 10–20 % Salzsäure und 2–10 % Kupfersulfat)"
+   ],
+   "use": [
+    "Tauchen oder Wischen 5–60 s. Einige Tropfen Schwefelsäure verstärken die Wirkung"
+   ],
+   "see": "Korngrenzen und Carbide in Nickelbasis-Superlegierungen (Inconel 600, 625, 718), austenitischen nichtrostenden Stählen und Cobaltbasislegierungen.",
+   "nb": []
+  },
+  "kalling2": {
+   "name": "Kalling 2",
+   "aka": "",
+   "comp": [
+    "Kupfer(II)-chlorid 5 g + Salzsäure 100 mL + Ethanol 100 mL"
+   ],
+   "use": [
+    "Wischen oder Tauchen 5–60 s (Duplexstähle 30 s bis 2 min)"
+   ],
+   "see": "Korngrenzen in nichtrostenden Stählen, Ferrit in Duplexstählen, Sigma-Phase, Gefüge von Ni-Legierungen (z. B. Monel).",
+   "nb": []
+  },
+  "adler": {
+   "name": "Adler-Ätzmittel",
+   "aka": "",
+   "comp": [
+    "Eisen(III)-chlorid 45 g + Kupferammoniumchlorid 9 g + Salzsäure 150 mL + Wasser 75 mL"
+   ],
+   "use": [
+    "Wischen 5–60 s"
+   ],
+   "see": "Hochkorrosionsbeständige Ni-Legierungen wie Hastelloy; Korngrenzen ferritischer, martensitischer und ausscheidungshärtender nichtrostender Stähle.",
+   "nb": []
+  },
+  "fry": {
+   "name": "Fry-Ätzmittel",
+   "aka": "",
+   "comp": [
+    "Kupfer(II)-chlorid 5 g + Salzsäure 40 mL + Wasser 30 mL + Ethanol 25 mL"
+   ],
+   "use": [
+    "Wischen 30–120 s"
+   ],
+   "see": "Verformungsmuster durch Kaltumformung (Gleitlinien, Verformungsbänder) in Stählen mit niedrigem Kohlenstoffgehalt und Maraging-Stählen.",
+   "nb": []
+  },
+  "murakami": {
+   "name": "Murakami-Ätzmittel",
+   "aka": "",
+   "comp": [
+    "Kaliumhexacyanoferrat(III) 10 g + Kaliumhydroxid 10 g (oder Natriumhydroxid 7–10 g) + Wasser 100 mL. Zuerst die Lauge im Wasser lösen, dann das Hexacyanoferrat zugeben"
+   ],
+   "use": [
+    "Hartmetall: bei Raumtemperatur 10–60 s. Carbide in Stählen: kalt oder bei 50–80 °C für 3–10 min. Frisch angesetzt verwenden. Nicht mit Säuren mischen"
+   ],
+   "see": "Verteilung von WC und Co-Bindephase in WC-Co (kalt), Carbide in Stählen (Cr-Carbide in D2 und A2, Carbide in Schnellarbeitsstählen), Sigma-Phase in nichtrostenden Stählen.",
+   "nb": []
+  },
+  "keller": {
+   "name": "Keller-Ätzmittel",
+   "aka": "",
+   "comp": [
+    "Flusssäure 2 mL + Salzsäure 3 mL + Salpetersäure 5 mL + Wasser 190 mL (das Verhältnis 1,0 : 1,5 : 2,5 : 95 mL in der Al-Anleitung von PACE ist dasselbe). In Behältern aus PE oder PP"
+   ],
+   "use": [
+    "Tauchen 8–20 s. Mit kaltem (oder warmem) Wasser gründlich spülen. Al nicht mit Alkohol spülen. Frisch angesetzt verwenden",
+    "Ti-Legierungen: Tauchen 3–10 s (Ti-Anleitung von PACE) bzw. 10–20 s (Metkon)"
+   ],
+   "see": "Korngrenzen und Zweitphasenteilchen (Al₂Cu, Mg₂Si, MgZn₂) in Al-Knetlegierungen (1000er- bis 7000er-Serie), verformte und rekristallisierte Körner. Bei Cu-haltigen Legierungen der 2000er-Serie kann ein Cu-Belag zurückbleiben; dann auf Flusssäure 0,5 % wechseln. Auch für Ti-Legierungen verwendet.",
+   "nb": []
+  },
+  "hf05": {
+   "name": "Flusssäure 0,5 %",
+   "aka": "",
+   "comp": [
+    "Flusssäure 0,5 mL + Wasser 99,5 mL (in Behältern aus PE oder PP)"
+   ],
+   "use": [
+    "Tauchen 5–60 s"
+   ],
+   "see": "Korngrenzen und Zweitphasenteilchen in Al-Legierungen. Ersatz für das Keller-Ätzmittel bei Cu-haltigen Legierungen der 2000er-Serie.",
+   "nb": []
+  },
+  "barker": {
+   "name": "Barker-Ätzmittel (anodische Oxidation)",
+   "aka": "",
+   "comp": [
+    "Tetrafluoroborsäure (HBF₄, 48 %) 4–5 mL + Wasser 200 mL"
+   ],
+   "use": [
+    "Probe als Anode, Al oder nichtrostender Stahl als Kathode, Gleichspannung 20–30 V für 30 s bis 3 min. Mit Wasser spülen und im polarisierten Licht (mit λ-Platte) betrachten"
+   ],
+   "see": "Da die Dicke der anodischen Oxidschicht von der Kornorientierung abhängt, erscheinen die Körner im polarisierten Licht in unterschiedlichen Farben (zur Bestimmung von Korngröße und Orientierung).",
+   "nb": [
+    "Tetrafluoroborsäure ist ätzend. Im Abzug und mit Schutzausrüstung verwenden (PACE)",
+    "Tetrafluoroborsäure setzt bei Zersetzung Fluorwasserstoff frei und greift Glas an. Mit denselben Schutzmaßnahmen wie HF und in PE-Flaschen handhaben (SDB)"
+   ]
+  },
+  "naoh-al": {
+   "name": "Wässrige Natronlauge (Al, Zn)",
+   "aka": "",
+   "comp": [
+    "Natriumhydroxid 1–10 g + Wasser 100 mL (für das Gefüge von Al 1 %, für das Makrogefüge 10–20 %)"
+   ],
+   "use": [
+    "Al: 1 % wischen oder tauchen, 30–60 s (entstandenen Belag mit Salpetersäure entfernen). Makrogefüge: 10–20 % bei 50–70 °C, 30–60 s. Zn: 10 % für 1–5 s"
+   ],
+   "see": "Gefüge von Al (Ätzmittel ohne HF), Makrogefüge von Al (Faserverlauf beim Schmieden, Seigerungen, Schweißverbindungen), Reinzink und niedriglegiertes Zink.",
+   "nb": []
+  },
+  "weck-al": {
+   "name": "Weck-Ätzmittel (Farbätzung für Al)",
+   "aka": "",
+   "comp": [
+    "Kaliumpermanganat 4 g + Natriumhydroxid 1 g + Wasser 100 mL (die PACE-Seite zum Ätzmittel verwendet 4 g Natriumhydroxid und warm)"
+   ],
+   "use": [
+    "Tauchen 20–60 s (bis zur Färbung)"
+   ],
+   "see": "Färbt die Körner von Al-Legierungen. Gusslegierungen färben sich leichter als Knetlegierungen.",
+   "nb": [
+    "Kaliumpermanganat färbt Haut und Arbeitsflächen; daher in einer Schale arbeiten (PACE)"
+   ]
+  },
+  "kroll": {
+   "name": "Kroll-Ätzmittel",
+   "aka": "",
+   "comp": [
+    "Flusssäure 1–3 mL + Salpetersäure 2–6 mL + Wasser etwa 100 mL (Metkon: HF 2, HNO₃ 6, Wasser 92 mL; PACE: etwa HF 2 mL + HNO₃ 6 mL + Wasser 100 mL). In Behältern aus PE oder PP"
+   ],
+   "use": [
+    "Wischen 3–15 s (beim Tauchen greift die HF zu stark an). Mit kaltem Wasser gründlich spülen. Die Ti-Anleitung von PACE nennt auch Tauchen für 10–30 s, die Seite zum Ätzmittel dagegen Wischen"
+   ],
+   "see": "α-Phase (hell) und β-Phase (dunkel), umgewandelte β-Kolonien und Korngrenzen in Ti-Legierungen (Reintitan, Ti-6Al-4V u. a.). Auch für Zr-Legierungen.",
+   "nb": []
+  },
+  "weck-ti": {
+   "name": "Weck-Ätzmittel (Farbätzung für Ti, modifiziert)",
+   "aka": "",
+   "comp": [
+    "Wasser 100 mL + Ethanol 25 mL + Ammoniumhydrogendifluorid 2 g (die ursprünglichen 50 mL Ethanol führen zu ungleichmäßiger Ätzung)"
+   ],
+   "use": [
+    "Einige Sekunden bei 20 °C tauchen"
+   ],
+   "see": "Färbt Ti-Körner nach ihrer Orientierung (auch mechanische Zwillinge werden sichtbar). Zusammen mit polarisiertem Licht auch zur Messung der Tiefe des α-Case.",
+   "nb": []
+  },
+  "aps": {
+   "name": "Ammoniumperoxodisulfat",
+   "aka": "",
+   "comp": [
+    "Ammoniumperoxodisulfat 10 g + Wasser 90 mL"
+   ],
+   "use": [
+    "Wischen oder Tauchen 5–60 s. Frisch angesetzt verwenden (zersetzt sich in 1–2 Tagen)"
+   ],
+   "see": "Korngrenzen und Glühzwillinge in sauerstofffreiem Kupfer, Messing, Neusilber und Bronze; α- und β-Phase in Messing.",
+   "nb": []
+  },
+  "fecl3": {
+   "name": "Eisen(III)-chlorid-Lösung",
+   "aka": "",
+   "comp": [
+    "Eisen(III)-chlorid 5–10 g + Salzsäure 5–50 mL + Wasser, Ethanol oder Methanol 100–120 mL (Konzentration an die Legierung anpassen)"
+   ],
+   "use": [
+    "Tauchen oder Wischen 5–30 s"
+   ],
+   "see": "Korngrenzen und Phasen in Kupferlegierungen, Sn-Seigerung (Dendriten) in Bronze, Zinn–Kupfer-Legierungen.",
+   "nb": [
+    "Beim Ansetzen mit Methanol auf dessen Giftigkeit achten (es wird auch über die Haut aufgenommen). Möglichst Ethanol verwenden (siehe auch „Lösungen von Salpetersäure in Alkohol“ im Abschnitt „Sicherheit“)"
+   ]
+  },
+  "nh4oh": {
+   "name": "Ammoniaklösung und Wasserstoffperoxid",
+   "aka": "",
+   "comp": [
+    "Ammoniaklösung (konz.) : Wasserstoffperoxid 3 % : Wasser = 1 : 1 : 1 (Wasser kann entfallen)"
+   ],
+   "use": [
+    "Wischen 5–30 s. Lässt wenige Minuten nach dem Mischen in der Wirkung nach; daher unmittelbar vor der Verwendung ansetzen"
+   ],
+   "see": "Korngrenzen in Kupfer und Messing.",
+   "nb": [
+    "Konzentrierte Ammoniaklösung gibt stark reizende Dämpfe ab. Im Abzug arbeiten (SDB)"
+   ]
+  },
+  "acetic-picral": {
+   "name": "Essigsäure-Pikral",
+   "aka": "",
+   "comp": [
+    "Pikrinsäure 4,2–6 g + Essigsäure 5–30 mL + Wasser 0–15 mL + Ethanol 100 mL (die Verhältnisse schwanken zwischen den Quellen)"
+   ],
+   "use": [
+    "10–30 s. Mit Ethanol spülen (nicht mit Wasser)"
+   ],
+   "see": "Gefüge von Mg-Legierungen (Mg–Al, Mg–Al–Zn u. a.).",
+   "nb": [
+    "Eisessig ist ätzend und entzündbar. Von Zündquellen fernhalten und im Abzug arbeiten (SDB)"
+   ]
+  },
+  "hcl-dil": {
+   "name": "Verdünnte Salzsäure (Sn, Zn)",
+   "aka": "",
+   "comp": [
+    "Salzsäure 1–5 mL + Ethanol, Methanol oder Wasser 100 mL"
+   ],
+   "use": [
+    "Einige Minuten tauchen"
+   ],
+   "see": "Reinzinn, Zinn–Blei-Legierungen, Zinn–Antimon–Kupfer-Legierungen; Korngrenzen und Zweitphasen in Zink.",
+   "nb": [
+    "Beim Ansetzen mit Methanol auf dessen Giftigkeit achten (es wird auch über die Haut aufgenommen). Möglichst Ethanol verwenden (siehe auch „Lösungen von Salpetersäure in Alkohol“ im Abschnitt „Sicherheit“)"
+   ]
+  }
+ },
+ "defects": {
+  "scratch": {
+   "name": "Kratzer bleiben zurück",
+   "look": "Gleichgerichtete Kratzer, Kratzer, die gröber sind als das aktuelle Schleif- oder Poliermittel, oder Kratzer, die erst nach dem Ätzen erscheinen.",
+   "causes": {
+    "prev": {
+     "t": "Die Kratzer der vorigen Stufe wurden nicht vollständig entfernt (zu kurz, Körnung übersprungen, zu geringe Kraft)",
+     "fix": "Jede Stufe fortsetzen, bis alle Kratzer der vorigen Stufe verschwunden sind. Die Probe um 90° drehen und prüfen, ob die Kratzer der vorigen Richtung weg sind. Als Richtwert etwa das Dreifache der Zeit, bis sich das neue Kratzbild einheitlich ausgebildet hat. Keine Körnung überspringen."
+    },
+    "etchout": {
+     "t": "Beim Polieren verdeckte Verformung wurde durch das Ätzen sichtbar (nicht durch das Ätzmittel verursacht)",
+     "fix": "Das Endpolieren verlängern und die Kraft senken. Hilft das nicht, ab einer früheren Schleifstufe neu beginnen. Abwechselndes Polieren und leichtes Ätzen bestätigt die Ursache."
+    },
+    "carry": {
+     "t": "Grobe Körner wurden in eine spätere Stufe verschleppt (Probe, Halter, Hände, Tuch); regellos ausgerichtete Kratzer",
+     "fix": "Nach jeder Stufe im Ultraschallbad reinigen (30–60 s), die Handschuhe wechseln, für jedes Poliermittel ein eigenes Tuch verwenden und die Tücher abgedeckt halten."
+    },
+    "embedsic": {
+     "t": "In ein weiches Metall eingedrückte SiC-Körner verkratzen die Oberfläche in späteren Stufen",
+     "fix": "Feines SiC mit geringer Kraft verwenden oder auf Diamant auf einer starren Scheibe wechseln."
+    },
+    "cutdmg": {
+     "t": "Trennschäden wurden in der ersten Schleifstufe nicht vollständig entfernt (1–2 tiefe Kratzer)",
+     "fix": "Die erste Schleifstufe verlängern oder zu einer gröberen Körnung zurückgehen."
+    },
+    "worn": {
+     "t": "Papier oder Tuch ist abgenutzt oder zugesetzt (trägt nicht mehr ab)",
+     "fix": "Papier und Tuch ersetzen oder das Tuch abrichten und Poliermittel nachgeben. Bei harten Werkstoffen nutzt sich SiC schnell ab; dann Diamant verwenden."
+    }
+   }
+  },
+  "edge": {
+   "name": "Kantenabrundung",
+   "look": "Der Rand liegt tiefer als die Mitte und ist unscharf. Die Dicke von Schichten und die Tiefe aufgekohlter Schichten lassen sich nicht richtig messen.",
+   "causes": {
+    "gap": {
+     "t": "Spalt zwischen Probe und Einbettmittel (Schwindung des Harzes)",
+     "fix": "Beim Warmeinbetten unter Druck abkühlen. Beim Kalteinbetten ein langsam härtendes Epoxidharz mit geringer Schwindung verwenden und die Probe auf Raumtemperatur bringen. Auch Vakuumimprägnierung in Betracht ziehen."
+    },
+    "softmount": {
+     "t": "Das Einbettmittel ist weicher als die Probe (Härteunterschied)",
+     "fix": "Ein kantenschonendes Einbettmittel wählen (DAP, mineralgefülltes Epoxidharz, leitfähiges Phenolharz)."
+    },
+    "softcloth": {
+     "t": "Weiches, langfloriges Tuch oder zu langes Endpolieren",
+     "fix": "Ein festeres, kurzfloriges Tuch verwenden und kürzer endpolieren."
+    },
+    "noplate": {
+     "t": "Dünne Schichten oder Oxidzunder sind nicht gestützt",
+     "fix": "Den Rand vor dem Einbetten außenstromlos vernickeln."
+    },
+    "cutmount": {
+     "t": "Kraft und Wärme beim Trennen oder Warmeinbetten haben die Schicht abgelöst oder ausbrechen lassen",
+     "fix": "Auf einer Präzisionstrennmaschine mit Diamant- oder CBN-Trennscheibe senkrecht zur Schicht trennen (Trennschleifscheiben lösen die Schicht ab). Gießbar in Epoxidharz mit Vakuumimprägnierung einbetten und die Schleifkraft senken. Die Schnittfläche sofort nach dem Trennen prüfen und bei Ablösung neu trennen (durch späteres Polieren nicht zu beheben)."
+    },
+    "force": {
+     "t": "Zu hohe Kraft oder zu langes Polieren",
+     "fix": "Kraft senken und nur so lange polieren wie nötig."
+    }
+   }
+  },
+  "relief": {
+   "name": "Relief (Höhenunterschiede zwischen Phasen)",
+   "look": "Harte Phasen, Körner oder Schichten stehen hervor, die weiche Matrix liegt tiefer. Eine der Phasen ist unscharf.",
+   "causes": {
+    "resil": {
+     "t": "Ein nachgiebiges, weiches Tuch folgt der Oberflächenform und trägt die weiche Phase ab",
+     "fix": "Ein wenig nachgiebiges, festeres Tuch oder ein florloses Tuch verwenden."
+    },
+    "long": {
+     "t": "Zu langes Endpolieren",
+     "fix": "Das Endpolieren auf 1–3 min verkürzen (bei Bedarf eine kurze Stufe mit kolloidalem Siliciumdioxid)."
+    },
+    "mix": {
+     "t": "Phasen oder Schichten sehr unterschiedlicher Härte liegen nebeneinander",
+     "fix": "Diamant auf starren Verbundscheiben verwenden, um die Oberfläche eben zu halten. Geringe Kraft und mäßige Drehzahl."
+    },
+    "alumina": {
+     "t": "Sehr harte Carbide wurden mit Aluminiumoxid poliert",
+     "fix": "Werkstoffe mit harten Teilchen bis zum Schluss mit Diamant polieren."
+    }
+   }
+  },
+  "comet": {
+   "name": "Kometenschweife",
+   "look": "Tropfenförmige Schlieren hinter Einschlüssen, Poren oder harten Teilchen, alle in dieselbe Richtung.",
+   "causes": {
+    "dyn": {
+     "t": "Einseitig gerichtete Relativbewegung zwischen Probe und Tuch (Halter und Arbeitsscheibe nicht in Drehrichtung und Drehzahl abgestimmt)",
+     "fix": "Halter und Arbeitsscheibe gleichsinnig mit gleicher Drehzahl drehen lassen und einen Probenhalter verwenden (automatisches Gerät)."
+    },
+    "nap": {
+     "t": "Langfloriges Tuch, zu viel oder abgesetzte Poliersuspension",
+     "fix": "Ein florloses oder kurzfloriges Tuch verwenden und nur feucht halten. Die Suspension vor der Verwendung gut schütteln."
+    },
+    "forcec": {
+     "t": "Zu hohe Kraft oder langes Polieren auf einem weichen Tuch",
+     "fix": "Kraft senken (Richtwert von PACE: etwa 13–18 N für eine Probe mit 32 mm Durchmesser) und die Zeit auf weichen Tüchern verkürzen."
+    },
+    "hand": {
+     "t": "Die Probe wurde von Hand gehalten poliert",
+     "fix": "Einen Probenhalter verwenden."
+    }
+   }
+  },
+  "stain": {
+   "name": "Verfärbungen und Flecken",
+   "look": "Gelbe, braune oder regenbogenfarbene Flecken, Ränder von Wassertropfen, fleckige Dunkelfärbung.",
+   "causes": {
+    "dry": {
+     "t": "Wasser oder Ätzmittel ist auf der Oberfläche eingetrocknet",
+     "fix": "Nach dem Spülen mit Wasser sofort mit Ethanol verdrängen und mit sauberer Warmluft trocknen. Bei Flecken leicht nachpolieren und erneut ätzen."
+    },
+    "gapst": {
+     "t": "Im Spalt zwischen Probe und Einbettmittel zurückgebliebene Flüssigkeit tritt aus",
+     "fix": "Den Spalt vermeiden (unter Druck abkühlen, Vakuumimprägnierung, Harz mit geringer Schwindung). Proben im Exsikkator aufbewahren."
+    },
+    "waterprep": {
+     "t": "Ein wasserempfindlicher Werkstoff wurde mit Wasser geschliffen, poliert oder gereinigt",
+     "fix": "Mg nur mit Schmiermitteln und Reinigung auf Ethanolbasis bearbeiten. Bei Zn die wässrigen Stufen kurz halten und mit wasserfreiem Schmiermittel und Ethanol endpolieren."
+    },
+    "silica": {
+     "t": "Kolloidales Siliciumdioxid ist eingetrocknet, oder die Druckluft enthielt Öl",
+     "fix": "In den letzten 10–30 s der Stufe mit kolloidalem Siliciumdioxid nur Wasser auf das Tuch geben. Zum Trocknen ölfreie Luft verwenden."
+    },
+    "hot": {
+     "t": "Heißes Wasser, heiße Probe oder heißes Ätzmittel",
+     "fix": "Nicht mit heißem Wasser spülen. Die Probe vor dem Ätzen abkühlen lassen."
+    }
+   }
+  },
+  "over": {
+   "name": "Überätzung",
+   "look": "Dunkler Untergrund, Einzelheiten aufgelöst, Korngrenzen grabenartig verbreitert. Ätzgrübchen werden mit Poren verwechselt.",
+   "causes": {
+    "time": {
+     "t": "Zu lange Ätzzeit",
+     "fix": "Nachpolieren und mit kurzer Zeit beginnen (unteres Ende des in der Quelle genannten Bereichs; bei Nital 5–10 s)."
+    },
+    "conc": {
+     "t": "Zu konzentriertes Ätzmittel",
+     "fix": "Auf die Zusammensetzung der Quelle verdünnen (Nital nicht über 5 %)."
+    },
+    "warm": {
+     "t": "Probe oder Ätzmittel ist warm",
+     "fix": "Probe und Ätzmittel vor dem Ätzen auf Raumtemperatur bringen."
+    },
+    "immerse": {
+     "t": "Ein Ätzmittel zum Wischen wurde zum Tauchen verwendet (HF-haltig oder Königswassertyp)",
+     "fix": "Kroll-Ätzmittel, Glyceregia u. Ä. nicht tauchen, sondern kurz wischen."
+    }
+   }
+  },
+  "under": {
+   "name": "Zu schwache Ätzung (kein Gefüge sichtbar)",
+   "look": "Auch nach langem Ätzen erscheint kaum Gefüge, der Kontrast ist schwach.",
+   "causes": {
+    "dmg": {
+     "t": "Eine durch das Polieren gestörte Schicht ist zurückgeblieben",
+     "fix": "Nachpolieren oder eine Stufe chemisch-mechanisches Polieren (kolloidales Siliciumdioxid) hinzufügen."
+    },
+    "stale": {
+     "t": "Das Ätzmittel ist alt oder verbraucht",
+     "fix": "Neu ansetzen (Ammoniumperoxodisulfat lässt nach 1–2 Tagen nach, Ammoniaklösung und Wasserstoffperoxid nach wenigen Minuten; auch HF-haltige Ätzmittel altern)."
+    },
+    "wrong": {
+     "t": "Das Ätzmittel passt nicht zum Werkstoff",
+     "fix": "Ein zum Werkstoff passendes Ätzmittel wählen (Nital wirkt bei nichtrostendem Stahl kaum → elektrolytisch mit Oxalsäure, Glyceregia u. a.)."
+    },
+    "short": {
+     "t": "Zu kurze Zeit oder zu schwaches Ätzmittel",
+     "fix": "Die Zeit schrittweise verlängern oder ein etwas stärkeres Ätzmittel verwenden (Nital 2 % → 3 %)."
+    },
+    "film": {
+     "t": "Nach dem Polieren hat sich eine Passiv- oder Oxidschicht gebildet",
+     "fix": "Sofort nach dem Polieren ätzen. Nichtrostenden Stahl vor dem elektrolytischen Ätzen kurz mit Glyceregia anwischen und so aktivieren."
+    },
+    "dirty": {
+     "t": "Öl, Fingerabdrücke oder Reste von Poliermitteln",
+     "fix": "Vor dem Ätzen mit Ethanol reinigen."
+    }
+   }
+  },
+  "pit": {
+   "name": "Ätzgrübchen (Pitting)",
+   "look": "Auf einer nach dem Polieren einwandfreien Oberfläche entstehen beim Ätzen Grübchen.",
+   "causes": {
+    "strong": {
+     "t": "Ätzmittel zu stark oder Ätzzeit zu lang",
+     "fix": "Verdünnen oder kürzer ätzen. Auch der Wechsel zu einem milderen Ätzmittel ohne HF ist möglich."
+    },
+    "stalep": {
+     "t": "Altes Ätzmittel",
+     "fix": "Frisch angesetztes Ätzmittel verwenden."
+    },
+    "pool": {
+     "t": "Ätzmittel hat sich auf der Oberfläche gesammelt und ist eingetrocknet",
+     "fix": "Sofort spülen, mit Ethanol verdrängen und mit Warmluft trocknen."
+    },
+    "clip": {
+     "t": "Zwischen Probe und Metallklemme hat sich ein Lokalelement gebildet",
+     "fix": "Die Klemme isolieren oder durch Wischen ätzen."
+    },
+    "volt": {
+     "t": "Zu hohe Spannung oder zu lange Zeit beim elektrolytischen Ätzen",
+     "fix": "Beim elektrolytischen Ätzen mit Oxalsäure die Spannung von 6 V auf 3–4 V senken oder kürzer ätzen."
+    }
+   }
+  },
+  "pullout": {
+   "name": "Ausbrüche von Graphit, Einschlüssen oder harten Teilchen",
+   "look": "An Stellen, an denen Graphit, Einschlüsse oder Teilchen sein müssten, erscheinen dunkle Löcher mit glattem Grund (anders als echte Löcher mit scharfen Rändern). Nach kurzem Nachpolieren dieselbe Stelle betrachten: Echte Poren bleiben, Ausbrüche ändern ihre Form.",
+   "causes": {
+    "napp": {
+     "t": "Langfloriges Tuch",
+     "fix": "Ein florloses oder kurzfloriges Tuch verwenden. Die Oberfläche nach jeder Stufe prüfen."
+    },
+    "forcep": {
+     "t": "Zu hohe Kraft",
+     "fix": "Kraft senken (bei Einschlüssen in Stahl etwa 13–18 N)."
+    },
+    "longp": {
+     "t": "Zu langes Polieren",
+     "fix": "Kürzer endpolieren (bei der Bewertung von Einschlüssen in Stahl höchstens etwa 2 min)."
+    },
+    "sic": {
+     "t": "Bei Gusseisen wurde SiC-Papier bis in späte Stufen verwendet",
+     "fix": "Früh auf Diamant wechseln und mit Diamant 1 µm auf einem kurzflorigen Tuch endpolieren."
+    },
+    "noimp": {
+     "t": "Eine poröse oder spröde Probe wurde ohne Imprägnierung poliert",
+     "fix": "Zuerst mit niedrigviskosem Epoxidharz vakuumimprägnieren und mit einer feineren Körnung beginnen."
+    },
+    "binder": {
+     "t": "Harte Teilchen und weiche Matrix (Bindephase) werden unterschiedlich schnell abgetragen",
+     "fix": "Kraft senken und für die feinen Stufen etwas weichere Tücher verwenden. Entsteht auch Relief, die Stufen 9 und 3 µm auf starren Verbundscheiben ausführen."
+    }
+   }
+  },
+  "smear": {
+   "name": "Verformungsschicht verwischt das Gefüge (Verschmieren)",
+   "look": "Die Oberfläche glänzt hell, doch das Gefüge ist unscharf: Korngrenzen sind verwaschen, Zweitphasen verschwimmen.",
+   "causes": {
+    "mech": {
+     "t": "Nur mechanisch poliert (eine gestörte Schicht bleibt zurück)",
+     "fix": "Mit kolloidalem Siliciumdioxid oder feinem Aluminiumoxid auf einem weichen Tuch mit geringer Kraft chemisch-mechanisch endpolieren. Polieren und Ätzen abwechselnd wiederholen."
+    },
+    "forces": {
+     "t": "Zu hohe Kraft in der letzten Stufe",
+     "fix": "Die letzte Stufe mit geringer Kraft ausführen (Richtwert von PACE: 9–13 N)."
+    },
+    "carryd": {
+     "t": "Schädigung vom Grobschleifen wurde mitgeschleppt",
+     "fix": "Feinschleifstufen hinzufügen (P1500 und P2500, US 800 und 1200), bei Reinaluminium, Cu und Stahl mit niedrigem Kohlenstoffgehalt."
+    },
+    "twin": {
+     "t": "Durch die Kräfte beim Trennen oder Schleifen sind mechanische Zwillinge entstanden (nicht aus der Verarbeitungsgeschichte)",
+     "fix": "Die Kraft beim Trennen und Schleifen senken, mit dünner Scheibe präzise trennen und die Verformungsschicht Stufe für Stufe abtragen."
+    },
+    "dull": {
+     "t": "Stumpfes Poliermittel oder zu wenig Schmiermittel",
+     "fix": "Frisches Poliermittel verwenden und ausreichend schmieren."
+    }
+   }
+  },
+  "tint": {
+   "name": "Ungleichmäßige Färbung (Farbätzung)",
+   "look": "Nur ein Teil der Fläche ist gefärbt, Wischspuren, fleckige Farben. Hinweis: Unterschiedliche Farben der einzelnen Körner sind normal und hängen von der Kornorientierung ab.",
+   "causes": {
+    "dmgt": {
+     "t": "Polierschäden sind zurückgeblieben (Farbschichten reagieren empfindlich auf Verformung)",
+     "fix": "Sorgfältiger endpolieren als für Schwarz-Weiß-Ätzungen und erst auf einer verformungsfreien Oberfläche farbätzen (elektrolytisches Polieren ist nicht erforderlich)."
+    },
+    "uneven": {
+     "t": "Das Ätzmittel wirkte ungleichmäßig ein, oder die Oberfläche ist verschmutzt",
+     "fix": "Tauchen und die Probe leicht bewegen. Vor dem Ätzen mit Ethanol reinigen. Mit gleichmäßiger Kraft polieren."
+    },
+    "stalet": {
+     "t": "Ätzmittel alt oder trüb",
+     "fix": "Frisch angesetztes Ätzmittel verwenden (trübe Lösung entsorgen). Bei Beraha-Ätzmitteln das Kaliumdisulfit erst unmittelbar vor der Verwendung zugeben."
+    },
+    "airdry": {
+     "t": "Mit Druckluft getrocknet",
+     "fix": "Klemm-Ätzmittel mit Wasser, dann mit Ethanol abspülen und an der Luft trocknen lassen."
+    }
+   }
+  },
+  "embed": {
+   "name": "Eingedrückte Schleifkörner",
+   "look": "Unbewegliche helle Punkte und feine Kratzer, die sich nicht beseitigen lassen. Im EDX erscheinen Si oder C.",
+   "causes": {
+    "softab": {
+     "t": "SiC oder feiner Diamant auf einem weichen Metall",
+     "fix": "Kraft senken und Diamant auf einer starren Scheibe verwenden. Bei weichen Werkstoffen feine Körnungen von 3 µm und darunter nur auf nachgiebigen Tüchern verwenden. Zum Schluss die 1-µm-Stufe auf einem neuen Tuch wiederholen."
+    },
+    "lube": {
+     "t": "Zu viel Schmiermittel",
+     "fix": "Weniger Schmiermittel verwenden und kürzer mechanisch polieren. Bei Loten die Körner zum Schluss durch Vibrationspolieren entfernen."
+    },
+    "oldpaper": {
+     "t": "Altes oder zugesetztes Papier",
+     "fix": "Das Papier häufig wechseln und ausreichend Wasser zuführen."
+    }
+   }
+  },
+  "heat": {
+   "name": "Gefügeänderung durch Wärme, Verbrennen",
+   "look": "Anlauffarben auf der polierten Fläche, ein dunkles Band am Rand, streuende Härtewerte bei gehärtetem Stahl.",
+   "causes": {
+    "cool": {
+     "t": "Unzureichende Kühlung oder zu starkes Andrücken beim Trennen",
+     "fix": "Ständig Kühlschmiermittel zuführen und die Scheibe schneiden lassen, ohne anzudrücken. Wärmeschäden lassen sich durch Polieren nicht beseitigen; bis unter die betroffene Schicht abschleifen oder neu trennen."
+    },
+    "wheel": {
+     "t": "Die Bindung der Trennscheibe passt nicht zum Werkstoff",
+     "fix": "Für harte, spröde Werkstoffe weich gebundene, für weiche, zähe Werkstoffe hart gebundene Trennscheiben. Hartmetalle und Keramik mit Diamanttrennscheiben trennen."
+    },
+    "hotmount": {
+     "t": "Wärme beim Warmeinbetten (150–180 °C)",
+     "fix": "In gießbarem, bei Raumtemperatur härtendem Epoxidharz einbetten (ausscheidungsgehärtetes Al, Lote u. a.)."
+    },
+    "drygrind": {
+     "t": "Trocken geschliffen oder Papier zugesetzt",
+     "fix": "Nass schleifen und zugesetztes Papier ersetzen."
+    }
+   }
+  }
+ },
+ "guide": [
+  {
+   "h": "Warum die Kratzer der vorigen Stufe vollständig verschwinden müssen (die Verformungsschicht)",
+   "p": [
+    "Ein Schleifkratzer ist nicht nur eine Rille. Unter der Rille bleibt eine unsichtbare Schicht plastischer Verformung zurück. Die nächste Stufe muss nicht nur die Rille, sondern auch diese Schicht entfernen. Der Leitfaden von Struers stellt als Grundsatz auf, dass jede Stufe die Schädigung der vorigen beseitigt und selbst möglichst wenig neue erzeugt.",
+    "Bleibt diese Schicht zurück, erscheint die Oberfläche im polierten Zustand eben, doch nach dem Ätzen treten Kratzer und Störungen hervor. Nicht das Ätzmittel hat sie erzeugt; vielmehr wird Verformung sichtbar, die das Polieren verdeckt hatte. Am häufigsten betrifft das weiche Metalle (Al, Cu, Sn, austenitischen nichtrostenden Stahl, Ti); die Quellen empfehlen, das Endpolieren zu verlängern, chemisch-mechanisch (mit kolloidalem Siliciumdioxid) zu polieren oder Polieren und leichtes Ätzen abzuwechseln.",
+    "Wie tief die Verformung reicht, lässt sich an den sichtbaren Rillen nicht ablesen. In einer Untersuchung, in der Eisen, Kupfer und Titan auf Schleifpapier geschliffen und die Verformungstiefe mit EBSD und FIB gemessen wurde, ergab EBSD für dasselbe Schleifpapier deutlich größere Tiefen als FIB. Die Verformung reicht also bis in nicht sichtbare Bereiche – so weit, dass selbst der Messwert vom Verfahren abhängt.",
+    "Je empfindlicher ein Messverfahren auf die Verformungsschicht reagiert, desto stärker wirkt sie sich aus. EBSD nutzt die Beugung aus den obersten 10–50 nm, sodass schon geringe Verformung die Muster schwächt. Restaustenit in gehärtetem Stahl kann sich durch die Verformung beim Schleifen und Polieren umwandeln; für die röntgenographische Bestimmung seines Anteils wird an einer elektrolytisch polierten Oberfläche gemessen.",
+    "Prüfung: Die Probe in jeder Stufe um 90° drehen und kontrollieren, ob noch Kratzer in der Richtung der vorigen Stufe vorhanden sind. PACE empfiehlt als Richtwert, etwa das Dreifache der Zeit weiterzumachen, die bis zur einheitlichen Ausbildung des neuen Kratzbilds nötig war."
+   ]
+  },
+  {
+   "h": "Was beim Ätzen geschieht",
+   "p": [
+    "An Korngrenzen ist die Atomanordnung gestört und die Energie höher; sie lösen sich daher schneller als das Korninnere und werden zu Rillen. Von einer Rille wird das Licht nicht gerade zurückgeworfen, sodass Korngrenzen im Mikroskop als dunkle Linien erscheinen.",
+    "Chemisch verschiedene Phasen lösen sich unterschiedlich schnell. Berühren sich Phasen mit unterschiedlichem Potential, bildet sich ein Lokalelement, und eine der Phasen wird bevorzugt aufgelöst. Auch innerhalb einer Phase hängt der Angriff von der Kristallorientierung ab, sodass gleich orientierte Körner gleich hell erscheinen.",
+    "Farbätzmittel (Klemm, Beraha, Weck u. a.) lösen die Oberfläche nicht auf, sondern scheiden eine dünne Schicht (meist ein Sulfid) auf ihr ab. Die Schicht wächst je nach Kristallorientierung und Zusammensetzung unterschiedlich dick, und durch Interferenz entstehen auch im Hellfeld Farben. Ein enger Farbbereich weist auf eine Vorzugsorientierung (Textur) hin. Die Schichten reagieren empfindlich auf Polierschäden; daher ist eine sorgfältigere Präparation nötig als für Schwarz-Weiß-Ätzungen.",
+    "Beim elektrolytischen Ätzen ist die Probe die Anode; es fließt Gleichstrom, und der Angriff wird über Spannung und Zeit gesteuert (z. B. elektrolytisch mit Oxalsäure). Bei der anodischen Oxidation von Al mit Barker-Ätzmittel hängt die Schichtdicke von der Kornorientierung ab, sodass die Körner im polarisierten Licht unterschiedlich gefärbt erscheinen. Beim thermischen Ätzen von Keramik wird etwas unterhalb der Sintertemperatur geglüht, wodurch an den Korngrenzen Rillen entstehen."
+   ]
+  },
+  {
+   "h": "Vergrößerung bei der Untersuchung und was in ein Gefügebild gehört",
+   "p": [
+    "Eine auf dem Bild angegebene Vergrößerung stimmt nicht mehr, sobald das Bild vergrößert oder verkleinert wird. Ein Maßstabsbalken im Bild ändert seine Größe mit dem Bild und bleibt daher richtig. Am Maßstabsbalken die Länge angeben (meist in µm).",
+    "Dasselbe Gefüge sieht je nach Ätzmittel, Ätzzeit und Beleuchtung in Helligkeit und Farbe sehr unterschiedlich aus. Zu jedem Bild gehören Werkstoff und Wärmebehandlung, Lage und Richtung des Schnitts, die letzte Polierstufe, Name, Zusammensetzung und Zeit des Ätzmittels (bei elektrolytischem Ätzen die Spannung) sowie die Beleuchtung (Hellfeld, polarisiertes Licht, DIC). So können andere unter denselben Bedingungen vergleichen.",
+    "Die Vergrößerung richtet sich nach dem Zweck. In den Beispielen der Quellen wird der Fortschritt jeder Polierstufe bei ×200 (Keramik), die Qualität des Endpolierens und der Graphit in Gusseisen bei ×500 geprüft. Zuerst bei niedriger Vergrößerung einen Überblick gewinnen und repräsentative Stellen auswählen, bevor die Vergrößerung erhöht wird; so werden nicht nur Sonderstellen aufgenommen."
+   ]
+  }
+ ],
+ "faq": [
+  [
+   "Wann verwendet man Nital und wann Pikral?",
+   "Nital zeigt sowohl Ferritkorngrenzen als auch Perlit und eignet sich daher für das allgemeine Gefüge von Stählen und die Korngröße. Pikral greift Zementit an, zeigt aber keine Ferritkorngrenzen; es eignet sich daher für Perlitlamellen sowie kugelige und Anlasscarbide. Sollen beide Merkmale sichtbar werden, kombiniert man die Ätzmittel. Pikral enthält Pikrinsäure; die Lösung nicht eintrocknen lassen."
+  ],
+  [
+   "Nach dem Ätzen sind Kratzer erschienen. Liegt das am Ätzmittel?",
+   "Meist nicht. Das Ätzen hat eine Verformungsschicht oder flache Rillen sichtbar gemacht, die nach dem Endpolieren eben aussahen. Zur vorigen Stufe zurückgehen, nachpolieren, reinigen und erneut ätzen. Abwechselndes Polieren und leichtes Ätzen bestätigt die Ursache."
+  ],
+  [
+   "Ist Aluminiumoxid oder kolloidales Siliciumdioxid für das Endpolieren besser?",
+   "Das hängt von Werkstoff und Zweck ab. PACE verwendet für das Endpolieren von Stählen standardmäßig Aluminiumoxid 0,05 µm, weil kolloidales Siliciumdioxid die Matrix chemisch angreifen und feine Einschlüsse herauslösen kann. Für EBSD, Ti (mit Zusatz von Wasserstoffperoxid), Keramik und weiche, leicht verschmierende Metalle ist das chemisch-mechanische Polieren mit kolloidalem Siliciumdioxid hilfreich. In beiden Fällen das Poliermittel nicht auf der Oberfläche eintrocknen lassen und zum Schluss mit Wasser spülen."
+  ],
+  [
+   "Lassen sich Al und Ti ohne Flusssäure ätzen?",
+   "Bei Al lässt sich das Gefüge mit Natronlauge 1 %, mit dem Weck-Ätzmittel (Farbätzmittel aus Kaliumpermanganat und Natriumhydroxid) oder durch anodische Oxidation mit Barker-Ätzmittel (Tetrafluoroborsäure, ätzend) sichtbar machen. Bei Ti enthalten fast alle Ätzmittel HF. PACE nennt zwar auch ein HF-freies Ätzmittel (Ogden–Holden-Ätzmittel aus verdünnter Salz- und Schwefelsäure, siedend verwendet), doch dabei wird mit siedender Säure gearbeitet. Wird HF verwendet, Calciumgluconat-Gel bereithalten und die Arbeitsanweisungen der eigenen Einrichtung befolgen."
+  ],
+  [
+   "Am Hals einer Pikrinsäureflasche habe ich trockene Kristalle gefunden. Was ist zu tun?",
+   "Die Flasche nicht berühren, nicht bewegen und den Deckel nicht öffnen. Trockene Pikrinsäure und Pikrate können durch Schlag oder Reibung explodieren. Sofort die für Sicherheit und Entsorgung zuständigen Personen der eigenen Einrichtung verständigen. Im normalen Gebrauch den Feststoff mit Wasser angefeuchtet aufbewahren und regelmäßig prüfen, ob er ausgetrocknet ist."
+  ],
+  [
+   "Warum darf Magnesium nicht mit Wasser poliert werden?",
+   "Mg reagiert mit Wasser und oxidiert sofort (die Oberfläche wird weiß und pulverig); dabei entsteht auch Wasserstoff. Vom Trennen über das Polieren bis zum Spülen nach dem Ätzen Schmiermittel und Reinigung auf Ethanolbasis verwenden, nach dem Polieren sofort trocknen und im Exsikkator oder in Ethanol aufbewahren. Späne entzünden sich leicht; daher nicht trocken trennen."
+  ]
+ ]
+}
