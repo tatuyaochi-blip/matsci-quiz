@@ -716,6 +716,7 @@
   "prep_pick": "Choose the defect you see. If you also choose a material, causes are reordered for that material.",
   "prep_count": "{n} causes, most common first",
   "prep_count_m": "{n} likely causes for {m}, most likely first",
+  "prep_sep": ", ",
   "prep_up": "Ranked higher because the material is:",
   "prep_by_mat": "Depends on the material's properties",
   "prep_low_h": "Unlikely for this material ({n})",

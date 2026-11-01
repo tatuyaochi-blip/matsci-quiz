@@ -3923,7 +3923,7 @@ ${relCats.length ? `<section>
     const ul = (list, cls = 'mt-miss') => `<ul class="${cls}">${list.map(s => `<li>${esc(s)}</li>`).join('')}</ul>`;
     // 原因は基本の重みの順(同じ重みはデータの順)。重み 0 は材料によって起きる原因で、その性質を添える
     const byW = f => f.causes.map((c, i) => [c, i]).sort((a, b) => b[0].w - a[0].w || a[1] - b[1]).map(x => x[0]);
-    const byTr = c => [...new Set([...(c.only ?? []), ...Object.keys(c.up)])].map(k => trName[k]).join('・');
+    const byTr = c => [...new Set([...(c.only ?? []), ...Object.keys(c.up)])].map(k => trName[k]).join(need('prep_sep'));
     const tips = f => D.materials.filter(m => m.fx[f.id]);
     const flowHtml = D.flow.map((f, i) => `
   <li class="pp-st" id="st-${f.id}">
@@ -3991,7 +3991,7 @@ ${relCats.length ? `<section>
     ${ul(e.nb)}` : ''}
     ${src(e.src)}
   </article>`;
-    const jsText = Object.fromEntries(['prep_pick', 'prep_count', 'prep_count_m', 'prep_up', 'prep_by_mat', 'prep_low_h', 'prep_low_only', 'prep_low_zero', 'prep_tip_h', 'prep_mat_link', 'compare_link_copied'].map(k => [k, need(k)]));
+    const jsText = Object.fromEntries(['prep_pick', 'prep_count', 'prep_count_m', 'prep_up', 'prep_by_mat', 'prep_low_h', 'prep_low_only', 'prep_low_zero', 'prep_tip_h', 'prep_mat_link', 'prep_sep', 'compare_link_copied'].map(k => [k, need(k)]));
     const jsD = D.defects.map(f => ({ id: f.id, causes: f.causes.map(({ id, w, up, only }) => ({ id, w, up, ...(only ? { only } : {}) })) }));
     const jsM = D.materials.map(m => ({ id: m.id, tr: m.tr }));
     const relCats = [...new Set(D.groups.map(g => g.cat))].map(catOf).filter(c => c && live.includes(c));
