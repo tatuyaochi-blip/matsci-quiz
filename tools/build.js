@@ -4233,7 +4233,7 @@ ${relCats.length ? `<section>
     </tbody></table></div>
     ${src(f.src)}
   </article>`;
-    const num = (x, d) => new Intl.NumberFormat(L.locale, { minimumFractionDigits: d, maximumFractionDigits: d }).format(x);
+    const num = (x, d) => new Intl.NumberFormat(L.locale, { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: !/^de/.test(L.locale) }).format(x);
     const gRows = D.gtable.rows.map(([g]) => { const na = msrJs.naFromG(g); return [g, na, msrJs.lFromG(g) * 1000, 1000 / Math.sqrt(na)]; });
     const fmlPage = id => (fml?.formulas.find(f => f.id === id));
     const chip = (href, text) => `<a class="chip" href="${href}">${esc(text)}</a>`;

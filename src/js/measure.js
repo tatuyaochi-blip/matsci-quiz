@@ -519,7 +519,7 @@ function init() {
   const t = (k, v = {}) => (T[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => (v[x] ?? ''));
   // 数値の書式(言語に合わせる)。d: 小数の桁、sig: 有効数字
   const nfs = {};
-  const nf = (x, d = 0) => (x == null || !Number.isFinite(x) ? '—' : (nfs[d] ??= new Intl.NumberFormat(lang, { minimumFractionDigits: d, maximumFractionDigits: d })).format(x));
+  const nf = (x, d = 0) => (x == null || !Number.isFinite(x) ? '—' : (nfs[d] ??= new Intl.NumberFormat(lang, { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: !/^de/.test(lang) })).format(x));
   const sigD = (x, s = 3) => (x === 0 || !Number.isFinite(x) ? 0 : Math.max(0, s - 1 - Math.floor(Math.log10(Math.abs(x)))));
   const sig = (x, s = 3) => nf(x, sigD(x, s));
   const raw = (x, s = 6) => (x == null || !Number.isFinite(x) ? '' : String(Number(x.toPrecision(s)))); // CSV 用(小数点はいつも「.」)
