@@ -1036,7 +1036,7 @@ function init() {
     const modes = ['bar', 'px', 'mag', 'fov'];
     const chips = el('div', { class: 'mt-chips', role: 'radiogroup', 'aria-label': t('measure_scale_h') }, modes.map(k => {
       const i = el('input', { type: 'radio', name: 'ms-scale', value: k, checked: sc.mode === k });
-      i.addEventListener('change', () => { sc.mode = k; pick = null; renderScale(); upd(); setHint(); });
+      i.addEventListener('change', () => { sc.mode = k; pick = null; upd(); renderScale(); setHint(); });
       return el('label', { class: 'mt-chip' }, i, ` ${t(`measure_scale_${k}`)}`);
     }));
     let body;
@@ -1050,7 +1050,7 @@ function init() {
         el('label', { class: 'mt-pick' }, lv, t('measure_scale_level')),
         num(t('measure_scale_len'), sc.bar.len, v => { sc.bar.len = v; upd(); }),
         el('p', { class: 'muted ms-scale-px', text: d ? t('measure_scale_barpx', { d: nf(d, 1) }) : t('measure_scale_pick_lead') }),
-        ...(S?.barPx ? [btn(t('measure_scale_syn_bar'), () => { sc.bar = { ...sc.bar, a: S.barPx.a, b: S.barPx.b, len: S.barPx.um }; renderScale(); upd(); })] : []));
+        ...(S?.barPx ? [btn(t('measure_scale_syn_bar'), () => { sc.bar = { ...sc.bar, a: S.barPx.a, b: S.barPx.b, len: S.barPx.um }; upd(); renderScale(); })] : []));
     } else if (sc.mode === 'px') body = el('div', { class: 'ms-scale-row' }, num(t('measure_scale_um'), sc.px, v => { sc.px = v; upd(); }));
     else if (sc.mode === 'mag') body = el('div', { class: 'ms-scale-row' }, num(t('measure_scale_m'), sc.m, v => { sc.m = v; upd(); }), num(t('measure_scale_wmm'), sc.wmm, v => { sc.wmm = v; upd(); }), el('p', { class: 'muted', text: t('measure_scale_mag_note') }));
     else body = el('div', { class: 'ms-scale-row' }, num(t('measure_scale_fovum'), sc.fov, v => { sc.fov = v; upd(); }));
