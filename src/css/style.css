@@ -319,7 +319,9 @@ table.compare tbody tr:last-child th, table.compare tbody tr:last-child td { bor
 .progress { height: 8px; border-radius: 4px; background: var(--border); overflow: hidden; margin: 8px 0 16px; }
 .progress-bar { height: 100%; background: var(--grad); transition: width .3s; }
 .q-cat { display: inline-block; margin: 0; padding: 2px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: .8rem; font-weight: 700; }
-.q-text { font-size: 1.2rem; line-height: 1.75; margin: .6rem 0 1.2rem; }
+/* 問題文: 見出し(h1)だが本文として読むので、太さと大きさを抑える(11-02 ユーザーの指摘「太文字すぎ・大きすぎ」) */
+.q-text { font-size: 1.06rem; font-weight: 500; line-height: 1.8; margin: .6rem 0 1.2rem; }
+@media (max-width: 480px) { .q-text { font-size: 1rem; } }
 
 .choices { display: grid; gap: 10px; }
 .choice {
