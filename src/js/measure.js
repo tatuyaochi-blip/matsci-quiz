@@ -589,6 +589,7 @@ function init() {
   // 数値の書式(言語に合わせる)。d: 小数の桁、sig: 有効数字
   const nfs = {};
   const nf = (x, d = 0) => (x == null || !Number.isFinite(x) ? '—' : (nfs[d] ??= new Intl.NumberFormat(lang, { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: !/^de/.test(lang) })).format(x));
+  const dec = str => (/^de/.test(lang) ? String(str).replace(/(\d)\.(\d)/g, '$1,$2') : str); // de: 式の行の直書きの定数も小数のコンマに
   const sigD = (x, s = 3) => (x === 0 || !Number.isFinite(x) ? 0 : Math.max(0, s - 1 - Math.floor(Math.log10(Math.abs(x)))));
   const sig = (x, s = 3) => nf(x, sigD(x, s));
   const raw = (x, s = 6) => (x == null || !Number.isFinite(x) ? '' : String(Number(x.toPrecision(s)))); // CSV 用(小数点はいつも「.」)
@@ -1336,7 +1337,7 @@ function init() {
       add('measure_r_g', r.G != null && Number.isFinite(r.G) ? nf(r.G, 2) : '—', raw(r.G, 4));
       if (r.Gr) add('measure_r_grange', `${nf(r.Gr[0], 2)} – ${r.Gr[1] != null ? nf(r.Gr[1], 2) : '—'}`, `${raw(r.Gr[0], 4)} – ${raw(r.Gr[1], 4)}`);
       add('measure_r_pooled', r.pooled ? `${sig(r.pooled, 4)} µm` : '—', raw(r.pooled), 'µm');
-      add('measure_r_formula', 'ℓ = L / P;  G = −6.643856 log₁₀(ℓ̄ / mm) − 3.288', 'l = L / P; G = -6.643856 log10(l/mm) - 3.288');
+      add('measure_r_formula', dec('ℓ = L / P;  G = −6.643856 log₁₀(ℓ̄ / mm) − 3.288'), 'l = L / P; G = -6.643856 log10(l/mm) - 3.288');
     } else if (m === 'plan') {
       add('measure_r_n', nf(r.nOk), r.nOk);
       add('measure_r_sumn', nf(r.sumN, 1), r.sumN);
@@ -1347,7 +1348,7 @@ function init() {
       add('measure_r_g', r.G != null && Number.isFinite(r.G) ? nf(r.G, 2) : '—', raw(r.G, 4));
       if (r.Gr) add('measure_r_grange', `${r.Gr[0] != null ? nf(r.Gr[0], 2) : '—'} – ${nf(r.Gr[1], 2)}`, `${raw(r.Gr[0], 4)} – ${raw(r.Gr[1], 4)}`);
       add('measure_r_dbar', x?.mean > 0 ? `${sig(1000 / Math.sqrt(x.mean), 3)} µm` : '—', raw(x?.mean > 0 ? 1000 / Math.sqrt(x.mean) : null), 'µm');
-      add('measure_r_formula', 'N_A = (N_in + ½ N_cut [+ 1]) / A;  G = 3.321928 log₁₀(N_A / mm⁻²) − 2.954', 'N_A = (N_in + 0.5 N_cut [+1 rect]) / A; G = 3.321928 log10(N_A/mm-2) - 2.954');
+      add('measure_r_formula', dec('N_A = (N_in + ½ N_cut [+ 1]) / A;  G = 3.321928 log₁₀(N_A / mm⁻²) − 2.954'), 'N_A = (N_in + 0.5 N_cut [+1 rect]) / A; G = 3.321928 log10(N_A/mm-2) - 2.954');
     } else {
       add('measure_r_n', nf(r.rows.length), r.rows.length);
       add('measure_r_sumpt', nf(r.sumPt), r.sumPt);
@@ -1356,7 +1357,7 @@ function init() {
         rows.push([t('measure_r_vv', { name: nm }), s ? `${nf(100 * s.mean, 1)} %${s.ci != null ? ` ± ${nf(100 * s.ci, 1)} % (${t('measure_r_ra_s', { ra: s.ra != null ? nf(s.ra, 1) : '—' })})` : ''}` : '—', raw(s ? 100 * s.mean : null), '%']);
         rows.push([t('measure_r_vv_detail', { name: nm }), s ? `${t('measure_r_hits', { n: nf(p.sum, 1) })}${s.s != null ? ` · s = ${nf(100 * s.s, 2)} % · t = ${nf(s.t, 3)}` : ''}` : '—', s?.ci != null ? `s=${raw(100 * s.s)}; ci95=${raw(100 * s.ci)}; ra=${raw(s.ra, 4)}` : '', '%']);
       }
-      add('measure_r_formula', 'P_P = P_α / P_T;  V_V ≈ P̄_P;  95 % CI = t·s/√n', 'P_P = P_alpha / P_T; V_V = mean(P_P); CI95 = t s / sqrt(n)');
+      add('measure_r_formula', dec('P_P = P_α / P_T;  V_V ≈ P̄_P;  95 % CI = t·s/√n'), 'P_P = P_alpha / P_T; V_V = mean(P_P); CI95 = t s / sqrt(n)');
     }
     return rows;
   }
@@ -1575,6 +1576,7 @@ function initCalc(box, convBox) {
   const t = (k, v = {}) => (T[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => (v[x] ?? ''));
   const nfs = {};
   const nf = (x, d = 0) => (x == null || !Number.isFinite(x) ? '—' : (nfs[d] ??= new Intl.NumberFormat(lang, { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: false })).format(x));
+  const dec = str => (/^de/.test(lang) ? String(str).replace(/(\d)\.(\d)/g, '$1,$2') : str); // de: 式の行の直書きの定数も小数のコンマに
   const sigD = (x, s = 3) => (x === 0 || !Number.isFinite(x) ? 0 : Math.max(0, s - 1 - Math.floor(Math.log10(Math.abs(x)))));
   const sig = (x, s = 4) => nf(x, sigD(x, s));
   const raw = (x, s = 6) => (x == null || !Number.isFinite(x) ? '' : String(Number(x.toPrecision(s))));
@@ -1754,7 +1756,7 @@ function initCalc(box, convBox) {
       L.push(`95 % CI = t · s / √n = ${nf(s.t, 3)} × ${f(s.s)} / √${s.n} = ± ${f(s.ci)}`);
       L.push(`%RA = 100 × CI / ${bar} = 100 × ${f(s.ci)} / ${f(s.mean)} = ${nf(s.ra, 1)} %`);
     }
-    return L;
+    return L.map(dec);
   }
   function steps(m, R, ok) {
     const L = ok.map((r, j) => `${t('measure_calc_field', { i: r.i + 1 })}: ${fieldLine(m, r, R, j)}`);
@@ -1771,7 +1773,7 @@ function initCalc(box, convBox) {
       L.push(...statLines(p.xs, p.st, f, 'P̄_P', 'P_P,i'));
       L.push(`V_V ≈ P̄_P = ${f(p.st.mean)}${p.st.ci != null ? ` ± ${f(p.st.ci)}` : ''}`);
     }
-    return L;
+    return L.map(dec);
   }
   // 結果の表(画面・テキスト・CSV で同じ行): [ラベル, 文, CSV の値, 単位]
   function table(m, R) {
@@ -1937,7 +1939,7 @@ function initCalc(box, convBox) {
       if (r.kind !== 'dbar') L.push(`d̄ = √Ā = ${sig(r.dbar, 4)} µm`);
       L.push(`√(4Ā/π) = ${sig(r.dcirc, 4)} µm`, `N_L = 1 / ℓ̄ = ${sig(r.nl, 4)} mm⁻¹`);
       if (r.gjis != null) L.push(`G_JIS = log₂(N_A / 8) = ${nf(r.gjis, 2)}  (= G − 0.046)`);
-      return L;
+      return L.map(dec);
     }
     let last = null;
     function conv() {
