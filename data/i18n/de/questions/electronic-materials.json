@@ -106,5 +106,32 @@
    "Es ist ein indirekter Halbleiter; die strahlende Rekombination erfordert Phononen, daher ist die Lichtausbeute gering"
   ],
   "explanation": "Silizium ist ein indirekter Halbleiter: Das Minimum des Leitungsbands und das Maximum des Valenzbands liegen bei unterschiedlichen Kristallimpulsen. Damit ein Elektron und ein Loch unter Lichtemission rekombinieren, muss gleichzeitig ein Phonon beteiligt sein, das den Impulsunterschied ausgleicht; die Wahrscheinlichkeit strahlender Rekombination ist daher sehr gering, und meist erfolgt eine nichtstrahlende Rekombination über Defektniveaus, die Wärme erzeugt. Direkte Halbleiter wie GaAs und InGaN emittieren Licht effizient und werden für LEDs und Laser verwendet. Ein direkter Halbleiter zu sein ist für die Lichtemission also sogar günstig. Ca. 3,4 eV ist die Bandlücke von GaN, nicht von Silizium; die von Silizium beträgt ca. 1,12 eV, sodass emittiertes Licht im Infraroten bei einer Wellenlänge von ca. 1,1 µm liegt."
+ },
+ "electronic-materials-013": {
+  "question": "Welche Kombination aus Majoritätsladungsträgern und Lage des Donatorniveaus trifft zu, wenn Silizium mit einer kleinen Menge Arsen (Gruppe 15) dotiert wird?",
+  "choices": [
+   "Die Majoritätsladungsträger sind Löcher, und das Niveau liegt knapp oberhalb der Oberkante des Valenzbands",
+   "Die Majoritätsladungsträger sind Elektronen, und das Niveau liegt knapp unterhalb der Unterkante des Leitungsbands",
+   "Die Majoritätsladungsträger sind Elektronen, und das Niveau liegt etwa in der Mitte der Bandlücke"
+  ],
+  "explanation": "Arsen hat 5 Valenzelektronen; besetzt es einen Si-Gitterplatz, werden 4 davon für die kovalenten Bindungen zu den umgebenden Si-Atomen gebraucht, und 1 bleibt übrig. Dieses Elektron ist nur schwach gebunden, sein Niveau liegt etwa 0,05 eV unterhalb der Unterkante des Leitungsbands; bei Raumtemperatur sind daher fast alle diese Donatoren ionisiert, ihre Elektronen gelangen ins Leitungsband, und der Halbleiter wird n-leitend. Löcher als Majoritätsladungsträger mit einem Niveau knapp oberhalb des Valenzbands beschreiben Akzeptoren in p-leitendem Material, das mit einem Element der Gruppe 13 wie Bor dotiert ist. Tiefe Niveaus nahe der Mitte der Bandlücke werden von Verunreinigungen wie Gold gebildet; sie sind bei Raumtemperatur kaum ionisiert und wirken eher als Rekombinationszentren, als dass sie Ladungsträger liefern."
+ },
+ "electronic-materials-014": {
+  "question": "Was ist der Hauptgrund dafür, dass ein Metallblech (1 µm oder dicker) kein sichtbares Licht durchlässt und einen starken metallischen Glanz hat?",
+  "choices": [
+   "Seine Bandlücke ist größer als die Energie des sichtbaren Lichts, sodass das Licht nicht absorbiert, sondern vollständig an der Oberfläche reflektiert wird",
+   "Das Licht wird an Korngrenzen gestreut; ein Einkristall ohne Korngrenzen würde auch bei einem Metall sichtbares Licht durchlassen",
+   "Oberhalb des Fermi-Niveaus liegen kontinuierlich freie Niveaus, sodass Leitungselektronen sichtbares Licht absorbieren und den größten Teil aus einer Oberflächenschicht wieder abstrahlen"
+  ],
+  "explanation": "In einem Metall liegen unmittelbar oberhalb des Fermi-Niveaus kontinuierlich freie Niveaus, sodass Leitungselektronen sichtbare Photonen jeder Energie absorbieren und angeregt werden können. Das Licht wird innerhalb von etwa 0,1 µm unter der Oberfläche fast vollständig absorbiert, daher lassen dickere Bleche kein Licht durch. Fallen die angeregten Elektronen zurück, wird Licht wieder abgestrahlt, und diese starke Reflexion wird als metallischer Glanz wahrgenommen. Metalle haben keine Bandlücke, daher ist die Aussage über eine große Bandlücke falsch. Wäre die Streuung an Korngrenzen die Ursache, müsste ein Einkristall durchsichtig sein, doch auch Metalleinkristalle sind undurchsichtig. Kupfer und Gold erscheinen farbig, weil ihr Reflexionsgrad für kurze Wellenlängen niedrig ist und die Wellenlängenverteilung des reflektierten Lichts dadurch verschoben wird."
+ },
+ "electronic-materials-015": {
+  "question": "Die Leitfähigkeit von Silizium im Eigenleitungsbereich (Bandlücke 1,12 eV) sei proportional zu exp(−Eg/2kT); die Temperaturabhängigkeit der Beweglichkeit und des Terms T^(3/2) wird vernachlässigt. Um etwa welchen Faktor steigt die Leitfähigkeit, wenn die Temperatur von 300 K auf 350 K erhöht wird? Es gelte k = 8,617×10⁻⁵ eV/K.",
+  "choices": [
+   "ca. 22-fach",
+   "ca. 1,2-fach",
+   "ca. 490-fach"
+  ],
+  "explanation": "Die intrinsische Ladungsträgerdichte ist ni ∝ exp(−Eg/2kT); Elektronen und Löcher entstehen paarweise, daher steht die halbe Bandlücke im Exponenten. Das Verhältnis ist exp[(Eg/2k)(1/300 − 1/350)] mit Eg/2k = 1,12/(2 × 8,617×10⁻⁵) ≈ 6500 K und 1/300 − 1/350 ≈ 4,76×10⁻⁴ K⁻¹; der Exponent beträgt also etwa 3,10 und das Verhältnis exp(3,10) ≈ 22. Ca. 490-fach lässt den Faktor 2 im Nenner weg und verwendet exp(−Eg/kT). Ca. 1,2-fach verwendet einfach das Temperaturverhältnis 350/300 und lässt den exponentiellen Anstieg der Ladungsträgerdichte außer Acht. Diese starke Temperaturabhängigkeit wird in Thermistoren genutzt, begrenzt aber den Einsatz von Halbleiterbauelementen bei hoher Temperatur."
  }
 }

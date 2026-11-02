@@ -106,5 +106,32 @@
       "Es verdoppelt sich etwa"
     ],
     "explanation": "Das Volumen pro Atom ergibt sich aus dem Volumen der Elementarzelle geteilt durch die Zahl der Atome in ihr. Für krz ist es 0,2904³/2 ≈ 0,01225 nm³, für kfz 0,3647³/4 ≈ 0,01213 nm³; die Änderung beträgt also etwa −0,97 %, d. h., das Volumen schrumpft um etwa 1 %. Da die dichter gepackte kfz-Struktur entsteht, nimmt das Volumen ab; eine Ausdehnung anzunehmen, vertauscht das Vorzeichen. Eine etwa doppelte Ausdehnung ergibt sich, wenn die Volumina der Elementarzellen direkt verglichen werden (0,3647³/0,2904³ ≈ 1,98); dabei wird übersehen, dass die Elementarzelle bei krz 2 und bei kfz 4 Atome enthält. Diese Volumenänderung lässt sich bei der Messung der Wärmeausdehnung (Dilatometrie) als Umwandlungspunkt beobachten."
+  },
+  "crystal-013": {
+    "question": "Welche Kombination gibt die Anzahl der Oktaeder- und Tetraederlücken (Zwischengitterplätze) in einer kfz-Elementarzelle richtig an?",
+    "choices": [
+      "8 Oktaederlücken und 4 Tetraederlücken",
+      "4 Oktaederlücken und 8 Tetraederlücken",
+      "1 Oktaederlücke und 8 Tetraederlücken"
+    ],
+    "explanation": "Die Oktaederlücken im kfz-Gitter liegen in der Raummitte der Elementarzelle (1 Lücke) und in den Mittelpunkten der 12 Kanten. Jeder Kantenmittelpunkt gehört zu 4 Elementarzellen, das ergibt 12 × 1/4 = 3, insgesamt also 4. Die Tetraederlücken liegen in den Mittelpunkten der 8 kleinen Würfel, in die sich die Elementarzelle zerlegen lässt; alle liegen innerhalb der Zelle, es sind also 8. Da die kfz-Zelle 4 Atome enthält, entfallen auf jedes Atom 1 Oktaederlücke und 2 Tetraederlücken. Wer nur die Lücke in der Raummitte als Oktaederlücke zählt, übersieht die Kantenmittelpunkte. Auch die Kombination mit vertauschten Anzahlen ist falsch. In der NaCl-Struktur besetzt Na⁺ alle Oktaederlücken der kfz-Anordnung von Cl⁻, in der Zinkblendestruktur besetzt Zn²⁺ die Hälfte der Tetraederlücken."
+  },
+  "crystal-014": {
+    "question": "Eine Ebene in einem hexagonalen Kristall wird mit den drei Basisachsen a₁, a₂, a₃ und der c-Achse durch vier Indizes (hkil) (Miller-Bravais-Indizes) beschrieben. Welche Beziehung bestimmt den Index i aus h und k richtig?",
+    "choices": [
+      "i = −(h + k)",
+      "i = h + k",
+      "i = h − k"
+    ],
+    "explanation": "Die drei Basisachsen a₁, a₂, a₃ eines hexagonalen Kristalls schließen miteinander 120° ein und sind daher nicht unabhängig: a₃ = −(a₁ + a₂). Deshalb sind auch die Ebenenindizes nicht unabhängig, es gilt h + k + i = 0, also i = −(h + k). Zum Beispiel hat eine der Prismenebenen h = 1, k = 0, i = −1, l = 0 und die Basisebene h = k = i = 0, l = 1. Der zusätzliche Index i wird eingeführt, damit Ebenen, die durch die sechszählige Symmetrie gleichwertig sind, durch Vertauschung derselben Zahlen dargestellt werden; mit drei Indizes (hkl) erhalten gleichwertige Ebenen unterschiedlich aussehende Indizes. Weder i = h + k noch i = h − k erfüllt die Bedingung, dass die Summe der drei Indizes null ist."
+  },
+  "crystal-015": {
+    "question": "Welcher Wert kommt der Flächenbelegungsdichte (Anzahl der Atome pro Flächeneinheit) der (111)-Ebene von Kupfer (kfz, Gitterkonstante 0,3615 nm) am nächsten?",
+    "choices": [
+      "ca. 8,8 nm⁻²",
+      "ca. 15,3 nm⁻²",
+      "ca. 17,7 nm⁻²"
+    ],
+    "explanation": "Die (111)-Ebene schneidet die Elementarzelle in einem gleichseitigen Dreieck, dessen Seite die Flächendiagonale √2a ist; seine Fläche beträgt (√3/4)(√2a)² = (√3/2)a². Das Dreieck enthält 3 Eckatome zu je 1/6 und 3 Atome auf den Seitenmitten zu je 1/2, insgesamt 2 Atome. Die Flächenbelegungsdichte ist daher 2/((√3/2)a²) = 4/(√3a²) = 4/(1,732 × 0,3615²) ≈ 17,7 nm⁻². Ca. 15,3 nm⁻² ist der Wert 2/a² der (100)-Ebene; daran sieht man, dass die (111)-Ebene dichter gepackt ist. Ca. 8,8 nm⁻² zählt nur 1 Atom im Dreieck. Die {111}-Ebenen mit der höchsten Flächenbelegungsdichte sind die Gleitebenen des kfz-Gitters und haben auch den größten Netzebenenabstand."
   }
 }

@@ -106,5 +106,32 @@
    "Man addiert die Materialindizes für Masse (kg) und Kosten (Yen) unverändert, ohne die Einheiten anzugleichen, und wählt den Werkstoff mit der kleinsten Summe"
   ],
   "explanation": "Stehen Ziele im Konflikt, wählt man zunächst die Kandidaten aus, die von keinem anderen Kandidaten in beiden Zielen zugleich übertroffen werden. Sie liegen auf einer Austauschkurve (Pareto-Front), auf der die Verbesserung eines Ziels das andere verschlechtert. Die endgültige Wahl trifft man, indem man einen Austauschkoeffizienten festlegt, also wie viel Geld man für die Einsparung von 1 kg zu zahlen bereit ist, und Masse und Kosten zu einer einzigen Bewertungsfunktion (Straffunktion) zusammenfasst. Deshalb wählt man bei Produkten, bei denen geringes Gewicht viel wert ist, etwa bei Flugzeugen, teure, aber leichte Werkstoffe und bei gewöhnlichen Produkten billige. Der in einem Ziel beste Werkstoff ist nicht zwangsläufig auch im anderen der beste; die Aussage, er sei es stets, ist daher falsch. Addiert man Größen mit unterschiedlichen Einheiten unverändert, hängt das Ergebnis von der Wahl der Einheiten ab, und der Vergleich ist nicht aussagekräftig."
+ },
+ "materials-selection-013": {
+  "question": "Für eine Feder soll ein Werkstoff gewählt werden, der möglichst viel elastische Energie pro Volumen speichert. Die elastische Energie pro Volumen ist σ²/(2E), und die Spannung σ darf die Versagensspannung σf des Werkstoffs nicht überschreiten. Welcher Materialindex ist zu maximieren?",
+  "choices": [
+   "σf/E",
+   "E/σf²",
+   "σf²/E"
+  ],
+  "explanation": "Die elastische Energie pro Volumen ist σ²/(2E), und die Spannung kann höchstens σf erreichen; die größte speicherbare Energie ist daher σf²/(2E). Ohne den konstanten Faktor 1/2 ist der zu maximierende Index σf²/E. Eine hohe Festigkeit geht quadratisch ein, und ein niedrigerer Elastizitätsmodul lässt den Werkstoff sich bei gleicher Spannung stärker verformen und mehr Energie speichern. Federstahl und Gummi werden für Federn verwendet, weil dieser Wert bei ihnen groß ist. σf/E ist der Index für die elastische Dehnung beim Versagen und dient zur Auswahl von Bauteilen, die sich stark verformen müssen, ohne zu versagen; für die Maximierung der Energie braucht man aber σf im Quadrat. E/σf² ist der Kehrwert des Index und damit eine zu minimierende Größe. Beim Vergleich pro Masse wird σf²/(Eρ) verwendet, also zusätzlich durch die Dichte geteilt."
+ },
+ "materials-selection-014": {
+  "question": "Beim Verfahren nach Ashby werden die infrage kommenden Werkstoffe in zwei Stufen eingegrenzt, „Screening“ (Aussieben) und „Ranking“ (Rangordnung). Welche Beschreibung der beiden Stufen trifft zu?",
+  "choices": [
+   "Beim Screening scheiden Werkstoffe aus, die Randbedingungen (etwa Mindesteinsatztemperatur oder Korrosionsbeständigkeit) nicht erfüllen; die übrigen werden nach dem aus dem Ziel abgeleiteten Materialindex geordnet",
+   "Beim Screening nach dem aus dem Ziel abgeleiteten Materialindex bleiben nur die besten Werkstoffe übrig, und die Randbedingungen werden erst beim Ranking in Punkte umgerechnet und addiert",
+   "Zuerst wird der Werkstoff mit dem größten Materialindex gewählt, um die Rangfolge festzulegen, und danach wird die Konstruktion weitergeführt, ohne die Randbedingungen zu prüfen"
+  ],
+  "explanation": "Beim Screening werden Randbedingungen, die erfüllt sein müssen, damit ein Werkstoff überhaupt verwendbar ist, etwa die maximale Einsatztemperatur, die Korrosionsbeständigkeit oder die elektrische Isolation, als Unter- oder Obergrenzen von Werkstoffeigenschaften angewandt, und Werkstoffe, die sie nicht erfüllen, werden ausgeschieden. Eine Randbedingung ist entweder erfüllt oder nicht; sie wird daher nicht in Punkte umgerechnet und zu anderen Eigenschaften addiert. Beim Ranking werden die verbleibenden Kandidaten nach dem aus dem Ziel (etwa Minimierung von Masse oder Kosten) abgeleiteten Materialindex der Größe nach geordnet. Die endgültige Wahl wird dann getroffen, nachdem für die besten Kandidaten genauere Informationen wie Fertigbarkeit und Betriebserfahrung eingeholt wurden. Wer allein nach dem Materialindex entscheidet, ohne die Randbedingungen zu prüfen, riskiert, einen Werkstoff zu wählen, der gar nicht verwendbar ist, etwa weil er bei der Einsatztemperatur erweicht."
+ },
+ "materials-selection-015": {
+  "question": "Masse m und Kosten C eines Bauteils werden mit einer Austauschkonstante α = 5000 Yen/kg zu einer Straffunktion Z = αm + C zusammengefasst, und der Kandidat mit dem kleinsten Z wird gewählt. Welcher der Kandidaten A (2,0 kg, 1000 Yen), B (1,5 kg, 3000 Yen) und C (1,2 kg, 6000 Yen) wird gewählt?",
+  "choices": [
+   "Kandidat A",
+   "Kandidat B",
+   "Kandidat C"
+  ],
+  "explanation": "Für die einzelnen Kandidaten ergibt sich Z für A zu 5000 × 2,0 + 1000 = 11000 Yen, für B zu 5000 × 1,5 + 3000 = 10500 Yen und für C zu 5000 × 1,2 + 6000 = 12000 Yen; gewählt wird also B mit dem kleinsten Z. Die Austauschkonstante α gibt an, wie viel man höchstens zu zahlen bereit ist, um 1 kg Masse einzusparen. Der billigste Kandidat A unterliegt wegen des hohen Strafterms für seine Masse, der leichteste Kandidat C, weil seine Mehrkosten den Wert der eingesparten Masse übersteigen. α hängt stark von der Anwendung ab: Bei α = 1000 Yen/kg ist Z für A 3000 Yen, für B 4500 Yen und für C 7200 Yen, und der billigste Kandidat A wird gewählt. Da die Abschätzung von α die Wahl entscheidet, kommt es darauf an, einen zur Anwendung passenden Wert festzulegen."
  }
 }

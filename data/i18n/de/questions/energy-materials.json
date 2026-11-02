@@ -106,5 +106,32 @@
    "Man streut Phononen an Nanostrukturen oder schweren Atomen, um die Gitterwärmeleitfähigkeit zu senken, und stört die elektrische Leitung dabei möglichst wenig"
   ],
   "explanation": "Um ZT = S²σT/κ zu vergrößern, müssen Seebeck-Koeffizient S und elektrische Leitfähigkeit σ hoch und die Wärmeleitfähigkeit κ niedrig sein. Mit steigender Ladungsträgerkonzentration nimmt σ jedoch zu, während S abnimmt, und auch die von den Elektronen transportierte Wärme wächst (Wiedemann-Franzsches Gesetz); das Optimum liegt daher bei einem nahezu entarteten Halbleiter mit einer Ladungsträgerkonzentration von etwa 10¹⁹–10²⁰ cm⁻³. Auf dem Niveau von Metallen wird S zu klein. Eine aussichtsreiche Strategie ist daher, nur die Phononen, die den größten Teil der Wärme transportieren, an Grenzflächen von Nanostrukturen oder durch das Rattling schwerer Atome zu streuen und so die Gitterwärmeleitfähigkeit zu senken; man spricht von „Phononenglas, Elektronenkristall“. σ zu senken und κ zu erhöhen verringert ZT dagegen."
+ },
+ "energy-materials-013": {
+  "question": "In einer Lithium-Ionen-Batterie mit einer negativen Elektrode aus Graphit bildet sich beim ersten Laden auf der Elektrodenoberfläche eine SEI-Deckschicht (Solid Electrolyte Interphase). Welche Aussage über diese Schicht trifft zu?",
+  "choices": [
+   "Sie besteht aus Metall, das sich aus der positiven Elektrode gelöst und auf der negativen abgeschieden hat; sie leitet Elektronen gut, senkt den Innenwiderstand und erhöht die Kapazität",
+   "Sie entsteht durch reduktive Zersetzung des Elektrolyten; sie lässt Li⁺ durch, leitet Elektronen aber kaum und unterdrückt die weitere Zersetzung um den Preis einer irreversiblen Kapazität",
+   "Sie löst sich bei jedem Entladen auf und bildet sich bei jedem Laden neu; da sie kein Li verbraucht, hat sie keinerlei Einfluss auf die Kapazität der Batterie"
+  ],
+  "explanation": "Die negative Graphitelektrode arbeitet bei einem niedrigen Potential von etwa 0,1 V gegen Li, unterhalb des Bereichs, in dem organische Elektrolyte stabil sind. Beim ersten Laden werden Lösungsmittel und Leitsalz des Elektrolyten deshalb an der Elektrodenoberfläche reduktiv zersetzt, und die Produkte bilden eine dünne Schicht, die SEI genannt wird. Die SEI lässt Li⁺ durch, leitet Elektronen aber kaum; ist sie einmal gebildet, unterdrückt sie die weitere Zersetzung des Elektrolyten, und die Zelle kann stabil geladen und entladen werden. Bei der Bildung der Schicht wird jedoch Li verbraucht, sodass ein Teil der ersten Ladekapazität als irreversible Kapazität beim Entladen nicht zurückgewonnen wird. Die Abscheidung von Metall, das sich aus der positiven Elektrode gelöst hat, ist ein von der SEI verschiedener Alterungsmechanismus. Die SEI wird nicht in jedem Zyklus neu aufgebaut, und auch die Aussage, sie verbrauche kein Li, ist falsch."
+ },
+ "energy-materials-014": {
+  "question": "In Dünnschichtsolarzellen aus CdTe oder CIGS (Cu(In,Ga)Se₂) genügt eine Absorberschicht von wenigen µm Dicke, während Solarzellen aus kristallinem Silizium 100 µm oder mehr verwenden. Was ist der Hauptgrund dafür?",
+  "choices": [
+   "Die Bandlücke von Silizium ist größer als die Energie des sichtbaren Lichts, sodass es ohne große Dicke überhaupt kein Licht absorbieren kann",
+   "CdTe und CIGS haben um Größenordnungen höhere Elektronenbeweglichkeiten als Silizium, sodass alle erzeugten Ladungsträger auch in einer dünnen Schicht gesammelt werden",
+   "CdTe und CIGS sind direkte Halbleiter mit großem Absorptionskoeffizienten, Silizium dagegen ist ein indirekter Halbleiter mit kleinem Absorptionskoeffizienten nahe der Bandkante"
+  ],
+  "explanation": "In einem direkten Halbleiter ist der Absorptionskoeffizient für Licht oberhalb der Bandlücke mit 10⁴–10⁵ cm⁻¹ groß, sodass eine CdTe- oder CIGS-Schicht von wenigen µm den größten Teil des Sonnenlichts absorbiert. Silizium ist ein indirekter Halbleiter, bei dem für die Absorption ein Phonon mitwirken muss; sein Absorptionskoeffizient für nahinfrarotes Licht nahe der Bandlücke ist daher klein, und um dieses Licht vollständig zu absorbieren, sind einige zehn bis einige hundert µm Dicke nötig. Auch eine Oberflächentexturierung, die das Licht schräg laufen lässt und den Lichtweg verlängert, wird eingesetzt. Die Bandlücke von Silizium beträgt etwa 1,12 eV und ist kleiner als die Energie des sichtbaren Lichts (etwa 1,6–3,1 eV); Silizium absorbiert sichtbares Licht also durchaus. Auch sind die Beweglichkeiten von CdTe oder CIGS nicht um Größenordnungen höher als die von Silizium."
+ },
+ "energy-materials-015": {
+  "question": "Bei 25 °C beträgt die Gibbs-Standardreaktionsenergie der Reaktion H₂ + 1/2 O₂ → H₂O(l) −237 kJ/mol und die Standardreaktionsenthalpie −286 kJ/mol. Welcher Wert kommt dem theoretischen Wirkungsgrad einer Brennstoffzelle mit dieser Reaktion (dem größten Anteil der Reaktionsenthalpie, der als elektrische Energie entnommen werden kann) am nächsten?",
+  "choices": [
+   "ca. 83 %",
+   "ca. 17 %",
+   "ca. 100 %"
+  ],
+  "explanation": "Die größte Energie, die eine Brennstoffzelle als elektrische Energie abgeben kann, ist der Betrag der Gibbs-Energie-Änderung; der theoretische Wirkungsgrad ist daher ΔG/ΔH = 237/286 ≈ 0,83, also etwa 83 %. Der Rest, TΔS, etwa 17 % (49 kJ/mol), wird auch bei reversibler Reaktionsführung als Wärme frei; 17 % verwechselt den Anteil dieser Wärme mit dem Wirkungsgrad. Eine Brennstoffzelle ist keine Wärmekraftmaschine und unterliegt nicht dem Carnot-Wirkungsgrad; bei einer Reaktion, in der die Entropie abnimmt, muss der Anteil TΔS aber als Wärme abgegeben werden, daher kann der Wirkungsgrad nicht 100 % betragen. In realen Zellen senken Verluste durch Überspannungen und Widerstände die Betriebsspannung unter die theoretische Zellspannung von etwa 1,23 V, und der Wirkungsgrad sinkt weiter."
  }
 }

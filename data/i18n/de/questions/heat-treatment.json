@@ -106,5 +106,32 @@
    "ca. 87 Stunden"
   ],
   "explanation": "Ist die Reaktionsgeschwindigkeit proportional zu exp(−Q/RT), so gilt für die Zeit bis zum Erreichen desselben Zustands t ∝ exp(Q/RT). Mit T₁ = 463 K und T₂ = 433 K ergibt sich t₂ = t₁ × exp[(Q/R)(1/T₂ − 1/T₁)] = 10 × exp(14433 × 1,495×10⁻⁴) = 10 × exp(2,16) ≈ 87 Stunden. Ca. 1,2 Stunden kehrt das Vorzeichen des Exponenten um: Die Zeit wird kürzer, obwohl die Temperatur gesenkt wurde. Ca. 12 Stunden beruht auf der falschen Annahme, die Zeit sei umgekehrt proportional zur Temperatur in °C. Dass die Zeit bei nur 30 °C Unterschied auf etwa das Neunfache steigt, liegt an der starken Temperaturabhängigkeit des Arrhenius-Ansatzes."
+ },
+ "heat-treatment-013": {
+  "question": "Welche Aussage über das Normalglühen von Stahl trifft zu?",
+  "choices": [
+   "Der Stahl wird ins Austenitgebiet erwärmt und dann an ruhender Luft abgekühlt, sodass ein feines, gleichmäßiges Gefüge aus Ferrit und Perlit entsteht",
+   "Der Stahl wird ins Austenitgebiet erwärmt und dann in Wasser oder Öl abgeschreckt, sodass er vollständig in harten, spröden Martensit übergeht",
+   "Der Stahl wird ins Austenitgebiet erwärmt und dann im Ofen langsam abgekühlt, sodass das weichste, am besten zerspan- und umformbare Gefüge entsteht"
+  ],
+  "explanation": "Beim Normalglühen wird der Stahl auf etwa 30–50 °C über den A3-Punkt (bei übereutektoidem Stahl über den Acm-Punkt) ins Austenitgebiet erwärmt, um gleichmäßigen Austenit zu erhalten, und anschließend an ruhender Luft abgekühlt. Grobe oder ungleichmäßige Gefüge aus dem Schmieden oder Gießen werden so in ein feinkörniges Standardgefüge aus Ferrit und Perlit überführt. Die Abkühlung ist schneller als beim Glühen mit Ofenabkühlung, daher wird der Perlit feiner, und Festigkeit und Zähigkeit sind etwas höher. Das Abschrecken in Wasser oder Öl zur Martensitbildung ist das Härten. Langsames Abkühlen im Ofen zum Weichmachen ist das Vollglühen, das vor dem Zerspanen oder Kaltumformen durchgeführt wird."
+ },
+ "heat-treatment-014": {
+  "question": "Was wird mit dem Stirnabschreckversuch nach Jominy an Stahl untersucht?",
+  "choices": [
+   "Gehärtete Proben werden bei verschiedenen Temperaturen angelassen und ihre Härte gemessen, um zu vergleichen, wie leicht sie beim Anlassen erweichen",
+   "Ein Eindringkörper wird in die Oberfläche einer gehärteten Probe gedrückt, und aus der Eindringtiefe wird der Anteil an Restaustenit bestimmt",
+   "Ein erwärmter Rundstab wird nur an einer Stirnseite mit Wasser abgeschreckt, und die Einhärtbarkeit wird anhand der Härte in Abhängigkeit vom Stirnabstand verglichen"
+  ],
+  "explanation": "Beim Jominy-Versuch wird ein austenitisierter Rundstab (Durchmesser etwa 25 mm) nur an einer Stirnseite von unten mit einem Wasserstrahl abgekühlt. Die Abkühlgeschwindigkeit nimmt mit dem Abstand von der abgeschreckten Stirnfläche ab; misst man die Härte in verschiedenen Abständen, erhält man in einer einzigen Kurve den Zusammenhang zwischen Abkühlgeschwindigkeit und Neigung zur Martensitbildung. Bei legierten Stählen mit hoher Einhärtbarkeit fällt die Härte auch weit von der Stirnfläche entfernt kaum ab. Die Härte an der Stirnfläche wird hauptsächlich vom Kohlenstoffgehalt bestimmt, während sich die Einhärtbarkeit in dem Abstand zeigt, ab dem die Härte abzufallen beginnt. Die Erweichung beim Anlassen wird mit Versuchen bei verschiedenen Anlasstemperaturen untersucht, und der Anteil an Restaustenit wird etwa mit Röntgenbeugung gemessen."
+ },
+ "heat-treatment-015": {
+  "question": "Die Ms-Temperatur eines Stahls beträgt 220 °C. Der Volumenanteil des beim Härten gebildeten Martensits folge der Koistinen-Marburger-Gleichung f = 1 − exp[−0,011(Ms − T)] (Temperaturen in °C). Welcher Wert kommt dem Anteil an Restaustenit nach dem Abschrecken auf 20 °C am nächsten?",
+  "choices": [
+   "ca. 0 %",
+   "ca. 11 %",
+   "ca. 89 %"
+  ],
+  "explanation": "Mit Ms − T = 220 − 20 = 200 beträgt der Martensitanteil f = 1 − exp(−0,011 × 200) = 1 − exp(−2,2) ≈ 1 − 0,111 = 0,889. Der Restaustenit ist der verbleibende Anteil von etwa 11 %. Ca. 89 % verwechselt den Martensitanteil mit dem Restaustenit. Ca. 0 % nimmt an, dass sich alles umwandelt, sobald der Stahl unter Ms abgekühlt ist; tatsächlich wird die Martensitmenge nicht durch die Haltezeit bestimmt, sondern dadurch, wie weit unter Ms abgekühlt wird. Mehr Kohlenstoff oder Legierungselemente senken Ms und erhöhen den Restaustenit bei Raumtemperatur. Restaustenit kann sich im Betrieb umwandeln und die Abmessungen ändern; er wird daher durch Tiefkühlen unter 0 °C verringert."
  }
 }

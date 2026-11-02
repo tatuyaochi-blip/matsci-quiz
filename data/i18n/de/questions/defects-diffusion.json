@@ -106,5 +106,32 @@
       "ca. 0,286 nm"
     ],
     "explanation": "Der Betrag von (a/2)<110> ist (a/2) × √(1² + 1² + 0²) = a/√2, also 0,405/1,414 ≈ 0,286 nm. Das entspricht dem kürzesten Atomabstand im kfz-Gitter: Versetzungen wählen als Burgersvektor den kürzesten Gittertranslationsvektor in dichtest gepackter Richtung. Ca. 0,405 nm ist die Gitterkonstante selbst (Translation in <100>-Richtung); da die Versetzungsenergie proportional zu b² ist, wäre dies ungünstig. Ca. 0,351 nm wendet den krz-Wert (a/2)<111>, also √3a/2, an. Die elastische Energie einer Versetzung pro Längeneinheit beträgt etwa Gb²/2; Versetzungen mit kleinem b sind stabiler."
+  },
+  "defects-diffusion-013": {
+    "question": "Welche Aussage über das Klettern einer Stufenversetzung trifft zu?",
+    "choices": [
+      "Es ist eine durch Schubspannung angetriebene Bewegung auf der Gleitebene, die keine Diffusion erfordert und daher bei tiefer Temperatur ebenso leicht abläuft",
+      "Es ist eine Bewegung, die nur Schraubenversetzungen ausführen, indem sie auf eine andere Gleitebene wechseln und so Hindernissen ausweichen",
+      "Es ist eine Bewegung aus der Gleitebene heraus, die Aufnahme oder Abgabe von Leerstellen erfordert und daher bei hoher Temperatur mit schneller Diffusion leicht abläuft"
+    ],
+    "explanation": "Beim Klettern einer Stufenversetzung bewegt sich der Rand der eingeschobenen Halbebene nach oben oder unten, und die Versetzung verlässt ihre Gleitebene. Damit Atome vom Rand der Halbebene abwandern, müssen Leerstellen aufgenommen werden, und damit Atome angelagert werden, müssen Leerstellen abgegeben werden; Klettern läuft daher bei hoher Temperatur leicht ab, wo Leerstellen schnell diffundieren. Durch Klettern können Versetzungen Hindernisse überwinden oder sich mit Versetzungen entgegengesetzten Vorzeichens vereinigen und auslöschen; es liegt dem Hochtemperaturkriechen und der Polygonisation bei der Erholung zugrunde. Die Bewegung auf der Gleitebene ist das Gleiten, das keine Diffusion erfordert. Der Wechsel einer Schraubenversetzung auf eine andere Gleitebene ist das Quergleiten, ein vom Klettern verschiedener Vorgang."
+  },
+  "defects-diffusion-014": {
+    "question": "Eine vollständige Versetzung in einem kfz-Metall spaltet häufig in zwei Shockley-Partialversetzungen auf und bildet eine aufgespaltene Versetzung. Welche Aussage darüber trifft zu?",
+    "choices": [
+      "Die Aufspaltung in Partialversetzungen vergrößert die Summe der Quadrate der Burgersvektoren und erhöht die Energie, sodass sie tatsächlich nicht auftritt",
+      "Zwischen den beiden entsteht ein Stapelfehler; je niedriger die Stapelfehlerenergie des Metalls, desto größer ihr Abstand und desto schwerer das Quergleiten",
+      "Je höher die Stapelfehlerenergie des Metalls, desto größer wird der Abstand der beiden, und desto leichter wird entsprechend das Quergleiten"
+    ],
+    "explanation": "Die vollständige Versetzung (a/2)<110> im kfz-Gitter kann auf einer {111}-Ebene in zwei Partialversetzungen (a/6)<112> aufspalten. Die Versetzungsenergie ist proportional zum Quadrat des Burgersvektors, und a²/2 sinkt auf a²/6 + a²/6 = a²/3; die Aufspaltung ist also günstig. Zwischen den beiden Partialversetzungen ist die Stapelfolge gestört, es entsteht ein Stapelfehler, und je niedriger dessen Energie, desto weiter laufen die beiden auseinander. Damit eine Schraubenversetzung quergleiten kann, müssen sich die beiden Partialversetzungen zuerst wieder zu einer einschnüren; in Metallen mit niedriger Stapelfehlerenergie und großer Aufspaltungsweite (austenitischer nichtrostender Stahl und Messing) ist Quergleiten daher schwer, und die Kaltverfestigung ist groß. Aluminium hat eine hohe Stapelfehlerenergie, und seine Aufspaltungsweite ist gering."
+  },
+  "defects-diffusion-015": {
+    "question": "Die Energie pro Längeneinheit einer Versetzung wird mit E ≈ Gb²/2 abgeschätzt. Der Schubmodul von Aluminium sei 26 GPa und der Betrag des Burgersvektors 0,286 nm. Welcher Wert kommt E am nächsten?",
+    "choices": [
+      "ca. 1,1×10⁻⁹ J/m",
+      "ca. 2,1×10⁻⁹ J/m",
+      "ca. 3,7 J/m"
+    ],
+    "explanation": "E ≈ Gb²/2 = 0,5 × 26×10⁹ × (0,286×10⁻⁹)² = 0,5 × 26×10⁹ × 8,18×10⁻²⁰ ≈ 1,1×10⁻⁹ J/m. Bezogen auf die Länge b eines Atoms sind das 1,1×10⁻⁹ × 0,286×10⁻⁹ ≈ 3×10⁻¹⁹ J, etwa 2 eV. Eine Versetzung erstreckt sich über Tausende von Atomabständen, sodass der Gewinn an Konfigurationsentropie im Vergleich zu dieser Energie verschwindend klein ist; anders als Leerstellen existieren Versetzungen nicht im thermischen Gleichgewicht, sondern sind Defekte, die durch Umformung oder Erstarrung entstehen. Ca. 2,1×10⁻⁹ J/m lässt den Faktor 1/2 weg, ca. 3,7 J/m vergisst, b zu quadrieren. Da die Energie proportional zu b² ist, nehmen Versetzungen den kürzestmöglichen Burgersvektor an, den kürzesten Gittervektor in einer dichtest gepackten Richtung."
   }
 }
