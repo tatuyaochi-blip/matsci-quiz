@@ -1,8 +1,8 @@
 {
-  "title": "Messraum für Gefügebilder (Korngröße und Phasenanteile)",
-  "description": "Eigene Schliffbilder im Browser auszählen: Korngrößenkennzahl G nach ASTM E112 (Linienschnitt- und planimetrisches Verfahren) und Phasenanteile nach E562 (Punktzählverfahren), mit 95-%-Konfidenzintervall und relativer Genauigkeit. Export als CSV und PNG, Übungsgefüge. Die Bilder verlassen den Browser nicht.",
-  "h1": "Messraum für Gefügebilder",
-  "lead": "Ein Werkzeug, um Korngröße und Phasenanteile auf eigenen Schliffbildern auszuzählen. Sie öffnen ein Bild, legen den Maßstab fest und tippen (klicken) auf die Schnittpunkte der Messlinien mit den Korngrenzen, auf die Körner im Messrahmen oder auf die Rasterpunkte. Die Seite gibt die Korngrößenkennzahl G, die mittlere Sehnenlänge ℓ̄, die Zahl der Körner je Flächeneinheit N_A und die Volumenanteile mit ihrer Unsicherheit so aus, dass sie in einen Bericht übernommen werden können. Wie die Probe präpariert wird, steht im Leitfaden Probenpräparation und Ätzen, wie man Gefüge erkennt, im Gefügeatlas.",
+  "title": "Korngrößenkennzahl berechnen und Gefügebilder auszählen",
+  "description": "Korngrößenkennzahl G, mittlere Sehnenlänge und N_A nach ASTM E112 aus Zählwerten berechnen (Schnittpunkte, Messlinienlänge und Vergrößerung oder Körner im Messrahmen), mit 95-%-Konfidenzintervall, relativer Genauigkeit und Rechenweg. Dazu Umrechnung von G, ℓ̄, N_A und Kornfläche sowie Auszählen eigener Gefügebilder.",
+  "h1": "Berechnung der Korngrößenkennzahl und Messraum für Gefügebilder",
+  "lead": "Diese Seite berechnet die Korngrößenkennzahl aus bereits ermittelten Zählwerten (Zahl der Schnittpunkte mit Messlinienlänge und Vergrößerung oder Zahl der Körner im Messrahmen mit dessen Fläche) und ist zugleich ein Werkzeug, um Korngröße und Phasenanteile auf eigenen Schliffbildern auszuzählen. Für die Messung auf dem Bild öffnen Sie ein Bild, legen den Maßstab fest und tippen (klicken) auf die Schnittpunkte der Messlinien mit den Korngrenzen, auf die Körner im Messrahmen oder auf die Rasterpunkte. Die Seite gibt die Korngrößenkennzahl G, die mittlere Sehnenlänge ℓ̄, die Zahl der Körner je Flächeneinheit N_A und die Volumenanteile mit ihrer Unsicherheit so aus, dass sie in einen Bericht übernommen werden können. Wie die Probe präpariert wird, steht im Leitfaden Probenpräparation und Ätzen, wie man Gefüge erkennt, im Gefügeatlas.",
   "note": "Die Werte auf dieser Seite sind Schätzungen mit Formeln und Zählregeln, die anhand öffentlich zugänglicher Quellen geprüft wurden. Normen sind nur mit Bezeichnung, Nummer und Gegenstand genannt, dazu die Formeln, die sich in öffentlichen Quellen bestätigen ließen. Für eine verbindliche Beurteilung und für Berichte gelten der Normtext und die Verfahrensanweisungen Ihrer Einrichtung.",
   "privacy": "Wie auf allen anderen Seiten dieser Website werden Seitenaufrufe erfasst (Webanalyse). Das geöffnete Bild, die gesetzten Markierungen und die gezählten Werte werden nirgendwohin gesendet (der Messteil stellt keine Netzwerkverbindungen her). Der Zwischenstand (Lage der Markierungen und Maßstab, nicht das Bild) bleibt nur in diesem Browser gespeichert.",
   "sources_h": "Wichtigste Quellen",
@@ -17,7 +17,7 @@
     },
     "iteh-e112": {
       "s": "ASTM E112-13(2021), Übersicht",
-      "full": "ASTM E112-13(2021) Standard Test Methods for Determining Average Grain Size (Übersicht und Leseprobe der Norm, iTeh Standards)"
+      "full": "ASTM E112-13(2021) Standard Test Methods for Determining Average Grain Size (Übersicht und Leseprobe der Norm, iTeh Standards; die aktuelle Ausgabe ist E112-25e1, geprüft im ASTM-Store. Die Formeln und Zählregeln dieser Seite wurden anhand dieser Leseprobe von E112-13 und des Textes von E112-96 in den Praktikumsunterlagen der University of Michigan geprüft)"
     },
     "astm-e562": {
       "s": "ASTM E562, Übersicht",
