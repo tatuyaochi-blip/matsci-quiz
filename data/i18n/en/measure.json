@@ -1,8 +1,8 @@
 {
-  "title": "Micrograph Measuring Room (grain size and phase fraction)",
-  "description": "Open your micrograph in the browser and count grain size (intercept and planimetric methods, ASTM E112) and phase fraction (point count, E562) on the image, with 95 % confidence interval and relative accuracy. Export CSV and PNG, and practice on synthetic structures. Images never leave your browser.",
-  "h1": "Micrograph Measuring Room",
-  "lead": "A tool for counting grain size and phase fraction on your own micrographs. Open an image, set the scale, and tap (click) intersections of test lines with grain boundaries, grains in a test figure or grid points; the page gives the grain size number G, the mean lineal intercept length ℓ̄, the number of grains per unit area N_A and volume fractions with their uncertainty, ready for a report. For making the specimen see the preparation guide; for recognizing structures see the atlas.",
+  "title": "Grain Size Number Calculator and Micrograph Measurement",
+  "description": "Calculate the ASTM E112 grain size number G, mean intercept and N_A from counts you already have (intersections, line length, magnification, or grains in a test figure), with 95 % CI, relative accuracy and worked formulas. Convert G, ℓ̄, N_A and grain area, or count on your own micrograph.",
+  "h1": "Grain size number calculator and micrograph measuring room",
+  "lead": "This page calculates the grain size number from counts you have already made (intersections with the test line length and magnification, or grains in a test figure with its area), and is also a tool for counting grain size and phase fraction on your own micrographs. To measure on an image, open it, set the scale, and tap (click) intersections of test lines with grain boundaries, grains in a test figure or grid points; the page gives the grain size number G, the mean lineal intercept length ℓ̄, the number of grains per unit area N_A and volume fractions with their uncertainty, ready for a report. For making the specimen see the preparation guide; for recognizing structures see the atlas.",
   "note": "Values on this page are estimates using equations and counting rules checked against public sources. Standards are given only by name, number and scope, with the equations that public sources confirm. For formal assessment and reports, follow the text of the standard and your organization’s procedures.",
   "privacy": "Page views are recorded (web analytics), as on every other page of this site. The image you open, the marks you place and your counts are never sent anywhere (the measuring part makes no network requests). Your progress (mark positions and the scale, not the image) is kept only in this browser.",
   "sources_h": "Main sources",
@@ -17,7 +17,7 @@
     },
     "iteh-e112": {
       "s": "ASTM E112-13(2021) overview",
-      "full": "ASTM E112-13(2021) Standard Test Methods for Determining Average Grain Size (overview and sample pages, iTeh Standards)"
+      "full": "ASTM E112-13(2021) Standard Test Methods for Determining Average Grain Size (overview and sample pages, iTeh Standards; the current edition is E112-25e1, checked on the ASTM store. The formulas and counting rules on this page were checked against this E112-13 sample and the E112-96 text in the University of Michigan lab module)"
     },
     "astm-e562": {
       "s": "ASTM E562 overview",

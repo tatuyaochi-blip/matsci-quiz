@@ -167,39 +167,108 @@ export function pointHits(pts) {
   for (const a of pts) if (a) for (const [p, w] of a) h[p] = (h[p] ?? 0) + w;
   return h;
 }
-// 3 つの方法の結果をまとめる。fields: 数えた視野、um(img) → µm/px
-export function summarize(method, fields, umOf, extra = {}) {
-  if (method === 'icpt') {
-    const rows = fields.map(f => {
-      const um = umOf(f.img), L = pattern(f.pat, f.cx, f.cy, f.size).len * (um ?? NaN), P = icptCount(f.marks);
-      return { L, P, l: P > 0 ? L / P : null };
-    });
-    const ok = rows.filter(r => r.l != null && Number.isFinite(r.l));
-    const st = stats(ok.map(r => r.l));
-    const sumL = ok.reduce((a, r) => a + r.L, 0), sumP = rows.reduce((a, r) => a + r.P, 0);
-    const G = st ? gFromL(st.mean / 1000) : null;
-    const Gr = st && st.ci != null ? [gFromL((st.mean + st.ci) / 1000), st.mean - st.ci > 0 ? gFromL((st.mean - st.ci) / 1000) : null] : null;
-    return { rows, st, sumL, sumP, pooled: sumP > 0 ? sumL / sumP : null, G, Gr, nOk: ok.length };
-  }
-  if (method === 'plan') {
-    const rows = fields.map(f => {
-      const um = umOf(f.img), fr = frame(f.shape, f.cx, f.cy, f.size), A = fr.area * ((um ?? NaN) / 1000) ** 2, c = planCount(f.marks, f.shape === 'rect');
-      return { A, ...c, na: A > 0 ? c.n / A : null };
-    });
-    const ok = rows.filter(r => r.na != null && Number.isFinite(r.na));
-    const st = stats(ok.map(r => r.na));
-    const G = st && st.mean > 0 ? gFromNA(st.mean) : null;
-    const Gr = st && st.ci != null ? [st.mean - st.ci > 0 ? gFromNA(st.mean - st.ci) : null, gFromNA(st.mean + st.ci)] : null;
-    return { rows, st, sumN: rows.reduce((a, r) => a + r.n, 0), G, Gr, nOk: ok.length };
-  }
-  // 点算法: 相ごとに、視野ごとの点の割合 P_P = 点の数 / P_T
-  const phases = extra.phases ?? [];
-  const rows = fields.map(f => ({ pt: f.n * f.n, h: pointHits(f.pts) }));
+// 視野ごとの値から、平均・ばらつき・G をまとめる(画像の計測と「数から計算」の両方で使う)
+// 切断法: rows [{ L(µm), P, l = L / P(µm) }]
+export function icptSummary(rows) {
+  const ok = rows.filter(r => r.l != null && Number.isFinite(r.l));
+  const st = stats(ok.map(r => r.l));
+  const sumL = ok.reduce((a, r) => a + r.L, 0), sumP = rows.reduce((a, r) => a + r.P, 0);
+  const G = st ? gFromL(st.mean / 1000) : null;
+  const Gr = st && st.ci != null ? [gFromL((st.mean + st.ci) / 1000), st.mean - st.ci > 0 ? gFromL((st.mean - st.ci) / 1000) : null] : null;
+  return { rows, st, sumL, sumP, pooled: sumP > 0 ? sumL / sumP : null, G, Gr, nOk: ok.length };
+}
+// 面積法: rows [{ A(mm²), n(½ と四隅を含む換算の数), na = n / A(mm⁻²) }]
+export function planSummary(rows) {
+  const ok = rows.filter(r => r.na != null && Number.isFinite(r.na));
+  const st = stats(ok.map(r => r.na));
+  const G = st && st.mean > 0 ? gFromNA(st.mean) : null;
+  const Gr = st && st.ci != null ? [st.mean - st.ci > 0 ? gFromNA(st.mean - st.ci) : null, gFromNA(st.mean + st.ci)] : null;
+  return { rows, st, sumN: rows.reduce((a, r) => a + r.n, 0), G, Gr, nOk: ok.length };
+}
+// 点算法: rows [{ pt(格子の点の数), h: { 相: 点の数 } }]。相ごとに、視野ごとの点の割合 P_P = 点の数 / P_T
+export function ptSummary(rows, phases) {
   const per = phases.map(ph => {
     const xs = rows.map(r => (r.h[ph.id] ?? 0) / r.pt);
     return { id: ph.id, xs, st: stats(xs), sum: rows.reduce((a, r) => a + (r.h[ph.id] ?? 0), 0) };
   });
   return { rows, per, sumPt: rows.reduce((a, r) => a + r.pt, 0) };
+}
+// 面積法の数: 中の粒 + ½ 枠にかかる粒 [+ 1 四角の枠の四隅]
+export const planN = (nIn, nCut, rect) => W_PLAN.in * nIn + W_PLAN.cut * nCut + (rect ? 1 : 0);
+// 3 つの方法の結果をまとめる。fields: 数えた視野、um(img) → µm/px
+export function summarize(method, fields, umOf, extra = {}) {
+  if (method === 'icpt') {
+    return icptSummary(fields.map(f => {
+      const um = umOf(f.img), L = pattern(f.pat, f.cx, f.cy, f.size).len * (um ?? NaN), P = icptCount(f.marks);
+      return { L, P, l: P > 0 ? L / P : null };
+    }));
+  }
+  if (method === 'plan') {
+    return planSummary(fields.map(f => {
+      const um = umOf(f.img), fr = frame(f.shape, f.cx, f.cy, f.size), A = fr.area * ((um ?? NaN) / 1000) ** 2, c = planCount(f.marks, f.shape === 'rect');
+      return { A, ...c, na: A > 0 ? c.n / A : null };
+    }));
+  }
+  return ptSummary(fields.map(f => ({ pt: f.n * f.n, h: pointHits(f.pts) })), extra.phases ?? []);
+}
+
+// ---------------------------------------------------------------- 数から計算(画像なし)
+// すでに数えた数から、画像の計測と同じ式・統計で結果を出す。倍率 M の写真の上の長さ・面積は、実寸に直してから使う
+// (E112: P_L = P / (L / M)、Jeffries の係数 f = M² / A)
+// 切断法: fs [{ P, L, M }]。unit 'mm' なら L は写真の上の試験線の長さ(mm)、'um' なら実寸(µm、M は使わない)
+export function calcIcpt(fs, unit = 'mm') {
+  return icptSummary(fs.map(f => {
+    const L = unit === 'um' ? f.L : 1000 * f.L / f.M, P = f.P;
+    return { L, P, l: P > 0 && L > 0 ? L / P : null };
+  }));
+}
+// 面積法: fs [{ nIn, nCut, A, M }]。A は写真の上の枠の面積(mm²)、実寸は A / M²。shape 'r' は四角の枠(四隅の +1)
+export function calcPlan(fs, shape = 'c') {
+  return planSummary(fs.map(f => {
+    const A = f.A / f.M ** 2, n = planN(f.nIn, f.nCut, shape === 'r');
+    return { A, nIn: f.nIn, nCut: f.nCut, n, na: A > 0 ? n / A : null };
+  }));
+}
+// 点算法: fs [{ pt, pa }](格子の点の数、相に乗った点の数。境界の点は ½)
+export const calcPt = fs => ptSummary(fs.map(f => ({ pt: f.pt, h: { a: f.pa } })), [{ id: 'a' }]);
+// 1 つの視野の入力を確かめる。返す値 { 欄: 誤りの種類 }(空なら正しい)。half は ½ 刻みを許す欄
+export function checkField(method, f, unit = 'mm') {
+  const e = {};
+  const pos = k => { if (!(f[k] > 0) || !Number.isFinite(f[k])) e[k] = 'pos'; };
+  const cnt = (k, half) => { const v = f[k]; if (!(v >= 0) || !Number.isFinite(v)) e[k] = 'neg'; else if (half ? Math.abs(v * 2 - Math.round(v * 2)) > 1e-9 : !Number.isInteger(v)) e[k] = half ? 'half' : 'int'; };
+  if (method === 'icpt') { cnt('P', true); if (!e.P && !(f.P > 0)) e.P = 'pos'; pos('L'); if (unit !== 'um') pos('M'); }
+  else if (method === 'plan') { cnt('nIn'); cnt('nCut'); pos('A'); pos('M'); if (!e.nIn && !e.nCut && f.nIn + f.nCut <= 0) e.nIn = 'pos'; }
+  else { cnt('pt'); if (!e.pt && !(f.pt > 0)) e.pt = 'pos'; cnt('pa', true); if (!e.pa && !e.pt && f.pa > f.pt) e.pa = 'over'; }
+  return e;
+}
+// 換算: どれか 1 つの量から、ASTM E112 の式で G を出し、ほかの量を G から出す(E112 の表 4 と同じ、一様な等軸の粒を仮定した関係)。
+//   g: G、l_mm・l_um: 平均切片長さ ℓ̄、na: 1 mm² 当たりの粒の数 N_A、n100: 100 倍の像の 1 平方インチ当たりの粒の数(= N_A × 0.064516、E112 の定義では 2^(G−1))、
+//   abar: 平均の粒の断面積 Ā = 1 / N_A(µm²)、dbar: d̄ = √Ā(µm、E112 の表の「平均の直径」。正方形の粒の仮定)
+// 出すだけの量: dcirc 円相当径 √(4Ā/π)、nl = 1 / ℓ̄(mm⁻¹)、gjis: JIS G 0551・ISO 643 の面積の定義 m = 8 × 2^G での番号(面積から入れたときだけ)
+export const IN2_100X = 25.4 ** 2 / 100 ** 2; // 100 倍の像の 1 平方インチに当たる実寸の面積(mm²)= 0.064516
+export const CONV_IN = ['g', 'l_um', 'l_mm', 'na', 'n100', 'abar', 'dbar'];
+export function convert(kind, v) {
+  if (!(Number.isFinite(v)) || (kind !== 'g' && !(v > 0))) return null;
+  let G;
+  if (kind === 'g') G = v;
+  else if (kind === 'l_um') G = gFromL(v / 1000);
+  else if (kind === 'l_mm') G = gFromL(v);
+  else if (kind === 'na') G = gFromNA(v);
+  else if (kind === 'n100') G = gFromNA(v / IN2_100X);
+  else if (kind === 'abar') G = gFromNA(1e6 / v);
+  else if (kind === 'dbar') G = gFromNA(1e6 / (v * v));
+  else return null;
+  if (!Number.isFinite(G)) return null;
+  // ℓ̄ は入れた値をそのまま、ほかは G から。面積の側の量は、入れた量から直接(G を経ると丸めが入るため)。ℓ̄ や G から入れたときは G から
+  const lMm = kind === 'l_mm' ? v : kind === 'l_um' ? v / 1000 : lFromG(G);
+  const na = kind === 'na' ? v : kind === 'n100' ? v / IN2_100X : kind === 'abar' ? 1e6 / v : kind === 'dbar' ? 1e6 / (v * v) : naFromG(G);
+  const abar = 1e6 / na;
+  return {
+    kind, g: G, l_mm: lMm, l_um: lMm * 1000, na, n100: na * IN2_100X, abar, dbar: Math.sqrt(abar),
+    dcirc: Math.sqrt(4 * abar / Math.PI), nl: 1 / lMm,
+    // JIS・ISO の番号は面積の定義だけ確かめたので、ℓ̄ から入れたときは出さない
+    gjis: kind === 'l_mm' || kind === 'l_um' ? null : gmFromNA(na),
+  };
 }
 
 // ---------------------------------------------------------------- 練習用の合成組織
@@ -755,7 +824,13 @@ function init() {
     if (!st.scales[key]) st.scales[key] = { mode: 'px', px: Number(SS.um.toPrecision(6)), um: Number(SS.um.toPrecision(6)), auto: true, bar: { len: barUm, level: true } };
     st.syn = p;
     setImage({ key, name: t('measure_syn_name', { k: t(`measure_syn_${p.kind}`), seed: p.seed }), w: SYN.W, h: SYN.H + SYN.bar }, c, p);
-    try { history.replaceState(history.state, '', `${location.pathname}?${synQuery(p)}${location.hash}`); } catch {}
+    // 合成組織の条件(syn・g・n・f・seed)だけを書き換え、ほかのクエリとハッシュ(数から計算の条件)は残す
+    try {
+      const q = new URLSearchParams(location.search);
+      for (const k of ['syn', 'g', 'n', 'f', 'seed']) q.delete(k);
+      for (const [k, v] of new URLSearchParams(synQuery(p))) q.set(k, v);
+      history.replaceState(history.state, '', `${location.pathname}?${q}${location.hash}`);
+    } catch {}
     // 点算法の相: 合成組織の 2 相・粒子では「暗い相」を用意する(答え合わせはこの相で)
     if (p.kind !== 'poly' && !st.phases.some(x => x.id === 'd')) {
       const used = st.fields.pt.some(f => isMarked('pt', f));
@@ -1439,5 +1514,471 @@ function init() {
     }
   }
 }
+
+// ================================================================ 数から計算・換算(画像なし。ここから下も DOM を使う)
+// 画面の文言は #ms-calc の data-t(src/i18n の measure_calc_*・measure_conv_* と、結果の表の measure_r_* など)。
+// 条件は共有のリンクのハッシュに入れる: #calc?calc=icpt|plan|pt&iu=mm|um&sh=c|r&ph=相の名前&fi=P_L_M-…&fp=中_かかる_A_M-…&ft=P_T_P-…、#conv?cv=量_値。
+// クエリ(?…)に入れないのは、ハッシュはサーバーにもアクセス解析の page_location にも入らないため(入れた数はどこにも送らない)。
+// 前の形(クエリの ?calc=…・?cv=…)のリンクは、読んでからクエリを消してハッシュに移す。入力のたびに URL は書き換えない
+// 計算は上の calcIcpt・calcPlan・calcPt・convert(画像の計測と同じ stats・gFromL・gFromNA を使う)
+export const CALC_COLS = { icpt: ['P', 'L', 'M'], plan: ['nIn', 'nCut', 'A', 'M'], pt: ['pt', 'pa'] };
+const CALC_Q = { icpt: 'fi', plan: 'fp', pt: 'ft' };
+// URL の条件を読む(知らない値は捨てる)。値は文字列のまま(入力欄にそのまま戻す)
+export function calcParams(q) {
+  const okNum = x => /^\d+(\.\d+)?$/.test(x) || /^\.\d+$/.test(x);
+  const fields = m => {
+    const v = q.get(CALC_Q[m]);
+    if (!v) return null;
+    const rows = v.split('-').slice(0, 60).map(r => { const a = r.split('_'); return Object.fromEntries(CALC_COLS[m].map((k, i) => [k, okNum(a[i] ?? '') ? a[i] : ''])); });
+    return rows.length ? rows : null;
+  };
+  const cv = (q.get('cv') ?? '').match(/^([a-z0-9_]+?)_(-?\d+(?:\.\d+)?)$/);
+  return {
+    m: ['icpt', 'plan', 'pt'].includes(q.get('calc')) ? q.get('calc') : null,
+    iu: q.get('iu') === 'um' ? 'um' : q.get('iu') === 'mm' ? 'mm' : null,
+    sh: q.get('sh') === 'r' ? 'r' : q.get('sh') === 'c' ? 'c' : null,
+    ph: (q.get('ph') ?? '').slice(0, 40),
+    f: { icpt: fields('icpt'), plan: fields('plan'), pt: fields('pt') },
+    cv: cv && CONV_IN.includes(cv[1]) ? { k: cv[1], v: cv[2] } : null,
+  };
+}
+export function calcQuery(c) {
+  const q = new URLSearchParams();
+  if (c.only === 'cv') { if (c.cv?.v !== '' && c.cv?.v != null) q.set('cv', `${c.cv.k}_${c.cv.v}`); return q.toString(); }
+  q.set('calc', c.m);
+  q.set('iu', c.iu);
+  q.set('sh', c.sh);
+  if (c.ph) q.set('ph', c.ph);
+  for (const m of ['icpt', 'plan', 'pt']) {
+    const rows = c.f[m].filter(r => CALC_COLS[m].some(k => r[k] !== ''));
+    if (rows.length) q.set(CALC_Q[m], rows.map(r => CALC_COLS[m].map(k => r[k]).join('_')).join('-'));
+  }
+  if (c.only !== 'calc' && c.cv?.v !== '' && c.cv?.v != null) q.set('cv', `${c.cv.k}_${c.cv.v}`);
+  return q.toString();
+}
+export const CALC_KEYS = ['calc', 'iu', 'sh', 'ph', 'fi', 'fp', 'ft', 'cv'];
+// ページの URL から条件を読む: ハッシュ #calc?… / #conv?…(今の形)と、クエリ ?calc=…(前の形)。legacy が真なら、クエリから読んだ
+export function calcFromUrl(search, hash) {
+  const h = (hash ?? '').match(/^#(calc|conv)\?(.*)$/);
+  const q = new URLSearchParams(search ?? '');
+  const legacy = CALC_KEYS.some(k => q.has(k));
+  const src = new URLSearchParams(h ? h[2] : '');
+  if (legacy) for (const k of CALC_KEYS) if (q.has(k) && !src.has(k)) src.set(k, q.get(k));
+  return { p: calcParams(src), at: h ? h[1] : null, legacy };
+}
+// 入力の文字列 → 数。空の欄は null
+const toNum = x => (x === '' || x == null ? null : Number(String(x).replace(',', '.')));
+
+function initCalc(box, convBox) {
+  const T = JSON.parse(box.dataset.t);
+  const lang = document.documentElement.lang || 'en';
+  const t = (k, v = {}) => (T[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => (v[x] ?? ''));
+  const nfs = {};
+  const nf = (x, d = 0) => (x == null || !Number.isFinite(x) ? '—' : (nfs[d] ??= new Intl.NumberFormat(lang, { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: false })).format(x));
+  const sigD = (x, s = 3) => (x === 0 || !Number.isFinite(x) ? 0 : Math.max(0, s - 1 - Math.floor(Math.log10(Math.abs(x)))));
+  const sig = (x, s = 4) => nf(x, sigD(x, s));
+  const raw = (x, s = 6) => (x == null || !Number.isFinite(x) ? '' : String(Number(x.toPrecision(s))));
+  // 入れた数をそのまま(余分な 0 を付けずに)言語の書式で。途中の式に写すので、桁区切りは付けない(log₁₀(1,984) と読み違えないように)
+  const nfIn = new Intl.NumberFormat(lang, { maximumFractionDigits: 6, useGrouping: false });
+  const iv = x => nfIn.format(x);
+  const el = (tag, attrs = {}, ...kids) => {
+    const e = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (v == null || v === false) continue;
+      if (k === 'class') e.className = v;
+      else if (k === 'text') e.textContent = v;
+      else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+      else e.setAttribute(k, v === true ? '' : v);
+    }
+    for (const c of kids.flat()) if (c != null) e.append(c);
+    return e;
+  };
+  const btn = (text, on, cls = 'btn btn-ghost btn-small', attrs = {}) => el('button', { type: 'button', class: cls, onclick: on, ...attrs }, text);
+  const msg = el('p', { class: 'fm-msg ms-msg', role: 'status', hidden: true });
+  let msgTimer;
+  const flash = text => { msg.textContent = text; msg.hidden = false; clearTimeout(msgTimer); msgTimer = setTimeout(() => { msg.hidden = true; }, 3000); };
+  async function copyText(text, after) {
+    try { await navigator.clipboard.writeText(text); flash(t('measure_copied')); return; } catch {}
+    const ta = el('textarea', { class: 'ms-copy', rows: 6, readonly: true });
+    ta.value = text;
+    after.after(ta); ta.focus(); ta.select();
+    flash(t('measure_copy_manual'));
+  }
+
+  // ---------------- 状態
+  const blank = m => Object.fromEntries(CALC_COLS[m].map(k => [k, '']));
+  const c = { m: 'icpt', iu: 'mm', sh: 'c', ph: '', f: { icpt: [blank('icpt')], plan: [blank('plan')], pt: [blank('pt')] }, cv: { k: 'g', v: '' } };
+  const fu = calcFromUrl(location.search, location.hash), qp = fu.p;
+  if (qp.m) c.m = qp.m;
+  if (qp.iu) c.iu = qp.iu;
+  if (qp.sh) c.sh = qp.sh;
+  if (qp.ph) c.ph = qp.ph;
+  for (const m of ['icpt', 'plan', 'pt']) if (qp.f[m]) c.f[m] = qp.f[m];
+  if (qp.cv) c.cv = qp.cv;
+  const fromUrl = !!(qp.m || qp.cv);
+  // 前の形(クエリ)のリンク: クエリから条件を消して、ハッシュに移す
+  if (fu.legacy) {
+    try {
+      const q = new URLSearchParams(location.search);
+      for (const k of CALC_KEYS) q.delete(k);
+      const at = qp.m ? 'calc' : 'conv';
+      history.replaceState(history.state, '', `${location.pathname}${q.toString() ? `?${q}` : ''}#${at}?${calcQuery({ ...c, only: at === 'conv' ? 'cv' : null })}`);
+    } catch {}
+  }
+  // 共有のリンク: 数から計算は calc の条件だけ、換算は cv だけ。どちらもハッシュに入れる
+  const shareUrl = at => new URL(`${location.pathname}#${at}?${calcQuery({ ...c, only: at === 'conv' ? 'cv' : 'calc' })}`, location.origin).href;
+
+  // ---------------- 数から計算
+  const EXAMPLE = {
+    icpt: [['112', '500', '100'], ['118.5', '500', '100'], ['109', '500', '100'], ['121', '500', '100'], ['115', '500', '100']],
+    plan: [['44', '22', '5000', '100'], ['51', '19', '5000', '100'], ['47', '25', '5000', '100']],
+    pt: [['100', '12.5'], ['100', '15'], ['100', '11'], ['100', '13.5'], ['100', '14']],
+  };
+  const colLabel = (m, k) => (m === 'icpt' && k === 'L' ? t(c.iu === 'um' ? 'measure_calc_c_l_um' : 'measure_calc_c_l_mm') : t(`measure_calc_c_${k.toLowerCase()}`));
+  const intCols = new Set(['nIn', 'nCut', 'pt']);
+  const tabs = el('div', { class: 'ms-tabs', role: 'tablist', 'aria-label': t('measure_calc_h') }, ['icpt', 'plan', 'pt'].map(m =>
+    el('button', { type: 'button', role: 'tab', class: 'ms-tab', id: `ms-ctab-${m}`, 'aria-controls': 'ms-cpanel', 'aria-selected': String(c.m === m), onclick: () => { c.m = m; for (const b of tabs.children) b.setAttribute('aria-selected', String(b.id === `ms-ctab-${m}`)); renderPanel(); } }, t(`measure_m_${m}`))));
+  const panel = el('div', { class: 'ms-panel', id: 'ms-cpanel', role: 'tabpanel' });
+  const out = el('div', { class: 'ms-out', 'aria-live': 'polite' });
+  const resBtns = el('div', { class: 'fm-sel-btns ms-res-btns' },
+    btn(t('measure_copy_text'), () => copyText(calcText(), resBtns)),
+    btn(t('measure_copy_csv'), () => copyText(calcCsv(), resBtns)),
+    btn(t('measure_calc_copy_link'), () => copyText(shareUrl('calc'), resBtns)));
+  box.querySelector('.ms-calc-root').replaceChildren(tabs, panel,
+    el('section', { class: 'ms-step ms-cres', 'aria-labelledby': 'ms-h-cres' }, el('h3', { id: 'ms-h-cres', text: t('measure_calc_res_h') }), out, resBtns, msg));
+
+  // 視野の行を読む: 空の行は飛ばし、途中まで入れた行・誤りのある行は結果に入れない
+  function rowsOf(m) {
+    return c.f[m].map((r, i) => {
+      // bad: 数として読めない入力(「1e」など。type="number" の欄では値が空になり、validity.badInput だけが立つ)
+      const bad = Object.keys(r._bad ?? {}).filter(k => !(m === 'icpt' && k === 'M' && c.iu === 'um'));
+      const filled = bad.length > 0 || CALC_COLS[m].filter(k => !(m === 'icpt' && k === 'M' && c.iu === 'um')).some(k => r[k] !== '');
+      const v = Object.fromEntries(CALC_COLS[m].map(k => [k, toNum(r[k])]));
+      const need = CALC_COLS[m].filter(k => !(m === 'icpt' && k === 'M' && c.iu === 'um'));
+      const complete = need.every(k => v[k] != null);
+      const err = checkField(m, v, c.iu);
+      // 誤りは、入れた欄の分だけ出す(まだ入れていない欄は「入力待ち」)
+      const shown = { ...Object.fromEntries(Object.entries(err).filter(([k]) => r[k] !== '' || (complete && k === 'nIn'))), ...Object.fromEntries(bad.map(k => [k, 'bad'])) };
+      return { i, v, filled, complete, err: shown, ok: filled && complete && !bad.length && !Object.keys(err).length };
+    });
+  }
+  function result(m) {
+    const rs = rowsOf(m), ok = rs.filter(r => r.ok);
+    if (!ok.length) return { rs, ok, R: null };
+    const R = m === 'icpt' ? calcIcpt(ok.map(r => r.v), c.iu) : m === 'plan' ? calcPlan(ok.map(r => r.v), c.sh) : calcPt(ok.map(r => r.v));
+    return { rs, ok, R };
+  }
+  function renderPanel() {
+    const m = c.m, kids = [];
+    // 欄を作り直すと読めなかった入力は消えるので、その印も消す
+    for (const r of c.f[m]) delete r._bad;
+    // 方法ごとの条件
+    if (m === 'icpt') {
+      const s = el('select', {}, [['mm', t('measure_calc_u_mm')], ['um', t('measure_calc_u_um')]].map(([v, x]) => el('option', { value: v, selected: c.iu === v }, x)));
+      // 単位を切り替えたら、入れた試験線の長さを読み替える(写真の上 mm ÷ 倍率 = 実寸。倍率がなければ空にする)
+      s.addEventListener('change', () => {
+        const to = s.value;
+        for (const r of c.f.icpt) {
+          const L = toNum(r.L), M = toNum(r.M);
+          if (L == null || !(L > 0)) continue;
+          r.L = M > 0 && Number.isFinite(M) ? raw(to === 'um' ? 1000 * L / M : L * M / 1000) : '';
+        }
+        c.iu = to; renderPanel();
+      });
+      kids.push(el('div', { class: 'ms-conf' }, el('label', { class: 'ms-f' }, el('span', { text: t('measure_calc_iu') }), s)));
+    } else if (m === 'plan') {
+      const s = el('select', {}, [['c', t('measure_calc_sh_c')], ['r', t('measure_calc_sh_r')]].map(([v, x]) => el('option', { value: v, selected: c.sh === v }, x)));
+      s.addEventListener('change', () => { c.sh = s.value; update(); });
+      kids.push(el('div', { class: 'ms-conf' }, el('label', { class: 'ms-f' }, el('span', { text: t('measure_shape') }), s)), el('p', { class: 'ms-cnote muted', text: t('measure_calc_rect_note') }));
+    } else {
+      const i = el('input', { type: 'text', value: c.ph, placeholder: t('measure_ph_ph'), maxlength: '40', autocomplete: 'off' });
+      i.addEventListener('input', () => { c.ph = i.value; update(); });
+      kids.push(el('div', { class: 'ms-conf' }, el('label', { class: 'ms-f' }, el('span', { text: t('measure_ph_name') }), i)));
+    }
+    kids.push(el('p', { class: 'ms-cnote muted', text: t(`measure_calc_how_${m}`) }));
+    // 視野の行
+    const list = el('div', { class: 'ms-crows' });
+    c.f[m].forEach((r, i) => {
+      const cols = CALC_COLS[m].filter(k => !(m === 'icpt' && k === 'M' && c.iu === 'um'));
+      const errP = el('p', { class: 'ms-cerr', id: `ms-cerr-${m}-${i}`, 'aria-live': 'polite' });
+      const val = el('p', { class: 'ms-cval ms-num', id: `ms-cval-${m}-${i}` });
+      const inputs = cols.map(k => {
+        const inp = el('input', { type: 'number', inputmode: intCols.has(k) ? 'numeric' : 'decimal', step: 'any', min: '0', value: r[k], 'data-k': k, autocomplete: 'off', 'aria-describedby': `ms-cerr-${m}-${i}` });
+        inp.addEventListener('input', () => {
+          if (inp.validity?.badInput) { r._bad = { ...r._bad, [k]: true }; r[k] = ''; }
+          else { if (r._bad) delete r._bad[k]; r[k] = inp.value.trim(); }
+          update();
+        });
+        return el('label', { class: 'ms-f' }, el('span', { text: colLabel(m, k) }), inp);
+      });
+      list.append(el('fieldset', { class: 'ms-crow', 'data-i': i },
+        el('legend', {}, t('measure_calc_field', { i: i + 1 })),
+        el('div', { class: 'ms-cgrid' }, inputs),
+        el('div', { class: 'ms-crow-foot' }, val,
+          c.f[m].length > 1 ? btn('×', () => { c.f[m].splice(i, 1); renderPanel(); }, 'chip', { 'aria-label': t('measure_calc_del', { i: i + 1 }) }) : null),
+        errP));
+    });
+    kids.push(list);
+    kids.push(el('div', { class: 'fm-sel-btns' },
+      btn(t('measure_calc_add'), () => {
+        const last = c.f[m][c.f[m].length - 1], r = blank(m);
+        // 試験線の長さ・枠の面積・倍率・格子の点の数は、前の視野と同じことが多いので写す
+        for (const k of ['L', 'M', 'A', 'pt']) if (k in r && last?.[k]) r[k] = last[k];
+        c.f[m].push(r); renderPanel();
+        panel.querySelector(`.ms-crow[data-i="${c.f[m].length - 1}"] input`)?.focus();
+      }, 'btn btn-primary btn-small'),
+      btn(t('measure_calc_example'), () => { c.f[m] = EXAMPLE[m].map(a => Object.fromEntries(CALC_COLS[m].map((k, j) => [k, a[j]]))); if (m === 'icpt') c.iu = 'mm'; renderPanel(); }),
+      btn(t('measure_calc_clear'), () => { c.f[m] = [blank(m)]; renderPanel(); })));
+    panel.replaceChildren(...kids);
+    update();
+  }
+  // 値の書式: 長さは µm(1000 以上は mm も)
+  const um = x => `${sig(x, 4)} µm`;
+  function fieldLine(m, r, R, j) {
+    const v = r.v;
+    if (m === 'icpt') {
+      const row = R.rows[j], L = c.iu === 'um' ? `${iv(v.L)} µm = ${sig(v.L / 1000, 4)} mm` : `${iv(v.L)} mm ÷ ${iv(v.M)} = ${sig(v.L / v.M, 4)} mm`;
+      return `L = ${L};  ℓ = L / P = ${sig(row.L / 1000, 4)} mm ÷ ${iv(v.P)} = ${sig(row.l / 1000, 4)} mm (${um(row.l)})`;
+    }
+    if (m === 'plan') {
+      const row = R.rows[j];
+      return `N = ${iv(v.nIn)} + ½ × ${iv(v.nCut)}${c.sh === 'r' ? ' + 1' : ''} = ${iv(row.n)};  A = ${iv(v.A)} mm² ÷ ${iv(v.M)}² = ${sig(row.A, 4)} mm²;  N_A = N / A = ${sig(row.na, 4)} mm⁻²`;
+    }
+    return `P_P = ${iv(v.pa)} ÷ ${iv(v.pt)} = ${sig(v.pa / v.pt, 4)} (${nf(100 * v.pa / v.pt, 2)} %)`;
+  }
+  // 平均・s・信頼区間・%RA の展開。xs は視野ごとの値、f は表示の書式
+  function statLines(xs, s, f, bar, xi) {
+    const L = [`${bar} = (${xs.map(f).join(' + ')}) / ${s.n} = ${f(s.mean)}`];
+    if (s.s != null) {
+      L.push(`s = √( Σ (${xi} − ${bar})² / (n − 1) ) = ${f(s.s)}`);
+      L.push(`95 % CI = t · s / √n = ${nf(s.t, 3)} × ${f(s.s)} / √${s.n} = ± ${f(s.ci)}`);
+      L.push(`%RA = 100 × CI / ${bar} = 100 × ${f(s.ci)} / ${f(s.mean)} = ${nf(s.ra, 1)} %`);
+    }
+    return L;
+  }
+  function steps(m, R, ok) {
+    const L = ok.map((r, j) => `${t('measure_calc_field', { i: r.i + 1 })}: ${fieldLine(m, r, R, j)}`);
+    if (m === 'icpt') {
+      const s = R.st;
+      L.push(...statLines(R.rows.map(x => x.l), s, um, 'ℓ̄', 'ℓ_i'));
+      L.push(`G = −6.643856 × log₁₀(${sig(s.mean / 1000, 4)}) − 3.288 = ${nf(R.G, 2)}`);
+    } else if (m === 'plan') {
+      const s = R.st, f = x => `${sig(x, 4)} mm⁻²`;
+      L.push(...statLines(R.rows.map(x => x.na), s, f, 'N̄_A', 'N_A,i'));
+      L.push(`G = 3.321928 × log₁₀(${sig(s.mean, 4)}) − 2.954 = ${nf(R.G, 2)}`);
+    } else {
+      const p = R.per[0], f = x => `${nf(100 * x, 2)} %`;
+      L.push(...statLines(p.xs, p.st, f, 'P̄_P', 'P_P,i'));
+      L.push(`V_V ≈ P̄_P = ${f(p.st.mean)}${p.st.ci != null ? ` ± ${f(p.st.ci)}` : ''}`);
+    }
+    return L;
+  }
+  // 結果の表(画面・テキスト・CSV で同じ行): [ラベル, 文, CSV の値, 単位]
+  function table(m, R) {
+    const rows = [], add = (k, txt, v, u = '') => rows.push([t(k), txt, v, u]), x = R.st;
+    // 信頼区間の両端から出した G は、下端・上端の 2 行に分ける(CSV で 1 つの値にするため)
+    const gRange = ([lo, hi]) => { add('measure_calc_g_lo', lo != null ? nf(lo, 2) : '—', raw(lo, 4)); add('measure_calc_g_hi', hi != null ? nf(hi, 2) : '—', raw(hi, 4)); };
+    if (m === 'icpt') {
+      add('measure_r_n', nf(R.nOk), R.nOk);
+      add('measure_r_sump', nf(R.sumP, 1), R.sumP);
+      add('measure_r_suml', R.sumL >= 1000 ? `${sig(R.sumL / 1000, 4)} mm` : um(R.sumL), raw(R.sumL), 'µm');
+      add('measure_r_lbar', um(x.mean), raw(x.mean), 'µm');
+      add('measure_r_s', x.s != null ? um(x.s) : '—', raw(x.s), 'µm');
+      add('measure_r_ci', x.ci != null ? `± ${um(x.ci)} (t = ${nf(x.t, 3)})` : '—', raw(x.ci), 'µm');
+      add('measure_r_ra', x.ra != null ? `${nf(x.ra, 1)} %` : '—', raw(x.ra, 4), '%');
+      add('measure_r_g', nf(R.G, 2), raw(R.G, 4));
+      if (R.Gr) gRange(R.Gr);
+      add('measure_r_pooled', um(R.pooled), raw(R.pooled), 'µm');
+    } else if (m === 'plan') {
+      add('measure_r_n', nf(R.nOk), R.nOk);
+      add('measure_r_sumn', nf(R.sumN, 1), R.sumN);
+      add('measure_r_na', `${sig(x.mean, 4)} mm⁻²`, raw(x.mean), 'mm-2');
+      add('measure_r_s', x.s != null ? `${sig(x.s, 3)} mm⁻²` : '—', raw(x.s), 'mm-2');
+      add('measure_r_ci', x.ci != null ? `± ${sig(x.ci, 3)} mm⁻² (t = ${nf(x.t, 3)})` : '—', raw(x.ci), 'mm-2');
+      add('measure_r_ra', x.ra != null ? `${nf(x.ra, 1)} %` : '—', raw(x.ra, 4), '%');
+      add('measure_r_g', nf(R.G, 2), raw(R.G, 4));
+      if (R.Gr) gRange(R.Gr);
+      add('measure_r_dbar', um(1000 / Math.sqrt(x.mean)), raw(1000 / Math.sqrt(x.mean)), 'µm');
+    } else {
+      const p = R.per[0], s = p.st, nm = c.ph.trim() || t('measure_ph_noname');
+      add('measure_r_n', nf(R.rows.length), R.rows.length);
+      add('measure_r_sumpt', nf(R.sumPt), R.sumPt);
+      rows.push([t('measure_r_vv_detail', { name: nm }), t('measure_r_hits', { n: nf(p.sum, 1) }), p.sum, '']);
+      rows.push([t('measure_r_vv', { name: nm }), `${nf(100 * s.mean, 1)} %`, raw(100 * s.mean), '%']);
+      add('measure_r_s', s.s != null ? `${nf(100 * s.s, 2)} %` : '—', raw(s.s != null ? 100 * s.s : null), '%');
+      add('measure_r_ci', s.ci != null ? `± ${nf(100 * s.ci, 1)} % (t = ${nf(s.t, 3)})` : '—', raw(s.ci != null ? 100 * s.ci : null), '%');
+      add('measure_r_ra', s.ra != null ? `${nf(s.ra, 1)} %` : '—', raw(s.ra, 4), '%');
+    }
+    return rows;
+  }
+  function warns(m, R) {
+    const w = [], n = m === 'pt' ? R.rows.length : R.nOk;
+    if (n < 2) w.push(t('measure_w_one'));
+    const ra = s => { if (s?.ra != null && s.ra > 10) { const k = fieldsFor(10, s.s / s.mean); w.push(t('measure_w_ra', { ra: nf(s.ra, 1), n: Number.isFinite(k) ? k : '—' })); } };
+    if (m === 'icpt') {
+      const low = R.rows.map((x, j) => [x, j]).filter(([x]) => x.P < 40).map(([, j]) => j);
+      if (low.length) w.push(t('measure_w_low_icpt', { list: low.map(j => okIdx[j] + 1).join(', ') }));
+      if (n < 5) w.push(t('measure_w_few_icpt'));
+      if (R.sumP < 400) w.push(t('measure_w_total_icpt', { n: nf(R.sumP, 1) }));
+      ra(R.st);
+    } else if (m === 'plan') {
+      const low = R.rows.map((x, j) => [x, j]).filter(([x]) => x.n < 50).map(([, j]) => j);
+      if (low.length) w.push(t('measure_w_low_plan', { list: low.map(j => okIdx[j] + 1).join(', ') }));
+      if (R.rows.some(x => x.n > 100)) w.push(t('measure_w_high_plan'));
+      if (n < 3) w.push(t('measure_w_few_plan'));
+      if (R.sumN < 700) w.push(t('measure_w_total_plan', { n: nf(R.sumN, 1) }));
+      ra(R.st);
+    } else {
+      const p = R.per[0], nm = c.ph.trim() || t('measure_ph_noname');
+      if (p.st?.ra != null && p.st.ra > 10) { const k = fieldsFor(10, p.st.s / p.st.mean); w.push(t('measure_w_ra_pt', { name: nm, ra: nf(p.st.ra, 1), n: Number.isFinite(k) ? k : '—' })); }
+      const pts = R.rows.map(x => x.pt), g = gridFor(p.st.mean);
+      if (g && Math.max(...pts) < g && p.st.mean > 0) w.push(t('measure_w_grid', { name: nm, p: nf(100 * p.st.mean, 1), n: g }));
+      const need = pointFieldsFor(10, p.st.mean, pts.reduce((a, b) => a + b, 0) / pts.length);
+      if (need && need > n) w.push(t('measure_w_pt_need', { name: nm, n: need }));
+      if (n >= 2 && n < 30) w.push(t('measure_w_pt_30', { n }));
+    }
+    return w;
+  }
+  let okIdx = [];
+  function update() {
+    const m = c.m, { rs, ok, R } = result(m);
+    okIdx = ok.map(r => r.i);
+    // 行ごとの誤り・値
+    for (const r of rs) {
+      const row = panel.querySelector(`.ms-crow[data-i="${r.i}"]`);
+      if (!row) continue;
+      const codes = Object.entries(r.err);
+      for (const inp of row.querySelectorAll('input[data-k]')) inp.setAttribute('aria-invalid', String(!!r.err[inp.dataset.k]));
+      row.querySelector('.ms-cerr').textContent = codes.map(([k, e]) => `${colLabel(m, k)}: ${t(`measure_calc_e_${e}`)}`).join(' / ');
+      row.classList.toggle('is-bad', codes.length > 0);
+      const j = ok.indexOf(r);
+      row.querySelector('.ms-cval').textContent = !r.filled ? '' : j < 0 ? t('measure_calc_wait')
+        : m === 'icpt' ? `ℓ = ${um(R.rows[j].l)}` : m === 'plan' ? `N = ${nf(R.rows[j].n, 1)} · N_A = ${sig(R.rows[j].na, 4)} mm⁻²` : `P_P = ${nf(100 * R.per[0].xs[j], 2)} %`;
+    }
+    if (!R) { out.replaceChildren(el('p', { class: 'muted', text: t('measure_calc_none') })); return; }
+    const w = warns(m, R);
+    out.replaceChildren(el('div', { class: 'ms-rbox' },
+      el('h4', { text: t(`measure_m_${m}`) }),
+      el('div', { class: 'fm-scroll' }, el('table', { class: 'pp-tbl ms-rtbl' }, el('tbody', {}, table(m, R).map(([k, v]) => el('tr', {}, el('th', { scope: 'row', text: k }), el('td', { class: 'ms-num', text: v })))))),
+      w.length ? el('ul', { class: 'mt-miss ms-warn' }, w.map(x => el('li', { text: x }))) : el('p', { class: 'ms-ok', text: t('measure_w_none') }),
+      el('h5', { class: 'ms-steps-h', text: t('measure_calc_steps') }),
+      el('ol', { class: 'ms-steps' }, steps(m, R, ok).map(x => el('li', {}, el('code', { text: x }))))),
+      el('p', { class: 'fn-caution ms-est', text: t('measure_est') }));
+  }
+  function calcText() {
+    const m = c.m, { ok, R } = result(m);
+    const L = [t('measure_calc_rep_title'), `${t('measure_rep_date')}: ${new Date().toLocaleString(lang)}`, `${t('measure_calc_method')}: ${t(`measure_m_${m}`)}`];
+    if (m === 'icpt') L.push(`${t('measure_calc_iu')}: ${t(c.iu === 'um' ? 'measure_calc_u_um' : 'measure_calc_u_mm')}`);
+    if (m === 'plan') L.push(`${t('measure_shape')}: ${t(c.sh === 'r' ? 'measure_calc_sh_r' : 'measure_calc_sh_c')}`);
+    if (!R) { L.push('', t('measure_calc_none')); return L.join('\n'); }
+    L.push('');
+    for (const [k, v] of table(m, R)) L.push(`${k}: ${v}`);
+    L.push('', `[${t('measure_calc_steps')}]`, ...steps(m, R, ok));
+    for (const w of warns(m, R)) L.push(`* ${w}`);
+    L.push('', t('measure_est'), t('measure_rep_src'), shareUrl('calc'));
+    return L.join('\n');
+  }
+  function calcCsv() {
+    const m = c.m, { ok, R } = result(m), q = v => { const s = String(v ?? ''); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+    const name = t(`measure_m_${m}`), rows = [t('measure_calc_csv_cols').split('|')];
+    if (R) {
+      const unit = { P: '', L: c.iu === 'um' ? 'µm' : 'mm', M: '×', nIn: '', nCut: '', A: 'mm2', pt: '', pa: '' };
+      ok.forEach((r, j) => {
+        for (const k of CALC_COLS[m]) if (!(m === 'icpt' && k === 'M' && c.iu === 'um')) rows.push([name, r.i + 1, m === 'icpt' && k === 'L' ? t(c.iu === 'um' ? 'measure_calc_q_l_real' : 'measure_calc_q_l_photo') : m === 'plan' && k === 'A' ? t('measure_calc_q_a_photo') : k, r.v[k], unit[k]]);
+        if (m === 'icpt') rows.push([name, r.i + 1, 'l', raw(R.rows[j].l), 'µm']);
+        else if (m === 'plan') rows.push([name, r.i + 1, t('measure_calc_q_a_real'), raw(R.rows[j].A), 'mm2'], [name, r.i + 1, 'N', R.rows[j].n, ''], [name, r.i + 1, 'N_A', raw(R.rows[j].na), 'mm-2']);
+        else rows.push([name, r.i + 1, 'P_P', raw(R.per[0].xs[j]), '']);
+      });
+      for (const [k, , v, u] of table(m, R)) rows.push([name, t('measure_csv_all'), k, v, u]);
+    }
+    rows.push(['', '', t('measure_est'), '', '']);
+    return rows.map(r => r.map(q).join(',')).join('\r\n');
+  }
+
+  // ---------------- 換算
+  if (convBox) {
+    const inputs = {}, outs = {};
+    const grid = el('div', { class: 'ms-cvgrid' });
+    for (const k of CONV_IN) {
+      const i = el('input', { type: 'number', inputmode: 'decimal', step: 'any', ...(k === 'g' ? {} : { min: '0' }), 'data-k': k, autocomplete: 'off', 'aria-describedby': 'ms-cv-err' });
+      i.addEventListener('input', () => { c.cv = { k, v: i.value.trim(), bad: !!i.validity?.badInput }; conv(); });
+      inputs[k] = i;
+      grid.append(el('label', { class: 'ms-f ms-cvf' }, el('span', { text: t(`measure_conv_in_${k}`) }), i));
+    }
+    const err = el('p', { class: 'ms-cerr', id: 'ms-cv-err', 'aria-live': 'polite' });
+    const warn = el('p', { class: 'fn-caution ms-cvwarn', role: 'status', hidden: true });
+    const otbl = el('tbody');
+    for (const k of ['dcirc', 'nl', 'gjis']) { outs[k] = el('td', { class: 'ms-num' }); otbl.append(el('tr', {}, el('th', { scope: 'row', text: t(`measure_conv_${k}`) }), outs[k])); }
+    const stepsBox = el('ol', { class: 'ms-steps' });
+    const cvBtns = el('div', { class: 'fm-sel-btns ms-res-btns' },
+      btn(t('measure_copy_text'), () => copyText(convText(), cvBtns)),
+      btn(t('measure_calc_copy_link'), () => copyText(shareUrl('conv'), cvBtns)),
+      btn(t('measure_calc_clear'), () => { c.cv = { k: 'g', v: '' }; conv(); inputs.g.focus(); }));
+    convBox.querySelector('.ms-conv-root').replaceChildren(
+      el('p', { class: 'ms-cnote muted', text: t('measure_conv_hint') }), grid, err, warn,
+      el('div', { class: 'ms-rbox' }, el('h4', { text: t('measure_conv_out_h') }), el('div', { class: 'fm-scroll' }, el('table', { class: 'pp-tbl ms-rtbl' }, otbl)),
+        el('h5', { class: 'ms-steps-h', text: t('measure_calc_steps') }), stepsBox),
+      cvBtns);
+    const fmt = { g: x => nf(x, 2), l_um: x => sig(x, 4), l_mm: x => sig(x, 4), na: x => sig(x, 4), n100: x => sig(x, 4), abar: x => sig(x, 4), dbar: x => sig(x, 4) };
+    function convSteps(r) {
+      const L = [], v = r[r.kind];
+      if (r.kind === 'g') L.push(`G = ${nf(v, 2)}`);
+      else if (r.kind === 'l_um' || r.kind === 'l_mm') L.push(`ℓ̄ = ${sig(r.l_um, 4)} µm = ${sig(r.l_mm, 4)} mm`, `G = −6.643856 × log₁₀(${sig(r.l_mm, 4)}) − 3.288 = ${nf(r.g, 2)}`);
+      else {
+        if (r.kind === 'n100') L.push(`N_A = n / 0.064516 = ${sig(v, 4)} / 0.064516 = ${sig(r.na, 4)} mm⁻²`);
+        if (r.kind === 'abar') L.push(`N_A = 10⁶ / Ā = 10⁶ / ${sig(v, 4)} = ${sig(r.na, 4)} mm⁻²`);
+        if (r.kind === 'dbar') L.push(`Ā = d̄² = ${sig(v, 4)}² = ${sig(r.abar, 4)} µm²;  N_A = 10⁶ / Ā = ${sig(r.na, 4)} mm⁻²`);
+        L.push(`G = 3.321928 × log₁₀(${sig(r.na, 4)}) − 2.954 = ${nf(r.g, 2)}`);
+      }
+      if (r.kind === 'g' || r.kind === 'l_um' || r.kind === 'l_mm') L.push(`N_A = 10^((G + 2.954) / 3.321928) = ${sig(r.na, 4)} mm⁻²`);
+      if (r.kind !== 'l_um' && r.kind !== 'l_mm') L.push(`ℓ̄ = 10^(−(G + 3.288) / 6.643856) = ${sig(r.l_mm, 4)} mm = ${sig(r.l_um, 4)} µm`);
+      L.push(`n = 0.064516 × N_A = ${sig(r.n100, 4)}  (= 2^(G − 1))`);
+      if (r.kind !== 'abar' && r.kind !== 'dbar') L.push(`Ā = 10⁶ / N_A = ${sig(r.abar, 4)} µm²`);
+      if (r.kind !== 'dbar') L.push(`d̄ = √Ā = ${sig(r.dbar, 4)} µm`);
+      L.push(`√(4Ā/π) = ${sig(r.dcirc, 4)} µm`, `N_L = 1 / ℓ̄ = ${sig(r.nl, 4)} mm⁻¹`);
+      if (r.gjis != null) L.push(`G_JIS = log₂(N_A / 8) = ${nf(r.gjis, 2)}  (= G − 0.046)`);
+      return L;
+    }
+    let last = null;
+    function conv() {
+      const k = c.cv.k, v = toNum(c.cv.v), r = v == null || c.cv.bad ? null : convert(k, v);
+      last = r;
+      for (const [q, i] of Object.entries(inputs)) {
+        i.classList.toggle('is-src', q === k && v != null);
+        if (q !== k) i.value = r ? raw(r[q], 4) : '';
+        else if (document.activeElement !== i && i.value !== c.cv.v) i.value = c.cv.v;
+        i.setAttribute('aria-invalid', String(q === k && ((v != null && !r) || !!c.cv.bad)));
+      }
+      err.textContent = c.cv.bad ? `${t(`measure_conv_in_${k}`)}: ${t('measure_calc_e_bad')}` : v != null && !r ? `${t(`measure_conv_in_${k}`)}: ${t('measure_calc_e_pos')}` : '';
+      // E112 の表の範囲(G 00〜14。00 は G = −1)を外れたら、式の上の値であることを知らせる
+      const out = r && (r.g < -1 - 1e-9 || r.g > 14 + 1e-9);
+      warn.hidden = !out;
+      warn.textContent = out ? t('measure_conv_w_range', { g: nf(r.g, 2) }) : '';
+      outs.dcirc.textContent = r ? `${sig(r.dcirc, 4)} µm` : '—';
+      outs.nl.textContent = r ? `${sig(r.nl, 4)} mm⁻¹` : '—';
+      outs.gjis.textContent = !r ? '—' : r.gjis != null ? nf(r.gjis, 2) : t('measure_conv_gjis_no');
+      stepsBox.replaceChildren(...(r ? convSteps(r).map(x => el('li', {}, el('code', { text: x }))) : [el('li', { class: 'muted', text: t('measure_conv_hint') })]));
+    }
+    function convText() {
+      const r = last;
+      if (!r) return t('measure_conv_hint');
+      return [t('measure_conv_rep_title'), `${t('measure_conv_from')}: ${t(`measure_conv_in_${r.kind}`)} = ${fmt[r.kind](r[r.kind])}`, '',
+        ...CONV_IN.map(q => `${t(`measure_conv_in_${q}`)}: ${fmt[q](r[q])}`),
+        `${t('measure_conv_dcirc')}: ${sig(r.dcirc, 4)}`, `${t('measure_conv_nl')}: ${sig(r.nl, 4)}`, `${t('measure_conv_gjis')}: ${r.gjis != null ? nf(r.gjis, 2) : t('measure_conv_gjis_no')}`,
+        ...(r.g < -1 || r.g > 14 ? ['', t('measure_conv_w_range', { g: nf(r.g, 2) })] : []),
+        '', `[${t('measure_calc_steps')}]`, ...convSteps(r), '', t('measure_conv_eq_note'), shareUrl('conv')].join('\n');
+    }
+    inputs[c.cv.k].value = c.cv.v;
+    conv();
+    convBox.querySelector('.ms-conv-js').hidden = false;
+  }
+
+  renderPanel();
+  box.hidden = false;
+  // URL から開いたときは、その場所へ
+  if (fromUrl) ((fu.at === 'conv' || (!fu.at && !qp.m)) ? convBox ?? box : box).closest('section').scrollIntoView();
+}
+const calcBox = typeof document !== 'undefined' ? document.getElementById('ms-calc') : null;
+if (calcBox) initCalc(calcBox, document.getElementById('conv'));
 
 if (app) init();

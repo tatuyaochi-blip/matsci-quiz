@@ -607,7 +607,7 @@ const adsenseTag = config.adsenseClient
   : '';
 const ga4Tag = config.ga4Id
   ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${esc(config.ga4Id)}"></script>
-<script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', '${esc(config.ga4Id)}');</script>`
+<script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', '${esc(config.ga4Id)}', { page_location: location.href.split('#')[0] });</script>`
   : '';
 const loc = (v, code) => (v && typeof v === 'object' ? v[code] ?? v[defLang] : v);
 
@@ -1066,6 +1066,7 @@ function buildLang(L) {
       ...prp.etchants.map(e => ({ t: 'r', n: e.name, u: `prep/#e-${e.id}`, x: `${e.comp.join(' ')} ${e.see}` })),
       ...prp.defects.map(f => ({ t: 'r', n: f.name, u: `prep/#f-${f.id}`, x: f.look }))] : []),
     ...(msr ? [{ t: 'u', n: msr.h1, u: 'measure/', x: msr.description },
+      ...(Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'measure_calc_h') ? [{ t: 'u', n: S.measure_calc_h, u: 'measure/#calc', x: S.measure_calc_lead }, { t: 'u', n: S.measure_conv_h, u: 'measure/#conv', x: S.measure_conv_lead }] : []),
       ...msr.rules.map(r => ({ t: 'u', n: r.h, u: `measure/#rules-${r.id}`, x: r.items.map(i => i[1]).join(' ') })),
       ...msr.guide.map(g => ({ t: 'u', n: g.h, u: `measure/#${g.id}`, x: g.p[0] }))] : []),
     ...(phr ? [{ t: 'p', n: phr.h1, u: 'phrases/', x: phr.description },
@@ -4165,7 +4166,7 @@ ${relCats.length ? `<section>
     for (const r of D.rules) { if (!r.items.length || r.items.some(x => x.length !== 2 || !x[1])) throw new Error(`${where}: rules ${r.id} の items`); srcOk(r.src, `${where}: 決まり ${r.id}`); }
     for (const f of D.formulas) { if (!f.f.length || !f.sym.length) throw new Error(`${where}: 式 ${f.id} の式か記号がありません`); srcOk(f.src, `${where}: 式 ${f.id}`); }
     for (const g of D.guide) { if (!/^[a-z0-9-]+$/.test(g.id)) throw new Error(`${where}: guide の id ${g.id}`); srcOk(g.src, `${where}: 読み物 ${g.id}`); }
-    const reserved = ['ms-app', 'rules', 'formulas', 'gtable', 'related', 'sources', 'faq', 'ms-panel'];
+    const reserved = ['ms-app', 'rules', 'formulas', 'gtable', 'related', 'sources', 'faq', 'ms-panel', 'calc', 'conv', 'ms-calc', 'ms-cpanel'];
     if (new Set(D.guide.map(g => g.id)).size !== D.guide.length || D.guide.some(g => reserved.includes(g.id) || /^(rules|fml)-/.test(g.id))) throw new Error(`${where}: guide の id が重なります`);
     // 粒度番号の表: measure.js の式で計算した値が、E112 の表の値(出典に載った桁)と合うこと
     srcOk(D.gtable.src, `${where}: gtable`);
@@ -4174,6 +4175,12 @@ ${relCats.length ? `<section>
       const cNa = msrJs.naFromG(g), cL = msrJs.lFromG(g), cD = 1 / Math.sqrt(cNa);
       if (!near(cNa, na) || !near(cL, l) || !near(cD, d)) throw new Error(`${where}: 粒度番号の表 G = ${g} が式と合いません(N_A ${cNa}・ℓ̄ ${cL}・d̄ ${cD})`);
       if (Math.abs(msrJs.gFromL(l) - g) > 0.02 || Math.abs(msrJs.gFromNA(na) - g) > 0.02) throw new Error(`${where}: 粒度番号の表 G = ${g} の逆の換算が合いません`);
+    }
+    // 換算(数から計算の欄): 表 4 の n(100 倍の 1 平方インチ当たり)と Ā(µm²)が、measure.js の convert で G から出した値と合うこと。どの量から入れても G に戻ること
+    for (const [g, , , , n100, aUm] of D.gtable.rows) {
+      const r = msrJs.convert('g', g);
+      if (n100 == null || aUm == null || !near(r.n100, n100) || !near(r.abar, aUm) || Math.abs(2 ** (g - 1) / r.n100 - 1) > 0.003) throw new Error(`${where}: 粒度番号の表 G = ${g} の n・Ā が換算と合いません(n ${r.n100}・Ā ${r.abar})`);
+      for (const k of msrJs.CONV_IN) if (Math.abs(msrJs.convert(k, r[k]).g - g) > 1e-9) throw new Error(`src/js/measure.js: convert(${k}) が G = ${g} に戻りません`);
     }
     // リンク先が存在すること(組織アトラス・試料調製ガイド・手法ナビ・公式集・用語集)
     const has = (list, id) => (list ?? []).some(e => e.id === id);
@@ -4193,8 +4200,22 @@ ${relCats.length ? `<section>
     function need(k) { if (S[k] == null) throw new Error(`src/i18n/${code}.json: ${k} がありません`); return S[k]; }
     const dyn = [...msrJs.SYN.kinds.map(k => `measure_syn_${k}`), ...['count', 'move'].map(k => `measure_mode_${k}`), ...['bar', 'px', 'mag', 'fov'].map(k => `measure_scale_${k}`),
       ...['icpt', 'plan', 'pt'].flatMap(k => [`measure_m_${k}`, `measure_h_${k}`]), ...msrJs.PATS.map(k => `measure_pat_${k}`), ...['x', 'j', 't', 'e', 'in', 'cut', 'del'].map(k => `measure_k_${k}`)];
-    const jsKeys = [...new Set([...[...jsSrc.matchAll(/\bt\('(measure_[a-z0-9_]+)'/g)].map(m => m[1]), ...[...jsSrc.matchAll(/'(measure_[a-z0-9_]+)'/g)].map(m => m[1]), ...dyn, 'measure_csv_cols'])];
+    // measure.js は、画像の計測(前半)と、数から計算・換算(後半)の 2 つの画面を持つ。後半の文言は、その言語の src/i18n に measure_calc_h があるときだけ使う
+    // (訳がまだない言語のページは、数から計算・換算の欄なしで、今までと同じに作る)
+    const calcMark = '// ================================================================ 数から計算・換算';
+    if (!jsSrc.includes(calcMark)) throw new Error('src/js/measure.js: 数から計算の部分の目印がありません');
+    const [imgSrc, calcSrc] = jsSrc.split(calcMark);
+    const keysIn = x => [...new Set([...x.matchAll(/'(measure_[a-z0-9_]+)'/g)].map(m => m[1]))];
+    const jsKeys = [...new Set([...[...imgSrc.matchAll(/\bt\('(measure_[a-z0-9_]+)'/g)].map(m => m[1]), ...keysIn(imgSrc), ...dyn, 'measure_csv_cols'])];
     const jsText = Object.fromEntries([...jsKeys, 'compare_link_copied'].map(k => [k, need(k)]));
+    const calcOn = Object.hasOwn(readOpt(`src/i18n/${code}.json`, {}), 'measure_calc_h');
+    const calcDyn = [...Object.values(msrJs.CALC_COLS).flat().map(k => `measure_calc_c_${k.toLowerCase()}`).filter(k => k !== 'measure_calc_c_l'), 'measure_calc_c_l_mm', 'measure_calc_c_l_um',
+      ...['icpt', 'plan', 'pt'].flatMap(k => [`measure_calc_how_${k}`, `measure_m_${k}`]), ...['pos', 'neg', 'int', 'half', 'over', 'bad'].map(k => `measure_calc_e_${k}`),
+      ...msrJs.CONV_IN.map(k => `measure_conv_in_${k}`), ...['dcirc', 'nl', 'gjis'].map(k => `measure_conv_${k}`)];
+    const calcText = calcOn ? Object.fromEntries([...new Set([...keysIn(calcSrc), ...calcDyn])].map(k => [k, need(k)])) : null;
+    // 換算の式(言語によらない)
+    const convEqs = ['G = −6.643856 log₁₀ ℓ̄ − 3.288', 'G = 3.321928 log₁₀ N_A − 2.954', 'n = 0.064516 × N_A = 2^(G − 1)', 'Ā = 1 / N_A', 'd̄ = √Ā', '√(4Ā / π)', 'N_L = 1 / ℓ̄', 'G_JIS = log₂(N_A / 8) = G − 0.046'];
+    const calcEqs = { icpt: ['L = L′ / M', 'ℓ = L / P', 'ℓ̄ = Σ ℓ_i / n', 'G = −6.643856 log₁₀ ℓ̄ − 3.288'], plan: ['A = A′ / M²', 'N = N_in + ½ N_cut (+ 1)', 'N_A = N / A', 'G = 3.321928 log₁₀ N_A − 2.954'], pt: ['P_P = P_α / P_T', 'V_V ≈ P̄_P', '95 % CI = t · s / √n', '%RA = 100 × CI / x̄'] };
     const pHome = `${home}measure/`;
     const pPath = l => `${l.path}measure/`;
     const pAlt = Object.fromEntries(langs.filter(x => msrOn(x.code)).map(x => [x.code, pPath(x)]));
@@ -4262,16 +4283,41 @@ ${relCats.length ? `<section>
           mainEntity: D.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
       ],
       content: `<nav class="breadcrumb"><a href="${home}">${esc(t('breadcrumb_top'))}</a></nav>
-<h1>${esc(D.h1)}</h1>
+<h1>${esc(D.h1)}</h1>${calcOn ? `
+<nav class="ms-entry" aria-label="${esc(need('measure_entry'))}"><a class="ms-entry-a" href="#calc">${esc(need('measure_entry_calc'))}</a><a class="ms-entry-a" href="#conv">${esc(need('measure_entry_conv'))}</a><a class="ms-entry-a" href="#ms-app">${esc(need('measure_entry_img'))}</a></nav>` : ''}
 <p class="lead">${esc(D.lead)}</p>
 <p class="ms-privacy">${esc(D.privacy)}</p>
 <p class="fn-caution">${esc(D.note)}</p>
-<noscript><p class="mt-nb">${esc(need('measure_noscript'))}</p></noscript>
+${calcOn ? `<section id="calc" class="mt-app ms-calc-sec">
+  <h2>${esc(need('measure_calc_h'))}</h2>
+  <p>${esc(need('measure_calc_lead'))}</p>
+  <noscript><p class="mt-nb">${esc(need('measure_calc_noscript'))} <a href="#gtable">${esc(need('measure_gtab_h'))}</a></p></noscript>
+  <div id="ms-calc" class="ms-calc" data-t="${esc(JSON.stringify(calcText))}" hidden><div class="ms-calc-root"></div></div>
+  <div class="ms-ceqs">
+    <h3>${esc(need('measure_calc_eq_h'))}</h3>
+    <div class="ms-ceqs-grid">${['icpt', 'plan', 'pt'].map(m => `
+      <div><h4>${esc(need(`measure_m_${m}`))}</h4><ul class="ms-eqs">${calcEqs[m].map(x => `<li><code>${esc(x)}</code></li>`).join('')}</ul></div>`).join('')}
+    </div>
+    <p class="ms-cnote">${esc(need('measure_calc_eq_lead'))}</p>
+    ${src(['umich-e112', 'umich-e562', 'iteh-e112'])}
+  </div>
+</section>
+<section id="conv" class="mt-app ms-conv-sec">
+  <h2>${esc(need('measure_conv_h'))}</h2>
+  <p>${esc(need('measure_conv_lead'))}</p>
+  <noscript><p class="mt-nb">${esc(need('measure_conv_noscript'))} <a href="#gtable">${esc(need('measure_gtab_h'))}</a></p></noscript>
+  <div class="ms-conv-js" hidden><div class="ms-conv-root"></div></div>
+  <ul class="ms-eqs ms-cveqs">${convEqs.map(x => `<li><code>${esc(x)}</code></li>`).join('')}</ul>
+  <p class="ms-cnote">${esc(need('measure_conv_eq_note'))}</p>
+  <p class="ms-cnote">${esc(need('measure_conv_diam'))} <a href="#diam">${esc(D.guide.find(g => g.id === 'diam')?.h ?? '')}</a></p>
+  ${src(['umich-e112', 'niigata', 'iso-643'])}
+</section>
+` : ''}<noscript><p class="mt-nb">${esc(need('measure_noscript'))}</p></noscript>
 <section id="ms-app" class="mt-app ms-app" data-t="${esc(JSON.stringify(jsText))}" data-d="${esc(JSON.stringify(jsData))}" hidden>
   <h2>${esc(need('measure_app_h'))}</h2>
   <div class="ms-root"></div>
 </section>
-<nav class="at-toc" aria-label="${esc(need('measure_toc'))}"><a class="chip" href="#rules">${esc(need('measure_rules_h'))}</a> <a class="chip" href="#formulas">${esc(need('measure_fml_h'))}</a> <a class="chip" href="#gtable">${esc(need('measure_gtab_h'))}</a>${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')}${D.faq.length ? ` <a class="chip" href="#faq">${esc(t('compare_faq'))}</a>` : ''} <a class="chip" href="#related">${esc(need('measure_rel_h'))}</a> <a class="chip" href="#sources">${esc(D.sources_h)}</a></nav>
+<nav class="at-toc" aria-label="${esc(need('measure_toc'))}">${calcOn ? `<a class="chip" href="#calc">${esc(need('measure_entry_calc'))}</a> <a class="chip" href="#conv">${esc(need('measure_entry_conv'))}</a> ` : ''}<a class="chip" href="#rules">${esc(need('measure_rules_h'))}</a> <a class="chip" href="#formulas">${esc(need('measure_fml_h'))}</a> <a class="chip" href="#gtable">${esc(need('measure_gtab_h'))}</a>${D.guide.map(g => ` <a class="chip" href="#${g.id}">${esc(g.h)}</a>`).join('')}${D.faq.length ? ` <a class="chip" href="#faq">${esc(t('compare_faq'))}</a>` : ''} <a class="chip" href="#related">${esc(need('measure_rel_h'))}</a> <a class="chip" href="#sources">${esc(D.sources_h)}</a></nav>
 <section id="rules" class="ms-rules-sec">
   <h2>${esc(need('measure_rules_h'))}</h2>
   <p>${esc(need('measure_rules_lead'))}</p>
@@ -4284,9 +4330,9 @@ ${relCats.length ? `<section>
 </section>
 <section id="gtable" class="ms-gtab-sec">
   <h2>${esc(need('measure_gtab_h'))}</h2>
-  <p>${esc(need('measure_gtab_lead'))}</p>
-  <div class="fm-scroll"><table class="pp-tbl ms-gtab"><thead><tr>${['g', 'na', 'l', 'd'].map(k => `<th scope="col">${esc(need(`measure_gtab_${k}`))}</th>`).join('')}</tr></thead><tbody>${gRows.map(([g, na, l, d]) => `
-    <tr><th scope="row">${g}</th><td>${num(na, na < 100 ? 2 : na < 1000 ? 1 : 0)}</td><td>${num(l, 1)}</td><td>${num(d, 1)}</td></tr>`).join('')}
+  <p>${esc(need('measure_gtab_lead'))}${calcOn ? ` ${esc(need('measure_gtab_more'))}` : ''}</p>
+  <div class="fm-scroll"><table class="pp-tbl ms-gtab"><thead><tr>${['g', 'na', 'l', 'd', ...(calcOn ? ['n100', 'abar'] : [])].map(k => `<th scope="col">${esc(need(`measure_gtab_${k}`))}</th>`).join('')}</tr></thead><tbody>${gRows.map(([g, na, l, d]) => `
+    <tr><th scope="row">${g}</th><td>${num(na, na < 100 ? 2 : na < 1000 ? 1 : 0)}</td><td>${num(l, 1)}</td><td>${num(d, 1)}</td>${calcOn ? (r => `<td>${num(r.n100, r.n100 < 10 ? 2 : r.n100 < 100 ? 1 : 0)}</td><td>${num(r.abar, 0)}</td>`)(msrJs.convert('g', g)) : ''}</tr>`).join('')}
   </tbody></table></div>
   ${src(D.gtable.src)}
 </section>
