@@ -106,5 +106,32 @@
       "Metastabile tetragonale Körner wandeln an der Rissspitze in monoklin um, und ihre Volumenzunahme drückt den Riss zusammen"
     ],
     "explanation": "In teilstabilisiertem Zirkonoxid werden tetragonale Teilchen, die bei niedriger Temperatur eigentlich monoklin würden, dank der Behinderung durch ihre Umgebung metastabil gehalten. Wächst ein Riss, wandelt die Zugspannung an seiner Spitze die tetragonale Phase martensitisch in die monokline um, mit einer Volumenzunahme von etwa 4 %. Diese Ausdehnung erzeugt um den Riss Druckspannungen, die ihn zu schließen suchen, sodass für den Rissfortschritt zusätzliche Energie nötig ist. Dies nennt man Umwandlungsverstärkung (spannungsinduzierte Umwandlungsverstärkung). Die Aussage, in der Umwandlungsrichtung und Volumenänderung vertauscht sind, ist falsch. Die Abrundung durch viskoses Fließen ist ein Hochtemperaturphänomen in Werkstoffen mit Glasphase."
+  },
+  "ceramics-013": {
+    "question": "Beim Sintern von Siliziumnitridpulver (Si₃N₄) werden üblicherweise Zusätze (Sinterhilfsmittel) wie Y₂O₃ oder Al₂O₃ zugegeben. Was ist der Hauptgrund dafür?",
+    "choices": [
+      "Die Zusätze lösen sich in Si₃N₄, wandeln die Bindung in eine Ionenbindung um und schmelzen den ganzen Sinterkörper auf, bevor er erstarrt",
+      "Die Zusätze entfernen den Sauerstoff von der Teilchenoberfläche, beschleunigen die Oberflächendiffusion und verdichten allein durch das Wachstum der Sinterhälse",
+      "Wegen der starken kovalenten Bindung diffundieren die Atome langsam; die Zusätze bilden bei hoher Temperatur eine Schmelzphase, die die Verdichtung durch Lösung und Wiederausscheidung fördert"
+    ],
+    "explanation": "Si₃N₄ und SiC haben starke kovalente Bindungen und äußerst kleine Selbstdiffusionskoeffizienten, sodass sie durch Festkörperdiffusion allein selbst bei hoher Temperatur kaum dicht werden. Gibt man Y₂O₃ oder Al₂O₃ zu, reagieren diese mit dem SiO₂ auf der Teilchenoberfläche und bilden bei hoher Temperatur eine oxidische Schmelzphase; die Teilchen lösen sich darin und scheiden sich an anderer Stelle wieder aus, wodurch die Verdichtung fortschreitet (Flüssigphasensintern). Beim Abkühlen bleibt diese Schmelze als glasige Korngrenzenphase zurück, die auch die Hochtemperaturfestigkeit herabsetzt. Der Sinterkörper wird nicht als Ganzes aufgeschmolzen, und die Art der Bindung ändert sich nicht. Oberflächendiffusion verdickt nur die Sinterhälse und trägt zur Verdichtung fast nichts bei."
+  },
+  "ceramics-014": {
+    "question": "Welche Aussage über die Änderung von BaTiO₃ beim Erhitzen über die Curie-Temperatur (etwa 120 °C) trifft zu?",
+    "choices": [
+      "Es wandelt sich von tetragonal in kubisch um, die spontane Polarisation verschwindet, und es wird paraelektrisch",
+      "Es wandelt sich von kubisch in tetragonal um, eine spontane Polarisation tritt auf, und es wird ferroelektrisch",
+      "Die Kristallstruktur bleibt gleich, aber Ti⁴⁺ verschiebt sich noch weiter aus der Mitte des Sauerstoffoktaeders, und die Polarisation nimmt zu"
+    ],
+    "explanation": "Bei Raumtemperatur ist BaTiO₃ tetragonal, wobei Ti⁴⁺ leicht aus der Mitte des Sauerstoffoktaeders verschoben ist; diese Verschiebung erzeugt eine spontane Polarisation, BaTiO₃ ist also ferroelektrisch. Oberhalb der Curie-Temperatur (etwa 120 °C) geht der Kristall in die höhersymmetrische kubische Perowskitstruktur über, Ti⁴⁺ sitzt im Mittel in der Oktaedermitte, die spontane Polarisation verschwindet, und das Material wird paraelektrisch. Beim Abkühlen verläuft die Umwandlung umgekehrt von kubisch nach tetragonal; die Aussage, beim Erhitzen entstehe die tetragonale Phase, verdreht also die Richtung. Auch wird die Verschiebung bei höherer Temperatur nicht größer. Die relative Permittivität zeigt nahe der Curie-Temperatur ein scharfes Maximum, daher wird ihre Temperaturabhängigkeit in Kondensatorwerkstoffen durch Zusätze geglättet."
+  },
+  "ceramics-015": {
+    "question": "MgO hat Steinsalzstruktur (NaCl-Struktur) mit der Gitterkonstante 0,4212 nm. Die Atommassen von Mg und O seien 24,31 und 16,00, die Avogadro-Konstante 6,022×10²³ mol⁻¹. Welcher Wert kommt der theoretischen Dichte von MgO am nächsten?",
+    "choices": [
+      "ca. 0,90 g/cm³",
+      "ca. 3,58 g/cm³",
+      "ca. 7,17 g/cm³"
+    ],
+    "explanation": "Die Elementarzelle der Steinsalzstruktur enthält 4 Anionen auf den kfz-Plätzen und 4 Kationen in den Oktaederlücken, also 4 Formeleinheiten MgO. Mit a³ = (4,212×10⁻⁸ cm)³ ≈ 7,47×10⁻²³ cm³ ist ρ = 4 × 40,31/(6,022×10²³ × 7,47×10⁻²³) ≈ 3,58 g/cm³, in guter Übereinstimmung mit dem Messwert. Ca. 7,17 g/cm³ ergibt sich, wenn man die 8 Ionen Mg²⁺ und O²⁻ zusammen jeweils als eigene Formeleinheit zählt. Ca. 0,90 g/cm³ setzt wie bei der CsCl-Struktur nur eine Formeleinheit pro Elementarzelle an. In der Keramik wird die Dichte eines Sinterkörpers durch diese theoretische Dichte geteilt; die so erhaltene relative Dichte dient zur Beurteilung der Verdichtung."
   }
 }

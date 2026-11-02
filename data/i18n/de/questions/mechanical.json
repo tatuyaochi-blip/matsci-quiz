@@ -106,5 +106,32 @@
    "Ferritischer Kohlenstoffstahl (krz)"
   ],
   "explanation": "In krz-Metallen steigt die Spannung, die zum Bewegen einer Versetzung nötig ist (Peierls-Spannung), mit sinkender Temperatur stark an. Bei tiefen Temperaturen tritt daher vor dem Fließen ein Spaltbruch auf, und die Kerbschlagarbeit im Kerbschlagbiegeversuch nach Charpy fällt in einem bestimmten Temperaturbereich steil ab. Das ist der Zäh-Spröd-Übergang; ferritischer Kohlenstoffstahl ist das typische Beispiel. Austenitischer nichtrostender Stahl und Aluminiumlegierungen mit kfz-Gitter haben viele Gleitsysteme, und Versetzungen bleiben auch bei tiefen Temperaturen beweglich; sie zeigen daher keinen deutlichen Übergang und werden für Tieftemperaturanwendungen wie Tanks für Flüssiggase eingesetzt. Die Übergangstemperatur sinkt durch Kornfeinung und steigt z. B. durch Neutronenbestrahlung."
+ },
+ "mechanical-013": {
+  "question": "Ein Rundstab aus Stahl mit 10 mm Durchmesser wird im elastischen Bereich mit einer Zugspannung von 200 MPa belastet. Der Elastizitätsmodul sei 200 GPa und die Querkontraktionszahl 0,30. Welcher Wert kommt der Durchmesseränderung am nächsten?",
+  "choices": [
+   "Abnahme um ca. 3,0 µm",
+   "Zunahme um ca. 3,0 µm",
+   "Abnahme um ca. 10 µm"
+  ],
+  "explanation": "Die Längsdehnung beträgt ε = σ/E = 200×10⁶/(200×10⁹) = 1,0×10⁻³. Die Querkontraktionszahl ist das Verhältnis von Quer- zu Längsdehnung mit umgekehrtem Vorzeichen, ν = −ε_quer/ε_längs; die Querdehnung ist daher −0,30 × 1,0×10⁻³ = −3,0×10⁻⁴. Die Durchmesseränderung beträgt −3,0×10⁻⁴ × 10 mm = −3,0×10⁻³ mm, also eine Abnahme um etwa 3,0 µm. Unter Zug wird der Stab dünner; die Aussage einer Zunahme hat daher das falsche Vorzeichen. Eine Abnahme um etwa 10 µm überträgt die Längsdehnung unmittelbar auf den Durchmesser, ohne mit der Querkontraktionszahl zu multiplizieren. Die meisten Metalle haben eine Querkontraktionszahl um 0,3; 0,5 ist die Obergrenze, die einem unveränderten Volumen entspricht."
+ },
+ "mechanical-014": {
+  "question": "Ein Metall, dessen wahre Spannung σ und wahre Dehnung ε durch σ = Kεⁿ verknüpft sind, wird auf Zug belastet. Beginnt die Einschnürung (örtliche Querschnittsabnahme), wenn dσ/dε = σ gilt (Considère-Kriterium), bei welcher wahren Dehnung beginnt sie?",
+  "choices": [
+   "ε = 1/n",
+   "ε = n",
+   "ε = K·n"
+  ],
+  "explanation": "Ableiten von σ = Kεⁿ ergibt dσ/dε = nKεⁿ⁻¹. Gleichsetzen mit σ = Kεⁿ liefert nKεⁿ⁻¹ = Kεⁿ, und Division beider Seiten durch Kεⁿ⁻¹ ergibt ε = n. Die wahre Dehnung der Gleichmaßdehnung bis zum Einsetzen der Einschnürung ist also gleich dem Verfestigungsexponenten n. Die Einschnürung beginnt, wenn der Verlust an Tragfähigkeit durch den abnehmenden Querschnitt den Festigkeitszuwachs durch Kaltverfestigung überwiegt; in der technischen Spannungs-Dehnungs-Kurve entspricht dieser Punkt der Zugfestigkeit. Werkstoffe mit größerem n dehnen sich gleichmäßiger und eignen sich für Umformverfahren wie das Tiefziehen. ε = 1/n löst die Bedingung verkehrt herum auf, und bei ε = K·n stimmen nicht einmal die Dimensionen."
+ },
+ "mechanical-015": {
+  "question": "Welche Aussage über Resilienz und Zähigkeit, die aus der Spannungs-Dehnungs-Kurve eines Zugversuchs bestimmt werden, trifft zu?",
+  "choices": [
+   "Die Resilienz ist die gesamte Fläche unter der Kurve bis zum Bruch und die Zähigkeit die Fläche unter dem elastischen Bereich; beide hängen nur von der Festigkeit ab",
+   "Beide werden allein durch die Zugfestigkeit bestimmt und hängen nicht von der Dehnung ab, sodass ein festerer Werkstoff stets auch die größere Zähigkeit hat",
+   "Die Resilienz ist die Fläche unter dem elastischen Bereich, etwa σy²/(2E), und die Zähigkeit ist die gesamte Fläche unter der Kurve bis zum Bruch"
+  ],
+  "explanation": "Die Resilienz ist die bis zum Fließbeginn pro Volumen gespeicherte elastische Energie, also die Dreiecksfläche unter der elastischen Geraden, σy²/(2E). Diese Energie wird bei Entlastung zurückgewonnen und ist für Federwerkstoffe wichtig. Die Zähigkeit ist die bis zum Bruch pro Volumen aufgenommene Energie, also die gesamte Fläche unter der Kurve. Beide haben die Einheit J/m³. Die Zähigkeit hängt sowohl von der Festigkeit als auch von der Duktilität ab; ein fester Werkstoff mit geringer Dehnung hat daher eine geringe Zähigkeit, und ein etwas weniger fester Werkstoff mit großer Dehnung kann zäher sein. Die Aussage, die Gesamtfläche und die elastische Fläche vertauscht, sowie die Aussage, die Dehnung spiele keine Rolle, sind falsch."
  }
 }

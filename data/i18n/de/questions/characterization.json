@@ -106,5 +106,32 @@
       "ca. 30,1 %"
     ],
     "explanation": "Der erste Schritt ist CaC₂O₄·H₂O → CaC₂O₄ + H₂O; pro mol gehen 18,0 g verloren, die prozentuale Massenabnahme beträgt also 18,0/146,1 × 100 ≈ 12,3 %. Ca. 19,2 % entspricht dem im zweiten Schritt CaC₂O₄ → CaCO₃ + CO abgegebenen CO (28,0 g/mol), ca. 30,1 % dem im dritten Schritt CaCO₃ → CaO + CO₂ abgegebenen CO₂ (44,0 g/mol), jeweils bezogen auf die ursprüngliche Masse von 146,1 g. Da Calciumoxalat-Monohydrat auf diese Weise drei klar getrennte Stufen der Massenabnahme zeigt, wird es häufig zur Funktionsprüfung von TGA-Geräten verwendet."
+  },
+  "characterization-013": {
+    "question": "Welche Aussage über die Änderung beim Erhöhen der Beschleunigungsspannung eines REM von 5 kV auf 20 kV trifft zu?",
+    "choices": [
+      "Die Elektronen dringen weniger tief ein, sodass sich mit EDX die Zusammensetzung der obersten wenigen nm quantifizieren lässt",
+      "Die Primärelektronen dringen tiefer in die Probe ein, sodass mehr charakteristische Röntgenlinien anregbar sind, feine Oberflächendetails aber schlechter sichtbar werden",
+      "Die Eindringtiefe ändert sich nicht, aber es gelangen weniger Elektronen in die Probe, sodass sich Isolatoren weniger leicht aufladen"
+    ],
+    "explanation": "Mit höherer Beschleunigungsspannung steigt die Energie der Primärelektronen, und der Bereich, in dem sie sich unter Streuung in der Probe ausbreiten (das Wechselwirkungsvolumen), wird tiefer und breiter, bis etwa 1 bis einige µm. Um eine charakteristische Röntgenlinie für EDX anzuregen, muss die Beschleunigungsspannung deutlich über der Energie liegen, die zum Herausschlagen eines Elektrons aus der betreffenden Schale nötig ist; bei hoher Spannung lassen sich daher auch etwa die K-Linien schwererer Elemente messen. Andererseits treten Sekundär- und Rückstreuelektronen nun auch aus tieferen Bereichen aus, sodass der Kontrast feiner Oberflächenunebenheiten schwächer wird. Die Aussage, die Eindringtiefe nehme ab, verdreht die Richtung; die Analysentiefe der EDX beträgt bei 20 kV etwa 1 µm oder mehr und selbst bei 5 kV noch etwa 0,1 µm oder mehr, sodass sich die Zusammensetzung nur der obersten wenigen nm nicht messen lässt. Die Aufladung von Isolatoren lässt sich vielmehr bei einer niedrigen Beschleunigungsspannung von etwa 1 kV leichter unterdrücken."
+  },
+  "characterization-014": {
+    "question": "Eine isolierende keramische Probe soll im REM betrachtet und zusätzlich mit EDX auf ihre Elemente analysiert werden. Welche Wahl der leitfähigen Schicht, die zur Vermeidung von Aufladung auf die Oberfläche aufgebracht wird, ist angemessen?",
+    "choices": [
+      "Eine dicke Goldschicht aufbringen, da eine höhere Ordnungszahl sowohl den Schutz gegen Aufladung als auch die EDX-Empfindlichkeit verbessert",
+      "Keine Schicht aufbringen und die Beschleunigungsspannung erhöhen, da tief eindringende Elektronen keine Ladung an der Oberfläche hinterlassen und keine Aufladung entsteht",
+      "Eine dünne Kohlenstoffschicht aufbringen, da die charakteristischen Röntgenpeaks von Gold mit denen anderer Elemente überlappen und Gold Röntgenstrahlung stark absorbiert"
+    ],
+    "explanation": "Trifft ein Elektronenstrahl auf einen Isolator, sammelt sich Ladung an und stört das Bild; deshalb wird eine dünne leitfähige Schicht auf die Oberfläche aufgebracht. Für die reine Abbildung werden gesputterte Gold- oder Platinschichten verwendet, die viele Sekundärelektronen abgeben. Bei der Elementanalyse jedoch überlappen etwa die Mα-Linie des Goldes bei etwa 2,1 keV mit Peaks wie dem von Phosphor (P Kα, etwa 2,0 keV), und die Schicht absorbiert auch die aus der Probe kommende Röntgenstrahlung, was die Quantifizierung stört. Kohlenstoff hat eine niedrige Ordnungszahl und sendet charakteristische Röntgenstrahlung nur bei niedriger Energie aus; für EDX- und ESMA-Analysen eignen sich daher aufgedampfte Kohlenstoffschichten. Die Schicht wird dünn gehalten, weil eine dickere Schicht mehr Röntgenstrahlung absorbiert. Eine höhere Beschleunigungsspannung senkt den Anteil der Elektronen, etwa der Sekundärelektronen, die die Probe verlassen, sodass sich die Primärelektronen ansammeln und die Aufladung eher zunimmt."
+  },
+  "characterization-015": {
+    "question": "Eine abgeschreckte PET-Folie wurde in der DSC aufgeheizt. Die Wärmetönung der Kaltkristallisation betrug 20 J/g (exotherm), das anschließende Aufschmelzen 50 J/g (endotherm). Die Schmelzwärme von vollständig kristallinem PET sei 140 J/g. Welcher Wert kommt der Kristallinität der Folie vor der Messung am nächsten?",
+    "choices": [
+      "ca. 21 %",
+      "ca. 36 %",
+      "ca. 50 %"
+    ],
+    "explanation": "Die Kristallinität ergibt sich aus der Schmelzwärme der Probe geteilt durch die eines vollständig kristallinen Polymers. Tritt beim Aufheizen jedoch Kaltkristallisation auf, schmelzen die dabei gebildeten Kristalle später ebenfalls und tragen zum endothermen Schmelzpeak bei. Den schon vor der Messung vorhandenen Kristallen entspricht die Schmelzwärme abzüglich der Kaltkristallisationswärme, 50 − 20 = 30 J/g; die Kristallinität beträgt also 30/140 ≈ 0,21, etwa 21 %. Ca. 36 % ist 50/140 ohne Abzug der Kaltkristallisation und zählt die während der Messung gebildeten Kristalle mit. Ca. 50 % ist (50 + 20)/140, wobei die exotherme Wärme addiert statt abgezogen wurde. Abgeschrecktes PET ist nahezu amorph, daher erscheint knapp oberhalb von Tg ein deutlicher exothermer Kaltkristallisationspeak."
   }
 }

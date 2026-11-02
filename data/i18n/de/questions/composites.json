@@ -106,5 +106,32 @@
       "Die Grenzfläche gezielt zu schwächen, damit Risse abgelenkt werden und Energie durch Ablösen und Herausziehen der Fasern aufgenommen wird"
     ],
     "explanation": "Keramische Matrizes sind spröde, daher entstehen unter Last zuerst Risse in der Matrix. Ist die Grenzfläche zu fest, durchläuft ein solcher Riss die Fasern ungehindert, und der Werkstoff bricht wie eine monolithische Keramik schlagartig. Wird die Grenzfläche mit einer geschichteten, leicht gleitenden Beschichtung wie BN oder pyrolytischem Kohlenstoff gezielt geschwächt, wird der Riss entlang der Grenzfläche abgelenkt; die Fasern überbrücken die Rissflanken und nehmen durch Ablösen und Herausziehen (Pull-out) viel Energie auf. Dadurch versagt der Werkstoff nicht schlagartig, und die scheinbare Zähigkeit steigt deutlich. Eine möglichst feste Grenzfläche ist das Konzept für Polymermatrizes, bei denen die Lastübertragung erhöht werden soll; bei CMC wirkt sie kontraproduktiv. Die Beschichtung dient nicht dazu, die Sintertemperatur zu senken."
+  },
+  "composites-013": {
+    "question": "Welche Aussage über den Längenausdehnungskoeffizienten eines Verbundwerkstoffs aus unidirektional ausgerichteten Kohlenstoff-Endlosfasern in Epoxidharz (CFK) trifft zu?",
+    "choices": [
+      "In Faserrichtung und quer dazu ergibt sich derselbe mit den Volumenanteilen gewichtete Mittelwert, ohne Unterschied zwischen den Richtungen",
+      "In Faserrichtung liegt er nahe null, quer zur Faser ist er groß, weil dort die Eigenschaften des Harzes bestimmend sind",
+      "In Faserrichtung ist er groß, weil die Ausdehnung des Harzes die Fasern mitzieht, quer dazu fast null, weil die Fasern sie behindern"
+    ],
+    "explanation": "Kohlenstofffasern haben in Faserachsrichtung einen leicht negativen Längenausdehnungskoeffizienten, Epoxidharz dagegen einen großen positiven Wert von einigen zehn ×10⁻⁶ K⁻¹. In Faserrichtung behindern die steifen Fasern das Dehnen und Schrumpfen des Harzes stark, sodass der Koeffizient des Verbunds nahe dem Faserwert, also fast bei null, liegt. Quer zur Faser behindern die Fasern das Harz nur schwach, die große Ausdehnung des Harzes wirkt sich unmittelbar aus, und der Koeffizient wird groß. Wegen dieser starken Anisotropie sind sowohl die Aussage ohne Richtungsunterschied als auch die Aussage mit vertauschten Richtungen falsch. Da sich die Abmessung in Faserrichtung kaum ändert, wird CFK für Bauteile verwendet, die bei Temperaturänderungen ihre Form behalten müssen, etwa Satellitenantennen und Teleskopstrukturen."
+  },
+  "composites-014": {
+    "question": "Eine CFK-Laminatplatte erfährt einen Schlag senkrecht zur Plattenebene, etwa durch ein herabfallendes Werkzeug. Welche Schädigung ist dabei typischerweise problematisch?",
+    "choices": [
+      "Auch wenn an der Oberfläche kaum eine Spur zu sehen ist, kann sich im Inneren eine Delamination ausbreiten und die Druckfestigkeit stark sinken",
+      "Die Fasern nehmen die Schlagenergie durch plastische Verformung auf, sodass im Inneren kein Schaden bleibt und die Festigkeit unverändert ist",
+      "An der Oberfläche bleibt stets eine große Delle, die sofort mit bloßem Auge zu finden ist, zwischen den Lagen im Inneren breitet sich aber kein Schaden aus"
+    ],
+    "explanation": "Ein Laminat ist in der Ebene fest, weil die Fasern die Last tragen; die Lagen sind aber nur durch Harz verbunden, sodass die Festigkeit in Dickenrichtung gering ist. Nach einem Schlag senkrecht zur Ebene können sich im Inneren Delaminationen und Harzrisse ausbreiten, selbst wenn an der Oberfläche nur eine kaum sichtbare Spur bleibt. Delaminierte Lagen knicken unter Druck leicht aus, daher sinkt die Druckfestigkeit nach dem Schlag stark. Kohlenstofffasern verhalten sich bis zum Bruch elastisch und nehmen keine Energie durch plastische Verformung auf; die Aussage, es bleibe kein Schaden, ist daher falsch. Auch die Aussage, der Schaden sei stets sichtbar, ist falsch; deshalb wird das Innere etwa mit Ultraschallprüfung untersucht. Auch zähmodifizierte Harze sind eine Gegenmaßnahme."
+  },
+  "composites-015": {
+    "question": "Ein Epoxidharz-Verbundwerkstoff mit unidirektional eingelagerten Kohlenstofffasern (Zugfestigkeit 3,5 GPa) bei einem Faservolumenanteil von 60 % wird in Faserrichtung gezogen. Alle Fasern brechen bei derselben Dehnung, und die Spannung im Harz bei dieser Dehnung beträgt 50 MPa. Welcher Wert kommt der Zugfestigkeit des Verbunds in Faserrichtung am nächsten?",
+    "choices": [
+      "ca. 1,4 GPa",
+      "ca. 3,5 GPa",
+      "ca. 2,1 GPa"
+    ],
+    "explanation": "Bei Zug in Faserrichtung sind die Dehnungen von Faser und Harz gleich; daher werden die Lasten zum Zeitpunkt des Faserbruchs nach den Volumenanteilen addiert: σc = σf·Vf + σm′·(1 − Vf) = 3500 × 0,60 + 50 × 0,40 = 2100 + 20 = 2120 MPa, also etwa 2,1 GPa. Dabei ist σm′ nicht die Zugfestigkeit des Harzes, sondern die Spannung, die das Harz bei der Bruchdehnung der Fasern trägt. Der Beitrag des Harzes ist gering; fast die gesamte Festigkeit stammt von den Fasern. Ca. 1,4 GPa ist 3500 × 0,40 + 50 × 0,60 mit vertauschten Volumenanteilen von Faser und Harz. Ca. 3,5 GPa setzt die Faserfestigkeit unmittelbar als Festigkeit des Verbunds an, obwohl die Fasern nur 60 % des Ganzen ausmachen."
   }
 }

@@ -106,5 +106,32 @@
       "ca. 1,2 mm"
     ],
     "explanation": "2,0 A/dm² entsprechen 0,020 A/cm²; in 30 Minuten (1800 s) fließt pro cm² also die Ladung 0,020 × 1800 = 36 C. Die abgeschiedene Masse beträgt 36 × 58,69/(2 × 96485) ≈ 1,09×10⁻² g/cm²; geteilt durch die Dichte ergibt sich die Dicke 1,09×10⁻²/8,90 ≈ 1,23×10⁻³ cm, also etwa 12 µm (12,3 µm). Ca. 25 µm rechnet die Zwei-Elektronen-Reaktion fälschlich mit n = 1. Ca. 1,2 mm verwechselt dm² mit cm² und rechnet mit 2,0 A/cm², was einen 100-mal zu großen Wert ergibt (1 dm² = 100 cm²). In der Praxis liegt die Stromausbeute z. B. wegen Wasserstoffentwicklung unter 100 %, sodass dieser Wert eine Obergrenze darstellt."
+  },
+  "corrosion-013": {
+    "question": "Ein erdverlegtes Stahlrohr soll durch kathodischen Korrosionsschutz mit Fremdstrom geschützt werden. Welche Beschreibung des Verfahrens trifft zu?",
+    "choices": [
+      "Den Minuspol einer Gleichstromquelle mit dem Rohr und den Pluspol mit einer schwer löslichen Elektrode im Erdreich verbinden, sodass das Rohr zur Kathode wird",
+      "Den Pluspol einer Gleichstromquelle mit dem Rohr und den Minuspol mit einer Elektrode im Erdreich verbinden, sodass Strom aus dem Rohr ins Erdreich austritt",
+      "Eine Kupferelektrode, die edler als Stahl ist, über einen Draht anschließen und das Rohr ohne Stromquelle schützen, indem Elektronen vom Kupfer ins Rohr fließen"
+    ],
+    "explanation": "Beim kathodischen Korrosionsschutz werden dem zu schützenden Metall von außen Elektronen zugeführt, sodass es zur Kathode wird und die anodische Reaktion, bei der sich das Metall auflöst, zum Stillstand kommt. Beim Fremdstromverfahren wird der Minuspol einer Gleichstromquelle mit dem Rohr und der Pluspol mit einer schwer löslichen Elektrode, etwa aus siliziumreichem Gusseisen oder Graphit, verbunden, sodass Strom von der Elektrode durch das Erdreich ins Rohr fließt. Der Schutzstrom lässt sich über die Spannung der Quelle einstellen, was sich für Böden mit hohem spezifischem Widerstand und lange Rohrleitungen eignet. Wird das Rohr so angeschlossen, dass Strom aus ihm austritt, wird es zur Anode, und die Korrosion beschleunigt sich. Das Anschließen von edlem Kupfer führt zu Kontaktkorrosion, bei der das Rohr die Anode ist. Wird das Potential zu weit abgesenkt, entsteht Wasserstoff, der Beschichtungen ablösen oder den Stahl verspröden kann."
+  },
+  "corrosion-014": {
+    "question": "Die anodische Polarisationskurve eines nichtrostenden Stahls wird in saurer Lösung gemessen, wobei das Potential von der unedlen zur edlen Seite hin erhöht wird. Welche Beschreibung des Stromverlaufs trifft zu?",
+    "choices": [
+      "Da die Triebkraft für die Auflösung mit dem Potential wächst, steigt der Strom monoton weiter an, ohne zwischendurch abzunehmen",
+      "Im Passivbereich wird der Strom durch die Schicht praktisch null, und bei edleren Potentialen nimmt er nicht mehr zu, wie hoch das Potential auch steigt",
+      "Nach dem Anstieg im aktiven Zustand fällt er bei der Passivierung abrupt ab, bleibt niedrig und steigt im Transpassivbereich wieder an"
+    ],
+    "explanation": "Im aktiven Zustand bei unedlen Potentialen nimmt der Auflösungsstrom des Metalls mit steigendem Potential zu. Erreicht der Strom bei einem bestimmten Potential (dem Passivierungspotential) sein Maximum (die kritische Passivierungsstromdichte), bildet sich auf der Oberfläche eine Passivschicht, und der Strom fällt abrupt um mehrere Größenordnungen; über einen weiten Potentialbereich bleibt er klein. Im Transpassivbereich bei noch edleren Potentialen wird Cr in der Schicht sechswertig und geht in Lösung, oder es entwickelt sich Sauerstoff, und der Strom steigt wieder an. Die Aussage eines monotonen Anstiegs lässt die Passivierung außer Acht. Der Strom im Passivbereich ist nicht null, und im Transpassivbereich steigt er an; daher ist auch die Aussage falsch, er nehme nie mehr zu. Sind Chloridionen vorhanden, steigt der Strom beim Lochfraßpotential steil an, das unedler als der Transpassivbereich liegt."
+  },
+  "corrosion-015": {
+    "question": "Bei 25 °C soll das Potential einer Kupferelektrode, die in eine Lösung mit einer Cu²⁺-Konzentration von 1,0×10⁻³ mol/L taucht, mit der Nernst-Gleichung E = E° + (0,0592/n)log₁₀[Cu²⁺] bestimmt werden. Das Standardelektrodenpotential von Cu²⁺/Cu sei +0,34 V, und die Aktivität sei gleich der Konzentration. Welcher Wert kommt dem Ergebnis am nächsten?",
+    "choices": [
+      "ca. +0,43 V",
+      "ca. +0,25 V",
+      "ca. +0,16 V"
+    ],
+    "explanation": "Bei Cu²⁺ + 2e⁻ → Cu werden zwei Elektronen übertragen, also n = 2. Da log₁₀(1,0×10⁻³) = −3 ist, gilt E = 0,34 + (0,0592/2) × (−3) = 0,34 − 0,089 ≈ +0,25 V. Liegt die Ionenkonzentration unter dem Standardwert von 1 mol/L, ist die Reaktion begünstigt, bei der sich das Metall auflöst, und das Potential verschiebt sich zur unedlen Seite. Ca. +0,16 V entsteht mit n = 1, wobei 0,0592 × 3 abgezogen wird; ca. +0,43 V entsteht, wenn das Vorzeichen des Logarithmus umgekehrt und addiert wird. Bei einem zweiwertigen Ion sinkt das Potential mit jeder Verringerung der Konzentration auf ein Zehntel um etwa 30 mV. Zwischen Bereichen desselben Metalls, die unterschiedlichen Ionenkonzentrationen ausgesetzt sind, entsteht eine Potentialdifferenz; dieses Konzentrationselement verursacht Korrosion."
   }
 }
