@@ -1971,6 +1971,39 @@ th[aria-sort] .md-sort-i { color: var(--accent); }
 .ms-scale-det > summary h3 { display: inline; margin: .4rem 0 .5rem; }
 .ms-scale-sum { font-size: .86rem; font-variant-numeric: tabular-nums; }
 .ms-scale-det[open] .ms-scale-sum { display: none; }
+/* 数から計算・換算(画像なし) */
+.ms-entry { display: flex; flex-wrap: wrap; gap: 8px; margin: .2rem 0 .8rem; }
+.ms-entry-a { display: inline-flex; align-items: center; min-height: 40px; padding: 6px 14px; border: 1px solid var(--accent); border-radius: 999px; background: var(--accent-soft); color: var(--text); font-weight: 600; font-size: .92rem; text-decoration: none; }
+.ms-entry-a:hover { text-decoration: underline; }
+.ms-calc-sec, .ms-conv-sec { scroll-margin-top: 12px; }
+.ms-calc { display: grid; gap: 12px; min-width: 0; }
+.ms-calc-root { display: grid; gap: 12px; min-width: 0; }
+.ms-cnote { margin: 0; font-size: .85rem; line-height: 1.7; }
+.ms-crows { display: grid; gap: 8px; }
+.ms-crow { margin: 0; padding: 8px 12px 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); min-width: 0; }
+.ms-crow legend { padding: 0 4px; font-weight: 700; font-size: .88rem; }
+.ms-crow.is-bad { border-color: var(--ng); }
+.ms-cgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 6px 10px; align-items: end; }
+.ms-cgrid .ms-f span { line-height: 1.35; }
+.ms-f input[aria-invalid="true"] { border-color: var(--ng); box-shadow: 0 0 0 1px var(--ng); }
+.ms-crow-foot { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.ms-crow-foot .chip { padding: 4px 10px; min-height: 32px; margin-left: auto; }
+.ms-cval { margin: 0; font-size: .86rem; overflow-wrap: anywhere; }
+.ms-cerr { margin: 4px 0 0; font-size: .84rem; color: var(--ng); }
+.ms-cerr:empty { display: none; }
+.ms-steps-h { margin: 10px 0 4px; font-size: .9rem; }
+.ms-steps { margin: 0; padding-left: 1.4em; display: grid; gap: 3px; font-size: .84rem; }
+.ms-steps code { font-size: .84rem; background: none; padding: 0; overflow-wrap: anywhere; white-space: normal; }
+.ms-ceqs { margin-top: 14px; }
+.ms-ceqs h3 { font-size: 1rem; }
+.ms-ceqs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4px 16px; }
+.ms-ceqs-grid h4 { margin: .4rem 0 0; font-size: .9rem; }
+.ms-cvgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px 12px; }
+.ms-f input.is-src { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.ms-conv-js { display: grid; gap: 10px; }
+.ms-conv-js[hidden] { display: none; }
+.ms-conv-root { display: grid; gap: 10px; min-width: 0; }
+.ms-cveqs { margin-top: 16px; }
 @media (max-width: 520px) {
   .ms-conf { grid-template-columns: 1fr; }
   .ms-undo { margin-left: 0; }
