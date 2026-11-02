@@ -1870,7 +1870,7 @@ th[aria-sort] .md-sort-i { color: var(--accent); }
 .ms-syn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px 12px; margin-bottom: 10px; }
 .ms-syn-msg { margin: 8px 0 0; font-size: .85rem; }
 .ms-f { display: grid; gap: 3px; font-size: .82rem; color: var(--muted); min-width: 0; }
-.ms-f select, .ms-f input[type="number"], .ms-ph input[type="text"] { font: inherit; font-size: .95rem; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; min-height: 40px; width: 100%; min-width: 0; box-sizing: border-box; }
+.ms-f select, .ms-f input[type="number"], .ms-f input[type="text"], .ms-ph input[type="text"] { font: inherit; font-size: .95rem; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; min-height: 40px; width: 100%; min-width: 0; box-sizing: border-box; }
 .ms-f select:disabled, .ms-f input:disabled { opacity: .55; }
 .ms-info { margin: 8px 0 0; font-size: .86rem; overflow-wrap: anywhere; }
 .ms-restore { margin: 0 0 10px; display: grid; gap: 6px; justify-items: start; }

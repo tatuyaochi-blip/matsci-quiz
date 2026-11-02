@@ -632,8 +632,9 @@ function init() {
     return el('label', { class: 'ms-f' }, el('span', { text: label }), s);
   };
   const num = (label, value, on, attrs = {}) => {
-    const i = el('input', { type: 'number', inputmode: 'decimal', step: 'any', min: '0', value: value ?? '', ...attrs });
-    i.addEventListener('input', () => on(i.value === '' ? null : Number(i.value)));
+    // type="text"(数から計算の欄と同じ理由)。読めない入力は NaN を渡す(受け取る側は有限の正の数だけを使う)
+    const i = el('input', { type: 'text', inputmode: 'decimal', autocomplete: 'off', spellcheck: 'false', value: value == null ? '' : /^de/.test(lang) ? String(value).replace('.', ',') : value, ...attrs });
+    i.addEventListener('input', () => { const v = i.value.trim(); i.setAttribute('aria-invalid', String(badNum(v))); on(v === '' ? null : badNum(v) ? NaN : toNum(v)); });
     return el('label', { class: 'ms-f' }, el('span', { text: label }), i);
   };
   const root = app.querySelector('.ms-root');
@@ -720,7 +721,7 @@ function init() {
       ...(sp.kind !== 'part' ? [sel(t('measure_syn_g'), SYN.g.map(g => [g, `G ${g}`]), sp.g, v => { sp.g = Number(v); })] : []),
       sel(t(sp.kind === 'part' ? 'measure_syn_pn' : 'measure_syn_n'), (sp.kind === 'part' ? SYN.pn : SYN.n).map(n => [n, nf(n)]), sp.n, v => { sp.n = Number(v); }),
       ...(sp.kind !== 'poly' ? [sel(t('measure_syn_f'), (sp.kind === 'part' ? SYN.f.filter(x => x <= 30) : SYN.f).map(f => [f, `${nf(f)} %`]), sp.f, v => { sp.f = Number(v); })] : []),
-      num(t('measure_syn_seed'), sp.seed, v => { if (Number.isInteger(v) && v >= 0 && v < 2 ** 31) sp.seed = v; }, { step: '1', inputmode: 'numeric', class: 'ms-seed' }),
+      num(t('measure_syn_seed'), sp.seed, v => { if (Number.isInteger(v) && v >= 0 && v < 2 ** 31) sp.seed = v; }, { inputmode: 'numeric', class: 'ms-seed' }),
     );
   }
   renderSynForm();
@@ -1569,6 +1570,12 @@ export function calcFromUrl(search, hash) {
 }
 // 入力の文字列 → 数。空の欄は null
 const toNum = x => (x === '' || x == null ? null : Number(String(x).replace(',', '.')));
+// 数から計算・換算の欄は type="text"(type="number" だと、ブラウザによって「28,3」が 283 と読まれ、誤りも出ない)。
+// 小数点は「.」か「,」の1つだけ。桁区切りは受け付けない(「1,234.5」は読めない入力にする)
+const NUM_RE = /^[+-]?(?:\d+(?:[.,]\d*)?|[.,]\d+)(?:[eE][+-]?\d+)?$/;
+// 桁区切りと紛れる形(「1,500」、de では「1.500」)も読めない入力にする(1.5 と 1500 のどちらか決められないため)
+const groupRe = () => (/^de/.test(globalThis.document?.documentElement?.lang || '') ? /^[+-]?[1-9]\d{0,2}\.\d{3}$/ : /^[+-]?[1-9]\d{0,2},\d{3}$/);
+const badNum = s => s !== '' && (!NUM_RE.test(s) || groupRe().test(s));
 
 function initCalc(box, convBox) {
   const T = JSON.parse(box.dataset.t);
@@ -1577,6 +1584,7 @@ function initCalc(box, convBox) {
   const nfs = {};
   const nf = (x, d = 0) => (x == null || !Number.isFinite(x) ? '—' : (nfs[d] ??= new Intl.NumberFormat(lang, { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: false })).format(x));
   const dec = str => (/^de/.test(lang) ? String(str).replace(/(\d)\.(\d)/g, '$1,$2') : str); // de: 式の行の直書きの定数も小数のコンマに
+  const inVal = v => (v == null ? '' : /^de/.test(lang) ? String(v).replace('.', ',') : String(v)); // 欄に入れる値(de は小数のコンマ)
   const sigD = (x, s = 3) => (x === 0 || !Number.isFinite(x) ? 0 : Math.max(0, s - 1 - Math.floor(Math.log10(Math.abs(x)))));
   const sig = (x, s = 4) => nf(x, sigD(x, s));
   const raw = (x, s = 6) => (x == null || !Number.isFinite(x) ? '' : String(Number(x.toPrecision(s))));
@@ -1652,7 +1660,7 @@ function initCalc(box, convBox) {
   // 視野の行を読む: 空の行は飛ばし、途中まで入れた行・誤りのある行は結果に入れない
   function rowsOf(m) {
     return c.f[m].map((r, i) => {
-      // bad: 数として読めない入力(「1e」など。type="number" の欄では値が空になり、validity.badInput だけが立つ)
+      // bad: 数として読めない入力(「1e」「1,234.5」など。NUM_RE に合わないもの)
       const bad = Object.keys(r._bad ?? {}).filter(k => !(m === 'icpt' && k === 'M' && c.iu === 'um'));
       const filled = bad.length > 0 || CALC_COLS[m].filter(k => !(m === 'icpt' && k === 'M' && c.iu === 'um')).some(k => r[k] !== '');
       const v = Object.fromEntries(CALC_COLS[m].map(k => [k, toNum(r[k])]));
@@ -1705,10 +1713,11 @@ function initCalc(box, convBox) {
       const errP = el('p', { class: 'ms-cerr', id: `ms-cerr-${m}-${i}`, 'aria-live': 'polite' });
       const val = el('p', { class: 'ms-cval ms-num', id: `ms-cval-${m}-${i}` });
       const inputs = cols.map(k => {
-        const inp = el('input', { type: 'number', inputmode: intCols.has(k) ? 'numeric' : 'decimal', step: 'any', min: '0', value: r[k], 'data-k': k, autocomplete: 'off', 'aria-describedby': `ms-cerr-${m}-${i}` });
+        const inp = el('input', { type: 'text', inputmode: intCols.has(k) ? 'numeric' : 'decimal', value: inVal(r[k]), 'data-k': k, autocomplete: 'off', spellcheck: 'false', 'aria-describedby': `ms-cerr-${m}-${i}` });
         inp.addEventListener('input', () => {
-          if (inp.validity?.badInput) { r._bad = { ...r._bad, [k]: true }; r[k] = ''; }
-          else { if (r._bad) delete r._bad[k]; r[k] = inp.value.trim(); }
+          const v = inp.value.trim();
+          if (badNum(v)) { r._bad = { ...r._bad, [k]: true }; r[k] = ''; }
+          else { if (r._bad) delete r._bad[k]; r[k] = v; }
           update();
         });
         return el('label', { class: 'ms-f' }, el('span', { text: colLabel(m, k) }), inp);
@@ -1902,8 +1911,8 @@ function initCalc(box, convBox) {
     const inputs = {}, outs = {};
     const grid = el('div', { class: 'ms-cvgrid' });
     for (const k of CONV_IN) {
-      const i = el('input', { type: 'number', inputmode: 'decimal', step: 'any', ...(k === 'g' ? {} : { min: '0' }), 'data-k': k, autocomplete: 'off', 'aria-describedby': 'ms-cv-err' });
-      i.addEventListener('input', () => { c.cv = { k, v: i.value.trim(), bad: !!i.validity?.badInput }; conv(); });
+      const i = el('input', { type: 'text', inputmode: 'decimal', 'data-k': k, autocomplete: 'off', spellcheck: 'false', 'aria-describedby': 'ms-cv-err' });
+      i.addEventListener('input', () => { const v = i.value.trim(); c.cv = { k, v, bad: badNum(v) }; conv(); });
       inputs[k] = i;
       grid.append(el('label', { class: 'ms-f ms-cvf' }, el('span', { text: t(`measure_conv_in_${k}`) }), i));
     }
@@ -1947,7 +1956,7 @@ function initCalc(box, convBox) {
       last = r;
       for (const [q, i] of Object.entries(inputs)) {
         i.classList.toggle('is-src', q === k && v != null);
-        if (q !== k) i.value = r ? raw(r[q], 4) : '';
+        if (q !== k) i.value = r ? inVal(raw(r[q], 4)) : '';
         else if (document.activeElement !== i && i.value !== c.cv.v) i.value = c.cv.v;
         i.setAttribute('aria-invalid', String(q === k && ((v != null && !r) || !!c.cv.bad)));
       }
