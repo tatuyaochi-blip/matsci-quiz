@@ -385,6 +385,10 @@ function ui() {
   local.textContent = T.local;
   h2.after(paste, btns, readP, local);
   const ta = paste.querySelector('textarea');
+  // 大きいファイル(5000 行より多い)は欄に入れずに持つ(欄に何十万行も入れると、ブラウザの描画に数秒かかるため)
+  let fileText = null;
+  const phDefault = ta.placeholder;
+  const dropFile = () => { if (fileText != null) { fileText = null; ta.placeholder = phDefault; } };
   for (const [before, key] of [['kind', 'sub_data'], ['shape', 'sub_spec'], ['erng', 'sub_range'], ['du', 'sub_after']]) {
     const p = document.createElement('p');
     p.className = 'ts-sub';
@@ -416,7 +420,7 @@ function ui() {
     syncFields();
     const cfg = { kind: el.kind.value, fu: el.fu.value, su: el.su.value };
     const cx = Math.max(1, Math.round(val('cx') || 1)), cy = Math.max(1, Math.round(val('cy') || 2));
-    const P = parseData(ta.value, cx, cy);
+    const P = parseData(fileText ?? ta.value, cx, cy);
     const sh = el.shape.value;
     const A0 = areaOf(sh, val('d'), val('w'), val('t'), val('a0'));
     const Au = areaOf(sh, val('du'), val('wu'), val('tu'), val('au'));
@@ -734,10 +738,11 @@ ${sp.nlog ? `<h3>${esc(T.fig_n)}</h3><div class="fig" data-fig="nlog">${chart(sp
   btns.addEventListener('click', e => {
     const b = e.target.closest('button');
     if (!b) return;
-    if (b.dataset.clear != null) { ta.value = ''; run(); ta.focus(); return; }
+    if (b.dataset.clear != null) { dropFile(); ta.value = ''; run(); ta.focus(); return; }
     const k = b.dataset.sample;
     if (!k) return;
     const smp = sample(k);
+    dropFile();
     ta.value = smp.text;
     el.kind.value = smp.kind; el.cx.value = 1; el.cy.value = 2;
     if (k === 'steel') { el.fu.value = 'kN'; el.shape.value = 'round'; el.d.value = SAMPLE.steel.d; el.L0.value = SAMPLE.steel.L0; el.src.value = 'ext'; }
@@ -753,12 +758,17 @@ ${sp.nlog ? `<h3>${esc(T.fig_n)}</h3><div class="fig" data-fig="nlog">${chart(sp
     if (!f) return;
     if (f.size > 20e6) { readP.textContent = T.file_big; return; }
     const r = new FileReader();
-    r.onload = () => { ta.value = String(r.result ?? ''); run(); };
+    r.onload = () => {
+      const txt = String(r.result ?? ''), lines = txt.trim() === '' ? 0 : (txt.trimEnd().match(/\n/g) || []).length + 1;
+      if (lines > 5000) { fileText = txt; ta.value = ''; ta.placeholder = fill(T.file_hidden, { name: f.name, n: lines }); }
+      else { dropFile(); ta.value = txt; }
+      run();
+    };
     r.readAsText(f);
     e.target.value = '';
   });
   let timer = 0;
-  form.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(run, 150); });
+  form.addEventListener('input', e => { if (e.target === ta && ta.value !== '') dropFile(); clearTimeout(timer); timer = setTimeout(run, 150); });
   form.addEventListener('change', () => { clearTimeout(timer); run(); });
   form.addEventListener('submit', e => e.preventDefault());
   // 画面の幅が変わったら図を描き直す(文字の大きさを保つため)
