@@ -81,10 +81,51 @@ const amax = (a, m = -Infinity) => { for (const v of a) if (v > m) m = v; return
 const amin = (a, m = Infinity) => { for (const v of a) if (v < m) m = v; return m; };
 
 // 解析の設定(既定値)
-export const DEF = { elo: 0.1, ehi: 0.4, off: 0.002, drop: 0.005, flow: 0.0005, ypMax: 0.005, frac: 0.1 };
+// E の自動範囲は二段構え(この計算で決めた規則)。
+//   一段目: 引張強さの elo〜ehi 倍(10〜40 %)の応力の点。決定係数 R² が eR2(0.999)以上ならこれを使う。
+//   曲がりの判定: 範囲を応力の中央で上下に分け、上の半分の傾きが下の半分の eCurv(0.9)倍より小さいときだけ「曲がっている」とする
+//           (雑音で R² が下がっただけの直線を二段目に回さないため)。
+//   二段目: R² が eR2 未満で、しかも曲がっているときだけ、最初の立ち上がり(応力が初めて eUp × Rm = 0.5 Rm を超えるまで)の中で、
+//           幅 eW × Rm(0.1 Rm)の応力の窓を、下端 eLo0 × Rm(0.02 Rm)から eStep × Rm(0.01 Rm)刻みで eLo1 × Rm(0.4 Rm)まで動かし、
+//           点が eMinN(8)点以上ある窓のうち傾きが最大のものを使う(一段目より傾きが大きいときだけ。候補がなければ一段目のまま)。
+//   比例限度の低い材料(焼なまし銅・純アルミなど)では 10〜40 % に塑性が入って E が大きく小さく出るため、より直線に近い所を探す。
+//   それでも試験の曲線から出す E は小さめに出やすいので、E が分かっていれば erng: { known } で与える
+export const DEF = { elo: 0.1, ehi: 0.4, off: 0.002, drop: 0.005, flow: 0.0005, ypMax: 0.005, frac: 0.1,
+  eR2: 0.999, eCurv: 0.9, eUp: 0.5, eW: 0.1, eLo0: 0.02, eLo1: 0.4, eStep: 0.01, eMinN: 8 };
+
+// E の自動範囲の二段目: 傾き最大の応力の窓を探す。最初の立ち上がりの点を応力の順に並べ、窓の両端を二分探索で決めるので、
+// 窓ごとに全点を回さない(1つの点が入る窓は高々 eW/eStep + 1 = 11 個。10 万点でも数百万回の足し算で済む)。
+// 窓は下端 ≤ σ ≤ 上端(両端を含む)。返す値: { fit, fi(点の番号、小さい順), lo, hi(窓の応力 MPa) } か null
+export function eSearch(e, s, smax, opt = {}) {
+  const o = { ...DEF, ...opt };
+  const top = o.eUp * smax;
+  let k = 0;
+  while (k < s.length && s[k] <= top) k++;
+  const idx = new Array(k);
+  for (let i = 0; i < k; i++) idx[i] = i;
+  idx.sort((a, b) => s[a] - s[b]);
+  const sv = idx.map(i => s[i]);
+  // 値 v 以上(gt なら v より大きい)の最初の位置
+  const bound = (v, gt) => { let a = 0, b = sv.length; while (a < b) { const m = (a + b) >> 1; if (gt ? sv[m] <= v : sv[m] < v) a = m + 1; else b = m; } return a; };
+  const nW = Math.round((o.eLo1 - o.eLo0) / o.eStep);
+  let best = null;
+  for (let j = 0; j <= nW; j++) {
+    const lo = (o.eLo0 + j * o.eStep) * smax, hi = lo + o.eW * smax;
+    const i0 = bound(lo, false), i1 = bound(hi, true);
+    if (i1 - i0 < o.eMinN) continue;
+    const xs = new Array(i1 - i0), ys = new Array(i1 - i0);
+    for (let m = i0; m < i1; m++) { xs[m - i0] = e[idx[m]]; ys[m - i0] = sv[m]; }
+    const fit = linfit(xs, ys);
+    if (fit && fit.a > 0 && (!best || fit.a > best.fit.a)) best = { fit, i0, i1, lo, hi };
+  }
+  if (!best) return null;
+  const fi = idx.slice(best.i0, best.i1).sort((a, b) => a - b);
+  return { fit: best.fit, fi, lo: best.lo, hi: best.hi };
+}
 
 // e: 公称ひずみ(無次元)、s: 公称応力(MPa)。opt:
-//   erng: 'auto'(引張強さの elo〜ehi 倍の応力の範囲。最初の立ち上がりの部分だけ)か [下限, 上限](MPa)
+//   erng: 'auto'(引張強さの elo〜ehi 倍の応力の範囲。最初の立ち上がりの部分だけ。直線でなければ傾き最大の窓。DEF の説明)、
+//         [下限, 上限](MPa)、{ known: E(MPa) }(E はあてはめずにこの値を使う。範囲は 'auto' と同じ決め方で、ひずみの原点だけに使う)
 //   off: オフセットのひずみ(無次元、0.002 = 0.2 %)、yp: 'auto' | 'none'(降伏点を探さない)
 //   nrng: 'auto'(一様な塑性域の全体)か [下限, 上限](公称の塑性ひずみ、無次元)、nm: 'plastic'(真塑性ひずみ)| 'total'(真ひずみ全体)
 export function analyze(e, s, opt = {}) {
@@ -97,16 +138,44 @@ export function analyze(e, s, opt = {}) {
   if (!(smax > 0)) { R.error = 'nopos'; return R; }
 
   // ---- 1. ヤング率: 最初の立ち上がり(応力が上限を初めて超えるまで)の、範囲の中の点で σ = E·ε + b
-  const [elo, ehi] = o.erng === 'auto' ? [o.elo * smax, o.ehi * smax] : o.erng;
-  R.eRange = [elo, ehi];
+  const isKnown = !!o.erng && typeof o.erng === 'object' && !Array.isArray(o.erng);
+  const known = isKnown ? o.erng.known : undefined;
+  if (isKnown && !(known > 0)) { R.error = 'eknown'; return R; } // { known } で E が空・0 以下・数でない
+  const auto = o.erng === 'auto' || isKnown;
+  let [elo, ehi] = auto ? [o.elo * smax, o.ehi * smax] : o.erng;
   let kUp = 0;
   while (kUp < N && s[kUp] <= ehi) kUp++;
-  const fi = [];
+  let fi = [];
   for (let i = 0; i < kUp; i++) if (s[i] >= elo) fi.push(i);
-  const fit = linfit(fi.map(i => e[i]), fi.map(i => s[i]));
+  let fit = linfit(fi.map(i => e[i]), fi.map(i => s[i]));
   if (fit && fit.n >= 3 && !(fit.a > 0)) { R.error = 'eneg'; R.eN = fi.length; return R; }
   if (!fit || fit.n < 3) { R.error = 'efit'; R.eN = fi.length; return R; }
-  const E = fit.a, e0 = -fit.b / E;
+  // 自動の二段目: 10〜40 % が直線でなく(R² < eR2)、上の半分の傾きが下の半分の 0.9 倍未満なら、立ち上がりで傾き最大の窓に移す(傾きが大きくなるときだけ)
+  // 上下の半分の傾き(曲がりの判定)
+  const curved = () => {
+    const mid = (elo + ehi) / 2, lo = fi.filter(i => s[i] < mid), hi = fi.filter(i => s[i] >= mid);
+    const fl = linfit(lo.map(i => e[i]), lo.map(i => s[i])), fh = linfit(hi.map(i => e[i]), hi.map(i => s[i]));
+    return !!(fl && fh && fl.n >= 3 && fh.n >= 3 && fl.a > 0 && fh.a < o.eCurv * fl.a);
+  };
+  if (auto && fit.r2 < o.eR2 && curved()) {
+    const w = eSearch(e, s, smax, o);
+    if (w && w.fit.a > fit.a) {
+      Object.assign(R, { eAuto: 'search', r2Base: fit.r2, eBase: fit.a, eRangeBase: [elo, ehi] });
+      ({ fit, fi } = w); elo = w.lo; ehi = w.hi;
+      if (known === undefined) R.warn.push('e_search');
+    }
+  }
+  R.eRange = [elo, ehi];
+  let E, e0;
+  if (known !== undefined) {
+    // 既知の E: 傾きを E に固定し、切片だけを最小二乗で決める。σ = E(ε − ε₀) の残差 Σ(σ − E(ε − ε₀))² を最小にする
+    // ε₀ は ε₀ = mean(ε − σ/E)(範囲の点の平均)。初めのたるみの補正になる。R.Efit・R.r2 は同じ点の直線の当てはめ(参考)
+    E = known;
+    let sum = 0;
+    for (const i of fi) sum += e[i] - s[i] / E;
+    e0 = sum / fi.length;
+    Object.assign(R, { eKnown: true, Efit: fit.a });
+  } else { E = fit.a; e0 = -fit.b / E; }
   Object.assign(R, { E, e0, r2: fit.r2, eN: fit.n, eIdx: [fi[0], fi[fi.length - 1]] });
   const ep = i => e[i] - e0 - s[i] / E; // 公称の塑性ひずみ(弾性分を引いたもの)
 
@@ -240,10 +309,23 @@ export function analyze(e, s, opt = {}) {
 // アルミニウム合金風(応力 MPa − ひずみ %): 200 MPa までは σ = Eε の直線、そこから先は真塑性ひずみ εtp を刻んで
 //   σt = K·εtpⁿ、εt = εtp + σt/E(E = 69 GPa、K = 440 MPa、n = 0.08)、
 //   最大の点を過ぎたら 1 − 40(ε − εu)²、εtp = 0.13 で破断。どちらも破断のあとに急に落ちた2点を足す
+// 焼なまし銅風(応力 MPa − ひずみ %、比例限度の低い連続降伏): Ramberg–Osgood の式 εt = σt/E + a(σt/σ₀)^m
+//   (E = 117 GPa、a = 0.002、σ₀ = 60 MPa、m = 3。σ₀ が作った 0.2 % 耐力にあたり、n = 1/m、K = σ₀/a^(1/m))。
+//   σt を 0 から 330/399 MPa 刻みで(0〜330 MPa の 400 点。Considère の点 σt ≈ 329.9 MPa はこの範囲の終わりにあり、公称応力の最大は σt = 330 MPa の点)、
+//   その先も同じ刻みで εtp = 0.42 まで続け、最大の点を過ぎたら 1 − 10(ε − εu)² をかけてくびれを模す。破断のあとに急に落ちた2点を足す
 export const SAMPLE = {
   steel: { E: 206000, ReH: 310, ReL: 271, first: 262, n: 0.22, d: 10, L0: 50, dk: 0.00025, kEnd: 68, c: 30, etpF: 0.27 },
   al: { E: 69000, K: 440, n: 0.08, c: 40, etpF: 0.13 },
+  cu: { E: 117000, a: 0.002, s0: 60, m: 3, ds: 330 / 399, c: 10, etpF: 0.42 },
 };
+// Ramberg–Osgood の曲線の Considère の点: 公称応力 σt·exp(−εt) が最大 ⇔ 1/σt = 1/E + a·m·σt^(m−1)/σ₀^m(二分法で解く)
+export function considereRO(P) {
+  const g = st => 1 / st - 1 / P.E - (P.a * P.m * st ** (P.m - 1)) / P.s0 ** P.m;
+  let lo = 1, hi = 10 * P.s0 * 100;
+  for (let k = 0; k < 200; k++) { const m = (lo + hi) / 2; if (g(m) > 0) lo = m; else hi = m; }
+  const st = (lo + hi) / 2, et = st / P.E + P.a * (st / P.s0) ** P.m;
+  return { st, et, etp: et - st / P.E, e: Math.exp(et) - 1, s: st / Math.exp(et) };
+}
 // Considère の点(公称応力が最大): εtp = n(1 − σt/E)、σt = K·εtpⁿ を繰り返しで解く
 export function considere(K, n, E) {
   let etp = n;
@@ -272,6 +354,18 @@ export function sample(kind) {
     const [eF, sF] = rows[rows.length - 1];
     push(eF + 0.0004, 0.35 * sF); push(eF + 0.0008, 3);
     return { kind: 'fd', fu: 'kN', K, cu, A0, text: `Displacement (mm)\tForce (kN)\n${rows.map(([e, s]) => `${(e * P.L0).toFixed(5)}\t${((s * A0) / 1000).toFixed(4)}`).join('\n')}\n` };
+  }
+  if (kind === 'cu') {
+    const P = SAMPLE.cu, cu = considereRO(P);
+    for (let k = 0; ; k++) {
+      const st = k * P.ds, etp = P.a * (st / P.s0) ** P.m;
+      if (etp > P.etpF) break;
+      const et = st / P.E + etp, e = Math.exp(et) - 1, d = Math.max(0, e - cu.e);
+      rows.push([e, (st / (1 + e)) * (1 - P.c * d * d)]);
+    }
+    const [eF, sF] = rows[rows.length - 1];
+    rows.push([eF + 0.0002, 0.3 * sF], [eF + 0.0004, 2]);
+    return { kind: 'ss', su: 'pct', cu, text: `Strain (%)\tStress (MPa)\n${rows.map(([e, s]) => `${(e * 100).toFixed(5)}\t${s.toFixed(2)}`).join('\n')}\n` };
   }
   const P = SAMPLE.al;
   const push = (e, s) => rows.push([e, s]);
@@ -375,6 +469,7 @@ function ui() {
   btns.className = 'ts-btns';
   btns.innerHTML = `<button type="button" class="btn btn-ghost" data-sample="steel">${esc(T.sample_steel)}</button>
 <button type="button" class="btn btn-ghost" data-sample="al">${esc(T.sample_al)}</button>
+<button type="button" class="btn btn-ghost" data-sample="cu">${esc(T.sample_cu)}</button>
 <span class="btn btn-ghost ts-file">${esc(T.file)}<input type="file" accept=".csv,.txt,.tsv,.dat,text/csv,text/plain" aria-label="${esc(T.file)}"></span>
 <button type="button" class="btn btn-ghost" data-clear>${esc(T.clear)}</button>`;
   const readP = document.createElement('p');
@@ -407,7 +502,7 @@ function ui() {
     const sh = el.shape.value;
     show('d', sh === 'round'); show('w', sh === 'plate'); show('t', sh === 'plate'); show('a0', sh === 'area');
     show('du', sh === 'round'); show('wu', sh === 'plate'); show('tu', sh === 'plate'); show('au', sh === 'area');
-    show('elo', el.erng.value === 'manual'); show('ehi', el.erng.value === 'manual');
+    show('elo', el.erng.value === 'manual'); show('ehi', el.erng.value === 'manual'); show('eknown', el.erng.value === 'known');
     show('nlo', el.nrng.value === 'manual'); show('nhi', el.nrng.value === 'manual');
   }
 
@@ -441,13 +536,19 @@ function ui() {
       if (!(lo >= 0 && hi > lo)) { current = null; box.innerHTML = `<p class="ts-warn">${esc(T.need_erange)}</p>`; return; }
       opt.erng = [lo, hi];
     }
+    if (el.erng.value === 'known') {
+      // 既知の E(GPa)。空・0 以下・数でないものはエラー
+      const v = val('eknown');
+      if (!(v > 0)) { current = null; box.innerHTML = `<p class="ts-warn">${esc(T.need_eknown)}</p>`; return; }
+      opt.erng = { known: v * 1000 };
+    }
     if (el.nrng.value === 'manual') {
       const lo = val('nlo'), hi = val('nhi');
       if (!(lo >= 0 && hi > lo)) { current = null; box.innerHTML = `<p class="ts-warn">${esc(T.need_nrange)}</p>`; return; }
       opt.nrng = [lo / 100, hi / 100];
     }
     const R = analyze(e, s, opt);
-    if (R.error) { current = null; box.innerHTML = `<p class="ts-warn">${esc(fill(T[`err_${R.error}`], { n: R.eN ?? 0 }))}</p>`; return; }
+    if (R.error) { current = null; box.innerHTML = `<p class="ts-warn">${esc(fill(T[`err_${R.error}`] ?? (R.error === 'eknown' ? T.need_eknown : T.err_internal), { n: R.eN ?? 0 }))}</p>`; return; }
     R.A0 = A0; R.L0 = L0;
     if (Au > 0 && A0 > 0 && Au < A0) R.Z = (A0 - Au) / A0;
     if (Lu > 0 && L0 > 0) R.Aext = (Lu - L0) / L0;
@@ -588,8 +689,18 @@ function ui() {
     const er = R.eRange;
     const out = [];
     const add = (key, sym, v, csv, unit, range, eq) => out.push({ name: T[`r_${key}`], sym, v, csv, unit, range, eq });
-    add('E', 'E', sg(R.E / 1000, 4), csvN(R.E / 1000, 2), 'GPa', fill(T.rg_E, { a: mpa(er[0]), b: mpa(er[1]), n: R.eN, auto: current.opt.erng ? T.rg_manual : fill(T.rg_auto_E, { a: sg(DEF.elo * 100, 2), b: sg(DEF.ehi * 100, 2) }) }), T.eq_E);
-    add('r2', 'R²', fx(R.r2, 5), csvN(R.r2, 6), '–', T.rg_r2, T.eq_r2);
+    // 範囲の名前: 手動 / 自動(10〜40 %)/ 自動の二段目(立ち上がりで傾き最大の窓)
+    const how = Array.isArray(current.opt.erng) ? T.rg_manual
+      : R.eAuto === 'search' ? T.rg_auto_search : fill(T.rg_auto_E, { a: sg(DEF.elo * 100, 2), b: sg(DEF.ehi * 100, 2) });
+    const rgE = fill(T.rg_E, { a: mpa(er[0]), b: mpa(er[1]), n: R.eN, auto: how });
+    if (R.eKnown) {
+      // 既知の E: E は入力値。R² の行は、同じ範囲の点に直線を当てはめた傾き(参考。計算には使わない)とその R²
+      add('E', 'E', sg(R.E / 1000, 4), csvN(R.E / 1000, 2), 'GPa', fill(T.rg_E_known, { rg: rgE, e0: fx(R.e0 * 100, 4) }), T.eq_E_known);
+      add('r2', 'R²', fx(R.r2, 5), csvN(R.r2, 6), '–', fill(T.rg_r2_known, { e: sg(R.Efit / 1000, 4) }), T.eq_r2);
+    } else {
+      add('E', 'E', sg(R.E / 1000, 4), csvN(R.E / 1000, 2), 'GPa', rgE, T.eq_E);
+      add('r2', 'R²', fx(R.r2, 5), csvN(R.r2, 6), '–', R.eAuto === 'search' ? fill(T.rg_r2_search, { r2: fx(R.r2Base, 4) }) : T.rg_r2, T.eq_r2);
+    }
     add('Rp', `Rp${sg(R.off * 100, 3)}`, fin(R.Rp) ? mpa(R.Rp) : '–', csvN(R.Rp, 1), 'MPa', fin(R.Rp) ? fill(T.rg_Rp, { e: pc(R.eRp) }) : T.rg_none, fill(T.eq_Rp, { p: sg(R.off * 100, 3) }));
     if (R.hasYP) {
       add('ReH', 'ReH', mpa(R.ReH), csvN(R.ReH, 1), 'MPa', fill(T.rg_ReH, { e: pc(R.eH) }), T.eq_ReH);
@@ -623,8 +734,9 @@ function ui() {
     const emax = amax(current.e);
     if (cfg.kind === 'ss' && cfg.su === 'abs' && emax > 2) warns.push(['', T.w_strain_pct]);
     if (cfg.kind === 'ss' && cfg.su === 'pct' && emax < 0.005) warns.push(['', T.w_strain_abs]);
-    if (R.r2 < 0.995) warns.push(['soft', fill(T.w_r2, { r2: fx(R.r2, 4) })]);
-    for (const w of R.warn) warns.push(['soft', T[`w_${w}`]]);
+    // 二段目に移したとき(その注意を出す)と既知の E のときは、範囲を狭める注意は出さない
+    if (R.r2 < 0.995 && !R.eAuto && !R.eKnown) warns.push(['soft', fill(T.w_r2, { r2: fx(R.r2, 4) })]);
+    for (const w of R.warn) warns.push(['soft', fill(T[`w_${w}`], { r2: fx(R.r2Base, 4) })]);
     if (R.hasYP) warns.push(['soft', T.w_yp_report]);
     if (!R.hasYP && el.yp.value === 'auto') warns.push(['soft', T.w_no_yp]);
     if (R.after === 0) warns.push(['soft', T.w_no_drop]);
@@ -752,7 +864,7 @@ ${sp.nlog ? `<h3>${esc(T.fig_n)}</h3><div class="fig" data-fig="nlog">${chart(sp
     for (const n of ['du', 'wu', 'tu', 'au', 'Lu']) el[n].value = '';
     el.erng.value = 'auto'; el.nrng.value = 'auto'; el.off.value = 0.2; el.yp.value = 'auto'; el.nm.value = 'plastic';
     run();
-    const note = k === 'steel' ? fill(T.sample_steel_note, { K: fx(smp.K, 0), su: fx(smp.cu.s, 1), eu: fx(smp.cu.e * 100, 2) }) : fill(T.sample_al_note, { su: fx(smp.cu.s, 1), eu: fx(smp.cu.e * 100, 2) });
+    const note = fill(T[`sample_${k}_note`], { K: fx(smp.K, 0), su: fx(smp.cu.s, 1), eu: fx(smp.cu.e * 100, 2) });
     box.insertAdjacentHTML('afterbegin', `<p class="ts-warn soft" data-sample-note>${esc(note)}</p>`);
   });
   btns.querySelector('input[type=file]').addEventListener('change', e => {
