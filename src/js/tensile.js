@@ -304,7 +304,7 @@ function ui() {
   const box = document.querySelector('[data-out="main"]');
   const lang = document.documentElement.lang || 'en';
   const home = document.documentElement.dataset.home ?? '/';
-  const isCJK = /^(ja|zh|ko)/.test(lang);
+  const isCJK = /^(ja|zh)/.test(lang); // 全角の句点・括弧を使う言語(韓国語はピリオドと半角の括弧)
   const esc = v => String(v ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
   const fill = (str, v = {}) => String(str ?? '').replace(/\{(\w+)\}/g, (m, k) => (k in v ? v[k] : m));
   const fin = Number.isFinite;
