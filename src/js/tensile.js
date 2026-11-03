@@ -490,19 +490,21 @@ function ui() {
   // spec: { xr, yr, xl, yl, lines: [{ pts, col, w, dash, op }], dots: [{ x, y, col, lab, dx, dy }], xlog, ylog }
   function chart(spec, C, title) {
     const { xr, yr } = spec;
-    const tx = v => (spec.xlog ? Math.log(v) : v), ty = v => (spec.ylog ? Math.log(v) : v);
-    const X = v => PL + ((tx(v) - tx(xr[0])) / (tx(xr[1]) - tx(xr[0]))) * (W - PL - PR);
-    const Y = v => H - PB - ((ty(v) - ty(yr[0])) / (ty(yr[1]) - ty(yr[0]))) * (H - PT - PB);
     const lt = (lo, hi) => { const a = []; for (let k = Math.floor(Math.log10(lo)); k <= Math.ceil(Math.log10(hi)); k++) for (const m of [1, 2, 5]) { const v = m * 10 ** k; if (v >= lo * 0.999 && v <= hi * 1.001) a.push(v); } return a; };
     const xt = spec.xlog ? lt(...xr) : ticks(...xr), yt = spec.ylog ? lt(...yr) : ticks(...yr, 6);
     const tl = (v, log) => (log ? sg(v, 2) : sg(v, 4));
+    // 縦軸の目盛の数字が長いとき(1000、0.05 など)は左の余白を広げ、縦軸の名前と重ならないようにする
+    const PLc = Math.max(PL, Math.ceil(FS * 1.7 + 10 + Math.max(...yt.map(v => tl(v, spec.ylog).length)) * FS * 0.75));
+    const tx = v => (spec.xlog ? Math.log(v) : v), ty = v => (spec.ylog ? Math.log(v) : v);
+    const X = v => PLc + ((tx(v) - tx(xr[0])) / (tx(xr[1]) - tx(xr[0]))) * (W - PLc - PR);
+    const Y = v => H - PB - ((ty(v) - ty(yr[0])) / (ty(yr[1]) - ty(yr[0]))) * (H - PT - PB);
     let g = `<rect x="0" y="0" width="${W}" height="${H}" fill="${C.bg}"/>`;
     g += xt.map(v => `<line x1="${X(v).toFixed(1)}" x2="${X(v).toFixed(1)}" y1="${PT}" y2="${H - PB}" stroke="${C.grid}" stroke-width="1"/><text x="${X(v).toFixed(1)}" y="${H - PB + 20}" text-anchor="middle" font-size="${FS}" fill="${C.muted}">${esc(tl(v, spec.xlog))}</text>`).join('');
-    g += yt.map(v => `<line x1="${PL}" x2="${W - PR}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}" stroke="${C.grid}" stroke-width="1"/><text x="${PL - 6}" y="${(Y(v) + 6).toFixed(1)}" text-anchor="end" font-size="${FS}" fill="${C.muted}">${esc(tl(v, spec.ylog))}</text>`).join('');
-    g += `<rect x="${PL}" y="${PT}" width="${W - PL - PR}" height="${H - PT - PB}" fill="none" stroke="${C.muted}" stroke-width="1"/>`;
-    g += `<text x="${(PL + W - PR) / 2}" y="${H - 8}" text-anchor="middle" font-size="${FS}" fill="${C.text}">${esc(spec.xl)}</text>`;
+    g += yt.map(v => `<line x1="${PLc}" x2="${W - PR}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}" stroke="${C.grid}" stroke-width="1"/><text x="${PLc - 6}" y="${(Y(v) + 6).toFixed(1)}" text-anchor="end" font-size="${FS}" fill="${C.muted}">${esc(tl(v, spec.ylog))}</text>`).join('');
+    g += `<rect x="${PLc}" y="${PT}" width="${W - PLc - PR}" height="${H - PT - PB}" fill="none" stroke="${C.muted}" stroke-width="1"/>`;
+    g += `<text x="${(PLc + W - PR) / 2}" y="${H - 8}" text-anchor="middle" font-size="${FS}" fill="${C.text}">${esc(spec.xl)}</text>`;
     g += `<text transform="translate(16 ${(PT + H - PB) / 2}) rotate(-90)" text-anchor="middle" font-size="${FS}" fill="${C.text}">${esc(spec.yl)}</text>`;
-    g += `<clipPath id="clip-${spec.id}"><rect x="${PL}" y="${PT}" width="${W - PL - PR}" height="${H - PT - PB}"/></clipPath><g clip-path="url(#clip-${spec.id})">`;
+    g += `<clipPath id="clip-${spec.id}"><rect x="${PLc}" y="${PT}" width="${W - PLc - PR}" height="${H - PT - PB}"/></clipPath><g clip-path="url(#clip-${spec.id})">`;
     for (const L of spec.lines) {
       const pts = thin(L.pts.filter(([x, y]) => fin(x) && fin(y) && (!spec.xlog || x > 0) && (!spec.ylog || y > 0)), L.marks ? 1500 : 6000);
       if (pts.length < 2 && !L.marks) { if (!pts.length) continue; }
@@ -513,10 +515,10 @@ function ui() {
     for (const d of spec.dots) {
       if (!fin(d.x) || !fin(d.y)) continue;
       const cx = X(d.x), cy = Y(d.y);
-      if (cx < PL - 1 || cx > W - PR + 1 || cy < PT - 1 || cy > H - PB + 1) continue;
+      if (cx < PLc - 1 || cx > W - PR + 1 || cy < PT - 1 || cy > H - PB + 1) continue;
       g += `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="5.5" fill="${C[d.col]}" stroke="${C.bg === 'none' ? 'var(--surface)' : C.bg}" stroke-width="1.5"/>`;
       if (d.lab) {
-        const lx = Math.min(W - PR - 4, Math.max(PL + 4, cx + (d.dx ?? 8))), ly = Math.min(H - PB - 4, Math.max(PT + FS, cy + (d.dy ?? -8)));
+        const lx = Math.min(W - PR - 4, Math.max(PLc + 4, cx + (d.dx ?? 8))), ly = Math.min(H - PB - 4, Math.max(PT + FS, cy + (d.dy ?? -8)));
         g += `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" font-size="${FS}" font-weight="700" fill="${C[d.col]}"${(d.dx ?? 8) < 0 ? ' text-anchor="end"' : ''}>${esc(d.lab)}</text>`;
       }
     }
