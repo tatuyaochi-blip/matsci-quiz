@@ -2734,7 +2734,11 @@
    "drill": [
     "elongation"
    ],
-   "tools": [],
+   "tools": [
+    {
+     "id": "tensile"
+    }
+   ],
    "terms": [
     "ヤング率"
    ],
@@ -2940,7 +2944,11 @@
    "drill": [
     "true-stress"
    ],
-   "tools": [],
+   "tools": [
+    {
+     "id": "tensile"
+    }
+   ],
    "terms": [
     "加工硬化"
    ],
@@ -3006,7 +3014,11 @@
    "drill": [
     "reduction-area"
    ],
-   "tools": [],
+   "tools": [
+    {
+     "id": "tensile"
+    }
+   ],
    "terms": [],
    "learn": [],
    "src": [
@@ -3059,7 +3071,11 @@
    "ex": "K = 1035 MPa の合金で、真ひずみ 0.10 のとき真応力 415 MPa: n = ln(415/1035)/ln 0.10 = 0.40。くびれは ε_T = n ≈ 0.40 で始まる。",
    "kw": "加工硬化指数 n値 ホロモン 強度係数 くびれ",
    "drill": [],
-   "tools": [],
+   "tools": [
+    {
+     "id": "tensile"
+    }
+   ],
    "terms": [
     "加工硬化"
    ],

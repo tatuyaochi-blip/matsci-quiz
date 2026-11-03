@@ -3042,6 +3042,11 @@
     ],
     "failure": [
      "ductile"
+    ],
+    "tools": [
+     {
+      "id": "tensile"
+     }
     ]
    },
    "src": [
