@@ -1993,6 +1993,10 @@ function initCalc(box, convBox) {
   if (fromUrl) ((fu.at === 'conv' || (!fu.at && !qp.m)) ? convBox ?? box : box).closest('section').scrollIntoView();
 }
 const calcBox = typeof document !== 'undefined' ? document.getElementById('ms-calc') : null;
-if (calcBox) initCalc(calcBox, document.getElementById('conv'));
+if (calcBox) {
+  initCalc(calcBox, document.getElementById('conv'));
+  // 同じタブで条件つきのリンク(#calc?… / #conv?…)に移ったときは読み直す(ハッシュだけの移動では、ページが読み直されず欄が前のままになるため)
+  addEventListener('hashchange', () => { if (/^#(calc|conv)\?/.test(location.hash)) location.reload(); });
+}
 
 if (app) init();
