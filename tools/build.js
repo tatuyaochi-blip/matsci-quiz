@@ -4213,6 +4213,8 @@ ${relCats.length ? `<section>
       ...['icpt', 'plan', 'pt'].flatMap(k => [`measure_calc_how_${k}`, `measure_m_${k}`]), ...['pos', 'neg', 'int', 'half', 'over', 'bad'].map(k => `measure_calc_e_${k}`),
       ...msrJs.CONV_IN.map(k => `measure_conv_in_${k}`), ...['dcirc', 'nl', 'gjis'].map(k => `measure_conv_${k}`)];
     const calcText = calcOn ? Object.fromEntries([...new Set([...keysIn(calcSrc), ...calcDyn])].map(k => [k, need(k)])) : null;
+    // 式の一覧の小数点: de はコンマ(計測の道具の途中の式 dec() と同じ。式そのものは言語によらない)
+    const decL = x => (/^de/.test(code) ? String(x).replace(/(\d)\.(\d)/g, '$1,$2') : x);
     // 換算の式(言語によらない)
     const convEqs = ['G = −6.643856 log₁₀ ℓ̄ − 3.288', 'G = 3.321928 log₁₀ N_A − 2.954', 'n = 0.064516 × N_A = 2^(G − 1)', 'Ā = 1 / N_A', 'd̄ = √Ā', '√(4Ā / π)', 'N_L = 1 / ℓ̄', 'G_JIS = log₂(N_A / 8) = G − 0.046'];
     const calcEqs = { icpt: ['L = L′ / M', 'ℓ = L / P', 'ℓ̄ = Σ ℓ_i / n', 'G = −6.643856 log₁₀ ℓ̄ − 3.288'], plan: ['A = A′ / M²', 'N = N_in + ½ N_cut (+ 1)', 'N_A = N / A', 'G = 3.321928 log₁₀ N_A − 2.954'], pt: ['P_P = P_α / P_T', 'V_V ≈ P̄_P', '95 % CI = t · s / √n', '%RA = 100 × CI / x̄'] };
@@ -4248,7 +4250,7 @@ ${relCats.length ? `<section>
   </section>`;
     const fmlCard = f => `<article class="mt-card ms-fml" id="fml-${f.id}">
     <div class="mt-head"><h3><a href="#fml-${f.id}">${esc(f.h)}</a></h3></div>
-    <ul class="ms-eqs">${f.f.map(x => `<li><code>${esc(x)}</code></li>`).join('')}</ul>
+    <ul class="ms-eqs">${f.f.map(x => `<li><code>${esc(decL(x))}</code></li>`).join('')}</ul>
     <div class="fm-scroll"><table class="pp-tbl ms-sym"><thead><tr><th scope="col">${esc(need('measure_sym'))}</th><th scope="col">${esc(need('measure_sym_m'))}</th></tr></thead><tbody>${f.sym.map(([y, m]) => `
       <tr><th scope="row"><code>${esc(y)}</code></th><td>${esc(m)}</td></tr>`).join('')}
     </tbody></table></div>
@@ -4296,7 +4298,7 @@ ${calcOn ? `<section id="calc" class="mt-app ms-calc-sec">
   <div class="ms-ceqs">
     <h3>${esc(need('measure_calc_eq_h'))}</h3>
     <div class="ms-ceqs-grid">${['icpt', 'plan', 'pt'].map(m => `
-      <div><h4>${esc(need(`measure_m_${m}`))}</h4><ul class="ms-eqs">${calcEqs[m].map(x => `<li><code>${esc(x)}</code></li>`).join('')}</ul></div>`).join('')}
+      <div><h4>${esc(need(`measure_m_${m}`))}</h4><ul class="ms-eqs">${calcEqs[m].map(x => `<li><code>${esc(decL(x))}</code></li>`).join('')}</ul></div>`).join('')}
     </div>
     <p class="ms-cnote">${esc(need('measure_calc_eq_lead'))}</p>
     ${src(['umich-e112', 'umich-e562', 'iteh-e112'])}
@@ -4307,7 +4309,7 @@ ${calcOn ? `<section id="calc" class="mt-app ms-calc-sec">
   <p>${esc(need('measure_conv_lead'))}</p>
   <noscript><p class="mt-nb">${esc(need('measure_conv_noscript'))} <a href="#gtable">${esc(need('measure_gtab_h'))}</a></p></noscript>
   <div class="ms-conv-js" hidden><div class="ms-conv-root"></div></div>
-  <ul class="ms-eqs ms-cveqs">${convEqs.map(x => `<li><code>${esc(x)}</code></li>`).join('')}</ul>
+  <ul class="ms-eqs ms-cveqs">${convEqs.map(x => `<li><code>${esc(decL(x))}</code></li>`).join('')}</ul>
   <p class="ms-cnote">${esc(need('measure_conv_eq_note'))}</p>
   <p class="ms-cnote">${esc(need('measure_conv_diam'))} <a href="#diam">${esc(D.guide.find(g => g.id === 'diam')?.h ?? '')}</a></p>
   ${src(['umich-e112', 'niigata', 'iso-643'])}
