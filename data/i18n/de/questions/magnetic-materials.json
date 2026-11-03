@@ -133,5 +133,50 @@
    "Die mit steigender Temperatur abnehmende Koerzitivfeldstärke durch ein höheres Anisotropiefeld auszugleichen"
   ],
   "explanation": "Nd₂Fe₁₄B hat mit ca. 310 °C eine eher niedrige Curie-Temperatur; mit steigender Temperatur nimmt seine magnetokristalline Anisotropie ab, und die Koerzitivfeldstärke sinkt stark. Damit die Magnete bei der Betriebstemperatur des Motors nicht entmagnetisiert werden, ersetzt man einen Teil des Nd durch Dy oder Tb, erhöht so das Anisotropiefeld und steigert die Koerzitivfeldstärke. Die magnetischen Momente von Dy und Tb koppeln jedoch antiparallel zu denen von Fe; je mehr man zusetzt, desto stärker sinkt daher die Sättigungsmagnetisierung, und Remanenzflussdichte und maximales Energieprodukt werden sogar kleiner. Auch die Curie-Temperatur bleibt bei diesem Zusatz bei einigen hundert °C und übersteigt 1000 °C nicht. Da Dy und Tb teuer sind und ihre Vorkommen ungleich verteilt sind, werden Verfahren eingesetzt, bei denen man sie nur in die Kornoberflächen eindiffundieren lässt, um die Einsatzmenge zu verringern."
+ },
+ "magnetic-materials-016": {
+  "question": "Ein Ferromagnet wird oberhalb seiner Curie-Temperatur im paramagnetischen Zustand gemessen; die reziproke Suszeptibilität 1/χ beträgt bei 600 K 200 und bei 800 K 600. Unter der Annahme des Curie-Weiss-Gesetzes χ = C/(T − θ): Welcher Wert kommt der paramagnetischen Curie-Temperatur θ, bestimmt durch Extrapolation der Geraden von 1/χ, am nächsten?",
+  "choices": [
+   "Etwa 700 K",
+   "Etwa 900 K",
+   "Etwa 500 K"
+  ],
+  "explanation": "Nach dem Curie-Weiss-Gesetz gilt 1/χ = (T − θ)/C; 1/χ ist also linear in der Temperatur und schneidet die Temperaturachse bei θ. Die Steigung beträgt (600 − 200)/(800 − 600) = 2 K⁻¹, daher wird 1/χ bei 600 − 200/2 = 500 K null. Etwa 900 K behandelt statt 1/χ die Suszeptibilität χ selbst (1/200 und 1/600) als Gerade und extrapoliert sie auf null; χ ist aber nicht linear in der Temperatur. Etwa 700 K extrapoliert in die falsche Richtung und addiert 100 K zu 600 K. θ spiegelt die Stärke der Austauschwechselwirkung wider: Bei Ferromagneten ist es positiv und liegt nahe der tatsächlichen Curie-Temperatur, bei Antiferromagneten ist es negativ. Aus dem Kehrwert der Steigung, C, lässt sich das magnetische Moment pro Atom abschätzen."
+ },
+ "magnetic-materials-017": {
+  "question": "Welche Aussage über Dauermagnete aus hexagonalem Ferrit mit Sr oder Ba (etwa SrFe₁₂O₁₉), die in Lautsprechern und Kleinmotoren weit verbreitet sind, trifft zu?",
+  "choices": [
+   "Ihre Remanenz ist mit etwa 1,2 T so groß wie die von Neodym-Magneten, und wie bei Seltenerdmagneten sinkt die Koerzitivfeldstärke mit steigender Temperatur tendenziell",
+   "Ihre Remanenz ist mit etwa 0,4 T kleiner als die von Neodym-Magneten, doch als Oxide sind sie billig und rosten nicht, und ihre Koerzitivfeldstärke steigt mit der Temperatur",
+   "Sie sind kubisch und fast ohne magnetokristalline Anisotropie, daher mit kleiner Koerzitivfeldstärke weichmagnetische Werkstoffe für Transformator- und Hochfrequenzkerne"
+  ],
+  "explanation": "Hexagonale Ferrite sind Oxide vom Magnetoplumbit-Typ mit einachsiger magnetokristalliner Anisotropie entlang der c-Achse und ergeben daher Dauermagnete mit großer Koerzitivfeldstärke. Als Ferrimagnete mit kleiner Sättigungsmagnetisierung haben sie nur eine Remanenz von etwa 0,4 T und ein maximales Energieprodukt von etwa 10–40 kJ/m³, viel weniger als Neodym-Magnete. Andererseits ist der Rohstoff Eisenoxid billig, als Oxide rosten sie nicht, und ihr elektrischer Widerstand ist hoch, sodass sie in Anwendungen mit großen Stückzahlen weit verbreitet sind. Ihre Koerzitivfeldstärke nimmt mit der Temperatur zu, was sie bei hoher Temperatur widerstandsfähig gegen Entmagnetisierung macht; Vorsicht ist bei tiefer Temperatur geboten, wo die Koerzitivfeldstärke sinkt und sie leichter entmagnetisiert werden. Eine Remanenz über 1 T ist ein Wert von Seltenerdmagneten. Kubische Ferrite mit kleiner Anisotropie sind weichmagnetische Werkstoffe wie MnZn-Ferrit."
+ },
+ "magnetic-materials-018": {
+  "question": "Werden für die Kerne von Verteiltransformatoren Bänder aus einer amorphen Fe-Si-B-Legierung (etwa 25 µm dick) verwendet, sinken die Kernverluste gegenüber Elektroblech deutlich. Welche Kombination aus Grund und dafür in Kauf genommenem Nachteil trifft zu?",
+  "choices": [
+   "Ohne Körner und mit geringer Anisotropie, dünn und mit hohem spezifischem Widerstand sind die Verluste gering; die Sättigungsflussdichte liegt mit etwa 1,56 T unter der von Elektroblech (etwa 2,0 T)",
+   "Die Körner sind sehr grob, und die Domänenwände bewegen sich leicht, daher sind die Verluste gering; die Sättigungsflussdichte ist höher als bei Elektroblech, aber die Verarbeitung ist schwierig",
+   "Der spezifische Widerstand ist mit etwa 1/100 dessen von Elektroblech niedrig, daher fließen kaum Wirbelströme; die Sättigungsflussdichte ist ebenfalls höher, ein großer Nachteil ist aber der Einsatz nur bei hoher Temperatur"
+  ],
+  "explanation": "Eine amorphe Legierung hat keine weitreichende Periodizität und daher praktisch keine magnetokristalline Anisotropie; da auch Korngrenzen fehlen, bewegen sich die Domänenwände leicht, und Koerzitivfeldstärke und Hystereseverluste sind gering. Ihr spezifischer Widerstand ist mit etwa 1,3 µΩ·m höher als der von Elektroblech (etwa 0,5 µΩ·m), und da sie durch rasches Abschrecken aus der Schmelze hergestellt wird, ist sie mit etwa 25 µm dünn, sodass auch die Wirbelstromverluste klein sind. Wegen des hohen Anteils an nichtmagnetischem Si und B beträgt die Sättigungsflussdichte jedoch nur etwa 1,56 T, und der Kern wird bei gleicher Leistung größer. Zudem ist sie hart und dünn, was Stapeln und Schneiden aufwendig macht. Verluste durch grobe Körner zu senken ist das Prinzip von kornorientiertem Elektroblech. Ein niedriger spezifischer Widerstand würde Wirbelströme sogar begünstigen."
+ },
+ "magnetic-materials-019": {
+  "question": "Ein Richtwert für das äußere Feld, das nötig ist, um eine dünne Eisenschicht (Sättigungsmagnetisierung Ms = 1,7×10⁶ A/m) senkrecht zur Schichtebene bis zur Sättigung zu magnetisieren, ist die Größe, die das Entmagnetisierungsfeld Hd = NMs aufhebt (senkrecht zur Schicht Entmagnetisierungsfaktor N = 1). Welcher Wert kommt diesem Feld, ausgedrückt als µ₀H, am nächsten? Die magnetokristalline Anisotropie wird vernachlässigt, µ₀ = 4π×10⁻⁷ H/m.",
+  "choices": [
+   "0 T (in dünnen Schichten entsteht kein Entmagnetisierungsfeld)",
+   "Etwa 0,71 T",
+   "Etwa 2,1 T"
+  ],
+  "explanation": "Wird die Schicht senkrecht zu ihrer Ebene magnetisiert, entstehen auf Ober- und Unterseite Pole, und im Inneren entsteht ein der Magnetisierung entgegengerichtetes Entmagnetisierungsfeld Hd = NMs. Für eine dünne Schicht in senkrechter Richtung ist N = 1, also µ₀Hd = 4π×10⁻⁷ × 1,7×10⁶ ≈ 2,1 T. Ohne ein größeres äußeres Feld richtet sich die Magnetisierung nicht senkrecht aus. In der Schichtebene ist dagegen N ≈ 0 und fast kein Entmagnetisierungsfeld vorhanden, sodass sich die Magnetisierung schon in schwachen Feldern in der Ebene ausrichtet; die Magnetisierung dünner Schichten liegt normalerweise in der Ebene (Formanisotropie). Etwa 0,71 T verwendet N = 1/3 für eine Kugel, 0 T verwechselt den Fall mit dem in der Ebene. Um eine senkrechte Magnetisierung zu nutzen, etwa in der magnetischen Aufzeichnung, sind Werkstoffe nötig, deren senkrechte magnetokristalline Anisotropie diese Formanisotropie übertrifft."
+ },
+ "magnetic-materials-020": {
+  "question": "Für Magnete in Sensoren und Luftfahrtgeräten, die oberhalb von 200 °C eingesetzt werden, werden oft Samarium-Cobalt-Magnete (SmCo₅- und Sm₂Co₁₇-Typ) statt Neodym-Magneten gewählt. Was ist der Hauptgrund?",
+  "choices": [
+   "Ihre Remanenz und ihr maximales Energieprodukt übertreffen die von Neodym-Magneten, sodass bei gleicher Größe ein stärkeres Feld entsteht",
+   "Ihre Curie-Temperatur liegt mit etwa 700–800 °C weit über der von Neodym-Magneten (etwa 310 °C), sodass ihre magnetischen Eigenschaften mit der Temperatur weniger abnehmen",
+   "Die Rohstoffe Cobalt und Samarium sind billig und rosten kaum, sodass sie ohne Oberflächenbehandlung kostengünstig hergestellt werden können"
+  ],
+  "explanation": "Samarium-Cobalt-Magnete sind Verbindungen überwiegend auf Co-Basis; ihre Curie-Temperatur ist daher mit etwa 700–800 °C hoch und liegt weit über den etwa 310 °C von Nd₂Fe₁₄B, der Hauptphase der Neodym-Magnete. Magnetisierung und Koerzitivfeldstärke nehmen deshalb mit steigender Temperatur weniger ab, und der Temperaturkoeffizient der Remanenz ist klein, sodass manche Sorten auch über 250 °C einsetzbar sind. Andererseits ist ihre Remanenz mit etwa 0,8–1,2 T niedriger als die der stärksten Neodym-Magnete (etwa 1,4 T), und ihr maximales Energieprodukt reicht meist nicht an Neodym-Magnete heran. Außerdem sind Cobalt und Samarium teuer, und die Magnete sind spröde und brechen leicht. Ihre Korrosionsbeständigkeit ist recht gut, doch ein niedriger Preis ist kein Grund für ihre Wahl. Sie werden dort eingesetzt, wo die Stabilität bei hoher Temperatur Vorrang vor Preis und Stärke hat."
  }
 }

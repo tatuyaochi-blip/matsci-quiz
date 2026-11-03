@@ -133,5 +133,50 @@
    "ca. 208 K"
   ],
   "explanation": "Aus dem Fourierschen Gesetz q = kΔT/L folgt ΔT = qL/k = (1,0×10⁶ × 250×10⁻⁶)/1,2 ≈ 208 K. Dass eine nur etwa 0,25 mm dicke Schicht die Metalltemperatur um rund 200 K senken kann, ist die Wirkung der Wärmedämmschicht. Die Kriechfestigkeit von Nickelbasis-Superlegierungen reagiert empfindlich auf die Temperatur, sodass dieser Temperaturunterschied die Lebensdauer und die zulässige Gastemperatur stark beeinflusst. Ca. 300 K entsteht, wenn man mit der Wärmeleitfähigkeit multipliziert, statt durch sie zu teilen, ca. 21 K, wenn man die Dicke um eine Zehnerpotenz zu klein als 25 µm umrechnet. Je geringer die Wärmeleitfähigkeit und je dicker die Schicht, desto größer der Temperaturunterschied; dickere Schichten platzen jedoch unter Wärmespannung leichter ab, sodass der Dicke Grenzen gesetzt sind."
+ },
+ "high-temperature-016": {
+  "question": "In Kriechversuchen an einem warmfesten Stahl gelte die Monkman-Grant-Beziehung ε̇_min·t_r = konstant, nach der das Produkt aus minimaler Kriechgeschwindigkeit und Bruchzeit nahezu unabhängig von Spannung und Temperatur ist. Bei einer minimalen Kriechgeschwindigkeit von 1,0×10⁻⁵ h⁻¹ betrug die Bruchzeit 2000 h. Unter anderen Bedingungen stieg die minimale Kriechgeschwindigkeit auf 4,0×10⁻⁵ h⁻¹. Welcher Wert kommt der Bruchzeit dann am nächsten?",
+  "choices": [
+   "Etwa 8000 h",
+   "Etwa 500 h",
+   "Etwa 1000 h"
+  ],
+  "explanation": "Da das Produkt konstant ist, gilt t_r = (1,0×10⁻⁵ × 2000)/(4,0×10⁻⁵) = 500 h. Vervierfacht sich die minimale Kriechgeschwindigkeit, sinkt die Bruchzeit auf ein Viertel. Etwa 8000 h ergibt sich durch Multiplikation mit 4, als wäre die Bruchzeit proportional zur Kriechgeschwindigkeit; das ergäbe den umgekehrten Zusammenhang, dass schnellere Verformung länger hält. Etwa 1000 h ergibt sich bei Division durch die Quadratwurzel des Geschwindigkeitsverhältnisses. Die Beziehung drückt aus, dass der größte Teil der bis zum Bruch auftretenden Dehnung durch die Geschwindigkeit im stationären Kriechbereich bestimmt wird. Misst man die minimale Kriechgeschwindigkeit in einem relativ kurzen Versuch, lässt sich die Bruchzeit abschätzen, ohne den Versuch bis zum Bruch fortzuführen; das wird zur Abschätzung der Zeitstandlebensdauer und zur Verkürzung von Versuchen genutzt. In der Praxis ist zu beachten, dass das Produkt einen Exponenten tragen kann und die Konstante je nach Werkstoff verschieden ist."
+ },
+ "high-temperature-017": {
+  "question": "Bei einer Schraube, die den Flansch einer Hochtemperatur-Rohrleitung verspannt, nimmt die Vorspannkraft mit der Betriebszeit ab, während die beim Anziehen erzeugte Längung nahezu konstant bleibt. Welche Aussage erklärt dieses Phänomen richtig?",
+  "choices": [
+   "Bei hoher Temperatur sinkt der Elastizitätsmodul der Schraube mit der Zeit allmählich, sodass bei gleicher Längung eine immer kleinere Spannung in der Schraube entsteht",
+   "Es handelt sich um Spannungsrelaxation: Bei konstanter Gesamtdehnung wird ein Teil der elastischen Dehnung durch plastische Kriechdehnung ersetzt, sodass die Spannung sinkt",
+   "Die Schraube oxidiert bei hoher Temperatur und ihr Querschnitt wird dünner, sodass bei gleicher Vorspannkraft die Spannung steigt und sie sich weiter längt"
+  ],
+  "explanation": "In einer angezogenen Schraube wird die Gesamtlängung (Dehnung) zwischen Mutter und Flansch nahezu konstant gehalten. Bei hoher Temperatur wird der elastische Anteil dieser Dehnung mit der Zeit allmählich durch plastische Kriechdehnung ersetzt. Da die Spannung proportional zur elastischen Dehnung ist, sinken die Spannung und damit die Vorspannkraft, obwohl sich die Gesamtdehnung nicht ändert. Dies heißt Spannungsrelaxation und ist das Gegenstück zum Kriechen, bei dem die Dehnung unter konstanter Spannung zunimmt, mit denselben Mechanismen. Sinkt die Vorspannkraft, kann Fluid am Flansch austreten; daher werden relaxationsarme Werkstoffe gewählt und die Schrauben regelmäßig nachgezogen. Der Elastizitätsmodul ist durch die Temperatur bestimmt und sinkt bei konstanter Temperatur nicht wesentlich mit der Zeit. Eine Verdünnung durch Oxidation erklärt den Verlust an Vorspannkraft nicht."
+ },
+ "high-temperature-018": {
+  "question": "Molybdän (Schmelzpunkt etwa 2620 °C) und Wolfram haben sehr hohe Schmelzpunkte, lassen sich aber ohne Weiteres kaum als Konstruktionswerkstoffe in heißer Luft einsetzen. Was ist der Hauptgrund?",
+  "choices": [
+   "Wegen der zu hohen Schmelzpunkte findet bei hoher Temperatur überhaupt keine Diffusion statt, sodass die Kriechfestigkeit niedrig ist",
+   "Bei hoher Temperatur wachsen die Oxide zu dicht und zu dick, sodass die Abmessungen des Bauteils stark zunehmen",
+   "In heißer Luft verflüchtigen sich die Oxide (bei Molybdän MoO₃) oder schützen nicht, sodass das Metall rasch verloren geht"
+  ],
+  "explanation": "Molybdän oxidiert in heißer Luft zu MoO₃, das schon ab relativ niedrigen Temperaturen verdampft; auf der Oberfläche bleibt daher keine Schutzschicht, und das Metall wird fortlaufend verbraucht. Auch das Oxid des Wolframs verflüchtigt sich, allerdings erst bei höheren Temperaturen. Bei Niob und anderen ist das Oxid porös und reißt leicht, sodass es nicht schützt. Diese hochschmelzenden Metalle werden daher für Ofenbauteile und Heizelemente im Vakuum oder unter Schutzgas verwendet oder an Luft mit oxidationsbeständigen Beschichtungen etwa aus Siliziden versehen. Das steht im Gegensatz zu Nickelbasis-Superlegierungen, die durch dichte Al₂O₃-Schichten geschützt werden. Hochschmelzende Metalle haben bei gleicher Temperatur sogar langsamere Diffusion und eine hervorragende Kriechfestigkeit. Eine dichte, langsam wachsende Schicht schützt das Metall, statt seine Abmessungen zu vergrößern."
+ },
+ "high-temperature-019": {
+  "question": "Welche Aussage über die Heißgaskorrosion, die bei etwa 800–950 °C an den Schaufeln von Gasturbinen in Meeresnähe oder beim Betrieb mit schwefelhaltigem Brennstoff auftritt, trifft zu?",
+  "choices": [
+   "Salzschmelzen wie Na₂SO₄ aus dem Schwefel des Brennstoffs und Natrium aus der Luft lagern sich auf der Oberfläche ab, lösen die schützende Oxidschicht und greifen die Legierung rasch an",
+   "Bei hoher Temperatur kondensiert Wasserdampf zu einem Wasserfilm auf der Oberfläche, und elektrochemische Korrosion wie bei Raumtemperatur läuft schnell ab",
+   "Die Diffusion durch die Oxidschicht beschleunigt sich, und die Oxidation verläuft etwas schneller als nach dem parabolischen Gesetz; mit Salzen oder Brennstoffverunreinigungen hat das nichts zu tun"
+  ],
+  "explanation": "Der Schwefel im Brennstoff verbrennt zu SO₂ und SO₃ und verbindet sich mit Natrium aus Meersalz und anderen Quellen zu Sulfaten wie Na₂SO₄. Lagern sich diese geschmolzen auf der Schaufeloberfläche ab, lösen sie die schützende Al₂O₃- oder Cr₂O₃-Schicht auf, und in der Legierung darunter schreiten Sulfidierung und Oxidation fort, sodass sie weit schneller angegriffen wird als bei gewöhnlicher Oxidation. Die Form bei etwa 800–950 °C heißt Typ I; die Form bei etwa 600–800 °C, bei der Eutektika aus Salz und Korrosionsprodukten den Schmelzpunkt senken, heißt Typ II. Gegenmaßnahmen sind Cr-reiche Legierungen und Beschichtungen sowie die Reinigung von Brennstoff und Ansaugluft. Bei so hohen Temperaturen kondensiert kein Wasser; das geschmolzene Salz übernimmt die Rolle des Elektrolyten. Das Wesentliche ist die Wirkung der Salzschmelze aus Salzen und Verunreinigungen, keine Fortsetzung der gewöhnlichen Oxidation."
+ },
+ "high-temperature-020": {
+  "question": "Auf den Oberflächen von Druckgießformen und von Motorbauteilen, die wiederholt erhitzt und abgekühlt werden, bilden sich manchmal feine, netzartige Risse (thermische Ermüdung, Brandrisse). Welche Aussage beschreibt den Mechanismus richtig?",
+  "choices": [
+   "Die behinderte Oberfläche wird wiederholt erhitzt und abgekühlt, und die wechselnden plastischen Dehnungen aus der unterschiedlichen Wärmeausdehnung erzeugen Risse durch Kurzzeitermüdung",
+   "Eine lange bei hoher Temperatur wirkende konstante Last sammelt Kriechporen an den Korngrenzen an, und die Rissbildung hängt nicht von der Zahl der Heiz- und Kühlzyklen ab",
+   "Bei jedem Aufschmelzen und Wiedererstarren der Oberfläche durch das Erhitzen entstehen Erstarrungsrisse, daher tritt es nicht auf, solange die Oberfläche unter dem Schmelzpunkt bleibt"
+  ],
+  "explanation": "Eine plötzlich erhitzte Oberfläche will sich ausdehnen, wird aber vom noch kalten Inneren behindert, steht daher unter Druck-Wärmespannung und verformt sich, weil sie bei hoher Temperatur weich ist, plastisch auf Druck. Beim Abkühlen will sie sich zusammenziehen, gerät unter Zug und verformt sich in Gegenrichtung plastisch. Wiederholt sich das, entstehen auch ohne äußere Last durch diese wechselnden plastischen Dehnungen aus der unterschiedlichen Wärmeausdehnung Risse wie bei der Kurzzeitermüdung, die sich netzartig über die Oberfläche ausbreiten. Werkstoffe mit kleinem Wärmeausdehnungskoeffizienten sowie hoher Wärmeleitfähigkeit und Warmstreckgrenze sind weniger anfällig. Anders als beim Kriechbruch unter konstanter Last bestimmen die Zahl der Zyklen und die Temperaturschwankung die Lebensdauer. Es tritt ohne Aufschmelzen der Oberfläche auf und ist schon bei Temperaturen weit unter dem Schmelzpunkt ein Problem."
  }
 }

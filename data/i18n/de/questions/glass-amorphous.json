@@ -133,5 +133,50 @@
    "Seine Elektronenbeweglichkeit ist größer als die von kristallinem Silizium, daher wird es häufig für Transistoren in schnellen Mikroprozessoren verwendet"
   ],
   "explanation": "Kristallines Silizium ist ein indirekter Halbleiter und absorbiert die längeren Wellenlängen des sichtbaren Lichts nur schwach; Solarzellen verwenden daher gewöhnlich Substrate mit einer Dicke von 100 µm oder mehr. In a-Si:H fehlt die langreichweitige Periodizität, sodass die Bedingung der Impulserhaltung beim Übergang gelockert ist; der Absorptionskoeffizient für sichtbares Licht ist daher größer als im Kristall, und eine Schicht von höchstens 1 µm Dicke kann das Licht absorbieren. Andererseits werden Ladungsträger in Bandausläuferzuständen eingefangen, die das ungeordnete Netzwerk erzeugt; die Elektronenbeweglichkeit beträgt daher etwa 1–10 cm²/(V·s) und ist damit 2 bis 3 Größenordnungen kleiner als die von kristallinem Silizium mit ca. 1400 cm²/(V·s). Für schnelle Logikschaltungen ist es deshalb ungeeignet; da es sich aber bei ca. 300 °C großflächig abscheiden lässt, wird es für die Pixel-TFTs von Flüssigkristallanzeigen und für Dünnschichtsolarzellen verwendet. Mit einer Bandlücke von ca. 1,7 eV absorbiert es sichtbares Licht gut und kann keine transparente Elektrode sein."
+ },
+ "glass-amorphous-016": {
+  "question": "In einer Glasfaser auf Quarzglasbasis sei der Verlust durch Rayleigh-Streuung an Dichteschwankungen des Glases A/λ⁴ (A = 0,80 dB·µm⁴/km, λ Wellenlänge in µm). Welcher Wert kommt dem Rayleigh-Streuverlust bei einer Wellenlänge von 1,55 µm am nächsten?",
+  "choices": [
+   "Etwa 0,14 dB/km",
+   "Etwa 0,33 dB/km",
+   "Etwa 0,52 dB/km"
+  ],
+  "explanation": "1,55⁴ ≈ 5,77, der Verlust beträgt also 0,80/5,77 ≈ 0,14 dB/km. Etwa 0,33 dB/km ergibt sich bei Division durch das Quadrat der Wellenlänge, etwa 0,52 dB/km bei nur einmaliger Division durch die Wellenlänge. Ein Glas ist eine Schmelze, deren Struktur am Glasübergang eingefroren wurde; Dichte und Zusammensetzung schwanken daher geringfügig über Bereiche, die viel kleiner als die Lichtwellenlänge sind, und verursachen eine zu λ⁻⁴ proportionale Rayleigh-Streuung. Mit zunehmender Wellenlänge nimmt die Streuung steil ab, doch weiter im Infraroten steigt die Absorption durch Si-O-Schwingungen, sodass der Verlust bei etwa 1,55 µm am kleinsten ist und niedrige Verluste von etwa 0,2 dB/km erreicht werden. Bei 0,2 dB/km verliert Licht auf 100 km nur 20 dB, die Intensität sinkt also auf 1 %."
+ },
+ "glass-amorphous-017": {
+  "question": "Welche Aussage über Glaskeramiken, die durch Wärmebehandlung von Gläsern des Systems Li₂O-Al₂O₃-SiO₂ hergestellt und etwa für Kochfelder verwendet werden, trifft zu?",
+  "choices": [
+   "Schon durch langsames Abkühlen der Schmelze scheiden sich Kristalle von selbst aus, daher sind weder Keimbildner noch eine Steuerung der Wärmebehandlungstemperatur nötig",
+   "Je weniger und größer die Kristalle, desto höher Festigkeit und Transparenz; daher wird die Keimbildungsstufe ausgelassen und das Glas bei hoher Temperatur auf einmal zu einem Gefüge nur aus groben Kristallen kristallisiert",
+   "Mit TiO₂ oder ZrO₂ als Keimbildner scheidet eine zweistufige Wärmebehandlung viele feine Kristalle aus; Kristalle mit negativer Ausdehnung und das Glas gleichen sich zu fast null Ausdehnung aus"
+  ],
+  "explanation": "Eine Glaskeramik wird zunächst wie ein gewöhnliches Glas geformt und anschließend durch Wärmebehandlung kontrolliert kristallisiert. Keimbildner wie TiO₂ oder ZrO₂ werden vorher zugesetzt; bei relativ niedriger Temperatur entstehen viele Kristallkeime, die dann bei höherer Temperatur wachsen, sodass feine Kristalle gleichmäßig in einem dichten, porenfreien Gefüge verteilt sind. Im System Li₂O-Al₂O₃-SiO₂ scheidet sich ein Hochquarz-Mischkristall mit negativem Wärmeausdehnungskoeffizienten aus und kompensiert die positive Ausdehnung des Restglases, sodass die Gesamtausdehnung nahezu null wird. Dadurch ist der Werkstoff unempfindlich gegen schnelles Erhitzen und Abkühlen, und wenn die Kristalle kleiner als die Lichtwellenlänge sind, kann er sogar transparent sein. Unkontrollierte Kristallisation erzeugt grobe Kristalle und Risse und ist in der Glasherstellung normalerweise zu vermeiden."
+ },
+ "glass-amorphous-018": {
+  "question": "Wird einem B₂O₃-Glas nach und nach Na₂O zugesetzt, steigt bis zu einer bestimmten Zusammensetzung die Glasübergangstemperatur, und der Wärmeausdehnungskoeffizient sinkt (Boranomalie). Was ist die Hauptursache dieses Verhaltens, das sich vom Zusatz von Na₂O zu SiO₂-Glas unterscheidet?",
+  "choices": [
+   "Na⁺ tritt anstelle von Bor in die Zentren des Netzwerks und bildet starke kovalente Na-O-Bindungen, die das Netzwerk von innen verstärken",
+   "Der Sauerstoff aus Na₂O wandelt BO₃-Dreiecke in BO₄-Tetraeder um und erhöht die Vernetzung, ohne nichtbrückende Sauerstoffe zu bilden",
+   "Der Na₂O-Zusatz kristallisiert das Glas teilweise, und Boratkristalle mit geringer Wärmeausdehnung scheiden sich aus und senken die Gesamtausdehnung"
+  ],
+  "explanation": "Bor bildet in B₂O₃-Glas normalerweise mit drei Sauerstoffatomen ebene BO₃-Dreiecke, sodass ein nahezu schichtartiges Netzwerk entsteht. Wird Na₂O zugesetzt, erhöht dessen Sauerstoff zunächst die Koordinationszahl des Bors auf 4, und es entstehen BO₄-Tetraeder, deren Ladung durch Na⁺ ausgeglichen wird. Tetraeder sind über vier Ecken mit Nachbarn verbunden, daher nimmt die dreidimensionale Vernetzung zu, ohne dass nichtbrückende Sauerstoffe entstehen; die Glasübergangstemperatur steigt, und die Wärmeausdehnung sinkt. Oberhalb einer bestimmten Na₂O-Menge beginnen sich dann nichtbrückende Sauerstoffe zu bilden, und das Netzwerk wird wie bei Silikatgläsern schwächer. Na⁺ hat einen großen Ionenradius und eine kleine Ladung und tritt daher nicht in die Netzwerkzentren ein. Die Änderung betrifft die Netzwerkstruktur des Glases selbst und beruht nicht auf der Ausscheidung von Kristallen."
+ },
+ "glass-amorphous-019": {
+  "question": "Steht Glas unter konstanter Last, kann es nach einiger Zeit auch bei Spannungen unterhalb der im Kurzzeitversuch gemessenen Festigkeit brechen (statische Ermüdung, verzögerter Bruch). Welche Aussage nennt die Hauptursache richtig?",
+  "choices": [
+   "An den Spitzen von Oberflächenrissen reagieren auf Zug beanspruchte Si-O-Si-Bindungen mit Wasser und brechen, sodass die Risse langsam wachsen",
+   "Auch bei Raumtemperatur bewegen sich Versetzungen im Glas, und unter Last versprödet es durch Kaltverfestigung",
+   "Die Last kristallisiert das Glas allmählich, und es bricht von den Grenzen zwischen Kristallen und Glas aus"
+  ],
+  "explanation": "Die Festigkeit von Glas wird durch winzige Oberflächenrisse bestimmt; in feuchter Luft oder Wasser reagieren die gedehnten Si-O-Si-Bindungen an einer Rissspitze jedoch mit Wassermolekülen und brechen leichter (Spannungsrisskorrosion). Risse wachsen daher auch bei Spannungsintensitäten unterhalb der Bruchzähigkeit langsam und brechen schlagartig durch, sobald sie eine bestimmte Länge erreichen. Je länger die Last wirkt oder je langsamer belastet wird, desto niedriger ist die gemessene Festigkeit; im Vakuum oder in trockener Umgebung ist dieser Abfall geringer. Fensterglas und Glasfasern werden mit Langzeitlasten ausgelegt, die deutlich unter der Kurzzeitfestigkeit angesetzt sind. Glas zeigt keine plastische Verformung oder Kaltverfestigung durch Versetzungen, und eine Last bei Raumtemperatur lässt es auch nicht kristallisieren."
+ },
+ "glass-amorphous-020": {
+  "question": "Glasbildende Flüssigkeiten werden danach in „starke“ und „fragile“ Flüssigkeiten eingeteilt, wie steil der Logarithmus der Viskosität, aufgetragen über Tg/T (normiert mit der Glasübergangstemperatur Tg), in der Nähe von Tg verläuft. Welche Aussage über diese Einteilung trifft zu?",
+  "choices": [
+   "Flüssigkeiten mit starkem Netzwerk wie SiO₂ sind „fragile“ Flüssigkeiten, deren Viskosität sich nahe Tg abrupt ändert, und viele Polymere sind nahezu lineare „starke“ Flüssigkeiten",
+   "Sie beschreibt, wie leicht der Festkörper bricht: Starke Flüssigkeiten ergeben bruchfeste Gläser, fragile Flüssigkeiten Gläser, die leicht brechen",
+   "Starke Flüssigkeiten wie SiO₂ zeigen eine nahezu lineare, Arrhenius-artige Gerade, fragile Flüssigkeiten wie viele Polymere ändern ihre Viskosität nahe Tg abrupt"
+  ],
+  "explanation": "Diese Einteilung geht auf Angell zurück und unterscheidet Flüssigkeiten danach, wie weit die Temperaturabhängigkeit der Viskosität (oder Relaxationszeit) von der Arrhenius-Geraden log η ∝ 1/T abweicht. Flüssigkeiten mit dreidimensionalem kovalentem Netzwerk wie SiO₂ und GeO₂ ändern ihre Struktur mit der Temperatur kaum und sind nahezu lineare „starke“ Flüssigkeiten. Viele Polymere und molekulare Flüssigkeiten ändern ihre Struktur bei Annäherung an Tg stark, sodass die Viskosität in einem engen Temperaturbereich steil ansteigt; das sind „fragile“ Flüssigkeiten, bei denen T₀ der VFT-Gleichung nahe bei Tg liegt. Die Namen haben nichts damit zu tun, wie leicht der Festkörper bricht; sie beschreiben, wie sich die Viskosität der Flüssigkeit mit der Temperatur ändert. Die Aussage mit vertauschten Beispielen verwechselt den Zusammenhang mit der Netzwerkstärke."
  }
 }

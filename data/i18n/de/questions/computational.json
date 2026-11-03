@@ -133,5 +133,50 @@
       "Auch bei wenigen Daten bringen immer mehr Deskriptoren (Merkmale) mehr Information, sodass die Vorhersagen für neue Werkstoffe zwangsläufig genauer werden"
     ],
     "explanation": "Ein Modell des maschinellen Lernens lernt eine Funktion, die die Zieleigenschaft aus Deskriptoren (Merkmalen) vorhersagt, in denen Zusammensetzung, Kristallstruktur usw. als Zahlen ausgedrückt sind. Wird es zu stark an die Trainingsdaten angepasst (Überanpassung), ist der Fehler auf diesen Daten zwar klein, die Vorhersage für neue Daten aber schlecht. Deshalb werden die Daten in Trainings- und Validierungsdaten aufgeteilt oder es wird eine Kreuzvalidierung durchgeführt, und die Güte wird am Fehler auf nicht zum Training verwendeten Daten beurteilt. Werden bei wenigen Daten zu viele Deskriptoren verwendet, tritt leicht Überanpassung auf. Außerdem ist ein Modell zwar gut im Interpolieren innerhalb des Bereichs der Trainingsdaten, aber schwach beim Extrapolieren weit darüber hinaus. Daher werden die Daten effizient ergänzt, etwa mit der Bayesschen Optimierung, die anhand von Vorhersagewert und Unsicherheit den nächsten zu prüfenden Kandidaten auswählt."
+  },
+  "computational-016": {
+    "question": "Welche Aussage über die Zahl der k-Punkte in der Brillouin-Zone und die Abschneideenergie trifft zu, wenn ein periodischer Kristall mit DFT in einer Basis aus ebenen Wellen berechnet wird?",
+    "choices": [
+      "Isolatoren mit großer Bandlücke brauchen mehr k-Punkte, bei Metallen genügt oft schon der Γ-Punkt allein",
+      "Beides wird erhöht, bis die Ergebnisse konvergieren; Metalle brauchen tendenziell dichtere k-Punkte als Isolatoren",
+      "Die Abschneideenergie beeinflusst die Genauigkeit nicht und bestimmt nur die Rechenzeit, daher ist kleiner besser"
+    ],
+    "explanation": "In einer Basis aus ebenen Wellen werden die Wellenfunktionen als Summe ebener Wellen dargestellt, und die Abschneideenergie (Cutoff-Energie) legt fest, bis zu welcher kinetischen Energie ebene Wellen einbezogen werden. Ist sie zu klein, lassen sich die Wellenfunktionen nicht vollständig darstellen, und Energien und Kräfte werden ungenau. Integrale über die Brillouin-Zone werden durch Summen über endlich viele k-Punkte angenähert, daher muss auch die Konvergenz mit mehr k-Punkten geprüft werden. In Metallen ändert sich die Besetzung der Bänder an der Fermi-Fläche, der Grenze zwischen besetzten und unbesetzten Zuständen, sprunghaft; die Integrationsfehler sind daher groß, und es werden dichtere k-Punkte als bei Isolatoren oder eine Verschmierung der Besetzung (Smearing) benötigt. Die Aussage, Isolatoren bräuchten mehr, ist umgekehrt. Wichtig ist, beide Einstellungen in allen Rechnungen gleich zu halten, deren Energiedifferenzen verglichen werden."
+  },
+  "computational-017": {
+    "question": "In einer Molekulardynamik-Simulation werden die Atome eines flüssigen Metalls verfolgt. Die mittlere quadratische Verschiebung (MSD), über der Zeit aufgetragen, nimmt im linearen Bereich innerhalb von 100 ps um 1,2 nm² zu. Welcher Wert kommt dem Selbstdiffusionskoeffizienten D aus der dreidimensionalen Einstein-Beziehung MSD = 6Dt am nächsten?",
+    "choices": [
+      "Etwa 2,0×10⁻⁹ m²/s",
+      "Etwa 6,0×10⁻⁹ m²/s",
+      "Etwa 3,0×10⁻⁹ m²/s"
+    ],
+    "explanation": "D = MSD/(6t) = 1,2×10⁻¹⁸ m²/(6 × 100×10⁻¹² s) = 2,0×10⁻⁹ m²/s. In drei Dimensionen wächst die mittlere quadratische Verschiebung in jeder der Richtungen x, y und z um 2Dt, insgesamt also um 6Dt. Etwa 6,0×10⁻⁹ m²/s ergibt sich mit der eindimensionalen Beziehung 2Dt, etwa 3,0×10⁻⁹ m²/s mit der zweidimensionalen 4Dt. Bei kurzen Zeiten zeigt die MSD einen ballistischen Bereich, in dem die Atome frei fliegen (proportional zu t²), und in unterkühlten Flüssigkeiten und Ähnlichem ein Plateau, in dem die Atome im Käfig ihrer Nachbarn eingeschlossen sind; D wird daher aus der Steigung des linearen Bereichs bei langen Zeiten bestimmt, der proportional zu t ist. Selbstdiffusionskoeffizienten flüssiger Metalle liegen in der Größenordnung von 10⁻⁹ m²/s und sind weit größer als in Festkörpern."
+  },
+  "computational-018": {
+    "question": "Die Aktivierungsenergie für den Sprung eines Atoms in eine benachbarte Leerstelle eines Kristalls soll mit DFT und der Nudged-Elastic-Band-Methode (NEB) bestimmt werden. Welche Aussage beschreibt die NEB-Methode richtig?",
+    "choices": [
+      "Nur die Anfangs- und Endstruktur des Sprungs werden optimiert, und die Differenz ihrer Gesamtenergien wird direkt als Aktivierungsenergie genommen",
+      "Die Atome werden lange bei hoher Temperatur bewegt, bis ein Sprung von selbst eintritt, und die Aktivierungsenergie wird aus der Sprunghäufigkeit bestimmt",
+      "Zwischen Anfang und Ende werden durch Federn verbundene Zwischenstrukturen aufgereiht und gemeinsam optimiert, um die Energie des Sattelpunkts zu finden"
+    ],
+    "explanation": "Die Aktivierungsenergie ist die Energiedifferenz zwischen der stabilen Anfangsstruktur und dem Sattelpunkt, an dem die Energie entlang des Wegs am höchsten ist. Bei der NEB-Methode werden zwischen Anfangs- und Endstruktur mehrere Zwischenstrukturen (Images) gesetzt, benachbarte durch fiktive Federn verbunden, und die ganze Kette wird gleichzeitig so optimiert, dass nur die Kraftkomponenten senkrecht zum Weg die Energie senken. So ergibt sich der Weg minimaler Energie, dessen höchster Punkt der Sattelpunkt ist. Um diesen Punkt genau zu bestimmen, wird oft die Climbing-Image-Variante verwendet. Die Differenz zwischen Anfang und Ende ist die Energieänderung der Reaktion; sie wird null, wenn beide Enden wie bei der Leerstellenwanderung dieselbe Energie haben. Auf einen Sprung in der Molekulardynamik zu warten ist ineffizient, da Sprünge über hohe Barrieren selten sind. Die erhaltenen Werte dienen als Eingabe etwa für die kinetische Monte-Carlo-Methode."
+  },
+  "computational-019": {
+    "question": "DFT liefert für den Kristall des Elements A eine Gesamtenergie von −4,00 eV/Atom, für den Kristall des Elements B −6,00 eV/Atom und für den Kristall der Verbindung AB −10,60 eV pro Formeleinheit. Welcher Wert kommt der Bildungsenergie von AB pro Atom am nächsten?",
+    "choices": [
+      "Etwa −0,60 eV/Atom",
+      "Etwa −0,30 eV/Atom",
+      "Etwa −5,30 eV/Atom"
+    ],
+    "explanation": "Die Bildungsenergie ist die Energiedifferenz zwischen der Verbindung und demselben Satz von Atomen als Kristalle der reinen Elemente. Pro Formeleinheit AB beträgt sie −10,60 − (−4,00 − 6,00) = −0,60 eV, und da AB zwei Atome enthält, sind es −0,30 eV pro Atom. Etwa −0,60 eV/Atom verwechselt den Wert pro Formeleinheit mit dem pro Atom, und etwa −5,30 eV/Atom teilt nur die Gesamtenergie der Verbindung durch die Atomzahl, ohne Bezug auf die Elemente. Eine negative Bildungsenergie bedeutet, dass die Verbindung stabiler ist als die getrennten Elemente; Verbindungen anderer Zusammensetzung oder Phasenkombinationen können aber noch tiefer liegen. Die Stabilität wird deshalb danach beurteilt, wie weit die Verbindung über der unteren Einhüllenden (konvexe Hülle) der über der Zusammensetzung aufgetragenen Bildungsenergien liegt."
+  },
+  "computational-020": {
+    "question": "Mit Molekulardynamik soll der Wärmeausdehnungskoeffizient eines Kristalls bei verschiedenen Temperaturen bestimmt werden. Welche Wahl der Rechenbedingungen (statistisches Ensemble) ist am geeignetsten?",
+    "choices": [
+      "NPT-Rechnungen mit konstanter Temperatur und konstantem Druck bei jeder Temperatur, Bestimmung aus der Temperaturänderung des Zellvolumens im Gleichgewicht",
+      "NVE-Rechnungen mit konstanter Atomzahl, konstantem Volumen und konstanter Energie bei jeder Temperatur, Bestimmung aus der dabei auftretenden Änderung des Zellvolumens",
+      "NVT-Rechnungen mit konstanter Temperatur und konstantem Volumen bei jeder Temperatur, Bestimmung aus der Änderung der Zellgröße"
+    ],
+    "explanation": "Wärmeausdehnung ist die Volumenänderung mit der Temperatur bei konstantem Druck; die Rechnung muss daher eine Änderung der Zellgröße zulassen. In einer NPT-Rechnung hält ein Thermostat die Temperatur und ein Barostat den Druck konstant, und Form und Größe der Zelle ändern sich entsprechend der Spannung. Bei jeder Temperatur werden das mittlere Volumen oder der Gitterparameter im Gleichgewicht bestimmt, und aus deren Temperaturabhängigkeit ergibt sich der Wärmeausdehnungskoeffizient. Bei NVE oder NVT ist das Volumen fest, die Zellgröße kann sich nicht ändern, und die Wärmeausdehnung zeigt sich nur als Änderung des inneren Drucks. Auch für die Untersuchung von Vorgängen mit Volumenänderung wie Phasenumwandlungen und Schmelzen ist NPT die Grundlage. Das Ensemble wird passend zur gesuchten Größe gewählt."
   }
 }

@@ -133,5 +133,50 @@
       "ca. 209 mL"
     ],
     "explanation": "Die Stoffmenge an Mg beträgt 0,10/24,31 ≈ 4,11×10⁻³ mol. Beim Übergang zu Mg²⁺ gibt Mg 2 Elektronen ab, und mit diesen Elektronen werden 2 H⁺ zu 1 H₂-Molekül; pro mol Mg entsteht also 1 mol H₂. Das Volumen beträgt 4,11×10⁻³ × 25,4 L ≈ 0,104 L, also etwa 104 mL. Schon eine einzige Schraube setzt so viel Gas frei; bei schneller Korrosion sammelt sich daher Gas im Gewebe an, und es wird daran geforscht, die Korrosion durch Legieren und Oberflächenbehandlung so zu verlangsamen, dass sie zur Knochenheilung passt. Ca. 52 mL nimmt an, dass aus 2 mol Mg 1 mol H₂ entsteht, und ca. 209 mL lässt sich vom Koeffizienten in 2H₂O verleiten und nimmt 2 mol H₂ pro mol Mg an."
+  },
+  "biomaterials-016": {
+    "question": "Für Knochenplatten und -schrauben wird als austenitischer nichtrostender Stahl grundsätzlich SUS316L (entsprechend etwa ASTM F138) verwendet. Welche Kombination gibt die Bedeutung des „L“ und die Rolle des Mo-Zusatzes in diesem Stahl richtig an?",
+    "choices": [
+      "L steht für hohe Einhärtbarkeit; Mo steigert die Festigkeit, indem es beim Härten Martensit entstehen lässt",
+      "L kennzeichnet eine hohe Festigkeit bei hohen Temperaturen; Mo stabilisiert anstelle von Nickel den Austenit",
+      "L steht für wenig Kohlenstoff gegen Sensibilisierung durch Cr-Carbide an Korngrenzen; Mo hemmt Chlorid-Lochkorrosion"
+    ],
+    "explanation": "Das L in 316L steht für einen niedrigen Kohlenstoffgehalt (etwa 0,03 % C oder weniger). Bei mehr Kohlenstoff scheiden sich beim Schweißen oder bei einer Wärmebehandlung Cr-Carbide an den Korngrenzen aus, und ihre Umgebung verarmt an Cr (Sensibilisierung); dort beginnt interkristalline Korrosion. Ein geringerer Kohlenstoffgehalt verhindert das. Mo wird mit etwa 2–3 % zugesetzt und erhöht die Beständigkeit gegen Loch- und Spaltkorrosion, bei denen in chloridhaltigen Medien wie Körperflüssigkeiten die Passivschicht örtlich zerstört wird. Austenitische nichtrostende Stähle bilden beim Härten keinen Martensit; ihre Festigkeit wird durch Kaltumformung eingestellt. Austenit wird vor allem durch Ni stabilisiert, Mo zählt eher zu den ferritstabilisierenden Elementen. Dennoch gibt es Bedenken wegen der Ni-Freisetzung im Körper, sodass für Langzeitimplantate teils Titanlegierungen oder andere Werkstoffe gewählt werden."
+  },
+  "biomaterials-017": {
+    "question": "Für die Gleitflächen künstlicher Gelenke wird häufig ultrahochmolekulares Polyethylen (UHMWPE) verwendet, das durch Gamma- oder Elektronenbestrahlung mit etwa einigen Zehn bis 100 kGy vernetzt wurde. Welche Kombination gibt den Zweck dieser Vernetzung und den Grund für die Wärmebehandlung oder den Antioxidanszusatz nach der Bestrahlung richtig an?",
+    "choices": [
+      "Die Vernetzung schränkt die Kettenbeweglichkeit ein und verringert den Verschleiß; verbliebene freie Radikale treiben im Körper und anderswo die Oxidation voran und müssen daher beseitigt werden",
+      "Die Vernetzung erhöht die Kristallinität, härtet das Polymer und verringert den Verschleiß; da die Bestrahlung die Molmasse senkt, verbindet die Wärmebehandlung die Ketten wieder",
+      "Die Bestrahlung dient nur der Sterilisation und hat mit dem Verschleiß nichts zu tun; Wärmebehandlung und Antioxidans beseitigen Gasblasen aus der Formgebung"
+    ],
+    "explanation": "Bei Hüftendoprothesen werden UHMWPE-Abriebpartikel von Makrophagen aufgenommen und lösen Entzündungen aus, die zu Knochenabbau (Osteolyse) und Lockerung führen. Werden die Ketten durch Bestrahlung miteinander vernetzt, wird die Verformung unterdrückt, bei der sich die Ketten in Gleitrichtung ausrichten und abgerissen werden, und der Verschleiß sinkt stark. Verbleiben jedoch durch die Bestrahlung entstandene freie Radikale, reagieren sie mit Sauerstoff und treiben die Oxidation voran, wodurch Ketten gespalten werden und das Polymer versprödet. Daher werden die Radikale durch Umschmelzen oberhalb oder Tempern unterhalb des Schmelzpunkts verringert oder durch Zusatz von Vitamin E abgefangen. Umschmelzen senkt die Kristallinität und auch etwas die Festigkeit und die Ermüdungseigenschaften. Die Bestrahlung ist keine Behandlung zur Erhöhung der Kristallinität, und die Wärmebehandlung soll keinen Verlust an Molmasse ausgleichen."
+  },
+  "biomaterials-018": {
+    "question": "Der Hüftkopf einer Hüftendoprothese (Durchmesser 28 mm) gräbt sich in Richtung des Kopfes mit 0,10 mm pro Jahr in die Polyethylenpfanne ein. Der verschlissene Bereich wird als Zylinder angenähert, dessen Grundfläche die Querschnittsfläche des Kopfes ist (V = πr²w, r Radius des Kopfes, w linearer Verschleiß). Welcher Wert kommt dem volumetrischen Verschleiß nach 10 Jahren am nächsten?",
+    "choices": [
+      "Etwa 62 mm³",
+      "Etwa 620 mm³",
+      "Etwa 2500 mm³"
+    ],
+    "explanation": "Der Kopfradius beträgt r = 14 mm und der lineare Verschleiß in 10 Jahren w = 0,10 × 10 = 1,0 mm, also V = π × 14² × 1,0 ≈ 616 mm³, etwa 620 mm³. Etwa 62 mm³ ergibt sich, wenn nur ein Jahr gerechnet und nicht auf 10 Jahre umgerechnet wird; etwa 2500 mm³, wenn der Durchmesser von 28 mm als Radius eingesetzt wird. Der volumetrische Verschleiß ist proportional zum Quadrat des Kopfradius, sodass ein größerer Kopf bei gleicher linearer Verschleißrate ein größeres Abriebvolumen erzeugt. Da die Abriebmenge mit der Neigung zur Osteolyse zusammenhängt, ist es wichtig, den Verschleiß nicht nur linear, sondern auch volumetrisch zu bewerten. Der tatsächliche Verschleißbereich weicht vom Zylinder ab, weil sich die Richtung des Kopfes ändert; das genaue Volumen wird durch Vermessen der Form bestimmt."
+  },
+  "biomaterials-019": {
+    "question": "Welcher Vorgang tritt zuerst ein, wenn die Oberfläche eines künstlichen Werkstoffs mit Blut oder Körperflüssigkeit in Kontakt kommt, und bestimmt die anschließende Zelladhäsion und Thrombusbildung?",
+    "choices": [
+      "Innerhalb von Sekunden bis Minuten adsorbieren Proteine an der Oberfläche und bilden eine Schicht",
+      "Zuerst haften Thrombozyten und Leukozyten direkt an der Oberfläche, Proteine sammeln sich erst später an, nachdem diese Zellen sie abgesondert haben",
+      "Die Oberfläche reagiert mehrere Tage lang mit nichts, danach nähern sich Fibroblasten und überziehen sie mit einer Membran"
+    ],
+    "explanation": "Kommt ein Werkstoff mit Körperflüssigkeit in Kontakt, adsorbieren Proteine wie Albumin, Fibrinogen und Immunglobuline innerhalb von Sekunden bis Minuten an seiner Oberfläche, noch bevor Zellen eintreffen. Welche Proteine in welcher Orientierung und in welchem Denaturierungszustand adsorbieren, hängt von Benetzbarkeit, Ladung und Rauheit der Oberfläche ab. Die Zusammensetzung der adsorbierten Proteine ändert sich mit der Zeit; bekanntlich werden zuerst angelagerte, reichlich vorhandene Proteine durch solche mit höherer Affinität ersetzt (Vroman-Effekt). Zellen erkennen diese Adsorptionsschicht und haften an ihr, sodass Thrombozytenadhäsion, Thrombusbildung und Entzündungsreaktionen von ihr abhängen. Die Reihenfolge mit direkt anhaftenden Zellen ist umgekehrt, und eine fibröse Kapsel ist ein spätes Stadium der Fremdkörperreaktion."
+  },
+  "biomaterials-020": {
+    "question": "Welche Aussage beschreibt die Vorgänge an der Oberfläche eines bioaktiven Glases der Zusammensetzung 45S5 (in Massen-% SiO₂ 45, Na₂O 24,5, CaO 24,5, P₂O₅ 6) bis zur Bindung an den Knochen richtig?",
+    "choices": [
+      "Das Glas kristallisiert in Körperflüssigkeit zu einer inerten, aluminiumoxidähnlichen Schicht, mit der der Knochen nur mechanisch verzahnt",
+      "Die Oberfläche bleibt völlig ungelöst, und nur Kollagen aus der Körperflüssigkeit bindet direkt an sie und verbindet sie so mit dem Knochen",
+      "Na⁺ tauscht mit H⁺ aus der Flüssigkeit, das Netzwerk bricht zu einer kieselsäurereichen Gelschicht auf, und darauf scheidet sich Calciumphosphat ab, das zu Apatit kristallisiert"
+    ],
+    "explanation": "Bei Kontakt mit Körperflüssigkeit tauschen zuerst Na⁺ und Ca²⁺ an der Oberfläche mit H⁺ (H₃O⁺) aus der Flüssigkeit; der pH-Wert steigt, Si-O-Si-Bindungen werden hydrolysiert, und Si-OH-Gruppen kondensieren zu einer kieselsäurereichen Gelschicht. Darauf scheidet sich aus Ca²⁺ und Phosphationen aus der Flüssigkeit und aus dem Glas amorphes Calciumphosphat ab, das zu carbonathaltigem Apatit kristallisiert. Diese Schicht ähnelt dem Mineral des Knochens und verbindet sich über Kollagen und Knochenzellen mit dem Knochen. Bei Gläsern mit zu viel SiO₂ (bei schmelzgewonnenen Gläsern etwa 60 mol-% oder mehr) und entsprechend festem Netzwerk verläuft diese Reaktion zu langsam, und sie sind nicht bioaktiv. Eine nicht reagierende, inerte Schicht zu bilden ist ein Verhalten von Aluminiumoxid und ähnlichen Stoffen, und eine ungelöst bleibende Oberfläche passt nicht zu diesem Vorgang, der mit der Ionenfreisetzung beginnt."
   }
 }

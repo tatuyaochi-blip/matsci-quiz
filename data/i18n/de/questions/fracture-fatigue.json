@@ -133,5 +133,50 @@
    "ca. 6,3×10⁴ Schwingspiele"
   ],
   "explanation": "Für m = 4 gilt da/dN = C(Δσ√π)⁴a²; Trennung der Variablen und Integration ergeben N = (1/a₀ − 1/a_f)/[C(Δσ√π)⁴]. Mit C(Δσ√π)⁴ = 1,0×10⁻¹²×200⁴×π² ≈ 1,58×10⁻² m⁻¹ und 1/a₀ − 1/a_f = 1000 − 200 = 800 m⁻¹ ist N ≈ 800/(1,58×10⁻²) ≈ 5,1×10⁴ Schwingspiele. Ca. 2,5×10⁵ Schwingspiele erhält man, wenn man annimmt, dass die Geschwindigkeit bei der anfänglichen Risslänge von 1,0 mm, 1,58×10⁻⁸ m/Zyklus, bis zum Ende gleich bleibt; dabei wird übersehen, dass ΔK mit wachsendem Riss zunimmt und der Riss sich beschleunigt. Ca. 6,3×10⁴ Schwingspiele lässt den Term 1/a_f weg. Der größte Teil der Lebensdauer entfällt auf die Anfangsphase, in der der Riss noch kurz ist."
+ },
+ "fracture-fatigue-016": {
+  "question": "Die kritische Energiefreisetzungsrate für den Bruch eines Stahls beträgt G_c = 20 kJ/m². Welcher Wert kommt der Bruchzähigkeit K_c am nächsten, wenn die Beziehung für den ebenen Spannungszustand G = K²/E und ein Elastizitätsmodul E = 200 GPa verwendet werden?",
+  "choices": [
+   "Etwa 89 MPa·√m",
+   "Etwa 2,0 MPa·√m",
+   "Etwa 63 MPa·√m"
+  ],
+  "explanation": "K_c = √(EG_c) = √(200×10⁹ × 20×10³) = √(4,0×10¹⁵) ≈ 6,3×10⁷ Pa·√m, also etwa 63 MPa·√m. G ist die Energie, die beim Rissfortschritt um eine Flächeneinheit freigesetzt wird, K die Intensität des Spannungsfelds an der Rissspitze; in der linear-elastischen Bruchmechanik lassen sich beide mit dieser Beziehung ineinander umrechnen. Etwa 89 MPa·√m entsteht durch einen fälschlich eingefügten Faktor 2 wie in G = K²/(2E), etwa 2,0 MPa·√m, wenn kJ/m² nicht in J/m² umgerechnet und mit 20 gerechnet wird. Im ebenen Dehnungszustand gilt G = K²(1 − ν²)/E; mit ν = 0,3 ist das aus demselben G_c bestimmte K etwa 5 % größer. Bei Werkstoffen wie Glas mit einem G_c von einigen J/m² liegt K_c nur bei etwa 1 MPa·√m."
+ },
+ "fracture-fatigue-017": {
+  "question": "Ein Rundstab aus Stahl mit der Wechselfestigkeit σw = 300 MPa hat eine Kerbe mit der Kerbformzahl Kt = 3,0. Die Kerbempfindlichkeit dieses Stahls sei q = (Kf − 1)/(Kt − 1) = 0,80. Welcher Wert kommt der Dauerfestigkeit des gekerbten Stabs (als Nennspannung) σw/Kf am nächsten? Kf ist die Kerbwirkungszahl.",
+  "choices": [
+   "Etwa 100 MPa",
+   "Etwa 115 MPa",
+   "Etwa 125 MPa"
+  ],
+  "explanation": "Kf = 1 + q(Kt − 1) = 1 + 0,80 × 2,0 = 2,6, die Dauerfestigkeit beträgt also 300/2,6 ≈ 115 MPa. Bei Ermüdung fällt die Spannung vom Kerbgrund aus steil ab, und an Rissentstehung und frühem Risswachstum ist die Spannung in einem gewissen Volumen beteiligt; daher ist die tatsächliche Festigkeitsminderung Kf kleiner als der elastische theoretische Wert Kt. q gibt dieses Maß an: 0 bedeutet keinen Einfluss der Kerbe, 1 bedeutet Kf = Kt. Etwa 100 MPa nimmt q = 1 an und teilt durch Kt; das liegt auf der sicheren Seite, ist aber zu niedrig geschätzt. Etwa 125 MPa berechnet Kf als q × Kt = 2,4. q nähert sich bei höherfesten Stählen und bei größeren Kerbgrundradien dem Wert 1, daher ist bei hochfesten Werkstoffen die Kontrolle der Kerbgeometrie besonders wichtig."
+ },
+ "fracture-fatigue-018": {
+  "question": "Bei einem sehr duktilen Stahl breitet sich die plastische Zone an der Rissspitze im Vergleich zu Blechdicke und Risslänge weit aus, sodass der Bruch nicht mit dem linear-elastischen Spannungsintensitätsfaktor K bewertet werden kann. Welche Kombination von Kenngrößen wird dann verwendet?",
+  "choices": [
+   "Das J-Integral und die Rissspitzenöffnung (CTOD)",
+   "Die Kerbformzahl Kt und die Nennspannung am Kerbgrund",
+   "Der Koeffizient C und der Exponent m des Paris-Gesetzes für das Ermüdungsrisswachstum"
+  ],
+  "explanation": "Die Bewertung mit K gilt bei Kleinbereichsfließen, wenn die plastische Zone viel kleiner als Risslänge und Blechdicke ist. Breitet sich die plastische Zone in einem sehr duktilen Werkstoff weit aus, entfällt diese Voraussetzung. Stattdessen werden das J-Integral verwendet, ein Integral entlang eines Wegs um die Rissspitze, das auch in elastisch-plastischen Werkstoffen die Intensität der Verformung an der Rissspitze ausdrückt, sowie die Rissspitzenöffnung (CTOD), die unmittelbar misst, wie weit sich die Rissspitze durch plastische Verformung öffnet. Im linear-elastischen Bereich ist J gleich der Energiefreisetzungsrate G, mit J = K²/E′ (E′ ist E oder E/(1 − ν²)). Die Kerbformzahl ist ein Maß für die elastische Spannung an einer ausgerundeten Kerbe und eignet sich nicht zur Bewertung eines scharfen Risses. Die Konstanten des Paris-Gesetzes beschreiben die Wachstumsgeschwindigkeit von Ermüdungsrissen und sind keine Bruchkriterien."
+ },
+ "fracture-fatigue-019": {
+  "question": "Ein Ermüdungsriss, der bei konstanter Amplitude wächst, erfährt eine einzige große Zugüberlast, danach wird die ursprüngliche Amplitude wiederhergestellt. Welche Aussage über das anschließende Risswachstum trifft zu?",
+  "choices": [
+   "Die Überlast schärft die Rissspitze und versprödet sie durch Kaltverfestigung, sodass der Riss danach schneller wächst und nicht zur alten Geschwindigkeit zurückkehrt",
+   "Von der Überlast bleibt keine Wirkung zurück, und ab dem nächsten Zyklus stellt sich wieder die ursprüngliche Wachstumsgeschwindigkeit ein",
+   "In der großen plastischen Zone der Überlast bleiben Druckeigenspannungen zurück, der Riss schließt sich leichter, und das Wachstum verzögert sich eine Zeit lang"
+  ],
+  "explanation": "Eine Zugüberlast erzeugt an der Rissspitze eine größere plastische Zone als sonst. Bei Entlastung wird diese Zone vom umgebenden elastischen Werkstoff zurückgedrückt und steht unter Druckeigenspannung; wächst der Riss weiter, bleibt der plastisch verformte Werkstoff an den Rissflanken zurück, und der Riss schließt sich leichter (Rissschließen). Dadurch verringert sich die effektive Schwingbreite des Spannungsintensitätsfaktors, und das Wachstum ist verzögert, bis der Riss die plastische Zone der Überlast durchlaufen hat. Dies wird als Überlastverzögerung bezeichnet. Daher beeinflusst unter veränderlicher Belastung die Lastreihenfolge die Lebensdauer, und die Lebensdauer lässt sich nicht einfach durch Aufsummieren der Schädigung je Zyklus abschätzen. Aussagen, dass keine Wirkung zurückbleibt oder das Wachstum danach dauerhaft schneller ist, passen nicht zu dieser Beobachtung. Ist die Überlast jedoch zu groß, kann es auch sofort zum Bruch kommen."
+ },
+ "fracture-fatigue-020": {
+  "question": "Welcher Gedanke liegt richtig zugrunde, wenn ein Druckbehälter oder eine Rohrleitung so ausgelegt wird, dass „Leck-vor-Bruch“ (leak before break) gilt?",
+  "choices": [
+   "Die Wand wird so dick gemacht, dass selbst ein durchgehender Riss kein Leck verursacht und Fluid und Druck nicht nach außen entweichen",
+   "Ein die Wand durchdringender Riss ist kürzer als die kritische Risslänge bei dieser Spannung und kann vor dem instabilen Bruch als Leck erkannt werden",
+   "Die Bruchzähigkeit ist niedrig, sodass bei einem Riss sofort das ganze Bauteil bricht und es ausgetauscht werden kann, bevor ein Riss gefunden wird"
+  ],
+  "explanation": "Ein Riss, der etwa von der Innenoberfläche der Wand aus durch Ermüdung oder Spannungsrisskorrosion wächst, durchdringt schließlich die Wand, und das Fluid tritt aus. Ist die Länge dieses durchgehenden Risses dann deutlich kleiner als die kritische Risslänge, die durch Betriebsspannung und Bruchzähigkeit bestimmt ist, birst der Behälter nicht plötzlich, und es bleibt Zeit, das Leck zu erkennen und den Betrieb zu stoppen. Das ist das Leck-vor-Bruch-Konzept; es ist bei Werkstoffen höherer Bruchzähigkeit und bei niedrigeren Spannungen leichter erfüllt. Es handelt sich nicht um eine Auslegung zur Vermeidung von Lecks, sondern um die Nutzung eines Lecks als sicheres Warnzeichen. Ist die Bruchzähigkeit niedrig und erreicht der Riss die kritische Länge schon vor dem Durchdringen, kommt es vor jedem Leck zum Bersten, was gefährlich ist. Das Konzept wird in Verbindung mit Prüfungen zur Sicherheitsbewertung etwa von Rohrleitungen in kerntechnischen und chemischen Anlagen eingesetzt."
  }
 }
