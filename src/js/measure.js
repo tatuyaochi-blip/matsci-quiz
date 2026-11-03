@@ -585,6 +585,7 @@ function init() {
   const T = JSON.parse(app.dataset.t);
   const D = JSON.parse(app.dataset.d); // { rules: { icpt: [[k, 文]], plan, pt }, presets: [{ name, atlas, url }], refs }
   const lang = document.documentElement.lang || 'en';
+  const SEP = /^zh/.test(lang) ? '：' : ': '; // 「ラベル: 値」の区切り(繁体字は全角のコロン、空白なし)
   const t = (k, v = {}) => (T[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => (v[x] ?? ''));
   // 数値の書式(言語に合わせる)。d: 小数の桁、sig: 有効数字
   const nfs = {};
@@ -1440,14 +1441,14 @@ function init() {
   };
   const patName = (m, f) => (m === 'icpt' ? t(`measure_pat_${f.pat}`) : m === 'plan' ? t(f.shape === 'rect' ? 'measure_shape_r' : 'measure_shape_c') : t('measure_grid_n', { n: f.n, p: f.n * f.n }));
   function reportText() {
-    const R = results(), L = [t('measure_rep_title'), `${t('measure_rep_date')}: ${new Date().toLocaleString(lang)}`];
+    const R = results(), L = [t('measure_rep_title'), `${t('measure_rep_date')}${SEP}${new Date().toLocaleString(lang)}`];
     const imgs = [...new Set(Object.values(R).flatMap(r => r.fields.map(f => f.img)))];
-    for (const k of imgs) { const f = Object.values(R).flatMap(r => r.fields).find(x => x.img === k); L.push(`${t('measure_rep_img')}: ${f.name} — ${t('measure_rep_scale')}: ${scaleDesc(k)}`); }
+    for (const k of imgs) { const f = Object.values(R).flatMap(r => r.fields).find(x => x.img === k); L.push(`${t('measure_rep_img')}${SEP}${f.name} — ${t('measure_rep_scale')}${SEP}${scaleDesc(k)}`); }
     for (const m of Object.keys(R)) {
       const r = R[m];
       L.push('', `[${names[m]()}]`);
       r.fields.forEach((f, i) => L.push(`  ${t('measure_f_no')} ${st.fields[m].indexOf(f) + 1} (${f.name}, ${patName(m, f)}): ${fieldValue(m, f)}`));
-      for (const [k, v] of rowsOf(m, r)) L.push(`${k}: ${v}`);
+      for (const [k, v] of rowsOf(m, r)) L.push(`${k}${SEP}${v}`);
       for (const w of warnings(m, r)) L.push(`* ${w}`);
     }
     if (!Object.keys(R).length) L.push('', t('measure_res_none'));
@@ -1474,7 +1475,7 @@ function init() {
   async function savePng() {
     if (!st.img || !src) { flash(t('measure_h_noimg')); return; }
     const m = st.method, f = field(m), W = st.img.w, H = st.img.h, k = Math.min(1, 6000 / Math.max(W, H));
-    const lines = [`${names[m]()} — ${f.name}`, tally(m, f), `${t('measure_rep_scale')}: ${scaleDesc(st.img.key)}`];
+    const lines = [`${names[m]()} — ${f.name}`, tally(m, f), `${t('measure_rep_scale')}${SEP}${scaleDesc(st.img.key)}`];
     const fs = Math.max(14, Math.round(W * k / 70)), pad = Math.round(fs * 0.8), legend = lines.length * fs * 1.5 + pad * 2;
     const c = document.createElement('canvas');
     c.width = Math.round(W * k); c.height = Math.round(H * k + legend);
@@ -1580,6 +1581,7 @@ const badNum = s => s !== '' && (!NUM_RE.test(s) || groupRe().test(s));
 function initCalc(box, convBox) {
   const T = JSON.parse(box.dataset.t);
   const lang = document.documentElement.lang || 'en';
+  const SEP = /^zh/.test(lang) ? '：' : ': '; // 「ラベル: 値」の区切り(繁体字は全角のコロン、空白なし)
   const t = (k, v = {}) => (T[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => (v[x] ?? ''));
   const nfs = {};
   const nf = (x, d = 0) => (x == null || !Number.isFinite(x) ? '—' : (nfs[d] ??= new Intl.NumberFormat(lang, { minimumFractionDigits: d, maximumFractionDigits: d, useGrouping: false })).format(x));
@@ -1768,7 +1770,7 @@ function initCalc(box, convBox) {
     return L.map(dec);
   }
   function steps(m, R, ok) {
-    const L = ok.map((r, j) => `${t('measure_calc_field', { i: r.i + 1 })}: ${fieldLine(m, r, R, j)}`);
+    const L = ok.map((r, j) => `${t('measure_calc_field', { i: r.i + 1 })}${SEP}${fieldLine(m, r, R, j)}`);
     if (m === 'icpt') {
       const s = R.st;
       L.push(...statLines(R.rows.map(x => x.l), s, um, 'ℓ̄', 'ℓ_i'));
@@ -1860,7 +1862,7 @@ function initCalc(box, convBox) {
       if (!row) continue;
       const codes = Object.entries(r.err);
       for (const inp of row.querySelectorAll('input[data-k]')) inp.setAttribute('aria-invalid', String(!!r.err[inp.dataset.k]));
-      row.querySelector('.ms-cerr').textContent = codes.map(([k, e]) => `${colLabel(m, k)}: ${t(`measure_calc_e_${e}`)}`).join(' / ');
+      row.querySelector('.ms-cerr').textContent = codes.map(([k, e]) => `${colLabel(m, k)}${SEP}${t(`measure_calc_e_${e}`)}`).join(' / ');
       row.classList.toggle('is-bad', codes.length > 0);
       const j = ok.indexOf(r);
       row.querySelector('.ms-cval').textContent = !r.filled ? '' : j < 0 ? t('measure_calc_wait')
@@ -1878,12 +1880,12 @@ function initCalc(box, convBox) {
   }
   function calcText() {
     const m = c.m, { ok, R } = result(m);
-    const L = [t('measure_calc_rep_title'), `${t('measure_rep_date')}: ${new Date().toLocaleString(lang)}`, `${t('measure_calc_method')}: ${t(`measure_m_${m}`)}`];
-    if (m === 'icpt') L.push(`${t('measure_calc_iu')}: ${t(c.iu === 'um' ? 'measure_calc_u_um' : 'measure_calc_u_mm')}`);
-    if (m === 'plan') L.push(`${t('measure_shape')}: ${t(c.sh === 'r' ? 'measure_calc_sh_r' : 'measure_calc_sh_c')}`);
+    const L = [t('measure_calc_rep_title'), `${t('measure_rep_date')}${SEP}${new Date().toLocaleString(lang)}`, `${t('measure_calc_method')}${SEP}${t(`measure_m_${m}`)}`];
+    if (m === 'icpt') L.push(`${t('measure_calc_iu')}${SEP}${t(c.iu === 'um' ? 'measure_calc_u_um' : 'measure_calc_u_mm')}`);
+    if (m === 'plan') L.push(`${t('measure_shape')}${SEP}${t(c.sh === 'r' ? 'measure_calc_sh_r' : 'measure_calc_sh_c')}`);
     if (!R) { L.push('', t('measure_calc_none')); return L.join('\n'); }
     L.push('');
-    for (const [k, v] of table(m, R)) L.push(`${k}: ${v}`);
+    for (const [k, v] of table(m, R)) L.push(`${k}${SEP}${v}`);
     L.push('', `[${t('measure_calc_steps')}]`, ...steps(m, R, ok));
     for (const w of warns(m, R)) L.push(`* ${w}`);
     L.push('', t('measure_est'), t('measure_rep_src'), shareUrl('calc'));
@@ -1893,9 +1895,10 @@ function initCalc(box, convBox) {
     const m = c.m, { ok, R } = result(m), q = v => { const s = String(v ?? ''); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
     const name = t(`measure_m_${m}`), rows = [t('measure_calc_csv_cols').split('|')];
     if (R) {
+      const CSV_SYM = { nIn: 'N_in', nCut: 'N_cut', pt: 'P_T', pa: 'P_α' }; // CSV の量の列は記号で(内部の名前を出さない)
       const unit = { P: '', L: c.iu === 'um' ? 'µm' : 'mm', M: '×', nIn: '', nCut: '', A: 'mm2', pt: '', pa: '' };
       ok.forEach((r, j) => {
-        for (const k of CALC_COLS[m]) if (!(m === 'icpt' && k === 'M' && c.iu === 'um')) rows.push([name, r.i + 1, m === 'icpt' && k === 'L' ? t(c.iu === 'um' ? 'measure_calc_q_l_real' : 'measure_calc_q_l_photo') : m === 'plan' && k === 'A' ? t('measure_calc_q_a_photo') : k, r.v[k], unit[k]]);
+        for (const k of CALC_COLS[m]) if (!(m === 'icpt' && k === 'M' && c.iu === 'um')) rows.push([name, r.i + 1, m === 'icpt' && k === 'L' ? t(c.iu === 'um' ? 'measure_calc_q_l_real' : 'measure_calc_q_l_photo') : m === 'plan' && k === 'A' ? t('measure_calc_q_a_photo') : CSV_SYM[k] ?? k, r.v[k], unit[k]]);
         if (m === 'icpt') rows.push([name, r.i + 1, 'l', raw(R.rows[j].l), 'µm']);
         else if (m === 'plan') rows.push([name, r.i + 1, t('measure_calc_q_a_real'), raw(R.rows[j].A), 'mm2'], [name, r.i + 1, 'N', R.rows[j].n, ''], [name, r.i + 1, 'N_A', raw(R.rows[j].na), 'mm-2']);
         else rows.push([name, r.i + 1, 'P_P', raw(R.per[0].xs[j]), '']);
@@ -1960,7 +1963,7 @@ function initCalc(box, convBox) {
         else if (document.activeElement !== i && i.value !== c.cv.v) i.value = c.cv.v;
         i.setAttribute('aria-invalid', String(q === k && ((v != null && !r) || !!c.cv.bad)));
       }
-      err.textContent = c.cv.bad ? `${t(`measure_conv_in_${k}`)}: ${t('measure_calc_e_bad')}` : v != null && !r ? `${t(`measure_conv_in_${k}`)}: ${t('measure_calc_e_pos')}` : '';
+      err.textContent = c.cv.bad ? `${t(`measure_conv_in_${k}`)}${SEP}${t('measure_calc_e_bad')}` : v != null && !r ? `${t(`measure_conv_in_${k}`)}${SEP}${t('measure_calc_e_pos')}` : '';
       // E112 の表の範囲(G 00〜14。00 は G = −1)を外れたら、式の上の値であることを知らせる
       const out = r && (r.g < -1 - 1e-9 || r.g > 14 + 1e-9);
       warn.hidden = !out;
@@ -1973,9 +1976,9 @@ function initCalc(box, convBox) {
     function convText() {
       const r = last;
       if (!r) return t('measure_conv_hint');
-      return [t('measure_conv_rep_title'), `${t('measure_conv_from')}: ${t(`measure_conv_in_${r.kind}`)} = ${fmt[r.kind](r[r.kind])}`, '',
-        ...CONV_IN.map(q => `${t(`measure_conv_in_${q}`)}: ${fmt[q](r[q])}`),
-        `${t('measure_conv_dcirc')}: ${sig(r.dcirc, 4)}`, `${t('measure_conv_nl')}: ${sig(r.nl, 4)}`, `${t('measure_conv_gjis')}: ${r.gjis != null ? nf(r.gjis, 2) : t('measure_conv_gjis_no')}`,
+      return [t('measure_conv_rep_title'), `${t('measure_conv_from')}${SEP}${t(`measure_conv_in_${r.kind}`)} = ${fmt[r.kind](r[r.kind])}`, '',
+        ...CONV_IN.map(q => `${t(`measure_conv_in_${q}`)}${SEP}${fmt[q](r[q])}`),
+        `${t('measure_conv_dcirc')}${SEP}${sig(r.dcirc, 4)}`, `${t('measure_conv_nl')}${SEP}${sig(r.nl, 4)}`, `${t('measure_conv_gjis')}${SEP}${r.gjis != null ? nf(r.gjis, 2) : t('measure_conv_gjis_no')}`,
         ...(r.g < -1 || r.g > 14 ? ['', t('measure_conv_w_range', { g: nf(r.g, 2) })] : []),
         '', `[${t('measure_calc_steps')}]`, ...convSteps(r), '', t('measure_conv_eq_note'), shareUrl('conv')].join('\n');
     }
