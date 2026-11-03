@@ -1,0 +1,769 @@
+{
+  "id": "tensile",
+  "order": 11,
+  "slug": "tensile-test-analyzer",
+  "cats": [
+    "mechanical",
+    "characterization",
+    "metals",
+    "strengthening"
+  ],
+  "cat": "mechanical",
+  "share": false,
+  "terms": [
+    "0.2%耐力",
+    "ヤング率",
+    "加工硬化"
+  ],
+  "questions": [
+    "mechanical-004",
+    "mechanical-005",
+    "mechanical-014"
+  ],
+  "figures": [],
+  "compares": [
+    "yield-point-vs-proof-stress",
+    "hardness-strength-toughness"
+  ],
+  "form": {
+    "id": "tensile-form",
+    "fields": [
+      {
+        "name": "kind",
+        "options": [
+          "fd",
+          "ss"
+        ],
+        "value": "fd"
+      },
+      {
+        "name": "cx",
+        "value": 1,
+        "attrs": "min=\"1\" max=\"50\" step=\"1\""
+      },
+      {
+        "name": "cy",
+        "value": 2,
+        "attrs": "min=\"1\" max=\"50\" step=\"1\""
+      },
+      {
+        "name": "fu",
+        "options": [
+          "kN",
+          "N"
+        ],
+        "value": "kN"
+      },
+      {
+        "name": "su",
+        "options": [
+          "pct",
+          "abs"
+        ],
+        "value": "pct"
+      },
+      {
+        "name": "shape",
+        "options": [
+          "round",
+          "plate",
+          "area"
+        ],
+        "value": "round"
+      },
+      {
+        "name": "d",
+        "value": 10,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "w",
+        "value": 12.5,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "t",
+        "value": 2,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "a0",
+        "value": 78.54,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "L0",
+        "value": 50,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "src",
+        "options": [
+          "ext",
+          "xhead"
+        ],
+        "value": "ext"
+      },
+      {
+        "name": "erng",
+        "options": [
+          "auto",
+          "manual"
+        ],
+        "value": "auto"
+      },
+      {
+        "name": "elo",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "ehi",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "off",
+        "value": 0.2,
+        "attrs": "min=\"0.001\" step=\"any\""
+      },
+      {
+        "name": "yp",
+        "options": [
+          "auto",
+          "none"
+        ],
+        "value": "auto"
+      },
+      {
+        "name": "nrng",
+        "options": [
+          "auto",
+          "manual"
+        ],
+        "value": "auto"
+      },
+      {
+        "name": "nlo",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "nhi",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "nm",
+        "options": [
+          "plastic",
+          "total"
+        ],
+        "value": "plastic"
+      },
+      {
+        "name": "du",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "wu",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "tu",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "au",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "Lu",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      }
+    ],
+    "outputs": [
+      {
+        "box": "main"
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "引張試験のデータ解析",
+      "card": "荷重−変位・応力−ひずみのデータを貼ると、曲線とヤング率・0.2 % 耐力・降伏点・引張強さ・一様伸び・n 値を範囲と式つきで出す",
+      "title": "引張試験のデータ解析(ヤング率・0.2 % 耐力・降伏点・引張強さ・n 値)",
+      "description": "試験機の荷重−変位または応力−ひずみのデータを貼り付けると、応力−ひずみ曲線を描き、ヤング率、0.2 % 耐力(オフセット法)、上降伏点・下降伏点、引張強さ、一様伸び、破断までの伸び、n 値を、使った範囲と式つきで表にします。データはブラウザの中だけで扱います。",
+      "h1": "引張試験のデータ解析",
+      "lead": "引張試験の「荷重−変位」または「応力−ひずみ」のデータ(2列以上の表)を貼り付けると、その場で公称応力−公称ひずみ曲線を描き、ヤング率 E(弾性域の最小二乗の直線)、0.2 % 耐力(オフセット法)、上降伏点・下降伏点・降伏点伸び(降伏点が現れたときだけ)、引張強さ、一様伸び、破断までの伸び、加工硬化指数 n 値と K、曲線の下の面積を求めます。結果は、使ったデータの範囲と式と一緒に表で出し、テキスト・CSV でコピーでき、図は PNG で保存できます。答えの分かる練習用のサンプル(軟鋼風・アルミニウム合金風)もあります。",
+      "in_heading": "データと条件",
+      "out_heading": "曲線と結果",
+      "note": "曲線から機械的に求めた値です。規格(JIS Z 2241、ISO 6892-1、ASTM E8/E8M など)は、試験片の形、試験の速さ、伸び計、値の丸め方、降伏の判定の条件を細かく決めています。報告や品質の判定に使うときは、その規格の本文と、試験機のソフトウェアの値で確かめてください。",
+      "practice": "材料の力学の問題を解く",
+      "related": "関連する用語",
+      "kind": "データの種類",
+      "kind_fd": "荷重と変位(試験片の寸法で換算)",
+      "kind_ss": "応力 (MPa) とひずみ",
+      "cx": "横軸(変位・ひずみ)の列",
+      "cy": "縦軸(荷重・応力)の列",
+      "fu": "荷重の単位",
+      "fu_kN": "kN",
+      "fu_N": "N",
+      "su": "ひずみの単位",
+      "su_pct": "%",
+      "su_abs": "無次元(0.01 = 1 %)",
+      "shape": "試験片の断面",
+      "shape_round": "丸棒(直径)",
+      "shape_plate": "板(幅×厚さ)",
+      "shape_area": "断面積を直接",
+      "d": "直径 d₀ (mm)",
+      "w": "幅 b₀ (mm)",
+      "t": "厚さ a₀ (mm)",
+      "a0": "断面積 S₀ (mm²)",
+      "L0": "標点距離 L₀ (mm)(伸び計なら伸び計の標点距離)",
+      "src": "変位の測り方",
+      "src_ext": "伸び計(試験片の標点間の伸び)",
+      "src_xhead": "クロスヘッドの変位(機械のたわみを含む)",
+      "erng": "ヤング率の範囲",
+      "erng_auto": "自動(引張強さの 10〜40 % の応力)",
+      "erng_manual": "応力の範囲を入れる",
+      "elo": "E の範囲の下限 (MPa)",
+      "ehi": "E の範囲の上限 (MPa)",
+      "off": "オフセット (%)",
+      "yp": "降伏点",
+      "yp_auto": "あれば見つける",
+      "yp_none": "探さない",
+      "nrng": "n 値の範囲",
+      "nrng_auto": "自動(一様な塑性域の全体)",
+      "nrng_manual": "塑性ひずみの範囲を入れる",
+      "nlo": "n の範囲の下限(塑性ひずみ %)",
+      "nhi": "n の範囲の上限(塑性ひずみ %)",
+      "nm": "n 値の横軸",
+      "nm_plastic": "真塑性ひずみ(弾性分を引く)",
+      "nm_total": "真ひずみの全体",
+      "du": "破断後の最小直径 dᵤ (mm)(任意)",
+      "wu": "破断後の最小の幅 (mm)(任意)",
+      "tu": "破断後の最小の厚さ (mm)(任意)",
+      "au": "破断後の最小断面積 Sᵤ (mm²)(任意)",
+      "Lu": "破断後の標点距離 Lᵤ (mm)(任意、突き合わせて測った値)",
+      "js": {
+        "paste": "データ(試験機から書き出した表をそのまま貼り付け。タブ・コンマ・空白・セミコロン区切り、見出し行があってもよい)",
+        "paste_ph": "例:\n変位(mm)\t荷重(kN)\n0.0000\t0.000\n0.0050\t1.580\n…",
+        "sample_steel": "サンプル: 軟鋼風(降伏点あり)",
+        "sample_al": "サンプル: アルミニウム合金風(連続降伏)",
+        "file": "ファイルを開く(CSV・TXT)",
+        "clear": "データを消す",
+        "local": "データはこのブラウザの中だけで計算に使い、どこにも送りません(URL にも入れません)。ページを閉じると消えます。",
+        "sub_data": "データの形",
+        "sub_spec": "試験片",
+        "sub_range": "解析の範囲",
+        "sub_after": "破断後の寸法(絞りと破断伸び。任意)",
+        "read_ok": "{n} 点を読みました",
+        "read_header": "見出しとして {n} 行を飛ばしました",
+        "read_bad": "読めない行が {n} 行ありました(行 {lines})。数でない欄、列の足りない行、桁区切りのある数は読みません",
+        "read_none": "数として読める行がありません({n} 行)。区切り・列の番号を確かめてください",
+        "empty": "データを貼り付けるか、サンプルを選んでください。",
+        "need_dims": "荷重−変位のデータを換算するには、試験片の断面の寸法と標点距離 L₀ を入れてください。",
+        "need_erange": "ヤング率の範囲の下限と上限(MPa、下限 < 上限)を入れてください。",
+        "need_nrange": "n 値の範囲の下限と上限(塑性ひずみ %、下限 < 上限)を入れてください。",
+        "err_few": "点が少なすぎます(10 点以上が必要です)。",
+        "err_nopos": "正の応力がありません。列の番号と単位を確かめてください。",
+        "err_efit": "ヤング率の範囲に入る点が足りません({n} 点。3 点以上が必要)。範囲を広げるか、点の細かいデータを使ってください。",
+        "err_eneg": "ヤング率の直線の傾きが正になりません。ひずみ(変位)か応力(荷重)が負の向きに記録されたデータなら、符号をそろえてから貼り付けてください。列の番号も確かめてください。",
+        "err_internal": "このデータでは図と表を描けませんでした。データの形(列・区切り・単位)を確かめてください。",
+        "lab_reh": "ReH",
+        "lab_rel": "ReL",
+        "lab_rp": "Rp{p}",
+        "lab_rm": "Rm",
+        "lab_frac": "破断",
+        "lab_rm_true": "最大荷重",
+        "ax_e": "公称ひずみ (%)",
+        "ax_s": "公称応力 (MPa)",
+        "ax_et": "真ひずみ (%)",
+        "ax_st": "真応力 (MPa)",
+        "ax_lnet": "真ひずみ(対数目盛)",
+        "ax_lnetp": "真塑性ひずみ(対数目盛)",
+        "ax_lnst": "真応力 (MPa、対数目盛)",
+        "r_E": "ヤング率",
+        "r_r2": "決定係数(E の直線)",
+        "r_Rp": "耐力(オフセット法)",
+        "r_Rp_s": "{p} % 耐力",
+        "r_ReH": "上降伏点",
+        "r_ReL": "下降伏点",
+        "r_Ae": "降伏点伸び",
+        "r_Rm": "引張強さ",
+        "r_Agt": "一様伸び(全体)",
+        "r_Ag": "一様伸び(塑性)",
+        "r_At": "破断までの伸び(曲線、全体)",
+        "r_Af": "破断までの伸び(曲線、弾性の戻りを引く)",
+        "r_A": "破断伸び(突き合わせて測った値)",
+        "r_Z": "絞り",
+        "r_n": "加工硬化指数 n 値",
+        "r_K": "強度係数 K",
+        "r_W": "曲線の下の面積(靭性の目安)",
+        "rg_E": "{auto}: {a}〜{b} MPa の {n} 点(最初の立ち上がり)",
+        "rg_manual": "手動",
+        "rg_auto_E": "自動(引張強さの {a}〜{b} %)",
+        "rg_r2": "E の直線の当てはまり(1 に近いほど直線)",
+        "rg_Rp": "交点のひずみ {e} %",
+        "rg_none": "交点なし(オフセット線に届く前に破断)",
+        "rg_ReH": "最初の極大(ひずみ {e} %)",
+        "rg_ReL": "降伏の間の極小 {n} 個のうち、最初の極小(初期過渡効果)を除いた最小。最初の極小も含めると {all} MPa",
+        "rg_ReL1": "降伏の間の極小(1 個)",
+        "rg_Ae": "上降伏点 {a} % から、加工硬化が始まる極小 {b} % まで",
+        "rg_Rm": "破断までの最大の応力",
+        "rg_Agt": "最大の応力の点のひずみ",
+        "rg_Agt_flat": "最大の応力の点のひずみ(最大の 0.1 % 以内の点が {a}〜{b} % に広がる)",
+        "rg_Ag": "Agt から弾性分 Rm/E を引いた値",
+        "rg_At": "応力が急に落ちる直前の点({s} MPa、そのあとの {n} 点は使わない)",
+        "rg_Af": "破断後の伸び A の曲線からの目安",
+        "rg_A": "Lᵤ = {lu} mm、L₀ = {l0} mm",
+        "rg_Z": "S₀ = {a0} mm²",
+        "rg_n_auto": "塑性ひずみ {a}〜{b} %(オフセットの点から最大の点の直前まで)の {k} 点",
+        "rg_n_auto_yp": "塑性ひずみ {a}〜{b} %(降伏点伸びの終わりから最大の点の直前まで)の {k} 点",
+        "rg_n_manual": "塑性ひずみ {a}〜{b} %(手動)の {k} 点",
+        "rg_K": "n と同じ直線(決定係数 {r2})",
+        "rg_W": "最初の点から破断の点まで(台形則)",
+        "eq_E": "σ = E·ε + b を最小二乗",
+        "eq_r2": "R² = Sxy²/(Sxx·Syy)",
+        "eq_Rp": "σ = E(ε − {p} %) と曲線の交点(点の間は直線補間)",
+        "eq_ReH": "応力が 0.5 % 以上下がり、ReH を超えずに 0.05 % 以上伸びる最初の極大",
+        "eq_ReL": "降伏の間の最小(この計算での定義)",
+        "eq_Ae": "ε(加工硬化の始まり) − ε(ReH)",
+        "eq_Rm": "Rm = Fm/S₀",
+        "eq_Agt": "ε(Fm)",
+        "eq_Ag": "Ag = Agt − Rm/E",
+        "eq_At": "ε(破断の直前)",
+        "eq_Af": "At − σ(破断)/E",
+        "eq_A": "A = (Lᵤ − L₀)/L₀",
+        "eq_Z": "Z = (S₀ − Sᵤ)/S₀",
+        "eq_n": "ln σt = ln K + n·ln εtp を最小二乗(εtp = εt − σt/E)",
+        "eq_n_total": "ln σt = ln K + n·ln εt を最小二乗",
+        "eq_K": "σt = K·εⁿ の K(ε = 1 での σt)",
+        "eq_W": "W = ∫σ dε(MPa × 無次元 = MJ/m³)",
+        "eq_h": "使った式とひずみの原点",
+        "eq_conv_fd": "荷重−変位から: 公称応力 σ = F/S₀(N/mm² = MPa)、公称ひずみ ε = ΔL/L₀",
+        "eq_true": "真応力 σt = σ(1 + ε)、真ひずみ εt = ln(1 + ε)(体積一定・くびれの前まで。図の真応力は最大荷重の点まで)",
+        "eq_plastic": "公称の塑性ひずみ εp = ε − σ/E、真塑性ひずみ εtp = εt − σt/E",
+        "eq_e0": "ひずみの原点: E の直線が応力 0 と交わる点(ε₀ = {e0} %)に移してから、伸び・オフセット・真ひずみを求めています(初めのたるみの補正)。",
+        "w_xhead": "クロスヘッドの変位には試験機・つかみ具のたわみやすべりが含まれるので、ひずみが大きく出て、ヤング率は実際より小さく出ます。E と 0.2 % 耐力は伸び計の値で求めるのが原則です。伸びと引張強さは目安として読んでください。",
+        "w_E_units": "ヤング率が {e} GPa です。金属ならおよそ 40〜400 GPa なので、荷重の単位(N と kN)、断面積(直径と半径、mm と m)、ひずみの単位(% と無次元)を確かめてください。",
+        "w_strain_pct": "ひずみを無次元にしていますが、値が 2(200 %)を超えています。% のデータではありませんか。",
+        "w_strain_abs": "ひずみを % にしていますが、最大が 0.005 % 未満です。無次元(0.01 = 1 %)のデータではありませんか。",
+        "w_r2": "E の直線の決定係数が {r2} です。範囲に曲がった部分(たるみ・降伏)が入っていないか、図の拡大で確かめ、範囲を手動で狭めてください。",
+        "w_rm_is_reh": "最大の応力が上降伏点です(そのあとの加工硬化で ReH を超えない)。引張強さの扱いは規格で確かめてください。",
+        "w_n_over_ag": "n 値の範囲の上限が一様伸びを超えています。くびれのあとは σ(1 + ε) が真応力にならないので、最大荷重の点の直前までで計算しています。",
+        "w_n_total_elastic": "真ひずみの全体で n 値を求めると、弾性分が 10 % を超える点が範囲に入っています(ASTM E646 は、この場合に真塑性ひずみを使うとしています)。",
+        "w_n_few": "n 値の範囲の点が 5 点より少ないです(ASTM E646 は 5 点以上としています)。範囲を広げてください。",
+        "w_n_none": "n 値の範囲に点がありません(2 点以上が必要)。範囲を確かめてください。",
+        "w_yp_report": "降伏点が現れた材料は、ふつう 0.2 % 耐力ではなく上降伏点・下降伏点を報告します。表の 0.2 % 耐力は参考です。ノイズの大きいデータでは、連続降伏の曲線でも降伏点と判定することがあるので、拡大図で確かめ、違うときは「降伏点: 探さない」を選んでください。",
+        "w_no_yp": "はっきりした降伏点(0.5 % 以上の応力の低下)は見つかりませんでした。0.2 % 耐力を降伏の強さとして使います。",
+        "w_no_drop": "最後まで応力が急に落ちる点がないので、最後の点を破断の点としています。",
+        "view": "図の種類",
+        "view_eng": "公称応力−公称ひずみ",
+        "view_true": "真応力−真ひずみ",
+        "fig_h": "応力−ひずみ曲線",
+        "fig_main": "公称応力−公称ひずみ曲線と、求めた点",
+        "fig_true": "真応力−真ひずみ曲線(最大荷重まで)と n 値のあてはめ",
+        "fig_zoom": "降伏のあたりの拡大(E の範囲とオフセット線)",
+        "fig_n": "n 値のあてはめ(両対数)",
+        "lg_curve": "曲線",
+        "lg_erange": "E のあてはめ範囲",
+        "lg_offset": "{p} % オフセット線",
+        "lg_nrange": "n 値の範囲",
+        "lg_yp": "降伏点",
+        "lg_rm": "最大点・破断",
+        "lg_rp": "耐力",
+        "lg_true": "真応力−真ひずみ",
+        "lg_eng": "公称(比較)",
+        "lg_fit": "σt = Kεⁿ",
+        "cap_main": "横軸のひずみは、E の直線が応力 0 と交わる点を原点にしています。くびれのあとの公称応力の低下は、断面が減るためで、材料が弱くなったのではありません。",
+        "cap_true": "真応力・真ひずみは、体積一定で変形が一様なとき(最大荷重の点まで)だけ σ(1 + ε)・ln(1 + ε) で求められるので、そこまでを描いています。",
+        "cap_n": "点は n 値の範囲のデータ、破線は当てはめた直線 σt = Kεⁿ(n = {n}、K = {k} MPa、決定係数 {r2})です。両対数で点が直線に並ばないときは、範囲を分けて求めることも考えてください。",
+        "col_q": "量",
+        "col_sym": "記号",
+        "col_v": "値",
+        "col_u": "単位",
+        "col_range": "使った範囲・条件",
+        "col_eq": "式",
+        "tbl_h": "結果",
+        "btn_png": "図を PNG で保存",
+        "btn_txt": "結果をテキストでコピー",
+        "btn_csv": "結果を CSV でコピー",
+        "btn_data": "換算した応力−ひずみを CSV で保存",
+        "copied": "コピーしました",
+        "after_note": "破断伸び(JIS の「破断伸び」、ISO 6892-1 の A)は、破断後の試験片を突き合わせて標点距離を測る値で、曲線の最後の点から読む値とは違うことがあります。測った Lᵤ を入れると表に出します。",
+        "to_methods": "手法ナビの引張試験 →",
+        "in_kind": "データ",
+        "in_area": "断面積 S₀",
+        "in_L0": "標点距離 L₀",
+        "in_src": "変位",
+        "in_points": "点の数",
+        "txt_note": "曲線から機械的に求めた値。規格による判定は、規格の本文と試験機の値で確かめること。",
+        "csv_data_head": "nominal strain (%),nominal stress (MPa),true strain (%),true stress (MPa)",
+        "sample_steel_note": "軟鋼風の合成データ(丸棒 d₀ = 10 mm、L₀ = 50 mm、伸び計): E = 206 GPa の直線で ReH = 310 MPa、初期過渡の極小 262 MPa、降伏の段 274 ± 3 MPa(極小 271 MPa)が 1.74 % 続き、そこから σt = Kεtpⁿ(n = 0.22、K = {K} MPa)。最大は Considère の点(公称応力 {su} MPa、ひずみ {eu} %)。解析の結果がこの値と合うかを見てください。",
+        "sample_al_note": "アルミニウム合金風の合成データ(応力−ひずみ %): 200 MPa までは E = 69 GPa の直線、そこから σt = Kεtpⁿ(K = 440 MPa、n = 0.08)。最大は Considère の点(公称応力 {su} MPa、ひずみ {eu} %)。降伏点はなく、0.2 % 耐力で読む曲線です。",
+        "file_big": "ファイルが大きすぎます(20 MB まで)。"
+      },
+      "sections": [
+        {
+          "h": "このツールでできること",
+          "p": "試験機から書き出した荷重−変位(または応力−ひずみ)の表を貼り付けると、公称応力 σ = F/S₀ と公称ひずみ ε = ΔL/L₀ に換算して曲線を描き、ヤング率、0.2 % 耐力、降伏点、引張強さ、一様伸び、破断までの伸び、n 値と K、曲線の下の面積を求めます。表の「使った範囲・条件」と「式」に、どの点を使い、どの式で出したかを書くので、実験レポートにそのまま写せます。計算はすべてこのページの中で行い、データはどこにも送りません。3列以上の表(時間・荷重・変位など)は、横軸と縦軸の列の番号を選んでください。"
+        },
+        {
+          "h": "ヤング率と範囲の決め方",
+          "p": "ヤング率 E は、弾性域の点に直線 σ = Eε + b を最小二乗で当てはめた傾きです。自動では、応力が初めて引張強さの 40 % を超えるまでの立ち上がりのうち、引張強さの 10〜40 % の応力の点を使います(この計算で決めた範囲です)。初めのたるみ(つかみのなじみ)を避け、降伏の前で止めるためで、決定係数 R² が 1 に近いほど点が直線に並んでいます。直線が応力 0 と交わるひずみ ε₀ を原点に移してから、伸びとオフセットを求めます。変位がクロスヘッドの値だと、試験機・つかみ具のたわみが伸びに入るので E は小さく出ます。E を求めるなら伸び計の値を使ってください。"
+        },
+        {
+          "h": "0.2 % 耐力(オフセット法)と降伏点の違い",
+          "p": "アルミニウム合金やオーステナイト系ステンレス鋼のように、はっきりした降伏点が現れない材料では、傾き E の直線をひずみの軸に沿って 0.2 % ずらし、曲線と交わる点の応力を 0.2 % 耐力 Rp0.2 とします。0.2 % 耐力は「除荷すると 0.2 % の永久ひずみが残る応力」の目安です。軟鋼のように、降伏が始まると応力がいったん下がり、ほぼ一定の応力で伸びが進む(降伏点伸び)材料では、上降伏点・下降伏点を報告するのがふつうです。このツールは両方を出しますが、降伏点が見つかったときは 0.2 % 耐力を参考として扱います。オフセットの量は欄で変えられます(0.1 % など)。"
+        },
+        {
+          "h": "上降伏点・下降伏点・降伏点伸びの定義",
+          "p": "ASTM E8/E8M は、上降伏強さを不連続降伏の始まりの最初の極大(傾きが初めて 0 になる点)、下降伏強さを不連続降伏の間の最小の応力(過渡的な効果を除く)、降伏点伸びを最初の傾き 0 の点から均一な加工硬化が始まる点までのひずみとしています。試験機メーカーによる ISO 6892-1 の解説では、上降伏点のあとに応力が 0.5 % 以上下がり、ReH を超えないまま 0.05 % 以上伸びることを判定の目安にしています(規格の本文では確かめていません)。このツールはこれに合わせ、上降伏点を「最初の極大のうち、この条件を満たすもの」、下降伏点を「上降伏点から応力が再び ReH を超えるまでの極小のうち、最初の極小(初期過渡効果)を除いた最小」、降伏点伸びの終わりを「その間の最後の極小」としました。下降伏点と降伏点伸びの終わりの決め方はこの計算での定義で、JIS Z 2241 の規定とは細部が違うことがあります。"
+        },
+        {
+          "h": "引張強さと一様伸び",
+          "p": "引張強さ Rm は、最大荷重 Fm をもとの断面積 S₀ で割った公称応力です。一様伸びは最大荷重のときのひずみで、くびれが始まるまでの伸びにあたります。このツールは、全体の伸び Agt(弾性分を含む)と、弾性分 Rm/E を引いた塑性の伸び Ag の両方を出します(記号は ISO 6892-1 のもの。ASTM E8 の uniform elongation は弾性分と塑性分を含む値です)。最大の付近が平らな曲線では、最大の点のひずみがデータの細かい揺れで動くので、表に最大の 0.1 % 以内に入る点のひずみの幅も示します。"
+        },
+        {
+          "h": "破断までの伸びと破断伸びは違う",
+          "p": "曲線の最後の点(荷重が急に落ちる直前)までのひずみ At は、破断したときの全体の伸びです。弾性の戻り σ/E を引いた値は、破断後の伸びの目安になります。一方、JIS の破断伸び(ISO 6892-1 の A、ASTM E8 の elongation after fracture)は、破断した試験片の2つの部分を突き合わせて標点距離 Lᵤ を測り、(Lᵤ − L₀)/L₀ で求める値です。くびれと破断が標点のどこで起きたか、伸び計の標点距離と試験片の標点距離の違いで、曲線からの値とは合わないことがあります。伸びは標点距離で変わるので、試験片の形(JIS の 14A 号、ASTM の 50 mm など)を添えて比べます。絞り Z = (S₀ − Sᵤ)/S₀ は、破断後の最小断面の寸法を入れたときだけ出します。"
+        },
+        {
+          "h": "真応力・真ひずみと n 値",
+          "p": "体積が一定で変形が一様な間は、真応力 σt = σ(1 + ε)、真ひずみ εt = ln(1 + ε) です。くびれが始まると変形が一様でなくなるので、この換算は最大荷重の点までしか使えません。加工硬化指数 n は、σt = Kεⁿ の両対数の直線 ln σt = ln K + n ln ε の傾きで、K は ε = 1 での σt です。ISO 10275 と ASTM E646 は、ε に真塑性ひずみ(真ひずみから弾性分 σt/E を引いたもの)を使います(ASTM E646 は、弾性分が全体の 10 % 未満なら真ひずみの全体を使う方法も認めています)。範囲は、ISO 10275 で選べる範囲の1つ「一様な塑性域の全体」に合わせ、自動では降伏点伸びの終わり(降伏点がなければオフセットの点)から最大荷重の点の直前までにしました。この下限の決め方はこの計算での定義です。低炭素鋼の薄板では 10〜20 % のひずみで求めることも多いので、その場合は手動で入れてください。ASTM E646 は5点以上を求めています。"
+        },
+        {
+          "h": "曲線の下の面積(靭性の目安)",
+          "p": "公称応力−公称ひずみ曲線の下の面積 W = ∫σ dε は、破断までに単位体積が吸収したエネルギーの目安で、MPa × ひずみ(無次元)= MJ/m³ になります。くびれのあとの伸びは標点距離に左右されるので、試験片の形が違う値どうしは比べにくい量です。き裂のある部材の壊れにくさを表す破壊靭性 K_IC とは別の量です。"
+        },
+        {
+          "h": "よくある失敗",
+          "p": "荷重の単位の取り違え(N と kN で応力が 1000 倍違う)、断面積の入れ違い(直径を半径として πd² にすると 4 倍、mm² と m²)、ひずみの % と無次元の取り違え(ヤング率が 100 倍違う)、クロスヘッドの変位で E を出す、くびれのあとまで σ(1 + ε) で真応力を出す、降伏点の現れた材料で 0.2 % 耐力だけを報告する、が多い失敗です。ヤング率が金属の範囲(およそ 40〜400 GPa)から桁違いに外れる(1 GPa 未満か 1200 GPa 超)ときは、単位を確かめる注意を出します。"
+        },
+        {
+          "h": "練習用サンプルの作り方",
+          "p": "軟鋼風のサンプルは、E = 206 GPa の直線で 310 MPa(上降伏点)まで上げ、285 MPa・262 MPa(初期過渡の極小)を経て、274 + 3cos(2πk/8) MPa の降伏の段を 0.025 % おきに 69 点(極小は 271 MPa)、そこから σt = Kεtpⁿ(n = 0.22、K は段の終わりで 271 MPa につながる 673 MPa)で作り、丸棒 d₀ = 10 mm・L₀ = 50 mm の荷重−変位に直しました。アルミニウム合金風のサンプルは、200 MPa まで E = 69 GPa の直線、そこから σt = 440εtp^0.08 MPa です。どちらも最大荷重の点(Considère の条件 dσt/dεt = σt)を過ぎたら応力に 1 − c(ε − εu)² をかけてくびれを模し、最後に急に落ちた2点を足しました。解析すると、E 206.0 GPa・ReH 310 MPa・ReL 271 MPa・降伏点伸び 1.74 %・Rm 386 MPa・n 0.220(軟鋼風)、E 69.0 GPa・Rp0.2 266 MPa・Rm 330 MPa・n 0.080(アルミニウム合金風)になり、作った値と合います。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "データはどこかに送られますか?",
+          "a": "送りません。貼り付けたデータや開いたファイルは、このページの中(ブラウザ)だけで計算に使い、サーバーにも URL にも入れません。ページを閉じると消えます。"
+        },
+        {
+          "q": "クロスヘッドの変位しかないときは?",
+          "a": "引張強さは荷重だけで決まるので使えます。伸び・一様伸びは目安になります。ヤング率と 0.2 % 耐力は、試験機のたわみが入って E が小さく出るので、伸び計の値で求めるのが原則です。伸び計がないときは、E を文献の値と比べ、ずれが大きいことを報告に書いてください。"
+        },
+        {
+          "q": "0.2 % 耐力と降伏点はどちらを報告すればよいですか?",
+          "a": "降伏点が現れる材料(軟鋼など)は上降伏点・下降伏点、現れない材料(アルミニウム合金、オーステナイト系ステンレス鋼など)は 0.2 % 耐力を報告するのがふつうです。図面や材料の規格が「降伏点又は耐力」としていることも多いので、指定のある方を使ってください。"
+        },
+        {
+          "q": "n 値の範囲はどう決めればよいですか?",
+          "a": "既定では、降伏点伸びの終わり(なければオフセットの点)から最大荷重の点の直前までの一様な塑性域の全体を使います。製品の規格や比べたいデータが 10〜20 % のような範囲を決めているときは、手動でその範囲を入れてください。両対数の図で点が直線からそれるときは、範囲を分けて求めることも考えます。"
+        },
+        {
+          "q": "ひずみを % で入れたのに E が 100 倍違います。",
+          "a": "「ひずみの単位」の選び方を確かめてください。% のデータを無次元として読むと、ひずみが 100 倍になって E は 1/100 に、逆なら 100 倍になります。荷重の N と kN の取り違えでも 1000 倍ずれます。"
+        },
+        {
+          "q": "破断伸びが試験機の報告と違います。",
+          "a": "試験機の「破断伸び」が、破断後に突き合わせて測った値か、曲線から読んだ値か、伸び計の標点距離で出したものかを確かめてください。このツールの曲線からの値は、荷重が急に落ちる直前の点のひずみで、弾性の戻りを引いた値も並べています。突き合わせて測った Lᵤ を入れると、その値から破断伸びを出します。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Tensile test data analysis",
+      "card": "Paste force–extension or stress–strain data to plot the curve and get Young's modulus, 0.2 % proof strength, yield points, tensile strength, uniform elongation and n, with ranges and formulas",
+      "title": "Tensile Test Analyzer (Young's Modulus, Proof Strength, n-Value)",
+      "description": "Paste force–extension or stress–strain data to plot the curve and get Young's modulus, 0.2 % proof strength, upper and lower yield strength, tensile strength, uniform elongation, elongation to fracture and the n-value, with the ranges and formulas used. Data stays in your browser.",
+      "h1": "Tensile Test Data Analyzer",
+      "lead": "Paste the force–extension or stress–strain data of a tensile test (a table with two or more columns) to plot the engineering stress–strain curve and get Young's modulus E (least-squares line in the elastic range), 0.2 % offset proof strength, upper and lower yield strength and yield point extension (only when a yield point appears), tensile strength, uniform elongation, elongation to fracture, the strain hardening exponent n with K, and the area under the curve. Results come in a table with the data range and formula for each value; copy them as text or CSV and save the charts as PNG. Practice samples with known answers (mild-steel-like and aluminum-alloy-like) are included.",
+      "in_heading": "Data and settings",
+      "out_heading": "Curve and results",
+      "note": "Values are obtained mechanically from the curve. Standards such as ISO 6892-1, ASTM E8/E8M and JIS Z 2241 specify the specimen shape, testing rate, extensometer, rounding and the criteria for yielding in detail. For reports or acceptance decisions, check against the standard itself and your testing machine's software.",
+      "practice": "Practice mechanical behavior questions",
+      "related": "Related terms",
+      "kind": "Data type",
+      "kind_fd": "Force and extension (converted with specimen size)",
+      "kind_ss": "Stress (MPa) and strain",
+      "cx": "Column for x (extension or strain)",
+      "cy": "Column for y (force or stress)",
+      "fu": "Force unit",
+      "fu_kN": "kN",
+      "fu_N": "N",
+      "su": "Strain unit",
+      "su_pct": "%",
+      "su_abs": "Dimensionless (0.01 = 1 %)",
+      "shape": "Specimen cross-section",
+      "shape_round": "Round (diameter)",
+      "shape_plate": "Flat (width × thickness)",
+      "shape_area": "Enter area directly",
+      "d": "Diameter d₀ (mm)",
+      "w": "Width b₀ (mm)",
+      "t": "Thickness a₀ (mm)",
+      "a0": "Cross-sectional area S₀ (mm²)",
+      "L0": "Gauge length L₀ (mm) (the extensometer gauge length if one is used)",
+      "src": "Extension measured by",
+      "src_ext": "Extensometer (gauge-length extension)",
+      "src_xhead": "Crosshead displacement (includes machine deflection)",
+      "erng": "Range for E",
+      "erng_auto": "Auto (10–40 % of tensile strength)",
+      "erng_manual": "Enter a stress range",
+      "elo": "Lower limit for E (MPa)",
+      "ehi": "Upper limit for E (MPa)",
+      "off": "Offset (%)",
+      "yp": "Yield point",
+      "yp_auto": "Detect if present",
+      "yp_none": "Do not detect",
+      "nrng": "Range for n",
+      "nrng_auto": "Auto (whole uniform plastic range)",
+      "nrng_manual": "Enter a plastic strain range",
+      "nlo": "Lower limit for n (plastic strain %)",
+      "nhi": "Upper limit for n (plastic strain %)",
+      "nm": "Strain used for n",
+      "nm_plastic": "True plastic strain (elastic part removed)",
+      "nm_total": "Total true strain",
+      "du": "Minimum diameter after fracture dᵤ (mm) (optional)",
+      "wu": "Minimum width after fracture (mm) (optional)",
+      "tu": "Minimum thickness after fracture (mm) (optional)",
+      "au": "Minimum area after fracture Sᵤ (mm²) (optional)",
+      "Lu": "Final gauge length Lᵤ (mm) (optional, measured with the pieces fitted together)",
+      "js": {
+        "paste": "Data (paste the table exported from the machine as is: tab, comma, space or semicolon separated; a header row is fine)",
+        "paste_ph": "e.g.\nExtension (mm)\tForce (kN)\n0.0000\t0.000\n0.0050\t1.580\n…",
+        "sample_steel": "Sample: mild-steel-like (yield point)",
+        "sample_al": "Sample: aluminum-alloy-like (continuous yielding)",
+        "file": "Open a file (CSV, TXT)",
+        "clear": "Clear data",
+        "local": "Your data is used only inside this browser and is never sent anywhere (not even in the URL). It is gone when you close the page.",
+        "sub_data": "Data format",
+        "sub_spec": "Specimen",
+        "sub_range": "Analysis ranges",
+        "sub_after": "Dimensions after fracture (for reduction of area and elongation after fracture; optional)",
+        "read_ok": "Read {n} points",
+        "read_header": "skipped {n} header line(s)",
+        "read_bad": "{n} line(s) could not be read (line {lines}). Non-numeric fields, lines with too few columns and numbers with thousands separators are not read",
+        "read_none": "No lines could be read as numbers ({n} lines). Check the separator and the column numbers",
+        "empty": "Paste data or choose a sample.",
+        "need_dims": "To convert force–extension data, enter the cross-section dimensions and the gauge length L₀.",
+        "need_erange": "Enter the lower and upper limits for E (MPa, lower < upper).",
+        "need_nrange": "Enter the lower and upper limits for n (plastic strain %, lower < upper).",
+        "err_few": "Too few points (at least 10 are needed).",
+        "err_nopos": "No positive stress. Check the column numbers and units.",
+        "err_efit": "Not enough points in the range for E ({n}; at least 3 are needed). Widen the range or use finer data.",
+        "err_eneg": "The slope of the E line is not positive. If strain (extension) or stress (force) was recorded as negative, make the signs positive before pasting, and check the column numbers.",
+        "err_internal": "The chart and table could not be drawn for this data. Check the data format (columns, separator, units).",
+        "lab_reh": "ReH",
+        "lab_rel": "ReL",
+        "lab_rp": "Rp{p}",
+        "lab_rm": "Rm",
+        "lab_frac": "Fracture",
+        "lab_rm_true": "Max force",
+        "ax_e": "Engineering strain (%)",
+        "ax_s": "Engineering stress (MPa)",
+        "ax_et": "True strain (%)",
+        "ax_st": "True stress (MPa)",
+        "ax_lnet": "True strain (log scale)",
+        "ax_lnetp": "True plastic strain (log scale)",
+        "ax_lnst": "True stress (MPa, log scale)",
+        "r_E": "Young's modulus",
+        "r_r2": "Coefficient of determination (E line)",
+        "r_Rp": "Proof strength (offset method)",
+        "r_Rp_s": "{p} % proof strength",
+        "r_ReH": "Upper yield strength",
+        "r_ReL": "Lower yield strength",
+        "r_Ae": "Yield point extension",
+        "r_Rm": "Tensile strength",
+        "r_Agt": "Uniform elongation (total)",
+        "r_Ag": "Uniform elongation (plastic)",
+        "r_At": "Elongation to fracture (curve, total)",
+        "r_Af": "Elongation to fracture (curve, elastic recovery removed)",
+        "r_A": "Elongation after fracture (measured on fitted pieces)",
+        "r_Z": "Reduction of area",
+        "r_n": "Strain hardening exponent n",
+        "r_K": "Strength coefficient K",
+        "r_W": "Area under the curve (toughness indicator)",
+        "rg_E": "{auto}: {n} points between {a} and {b} MPa (initial loading)",
+        "rg_manual": "Manual",
+        "rg_auto_E": "Auto ({a}–{b} % of tensile strength)",
+        "rg_r2": "Fit of the E line (closer to 1 = straighter)",
+        "rg_Rp": "Intersection at strain {e} %",
+        "rg_none": "No intersection (fracture before reaching the offset line)",
+        "rg_ReH": "First maximum (strain {e} %)",
+        "rg_ReL": "Lowest of the {n} minima during yielding, excluding the first (initial transient effect). Including the first: {all} MPa",
+        "rg_ReL1": "The minimum during yielding (one)",
+        "rg_Ae": "From the upper yield strength at {a} % to the minimum where hardening starts at {b} %",
+        "rg_Rm": "Highest stress up to fracture",
+        "rg_Agt": "Strain at the maximum stress",
+        "rg_Agt_flat": "Strain at the maximum stress (points within 0.1 % of the maximum span {a}–{b} %)",
+        "rg_Ag": "Agt minus the elastic part Rm/E",
+        "rg_At": "Point just before the sudden drop ({s} MPa; the {n} points after it are not used)",
+        "rg_Af": "Estimate of elongation after fracture A from the curve",
+        "rg_A": "Lᵤ = {lu} mm, L₀ = {l0} mm",
+        "rg_Z": "S₀ = {a0} mm²",
+        "rg_n_auto": "{k} points at plastic strain {a}–{b} % (from the offset point to just before the maximum)",
+        "rg_n_auto_yp": "{k} points at plastic strain {a}–{b} % (from the end of yield point extension to just before the maximum)",
+        "rg_n_manual": "{k} points at plastic strain {a}–{b} % (manual)",
+        "rg_K": "Same line as n (R² {r2})",
+        "rg_W": "From the first point to the fracture point (trapezoidal rule)",
+        "eq_E": "Least squares σ = E·ε + b",
+        "eq_r2": "R² = Sxy²/(Sxx·Syy)",
+        "eq_Rp": "Intersection of σ = E(ε − {p} %) with the curve (linear between points)",
+        "eq_ReH": "First maximum after which stress drops ≥ 0.5 % and strain grows ≥ 0.05 % without exceeding ReH",
+        "eq_ReL": "Minimum during yielding (definition used here)",
+        "eq_Ae": "ε(start of hardening) − ε(ReH)",
+        "eq_Rm": "Rm = Fm/S₀",
+        "eq_Agt": "ε(Fm)",
+        "eq_Ag": "Ag = Agt − Rm/E",
+        "eq_At": "ε(just before fracture)",
+        "eq_Af": "At − σ(fracture)/E",
+        "eq_A": "A = (Lᵤ − L₀)/L₀",
+        "eq_Z": "Z = (S₀ − Sᵤ)/S₀",
+        "eq_n": "Least squares ln σt = ln K + n·ln εtp (εtp = εt − σt/E)",
+        "eq_n_total": "Least squares ln σt = ln K + n·ln εt",
+        "eq_K": "K in σt = K·εⁿ (σt at ε = 1)",
+        "eq_W": "W = ∫σ dε (MPa × dimensionless = MJ/m³)",
+        "eq_h": "Formulas used and strain origin",
+        "eq_conv_fd": "From force–extension: engineering stress σ = F/S₀ (N/mm² = MPa), engineering strain ε = ΔL/L₀",
+        "eq_true": "True stress σt = σ(1 + ε), true strain εt = ln(1 + ε) (constant volume, before necking; the true curve is drawn up to maximum force)",
+        "eq_plastic": "Engineering plastic strain εp = ε − σ/E, true plastic strain εtp = εt − σt/E",
+        "eq_e0": "Strain origin: shifted to where the E line crosses zero stress (ε₀ = {e0} %) before computing elongations, the offset and true strain (toe correction).",
+        "w_xhead": "Crosshead displacement includes deflection and slip of the machine and grips, so strain comes out too large and Young's modulus too low. E and the 0.2 % proof strength should in principle be taken from extensometer data. Read elongations and tensile strength as estimates.",
+        "w_E_units": "Young's modulus is {e} GPa. Metals are roughly 40–400 GPa, so check the force unit (N vs kN), the area (diameter vs radius, mm vs m) and the strain unit (% vs dimensionless).",
+        "w_strain_pct": "Strain is set to dimensionless but values exceed 2 (200 %). Is the data in %?",
+        "w_strain_abs": "Strain is set to % but the maximum is below 0.005 %. Is the data dimensionless (0.01 = 1 %)?",
+        "w_r2": "R² of the E line is {r2}. Check the zoomed chart for a curved part (toe or yielding) in the range and narrow it manually.",
+        "w_rm_is_reh": "The highest stress is the upper yield strength (hardening never exceeds ReH). Check the standard for how tensile strength is reported in this case.",
+        "w_n_over_ag": "The upper limit for n exceeds the uniform elongation. After necking σ(1 + ε) is no longer the true stress, so the fit stops just before maximum force.",
+        "w_n_total_elastic": "With total true strain, points whose elastic part exceeds 10 % are in the range (ASTM E646 calls for true plastic strain in that case).",
+        "w_n_few": "Fewer than 5 points in the n range (ASTM E646 asks for at least 5). Widen the range.",
+        "w_n_none": "No points in the n range (at least 2 are needed). Check the range.",
+        "w_yp_report": "For a material with a yield point, the upper and lower yield strengths are usually reported rather than the 0.2 % proof strength. The 0.2 % proof strength in the table is for reference. With noisy data a continuous curve can be taken for a yield point; check the zoomed chart and choose \"Yield point: Do not detect\" if it is wrong.",
+        "w_no_yp": "No distinct yield point (a stress drop of 0.5 % or more) was found. Use the 0.2 % proof strength as the yield strength.",
+        "w_no_drop": "The stress never drops suddenly, so the last point is taken as fracture.",
+        "view": "Chart type",
+        "view_eng": "Engineering stress–strain",
+        "view_true": "True stress–strain",
+        "fig_h": "Stress–strain curve",
+        "fig_main": "Engineering stress–strain curve and the points found",
+        "fig_true": "True stress–strain curve (to maximum force) and the n fit",
+        "fig_zoom": "Zoom on yielding (E range and offset line)",
+        "fig_n": "n-value fit (log–log)",
+        "lg_curve": "Curve",
+        "lg_erange": "E fit range",
+        "lg_offset": "{p} % offset line",
+        "lg_nrange": "n range",
+        "lg_yp": "Yield points",
+        "lg_rm": "Maximum and fracture",
+        "lg_rp": "Proof strength",
+        "lg_true": "True stress–strain",
+        "lg_eng": "Engineering (for comparison)",
+        "lg_fit": "σt = Kεⁿ",
+        "cap_main": "Strain is measured from where the E line crosses zero stress. The drop in engineering stress after necking comes from the shrinking cross-section, not from the material getting weaker.",
+        "cap_true": "True stress and true strain follow from σ(1 + ε) and ln(1 + ε) only while volume is constant and deformation is uniform (up to maximum force), so the curve is drawn up to that point.",
+        "cap_n": "Dots are the data in the n range; the dashed line is the fitted σt = Kεⁿ (n = {n}, K = {k} MPa, R² {r2}). If the dots do not lie on a straight line in log–log, consider fitting separate ranges.",
+        "col_q": "Quantity",
+        "col_sym": "Symbol",
+        "col_v": "Value",
+        "col_u": "Unit",
+        "col_range": "Range and conditions used",
+        "col_eq": "Formula",
+        "tbl_h": "Results",
+        "btn_png": "Save chart as PNG",
+        "btn_txt": "Copy results as text",
+        "btn_csv": "Copy results as CSV",
+        "btn_data": "Save converted stress–strain as CSV",
+        "copied": "Copied",
+        "after_note": "Elongation after fracture (A in ISO 6892-1) is measured by fitting the broken pieces together and measuring the gauge length, and can differ from the value read at the last point of the curve. Enter the measured Lᵤ to show it in the table.",
+        "to_methods": "Tensile testing in the methods guide →",
+        "in_kind": "Data",
+        "in_area": "Area S₀",
+        "in_L0": "Gauge length L₀",
+        "in_src": "Extension",
+        "in_points": "Points",
+        "txt_note": "Values obtained mechanically from the curve. For decisions under a standard, check the standard itself and the testing machine's values.",
+        "csv_data_head": "nominal strain (%),nominal stress (MPa),true strain (%),true stress (MPa)",
+        "sample_steel_note": "Synthetic mild-steel-like data (round bar d₀ = 10 mm, L₀ = 50 mm, extensometer): a line with E = 206 GPa to ReH = 310 MPa, an initial transient minimum of 262 MPa, a yield plateau of 274 ± 3 MPa (minima 271 MPa) lasting 1.74 %, then σt = Kεtpⁿ (n = 0.22, K = {K} MPa). The maximum is the Considère point (engineering stress {su} MPa at strain {eu} %). Check that the analysis returns these values.",
+        "sample_al_note": "Synthetic aluminum-alloy-like data (stress and strain in %): a line with E = 69 GPa up to 200 MPa, then σt = Kεtpⁿ (K = 440 MPa, n = 0.08). The maximum is the Considère point (engineering stress {su} MPa at strain {eu} %). There is no yield point; read it with the 0.2 % proof strength.",
+        "file_big": "The file is too large (20 MB maximum)."
+      },
+      "sections": [
+        {
+          "h": "What this tool does",
+          "p": "Paste the force–extension (or stress–strain) table exported from a testing machine. The tool converts it to engineering stress σ = F/S₀ and engineering strain ε = ΔL/L₀, plots the curve and finds Young's modulus, 0.2 % proof strength, yield points, tensile strength, uniform elongation, elongation to fracture, n and K, and the area under the curve. The columns \"Range and conditions used\" and \"Formula\" state which points and which formula each value came from, so they can go straight into a lab report. All calculation happens in this page and the data is not sent anywhere. For tables with three or more columns (time, force, extension and so on), choose the column numbers for x and y."
+        },
+        {
+          "h": "Young's modulus and how the range is chosen",
+          "p": "Young's modulus E is the slope of a least-squares line σ = Eε + b through points in the elastic range. In auto mode the tool uses the points of the initial loading, up to where stress first exceeds 40 % of the tensile strength, whose stress lies between 10 % and 40 % of the tensile strength (a range chosen for this calculation). This avoids the initial toe from grip seating and stops before yielding; R² closer to 1 means the points lie closer to a straight line. Strain is re-zeroed at ε₀, where the line crosses zero stress, before elongations and the offset are computed. If the extension is crosshead displacement, deflection of the machine and grips is included and E comes out low; use extensometer data for E."
+        },
+        {
+          "h": "0.2 % proof strength (offset method) versus yield point",
+          "p": "For materials without a distinct yield point, such as aluminum alloys and austenitic stainless steels, a line of slope E is shifted by 0.2 % along the strain axis and the stress where it meets the curve is the 0.2 % proof strength Rp0.2, a measure of the stress that leaves 0.2 % permanent strain after unloading. For materials like mild steel, whose stress drops once yielding starts and then extends at nearly constant stress (yield point extension), the upper and lower yield strengths are normally reported. The tool shows both but treats the 0.2 % proof strength as a reference value when a yield point is found. The offset can be changed (for example 0.1 %)."
+        },
+        {
+          "h": "Definitions of upper and lower yield strength and yield point extension",
+          "p": "ASTM E8/E8M defines the upper yield strength as the first stress maximum (the first point of zero slope) at the onset of discontinuous yielding, the lower yield strength as the minimum stress during discontinuous yielding ignoring transient effects, and yield point elongation as the strain from the first point of zero slope to the onset of uniform strain hardening. A testing-machine maker's explanation of ISO 6892-1 gives as a criterion that stress drops by at least 0.5 % after the upper yield point and strain grows by at least 0.05 % without exceeding ReH (not checked against the text of the standard). Following these, the tool takes the upper yield strength as the first maximum meeting that criterion, the lower yield strength as the lowest minimum between ReH and the point where stress exceeds ReH again, excluding the first minimum (initial transient effect), and the end of yield point extension as the last minimum in that interval. The rules for the lower yield strength and the end of yield point extension are definitions used for this calculation and may differ in detail from JIS Z 2241."
+        },
+        {
+          "h": "Tensile strength and uniform elongation",
+          "p": "Tensile strength Rm is the maximum force Fm divided by the original cross-sectional area S₀. Uniform elongation is the strain at maximum force, the elongation up to the start of necking. The tool shows both the total elongation Agt (including the elastic part) and the plastic elongation Ag with the elastic part Rm/E removed (symbols from ISO 6892-1; uniform elongation in ASTM E8 includes both elastic and plastic parts). On curves with a flat top, small fluctuations can move the strain at the maximum, so the table also shows the strain span of points within 0.1 % of the maximum."
+        },
+        {
+          "h": "Elongation to fracture is not elongation after fracture",
+          "p": "The strain At at the last point of the curve (just before the force drops suddenly) is the total elongation at fracture; subtracting the elastic recovery σ/E gives an estimate of elongation after fracture. Elongation after fracture itself (A in ISO 6892-1, elongation after fracture in ASTM E8) is measured by fitting the two broken pieces together, measuring the final gauge length Lᵤ and computing (Lᵤ − L₀)/L₀. Where necking and fracture occur within the gauge length, and differences between extensometer and specimen gauge lengths, can make it differ from the curve value. Elongation depends on gauge length, so compare values together with the specimen type. Reduction of area Z = (S₀ − Sᵤ)/S₀ is shown only when the minimum cross-section after fracture is entered."
+        },
+        {
+          "h": "True stress, true strain and the n-value",
+          "p": "While volume is constant and deformation uniform, true stress is σt = σ(1 + ε) and true strain εt = ln(1 + ε). Once necking starts deformation is no longer uniform, so this conversion holds only up to maximum force. The strain hardening exponent n is the slope of the log–log line ln σt = ln K + n ln ε of σt = Kεⁿ, and K is σt at ε = 1. ISO 10275 and ASTM E646 use the true plastic strain (true strain minus the elastic part σt/E); ASTM E646 also allows total true strain when the elastic part is below 10 % of the total. Following one of the ranges ISO 10275 allows, the whole uniform plastic range, the auto range runs from the end of yield point extension (or the offset point when there is no yield point) to just before maximum force; this lower limit is a definition used here. For low-carbon steel sheet, 10–20 % strain is often used; enter such a range manually. ASTM E646 asks for at least five points."
+        },
+        {
+          "h": "Area under the curve (toughness indicator)",
+          "p": "The area under the engineering stress–strain curve, W = ∫σ dε, indicates the energy absorbed per unit volume up to fracture; MPa × strain (dimensionless) = MJ/m³. Elongation after necking depends on gauge length, so values from different specimen shapes are hard to compare. It is a different quantity from fracture toughness K_IC, which describes resistance of a cracked part to fracture."
+        },
+        {
+          "h": "Common mistakes",
+          "p": "Mixing up force units (N vs kN changes stress by 1000 times), wrong areas (using the diameter as the radius gives 4 times the area; mm² vs m²), mixing % and dimensionless strain (E changes by 100 times), taking E from crosshead displacement, computing true stress with σ(1 + ε) past necking, and reporting only the 0.2 % proof strength for a material with a yield point are frequent mistakes. A unit-check warning appears when Young's modulus is off by orders of magnitude from the range for metals (about 40–400 GPa), that is, below 1 GPa or above 1200 GPa."
+        },
+        {
+          "h": "How the practice samples are made",
+          "p": "The mild-steel-like sample rises along a line with E = 206 GPa to 310 MPa (upper yield strength), passes 285 MPa and 262 MPa (initial transient minimum), runs along a yield plateau of 274 + 3cos(2πk/8) MPa at 0.025 % intervals for 69 points (minima 271 MPa), then follows σt = Kεtpⁿ (n = 0.22, with K = 673 MPa joining the plateau end at 271 MPa); it is converted to force–extension for a round bar with d₀ = 10 mm and L₀ = 50 mm. The aluminum-alloy-like sample is a line with E = 69 GPa to 200 MPa, then σt = 440εtp^0.08 MPa. Past maximum force (the Considère condition dσt/dεt = σt) both are multiplied by 1 − c(ε − εu)² to mimic necking, and two points of sudden drop are added at the end. The analysis gives E 206.0 GPa, ReH 310 MPa, ReL 271 MPa, yield point extension 1.74 %, Rm 386 MPa and n 0.220 (mild steel) and E 69.0 GPa, Rp0.2 266 MPa, Rm 330 MPa and n 0.080 (aluminum alloy), matching the values used to build them."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is my data sent anywhere?",
+          "a": "No. Pasted data and opened files are used only for calculation inside this page (in your browser), and are put neither on a server nor in the URL. They are gone when you close the page."
+        },
+        {
+          "q": "What if I only have crosshead displacement?",
+          "a": "Tensile strength depends only on force, so it is usable. Elongations become estimates. Young's modulus and the 0.2 % proof strength should in principle come from an extensometer, because machine deflection makes E come out low. Without one, compare E with literature values and note the discrepancy in your report."
+        },
+        {
+          "q": "Should I report the 0.2 % proof strength or the yield point?",
+          "a": "Materials that show a yield point (such as mild steel) normally get upper and lower yield strengths; materials that do not (aluminum alloys, austenitic stainless steels and others) get the 0.2 % proof strength. Drawings and material standards often say \"yield point or proof strength\", so use whichever is specified."
+        },
+        {
+          "q": "How should I choose the range for n?",
+          "a": "By default the whole uniform plastic range is used, from the end of yield point extension (or the offset point) to just before maximum force. If a product standard or the data you compare with uses a range such as 10–20 %, enter it manually. If points depart from a straight line on the log–log chart, consider fitting separate ranges."
+        },
+        {
+          "q": "I entered strain in % but E is off by 100 times.",
+          "a": "Check the strain unit setting. Reading % data as dimensionless makes strain 100 times larger and E 1/100; the reverse makes E 100 times larger. Mixing up N and kN shifts values by 1000 times."
+        },
+        {
+          "q": "Elongation differs from the testing machine report.",
+          "a": "Check whether the machine's value is measured on the fitted pieces after fracture, read from the curve, or based on the extensometer gauge length. This tool's curve value is the strain just before the sudden force drop, shown with and without elastic recovery. Enter the measured Lᵤ to get elongation after fracture from it."
+        }
+      ]
+    }
+  }
+}
