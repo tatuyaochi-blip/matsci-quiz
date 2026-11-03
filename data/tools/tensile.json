@@ -409,7 +409,8 @@
         "csv_data_head": "nominal strain (%),nominal stress (MPa),true strain (%),true stress (MPa)",
         "sample_steel_note": "軟鋼風の合成データ(丸棒 d₀ = 10 mm、L₀ = 50 mm、伸び計): E = 206 GPa の直線で ReH = 310 MPa、初期過渡の極小 262 MPa、降伏の段 274 ± 3 MPa(極小 271 MPa)が 1.74 % 続き、そこから σt = Kεtpⁿ(n = 0.22、K = {K} MPa)。最大は Considère の点(公称応力 {su} MPa、ひずみ {eu} %)。解析の結果がこの値と合うかを見てください。",
         "sample_al_note": "アルミニウム合金風の合成データ(応力−ひずみ %): 200 MPa までは E = 69 GPa の直線、そこから σt = Kεtpⁿ(K = 440 MPa、n = 0.08)。最大は Considère の点(公称応力 {su} MPa、ひずみ {eu} %)。降伏点はなく、0.2 % 耐力で読む曲線です。",
-        "file_big": "ファイルが大きすぎます(20 MB まで)。"
+        "file_big": "ファイルが大きすぎます(20 MB まで)。",
+        "file_hidden": "{name} を読み込みました({n} 行)。大きいので欄には表示していません。書き換えるときは「データを消す」を押してから貼り付けてください。"
       },
       "sections": [
         {
@@ -694,7 +695,8 @@
         "csv_data_head": "nominal strain (%),nominal stress (MPa),true strain (%),true stress (MPa)",
         "sample_steel_note": "Synthetic mild-steel-like data (round bar d₀ = 10 mm, L₀ = 50 mm, extensometer): a line with E = 206 GPa to ReH = 310 MPa, an initial transient minimum of 262 MPa, a yield plateau of 274 ± 3 MPa (minima 271 MPa) lasting 1.74 %, then σt = Kεtpⁿ (n = 0.22, K = {K} MPa). The maximum is the Considère point (engineering stress {su} MPa at strain {eu} %). Check that the analysis returns these values.",
         "sample_al_note": "Synthetic aluminum-alloy-like data (stress and strain in %): a line with E = 69 GPa up to 200 MPa, then σt = Kεtpⁿ (K = 440 MPa, n = 0.08). The maximum is the Considère point (engineering stress {su} MPa at strain {eu} %). There is no yield point; read it with the 0.2 % proof strength.",
-        "file_big": "The file is too large (20 MB maximum)."
+        "file_big": "The file is too large (20 MB maximum).",
+        "file_hidden": "Loaded {name} ({n} lines). It is large, so it is not shown in the box. To edit the data, press “Clear data” and paste it instead."
       },
       "sections": [
         {
@@ -979,7 +981,8 @@
         "csv_data_head": "nominal strain (%),nominal stress (MPa),true strain (%),true stress (MPa)",
         "sample_steel_note": "類軟鋼的合成數據（圓棒 d₀ = 10 mm、L₀ = 50 mm、伸長計）：以 E = 206 GPa 的直線到 ReH = 310 MPa，初期暫態的極小 262 MPa，降伏平台 274 ± 3 MPa（極小 271 MPa）持續 1.74 %，之後為 σt = Kεtpⁿ（n = 0.22、K = {K} MPa）。最大點為 Considère 點（工程應力 {su} MPa、應變 {eu} %）。請看解析結果是否與這些值相符。",
         "sample_al_note": "類鋁合金的合成數據（應力–應變 %）：到 200 MPa 為 E = 69 GPa 的直線，之後為 σt = Kεtpⁿ（K = 440 MPa、n = 0.08）。最大點為 Considère 點（工程應力 {su} MPa、應變 {eu} %）。沒有降伏點，是以 0.2 % 偏位降伏強度判讀的曲線。",
-        "file_big": "檔案太大（上限 20 MB）。"
+        "file_big": "檔案太大（上限 20 MB）。",
+        "file_hidden": "已讀入 {name}（{n} 行）。檔案較大，不顯示在輸入欄中。要修改資料時，請先按「清除數據」再貼上。"
       },
       "sections": [
         {
@@ -1264,7 +1267,8 @@
         "csv_data_head": "nominal strain (%),nominal stress (MPa),true strain (%),true stress (MPa)",
         "sample_steel_note": "연강을 모사한 합성 데이터(환봉 d₀ = 10 mm, L₀ = 50 mm, 신장계): E = 206 GPa의 직선으로 ReH = 310 MPa, 초기 과도의 극소 262 MPa, 항복 평탄부 274 ± 3 MPa(극소 271 MPa)가 1.74 % 이어지고, 그 뒤 σt = Kεtpⁿ(n = 0.22, K = {K} MPa). 최대는 Considère 점(공칭 응력 {su} MPa, 변형률 {eu} %). 해석 결과가 이 값과 맞는지 보십시오.",
         "sample_al_note": "알루미늄 합금을 모사한 합성 데이터(응력–변형률 %): 200 MPa까지는 E = 69 GPa의 직선, 그 뒤 σt = Kεtpⁿ(K = 440 MPa, n = 0.08). 최대는 Considère 점(공칭 응력 {su} MPa, 변형률 {eu} %). 항복점은 없으며, 0.2 % 내력으로 읽는 곡선입니다.",
-        "file_big": "파일이 너무 큽니다(20 MB까지)."
+        "file_big": "파일이 너무 큽니다(20 MB까지).",
+        "file_hidden": "{name}을(를) 읽었습니다({n}행). 데이터가 커서 입력란에는 표시하지 않습니다. 수정하려면 「데이터 지우기」를 누른 뒤 붙여 넣으십시오."
       },
       "sections": [
         {
@@ -1549,7 +1553,8 @@
         "csv_data_head": "nominal strain (%),nominal stress (MPa),true strain (%),true stress (MPa)",
         "sample_steel_note": "Synthetische Daten ähnlich Baustahl (Rundprobe d₀ = 10 mm, L₀ = 50 mm, Extensometer): eine Gerade mit E = 206 GPa bis ReH = 310 MPa, ein Minimum der anfänglichen Einschwingerscheinung von 262 MPa, ein Fließplateau von 274 ± 3 MPa (Minima 271 MPa) über 1,74 %, danach σt = Kεtpⁿ (n = 0,22, K = {K} MPa). Das Maximum ist der Considère-Punkt (technische Spannung {su} MPa bei {eu} % Dehnung). Prüfen Sie, ob die Auswertung diese Werte ergibt.",
         "sample_al_note": "Synthetische Daten ähnlich einer Aluminiumlegierung (Spannung und Dehnung in %): bis 200 MPa eine Gerade mit E = 69 GPa, danach σt = Kεtpⁿ (K = 440 MPa, n = 0,08). Das Maximum ist der Considère-Punkt (technische Spannung {su} MPa bei {eu} % Dehnung). Es gibt keine ausgeprägte Streckgrenze; die Kurve wird über die 0,2-%-Dehngrenze ausgewertet.",
-        "file_big": "Die Datei ist zu groß (höchstens 20 MB)."
+        "file_big": "Die Datei ist zu groß (höchstens 20 MB).",
+        "file_hidden": "{name} wurde geladen ({n} Zeilen). Wegen der Größe wird sie nicht im Eingabefeld angezeigt. Zum Bearbeiten auf „Daten löschen“ klicken und die Daten einfügen."
       },
       "sections": [
         {
