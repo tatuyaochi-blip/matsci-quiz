@@ -134,6 +134,7 @@ function setup() {
 .gv-tbl { width: 100%; border-collapse: collapse; font-size: .9rem; }
 .gv-tbl th, .gv-tbl td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); vertical-align: top; overflow-wrap: anywhere; }
 .gv-tbl td.gv-num { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.gv-tbl .gv-src { white-space: nowrap; overflow-wrap: normal; }
 .gv-tbl thead th { font-size: .8rem; color: var(--muted); font-weight: 600; }
 @media (max-width: 480px) { .gv-tbl th, .gv-tbl td { padding: 5px 4px; font-size: .82rem; } }
 .gv-chart { margin: 8px 0 4px; font-size: .78rem; }
@@ -243,9 +244,9 @@ function setup() {
 
     // 2つの金属の値と出典
     box.append(el('table', { class: 'gv-tbl' },
-      el('thead', {}, el('tr', {}, el('th', { scope: 'col' }, ''), el('th', { scope: 'col' }, U.col_metal), el('th', { scope: 'col' }, U.col_range), el('th', { scope: 'col' }, U.col_src))),
+      el('thead', {}, el('tr', {}, el('th', { scope: 'col' }, ''), el('th', { scope: 'col' }, U.col_metal), el('th', { scope: 'col' }, U.col_range), el('th', { scope: 'col', class: 'gv-src' }, U.col_src))),
       el('tbody', {}, ...[['A', a], ['B', b]].map(([k, m]) => el('tr', {},
-        el('th', { scope: 'row' }, k), el('td', {}, name(m.id)), el('td', { class: 'gv-num' }, range(m)), el('td', {}, srcCell(m)))))));
+        el('th', { scope: 'row' }, k), el('td', {}, name(m.id)), el('td', { class: 'gv-num' }, range(m)), el('td', { class: 'gv-src' }, srcCell(m)))))));
     box.append(el('p', { class: 'muted' }, U.cond));
 
     // この組み合わせに特有の注意
