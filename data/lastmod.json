@@ -690,7 +690,7 @@
   "tools/crystal-structure-viewer/": {"hash":"ff75285b1b272505","date":"2026-11-03"},
   "tools/tensile-test-analyzer/": {"hash":"1b20e64749246f97","date":"2026-11-03"},
   "tools/galvanic-corrosion-checker/": {"hash":"31d36737f3bac0d5","date":"2026-11-04"},
-  "tools/steel-color-temperature/": {"hash":"e6ab6e3a0cbe409a","date":"2026-11-04"},
+  "tools/steel-color-temperature/": {"hash":"dab267627fd42745","date":"2026-11-04"},
   "tools/": {"hash":"21421871ff14552f","date":"2026-11-04"},
   "compare/quenching-vs-tempering/": {"hash":"4d23a92a5d00b4d1","date":"2026-10-29"},
   "compare/annealing-vs-normalizing/": {"hash":"8cc02dc8b8e9e6a5","date":"2026-10-29"},
