@@ -133,5 +133,50 @@
       "ca. +0,16 V"
     ],
     "explanation": "Bei Cu²⁺ + 2e⁻ → Cu werden zwei Elektronen übertragen, also n = 2. Da log₁₀(1,0×10⁻³) = −3 ist, gilt E = 0,34 + (0,0592/2) × (−3) = 0,34 − 0,089 ≈ +0,25 V. Liegt die Ionenkonzentration unter dem Standardwert von 1 mol/L, ist die Reaktion begünstigt, bei der sich das Metall auflöst, und das Potential verschiebt sich zur unedlen Seite. Ca. +0,16 V entsteht mit n = 1, wobei 0,0592 × 3 abgezogen wird; ca. +0,43 V entsteht, wenn das Vorzeichen des Logarithmus umgekehrt und addiert wird. Bei einem zweiwertigen Ion sinkt das Potential mit jeder Verringerung der Konzentration auf ein Zehntel um etwa 30 mV. Zwischen Bereichen desselben Metalls, die unterschiedlichen Ionenkonzentrationen ausgesetzt sind, entsteht eine Potentialdifferenz; dieses Konzentrationselement verursacht Korrosion."
+  },
+  "corrosion-016": {
+    "question": "Welche Information lässt sich dem Potential-pH-Diagramm (Pourbaix-Diagramm) von Eisen in Wasser richtig entnehmen?",
+    "choices": [
+      "Die thermodynamisch stabile Spezies bei jedem Potential und pH-Wert, unterteilt in Bereiche der Immunität, Korrosion und Passivität",
+      "Die Korrosionsgeschwindigkeit bei jedem Potential und pH-Wert, sodass sich ablesen lässt, wie viele Millimeter pro Jahr unter welchen Bedingungen korrodieren",
+      "Dass das Auftreten von Korrosion nur vom Potential abhängt und überhaupt nicht vom pH-Wert"
+    ],
+    "explanation": "Ein Potential-pH-Diagramm wird aus Gleichgewichtsberechnungen wie der Nernst-Gleichung erstellt und zeigt die Bereiche, in denen bei gegebenem Potential und pH-Wert jeweils eine Spezies (Fe, Fe²⁺, Fe₂O₃ usw.) thermodynamisch am stabilsten ist. Es wird in die Bereiche Immunität (Metall stabil), Korrosion (gelöste Ionen stabil) und Passivität (Oxide oder Hydroxide stabil) unterteilt und dient dazu, zu beurteilen, unter welchen Bedingungen Korrosion möglich ist und in welche Richtung Gegenmaßnahmen wie das Absenken des Potentials (kathodischer Korrosionsschutz) oder das Anheben des pH-Werts wirken. Da es nur Gleichgewichte beschreibt, sagt es nichts über Korrosionsgeschwindigkeiten aus, und ob eine Schicht im Passivbereich tatsächlich schützt, muss gesondert geprüft werden. Die meisten Grenzen sind schräge Linien, die sowohl vom Potential als auch vom pH-Wert abhängen."
+  },
+  "corrosion-017": {
+    "question": "Messing mit hohem Zinkgehalt wie 60/40-Messing neigt in Meerwasser oder stehendem Wasser zur Entzinkung. Welche Aussage darüber trifft zu?",
+    "choices": [
+      "Cu löst sich selektiv, und es bleibt eine weiße, poröse, Zn-reiche Schicht zurück, deren Festigkeit gesunken ist",
+      "Zn reichert sich an der Oberfläche an und bildet eine dichte Oxidschicht, die weitere Korrosion stoppt",
+      "Zn löst sich selektiv, und es bleibt poröses Kupfer zurück, das zwar seine Form behält, aber an Festigkeit verliert"
+    ],
+    "explanation": "Die Entzinkung ist das klassische Beispiel für selektive Korrosion, bei der sich der unedlere Bestandteil einer Legierung bevorzugt löst. In Messing ist Zn unedler als Cu, sodass sich Zn löst (oder das zunächst mitgelöste Cu sich wieder abscheidet) und rotes, poröses Kupfer zurückbleibt. Form und Abmessungen des Bauteils ändern sich kaum, die Festigkeit sinkt aber stark, sodass es unbemerkt zu Bruch oder Undichtigkeit kommen kann. Messing mit weniger Zn oder kleine Zusätze von As, Sb oder P machen sie weniger wahrscheinlich. Es löst sich Zn, nicht das edlere Cu, und Zn bildet auch keine Schutzschicht, die den Angriff stoppt. Die Spongiose (graphitische Korrosion) von Gusseisen, bei der sich Eisen löst und Graphit zurückbleibt, ist eine Korrosion derselben Art."
+  },
+  "corrosion-018": {
+    "question": "Welche Aussage über das Anodisieren (Eloxieren) von Aluminium trifft zu?",
+    "choices": [
+      "Aluminium wird bei der Elektrolyse als Kathode geschaltet, und Nickel oder ein anderes Metall aus der Lösung scheidet sich auf seiner Oberfläche ab",
+      "Aluminium wird bei der Elektrolyse als Anode geschaltet, und auf seiner Oberfläche wächst eine dicke, poröse Al₂O₃-Schicht",
+      "Aluminium wird bei der Elektrolyse als Anode geschaltet, doch die Oberfläche löst sich nur auf und wird glatt, ohne dass eine Schicht zurückbleibt"
+    ],
+    "explanation": "Beim Anodisieren wird Aluminium in einer Lösung wie Schwefel- oder Oxalsäure als Anode geschaltet und Strom durchgeleitet, sodass das Metall an der Oberfläche zu einer Al₂O₃-Schicht oxidiert. Die natürliche Oxidschicht ist nur einige nm dick, durch Anodisieren erhält man dagegen Schichten von einigen bis zu einigen zehn µm. Die Schicht besteht aus einer dünnen, dichten Sperrschicht auf der Metallseite und einer porösen Schicht mit feinen, regelmäßig angeordneten Poren; die Poren können eingefärbt und anschließend z. B. in heißem Wasser verdichtet werden, um die Korrosionsbeständigkeit zu erhöhen. Ein Metall durch kathodische Schaltung abzuscheiden, ist Galvanisieren. Auch das Elektropolieren, das die Oberfläche durch Auflösen glättet, ist ein anodischer Vorgang, hinterlässt aber keine dicke Schicht."
+  },
+  "corrosion-019": {
+    "question": "Welche Aussage über wetterfesten Stahl mit geringen Zusätzen von Cu, Cr, Ni, P und ähnlichen Elementen trifft zu?",
+    "choices": [
+      "An der Atmosphäre bildet sich eine dichte, schützende Rostschicht, die die Korrosion verlangsamt; an Küsten mit viel Salzeintrag aus der Luft wirkt sie jedoch schlecht",
+      "Er enthält mindestens 11 % Cr, sodass sich wie bei nichtrostendem Stahl eine wenige nm dicke Passivschicht bildet und überhaupt kein Rost entsteht",
+      "Er wird durch zulegiertes Zn geschützt, das sich als Opfermetall vor dem Stahl löst, und eignet sich daher am besten für den Einsatz unter Meerwasser"
+    ],
+    "explanation": "Wetterfester Stahl ist ein niedriglegierter Stahl mit geringen Zusätzen von insgesamt höchstens einigen Prozent Cu, Cr, Ni, P und ähnlichen Elementen. Durch wiederholtes Befeuchten und Trocknen an der Atmosphäre bildet sich unter dem äußeren Rost eine dichte, gut haftende Schutzschicht aus Rost, die diese Elemente enthält, das Eindringen von Sauerstoff und Wasser behindert und die Korrosionsgeschwindigkeit stark senkt. Er wird für unbeschichtete Brücken und ähnliche Bauwerke verwendet; in Küstennähe mit viel Salzeintrag aus der Luft oder an ständig feuchten Stellen entwickelt sich die schützende Rostschicht jedoch schlecht, und die Wirkung bleibt aus. Da der Cr-Gehalt gering ist, rostet er anders als passiver nichtrostender Stahl zunächst ganz normal. Er ist auch kein Werkstoff mit Opferschutz durch Zn und eignet sich nicht für den Einsatz unter Meerwasser."
+  },
+  "corrosion-020": {
+    "question": "Der Strom der Auflösungsreaktion eines Metalls folge der Tafel-Gleichung η = b log₁₀(i/i₀) mit der Tafel-Steigung b = 0,12 V/Dekade. Auf etwa das Wievielfache steigt der Auflösungsstrom, wenn die anodische Überspannung von 0,12 V auf 0,30 V erhöht wird?",
+    "choices": [
+      "Etwa das 2,5-Fache",
+      "Etwa das 4,5-Fache",
+      "Etwa das 32-Fache"
+    ],
+    "explanation": "Die Überspannung steigt um 0,30 − 0,12 = 0,18 V, und der Strom verzehnfacht sich je 0,12 V; er steigt also auf 10 hoch (0,18/0,12), d. h. 10 hoch 1,5 ≈ 31,6, also etwa das 32-Fache. Etwa das 2,5-Fache nimmt an, dass der Strom proportional zur Überspannung ist (0,30/0,12), und etwa das 4,5-Fache verwechselt den dekadischen mit dem natürlichen Logarithmus und rechnet exp(0,18/0,12). Die Tafel-Gleichung gilt, wenn die Überspannung so groß ist, dass die Rückreaktion vernachlässigt werden kann. Mit ihr bestimmt man b aus der Steigung des geraden Teils einer halblogarithmisch aufgetragenen Polarisationskurve und den Korrosionsstrom aus dem Schnittpunkt der bis zum Korrosionspotential extrapolierten Geraden."
   }
 }

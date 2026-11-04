@@ -133,5 +133,50 @@
       "ca. 7,17 g/cm³"
     ],
     "explanation": "Die Elementarzelle der Steinsalzstruktur enthält 4 Anionen auf den kfz-Plätzen und 4 Kationen in den Oktaederlücken, also 4 Formeleinheiten MgO. Mit a³ = (4,212×10⁻⁸ cm)³ ≈ 7,47×10⁻²³ cm³ ist ρ = 4 × 40,31/(6,022×10²³ × 7,47×10⁻²³) ≈ 3,58 g/cm³, in guter Übereinstimmung mit dem Messwert. Ca. 7,17 g/cm³ ergibt sich, wenn man die 8 Ionen Mg²⁺ und O²⁻ zusammen jeweils als eigene Formeleinheit zählt. Ca. 0,90 g/cm³ setzt wie bei der CsCl-Struktur nur eine Formeleinheit pro Elementarzelle an. In der Keramik wird die Dichte eines Sinterkörpers durch diese theoretische Dichte geteilt; die so erhaltene relative Dichte dient zur Beurteilung der Verdichtung."
+  },
+  "ceramics-016": {
+    "question": "In der Fluoritstruktur (CaF₂-Typ) besetzen die Ca²⁺-Ionen die Gitterpunkte eines kfz-Gitters und die F⁻-Ionen alle Tetraederlücken. Welche Kombination der Koordinationszahlen von Ca²⁺ und F⁻ trifft zu?",
+    "choices": [
+      "Ca²⁺ 8, F⁻ 4",
+      "Ca²⁺ 4, F⁻ 8",
+      "Ca²⁺ und F⁻ jeweils 6"
+    ],
+    "explanation": "Ein F⁻-Ion in einer Tetraederlücke ist von 4 Ca²⁺-Ionen umgeben; seine Koordinationszahl ist also 4. Die kfz-Elementarzelle enthält 4 Ca²⁺-Ionen und 8 Tetraederlücken, woraus sich die Formel CaF₂ ergibt. Auf jedes Ca²⁺ kommen zwei F⁻, daher stehen die Koordinationszahlen im Verhältnis Ca²⁺ : F⁻ = 2 : 1, und Ca²⁺ hat die Koordinationszahl 8 (es sitzt in der Mitte eines Würfels aus F⁻-Ionen). Ca²⁺ 4 und F⁻ 8 ist die umgekehrte Kombination; sie entspricht der Antifluoritstruktur (z. B. Li₂O), in der Kationen und Anionen die Plätze tauschen. Die Koordinationszahl 6 für beide Ionen gehört zur Steinsalzstruktur. Auch UO₂ und die kubische Hochtemperaturphase von ZrO₂ haben diese Struktur."
+  },
+  "ceramics-017": {
+    "question": "In α-Al₂O₃ mit Korundstruktur bilden die O²⁻-Ionen annähernd eine hexagonal dichteste Kugelpackung, und die Al³⁺-Ionen sitzen in deren Lücken. Welche Lücken besetzen die Al³⁺-Ionen? In einer dichtesten Kugelpackung gebe es pro Anion eine Oktaederlücke und zwei Tetraederlücken.",
+    "choices": [
+      "Alle Oktaederlücken",
+      "2/3 der Oktaederlücken",
+      "Die Hälfte der Tetraederlücken"
+    ],
+    "explanation": "Eine dichteste Packung aus N Anionen hat N Oktaederlücken und 2N Tetraederlücken. Al₂O₃ hat 2 Al³⁺ auf 3 O²⁻; gehen die Kationen in Oktaederlücken, passt die Formel, wenn sie 2/3 davon besetzen. Im Korund besetzen die Al³⁺-Ionen tatsächlich 2/3 der Oktaederlücken in regelmäßiger Anordnung, das restliche Drittel bleibt leer. Wären alle Oktaederlücken oder die Hälfte der Tetraederlücken besetzt, käme auf jedes Anion ein Kation, eine 1:1-Zusammensetzung wie bei MgO, und die Ladungen wären nicht ausgeglichen. Die Besetzung der Lücken aus dem Verhältnis von Kationen zu Anionen abzuleiten, funktioniert auch bei anderen Oxiden wie Spinellen."
+  },
+  "ceramics-018": {
+    "question": "Die Dichte eines gesinterten Aluminiumoxidkörpers wurde nach dem archimedischen Prinzip gemessen: Trockenmasse 10,00 g, Masse wassergesättigt 10,16 g und Masse in Wasser hängend 7,43 g. Die Dichte des Wassers sei 1,00 g/cm³ und die theoretische Dichte von Aluminiumoxid 3,98 g/cm³. Welcher Wert kommt der relativen Dichte des Körpers (Rohdichte/theoretische Dichte) am nächsten?",
+    "choices": [
+      "Etwa 92,0 %",
+      "Etwa 93,5 %",
+      "Etwa 97,8 %"
+    ],
+    "explanation": "Da die offenen Poren bei der Messung mit Wasser gefüllt sind, beträgt das äußere Volumen einschließlich der Poren (10,16 − 7,43)/1,00 = 2,73 cm³. Die Rohdichte ist die Trockenmasse geteilt durch dieses Volumen, 10,00/2,73 ≈ 3,66 g/cm³, und die relative Dichte beträgt 3,66/3,98 ≈ 0,920, also etwa 92,0 %. Etwa 97,8 % bestimmt das Volumen aus der Differenz von Trockenmasse und Masse in Wasser, 10,00 − 7,43, und lässt das Wasser in den offenen Poren außer Acht. Etwa 93,5 % setzt die gesättigte Masse in den Zähler ein. Die offene Porosität beträgt (10,16 − 10,00)/2,73 ≈ 5,9 %; von der Gesamtporosität von etwa 8,0 % entfallen somit etwa 2 % auf geschlossene Poren."
+  },
+  "ceramics-019": {
+    "question": "Bei Keramiken wie Aluminiumoxid ist die Druckfestigkeit groß, nämlich das Mehrfache bis etwa das Zehnfache der Zugfestigkeit. Was ist der Hauptgrund dafür?",
+    "choices": [
+      "Unter Druck bewegen sich Versetzungen leichter, und plastische Verformung baut die Spannung ab",
+      "Druckproben sind klein, sodass die Festigkeit nur wegen des Volumeneffekts hoch erscheint",
+      "Unter Druck wirken die Kräfte so, dass sich kleine innere Risse schließen, sodass die Risse kaum wachsen"
+    ],
+    "explanation": "Der Bruch von Keramiken geht von kleinen Fehlern im Inneren oder an der Oberfläche aus: Risse, Poren oder grobe Körner. Unter Zug konzentriert sich die Spannung an den Rissspitzen, und der Bruch läuft schlagartig vom größten Fehler aus. Unter Druck wirken die Kräfte so, dass sich die Rissflanken schließen; die Risse öffnen sich daher nicht leicht, und das Versagen erfordert, dass viele kleine Risse allmählich unter Schub wachsen und sich verbinden, weshalb die Festigkeit viel höher ist. Keramiken eignen sich daher für Anwendungen unter Druckbelastung. In ionisch und kovalent gebundenen Kristallen bewegen sich Versetzungen auch unter Druck kaum. Der Unterschied beruht nicht auf der Probengröße, sondern ist eine grundlegende Folge der Spannungsrichtung."
+  },
+  "ceramics-020": {
+    "question": "In Ionenkristallen wie NaCl entstehen vor allem Schottky-Defekte, also Paare aus einer Kationen- und einer Anionenleerstelle. Die Bildung eines Paares erfordere Qs = 2,0 eV. Welcher Wert kommt dem Anteil leerer Kationenplätze bei 727 °C, n/N = exp(−Qs/2kT), am nächsten? Die Boltzmann-Konstante sei k = 8,617×10⁻⁵ eV/K.",
+    "choices": [
+      "Etwa 8,3×10⁻¹¹",
+      "Etwa 9,1×10⁻⁶",
+      "Etwa 1,2×10⁻⁷"
+    ],
+    "explanation": "T = 727 + 273 = 1000 K, also kT ≈ 0,0862 eV. Qs/2kT = 2,0/(2 × 0,0862) ≈ 11,6, also n/N = exp(−11,6) ≈ 9,1×10⁻⁶. Die 2 im Nenner des Exponenten ergibt sich daraus, dass Kationen- und Anionenleerstellen unabhängig voneinander angeordnet werden können, das Produkt ihrer Anteile im Gleichgewicht also exp(−Qs/kT) ist, und dass beide Anteile wegen der elektrischen Neutralität gleich sind. Etwa 8,3×10⁻¹¹ lässt diese 2 weg und rechnet mit exp(−Qs/kT), und etwa 1,2×10⁻⁷ rechnet mit der Temperatur in °C, also mit 727."
   }
 }
