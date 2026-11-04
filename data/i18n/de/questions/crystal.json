@@ -133,5 +133,50 @@
       "ca. 17,7 nm⁻²"
     ],
     "explanation": "Die (111)-Ebene schneidet die Elementarzelle in einem gleichseitigen Dreieck, dessen Seite die Flächendiagonale √2a ist; seine Fläche beträgt (√3/4)(√2a)² = (√3/2)a². Das Dreieck enthält 3 Eckatome zu je 1/6 und 3 Atome auf den Seitenmitten zu je 1/2, insgesamt 2 Atome. Die Flächenbelegungsdichte ist daher 2/((√3/2)a²) = 4/(√3a²) = 4/(1,732 × 0,3615²) ≈ 17,7 nm⁻². Ca. 15,3 nm⁻² ist der Wert 2/a² der (100)-Ebene; daran sieht man, dass die (111)-Ebene dichter gepackt ist. Ca. 8,8 nm⁻² zählt nur 1 Atom im Dreieck. Die {111}-Ebenen mit der höchsten Flächenbelegungsdichte sind die Gleitebenen des kfz-Gitters und haben auch den größten Netzebenenabstand."
+  },
+  "crystal-016": {
+    "question": "Von den 7 Kristallsystemen und 14 Bravais-Gittern gibt es im tetragonalen System nur das tetragonal-primitive und das tetragonal-raumzentrierte Gitter; ein „tetragonal-basiszentriertes“ Gitter wird nicht gezählt. Welcher Grund dafür trifft zu?",
+    "choices": [
+      "Wählt man die halben Diagonalen der Grundfläche als neue Achsen, lässt sich das tetragonal-basiszentrierte Gitter als kleineres tetragonal-primitives Gitter beschreiben",
+      "Bei neuer Wahl der Achsen wird das tetragonal-basiszentrierte Gitter zum tetragonal-raumzentrierten Gitter und würde doppelt gezählt",
+      "Ein Gitterpunkt in der Mitte der Grundfläche zerstört die vierzählige Drehachse, sodass die tetragonale Symmetrie nicht erhalten bleibt"
+    ],
+    "explanation": "Die Grundfläche des tetragonal-basiszentrierten Gitters ist ein Quadrat der Kantenlänge a mit Gitterpunkten an den Ecken und in der Mitte. Wählt man die halben Diagonalen der Grundfläche als neue Achsen, liegen die Gitterpunkte nur noch an den Ecken eines Quadrats der Kantenlänge a/√2; dasselbe Gitter lässt sich also als tetragonal-primitives Gitter mit halbem Zellvolumen beschreiben. Es ist daher kein eigenständiges Bravais-Gitter. In das tetragonal-raumzentrierte Gitter geht bei neuer Achsenwahl das tetragonal-flächenzentrierte Gitter über, nicht das basiszentrierte. Auch bleibt die vierzählige Drehachse erhalten, wenn in der Mitte eines Quadrats ein Punkt hinzukommt; die Erklärung mit dem Symmetrieverlust ist daher ebenfalls falsch."
+  },
+  "crystal-017": {
+    "question": "Welche Richtung liegt in einem kubischen Kristall in der (110)-Ebene (verläuft parallel zu ihr)?",
+    "choices": [
+      "[110]",
+      "[001]",
+      "[111]"
+    ],
+    "explanation": "Im kubischen Kristall ist die Richtung [hkl] die Normale der Ebene (hkl); eine Richtung [uvw] liegt daher in der Ebene, wenn ihr Skalarprodukt mit der Normalen null ist, also hu + kv + lw = 0 (Zonengleichung). Für [001] gilt 1×0 + 1×0 + 0×1 = 0, die Richtung liegt also in der (110)-Ebene. Für [110] ergibt das Skalarprodukt 1 + 1 + 0 = 2; sie ist die Normale der (110)-Ebene selbst. Auch [111] ergibt 2 und liegt nicht in der Ebene. In den Gleitsystemen {110}<111> des krz-Gitters liegt [111] in denjenigen {110}-Ebenen, für die das Skalarprodukt null ist, etwa in der Ebene mit h = −1, k = 1, l = 0. Beachten Sie, dass eine <111>-Richtung nicht in jeder {110}-Ebene liegt."
+  },
+  "crystal-018": {
+    "question": "Die Diamantstruktur (die Struktur von Si und Ge) entsteht, indem an jedem Gitterpunkt eines kfz-Gitters 2 Atome sitzen; die Elementarzelle enthält 8 Atome, und nächste Nachbarn berühren sich im Abstand eines Viertels der Raumdiagonalen, √3a/4. Welcher Wert kommt der Packungsdichte am nächsten, wenn die Atome als starre Kugeln betrachtet werden?",
+    "choices": [
+      "Etwa 0,17",
+      "Etwa 0,74",
+      "Etwa 0,34"
+    ],
+    "explanation": "Da sich nächste Nachbarn berühren, gilt √3a/4 = 2r, also a = 8r/√3. Die Packungsdichte beträgt 8 × (4/3)πr³ / (8r/√3)³ = π√3/16 ≈ 0,34. Etwa 0,17 zählt wie beim kfz-Gitter fälschlich nur 4 Atome in der Elementarzelle, und etwa 0,74 überträgt einfach die Packungsdichte des kfz-Gitters. In der Diamantstruktur ist jedes Atom mit 4 Nachbarn in tetraedrischer Anordnung kovalent verbunden; die Koordinationszahl ist daher mit 4 klein, und die Struktur ist sehr offen. Bei gerichteten kovalenten Bindungen haben die Bindungswinkel Vorrang vor einer dichten Packung der Kugeln."
+  },
+  "crystal-019": {
+    "question": "Der Elastizitätsmodul eines Eisen-Einkristalls hängt stark von der Richtung ab: etwa 273 GPa in [111]-Richtung und etwa 125 GPa in [100]-Richtung. Trotzdem hat ein gewöhnlicher polykristalliner Eisenstab in jeder Richtung nahezu denselben Elastizitätsmodul von etwa 210 GPa. Was ist der Hauptgrund dafür?",
+    "choices": [
+      "Die Kornorientierungen sind regellos verteilt, sodass sich die richtungsabhängigen Unterschiede vieler Körner herausmitteln",
+      "Die Korngrenzen übernehmen den größten Teil der elastischen Verformung, sodass sich die Kristallorientierung nicht bemerkbar macht",
+      "Im Vielkristall werden die Bindungen zwischen den Atomen in allen Richtungen gleich stark, sodass der Kristall selbst isotrop wird"
+    ],
+    "explanation": "Der Elastizitätsmodul eines Einkristalls ist anisotrop, weil die Anordnung der Atome von der Richtung abhängt. Auch im Vielkristall bleibt jedes Korn anisotrop, doch da die Kornorientierungen regellos verteilt sind, ergibt die Mittelung über viele Körner in jeder Messrichtung nahezu denselben Wert. Die Korngrenzen machen nur einen winzigen Teil des Volumens aus und übernehmen nicht den größten Teil der Verformung. Auch im Vielkristall ist die Bindung innerhalb jedes Korns dieselbe wie im Einkristall; der Kristall selbst wird also nicht isotrop. Besitzen die Körner wie in gewalztem Blech eine Vorzugsorientierung (Textur), zeigt auch ein Vielkristall eine Anisotropie des Elastizitätsmoduls und des plastischen Verhaltens."
+  },
+  "crystal-020": {
+    "question": "Welcher Wert kommt dem Netzebenenabstand der Ebene mit den Miller-Bravais-Indizes h = 1, k = 0, i = −1, l = 1 (einer der Pyramidenebenen) von Magnesium (hdP, a = 0,321 nm, c = 0,521 nm) am nächsten? Für hexagonale Kristalle gelte 1/d² = (4/3)(h² + hk + k²)/a² + l²/c².",
+    "choices": [
+      "Etwa 0,227 nm",
+      "Etwa 0,245 nm",
+      "Etwa 0,273 nm"
+    ],
+    "explanation": "Mit h = 1 und k = 0 ist h² + hk + k² = 1, also 1/d² = (4/3)/0,321² + 1/0,521² ≈ 12,94 + 3,68 = 16,62 nm⁻². Daraus folgt d ≈ 0,245 nm. Etwa 0,227 nm wendet die kubische Formel d = a/√(h² + k² + l²) auf die drei Indizes (101) an und erhält a/√2; etwa 0,273 nm vergisst den Faktor 4/3. Die Achsen in der Basisebene eines hexagonalen Kristalls schließen 120° ein, daher gilt die kubische Formel nicht. Bei XRD mit Cu-Kα-Strahlung (0,15406 nm) erscheint der Reflex dieser Ebene bei 2θ ≈ 36,6°."
   }
 }

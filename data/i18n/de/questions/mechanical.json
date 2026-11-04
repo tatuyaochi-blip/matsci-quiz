@@ -133,5 +133,50 @@
    "Die Resilienz ist die Fläche unter dem elastischen Bereich, etwa σy²/(2E), und die Zähigkeit ist die gesamte Fläche unter der Kurve bis zum Bruch"
   ],
   "explanation": "Die Resilienz ist die bis zum Fließbeginn pro Volumen gespeicherte elastische Energie, also die Dreiecksfläche unter der elastischen Geraden, σy²/(2E). Diese Energie wird bei Entlastung zurückgewonnen und ist für Federwerkstoffe wichtig. Die Zähigkeit ist die bis zum Bruch pro Volumen aufgenommene Energie, also die gesamte Fläche unter der Kurve. Beide haben die Einheit J/m³. Die Zähigkeit hängt sowohl von der Festigkeit als auch von der Duktilität ab; ein fester Werkstoff mit geringer Dehnung hat daher eine geringe Zähigkeit, und ein etwas weniger fester Werkstoff mit großer Dehnung kann zäher sein. Die Aussage, die Gesamtfläche und die elastische Fläche vertauscht, sowie die Aussage, die Dehnung spiele keine Rolle, sind falsch."
+ },
+ "mechanical-016": {
+  "question": "Welcher Wert kommt dem Schubmodul (Gleitmodul) G eines isotropen Stahls mit einem Elastizitätsmodul von 200 GPa und einer Querkontraktionszahl von 0,30 am nächsten?",
+  "choices": [
+   "Etwa 77 GPa",
+   "Etwa 154 GPa",
+   "Etwa 167 GPa"
+  ],
+  "explanation": "Ein isotroper elastischer Körper hat nur zwei unabhängige elastische Konstanten, und der Schubmodul ergibt sich aus G = E/[2(1 + ν)]. G = 200/(2 × 1,30) ≈ 76,9 GPa, also etwa 77 GPa. Etwa 154 GPa vergisst die 2 im Nenner, und etwa 167 GPa ist der Kompressionsmodul K = E/[3(1 − 2ν)], der mit dem Schubmodul verwechselt wurde. Der Schubmodul beschreibt den Widerstand gegen Schub- und Torsionsverformung und dient zur Berechnung des Verdrehwinkels von Wellen und der Energie von Versetzungen sowie zur Abschätzung der theoretischen Schubfestigkeit. Für stark anisotrope Werkstoffe wie Einkristalle gilt diese Beziehung nicht ohne Weiteres."
+ },
+ "mechanical-017": {
+  "question": "Ein Rundstab wird mit der axialen Zugspannung σ belastet. Welche Kombination aus der Ebene, auf der die größte Schubspannung im Stab wirkt, und deren Betrag trifft zu?",
+  "choices": [
+   "Der Querschnitt senkrecht zur Achse, mit dem Betrag σ",
+   "Ebenen unter 45° zur Achse, mit dem Betrag σ/√2",
+   "Ebenen unter 45° zur Achse, mit dem Betrag σ/2"
+  ],
+  "explanation": "Auf einer Ebene, deren Normale mit der Achse den Winkel φ bildet, vergrößert sich die Fläche auf A/cosφ, und die Kraftkomponente entlang der Ebene ist F sinφ; die Schubspannung beträgt daher τ = σ sinφ cosφ = (σ/2) sin 2φ. Sie erreicht bei φ = 45° ihr Maximum σ/2. σ/√2 zerlegt nur die Kraft und vergisst, dass sich auch die Fläche vergrößert. Auf den Querschnitt senkrecht zur Achse wirkt nur die Normalspannung σ, die Schubspannung ist null. Dass das Gleiten in duktilen Metallen und die Scherlippe am Rand eines Teller-Tassen-Bruchs um etwa 45° zur Achse geneigt sind, entspricht dieser Richtung der größten Schubspannung."
+ },
+ "mechanical-018": {
+  "question": "Welche Aussage über die Volumenänderung eines metallischen Rundstabs unter Zugbelastung trifft zu?",
+  "choices": [
+   "Bei elastischer Verformung nimmt das Volumen geringfügig zu, weil die Querkontraktionszahl kleiner als 0,5 ist; bei plastischer Verformung bleibt es nahezu konstant",
+   "Bei elastischer wie bei plastischer Verformung gleicht die Querkontraktion die Dehnung aus, sodass das Volumen stets exakt konstant bleibt",
+   "Bei elastischer Verformung ist das Volumen konstant, bei plastischer Verformung weiten die zusätzlichen Versetzungen die Atomabstände, und das Volumen wächst um einige Prozent"
+  ],
+  "explanation": "Die elastische Volumendehnung beträgt ΔV/V ≈ (1 − 2ν)ε, und die Querkontraktionszahl von Metallen liegt bei etwa 0,3; unter Zug nimmt das Volumen daher geringfügig zu (bei ν = 0,30 beträgt die Volumendehnung das 0,4-Fache der Axialdehnung). Konstant bleibt das Volumen nur bei ν = 0,5, einem Wert, dem Gummi nahekommt. Plastische Verformung besteht dagegen im Abgleiten von Atomebenen durch Versetzungsbewegung, sodass sich das Volumen kaum ändert; deshalb wird bei der Berechnung von wahrer Spannung und wahrer Dehnung Volumenkonstanz angenommen. Die Volumenänderung durch die zusätzlichen Versetzungen ist verschwindend gering und erreicht bei Weitem nicht einige Prozent."
+ },
+ "mechanical-019": {
+  "question": "Im Zugversuch an einem duktilen Metall schreitet nach Überschreiten der Zugfestigkeit (des Höchstwerts der Nennspannung) die Einschnürung fort, und die Kraft sinkt. Wie verhält sich in dieser Phase die wahre Spannung im eingeschnürten Bereich?",
+  "choices": [
+   "Sie sinkt im gleichen Verhältnis wie die Kraft und ist unmittelbar vor dem Bruch am kleinsten",
+   "Sie steigt bis zum Bruch weiter, weil der Querschnitt schneller abnimmt als die Kraft",
+   "Sie erreicht bei der Zugfestigkeit ihr Maximum und bleibt danach bis zum Bruch konstant"
+  ],
+  "explanation": "Nach Überschreiten der Zugfestigkeit nimmt die Querschnittsfläche in der Einschnürung rasch ab. Die Kraft sinkt zwar, doch die Fläche nimmt stärker ab, sodass die wahre Spannung σ_T = F/A bis zum Bruch weiter steigt. Der Werkstoff verfestigt sich auch in der Einschnürung weiter; die Kraft sinkt, weil die Wirkung der abnehmenden Fläche die Verfestigung überwiegt (Considère-Kriterium). Den Abfall der Nennspannung als Schwächung des Werkstoffs zu deuten, ist falsch, und die wahre Spannung bleibt auch nicht konstant. Da in der Einschnürung ein dreiachsiger Spannungszustand herrscht, ist für eine genaue Fließspannung eine Korrektur, etwa nach Bridgman, nötig."
+ },
+ "mechanical-020": {
+  "question": "Ein Metallstab mit einer Streckgrenze von 300 MPa im einachsigen Zugversuch wird tordiert (reiner Schub). Welcher Wert kommt nach der Von-Mises-Fließbedingung der Schubspannung am nächsten, bei der er zu fließen beginnt?",
+  "choices": [
+   "Etwa 150 MPa",
+   "Etwa 300 MPa",
+   "Etwa 173 MPa"
+  ],
+  "explanation": "Nach dem Von-Mises-Kriterium beträgt die Schubfließgrenze bei reinem Schub τy = σy/√3, also 300/1,732 ≈ 173 MPa. Die Hauptspannungen bei reinem Schub sind σ₁ = τ, σ₂ = 0 und σ₃ = −τ, und das Fließen setzt ein, wenn die Vergleichsspannung √{[(σ₁ − σ₂)² + (σ₂ − σ₃)² + (σ₃ − σ₁)²]/2} = √3τ den Wert σy erreicht. Etwa 150 MPa ist der Wert nach dem Tresca-Kriterium, das die größte Schubspannung zugrunde legt, τy = σy/2. Etwa 300 MPa setzt die Fließgrenzen bei Schub und Zug fälschlich gleich. Torsionsversuche an duktilen Metallen liefern in vielen Fällen Werte nahe der Von-Mises-Vorhersage."
  }
 }

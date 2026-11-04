@@ -133,5 +133,50 @@
    "ca. 89 %"
   ],
   "explanation": "Mit Ms − T = 220 − 20 = 200 beträgt der Martensitanteil f = 1 − exp(−0,011 × 200) = 1 − exp(−2,2) ≈ 1 − 0,111 = 0,889. Der Restaustenit ist der verbleibende Anteil von etwa 11 %. Ca. 89 % verwechselt den Martensitanteil mit dem Restaustenit. Ca. 0 % nimmt an, dass sich alles umwandelt, sobald der Stahl unter Ms abgekühlt ist; tatsächlich wird die Martensitmenge nicht durch die Haltezeit bestimmt, sondern dadurch, wie weit unter Ms abgekühlt wird. Mehr Kohlenstoff oder Legierungselemente senken Ms und erhöhen den Restaustenit bei Raumtemperatur. Restaustenit kann sich im Betrieb umwandeln und die Abmessungen ändern; er wird daher durch Tiefkühlen unter 0 °C verringert."
+ },
+ "heat-treatment-016": {
+  "question": "Welche Aussage über das Zwischenstufenvergüten (Austempering) von Stahl trifft zu?",
+  "choices": [
+   "Der Stahl wird in einem Salzbad knapp oberhalb der Ms-Temperatur abgeschreckt, bis innen und außen dieselbe Temperatur herrscht, vor Beginn der Umwandlung herausgenommen und an Luft zu Martensit abgekühlt",
+   "Der Stahl wird in einem Salzbad unterhalb der Nase und oberhalb der Ms-Temperatur abgeschreckt und dort gehalten, bis die Umwandlung zu Bainit abgeschlossen ist",
+   "Der Stahl wird über die A1-Temperatur erwärmt und im Ofen langsam abgekühlt, sodass grober Perlit und der weichste Zustand entstehen"
+  ],
+  "explanation": "Beim Zwischenstufenvergüten wird austenitisierter Stahl in einem Salzbad o. Ä. auf eine Temperatur unterhalb der Nase des isothermen ZTU-Schaubilds und oberhalb der Ms-Temperatur abgeschreckt und bei dieser Temperatur gehalten, bis die isotherme Umwandlung zu Bainit abgeschlossen ist. Da kein Martensit entsteht, sind Härterisse und Verzug gering, und die Zähigkeit kann die eines vergüteten Stahls gleicher Härte übertreffen; angewendet wird es bei Federn, dünnen Teilen und ausferritischem Gusseisen mit Kugelgraphit. Das Herausnehmen vor Beginn der Umwandlung und Abkühlen an Luft zu Martensit ist das Warmbadhärten (Martempering, Marquenching). Die Ofenabkühlung zu grobem Perlit ist das Vollglühen."
+ },
+ "heat-treatment-017": {
+  "question": "Was ist der Hauptzweck des Weichglühens (Glühen auf kugeligen Zementit), das bei Wälzlagerstählen (kohlenstoffreichen Chromstählen) und Werkzeugstählen vor dem Härten durchgeführt wird?",
+  "choices": [
+   "Lamellarer oder netzförmiger Zementit wird körnig eingeformt, sodass der Stahl weicher und leichter zerspan- und kaltumformbar wird",
+   "Lamellarer Perlit wird weiter verfeinert und die Härte erhöht, sodass der Stahl auch ohne Härten verwendet werden kann",
+   "Der gesamte Zementit wird im Austenit gelöst, und der Austenit bleibt bis Raumtemperatur erhalten"
+  ],
+  "explanation": "Beim Weichglühen wird Stahl lange knapp unterhalb der A1-Temperatur oder um A1 herum gehalten oder zwischen diesen Temperaturen wiederholt erwärmt und abgekühlt, sodass der lamellare Zementit des Perlits und das Korngrenzennetz aus Zementit in übereutektoiden Stählen in körnige (kugelige) Teilchen mit geringerer Oberflächenenergie übergehen. Die Zementitteilchen sind in einer Ferritmatrix verteilt; dadurch sinkt die Härte, Zerspanbarkeit und Kaltumformbarkeit verbessern sich, und es entsteht eine gute Ausgangsstruktur für ein gleichmäßiges Härtungsgefüge. Die Verfeinerung des Perlits ist der Zweck des Normalglühens und ersetzt das Härten nicht. Auch ist es keine Behandlung, die Austenit bis Raumtemperatur erhält."
+ },
+ "heat-treatment-018": {
+  "question": "Was bestimmt hauptsächlich die Härte von Martensit im abgeschreckten Zustand? Der Stahl sei so schnell abgekühlt worden, dass er vollständig martensitisch ist.",
+  "choices": [
+   "Der Gehalt an Legierungselementen wie Mn, Cr und Mo; je mehr die Einhärtbarkeit steigernde Elemente, desto härter",
+   "Die Abkühlgeschwindigkeit; auch oberhalb der kritischen Abkühlgeschwindigkeit wird er umso härter, je schneller abgekühlt wird",
+   "Der Kohlenstoffgehalt; je mehr Kohlenstoff übersättigt gelöst ist, desto härter"
+  ],
+  "explanation": "Die Härte des Martensits wird hauptsächlich durch die Menge des übersättigt gelösten Kohlenstoffs bestimmt. Der Kohlenstoff verzerrt das Gitter und behindert die Versetzungsbewegung stark, sodass die Härte mit dem Kohlenstoffgehalt deutlich steigt; oberhalb von etwa 0,6–0,7 % nimmt jedoch der weiche Restaustenit zu, sodass die Härte des abgeschreckten Stahls nicht weiter steigt. Legierungselemente wie Mn, Cr und Mo erhöhen die Einhärtbarkeit (die Einhärtungstiefe), haben aber wenig Einfluss auf die Härte eines vollständig martensitischen Gefüges. Ist die kritische Abkühlgeschwindigkeit überschritten, entsteht Martensit; schnelleres Abkühlen ändert die Härte daher kaum und erhöht nur das Risiko von Härterissen und Verzug."
+ },
+ "heat-treatment-019": {
+  "question": "Die isotherme Umwandlung von Austenit zu Perlit in einem Stahl folge der Avrami-Gleichung f = 1 − exp(−ktⁿ) (f umgewandelter Anteil) mit n = 3. Bei einer bestimmten Temperatur dauert es 100 s, bis 50 % umgewandelt sind. Welcher Wert kommt der Zeit bis zur Umwandlung von 90 % am nächsten?",
+  "choices": [
+   "Etwa 149 s",
+   "Etwa 180 s",
+   "Etwa 332 s"
+  ],
+  "explanation": "Für f = 0,5 gilt kt₅₀ⁿ = ln 2, für f = 0,9 gilt kt₉₀ⁿ = ln 10; t₉₀/t₅₀ ist also (ln 10/ln 2) hoch 1/n. (2,303/0,693) = 3,32 hoch 1/3 ergibt etwa 1,49, also t₉₀ ≈ 149 s. Etwa 332 s vergisst die Potenz 1/n, und etwa 180 s nimmt an, dass die Zeit proportional zum umgewandelten Anteil ist. Nach der Avrami-Gleichung überlagern sich Keimbildung und Wachstum, und die Umwandlung verläuft S-förmig: anfangs langsam, in der Mitte schnell und am Ende wieder langsam. Beginn- und Endlinie im isothermen ZTU-Schaubild verbinden bei jeder Temperatur die Zeiten für z. B. 1 % und 99 % Umwandlung."
+ },
+ "heat-treatment-020": {
+  "question": "Wie ändert sich beim Induktionshärten von Stahl die Tiefe der gehärteten Schicht, wenn die Frequenz des Induktionsstroms erhöht wird?",
+  "choices": [
+   "Die Wirbelströme fließen leichter bis zum Kern, daher wird die gehärtete Schicht tiefer",
+   "Der Skineffekt konzentriert den Strom an der Oberfläche, daher wird die gehärtete Schicht flacher",
+   "Die Frequenz ändert nur die Erwärmungsgeschwindigkeit und hat keinen Einfluss auf die Tiefe der gehärteten Schicht"
+  ],
+  "explanation": "Beim induktiven Erwärmen erzeugt das magnetische Wechselfeld einer Spule Wirbelströme im Stahl, deren Joulesche Wärme ihn erwärmt. Durch den Skineffekt konzentriert sich der Wechselstrom nahe der Oberfläche, und die Tiefe, in der er fließt (Eindringtiefe), ist umgekehrt proportional zur Quadratwurzel der Frequenz; je höher die Frequenz, desto stärker konzentriert sich die Erwärmung auf die Oberfläche und desto flacher ist die gehärtete Schicht. Für flache Härteschichten werden daher hohe, für tiefe niedrige Frequenzen gewählt. Da nur die Oberfläche rasch erwärmt und zu Martensit abgeschreckt wird, bleibt der Kern zäh, und an der Oberfläche verbleiben Druckeigenspannungen, die die Dauerfestigkeit erhöhen. Die Aussage, die Frequenz habe keinen Einfluss auf die Tiefe, ist falsch."
  }
 }

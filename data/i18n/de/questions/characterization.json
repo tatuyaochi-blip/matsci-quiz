@@ -133,5 +133,50 @@
       "ca. 50 %"
     ],
     "explanation": "Die Kristallinität ergibt sich aus der Schmelzwärme der Probe geteilt durch die eines vollständig kristallinen Polymers. Tritt beim Aufheizen jedoch Kaltkristallisation auf, schmelzen die dabei gebildeten Kristalle später ebenfalls und tragen zum endothermen Schmelzpeak bei. Den schon vor der Messung vorhandenen Kristallen entspricht die Schmelzwärme abzüglich der Kaltkristallisationswärme, 50 − 20 = 30 J/g; die Kristallinität beträgt also 30/140 ≈ 0,21, etwa 21 %. Ca. 36 % ist 50/140 ohne Abzug der Kaltkristallisation und zählt die während der Messung gebildeten Kristalle mit. Ca. 50 % ist (50 + 20)/140, wobei die exotherme Wärme addiert statt abgezogen wurde. Abgeschrecktes PET ist nahezu amorph, daher erscheint knapp oberhalb von Tg ein deutlicher exothermer Kaltkristallisationspeak."
+  },
+  "characterization-016": {
+    "question": "Welche Kombination nennt ein Element, das mit EDX (energiedispersiver Röntgenspektroskopie) am REM grundsätzlich nicht nachweisbar ist, zusammen mit dem richtigen Grund?",
+    "choices": [
+      "Eisen, weil seine Kα-Energie (etwa 6,4 keV) zu hoch ist und außerhalb des Messbereichs des Detektors liegt",
+      "Wasserstoff, weil er mit nur einem Elektron keine charakteristische Röntgenstrahlung durch Auffüllen einer inneren Schale aussenden kann",
+      "Kohlenstoff, weil seine charakteristische Röntgenenergie so niedrig ist, dass sie mit keinem Detektor überhaupt messbar ist"
+    ],
+    "explanation": "Charakteristische Röntgenstrahlung entsteht, wenn ein Elektron einer äußeren Schale eine Lücke in einer inneren Schale auffüllt, die durch Herausschlagen eines Elektrons durch den einfallenden Strahl entstanden ist. Wasserstoff hat nur ein Elektron, und Helium hat Elektronen nur in einer Schale; beide senden daher keine charakteristische Röntgenstrahlung aus und sind mit EDX nicht nachweisbar. Lithium sendet nur sehr schwache, niederenergetische Röntgenstrahlung (etwa 0,05 keV) aus und ist mit gewöhnlichen Detektoren mit Fenster nicht messbar (mit fensterlosen Detektoren wurde es schon nachgewiesen). Die C-Kα-Linie (etwa 0,28 keV) wird leicht absorbiert, was die Genauigkeit der Quantifizierung verringert, ist aber mit Dünnfensterdetektoren nachweisbar. Die Fe-Kα-Linie (etwa 6,4 keV) wird bei Beschleunigungsspannungen von etwa 15–20 kV ausreichend angeregt und liegt im Messbereich des Detektors. Wasserstoff wird mit Verfahren wie SIMS oder der thermischen Desorptionsspektroskopie analysiert."
+  },
+  "characterization-017": {
+    "question": "Bei der EBSD wird die Probe im REM um etwa 70° gekippt, und die von rückgestreuten Elektronen gebildeten Kikuchi-Muster werden ausgewertet. Welche Information liefert sie hauptsächlich?",
+    "choices": [
+      "Die Elementkonzentrationen an jedem Punkt, sodass sich Verteilungskarten von Spurenelementen mit ppm-Empfindlichkeit erstellen lassen",
+      "Die Oberflächenhöhe an jedem Punkt, sodass sich das Relief mit einer Auflösung unter einem Nanometer dreidimensional darstellen lässt",
+      "Die Kristallorientierung an jedem Punkt, sodass sich Karten der Korngröße, der Orientierungsunterschiede an Korngrenzen und der Textur erstellen lassen"
+    ],
+    "explanation": "Bei der EBSD bilden Elektronen, die nahe der Oberfläche der gekippten Probe gebeugt werden, auf einem Leuchtschirm ein Kikuchi-Muster aus Bändern, die den Kristallebenen entsprechen. Aus Lage und Winkeln der Bänder ergeben sich Kristallorientierung und Kristallstruktur an diesem Punkt, und durch Rastern des Elektronenstrahls erhält man eine Orientierungskarte. Daraus lassen sich Korngröße, Orientierungsunterschiede der Korngrenzen (Kleinwinkel-, Großwinkel- und Zwillingsgrenzen), Textur, Dehnungsverteilungen und anderes bestimmen. Da die Beugung nur aus einer dünnen Schicht innerhalb von etwa 10–100 nm unter der Oberfläche stammt (abhängig von Werkstoff und Beschleunigungsspannung), ist eine sorgfältige Politur nötig, die die verformte Randschicht entfernt. Elementverteilungen sind Aufgabe von EDX oder WDX, Spurenelemente von SIMS und die Oberflächenhöhe von AFM und ähnlichen Verfahren."
+  },
+  "characterization-018": {
+    "question": "Welche Aussage über das Rasterkraftmikroskop (AFM) trifft zu?",
+    "choices": [
+      "Es misst die Höhe über die Kraft zwischen Spitze und Oberfläche, sodass auch Isolatoren ohne Vorbehandlung an Luft beobachtet werden können",
+      "Es misst den Tunnelstrom zwischen Spitze und Probe und ist daher auf leitfähige Proben beschränkt",
+      "Es rastert einen fein fokussierten Elektronenstrahl und erfasst Sekundärelektronen, sodass Vakuum und eine leitfähige Beschichtung nötig sind"
+    ],
+    "explanation": "Beim AFM wird eine scharfe Spitze am Ende eines Cantilevers nahe an die Probenoberfläche gebracht und über sie gerastert, während die durch interatomare Kräfte verursachte Durchbiegung des Cantilevers z. B. über einen reflektierten Laserstrahl erfasst wird; so wird das Oberflächenrelief dreidimensional gemessen. Da kein Strom fließt, lassen sich Isolatoren, Polymere und biologische Proben ohne Vorbehandlung an Luft oder in Flüssigkeit beobachten, mit einer Höhenauflösung unter einem Nanometer. Den Tunnelstrom misst das Rastertunnelmikroskop (STM), das auf leitfähige Proben beschränkt ist. Das Rastern eines Elektronenstrahls und Erfassen von Sekundärelektronen ist das REM. Andererseits tastet das AFM die Oberfläche mit der Spitze ab, sodass der auf einmal erfassbare Bereich klein ist, typischerweise bis zu einigen zehn bis 100 µm im Quadrat, und tiefe Löcher oder steile Stufen schwierig sind."
+  },
+  "characterization-019": {
+    "question": "Unter Vernachlässigung der relativistischen Korrektur beträgt die Wellenlänge von Elektronen, die mit der Spannung V beschleunigt wurden, λ ≈ 1,226/√V nm (V in Volt). Welcher Wert kommt der Wellenlänge von 10-kV-Elektronen, wie sie im REM häufig verwendet werden, am nächsten?",
+    "choices": [
+      "Etwa 0,00012 nm",
+      "Etwa 0,012 nm",
+      "Etwa 0,39 nm"
+    ],
+    "explanation": "Einsetzen von V = 10 kV = 1,0×10⁴ V ergibt λ ≈ 1,226/√(1,0×10⁴) = 1,226/100 ≈ 0,0123 nm, also etwa 0,012 nm (mit relativistischer Korrektur etwa 0,0122 nm, ein Unterschied von etwa 0,5 %). Etwa 0,39 nm setzt die Spannung in kV, also 10, ein, und etwa 0,00012 nm vergisst die Quadratwurzel. Diese Wellenlänge ist viel kürzer als der Atomabstand (etwa 0,25 nm), sodass die Elektronen an Kristallen gebeugt werden, was EBSD und Elektronenbeugung nutzen. Die Auflösung eines REM wird jedoch nicht durch die Wellenlänge bestimmt, sondern hauptsächlich durch den Strahldurchmesser und die Ausbreitung der Elektronen in der Probe."
+  },
+  "characterization-020": {
+    "question": "Im Pulverdiffraktogramm (XRD) eines kubischen Metalls stehen die sin²θ-Werte der ersten fünf Reflexe, von kleinen Winkeln her gezählt, im Verhältnis 1 : 1,33 : 2,67 : 3,67 : 4,00. Welche Kombination aus Kristallstruktur und Index des Reflexes beim kleinsten Winkel trifft zu?",
+    "choices": [
+      "krz, mit (110) als Reflex beim kleinsten Winkel",
+      "Kubisch-primitiv, mit (100) als Reflex beim kleinsten Winkel",
+      "kfz, mit (111) als Reflex beim kleinsten Winkel"
+    ],
+    "explanation": "Für kubische Kristalle gilt sin²θ = (λ²/4a²)(h² + k² + l²); die Verhältnisse der sin²θ-Werte sind also gleich denen von h² + k² + l². Multipliziert man mit 3, erhält man die ganzen Zahlen 3 : 4 : 8 : 11 : 12, die (111), (200), (220), (311) und (222) entsprechen und zur Auslöschungsregel des kfz-Gitters passen, nach der nur Reflexe mit lauter ungeraden oder lauter geraden h, k, l auftreten. Das krz-Gitter zeigt (110), (200), (211) … mit geradem h + k + l, im Verhältnis 2 : 4 : 6 … = 1 : 2 : 3 …, und das kubisch-primitive Gitter ergibt 1 : 2 : 3 : 4 : 5 : 6 : 8 …; bei keinem tritt ein Verhältnis wie 1,33 auf. Ein Verhältnis nahe 4/3 zwischen den ersten beiden Reflexen ist ein schnelles Erkennungszeichen für kfz."
   }
 }

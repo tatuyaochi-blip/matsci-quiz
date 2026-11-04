@@ -133,5 +133,50 @@
       "ca. 3,7 J/m"
     ],
     "explanation": "E ≈ Gb²/2 = 0,5 × 26×10⁹ × (0,286×10⁻⁹)² = 0,5 × 26×10⁹ × 8,18×10⁻²⁰ ≈ 1,1×10⁻⁹ J/m. Bezogen auf die Länge b eines Atoms sind das 1,1×10⁻⁹ × 0,286×10⁻⁹ ≈ 3×10⁻¹⁹ J, etwa 2 eV. Eine Versetzung erstreckt sich über Tausende von Atomabständen, sodass der Gewinn an Konfigurationsentropie im Vergleich zu dieser Energie verschwindend klein ist; anders als Leerstellen existieren Versetzungen nicht im thermischen Gleichgewicht, sondern sind Defekte, die durch Umformung oder Erstarrung entstehen. Ca. 2,1×10⁻⁹ J/m lässt den Faktor 1/2 weg, ca. 3,7 J/m vergisst, b zu quadrieren. Da die Energie proportional zu b² ist, nehmen Versetzungen den kürzestmöglichen Burgersvektor an, den kürzesten Gittervektor in einer dichtest gepackten Richtung."
+  },
+  "defects-diffusion-016": {
+    "question": "In einem reinen Metall ist die Gleichgewichtskonzentration der Eigenzwischengitteratome weit geringer als die der Leerstellen. Was ist der Hauptgrund dafür?",
+    "choices": [
+      "Es gibt viel weniger Zwischengitterplätze als Gitterplätze, sodass den Atomen nur wenige Plätze zur Verfügung stehen",
+      "Eigenzwischengitteratome sind schwer beweglich und erreichen selbst bei hoher Temperatur ihre Gleichgewichtskonzentration nicht",
+      "Ein in eine Lücke gezwängtes Atom verzerrt seine Umgebung stark, sodass seine Bildungsenergie viel größer ist als die einer Leerstelle"
+    ],
+    "explanation": "Die Gleichgewichtskonzentration eines Punktdefekts folgt exp(−Q/kT) und nimmt mit wachsender Bildungsenergie Q exponentiell ab. Ein Eigenzwischengitteratom, also ein Atom von der Größe der Wirtsatome, das in eine Lücke gezwängt ist, verzerrt das umgebende Gitter stark; in vielen Metallen ist seine Bildungsenergie daher zwei- bis mehrfach so groß wie die einer Leerstelle, und selbst nahe dem Schmelzpunkt ist seine Konzentration gegenüber der der Leerstellen vernachlässigbar. Im kfz-Gitter gibt es ebenso viele Oktaederlücken wie Gitterplätze und doppelt so viele Tetraederlücken; an Platz mangelt es also nicht. Eigenzwischengitteratome haben zudem eine kleine Wanderungsenergie und sind sogar beweglicher als Leerstellen. In bestrahlten Metallen entstehen sie in großer Zahl, paarweise mit Leerstellen."
+  },
+  "defects-diffusion-017": {
+    "question": "Wird kaltverformtes Kupfer, Messing oder austenitischer nichtrostender Stahl geglüht, sieht man in den Körnern viele Glühzwillinge mit geraden, parallelen Grenzen. Welche Aussage darüber trifft zu?",
+    "choices": [
+      "Je höher die Stapelfehlerenergie eines Metalls wie Aluminium, desto mehr Glühzwillinge bilden sich bei der Rekristallisation",
+      "Sie sind häufig in kfz-Metallen mit niedriger Stapelfehlerenergie, und kohärente Zwillingsgrenzen sind viel energieärmer als gewöhnliche Korngrenzen",
+      "Zwillingsgrenzen haben eine höhere Energie als gewöhnliche Großwinkelkorngrenzen und verschwinden daher beim Glühen als Erste"
+    ],
+    "explanation": "Die beiden Bereiche beiderseits einer Zwillingsgrenze sind bezüglich der {111}-Grenzebene spiegelbildlich zueinander orientiert. Im kfz-Gitter kehrt sich an der Grenze lediglich die Stapelfolge der {111}-Ebenen um, sodass die Atomanordnung kaum gestört ist und die Energie einer kohärenten Zwillingsgrenze weit unter der einer gewöhnlichen Großwinkelkorngrenze liegt (in Kupfer etwa 1/15 bis 1/30 davon). Wie leicht sich Zwillinge bilden, hängt mit der Stapelfehlerenergie zusammen; in Kupfer, Messing und austenitischem nichtrostendem Stahl, die niedrige Werte haben, entstehen bei Rekristallisation und Kornwachstum viele Glühzwillinge. In Aluminium mit seiner hohen Stapelfehlerenergie sind Glühzwillinge kaum zu sehen. Da ihre Energie niedrig ist, verschwinden sie beim Glühen auch nicht als Erste."
+  },
+  "defects-diffusion-018": {
+    "question": "Eindimensionale instationäre Diffusion wird durch das zweite Ficksche Gesetz ∂C/∂t = D ∂²C/∂x² beschrieben. Wie ändert sich die Konzentration mit der Zeit an einer Stelle, an der das Konzentrationsprofil C(x) konvex (linksgekrümmt, ∂²C/∂x² > 0) ist? D sei konstant und positiv.",
+    "choices": [
+      "Sie steigt, weil mehr Atome zu dieser Stelle hin- als von ihr wegströmen",
+      "Sie sinkt, weil Atome entlang des Konzentrationsgefälles von dieser Stelle wegströmen",
+      "Das hängt nur von der Richtung des Gradienten ab: Ist er positiv, steigt sie, ist er negativ, sinkt sie"
+    ],
+    "explanation": "Das zweite Ficksche Gesetz kombiniert das erste Gesetz J = −D ∂C/∂x mit der Massenerhaltung ∂C/∂t = −∂J/∂x. Wo ∂²C/∂x² > 0 ist, nimmt die Diffusionsstromdichte J mit x ab (∂J/∂x < 0); es strömt also mehr zu dieser Stelle hin als von ihr weg, und die Konzentration steigt. Konvexe Täler füllen sich auf, konkave Spitzen werden abgetragen, und das Profil wird glatter. Ob die Konzentration steigt oder sinkt, hängt nicht von der Richtung des Gradienten ab, sondern von seiner Änderung (der Krümmung); selbst ein steiler Gradient lässt die Konzentration unverändert, wenn das Profil geradlinig ist. Deshalb ist ein lineares Konzentrationsprofil die Lösung für den stationären Zustand."
+  },
+  "defects-diffusion-019": {
+    "question": "In einer symmetrischen Kleinwinkel-Kippkorngrenze aus gleichmäßig angeordneten Stufenversetzungen gilt bei kleinem Orientierungsunterschied θ zwischen θ und dem Versetzungsabstand D die Beziehung D ≈ b/θ. Welcher Wert kommt dem Versetzungsabstand in einer solchen Korngrenze mit θ = 1,0° in Kupfer (b = 0,256 nm) am nächsten?",
+    "choices": [
+      "Etwa 0,0045 nm",
+      "Etwa 0,26 nm",
+      "Etwa 15 nm"
+    ],
+    "explanation": "θ muss im Bogenmaß eingesetzt werden: 1,0° = π/180 ≈ 0,01745 rad. D ≈ 0,256/0,01745 ≈ 14,7 nm, also etwa 15 nm; etwa alle 60 Atomabstände sitzt demnach eine Stufenversetzung. Etwa 0,26 nm teilt durch den Winkel in Grad, also durch 1,0, und etwa 0,0045 nm multipliziert bei der Umrechnung ins Bogenmaß fälschlich mit 180/π und teilt durch das Ergebnis. Mit wachsendem Orientierungsunterschied rücken die Versetzungen enger zusammen, bis sich ihre Kerne überlappen und sie nicht mehr als einzelne Versetzungen unterscheidbar sind; oberhalb von etwa 10–15° wird die Grenze daher als Großwinkelkorngrenze behandelt. Auch die Subkorngrenzen, die bei der Erholung (Polygonisation) kaltverformter Metalle entstehen, sind Grenzen dieser Art."
+  },
+  "defects-diffusion-020": {
+    "question": "Springen Atome in einem dreidimensionalen Gitter regellos, so gilt für den Diffusionskoeffizienten D = Γλ²/6, wobei Γ die Zahl der Sprünge eines Atoms pro Sekunde und λ die Sprungweite ist. Welcher Wert kommt Γ für D = 1,0×10⁻¹¹ m²/s und λ = 0,25 nm am nächsten?",
+    "choices": [
+      "Etwa 2,7×10⁷ s⁻¹",
+      "Etwa 9,6×10⁸ s⁻¹",
+      "Etwa 1,6×10⁸ s⁻¹"
+    ],
+    "explanation": "Γ = 6D/λ² = 6 × 1,0×10⁻¹¹/(0,25×10⁻⁹)² = 6,0×10⁻¹¹/6,25×10⁻²⁰ ≈ 9,6×10⁸ s⁻¹. Etwa 1,6×10⁸ s⁻¹ vergisst den Faktor 6, und etwa 2,7×10⁷ s⁻¹ setzt die 6 fälschlich in den Nenner, D/(6λ²). Selbst bei etwa einer Milliarde Sprüngen pro Sekunde ist die Richtung jedes Sprungs zufällig, sodass die Nettoverschiebung nur etwa √(6Dt) beträgt, in einer Sekunde rund 8 µm – weit weniger als die gesamte Sprungstrecke von etwa 0,24 m. Atome schwingen etwa 10¹³-mal pro Sekunde, sodass nur etwa jede zehntausendste Schwingung zu einem erfolgreichen Sprung führt."
   }
 }
