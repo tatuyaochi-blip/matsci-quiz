@@ -210,7 +210,7 @@ function setup() {
   };
   const isF = () => E.unit.value === 'f';
   // セルシウス度の記号: ja・zh-hant・ko の本文は ℃、en・de は °C(サイトの表記にそろえる)
-  const CS = ['ja', 'zh-hant', 'ko'].includes(lang) ? '℃' : '°C';
+  const CS = ['ja', 'zh-hant', 'ko'].includes(lang.toLowerCase()) ? '℃' : '°C';
   const unitSym = () => (isF() ? '°F' : CS);
   // 表の温度: 出典の °C と °F をそのまま使う(換算し直さない)
   const tempOf = (c, f) => `${nf(0).format(isF() ? f : c)} ${unitSym()}`;

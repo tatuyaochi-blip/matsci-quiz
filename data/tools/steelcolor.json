@@ -576,6 +576,765 @@
           "assda": "https://www.assda.asn.au/assda-accredited-fabricators/stainless-fabrication-common-traps-to-avoid"
         }
       }
+    },
+    "zh-hant": {
+      "nav": "鋼的顏色與溫度",
+      "card": "選擇溫度，由黑體輻射計算加熱鋼材發出的光色，並與附出處的火色、回火色、焊接熱色表並列",
+      "title": "鋼的顏色與溫度（火色的計算、回火色、焊接熱色）",
+      "description": "以普朗克公式與 CIE 1931 配色函數計算加熱鋼材的光色（紅熱、黃熱、白熱）並顯示色樣，與 1905 年美國標準局的火色表並列。碳鋼的回火色與不鏽鋼的焊接熱色，也以出處的數值列出。顏色只是參考，不能取代溫度計。",
+      "h1": "鋼的顏色與溫度",
+      "lead": "附原理與出處，說明加熱的鋼發出的光色，以及表面氧化膜造成的回火色與焊接熱色。選擇溫度後，以普朗克公式與 CIE 1931 配色函數計算黑體輻射的顏色並顯示色樣，與傳統的火色表並列。顏色的觀感會隨周圍亮度、眼睛的適應與表面狀態而改變，回火色也會隨加熱時間而變，因此都只是參考。溫度請以溫度計測量。",
+      "in_heading": "溫度",
+      "t": "溫度",
+      "unit": "單位",
+      "unit_c": "℃（攝氏）",
+      "unit_f": "°F（華氏）",
+      "out_heading": "加熱鋼材的光色（黑體輻射的計算）",
+      "kelvin": "絕對溫度",
+      "xy": "色度 (x, y)",
+      "hex": "螢幕顯示色（sRGB）",
+      "peak": "輻射峰值的波長",
+      "lum": "亮度（以 1000 ℃ 為 1）",
+      "fire_h": "火色表（1905 年的比較表）",
+      "temper_h": "回火色（碳鋼）",
+      "tint_h": "不鏽鋼的焊接熱色",
+      "note": "光色是以普朗克公式與 CIE 1931 2° 視野配色函數（CIE 公開的表，5 nm 間隔）計算，並假設發射率與波長無關（灰體）。火色表取自美國標準局 1905 年的論文，回火色取自美國海軍的教材與 Spon 的 Workshop Receipts，不鏽鋼的熱色取自英國不鏽鋼協會（BSSA）的表，只收錄經出處確認的數值（「灰色」回火色的溫度等無法確認的數值未收錄）。色樣是螢幕的顯示色，只是參考。不能取代溫度計。",
+      "practice": "練習熱處理的題目",
+      "related": "相關名詞",
+      "sections": [
+        {
+          "h": "加熱的鋼為什麼會發光（黑體輻射）",
+          "p": "物體會依溫度放出電磁波（熱輻射）。能完全吸收所有波長的光的理想物體稱為黑體，黑體放出的光在各波長的強度，由普朗克公式 M(λ, T) = 2πhc²/λ⁵ × 1/(exp(hc/λkT) − 1) 只依溫度 T 決定（h 為普朗克常數，c 為光速，k 為波茲曼常數）。溫度升高時，所有波長的強度都增加，尤其短波長側增加得特別多。紅熱的鋼的顏色，由這個光譜中肉眼可見的部分（約 380～780 nm）的形狀決定。"
+        },
+        {
+          "h": "維恩位移定律：峰值在紅外線",
+          "p": "黑體光譜峰值的波長為 λmax = b/T（b ≈ 2898 µm·K），與絕對溫度成反比（維恩位移定律）。1000 ℃（1273 K）時約為 2.3 µm，即使 1600 ℃（1873 K）也約為 1.5 µm，峰值位於看不見的紅外線。看得見的是峰的短波長側尾端，那裡波長越長強度越大，所以鋼最先發出紅光。此外，400 ℃ 與 1000 ℃ 的可見光亮度相差約 1000 萬倍（本工具的計算）。"
+        },
+        {
+          "h": "為什麼會由紅 → 橙 → 偏黃變化",
+          "p": "溫度升高時峰值往短波長側移動，在可見範圍內，綠光與藍光的比例逐漸增加。因此色度由深紅移向橙色，再到偏黃的橙色。計算中即使 1600 ℃ 色度仍是橙色（x ≈ 0.54），但傳統的火色表在約 1000～1200 ℃ 就稱為「黃色」「白色」。這個差異可能是因為非常明亮的光在眼中容易顯得偏白（推測）。"
+        },
+        {
+          "h": "為什麼不會發出藍白色的光",
+          "p": "溫度升高時，黑體的色度沿著色度圖上的黑體軌跡移動，即使溫度趨近無限大，也只會接近 (x, y) ≈ (0.240, 0.234) 的偏藍白色。要接近日光的白色（CIE 的 D65，相關色溫約 6500 K）的色度也需要數千 K。純鐵的熔點為 1538 ℃（1811 K），所以固態的鋼最多只到橙色～偏黃的顏色，不會發出藍白色的光。"
+        },
+        {
+          "h": "色度座標 (x, y) 與相關色溫",
+          "p": "在 CIE 1931 表色系統中，將光的光譜乘上 3 個配色函數 x̄、ȳ、z̄ 後加總，得到三刺激值 X、Y、Z。Y 相當於明亮程度（輝度），色度座標 x = X/(X+Y+Z)、y = Y/(X+Y+Z) 表示去除亮度之後的顏色。將各溫度的黑體色度連成的線稱為黑體軌跡，對於位在黑體軌跡附近的光，以「顏色最接近的黑體溫度」表示其顏色，稱為相關色溫（單位 K）。黑體本身的相關色溫等於其溫度。"
+        },
+        {
+          "h": "計算方法與驗算",
+          "p": "本工具將普朗克公式的光譜乘上 CIE 1931 2° 視野配色函數（使用 CIE 公開的 1 nm 間隔表中每 5 nm 的值，加總 360～830 nm）求得 XYZ，再轉換為 sRGB（IEC 61966-2-1 的轉換矩陣與伽瑪校正）。亮度以 R、G、B 的最大值為 1 加以正規化。400～1600 ℃ 的黑體色度位於 sRGB 可表現的色域之外，因此將負的成分設為 0，以相近的顏色顯示。我們以另一個程式（python）做同樣的計算，確認與 CIE 標準照明體 A 的色度（x = 0.44758、y = 0.40745），以及 Robertson（1968）的黑體軌跡表（1667 K 等）一致到小數第 4 位。"
+        },
+        {
+          "h": "發射率與灰體",
+          "p": "實際的鋼並不是黑體，其發射率 ε（與同溫度黑體相比的輻射比例）小於 1。發射率與波長無關的物體稱為灰體，其光譜只是黑體的 ε 倍，形狀不變。色度 x、y 是比值，ε 會互相抵消，所以顏色相同，只有亮度降低。不過金屬的發射率會隨波長、溫度與表面氧化而改變，因此將鋼視為灰體只是近似。"
+        },
+        {
+          "h": "實際觀看時的注意",
+          "p": "即使溫度相同，顏色的觀感也會隨周圍的亮度（暗處或白天的光線下）、眼睛的適應，以及表面的氧化膜（氧化皮）而改變。火色表中寫有「在暗處可見」「在日光下可見」等條件，就是這個緣故。1905 年美國標準局的論文寫道，即使是熟練的人之間，也可能相差 50 ℃ 以上。也有提醒指出，以火焰加熱的金屬看起來會比實際溫度低（美國海軍的教材 NAVEDTRA 14250A）。在日本，鍛造的技能檢定中有「鋼材表面溫度的判定」，金屬熱處理業的技能實習評價試驗中也有大致判斷爐內製品溫度的「火色試驗」，但正確的溫度要以溫度計（熱電偶、輻射溫度計等）測量。"
+        },
+        {
+          "h": "回火色的原理",
+          "p": "回火色（temper color）是將研磨過的鋼在空氣中加熱時形成的極薄氧化膜，因光的干涉而呈現的顏色。在膜表面反射的光，與在膜下方鋼面反射的光互相疊加，由膜厚決定的波長的光互相抵消，剩下的顏色就被看見。隨著膜變厚，顏色依序變為淡黃、稻草色、褐色、紫色、藍色，膜太厚時光無法穿透，干涉色便消失。顏色名稱與溫度的對應，以出處的表（美國海軍的教材、Spon）的數值列出。"
+        },
+        {
+          "h": "回火色會隨時間、鋼種與氣氛而變",
+          "p": "氧化膜的厚度不只隨溫度，也會隨加熱時間增加，所以即使顏色相同，也無法區分是以較高溫度短時間加熱，還是以較低溫度長時間加熱。美國標準局的資料（LC630）寫道，出現顏色所需的時間主要由爐溫、鋼的成分，以及工件的大小與形狀決定。表中是碳鋼在空氣中加熱時的參考。在 BSSA 的不鏽鋼 1.4301 表中，淡黃約在 290 ℃，比碳鋼的表（約 220 ℃）高，BSSA 也寫道鉻越多越耐熱（加熱時間的前提並不一致，所以差距的大小只是參考）。氣氛（焊接的保護氣體等）也會改變顏色（BSSA）。"
+        },
+        {
+          "h": "不鏽鋼的焊接熱色（heat tint）",
+          "p": "不鏽鋼在受熱使表面氧化膜變厚時也會出現顏色。焊接時這種顏色出現在焊道周圍，稱為焊接熱色（heat tint）。肉眼可見的焊接熱色會降低耐蝕性，因為鉻比鐵更容易氧化，膜的下方會留下缺鉻層（Euro Inox）。在需要耐蝕性的地方，以研磨等機械方法、酸洗（通常使用硝酸與氫氟酸的混合液）或電解拋光，去除熱色與缺鉻層（ASSDA）。"
+        },
+        {
+          "h": "常見的誤解",
+          "p": "像「稻草色的話硬度就是多少」這樣，硬度並不是只由回火色決定。顏色反映的是表面膜的厚度，會隨加熱時間與鋼種而變，而硬度由內部的組織決定。「沒有發紅光就不燙」也是錯的：依黑體的計算，400 ℃ 的可見光只有 1000 ℃ 的約 1000 萬分之 1，在明亮處即使看不出發光，仍是會造成燙傷的溫度。此外，色樣是螢幕的顏色，不能拿來對照螢幕判斷溫度。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "可以用顏色測量鋼的溫度嗎？",
+          "a": "只能當作大略的參考。1905 年美國標準局的論文寫道，以顏色估計溫度大部分取決於個人的感覺，即使熟練的人之間也可能相差 50 ℃ 以上，超過 1200 ℃ 時幾乎無法用肉眼估計。周圍的亮度，以及是否以火焰加熱，也會改變觀感。熱處理的溫度請以熱電偶或輻射溫度計等測量。"
+        },
+        {
+          "q": "回火色是稻草色的話，硬度就確定了嗎？",
+          "a": "不會確定。回火色是表面薄氧化膜的顏色，膜厚不只隨溫度，也隨加熱時間、鋼的成分，以及工件的大小與形狀而變（美國標準局 LC630）。硬度取決於由回火溫度與時間、鋼的成分所決定的內部組織，所以要以硬度試驗確認。回火的原理也請參考「鋼的熱處理實驗室」。"
+        },
+        {
+          "q": "為什麼在約 400～690 ℃，色樣都是同樣的紅色？",
+          "a": "因為這些溫度的黑體色度，是比螢幕（sRGB）能顯示的最紅的顏色還要深的紅，位在螢幕的色域之外。本工具將負的成分設為 0，以相近的顏色顯示，所以約 690 ℃ 以下都是 #ff0000。色度 (x, y) 的數值仍隨溫度而變。"
+        },
+        {
+          "q": "發射率低的鋼（研磨面等），顏色會改變嗎？",
+          "a": "如果發射率與波長無關（灰體），光譜的形狀相同、只有亮度降低，所以色度不變。實際上金屬的發射率會隨波長與表面氧化而變，所以這只是近似。比起顏色，亮度的變化大得多，所以發射率低的表面在同樣溫度下看起來較暗。"
+        },
+        {
+          "q": "為什麼不同火色表的數值不同？",
+          "a": "可能是因為顏色的命名方式、觀察者，以及周圍的亮度不同（1905 年美國標準局的論文寫道，以顏色估計大部分取決於個人的感覺）。在同一篇論文的比較表中，對於相似的顏色，Pouillet 的數值比 White & Taylor 高約 130～260 ℃ 的地方很多。本工具沒有把表合併成一個，而是把 3 種刻度原樣並列。"
+        },
+        {
+          "q": "「白熱」大約是幾 ℃？",
+          "a": "依表而不同。比較表中的「White」，White & Taylor 為 1205 ℃，Howe 為 1150 ℃，Pouillet 為 1300 ℃。不過依黑體的計算，即使 1600 ℃ 色度仍是橙色，離白色（日光的白，x = 0.3127）還很遠，表中的名稱與計算並不一致。"
+        },
+        {
+          "q": "不鏽鋼的焊接熱色應該去除嗎？",
+          "a": "在重視耐蝕性的地方，一般認為最好去除。肉眼可見的焊接熱色會降低耐蝕性（Euro Inox），BSSA 也寫道依用途可能會有影響。去除方法有研磨等機械方法、酸洗與電解拋光（ASSDA），需要做到什麼程度，依使用環境、規範與訂購方的規格決定。"
+        }
+      ],
+      "js": {
+        "ui": {
+          "slider": "溫度（滑桿）",
+          "sep": "；",
+          "quick": "常用的溫度：",
+          "bad": "請輸入 {lo}～{hi} 的溫度。",
+          "lead_v": "{t}（{k} K）的黑體光色（計算）：色度 (x, y) = ({x}, {y})。輻射強度的峰值位於 {p} µm 的紅外線，肉眼看得到的是峰的短波長側尾端（偏紅的一側較強）的光。",
+          "swatch_label": "{t} 的黑體色樣 {hex}",
+          "band1": "色帶（亮度一致的顏色，400～1600 ℃）",
+          "band2": "色帶（含亮度的顏色。以 1600 ℃ 的亮度為最大。不考慮眼睛的適應）",
+          "band_unit": "色帶刻度的單位：{u}。黑線為所選的溫度。",
+          "h_notes": "觀看這個顏色時的注意",
+          "n_out": "色帶與火色表的範圍為 {lo}～{hi}。這個溫度在範圍外，但仍有計算。",
+          "n_clip": "這個溫度的黑體色度位在螢幕可顯示的色域（sRGB）之外（藍色成分為負）。以負成分設為 0 的相近顏色顯示。",
+          "n_red": "低於約 690 ℃（約 1270 °F）時綠色成分也變為 0，螢幕上都顯示為同樣的紅色（#ff0000）。計算的色度是比這更深的紅。",
+          "n_dim": "這個溫度的光非常弱，亮度不到 1000 ℃ 的 1 萬分之 1。在明亮處幾乎看不見。色樣以一致的亮度顯示。",
+          "n_white": "火色表把這附近的溫度稱為「黃色」～「白色」，但計算的色度是橙色（表與計算不一致之處）。",
+          "n_screen": "色樣是螢幕的顯示色，只是參考。螢幕的設定與周圍的亮度會改變觀感。不能取代溫度計。",
+          "method": "計算：以普朗克公式求黑體光譜，以 CIE 1931 2° 視野配色函數（CIE 公開的表，5 nm 間隔，360～830 nm）求三刺激值 XYZ，再轉換為色度 (x, y) 與 sRGB（IEC 61966-2-1 的矩陣與伽瑪校正，亮度正規化）。假設發射率與波長無關（灰體）。「亮度」是輝度 Y 的比值，為相同發射率的黑體之間的比。",
+          "fire_near": "與 {t} 最接近的表中數值：",
+          "fire_item": "「{n}」{v}",
+          "fire_note": "表依美國標準局（現在的 NIST）1905 年論文的比較表原樣列出（°C、°F 都是原表的數值。但 Howe 的 White 的 °F，原表印為 2108，我們依 °C 的 1150 與差值欄的 −98 讀為 2102）。3 種刻度是各自制定的，同一列的顏色是原表視為相近而並列的。顏色名稱為原表的英文，括號內是本頁的翻譯。出處：",
+          "h_fire_cmp": "表與計算顏色的比較",
+          "fire_cmp": [
+            "「剛開始看得見的紅」在 White & Taylor 為 470 ℃（暗處），在 Howe 為 475 ℃（日光下），在 Pouillet 為 525 ℃。以同一列比較，Pouillet 的數值比另外兩者高約 130～260 ℃ 的地方很多。",
+            "計算的色度不論 500 ℃ 或 1000 ℃ 都是紅～橙色，變化不大。表中的「暗」「亮」，很多地方可能是在說亮度而不是色度的差別（推測）。請與上方「含亮度的色帶」一起看。",
+            "表中在約 1000～1200 ℃ 變成「黃色」「白色」，但計算的色度即使在 1600 ℃ 仍是橙色（x ≈ 0.54），離日光的白（CIE 的 D65，x = 0.3127）很遠，這一點表與計算並不一致。可能是因為非常明亮的光在眼中容易顯得偏白（推測）。",
+            "同一篇論文寫道，以顏色估計溫度大部分取決於個人的感覺，同一個人也會隨周圍的亮度而變，熟練的人之間也可能相差 50 ℃ 以上，超過 1200 ℃ 時幾乎無法用肉眼估計。"
+          ],
+          "h_mech": "回火色出現的原理（氧化膜的干涉）",
+          "fig_label": "在氧化膜表面反射的光，與穿過膜在鋼面反射的光互相疊加的示意圖",
+          "fig_air": "空氣",
+          "fig_oxide": "氧化膜",
+          "fig_steel": "鋼",
+          "fig_r1": "在膜表面反射",
+          "fig_r2": "在鋼面反射",
+          "mech1": "將研磨過的鋼在空氣中加熱，表面會形成極薄的氧化膜。在膜表面反射的光，與穿過膜在鋼面反射的光互相疊加，由膜厚決定的波長的光互相抵消（干涉）。沒有被抵消的其餘的光，就被看成顏色。",
+          "mech2": "溫度越高、加熱越久，膜就越厚，被抵消的波長也隨之改變，所以顏色依序變為淡黃 → 稻草色 → 褐色 → 紫色 → 藍色。膜再變厚時光無法穿透，就看不到干涉色。",
+          "mech_src": "原理說明（顏色來自干涉一事，經 1925 年 U. R. Evans 的研究而獲得認可，以及厚膜不會發生干涉）的出處：",
+          "temper_sw": "色樣是本頁選定的螢幕顯示色，只是參考（不是出處的數值）。溫度維持出處的數值（°C、°F 皆然）。",
+          "h_temper_notes": "使用回火色時的注意",
+          "temper_notes": [
+            "顏色不只由溫度決定。美國標準局的資料（LC630）寫道，達到某個顏色所需的加熱時間，主要由爐溫、鋼的成分，以及工件的大小與形狀這 3 項決定。即使顏色相同，也無法只靠顏色區分是以較高溫度短時間加熱，還是以較低溫度長時間加熱。",
+            "表是研磨過的碳鋼在空氣中加熱時的參考。美國海軍的教材寫道，要看顏色必須把表面磨亮，而且這是在沒有測溫設備時使用的方法。",
+            "回火色是表面薄膜的顏色，並不表示內部的組織或硬度。硬度由回火的溫度、時間與鋼的成分決定，所以要以硬度試驗確認。",
+            "兩個出處中，有些地方對同一溫度給了不同的名稱（288 ℃ 在美國海軍的教材中為深藍，在 Spon 中為深紫）。"
+          ],
+          "tint_lead": "這是不鏽鋼 1.4301（相當於 SUS304）在空氣中加熱時的顏色參考。焊接時，受熱的焊道周圍會出現這些顏色（焊接熱色，heat tint）。",
+          "tint_sw": "色樣是螢幕的顯示色，只是參考。溫度是 BSSA 表中的數值（°F 為換算值。依 BSSA 的說明，這類表所依據的試驗通常是加熱 1 小時）。同一篇文章寫道，加熱時間越長顏色越深，表面粗糙度、氣氛（焊接的保護氣體等）與鋼的成分（尤其是鉻含量）也會改變顏色。出處：",
+          "h_tint_care": "焊接熱色的注意",
+          "tint_care": [
+            "肉眼可見的焊接熱色會降低該表面的耐蝕性。因為鉻比鐵更容易氧化，熱色膜的下方會留下鉻較少的層（Euro Inox）。BSSA 也寫道，依用途可能會影響耐蝕性。",
+            "要得到最佳的耐蝕性，應以機械方法（研磨等）、化學方法（酸洗，通常使用硝酸與氫氟酸的混合液）或電解拋光，去除熱色膜與缺鉻層（ASSDA）。Euro Inox 也寫道，熱色可用酸洗膏或酸洗凝膠去除，或在研磨等之後以硝酸處理去除。",
+            "酸洗的藥品很危險，請遵守化學品處理的規定並使用防護具。"
+          ],
+          "col_sw": "色樣",
+          "col_color": "顏色",
+          "col_temp": "溫度參考",
+          "l_lab": "鋼的熱處理實驗室（相圖、回火）",
+          "l_cmp": "淬火與回火的差異",
+          "l_ss": "不鏽鋼的資料",
+          "l_glossary": "名詞解釋",
+          "safety": "安全：紅熱、白熱的金屬即使不接觸也會放出強烈的輻射熱。焊接電弧的光含有強烈的紫外線，會傷害眼睛與皮膚。請使用遮光護目鏡、焊接面罩等防護具。本計算與表只是參考，不能取代溫度計。"
+        },
+        "fire": {
+          "wt_dark": "Lowest red visible in dark（在暗處勉強看得見的紅）",
+          "wt_darkred": "Dark red, blood red, low red（暗紅色、血紅色）",
+          "wt_darkcherry": "Dark cherry red（暗櫻桃紅）",
+          "wt_cherry": "Cherry, full red（櫻桃紅、紅色）",
+          "wt_lightred": "Light red, light cherry（亮紅、亮櫻桃紅）",
+          "wt_orange": "Orange（橙色）",
+          "wt_lightorange": "Light orange（亮橙色）",
+          "wt_yellow": "Yellow（黃色）",
+          "wt_lightyellow": "Light yellow（淡黃色）",
+          "wt_white": "White（白色）",
+          "pou_lowest": "Lowest red（剛開始看得見的紅）",
+          "pou_darkred": "Dark red（暗紅色）",
+          "pou_lowcherry": "Lowest cherry（櫻桃紅的開始）",
+          "pou_cherry": "Cherry（櫻桃紅）",
+          "pou_brightcherry": "Bright cherry（亮櫻桃紅）",
+          "pou_darkorange": "Dark orange（暗橙色）",
+          "pou_brightorange": "Bright orange（亮橙色）",
+          "pou_white": "White（白色）",
+          "pou_brightwhite": "Very bright white（非常亮的白）",
+          "pou_dazzling": "Dazzling white（耀眼的白）",
+          "howe_day": "Lowest red visible in daylight（在日光下勉強看得見的紅）",
+          "howe_dull": "Dull red（暗沉的紅）",
+          "howe_fullcherry": "Full cherry（櫻桃紅）",
+          "howe_lightred": "Light red（亮紅）",
+          "howe_fullyellow": "Full yellow（黃色）",
+          "howe_lightyellow": "Light yellow（淡黃色）",
+          "howe_white": "White（白色）"
+        },
+        "src": {
+          "wt": "White & Taylor",
+          "pou": "Pouillet",
+          "howe": "Howe",
+          "navy": "美國海軍的教材",
+          "spon": "Spon",
+          "nbs": "Waidner & Burgess「Optical Pyrometry」Bulletin of the Bureau of Standards 1(2), 1905, p. 209",
+          "navy_full": "美國海軍 Aviation Structural Mechanic (AM)（NAVEDTRA 14315）Table 6-2",
+          "spon_full": "Spon's Workshop Receipts（American Library Edition）Vol. 3「Colour Tests」",
+          "lc630": "美國國家標準局（NBS）Letter Circular LC630「Bluing of Iron and Steel」",
+          "cam": "劍橋大學 M. Peet & H. K. D. H. Bhadeshia「Oxide on Steel and Tempering Colours」",
+          "bssa": "英國不鏽鋼協會（BSSA）「Heat Tint (Temper) Colours on Stainless Steel Surface Heated in Air」",
+          "euroinox": "Euro Inox「Pickling and Passivating Stainless Steel」（2007）",
+          "assda": "澳洲不鏽鋼發展協會（ASSDA）「Stainless Fabrication: Common Traps to Avoid」"
+        },
+        "temper": {
+          "pale_yellow": "淡黃色（Pale yellow）",
+          "straw": "稻草色（Straw）",
+          "golden": "金黃色（Golden yellow）",
+          "brown": "褐色（Brown）",
+          "brown_purple": "帶紫色斑點的褐色（Brown dappled with purple）",
+          "purple": "紫色（Purple）",
+          "dark_purple": "深紫色（Dark purple）",
+          "dark_blue": "深藍色（Dark blue）",
+          "bright_blue": "亮藍色（Bright blue）",
+          "pale_blue": "淡藍色（Pale blue）",
+          "green_blue": "帶綠的藍色（Blue tinted with green）"
+        },
+        "spon": {
+          "very_pale_yellow": "Very pale yellow",
+          "straw_yellow": "Straw yellow",
+          "brown_yellow": "Brown yellow",
+          "light_purple": "Light purple",
+          "dark_purple": "Dark purple",
+          "clear_blue": "Clear blue",
+          "pale_blue": "Pale blue",
+          "blue_green": "Blue tinted with green"
+        },
+        "tint": {
+          "pale_yellow": "淡黃（pale yellow）",
+          "straw_yellow": "稻草色（straw yellow）",
+          "dark_yellow": "深黃（dark yellow）",
+          "brown": "褐色（brown）",
+          "purple_brown": "帶紫的褐色（purple brown）",
+          "dark_purple": "深紫（dark purple）",
+          "blue": "藍色（blue）",
+          "dark_blue": "深藍（dark blue）"
+        },
+        "url": {
+          "cam": "http://www.phase-trans.msm.cam.ac.uk/2008/Oxide/Oxide.html",
+          "lc630": "https://www.govinfo.gov/content/pkg/GOVPUB-C13-7666bb8911301f6cb01ab783a8633676/pdf/GOVPUB-C13-7666bb8911301f6cb01ab783a8633676.pdf",
+          "euroinox": "https://bssa.org.uk/wp-content/uploads/2021/07/Pickling-and-Passivating-Stainless-Steel.pdf",
+          "assda": "https://www.assda.asn.au/assda-accredited-fabricators/stainless-fabrication-common-traps-to-avoid"
+        }
+      }
+    },
+    "ko": {
+      "nav": "강의 색과 온도",
+      "card": "온도를 고르면 가열한 강이 내는 빛의 색을 흑체 복사로 계산하고, 발광색·템퍼 컬러·용접 변색의 표와 출처를 함께 나란히 보여 줍니다",
+      "title": "강의 색과 온도(발광색 계산·템퍼 컬러·용접 변색)",
+      "description": "가열한 강의 빛의 색(적열·황열·백열)을 플랑크의 식과 CIE 1931 등색 함수로 계산하여 색 견본을 보여 주고, 1905년 미국 표준국의 발광색 표와 나란히 놓습니다. 탄소강의 템퍼 컬러와 스테인리스강의 용접 변색도 출처의 값으로 보여 줍니다. 색은 어림값이며 온도계를 대신하지 않습니다.",
+      "h1": "강의 색과 온도",
+      "lead": "가열한 강이 내는 빛의 색과, 표면 산화막에 의한 템퍼 컬러·용접 변색을 원리와 출처와 함께 보여 줍니다. 온도를 고르면 흑체 복사의 색을 플랑크의 식과 CIE 1931 등색 함수로 계산하여 견본을 보여 주고, 예로부터 쓰인 발광색 표와 나란히 놓습니다. 색이 보이는 방식은 주위의 밝기·눈의 순응·표면 상태에 따라 달라지고, 템퍼 컬러는 가열 시간에 따라서도 달라지므로 모두 어림값입니다. 온도는 온도계로 측정하십시오.",
+      "in_heading": "온도",
+      "t": "온도",
+      "unit": "단위",
+      "unit_c": "℃(섭씨)",
+      "unit_f": "°F(화씨)",
+      "out_heading": "가열한 강의 빛의 색(흑체 복사의 계산)",
+      "kelvin": "절대 온도",
+      "xy": "색도 (x, y)",
+      "hex": "화면 표시 색(sRGB)",
+      "peak": "복사 피크의 파장",
+      "lum": "밝기(1000 ℃를 1로 함)",
+      "fire_h": "발광색 표(1905년의 비교표)",
+      "temper_h": "템퍼 컬러(탄소강)",
+      "tint_h": "스테인리스강의 용접 변색",
+      "note": "빛의 색은 플랑크의 식과 CIE 1931 2° 시야 등색 함수(CIE가 공개한 표, 5 nm 간격)에 의한 계산이며, 방사율은 파장에 의존하지 않는다(회색체)고 가정합니다. 발광색 표는 미국 표준국의 1905년 논문, 템퍼 컬러는 미 해군 교재와 Spon의 Workshop Receipts, 스테인리스강의 변색은 영국 스테인리스강 협회(BSSA)의 표의 값이며, 출처에서 확인한 값만 넣었습니다(‘회색’ 템퍼 컬러의 온도 등 확인하지 못한 값은 넣지 않았습니다). 색 견본은 화면의 표시 색이며 어림값입니다. 온도계를 대신하지 않습니다.",
+      "practice": "열처리 문제 풀기",
+      "related": "관련 용어",
+      "sections": [
+        {
+          "h": "가열한 강이 빛나는 원리(흑체 복사)",
+          "p": "물체는 온도에 따라 전자기파(열복사)를 냅니다. 모든 파장의 빛을 전부 흡수하는 이상적인 물체를 흑체라 하며, 흑체가 내는 빛의 파장별 세기는 플랑크의 식 M(λ, T) = 2πhc²/λ⁵ × 1/(exp(hc/λkT) − 1)에 의해 온도 T만으로 정해집니다(h는 플랑크 상수, c는 광속, k는 볼츠만 상수). 온도가 오르면 모든 파장에서 세기가 커지며, 특히 짧은 파장 쪽이 크게 늘어납니다. 적열한 강의 색은 이 스펙트럼 가운데 눈에 보이는 부분(약 380~780 nm)의 모양으로 정해집니다."
+        },
+        {
+          "h": "빈의 변위 법칙: 피크는 적외선에 있다",
+          "p": "흑체 스펙트럼의 피크 파장은 λmax = b/T(b ≈ 2898 µm·K)로, 절대 온도에 반비례합니다(빈의 변위 법칙). 1000 ℃(1273 K)에서는 약 2.3 µm, 1600 ℃(1873 K)에서도 약 1.5 µm로, 피크는 눈에 보이지 않는 적외선에 있습니다. 눈에 보이는 것은 피크 자락의 짧은 파장 쪽이며, 그곳에서는 파장이 길수록 세기가 크므로 강은 먼저 붉게 빛납니다. 또한 400 ℃와 1000 ℃에서는 보이는 빛의 밝기가 1000만 배 정도 다릅니다(이 도구의 계산)."
+        },
+        {
+          "h": "왜 빨강 → 주황 → 노란빛으로 변하는가",
+          "p": "온도가 오르면 피크가 짧은 파장 쪽으로 움직여, 보이는 범위 안에서 초록과 파랑 빛의 비율이 늘어 갑니다. 그래서 색도는 짙은 빨강에서 주황, 노란빛을 띤 주황으로 움직입니다. 계산에서는 1600 ℃에서도 색도가 주황(x ≈ 0.54)이지만, 예전의 발광색 표에서는 1000~1200 ℃ 정도에서 ‘황색’ ‘백색’이라고 부릅니다. 이 차이는 매우 밝은 빛이 눈에는 희게 보이기 쉽기 때문이라고 생각됩니다(추측)."
+        },
+        {
+          "h": "푸르스름한 흰빛이 되지 않는 이유",
+          "p": "흑체의 색도는 온도를 올리면 색도도 위의 흑체 궤적을 따라 움직이며, 온도를 무한대로 해도 (x, y) ≈ (0.240, 0.234)의 푸른빛을 띤 흰색에 가까워질 뿐입니다. 주광의 흰색(CIE의 D65, 상관 색온도 약 6500 K)에 가까운 색도가 되는 데에도 수천 K가 필요합니다. 순철의 녹는점은 1538 ℃(1811 K)이므로, 고체인 강은 주황~노란빛을 띤 색까지이며 푸르스름한 흰빛으로 빛나는 일은 없습니다."
+        },
+        {
+          "h": "색도 좌표 (x, y)와 상관 색온도",
+          "p": "CIE 1931 표색계에서는 빛의 스펙트럼에 3개의 등색 함수 x̄·ȳ·z̄를 곱해 더하여 삼자극치 X·Y·Z를 구합니다. Y는 밝기(휘도)에 해당하며, x = X/(X+Y+Z), y = Y/(X+Y+Z)의 색도 좌표는 밝기를 뺀 색을 나타냅니다. 흑체의 색도를 온도별로 이은 선이 흑체 궤적이며, 흑체 궤적 가까이에 있는 빛의 색을 ‘색이 가장 가까운 흑체의 온도’로 나타낸 것이 상관 색온도(단위 K)입니다. 흑체 자체의 상관 색온도는 그 온도와 같습니다."
+        },
+        {
+          "h": "계산 방법과 검산",
+          "p": "이 도구는 플랑크의 식의 스펙트럼에 CIE 1931 2° 시야 등색 함수(CIE가 공개한 1 nm 간격의 표에서 5 nm마다의 값을 사용하여 360~830 nm를 합산)를 곱해 XYZ를 구하고, sRGB(IEC 61966-2-1의 변환 행렬과 감마 보정)로 바꿉니다. 밝기는 R·G·B의 최댓값을 1로 맞추어 정규화합니다. 400~1600 ℃의 흑체 색도는 sRGB로 나타낼 수 있는 색의 바깥에 있으므로, 음의 성분을 0으로 한 가까운 색으로 표시합니다. 같은 계산을 별도의 프로그램(python)으로 수행하여, CIE 표준 광원 A의 색도(x = 0.44758, y = 0.40745)와 Robertson(1968)의 흑체 궤적 표(1667 K 등)와 소수 넷째 자리까지 일치함을 확인했습니다."
+        },
+        {
+          "h": "방사율과 회색체",
+          "p": "실제 강은 흑체가 아니며, 방사율 ε(같은 온도의 흑체에 대한 복사의 비율)은 1보다 작습니다. 방사율이 파장에 의존하지 않는 물체를 회색체라 하며, 그 스펙트럼은 흑체의 ε배가 될 뿐 모양은 바뀌지 않습니다. 색도 x, y는 비이므로 ε이 상쇄되어, 색은 같고 밝기만 낮아집니다. 다만 금속의 방사율은 파장·온도·표면 산화에 따라 변하므로, 강을 회색체로 보는 것은 근사입니다."
+        },
+        {
+          "h": "실제로 보이는 방식에 대한 주의",
+          "p": "같은 온도라도 색이 보이는 방식은 주위의 밝기(어두운 곳인지 낮의 빛 아래인지), 눈의 순응, 표면의 산화막(스케일)에 따라 달라집니다. 발광색 표에 ‘어두운 곳에서 보이는’ ‘낮의 빛에서 보이는’ 같은 조건이 적혀 있는 것은 이 때문입니다. 1905년 미국 표준국의 논문은 숙련된 사람끼리도 50 ℃ 이상 차이 날 수 있다고 적고 있습니다. 불꽃으로 가열하는 금속은 실제보다 낮은 온도로 보인다는 주의도 있습니다(미 해군 교재 NAVEDTRA 14250A). 일본에서도 단조 기능 검정에 ‘강재의 표면 온도 판정’, 금속 열처리업의 기능 실습 평가 시험에 노 안 제품의 온도를 대략 판단하는 ‘화색(火色) 시험’이 있지만, 정확한 온도는 온도계(열전대·방사 온도계 등)로 측정합니다."
+        },
+        {
+          "h": "템퍼 컬러의 원리",
+          "p": "템퍼 컬러(뜨임색, temper color)는 연마한 강을 공기 중에서 가열했을 때 생기는 아주 얇은 산화막에서 일어나는 빛의 간섭에 의한 색입니다. 막의 표면에서 반사된 빛과 막 아래 강의 면에서 반사된 빛이 겹치고, 막의 두께로 정해지는 파장의 빛이 서로 상쇄되어 나머지 색이 보입니다. 막이 두꺼워짐에 따라 담황색·짚색·갈색·보라색·청색으로 색이 옮겨 가며, 막이 너무 두꺼워지면 빛을 통과시키지 않게 되어 간섭색은 사라집니다. 색의 이름과 온도의 대응은 출처의 표(미 해군 교재, Spon)의 값으로 보여 줍니다."
+        },
+        {
+          "h": "템퍼 컬러는 시간·강의 종류·분위기에 따라 달라진다",
+          "p": "산화막의 두께는 온도뿐 아니라 가열 시간에 따라서도 늘어나므로, 같은 색이라도 높은 온도에서 짧게 가열했는지 낮은 온도에서 길게 가열했는지는 구별할 수 없습니다. 미국 표준국의 자료(LC630)는 색이 나타나기까지의 시간이 주로 노의 온도·강의 성분·제품의 크기와 모양으로 정해진다고 적고 있습니다. 표는 공기 중에서 가열한 탄소강의 어림값입니다. 스테인리스강 1.4301에 대한 BSSA의 표에서는 담황색이 약 290 ℃로 탄소강의 표(약 220 ℃)보다 높으며, BSSA는 크롬이 많을수록 열에 강하다고 적고 있습니다(가열 시간의 전제가 같지 않으므로 차이의 크기는 어림값입니다). 분위기(용접의 실드 가스 등)에 따라서도 색은 달라집니다(BSSA)."
+        },
+        {
+          "h": "스테인리스강의 용접 변색(히트 틴트)",
+          "p": "스테인리스강에서도 열로 표면의 산화막이 두꺼워지면 색이 나타납니다. 용접에서는 용접부 주위에 이 색이 나타나며, 용접 변색(히트 틴트, heat tint)이라고 부릅니다. 눈에 보이는 용접 변색은 내식성을 떨어뜨립니다. 크롬이 철보다 산화되기 쉬워서 막 아래에 크롬이 줄어든 층이 남기 때문입니다(Euro Inox). 내식성이 필요한 곳에서는 연삭 등의 기계적 방법, 산세(보통 질산과 플루오린화 수소산의 혼합액), 전해 연마로 변색과 크롬이 줄어든 층을 제거합니다(ASSDA)."
+        },
+        {
+          "h": "흔한 오해",
+          "p": "‘짚색이면 경도는 얼마’처럼 템퍼 컬러만으로 경도가 정해지는 것은 아닙니다. 색은 표면 막의 두께로, 가열 시간이나 강의 종류에 따라 달라지며, 경도는 내부의 조직으로 정해집니다. ‘붉게 빛나지 않으면 뜨겁지 않다’도 잘못이며, 흑체의 계산에서는 400 ℃의 보이는 빛이 1000 ℃의 1000만분의 1 정도밖에 되지 않아, 밝은 곳에서는 빛나 보이지 않아도 화상을 입는 온도입니다. 또한 색 견본은 화면의 색이므로, 화면과 맞추어 온도를 판단할 수는 없습니다."
+        }
+      ],
+      "faq": [
+        {
+          "q": "색으로 강의 온도를 잴 수 있습니까?",
+          "a": "대략적인 어림값밖에 되지 않습니다. 1905년 미국 표준국의 논문은 색에 의한 온도 추정이 대부분 개인의 감각에 따른 것으로, 숙련된 사람끼리도 50 ℃ 이상 차이 날 수 있으며, 1200 ℃를 넘으면 눈으로는 거의 추정할 수 없다고 적고 있습니다. 주위의 밝기나 불꽃으로 가열하는지에 따라서도 보이는 방식은 달라집니다. 열처리 온도는 열전대나 방사 온도계 등으로 측정하십시오."
+        },
+        {
+          "q": "템퍼 컬러가 짚색이면 경도가 정해집니까?",
+          "a": "정해지지 않습니다. 템퍼 컬러는 표면의 얇은 산화막의 색이며, 막의 두께는 온도뿐 아니라 가열 시간·강의 성분·제품의 크기와 모양에 따라 달라집니다(미국 표준국 LC630). 경도는 템퍼링 온도와 시간, 강의 성분으로 정해지는 내부 조직에 따르므로 경도 시험으로 확인합니다. 템퍼링의 원리는 ‘강의 열처리 랩’도 참고하십시오."
+        },
+        {
+          "q": "400~690 ℃ 정도에서 견본이 모두 같은 빨강인 것은 왜입니까?",
+          "a": "그 온도의 흑체 색도가 화면(sRGB)이 낼 수 있는 가장 붉은 색보다 더 짙은 빨강이라서, 화면의 색 범위 바깥에 있기 때문입니다. 이 도구는 음의 성분을 0으로 하여 가까운 색으로 표시하므로, 약 690 ℃보다 아래에서는 모두 #ff0000이 됩니다. 색도 (x, y)의 수치는 온도와 함께 변하고 있습니다."
+        },
+        {
+          "q": "방사율이 낮은 강(연마한 면 등)에서는 색이 달라집니까?",
+          "a": "방사율이 파장에 의존하지 않는다면(회색체) 스펙트럼의 모양은 같고 밝기만 낮아지므로 색도는 변하지 않습니다. 금속의 방사율은 실제로는 파장이나 표면 산화에 따라 변하므로 이것은 근사입니다. 색보다 밝기가 크게 변하므로, 방사율이 낮은 면은 같은 온도에서도 어둡게 보입니다."
+        },
+        {
+          "q": "발광색 표끼리 값이 다른 것은 왜입니까?",
+          "a": "색의 이름을 붙이는 방식, 관찰한 사람, 주위의 밝기가 다르기 때문이라고 생각됩니다(1905년 미국 표준국의 논문은 색에 의한 추정이 대부분 개인의 감각에 따른다고 적고 있습니다). 같은 논문의 비교표에서는 비슷한 색에 대해 Pouillet의 값이 White & Taylor보다 130~260 ℃ 정도 높은 곳이 많습니다. 이 도구에서는 표를 하나로 합치지 않고, 3가지 눈금을 그대로 나란히 놓았습니다."
+        },
+        {
+          "q": "‘백열’은 몇 ℃ 정도입니까?",
+          "a": "표에 따라 다릅니다. 비교표의 ‘White’는 White & Taylor에서 1205 ℃, Howe에서 1150 ℃, Pouillet에서 1300 ℃입니다. 다만 흑체의 계산에서는 1600 ℃에서도 색도가 주황으로, 흰색(주광의 흰색, x = 0.3127)과는 거리가 멀어 표의 이름과 계산이 맞지 않습니다."
+        },
+        {
+          "q": "스테인리스강의 용접 변색은 제거해야 합니까?",
+          "a": "내식성이 중요한 곳에서는 제거하는 것이 좋다고 여겨집니다. 눈에 보이는 용접 변색은 내식성을 떨어뜨리며(Euro Inox), BSSA도 용도에 따라서는 영향을 줄 수 있다고 적고 있습니다. 제거 방법은 연삭 등의 기계적 방법, 산세, 전해 연마이며(ASSDA), 어디까지 필요한지는 사용 환경과 규격·발주자의 사양으로 정합니다."
+        }
+      ],
+      "js": {
+        "ui": {
+          "slider": "온도(슬라이더)",
+          "sep": "; ",
+          "quick": "자주 쓰는 온도:",
+          "bad": "온도는 {lo}~{hi} 범위의 수로 입력하십시오.",
+          "lead_v": "{t}({k} K)인 흑체의 빛의 색(계산): 색도 (x, y) = ({x}, {y}). 복사 세기의 피크는 {p} µm의 적외선에 있으며, 눈에 보이는 것은 그 피크 자락의 짧은 파장 쪽(붉은 쪽이 강함)의 빛입니다.",
+          "swatch_label": "{t}인 흑체의 색 견본 {hex}",
+          "band1": "색 띠(밝기를 맞춘 색, 400~1600 ℃)",
+          "band2": "색 띠(밝기도 넣은 색. 1600 ℃의 밝기를 최대로 함. 눈의 순응은 고려하지 않음)",
+          "band_unit": "띠 눈금의 단위: {u}. 검은 선이 고른 온도입니다.",
+          "h_notes": "이 색을 볼 때의 주의",
+          "n_out": "색 띠와 발광색 표는 {lo}~{hi}의 범위입니다. 이 온도는 범위 밖이지만 계산은 하고 있습니다.",
+          "n_clip": "이 온도의 흑체 색도는 화면에서 낼 수 있는 색의 범위(sRGB) 바깥에 있습니다(청색 성분이 음이 됨). 음의 성분을 0으로 한 가까운 색으로 표시합니다.",
+          "n_red": "약 690 ℃(약 1270 °F)보다 낮은 온도에서는 녹색 성분도 0이 되어, 화면에서는 모두 같은 빨강(#ff0000)이 됩니다. 계산의 색도는 그보다 더 짙은 빨강입니다.",
+          "n_dim": "이 온도의 빛은 매우 약하여, 1000 ℃의 밝기의 1만분의 1보다 작은 밝기입니다. 밝은 곳에서는 거의 보이지 않습니다. 견본은 밝기를 맞추어 표시하고 있습니다.",
+          "n_white": "발광색 표에서는 이 부근의 온도를 ‘황색’~‘백색’이라고 부르지만, 계산의 색도는 주황입니다(표와 계산이 맞지 않는 부분입니다).",
+          "n_screen": "색 견본은 화면의 표시 색이며 어림값입니다. 화면 설정이나 주위의 밝기에 따라 보이는 방식이 달라집니다. 온도계를 대신하지 않습니다.",
+          "method": "계산: 플랑크의 식으로 흑체의 스펙트럼을 구하고, CIE 1931 2° 시야 등색 함수(CIE가 공개한 표를 5 nm 간격, 360~830 nm)로 삼자극치 XYZ를 구하여 색도 (x, y)와 sRGB(IEC 61966-2-1의 행렬과 감마 보정, 밝기는 정규화)로 바꿉니다. 방사율은 파장에 의존하지 않는다(회색체)고 가정합니다. ‘밝기’는 휘도 Y의 비로, 방사율이 같은 흑체끼리의 비입니다.",
+          "fire_near": "{t}에 가장 가까운 표의 값:",
+          "fire_item": " ‘{n}’ {v}",
+          "fire_note": "표는 미국 표준국(지금의 NIST)의 1905년 논문의 비교표를 그대로 옮긴 것입니다(°C·°F 모두 원표의 값. 다만 Howe의 White의 °F는 원표에 2108로 인쇄되어 있으나, °C의 1150과 차이 열의 −98로부터 2102로 읽었습니다). 3가지 눈금은 각각 따로 정해진 것이며, 같은 행의 색은 원표가 가까운 것으로 나란히 놓은 것입니다. 색의 이름은 원표의 영어이며, 괄호 안은 이 페이지의 번역입니다. 출처:",
+          "h_fire_cmp": "표와 계산한 색의 비교",
+          "fire_cmp": [
+            "‘보이기 시작하는 빨강’은 White & Taylor에서는 470 ℃(어두운 곳), Howe에서는 475 ℃(낮의 빛), Pouillet에서는 525 ℃입니다. 같은 행에서 비교하면 Pouillet의 값은 다른 두 값보다 130~260 ℃ 정도 높은 곳이 많습니다.",
+            "계산의 색도는 500 ℃에서도 1000 ℃에서도 빨강~주황으로, 크게 변하지 않습니다. 표의 ‘어두운’ ‘밝은’은 색도보다는 밝기의 차이를 말하는 부분이 많다고 생각됩니다(추측). 위의 ‘밝기도 넣은 띠’와 함께 보십시오.",
+            "표에서는 1000~1200 ℃ 정도에서 ‘황색’ ‘백색’이 되지만, 계산의 색도는 1600 ℃에서도 주황(x ≈ 0.54)으로, 주광의 흰색(CIE의 D65, x = 0.3127)과는 거리가 멀어 이 점은 표와 계산이 맞지 않습니다. 매우 밝은 빛은 눈에는 희게 보이기 쉽기 때문이라고 생각됩니다(추측).",
+            "같은 논문은 색에 의한 온도 추정이 대부분 개인의 감각에 따른 것으로, 같은 사람이라도 주위의 밝기에 따라 달라지고, 숙련된 사람끼리도 50 ℃ 이상 차이 날 수 있으며, 1200 ℃를 넘으면 눈으로는 거의 추정할 수 없다고 적고 있습니다."
+          ],
+          "h_mech": "템퍼 컬러가 나타나는 원리(산화막의 간섭)",
+          "fig_label": "산화막의 표면에서 반사된 빛과, 막을 통과해 강의 면에서 반사된 빛이 겹치는 그림",
+          "fig_air": "공기",
+          "fig_oxide": "산화막",
+          "fig_steel": "강",
+          "fig_r1": "막의 표면에서 반사",
+          "fig_r2": "강의 면에서 반사",
+          "mech1": "연마한 강을 공기 중에서 가열하면 표면에 아주 얇은 산화막이 생깁니다. 막의 표면에서 반사된 빛과, 막을 통과해 강의 면에서 반사된 빛이 겹쳐, 막의 두께에 따라 정해지는 파장의 빛이 서로 상쇄됩니다(간섭). 상쇄되지 않은 나머지 빛이 색으로 보입니다.",
+          "mech2": "온도가 높을수록, 또 오래 가열할수록 막은 두꺼워지고 상쇄되는 파장이 바뀌므로, 색은 담황색 → 짚색 → 갈색 → 보라색 → 청색으로 옮겨 갑니다. 막이 더 두꺼워지면 빛을 통과시키지 않게 되어 간섭색은 보이지 않게 됩니다.",
+          "mech_src": "원리 설명(색이 간섭에 의한 것임이 1925년 U. R. Evans의 연구로 인정된 것, 두꺼운 막에서는 간섭이 일어나지 않는 것)의 출처:",
+          "temper_sw": "색 견본은 이 페이지에서 고른 화면의 표시 색이며 어림값입니다(출처의 값이 아닙니다). 온도는 출처의 값 그대로입니다(°C·°F 모두).",
+          "h_temper_notes": "템퍼 컬러를 쓸 때의 주의",
+          "temper_notes": [
+            "색은 온도만으로 정해지지 않습니다. 미국 표준국의 자료(LC630)는 어떤 색을 내는 데 필요한 가열 시간이 주로 노의 온도·강의 성분·제품의 크기와 모양의 3가지로 정해진다고 적고 있습니다. 같은 색이라도 높은 온도에서 짧게 가열했는지 낮은 온도에서 길게 가열했는지는 색만으로는 구별할 수 없습니다.",
+            "표는 연마한 탄소강을 공기 중에서 가열했을 때의 어림값입니다. 미 해군 교재는 색을 보려면 표면을 연마해야 하며, 온도를 재는 설비가 없을 때 쓰는 방법이라고 적고 있습니다.",
+            "템퍼 컬러는 표면의 얇은 막의 색이며, 내부의 조직이나 경도를 나타내는 것이 아닙니다. 경도는 템퍼링의 온도·시간·강의 성분으로 정해지므로 경도 시험으로 확인합니다.",
+            "두 출처에서 같은 온도에 다른 이름이 붙은 곳이 있습니다(288 ℃는 미 해군 교재에서는 진한 청색, Spon에서는 진한 보라색)."
+          ],
+          "tint_lead": "스테인리스강 1.4301(SUS304에 해당)을 공기 중에서 가열했을 때의 색의 어림값입니다. 용접에서는 열을 받은 용접부 주위에 이 색(용접 변색, 히트 틴트)이 나타납니다.",
+          "tint_sw": "색 견본은 화면의 표시 색이며 어림값입니다. 온도는 BSSA의 표의 값입니다(°F는 환산. BSSA에 따르면 이러한 표의 바탕이 된 시험은 보통 1시간 가열에 의한 것입니다). 같은 글은 가열 시간이 길면 색이 짙어지고, 표면 거칠기·분위기(용접의 실드 가스 등)·강의 성분(특히 크롬의 양)에 따라서도 달라진다고 적고 있습니다. 출처:",
+          "h_tint_care": "용접 변색에 대한 주의",
+          "tint_care": [
+            "눈에 보이는 용접 변색은 그 면의 내식성을 떨어뜨립니다. 철보다 크롬이 산화되기 쉬워서, 변색된 막 아래에 크롬이 적은 층이 남기 때문입니다(Euro Inox). BSSA도 용도에 따라서는 내식성에 영향을 줄 수 있다고 적고 있습니다.",
+            "가장 좋은 내식성을 얻으려면 변색된 막과 크롬이 줄어든 층을 기계적 방법(연삭 등)·화학적 방법(산세. 보통 질산과 플루오린화 수소산의 혼합액)·전해 연마로 제거합니다(ASSDA). Euro Inox도 변색은 산세 페이스트나 젤, 또는 연삭 등을 한 뒤의 질산 처리로 제거할 수 있다고 적고 있습니다.",
+            "산세 약품은 위험하므로 약품 취급 규정과 보호구를 따르십시오."
+          ],
+          "col_sw": "견본",
+          "col_color": "색",
+          "col_temp": "온도의 어림값",
+          "l_lab": "강의 열처리 랩(상태도·템퍼링)",
+          "l_cmp": "담금질과 템퍼링의 차이",
+          "l_ss": "스테인리스강의 데이터",
+          "l_glossary": "용어집",
+          "safety": "안전: 적열·백열한 금속은 닿지 않아도 강한 복사열을 냅니다. 용접 아크의 빛은 강한 자외선을 포함하여 눈과 피부를 상하게 합니다. 차광 보안경·용접면 등의 보호구를 사용하십시오. 이 계산과 표는 어림값이며 온도계를 대신하지 않습니다."
+        },
+        "fire": {
+          "wt_dark": "Lowest red visible in dark (어두운 곳에서 겨우 보이는 빨강)",
+          "wt_darkred": "Dark red, blood red, low red (암적색·혈적색)",
+          "wt_darkcherry": "Dark cherry red (어두운 체리 레드)",
+          "wt_cherry": "Cherry, full red (체리 레드·적색)",
+          "wt_lightred": "Light red, light cherry (밝은 적색·밝은 체리 레드)",
+          "wt_orange": "Orange (주황색)",
+          "wt_lightorange": "Light orange (밝은 주황색)",
+          "wt_yellow": "Yellow (황색)",
+          "wt_lightyellow": "Light yellow (담황색)",
+          "wt_white": "White (백색)",
+          "pou_lowest": "Lowest red (보이기 시작하는 빨강)",
+          "pou_darkred": "Dark red (암적색)",
+          "pou_lowcherry": "Lowest cherry (체리 레드의 시작)",
+          "pou_cherry": "Cherry (체리 레드)",
+          "pou_brightcherry": "Bright cherry (밝은 체리 레드)",
+          "pou_darkorange": "Dark orange (어두운 주황색)",
+          "pou_brightorange": "Bright orange (밝은 주황색)",
+          "pou_white": "White (백색)",
+          "pou_brightwhite": "Very bright white (매우 밝은 백색)",
+          "pou_dazzling": "Dazzling white (눈부신 백색)",
+          "howe_day": "Lowest red visible in daylight (낮의 빛에서 겨우 보이는 빨강)",
+          "howe_dull": "Dull red (칙칙한 적색)",
+          "howe_fullcherry": "Full cherry (체리 레드)",
+          "howe_lightred": "Light red (밝은 적색)",
+          "howe_fullyellow": "Full yellow (황색)",
+          "howe_lightyellow": "Light yellow (담황색)",
+          "howe_white": "White (백색)"
+        },
+        "src": {
+          "wt": "White & Taylor",
+          "pou": "Pouillet",
+          "howe": "Howe",
+          "navy": "미 해군 교재",
+          "spon": "Spon",
+          "nbs": "Waidner & Burgess, “Optical Pyrometry”, Bulletin of the Bureau of Standards 1(2), 1905, p. 209",
+          "navy_full": "미 해군 Aviation Structural Mechanic (AM)(NAVEDTRA 14315) Table 6-2",
+          "spon_full": "Spon's Workshop Receipts(American Library Edition) Vol. 3 “Colour Tests”",
+          "lc630": "미국 표준국(NBS) Letter Circular LC630 “Bluing of Iron and Steel”",
+          "cam": "케임브리지 대학교 M. Peet & H. K. D. H. Bhadeshia “Oxide on Steel and Tempering Colours”",
+          "bssa": "영국 스테인리스강 협회(BSSA) “Heat Tint (Temper) Colours on Stainless Steel Surface Heated in Air”",
+          "euroinox": "Euro Inox “Pickling and Passivating Stainless Steel”(2007)",
+          "assda": "오스트레일리아 스테인리스강 개발 협회(ASSDA) “Stainless Fabrication: Common Traps to Avoid”"
+        },
+        "temper": {
+          "pale_yellow": "담황색(Pale yellow)",
+          "straw": "짚색(Straw)",
+          "golden": "황금색(Golden yellow)",
+          "brown": "갈색(Brown)",
+          "brown_purple": "보라색 얼룩이 있는 갈색(Brown dappled with purple)",
+          "purple": "보라색(Purple)",
+          "dark_purple": "진한 보라색(Dark purple)",
+          "dark_blue": "진한 청색(Dark blue)",
+          "bright_blue": "밝은 청색(Bright blue)",
+          "pale_blue": "연한 청색(Pale blue)",
+          "green_blue": "녹색을 띤 청색(Blue tinted with green)"
+        },
+        "spon": {
+          "very_pale_yellow": "Very pale yellow",
+          "straw_yellow": "Straw yellow",
+          "brown_yellow": "Brown yellow",
+          "light_purple": "Light purple",
+          "dark_purple": "Dark purple",
+          "clear_blue": "Clear blue",
+          "pale_blue": "Pale blue",
+          "blue_green": "Blue tinted with green"
+        },
+        "tint": {
+          "pale_yellow": "담황색(pale yellow)",
+          "straw_yellow": "짚색(straw yellow)",
+          "dark_yellow": "진한 황색(dark yellow)",
+          "brown": "갈색(brown)",
+          "purple_brown": "보라색을 띤 갈색(purple brown)",
+          "dark_purple": "진한 보라색(dark purple)",
+          "blue": "청색(blue)",
+          "dark_blue": "진한 청색(dark blue)"
+        },
+        "url": {
+          "cam": "http://www.phase-trans.msm.cam.ac.uk/2008/Oxide/Oxide.html",
+          "lc630": "https://www.govinfo.gov/content/pkg/GOVPUB-C13-7666bb8911301f6cb01ab783a8633676/pdf/GOVPUB-C13-7666bb8911301f6cb01ab783a8633676.pdf",
+          "euroinox": "https://bssa.org.uk/wp-content/uploads/2021/07/Pickling-and-Passivating-Stainless-Steel.pdf",
+          "assda": "https://www.assda.asn.au/assda-accredited-fabricators/stainless-fabrication-common-traps-to-avoid"
+        }
+      }
+    },
+    "de": {
+      "nav": "Farbe und Temperatur von Stahl",
+      "card": "Temperatur wählen: Die Glühfarbe von erhitztem Stahl wird aus der Strahlung des Schwarzen Strahlers berechnet und Tabellen der Glühfarben, Anlassfarben und Anlauffarben beim Schweißen mit Quellenangaben gegenübergestellt",
+      "title": "Farbe und Temperatur von Stahl (Glühfarben berechnen, Anlassfarben, Anlauffarben beim Schweißen)",
+      "description": "Berechnet die Glühfarbe von erhitztem Stahl (Rotglut, Gelbglut, Weißglut) mit dem Planckschen Strahlungsgesetz und den CIE-1931-Normspektralwertfunktionen, zeigt ein Farbmuster und stellt es neben die Glühfarbentabelle des U.S. Bureau of Standards von 1905. Anlassfarben von unlegiertem Stahl und Anlauffarben von nichtrostendem Stahl werden mit den Werten der Quellen gezeigt. Die Farben sind Richtwerte und ersetzen kein Thermometer.",
+      "h1": "Farbe und Temperatur von Stahl",
+      "lead": "Die Seite zeigt mit Erklärung und Quellen, welches Licht erhitzter Stahl aussendet und welche Anlassfarben und Anlauffarben beim Schweißen die Oxidschicht an der Oberfläche erzeugt. Nach Wahl einer Temperatur wird die Farbe des Schwarzen Strahlers mit dem Planckschen Strahlungsgesetz und den CIE-1931-Normspektralwertfunktionen berechnet, als Muster gezeigt und neben die überlieferten Glühfarbentabellen gestellt. Wie eine Farbe wirkt, hängt von der Umgebungshelligkeit, der Adaptation des Auges und dem Oberflächenzustand ab, und Anlassfarben hängen auch von der Erwärmungsdauer ab; alles hier sind daher Richtwerte. Messen Sie Temperaturen mit einem Thermometer.",
+      "in_heading": "Temperatur",
+      "t": "Temperatur",
+      "unit": "Einheit",
+      "unit_c": "°C (Celsius)",
+      "unit_f": "°F (Fahrenheit)",
+      "out_heading": "Glühfarbe von erhitztem Stahl (Berechnung als Schwarzer Strahler)",
+      "kelvin": "Absolute Temperatur",
+      "xy": "Farbort (x, y)",
+      "hex": "Bildschirmfarbe (sRGB)",
+      "peak": "Wellenlänge des Strahlungsmaximums",
+      "lum": "Helligkeit (1000 °C = 1)",
+      "fire_h": "Glühfarbentabelle (Vergleichstabelle von 1905)",
+      "temper_h": "Anlassfarben (unlegierter Stahl)",
+      "tint_h": "Anlauffarben von nichtrostendem Stahl beim Schweißen",
+      "note": "Die Glühfarbe ist mit dem Planckschen Strahlungsgesetz und den CIE-1931-Normspektralwertfunktionen für den 2°-Beobachter (die von der CIE veröffentlichte Tabelle in Schritten von 5 nm) berechnet; dabei wird ein von der Wellenlänge unabhängiger Emissionsgrad angenommen (Grauer Strahler). Die Glühfarbentabelle stammt aus einer Arbeit des U.S. Bureau of Standards von 1905, die Anlassfarben aus einer Schulungsunterlage der U.S. Navy und aus Spon's Workshop Receipts, die Anlauffarben von nichtrostendem Stahl aus einer Tabelle der British Stainless Steel Association (BSSA). Aufgenommen sind nur Werte, die in diesen Quellen geprüft wurden (nicht prüfbare Werte, etwa die Temperatur für die Anlassfarbe „Grau“, fehlen). Die Farbmuster sind Bildschirmfarben und nur Richtwerte. Kein Ersatz für ein Thermometer.",
+      "practice": "Aufgaben zur Wärmebehandlung lösen",
+      "related": "Verwandte Begriffe",
+      "sections": [
+        {
+          "h": "Warum erhitzter Stahl leuchtet (Strahlung des Schwarzen Strahlers)",
+          "p": "Jeder Körper sendet abhängig von seiner Temperatur elektromagnetische Strahlung aus (Wärmestrahlung). Ein idealer Körper, der Licht aller Wellenlängen vollständig absorbiert, heißt Schwarzer Strahler (Schwarzer Körper). Wie stark er bei jeder Wellenlänge strahlt, hängt nach dem Planckschen Strahlungsgesetz M(λ, T) = 2πhc²/λ⁵ × 1/(exp(hc/λkT) − 1) nur von der Temperatur T ab (h Plancksches Wirkungsquantum, c Lichtgeschwindigkeit, k Boltzmann-Konstante). Mit steigender Temperatur nimmt die Strahlung bei allen Wellenlängen zu, besonders stark auf der kurzwelligen Seite. Die Farbe von rotglühendem Stahl wird durch die Form dieses Spektrums im sichtbaren Bereich (etwa 380–780 nm) bestimmt."
+        },
+        {
+          "h": "Wiensches Verschiebungsgesetz: Das Maximum liegt im Infraroten",
+          "p": "Die Wellenlänge des Maximums im Spektrum des Schwarzen Strahlers ist λmax = b/T (b ≈ 2898 µm·K) und damit umgekehrt proportional zur absoluten Temperatur (Wiensches Verschiebungsgesetz). Bei 1000 °C (1273 K) liegt sie bei etwa 2,3 µm, selbst bei 1600 °C (1873 K) noch bei etwa 1,5 µm, also im unsichtbaren Infrarot. Sichtbar ist nur der kurzwellige Ausläufer dieses Maximums; dort ist die Strahlung umso stärker, je länger die Wellenlänge ist, daher leuchtet Stahl zuerst rot. Die sichtbare Helligkeit unterscheidet sich zwischen 400 °C und 1000 °C um etwa das Zehnmillionenfache (Berechnung dieses Werkzeugs)."
+        },
+        {
+          "h": "Warum die Farbe von Rot über Orange ins Gelbliche geht",
+          "p": "Mit steigender Temperatur wandert das Maximum zu kürzeren Wellenlängen, und im sichtbaren Bereich nimmt der Anteil von grünem und blauem Licht zu. Der Farbort verschiebt sich daher von tiefem Rot über Orange zu gelblichem Orange. In der Berechnung ist der Farbort selbst bei 1600 °C noch orange (x ≈ 0,54), während die alten Glühfarbentabellen schon bei etwa 1000–1200 °C von „Gelb“ und „Weiß“ sprechen. Vermutlich liegt das daran, dass sehr helles Licht dem Auge leicht weißlich erscheint (eigene Vermutung)."
+        },
+        {
+          "h": "Warum Stahl nie bläulich-weiß leuchtet",
+          "p": "Mit steigender Temperatur bewegt sich der Farbort des Schwarzen Strahlers in der Normfarbtafel entlang des Planckschen Kurvenzugs und nähert sich selbst bei unendlich hoher Temperatur nur einem bläulichen Weiß bei (x, y) ≈ (0,240; 0,234). Um einen Farbort nahe dem Tageslichtweiß (CIE D65, ähnlichste Farbtemperatur etwa 6500 K) zu erreichen, sind schon mehrere tausend Kelvin nötig. Reines Eisen schmilzt bei 1538 °C (1811 K); fester Stahl leuchtet daher höchstens orange bis gelblich, nie bläulich-weiß."
+        },
+        {
+          "h": "Farbort (x, y) und ähnlichste Farbtemperatur",
+          "p": "Im CIE-1931-Normvalenzsystem wird ein Spektrum mit den drei Normspektralwertfunktionen x̄, ȳ und z̄ multipliziert und aufsummiert; das ergibt die Normfarbwerte X, Y und Z. Y entspricht der Helligkeit (Leuchtdichte), und die Farbwertanteile x = X/(X+Y+Z) und y = Y/(X+Y+Z) beschreiben die Farbe ohne ihre Helligkeit. Die Linie, die die Farborte des Schwarzen Strahlers bei allen Temperaturen verbindet, ist der Plancksche Kurvenzug. Die ähnlichste Farbtemperatur (in K) beschreibt ein Licht in der Nähe dieser Linie durch die Temperatur des Schwarzen Strahlers mit der ähnlichsten Farbe. Für den Schwarzen Strahler selbst ist sie gleich seiner Temperatur."
+        },
+        {
+          "h": "Rechenweg und Kontrollrechnung",
+          "p": "Das Werkzeug multipliziert das Plancksche Spektrum mit den CIE-1931-Normspektralwertfunktionen für den 2°-Beobachter (Werte alle 5 nm aus der von der CIE veröffentlichten 1-nm-Tabelle, summiert von 360 bis 830 nm), erhält so XYZ und rechnet nach sRGB um (Matrix und Gammakorrektur nach IEC 61966-2-1). Die Helligkeit wird so normiert, dass der größte der Werte R, G und B gleich 1 ist. Die Farborte des Schwarzen Strahlers bei 400–1600 °C liegen außerhalb des sRGB-Farbraums; sie werden daher als nächstliegende Farbe mit auf 0 gesetzten negativen Anteilen dargestellt. Dieselbe Rechnung mit einem getrennten Programm (Python) stimmt bis zur vierten Nachkommastelle mit dem Farbort der CIE-Normlichtart A (x = 0,44758; y = 0,40745) und mit der Tabelle des Planckschen Kurvenzugs von Robertson (1968) (bei 1667 K und weiteren Temperaturen) überein."
+        },
+        {
+          "h": "Emissionsgrad und Grauer Strahler",
+          "p": "Realer Stahl ist kein Schwarzer Strahler; sein Emissionsgrad ε (seine Strahlung im Verhältnis zu einem Schwarzen Strahler gleicher Temperatur) ist kleiner als 1. Ein Körper, dessen Emissionsgrad nicht von der Wellenlänge abhängt, heißt Grauer Strahler: Sein Spektrum ist einfach das ε-Fache des Schwarzen Strahlers und hat dieselbe Form. Da x und y Verhältnisse sind, kürzt sich ε heraus; die Farbe bleibt gleich, nur die Helligkeit sinkt. Der Emissionsgrad von Metallen ändert sich jedoch mit Wellenlänge, Temperatur und Oxidation der Oberfläche; Stahl als Grauen Strahler zu behandeln, ist daher eine Näherung."
+        },
+        {
+          "h": "Wie die Farbe tatsächlich wirkt",
+          "p": "Bei gleicher Temperatur hängt die wahrgenommene Farbe von der Umgebungshelligkeit (Dunkelheit oder Tageslicht), der Adaptation des Auges und der Oxidschicht (Zunder) auf der Oberfläche ab. Deshalb nennen die Glühfarbentabellen Bedingungen wie „im Dunkeln sichtbar“ oder „bei Tageslicht sichtbar“. Die Arbeit des Bureau of Standards von 1905 schreibt, dass selbst geübte Beobachter um 50 °C oder mehr voneinander abweichen können. Die Schulungsunterlage der U.S. Navy NAVEDTRA 14250A warnt außerdem, dass Metall in einer Flamme kälter wirkt, als es ist. Auch in Japan gibt es in der staatlichen Facharbeiterprüfung für das Schmieden die „Beurteilung der Oberflächentemperatur von Stahl“ und in der Bewertungsprüfung für technische Praktikanten in der Metallwärmebehandlung eine „Glühfarbenprüfung“, bei der die Temperatur der Teile im Ofen grob beurteilt wird; genaue Temperaturen werden aber mit Thermometern (Thermoelementen, Strahlungsthermometern usw.) gemessen."
+        },
+        {
+          "h": "Wie Anlassfarben entstehen",
+          "p": "Anlassfarben (auch Anlauffarben) sind Interferenzfarben der sehr dünnen Oxidschicht, die sich bildet, wenn blanker Stahl an Luft erwärmt wird. Licht, das an der Oberfläche der Schicht reflektiert wird, überlagert sich mit Licht, das an der Stahloberfläche darunter reflektiert wird; Licht einer durch die Schichtdicke bestimmten Wellenlänge löscht sich aus, und die übrigen Farben bleiben sichtbar. Mit wachsender Schichtdicke geht die Farbe über Blassgelb, Strohgelb, Braun, Purpur und Blau; wird die Schicht zu dick, ist sie nicht mehr lichtdurchlässig, und die Interferenzfarben verschwinden. Farbnamen und Temperaturen sind hier die Werte der Quellentabellen (Schulungsunterlage der U.S. Navy, Spon)."
+        },
+        {
+          "h": "Anlassfarben hängen von Zeit, Stahl und Atmosphäre ab",
+          "p": "Die Oxidschicht wächst nicht nur mit der Temperatur, sondern auch mit der Erwärmungsdauer; an derselben Farbe lässt sich daher nicht erkennen, ob kurz bei höherer oder lange bei niedrigerer Temperatur erwärmt wurde. Das Rundschreiben LC630 des Bureau of Standards schreibt, dass die Zeit bis zum Erscheinen einer Farbe vor allem von der Ofentemperatur, der Zusammensetzung des Stahls sowie Größe und Form des Werkstücks abhängt. Die Tabelle ist ein Richtwert für unlegierten Stahl, der an Luft erwärmt wird. In der BSSA-Tabelle für den nichtrostenden Stahl 1.4301 erscheint Blassgelb bei etwa 290 °C, also höher als in den Tabellen für unlegierten Stahl (etwa 220 °C), und die BSSA schreibt, dass ein Stahl mit mehr Chrom hitzebeständiger ist (die zugrunde gelegten Erwärmungsdauern sind nicht gleich, die Größe des Unterschieds ist daher nur ein Anhaltspunkt). Auch die Atmosphäre (etwa das Schutzgas beim Schweißen) verändert die Farben (BSSA)."
+        },
+        {
+          "h": "Anlauffarben an nichtrostendem Stahl beim Schweißen",
+          "p": "Auch nichtrostender Stahl zeigt Farben, wenn Wärme seine Oxidschicht an der Oberfläche verdickt; um Schweißnähte herum heißen sie Anlauffarben (heat tint). Sichtbare Anlauffarben verringern die Korrosionsbeständigkeit, weil Chrom leichter oxidiert als Eisen und unter der Anlaufschicht eine chromverarmte Schicht zurückbleibt (Euro Inox). Wo Korrosionsbeständigkeit wichtig ist, werden die Anlauffarben und die chromverarmte Schicht mechanisch (etwa durch Schleifen), durch Beizen (meist mit einem Gemisch aus Salpetersäure und Flusssäure) oder durch Elektropolieren entfernt (ASSDA)."
+        },
+        {
+          "h": "Häufige Missverständnisse",
+          "p": "Eine Anlassfarbe allein legt die Härte nicht fest („Strohgelb bedeutet Härte X“): Die Farbe gibt die Dicke der Oberflächenschicht wieder, die sich mit Erwärmungsdauer und Stahlsorte ändert, die Härte dagegen hängt vom Gefüge im Inneren ab. Auch „Was nicht glüht, ist nicht heiß“ ist falsch: Nach der Berechnung für den Schwarzen Strahler beträgt das sichtbare Licht bei 400 °C nur etwa ein Zehnmillionstel dessen bei 1000 °C; auch wenn Stahl in einem hellen Raum nicht sichtbar glüht, ist er heiß genug für Verbrennungen. Und weil die Farbmuster Bildschirmfarben sind, lässt sich eine Temperatur nicht durch Vergleich mit dem Bildschirm bestimmen."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Kann man die Temperatur von Stahl an seiner Farbe messen?",
+          "a": "Nur grob. Die Arbeit des Bureau of Standards von 1905 schreibt, dass die Schätzung nach der Farbe weitgehend vom persönlichen Empfinden abhängt, dass selbst geübte Beobachter um 50 °C oder mehr abweichen können und dass über 1200 °C eine Schätzung mit dem Auge praktisch unmöglich ist. Auch die Umgebungshelligkeit und die Frage, ob der Stahl in einer Flamme erwärmt wird, verändern den Eindruck. Messen Sie Temperaturen bei der Wärmebehandlung mit Thermoelementen, Strahlungsthermometern oder ähnlichen Geräten."
+        },
+        {
+          "q": "Ist die Härte festgelegt, wenn die Anlassfarbe strohgelb ist?",
+          "a": "Nein. Eine Anlassfarbe ist die Farbe einer dünnen Oxidschicht an der Oberfläche, deren Dicke nicht nur von der Temperatur, sondern auch von Erwärmungsdauer, Zusammensetzung des Stahls sowie Größe und Form des Werkstücks abhängt (Bureau of Standards, LC630). Die Härte hängt vom Gefüge im Inneren ab, das durch Anlasstemperatur, Anlassdauer und Zusammensetzung bestimmt wird; prüfen Sie sie daher mit einer Härteprüfung. Wie das Anlassen wirkt, zeigt auch das „Labor für die Wärmebehandlung von Stahl“."
+        },
+        {
+          "q": "Warum sehen die Muster zwischen etwa 400 und 690 °C alle gleich rot aus?",
+          "a": "Bei diesen Temperaturen ist der Farbort des Schwarzen Strahlers ein noch tieferes Rot als das röteste Rot, das ein Bildschirm (sRGB) darstellen kann; er liegt also außerhalb des Bildschirmfarbraums. Das Werkzeug setzt negative Anteile auf 0 und zeigt die nächstliegende Farbe, unterhalb von etwa 690 °C also #ff0000. Die Werte des Farborts (x, y) ändern sich dabei weiter mit der Temperatur."
+        },
+        {
+          "q": "Ändert sich die Farbe bei Stahl mit niedrigem Emissionsgrad, etwa einer polierten Oberfläche?",
+          "a": "Hängt der Emissionsgrad nicht von der Wellenlänge ab (Grauer Strahler), behält das Spektrum seine Form und wird nur schwächer; der Farbort bleibt also gleich. In Wirklichkeit ändert sich der Emissionsgrad von Metallen mit der Wellenlänge und der Oxidation der Oberfläche, daher ist dies eine Näherung. Die Helligkeit ändert sich viel stärker als die Farbe; eine Oberfläche mit niedrigem Emissionsgrad wirkt daher bei gleicher Temperatur dunkler."
+        },
+        {
+          "q": "Warum weichen die Glühfarbentabellen voneinander ab?",
+          "a": "Vermutlich wegen unterschiedlicher Farbnamen, Beobachter und Lichtverhältnisse (die Arbeit des Bureau of Standards von 1905 schreibt, dass die Schätzung nach der Farbe weitgehend vom persönlichen Empfinden abhängt). In der Vergleichstabelle dieser Arbeit liegen die Werte von Pouillet für ähnliche Farben oft etwa 130–260 °C über denen von White & Taylor. Dieses Werkzeug fasst die Tabellen nicht zusammen, sondern stellt die drei Skalen unverändert nebeneinander."
+        },
+        {
+          "q": "Bei welcher Temperatur liegt die „Weißglut“?",
+          "a": "Das hängt von der Tabelle ab. „White“ liegt in der Vergleichstabelle bei White & Taylor bei 1205 °C, bei Howe bei 1150 °C und bei Pouillet bei 1300 °C. Nach der Berechnung für den Schwarzen Strahler ist der Farbort jedoch selbst bei 1600 °C noch orange und weit von Weiß (Tageslichtweiß, x = 0,3127) entfernt; die Namen in den Tabellen und die Berechnung stimmen also nicht überein."
+        },
+        {
+          "q": "Sollte man Anlauffarben an Schweißnähten von nichtrostendem Stahl entfernen?",
+          "a": "Wo Korrosionsbeständigkeit wichtig ist, wird das Entfernen empfohlen. Sichtbare Anlauffarben verringern die Korrosionsbeständigkeit (Euro Inox), und auch die BSSA schreibt, dass sie je nach Anwendung die Korrosionsbeständigkeit beeinträchtigen können. Entfernt werden sie mechanisch (etwa durch Schleifen), durch Beizen oder durch Elektropolieren (ASSDA); wie weit das nötig ist, richtet sich nach der Einsatzumgebung, den Normen und den Vorgaben des Auftraggebers."
+        }
+      ],
+      "js": {
+        "ui": {
+          "slider": "Temperatur (Schieberegler)",
+          "sep": "; ",
+          "quick": "Häufige Temperaturen:",
+          "bad": "Geben Sie eine Temperatur zwischen {lo} und {hi} ein.",
+          "lead_v": "Berechnete Farbe eines Schwarzen Strahlers bei {t} ({k} K): Farbort (x, y) = ({x}; {y}). Das Strahlungsmaximum liegt bei {p} µm im Infraroten; sichtbar ist der kurzwellige Ausläufer dieses Maximums, in dem Rot am stärksten ist.",
+          "swatch_label": "Farbmuster eines Schwarzen Strahlers bei {t}: {hex}",
+          "band1": "Farbband (Helligkeit normiert, 400–1600 °C)",
+          "band2": "Farbband mit Helligkeit (1600 °C als hellster Wert; Adaptation des Auges nicht berücksichtigt)",
+          "band_unit": "Skala des Bandes in {u}. Die schwarze Linie markiert die gewählte Temperatur.",
+          "h_notes": "Hinweise zu dieser Farbe",
+          "n_out": "Farbband und Glühfarbentabelle umfassen {lo} bis {hi}. Diese Temperatur liegt außerhalb dieses Bereichs, wird aber trotzdem berechnet.",
+          "n_clip": "Bei dieser Temperatur liegt der Farbort des Schwarzen Strahlers außerhalb der Farben, die ein Bildschirm darstellen kann (sRGB): Der Blauanteil ist negativ. Gezeigt wird die nächstliegende Farbe, bei der negative Anteile auf 0 gesetzt sind.",
+          "n_red": "Unterhalb von etwa 690 °C (etwa 1270 °F) wird auch der Grünanteil 0; der Bildschirm zeigt dann für alle diese Temperaturen dasselbe Rot (#ff0000). Der berechnete Farbort ist ein noch tieferes Rot.",
+          "n_dim": "Das Licht bei dieser Temperatur ist sehr schwach: weniger als ein Zehntausendstel der Helligkeit bei 1000 °C. In einem hellen Raum ist es kaum zu sehen. Das Muster wird mit normierter Helligkeit gezeigt.",
+          "n_white": "Die Glühfarbentabellen nennen diesen Bereich „Gelb“ bis „Weiß“, der berechnete Farbort ist jedoch orange. Hier stimmen Tabellen und Berechnung nicht überein.",
+          "n_screen": "Das Farbmuster ist eine Bildschirmfarbe und nur ein Richtwert. Bildschirmeinstellungen und Raumbeleuchtung verändern seine Wirkung. Kein Ersatz für ein Thermometer.",
+          "method": "Rechenweg: Das Spektrum des Schwarzen Strahlers nach dem Planckschen Strahlungsgesetz wird mit den CIE-1931-Normspektralwertfunktionen für den 2°-Beobachter (die von der CIE veröffentlichte Tabelle, alle 5 nm von 360 bis 830 nm) gewichtet; die so erhaltenen Normfarbwerte XYZ werden in den Farbort (x, y) und nach sRGB umgerechnet (Matrix und Gammakorrektur nach IEC 61966-2-1, Helligkeit normiert). Der Emissionsgrad wird als unabhängig von der Wellenlänge angenommen (Grauer Strahler). „Helligkeit“ ist das Verhältnis der Leuchtdichte Y zwischen Schwarzen Strahlern mit gleichem Emissionsgrad.",
+          "fire_near": "Tabellenwerte, die {t} am nächsten liegen:",
+          "fire_item": " „{n}“ {v}",
+          "fire_note": "Die Tabelle gibt die Vergleichstabelle einer Arbeit des U.S. Bureau of Standards (heute NIST) von 1905 wieder; °C und °F sind die dort gedruckten Werte, mit einer Ausnahme: Howes „White“ in °F ist als 2108 gedruckt, wir lesen es aus 1150 °C und der Differenzspalte (−98) als 2102. Die drei Skalen wurden unabhängig voneinander aufgestellt; Farben in derselben Zeile hat die Originaltabelle als ähnlich nebeneinandergestellt. Die Farbnamen sind die englischen Namen der Originaltabelle, in Klammern die Übersetzung dieser Seite. Quelle:",
+          "h_fire_cmp": "Tabellen und berechnete Farbe im Vergleich",
+          "fire_cmp": [
+            "Das „erste sichtbare Rot“ liegt bei White & Taylor bei 470 °C (im Dunkeln), bei Howe bei 475 °C (bei Tageslicht) und bei Pouillet bei 525 °C. Zeile für Zeile liegen die Werte von Pouillet oft etwa 130–260 °C über den beiden anderen.",
+            "Der berechnete Farbort bleibt von 500 °C bis 1000 °C rot bis orange und ändert sich wenig. Wörter wie „dunkel“ und „hell“ in den Tabellen beschreiben vermutlich oft eher die Helligkeit als den Farbort (eigene Vermutung). Vergleichen Sie mit dem Farbband, das die Helligkeit enthält.",
+            "In den Tabellen wird die Farbe bei etwa 1000–1200 °C „Gelb“ und „Weiß“, der berechnete Farbort ist aber selbst bei 1600 °C noch orange (x ≈ 0,54) und weit vom Tageslichtweiß (CIE D65, x = 0,3127) entfernt. Hier stimmen Tabellen und Berechnung nicht überein. Vermutlich erscheint sehr helles Licht dem Auge leicht weißlich (eigene Vermutung).",
+            "Dieselbe Arbeit schreibt, dass die Schätzung der Temperatur nach der Farbe weitgehend vom persönlichen Empfinden abhängt, sich bei derselben Person mit der Umgebungshelligkeit ändert, dass selbst geübte Beobachter um 50 °C oder mehr abweichen können und dass über 1200 °C eine Schätzung mit dem Auge praktisch unmöglich ist."
+          ],
+          "h_mech": "Wie Anlassfarben entstehen (Interferenz in der Oxidschicht)",
+          "fig_label": "Licht, das an der Oberfläche der Oxidschicht reflektiert wird, überlagert sich mit Licht, das die Schicht durchquert und an der Stahloberfläche reflektiert wird",
+          "fig_air": "Luft",
+          "fig_oxide": "Oxidschicht",
+          "fig_steel": "Stahl",
+          "fig_r1": "Reflexion am Oxid",
+          "fig_r2": "Reflexion am Stahl",
+          "mech1": "Wird blanker Stahl an Luft erwärmt, bildet sich an der Oberfläche eine sehr dünne Oxidschicht. Licht, das an der Oberfläche der Schicht reflektiert wird, überlagert sich mit Licht, das die Schicht durchquert und am Stahl reflektiert wird, und Licht einer durch die Schichtdicke bestimmten Wellenlänge löscht sich aus (Interferenz). Das übrige Licht wird als Farbe gesehen.",
+          "mech2": "Je höher die Temperatur und je länger die Erwärmung, desto dicker die Schicht; die ausgelöschte Wellenlänge verschiebt sich, und die Farbe geht von Blassgelb über Strohgelb, Braun und Purpur zu Blau. Wird die Schicht noch viel dicker, ist sie nicht mehr lichtdurchlässig, und die Interferenzfarben verschwinden.",
+          "mech_src": "Quelle für den Mechanismus (Interferenz als Ursache seit der Arbeit von U. R. Evans 1925 anerkannt; keine Interferenz bei dicker, undurchsichtiger Oxidschicht):",
+          "temper_sw": "Die Farbmuster sind für diese Seite gewählte Bildschirmfarben und nur Richtwerte (keine Werte aus den Quellen). Die Temperaturen sind unverändert aus den Quellen übernommen (°C und °F).",
+          "h_temper_notes": "Hinweise zur Verwendung von Anlassfarben",
+          "temper_notes": [
+            "Die Farbe wird nicht von der Temperatur allein bestimmt. Das Rundschreiben LC630 des Bureau of Standards schreibt, dass die für eine bestimmte Farbe nötige Erwärmungsdauer vor allem von drei Faktoren abhängt: der Ofentemperatur, der Zusammensetzung des Stahls sowie Größe und Form des Werkstücks. An der Farbe allein lässt sich nicht unterscheiden, ob kurz bei höherer oder lange bei niedrigerer Temperatur erwärmt wurde.",
+            "Die Tabelle ist ein Richtwert für blanken unlegierten Stahl, der an Luft erwärmt wird. Die Schulungsunterlage der U.S. Navy schreibt, dass die Oberfläche blank gemacht werden muss, um die Farben zu sehen, und dass das Verfahren für den Fall gedacht ist, dass keine Temperaturmesseinrichtung vorhanden ist.",
+            "Eine Anlassfarbe ist die Farbe einer dünnen Oberflächenschicht; sie zeigt weder das Gefüge noch die Härte im Inneren. Die Härte hängt von Anlasstemperatur, Anlassdauer und Zusammensetzung des Stahls ab; prüfen Sie sie daher mit einer Härteprüfung.",
+            "Die beiden Quellen nennen für dieselbe Temperatur teils unterschiedliche Farben (288 °C ist in der Schulungsunterlage der U.S. Navy Dunkelblau, bei Spon Dunkelpurpur)."
+          ],
+          "tint_lead": "Richtwerte für die Farben des nichtrostenden Stahls 1.4301 (entspricht SUS304) bei Erwärmung an Luft. Beim Schweißen erscheinen diese Farben (Anlauffarben, heat tint) um die Schweißnaht herum, wo das Metall erwärmt wurde.",
+          "tint_sw": "Die Farbmuster sind Bildschirmfarben und nur Richtwerte. Die Temperaturen stammen aus der BSSA-Tabelle (°F umgerechnet; laut BSSA beruhen die Versuche hinter solchen Tabellen meist auf einer Erwärmung von einer Stunde). Derselbe Artikel schreibt, dass die Farben bei längerer Erwärmung dunkler werden und auch von Oberflächenrauheit, Atmosphäre (etwa dem Schutzgas beim Schweißen) und Zusammensetzung des Stahls, besonders dem Chromgehalt, abhängen. Quelle:",
+          "h_tint_care": "Hinweise zu Anlauffarben beim Schweißen",
+          "tint_care": [
+            "Sichtbare Anlauffarben verringern die Korrosionsbeständigkeit der Oberfläche: Chrom oxidiert leichter als Eisen, sodass unter der Anlaufschicht eine chromarme Schicht zurückbleibt (Euro Inox). Auch die BSSA schreibt, dass Anlauffarben je nach Anwendung die Korrosionsbeständigkeit beeinträchtigen können.",
+            "Für die beste Korrosionsbeständigkeit sollten die Anlaufschicht und die chromverarmte Schicht mechanisch (etwa durch Schleifen), chemisch (durch Beizen, meist mit einem Gemisch aus Salpetersäure und Flusssäure) oder durch Elektropolieren entfernt werden (ASSDA). Auch Euro Inox beschreibt das Entfernen mit Beizpasten oder Beizgelen oder durch Schleifen mit anschließender Salpetersäurebehandlung.",
+            "Beizsäuren sind gefährlich: Befolgen Sie die Regeln für den Umgang mit Chemikalien und verwenden Sie Schutzausrüstung."
+          ],
+          "col_sw": "Muster",
+          "col_color": "Farbe",
+          "col_temp": "Temperatur (Richtwert)",
+          "l_lab": "Labor für die Wärmebehandlung von Stahl (Zustandsdiagramm, Anlassen)",
+          "l_cmp": "Härten und Anlassen im Vergleich",
+          "l_ss": "Daten zu nichtrostendem Stahl",
+          "l_glossary": "Glossar",
+          "safety": "Sicherheit: Rot- und weißglühendes Metall strahlt auch ohne Berührung starke Hitze ab. Das Licht des Schweißlichtbogens enthält starke UV-Strahlung, die Augen und Haut schädigt. Verwenden Sie Schutzbrillen mit Filter, einen Schweißschutzschirm und weitere Schutzausrüstung. Diese Berechnungen und Tabellen sind Richtwerte und kein Ersatz für ein Thermometer."
+        },
+        "fire": {
+          "wt_dark": "Lowest red visible in dark (erstes im Dunkeln sichtbares Rot)",
+          "wt_darkred": "Dark red, blood red, low red (Dunkelrot, Blutrot)",
+          "wt_darkcherry": "Dark cherry red (Dunkelkirschrot)",
+          "wt_cherry": "Cherry, full red (Kirschrot, Rot)",
+          "wt_lightred": "Light red, light cherry (Hellrot, Hellkirschrot)",
+          "wt_orange": "Orange (Orange)",
+          "wt_lightorange": "Light orange (Hellorange)",
+          "wt_yellow": "Yellow (Gelb)",
+          "wt_lightyellow": "Light yellow (Hellgelb)",
+          "wt_white": "White (Weiß)",
+          "pou_lowest": "Lowest red (erstes sichtbares Rot)",
+          "pou_darkred": "Dark red (Dunkelrot)",
+          "pou_lowcherry": "Lowest cherry (beginnendes Kirschrot)",
+          "pou_cherry": "Cherry (Kirschrot)",
+          "pou_brightcherry": "Bright cherry (Hellkirschrot)",
+          "pou_darkorange": "Dark orange (Dunkelorange)",
+          "pou_brightorange": "Bright orange (Hellorange)",
+          "pou_white": "White (Weiß)",
+          "pou_brightwhite": "Very bright white (sehr helles Weiß)",
+          "pou_dazzling": "Dazzling white (blendendes Weiß)",
+          "howe_day": "Lowest red visible in daylight (erstes bei Tageslicht sichtbares Rot)",
+          "howe_dull": "Dull red (mattes Rot)",
+          "howe_fullcherry": "Full cherry (Kirschrot)",
+          "howe_lightred": "Light red (Hellrot)",
+          "howe_fullyellow": "Full yellow (Gelb)",
+          "howe_lightyellow": "Light yellow (Hellgelb)",
+          "howe_white": "White (Weiß)"
+        },
+        "src": {
+          "wt": "White & Taylor",
+          "pou": "Pouillet",
+          "howe": "Howe",
+          "navy": "Schulungsunterlage der U.S. Navy",
+          "spon": "Spon",
+          "nbs": "Waidner & Burgess, „Optical Pyrometry“, Bulletin of the Bureau of Standards 1(2), 1905, S. 209",
+          "navy_full": "U.S. Navy, Aviation Structural Mechanic (AM) (NAVEDTRA 14315), Table 6-2",
+          "spon_full": "Spon's Workshop Receipts (American Library Edition), Vol. 3, „Colour Tests“",
+          "lc630": "National Bureau of Standards (NBS), Letter Circular LC630, „Bluing of Iron and Steel“",
+          "cam": "University of Cambridge, M. Peet & H. K. D. H. Bhadeshia, „Oxide on Steel and Tempering Colours“",
+          "bssa": "British Stainless Steel Association (BSSA), „Heat Tint (Temper) Colours on Stainless Steel Surface Heated in Air“",
+          "euroinox": "Euro Inox, „Pickling and Passivating Stainless Steel“ (2007)",
+          "assda": "Australian Stainless Steel Development Association (ASSDA), „Stainless Fabrication: Common Traps to Avoid“"
+        },
+        "temper": {
+          "pale_yellow": "Blassgelb (Pale yellow)",
+          "straw": "Strohgelb (Straw)",
+          "golden": "Goldgelb (Golden yellow)",
+          "brown": "Braun (Brown)",
+          "brown_purple": "Braun mit purpurnen Flecken (Brown dappled with purple)",
+          "purple": "Purpur (Purple)",
+          "dark_purple": "Dunkelpurpur (Dark purple)",
+          "dark_blue": "Dunkelblau (Dark blue)",
+          "bright_blue": "Hellblau (Bright blue)",
+          "pale_blue": "Blassblau (Pale blue)",
+          "green_blue": "Grünstichiges Blau (Blue tinted with green)"
+        },
+        "spon": {
+          "very_pale_yellow": "Very pale yellow",
+          "straw_yellow": "Straw yellow",
+          "brown_yellow": "Brown yellow",
+          "light_purple": "Light purple",
+          "dark_purple": "Dark purple",
+          "clear_blue": "Clear blue",
+          "pale_blue": "Pale blue",
+          "blue_green": "Blue tinted with green"
+        },
+        "tint": {
+          "pale_yellow": "Blassgelb (pale yellow)",
+          "straw_yellow": "Strohgelb (straw yellow)",
+          "dark_yellow": "Dunkelgelb (dark yellow)",
+          "brown": "Braun (brown)",
+          "purple_brown": "Purpurbraun (purple brown)",
+          "dark_purple": "Dunkelpurpur (dark purple)",
+          "blue": "Blau (blue)",
+          "dark_blue": "Dunkelblau (dark blue)"
+        },
+        "url": {
+          "cam": "http://www.phase-trans.msm.cam.ac.uk/2008/Oxide/Oxide.html",
+          "lc630": "https://www.govinfo.gov/content/pkg/GOVPUB-C13-7666bb8911301f6cb01ab783a8633676/pdf/GOVPUB-C13-7666bb8911301f6cb01ab783a8633676.pdf",
+          "euroinox": "https://bssa.org.uk/wp-content/uploads/2021/07/Pickling-and-Passivating-Stainless-Steel.pdf",
+          "assda": "https://www.assda.asn.au/assda-accredited-fabricators/stainless-fabrication-common-traps-to-avoid"
+        }
+      }
     }
   }
 }
