@@ -750,6 +750,909 @@
       "b_pt": "Platinum",
       "a_gr": "Graphite (guide for carbon fiber, CFRP)",
       "b_gr": "Graphite (guide for carbon fiber, CFRP)"
+    },
+    "zh-hant": {
+      "nav": "異種金屬接觸腐蝕檢查工具",
+      "card": "選擇2種金屬與環境，附出處顯示哪一方容易溶解、電位差的範圍、面積比與對策",
+      "title": "異種金屬接觸腐蝕檢查工具（以海水中的電偶序列判定）",
+      "description": "選擇不鏽鋼螺栓與鋁板、銅管與鋼管這類2種金屬與環境，依流動海水中的電偶序列（以 SCE 為基準的範圍），附出處顯示容易溶解的一方（陽極）、電位差的範圍、面積比的影響、水分、鹽分與溫度的注意事項以及對策。判定僅供參考。",
+      "h1": "異種金屬接觸腐蝕檢查工具",
+      "lead": "選擇2種金屬（合金）與使用環境，顯示哪一方可能成為容易溶解的一方（陽極）、電位差的範圍、面積比與有無水分所造成的進行難易，以及對策。電位是在流動海水中量測的腐蝕電位範圍（電偶序列），不化為單一數值，而以範圍直接比較。判定僅供參考，實際能否使用，請以試驗、規格與製造商的資料確認。",
+      "in_heading": "組合",
+      "a": "金屬 A（例：螺栓、小零件）",
+      "b": "金屬 B（例：板材、大零件）",
+      "env": "使用環境",
+      "env_sea": "浸於海水中（流動海水）",
+      "env_marine": "海岸附近的屋外（飛沫、鹽分、乾濕交替）",
+      "env_outdoor": "內陸的屋外（會淋雨）",
+      "env_indoor_wet": "室內（有結露或淋水）",
+      "env_indoor_dry": "乾燥的室內（不結露）",
+      "env_fresh": "淡水、自來水",
+      "env_hot": "溫水（約 60 ℃以上）",
+      "env_soil": "土壤中",
+      "area": "面積比（A 的潤濕面積 ÷ B 的潤濕面積）",
+      "out_heading": "判定（參考）",
+      "anode": "容易溶解的一方（陽極）",
+      "de": "電位差的範圍",
+      "ac": "陰極面積 ÷ 陽極面積",
+      "chart_h": "電偶序列（流動海水，V vs SCE）",
+      "note": "電位是將流動海水中腐蝕電位的範圍（以飽和甘汞電極 SCE 為基準），逐一以公開資料確認數值後輸入的（主要依據澳大拉西亞腐蝕協會 ACA 的表，ACA 表中沒有的合金則依據德拉瓦大學 Sea Grant 的 Dexter 的表）。金（Au）與各別鋁合金的數值無法確認，因此未列入。判定是依電偶序列的參考，不計算腐蝕速率。涉及安全或結構的判斷，請以使用環境中的試驗、規格、製造商的資料與專家確認。",
+      "practice": "練習腐蝕與表面處理的題目",
+      "related": "相關名詞",
+      "js": {
+        "m": {
+          "mg": "鎂",
+          "zn": "鋅（含鍍鋅層）",
+          "al": "鋁合金（各種合併為一個範圍）",
+          "cd": "鎘",
+          "steel": "軟鋼、鑄鐵",
+          "las": "低合金鋼",
+          "nicast": "沃斯田鐵系鎳鑄鐵",
+          "ss410a": "不鏽鋼 410、416、430（活性）",
+          "ss304a": "不鏽鋼 302、304、321、347（活性）",
+          "ss316a": "不鏽鋼 316、317（活性）",
+          "in600a": "鎳鉻合金 600（活性）",
+          "albz": "鋁青銅",
+          "brass": "黃銅（海軍黃銅、黃銅、紅黃銅）",
+          "cu": "銅",
+          "sn": "錫",
+          "solder": "錫鉛焊料（50/50）",
+          "adm": "海軍部黃銅（Admiralty）、鋁黃銅",
+          "bronze": "錫青銅（G、M）",
+          "sibz": "矽青銅",
+          "ss410p": "不鏽鋼 410、416（鈍態）",
+          "ss430p": "不鏽鋼 430（鈍態）",
+          "cuni9010": "90-10 白銅",
+          "pb": "鉛",
+          "cuni7030": "70-30 白銅",
+          "ni": "鎳（Ni 200）",
+          "in600p": "鎳鉻合金 600（鈍態）",
+          "ag": "銀",
+          "monel": "鎳銅合金 400、K-500（蒙乃爾合金）",
+          "ss304p": "不鏽鋼 302、304、321、347（鈍態）",
+          "ss316p": "不鏽鋼 316、317（鈍態）",
+          "in625": "鎳鉻鉬合金 625",
+          "ti": "鈦、鈦合金",
+          "pt": "鉑",
+          "gr": "石墨（碳纖維、CFRP 的參考）"
+        },
+        "grp": {
+          "light": "鎂、鋅、鋁",
+          "iron": "鋼、鑄鐵",
+          "ss": "不鏽鋼",
+          "cu": "銅、銅合金",
+          "ni": "鎳、鎳合金",
+          "other": "鎘、錫、鉛、焊料",
+          "noble": "銀、鈦、鉑、石墨"
+        },
+        "src": {
+          "aca": "ACA",
+          "dex": "Dexter"
+        },
+        "envs": {
+          "sea": {
+            "lv": "電解質：有（海水）。",
+            "t": "與本工具的電偶序列屬於同一類條件。海水容易導電，因此電偶電流容易流動，陽極溶解的範圍也容易從接觸部向外擴大。"
+          },
+          "marine": {
+            "lv": "容易進行的條件。",
+            "t": "附著鹽分並反覆乾濕時，間隙或重疊部會殘留高鹽分的水膜，電偶腐蝕容易進行。水膜很薄，因此腐蝕容易集中在接觸部的緊鄰處。"
+          },
+          "outdoor": {
+            "lv": "視條件而定。",
+            "t": "在因雨或結露而潤濕的期間進行。容易積水、不易乾燥的形狀（間隙、無法排水的溝）容易進行，被雨沖洗後很快乾燥的地方則不易進行。會接觸到融雪劑（鹽）的地方，請視為接近海岸附近的條件。"
+          },
+          "indoor_wet": {
+            "lv": "視條件而定。",
+            "t": "因結露或淋水而潤濕的期間，處於有電解質的狀態。潤濕的時間越長，或附著的髒污與鹽分越多，越容易進行。"
+          },
+          "indoor_dry": {
+            "lv": "不易進行的條件。",
+            "t": "若沒有電解質（水膜），電偶電流幾乎不會流動。但若有季節性結露、濕度高、附著灰塵或鹽分等情形，請視為「室內（有結露）」。"
+          },
+          "fresh": {
+            "lv": "視條件而定。",
+            "t": "淡水比海水不易導電，影響容易限於接觸部附近。另一方面，依水的成分（溶氧、氯離子、硬度等）與溫度，電位的順序可能與海水中不同。"
+          },
+          "hot": {
+            "lv": "需要注意。",
+            "t": "溫度升高時多數反應會變快，也有順序互換的例子。例如美國熱浸鍍鋅協會（AGA）說明，鋅與鋼在 60～82 ℃、含溶氧與碳酸氫根離子或硝酸根離子的水中，鋅可能不再保護鋼（極性反轉）。"
+          },
+          "soil": {
+            "lv": "視條件而定。",
+            "t": "會隨土壤的水分、鹽分、通氣與電阻率而大幅改變，電位的順序也不一定與海水相同。埋設的配管或結構物，請以陰極防蝕的規格確認並諮詢專家。"
+          }
+        },
+        "ui": {
+          "examples": "例：",
+          "ex": [
+            "不鏽鋼螺栓 + 鋁板",
+            "銅管 + 鋼管",
+            "鍍鋅鋼 + 銅",
+            "CFRP + 鋁",
+            "鈦 + 不鏽鋼"
+          ],
+          "range_v": "{lo}～{hi} V",
+          "de_v": "{lo}～{hi} V",
+          "same_short": "同種金屬",
+          "de_same": "0 V（同種金屬）",
+          "overlap_short": "無法判定",
+          "v_same": "由於是同種金屬之間，沒有電位差，不會發生異種金屬接觸腐蝕。但間隙腐蝕或氧濃度差所造成的腐蝕仍可能另外發生。",
+          "v_anode": "容易溶解的一方（陽極）是{an}，腐蝕受到抑制的一方（陰極）是{ca}。電位差為 {lo}～{hi} V（依流動海水中的電位範圍）。",
+          "v_overlap": "{a}與{b}的電位範圍重疊，因此無法由此電偶序列判定哪一方是陽極。電位差在 0～{hi} V 的範圍（2個範圍兩端之間的差）。",
+          "col_metal": "金屬、合金",
+          "col_range": "腐蝕電位（V vs SCE）",
+          "col_src": "出處",
+          "cond": "數值是流動海水中腐蝕電位的範圍，以飽和甘汞電極（SCE）為基準（有資料記載同一排列之圖的條件為流速約 2.4～4 m/s、約 10～27 ℃）。電位差是發生電偶腐蝕難易的參考，並非腐蝕速率本身。",
+          "h_notes": "此組合的注意事項",
+          "n_crev": "{m}在流動緩慢的水、空氣不易到達的水或間隙中，鈍態可能被破壞而成為活性狀態（{act}：{r}）。此時電位差會改變，陽極與陰極也可能互換。",
+          "n_act": "{m}是鈍態被破壞而成為活性狀態時的數值。在一般維持鈍態的地方，請選擇鈍態的數值。",
+          "n_overlap": "範圍重疊，因此無法由此電偶序列決定哪一方是陽極。重疊的組合，電位差多半比不重疊的組合小，但對於範圍寬的金屬（鋁合金等），最大差也可能超過 0.2 V。若間隙、流動、溫度或表面狀態使電位移動，任一方都可能變得容易溶解。",
+          "n_near": "範圍不重疊但很接近（最小差未滿 0.05 V），因此依條件順序也可能互換（0.05 V 是本工具自訂的界線，並非規格的數值）。",
+          "n_zn": "鍍鋅鋼會先由鋅層溶解，保護下方的鋼（犧牲防蝕）。在鋅已消失的地方，鋼會與對方的金屬相連，因此也請以「軟鋼、鑄鐵」確認。",
+          "n_cfrp": "CFRP 的碳纖維表現得像惰性的金屬（美國聯邦航空總署 FAA 的報告），與鋁組合時鋁容易溶解。同一報告中列舉了在兩者之間加入玻璃纖維（E 玻璃）層加以絕緣，並與密封材或電鍍併用的方法。此處以石墨的範圍作為碳纖維的參考（並非 CFRP 本身的量測值）。",
+          "n_gr": "此處也以石墨的範圍作為碳纖維（CFRP）的參考（並非 CFRP 本身的量測值）。",
+          "n_al": "鋁合金的電位因合金種類與質別而異。在確認過的出處中，全部歸為1個範圍，無法確認各合金的數值。",
+          "n_dezinc": "含鋅多的黃銅，在海水或停滯的水中可能發生脫鋅腐蝕（與異種金屬接觸是不同的現象）。",
+          "n_hot_zn": "在溫水（60～82 ℃）中，若水含溶氧與碳酸氫根離子或硝酸根離子，鋅與鋼的極性可能反轉，鋅不再保護鋼（AGA）。此時依海水電偶序列的判定並不適用。",
+          "h_area": "面積比",
+          "a_none": "陽極無法決定，因此不顯示面積比的影響。",
+          "a_bad": "面積比請輸入大於 0 的數。",
+          "a_val": "陰極（{ca}）的面積 ÷ 陽極（{an}）的面積 = {f}",
+          "a_big": "陰極比陽極大，是應避免的組合。依簡化的參考，陽極溶解的電流密度約為面積相等時的 {f} 倍（假設電流由陰極反應決定時的比例參考，並非腐蝕速率的計算）。",
+          "a_small": "陽極比陰極大的組合。電偶電流分散在陽極的寬廣表面上，因此陽極的電流密度比面積相等時小，是相對較好的組合（電流並不會消失）。",
+          "a_equal": "面積相等的情形。改變面積比，可得知陽極電流密度如何變化的參考。",
+          "a_rule": "例：鋼板配不鏽鋼螺栓（大陽極＋小陰極）相對較好；不鏽鋼板配鋼螺栓（小陽極＋大陰極）會使螺栓很快溶解，應避免。",
+          "h_env": "環境（水分、鹽分、溫度）",
+          "e_order": "此電偶序列是流動海水中的數值。在其他環境中電位與順序都可能改變，電位差的數字請僅作為參考。",
+          "h_meas": "對策",
+          "meas": [
+            "電性絕緣：以不吸水的樹脂墊圈、套管、墊片，使2種金屬不互相接觸（包括螺栓桿與孔）。紙或纖維製的墊圈會吸水，並不適合。",
+            "若要塗裝，陰極側也要塗：只塗陽極側時，大陰極的電流會集中在塗膜的小傷痕上，該處會被深深溶蝕。兩側都塗，至少要塗陰極側。",
+            "不讓水進入、不讓水積存：以密封材封住接觸部，並設置排水的路徑。",
+            "選擇電位相近的金屬：盡可能使用同種金屬，若不行，則選擇在電偶序列中相近的組合。螺栓等小零件，應使用與對方相同或更惰性的金屬。",
+            "以犧牲陽極保護：在海水中的結構物等，連接鋅、鋁或鎂的陽極，使其比要保護的金屬先溶解（設計依陰極防蝕的規格）。",
+            "使其可以檢查：將接觸部設在看得見、可以更換的地方。"
+          ],
+          "axis": "V vs SCE",
+          "chart_lead": "橫條是電位的範圍。越右越惰性（容易成為陰極），越左越活潑（容易成為陽極）。斜線表示鈍態被破壞的活性狀態。所選的 A 與 B 以顏色標示。",
+          "chart_label": "流動海水中的電偶序列（橫條為腐蝕電位的範圍）",
+          "leg_act": "活性狀態",
+          "l_failure": "破損分析",
+          "l_materials": "材料資料集",
+          "disclaimer": "此判定是依電偶序列的參考。實際能否使用，請以使用環境中的試驗、規格（ISO、JIS、ASTM 等）與製造商的資料確認。涉及安全或結構的判斷，請諮詢專家。"
+        }
+      },
+      "sections": [
+        {
+          "h": "異種金屬接觸腐蝕（電偶腐蝕）的機制",
+          "p": "電位不同的2種金屬電性連接，並接觸同一電解質（海水、雨水、結露的水膜等）時，就會形成電池。電位低（活潑）的金屬成為陽極而溶解（金屬 → 金屬離子 + 電子），電子經由接觸部流向電位高（惰性）的金屬，並在其表面發生氧的還原等陰極反應。陽極的腐蝕比單獨存在時快，陰極的腐蝕則受到抑制。發生的條件是「異種金屬」「電性接觸」「連接兩者的電解質」3項，只要切斷其中任何1項，就能防止異種金屬接觸所造成的腐蝕（各金屬自身自然腐蝕的部分仍會存在）。"
+        },
+        {
+          "h": "電偶序列與標準電極電位的差異",
+          "p": "標準電極電位（Cu²⁺/Cu 為 +0.34 V 等）是純金屬與活度為 1（大約 1 mol/L）的該離子溶液平衡時、以標準氫電極（SHE）為基準的數值，不包含合金、表面的氧化膜與實際的環境（本工具的電偶序列以 SCE 為基準，SCE 在 25 ℃時相對於 SHE 約為 +0.24 V，因此基準也不同）。考慮組合時，使用將在使用環境中實際量測的腐蝕電位排列而成的電偶序列。例如鋁與鈦的標準電極電位相當活潑，但由於有氧化膜，在海水中的電位位於惰性得多的一側，排列與標準電極電位的順序不同。本工具不使用標準電極電位表，只依海水中的電偶序列判定（表示平衡電位隨濃度變化的能斯特方程式，在此也不使用）。"
+        },
+        {
+          "h": "鈍態與活性",
+          "p": "不鏽鋼與鎳合金在受到表面薄氧化膜（鈍化膜）保護時，顯示惰性的電位。在流動緩慢的水、空氣不易到達的水、間隙中或氯離子多的地方，鈍化膜會被破壞而成為活性，電位往活潑的一側移動。表中的數值，304 系的鈍態為 −0.10～−0.04 V，活性為 −0.58～−0.44 V。本工具將兩種狀態分成不同的列，請選擇符合條件的一方。反之，也有報告指出，在海水中附著微生物膜時，鈍態合金的電位會往惰性的一側移動（有時達到 +0.3～+0.4 V）。"
+        },
+        {
+          "h": "面積比：避免小陽極與大陰極",
+          "p": "電偶電流的大小，多半由陰極反應（水中溶氧的還原）決定，陰極面積越大，電流也越大。該電流從陽極的表面流出，因此陽極的電流密度（溶解的速度）大約與「陰極面積 ÷ 陽極面積」成正比而增大。以鋼螺栓固定不鏽鋼板時，小的螺栓會很快溶解。反之，在鋼板上使用不鏽鋼螺栓，電流會分散到寬廣的鋼面上，影響較小。本工具的面積比數字只表示此比例的參考，不計算腐蝕速率。"
+        },
+        {
+          "h": "與間隙腐蝕、孔蝕的差異",
+          "p": "間隙腐蝕是即使同一種金屬，也會因間隙內外的氧濃度或液體成分不同而發生的局部腐蝕，沒有異種金屬也會發生。孔蝕是因氯離子等使鈍化膜局部破壞而發生。異種金屬的接觸部多半也會形成間隙，因此兩者可能重疊發生。即使是不鏽鋼之間的螺栓鎖固，也可能在間隙中腐蝕。"
+        },
+        {
+          "h": "常見的誤解",
+          "p": "無法以「電位差在○ V 以下就安全」這樣的單一數值來決定。容許的參考值依資料而異，結果會隨面積比、電解質、溫度與流動而大幅改變（本工具的判定不使用容許數值）。「塗裝陽極側就能防止」容易造成反效果，若要塗裝應塗陰極側（最好兩側都塗）。「不鏽鋼不易生鏽，與任何金屬組合都沒問題」也是錯誤的，不鏽鋼對許多金屬而言會成為陰極，加速對方的腐蝕。"
+        },
+        {
+          "h": "數據與判定的決定方式",
+          "p": "電位是將流動海水中腐蝕電位的範圍（以 SCE 為基準），逐一以出處確認數值後輸入的。主要出處是澳大拉西亞腐蝕協會（ACA）教育資料中的表；ACA 表中沒有的鎳鉻鉬合金 625，以及無法讀取正負號的鈦，使用德拉瓦大學 Sea Grant 的 Dexter 的表的數值。這些表看來與 LaQue 的海水中數據圖（ASTM G82 的附錄中也有同類的圖）排列相同，但 ASTM G82 的本文在此並未確認。判定時，若2個範圍不重疊，以上限較低的一方為陽極，電位差從「陰極的下限 − 陽極的上限」到「陰極的上限 − 陽極的下限」。範圍重疊時，不決定哪一方是陽極。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "不使用陽極指數（anodic index）的 0.15 V、0.25 V、0.50 V 嗎？",
+          "a": "本工具並未使用。已確認美軍規範 MIL-DTL-14072（地面電子設備的表面處理）中，有以金為基準的 anodic index、可組合的差以 0.25 V 為上限、在不暴露於風雨或含鹽空氣的情形下可放寬至 0.50 V 的記述。但常被引用的「嚴苛環境為 0.15 V」的出處無法確認。此外，MIL-STD-889 的修訂版 D（根據 NAVAIR 工程師的論文）不是以電位差，而是以電偶電流與腐蝕速率來區分組合。由於數值的出處與前提並不一致，判定中不使用，只顯示電位差的範圍。"
+        },
+        {
+          "q": "電位差在多少以下就沒問題？",
+          "a": "無法以單一數值決定。差越小越有不易發生的傾向，但電偶電流會隨面積比、電解質的導電難易、陰極反應的發生難易而大幅改變。即使差大，在陰極小且乾燥的地方也不易成為問題；即使差小，大陰極與海水的組合也可能成為問題。"
+        },
+        {
+          "q": "可以用不鏽鋼螺栓固定鋁板嗎？",
+          "a": "鋁合金是陽極，電位差為 0.66～0.96 V，是差很大的組合（鈍態的 304 系時）。螺栓小、板大，因此面積比有利，在乾燥的室內不易成為問題；但在海岸附近或會潤濕的地方，螺栓孔周圍的鋁容易腐蝕。請組合使用絕緣墊圈、套管、密封材與不積水的形狀。"
+        },
+        {
+          "q": "銅管與鋼管可以直接連接嗎？",
+          "a": "鋼成為陽極，接頭附近鋼的一側容易腐蝕（海水中的電位差為 0.23～0.42 V）。若是鍍鋅鋼管，會先由鋅溶解。在給水、熱水的配管中，常採用絕緣接頭的方法。順序也可能因水的成分或溫度而改變，請以配管的規格與製造商的資料確認。"
+        },
+        {
+          "q": "鈦與不鏽鋼的組合如何？",
+          "a": "在海水中 316 系為鈍態時，電位範圍重疊，是差很小（最大約 0.16 V）的組合。但在間隙中等處 316 系成為活性時，不鏽鋼的一側容易成為陽極（電偶序列中活性的 316 系為 −0.46～−0.33 V）。"
+        },
+        {
+          "q": "沒有各別鋁合金的數值嗎？",
+          "a": "在能確認數值的出處中，鋁合金歸為1個範圍（−1.00～−0.76 V）。只顯示排列順序的資料中，也有將 2000 系等含銅的合金放在惰性側、將 1100、3003、5052 等放在活潑側的，但無法確認各合金的電位數值，因此未加以區分。"
+        },
+        {
+          "q": "海水以外（淡水、大氣、土壤中）也能使用嗎？",
+          "a": "請僅作為參考使用。電偶序列是在流動海水中量測的，在其他環境中電位與順序都可能改變。例如鋅與鋼在 60～82 ℃的溫水中，含溶氧與碳酸氫根離子或硝酸根離子時，極性可能反轉，鋅不再保護鋼。請以使用環境中的試驗，或規格與製造商的資料確認。"
+        }
+      ],
+      "a_mg": "鎂",
+      "b_mg": "鎂",
+      "a_zn": "鋅（含鍍鋅層）",
+      "b_zn": "鋅（含鍍鋅層）",
+      "a_al": "鋁合金（各種合併為一個範圍）",
+      "b_al": "鋁合金（各種合併為一個範圍）",
+      "a_cd": "鎘",
+      "b_cd": "鎘",
+      "a_steel": "軟鋼、鑄鐵",
+      "b_steel": "軟鋼、鑄鐵",
+      "a_las": "低合金鋼",
+      "b_las": "低合金鋼",
+      "a_nicast": "沃斯田鐵系鎳鑄鐵",
+      "b_nicast": "沃斯田鐵系鎳鑄鐵",
+      "a_ss410a": "不鏽鋼 410、416、430（活性）",
+      "b_ss410a": "不鏽鋼 410、416、430（活性）",
+      "a_ss304a": "不鏽鋼 302、304、321、347（活性）",
+      "b_ss304a": "不鏽鋼 302、304、321、347（活性）",
+      "a_ss316a": "不鏽鋼 316、317（活性）",
+      "b_ss316a": "不鏽鋼 316、317（活性）",
+      "a_in600a": "鎳鉻合金 600（活性）",
+      "b_in600a": "鎳鉻合金 600（活性）",
+      "a_albz": "鋁青銅",
+      "b_albz": "鋁青銅",
+      "a_brass": "黃銅（海軍黃銅、黃銅、紅黃銅）",
+      "b_brass": "黃銅（海軍黃銅、黃銅、紅黃銅）",
+      "a_cu": "銅",
+      "b_cu": "銅",
+      "a_sn": "錫",
+      "b_sn": "錫",
+      "a_solder": "錫鉛焊料（50/50）",
+      "b_solder": "錫鉛焊料（50/50）",
+      "a_adm": "海軍部黃銅（Admiralty）、鋁黃銅",
+      "b_adm": "海軍部黃銅（Admiralty）、鋁黃銅",
+      "a_bronze": "錫青銅（G、M）",
+      "b_bronze": "錫青銅（G、M）",
+      "a_sibz": "矽青銅",
+      "b_sibz": "矽青銅",
+      "a_ss410p": "不鏽鋼 410、416（鈍態）",
+      "b_ss410p": "不鏽鋼 410、416（鈍態）",
+      "a_ss430p": "不鏽鋼 430（鈍態）",
+      "b_ss430p": "不鏽鋼 430（鈍態）",
+      "a_cuni9010": "90-10 白銅",
+      "b_cuni9010": "90-10 白銅",
+      "a_pb": "鉛",
+      "b_pb": "鉛",
+      "a_cuni7030": "70-30 白銅",
+      "b_cuni7030": "70-30 白銅",
+      "a_ni": "鎳（Ni 200）",
+      "b_ni": "鎳（Ni 200）",
+      "a_in600p": "鎳鉻合金 600（鈍態）",
+      "b_in600p": "鎳鉻合金 600（鈍態）",
+      "a_ag": "銀",
+      "b_ag": "銀",
+      "a_monel": "鎳銅合金 400、K-500（蒙乃爾合金）",
+      "b_monel": "鎳銅合金 400、K-500（蒙乃爾合金）",
+      "a_ss304p": "不鏽鋼 302、304、321、347（鈍態）",
+      "b_ss304p": "不鏽鋼 302、304、321、347（鈍態）",
+      "a_ss316p": "不鏽鋼 316、317（鈍態）",
+      "b_ss316p": "不鏽鋼 316、317（鈍態）",
+      "a_in625": "鎳鉻鉬合金 625",
+      "b_in625": "鎳鉻鉬合金 625",
+      "a_ti": "鈦、鈦合金",
+      "b_ti": "鈦、鈦合金",
+      "a_pt": "鉑",
+      "b_pt": "鉑",
+      "a_gr": "石墨（碳纖維、CFRP 的參考）",
+      "b_gr": "石墨（碳纖維、CFRP 的參考）"
+    },
+    "ko": {
+      "nav": "이종 금속 접촉 부식 체커",
+      "card": "두 금속과 환경을 고르면 어느 쪽이 녹기 쉬운지, 전위차의 범위, 면적비와 대책을 출처와 함께 보여 줍니다",
+      "title": "이종 금속 접촉 부식 체커(해수 중의 전위 계열로 판정)",
+      "description": "스테인리스 볼트와 알루미늄 판, 구리관과 강관 같은 두 금속과 환경을 고르면, 흐르는 해수 중의 전위 계열(SCE 기준의 범위)로부터 녹기 쉬운 쪽(애노드), 전위차의 범위, 면적비의 영향, 물·염분·온도에 관한 주의, 대책을 출처와 함께 보여 줍니다. 판정은 참고용 어림입니다.",
+      "h1": "이종 금속 접촉 부식 체커",
+      "lead": "두 금속(합금)과 사용 환경을 고르면, 어느 쪽이 녹기 쉬운 쪽(애노드)이 될 것 같은지, 전위차의 범위, 면적비와 물의 유무에 따른 진행 정도, 대책을 보여 줍니다. 전위는 흐르는 해수 중에서 측정한 부식 전위의 범위(전위 계열)이며, 하나의 수로 반올림하지 않고 범위 그대로 비교합니다. 판정은 참고용 어림이므로, 실제로 사용할 수 있는지는 시험·규격·제조사의 자료로 확인하십시오.",
+      "in_heading": "조합",
+      "a": "금속 A(예: 볼트·작은 부품)",
+      "b": "금속 B(예: 판·큰 부품)",
+      "env": "사용 환경",
+      "env_sea": "해수에 잠김(흐르는 해수)",
+      "env_marine": "해안가 옥외(비말·염분·건습 반복)",
+      "env_outdoor": "내륙 옥외(비를 맞음)",
+      "env_indoor_wet": "실내(결로·물이 튀는 곳)",
+      "env_indoor_dry": "건조한 실내(결로 없음)",
+      "env_fresh": "담수·수돗물",
+      "env_hot": "온수(약 60 ℃ 이상)",
+      "env_soil": "토양 속",
+      "area": "면적비(A의 젖는 면적 ÷ B의 젖는 면적)",
+      "out_heading": "판정(참고)",
+      "anode": "녹기 쉬운 쪽(애노드)",
+      "de": "전위차의 범위",
+      "ac": "캐소드 면적 ÷ 애노드 면적",
+      "chart_h": "전위 계열(흐르는 해수, V vs SCE)",
+      "note": "전위는 흐르는 해수 중의 부식 전위의 범위(포화 칼로멜 전극 SCE 기준)를 공개 자료에서 값마다 확인하여 넣은 것입니다(주로 오스트랄라시아 부식 협회 ACA의 표, ACA에 없는 합금은 델라웨어 대학교 Sea Grant의 Dexter의 표). 금(Au)과 알루미늄 합금의 합금별 값은 확인할 수 없었으므로 넣지 않았습니다. 판정은 전위 계열에 따른 어림이며, 부식 속도는 계산하지 않습니다. 안전이나 구조에 관련된 판단은 사용 환경에서의 시험·규격·제조사의 자료·전문가를 통해 확인하십시오.",
+      "practice": "부식과 표면 처리 문제 풀기",
+      "related": "관련 용어",
+      "js": {
+        "m": {
+          "mg": "마그네슘",
+          "zn": "아연(아연 도금층 포함)",
+          "al": "알루미늄 합금(여러 종류를 묶은 범위)",
+          "cd": "카드뮴",
+          "steel": "연강·주철",
+          "las": "저합금강",
+          "nicast": "오스테나이트계 니켈 주철",
+          "ss410a": "스테인리스강 410·416·430(활성)",
+          "ss304a": "스테인리스강 302·304·321·347(활성)",
+          "ss316a": "스테인리스강 316·317(활성)",
+          "in600a": "니켈-크롬 합금 600(활성)",
+          "albz": "알루미늄 청동",
+          "brass": "황동(네이벌 황동·황동·단동)",
+          "cu": "구리",
+          "sn": "주석",
+          "solder": "주석-납 땜납(50/50)",
+          "adm": "애드미럴티 황동·알루미늄 황동",
+          "bronze": "주석 청동(G·M)",
+          "sibz": "규소 청동",
+          "ss410p": "스테인리스강 410·416(부동태)",
+          "ss430p": "스테인리스강 430(부동태)",
+          "cuni9010": "90-10 백동",
+          "pb": "납",
+          "cuni7030": "70-30 백동",
+          "ni": "니켈(Ni 200)",
+          "in600p": "니켈-크롬 합금 600(부동태)",
+          "ag": "은",
+          "monel": "니켈-구리 합금 400·K-500(모넬)",
+          "ss304p": "스테인리스강 302·304·321·347(부동태)",
+          "ss316p": "스테인리스강 316·317(부동태)",
+          "in625": "니켈-크롬-몰리브덴 합금 625",
+          "ti": "티타늄·티타늄 합금",
+          "pt": "백금",
+          "gr": "흑연(탄소 섬유·CFRP의 참고값)"
+        },
+        "grp": {
+          "light": "마그네슘·아연·알루미늄",
+          "iron": "강·주철",
+          "ss": "스테인리스강",
+          "cu": "구리·구리 합금",
+          "ni": "니켈·니켈 합금",
+          "other": "카드뮴·주석·납·땜납",
+          "noble": "은·티타늄·백금·흑연"
+        },
+        "src": {
+          "aca": "ACA",
+          "dex": "Dexter"
+        },
+        "envs": {
+          "sea": {
+            "lv": "전해질: 있음(해수).",
+            "t": "이 도구의 전위 계열과 같은 종류의 조건입니다. 해수는 전기가 잘 통하므로 갈바닉 전류가 흐르기 쉽고, 애노드가 녹는 범위도 접촉부에서 넓게 퍼지기 쉽습니다."
+          },
+          "marine": {
+            "lv": "진행되기 쉬운 조건입니다.",
+            "t": "염분이 부착되고 젖음과 건조를 반복하면, 틈이나 겹친 부분에 염분이 진한 수막이 남아 갈바닉 부식이 진행되기 쉬워집니다. 수막이 얇으므로 부식은 접촉부 바로 근처에 집중되기 쉽습니다."
+          },
+          "outdoor": {
+            "lv": "조건에 따라 다릅니다.",
+            "t": "비나 결로로 젖어 있는 동안 진행됩니다. 물이 고이고 잘 마르지 않는 형상(틈, 물이 빠지지 않는 홈)에서는 진행되기 쉽고, 비에 씻겨 곧 마르는 곳에서는 잘 진행되지 않습니다. 제설제(염)가 닿는 곳은 해안가에 가까운 조건으로 생각하십시오."
+          },
+          "indoor_wet": {
+            "lv": "조건에 따라 다릅니다.",
+            "t": "결로나 물이 튀어 젖어 있는 동안은 전해질이 있는 상태입니다. 젖어 있는 시간이 길수록, 또 오염이나 염분이 붙어 있을수록 진행되기 쉬워집니다."
+          },
+          "indoor_dry": {
+            "lv": "잘 진행되지 않는 조건입니다.",
+            "t": "전해질(수막)이 없으면 갈바닉 전류는 거의 흐르지 않습니다. 다만 계절에 따라 결로가 생기거나, 습도가 높거나, 먼지나 염분이 붙는 경우에는 ‘실내(결로 있음)’로 생각하십시오."
+          },
+          "fresh": {
+            "lv": "조건에 따라 다릅니다.",
+            "t": "담수는 해수보다 전기가 잘 통하지 않으므로, 영향은 접촉부 근처로 한정되기 쉽습니다. 한편 물의 성분(용존 산소·염화물·경도 등)과 온도에 따라 전위의 순위가 해수와 달라질 수 있습니다."
+          },
+          "hot": {
+            "lv": "주의가 필요합니다.",
+            "t": "온도가 올라가면 대부분의 반응이 빨라지고, 순위가 뒤바뀌는 예도 있습니다. 예를 들어 아연과 강은 60~82 ℃에서 용존 산소와 탄산수소 이온이나 질산 이온을 포함하는 물속에서는 아연이 강을 보호하지 않게 되는(극성의 역전) 경우가 있다고 미국 용융 아연 도금 협회(AGA)가 설명하고 있습니다."
+          },
+          "soil": {
+            "lv": "조건에 따라 다릅니다.",
+            "t": "토양의 수분·염분·통기·비저항에 따라 크게 달라지며, 전위의 순위도 해수와 같다고는 할 수 없습니다. 매설하는 배관이나 구조물은 전기 방식의 규격과 전문가를 통해 확인하십시오."
+          }
+        },
+        "ui": {
+          "examples": "예:",
+          "ex": [
+            "스테인리스 볼트 + 알루미늄 판",
+            "구리관 + 강관",
+            "아연 도금 강 + 구리",
+            "CFRP + 알루미늄",
+            "티타늄 + 스테인리스"
+          ],
+          "range_v": "{lo}~{hi} V",
+          "de_v": "{lo}~{hi} V",
+          "same_short": "같은 금속",
+          "de_same": "0 V(같은 금속)",
+          "overlap_short": "판정할 수 없음",
+          "v_same": "같은 금속끼리이므로 전위차가 없으며, 이종 금속 접촉 부식은 일어나지 않습니다. 다만 틈 부식이나 산소 농도의 차이에 의한 부식은 따로 일어날 수 있습니다.",
+          "v_anode": "녹기 쉬운 쪽(애노드)은 {an}, 부식이 억제되는 쪽(캐소드)은 {ca}입니다. 전위차는 {lo}~{hi} V입니다(흐르는 해수 중의 전위 범위로부터).",
+          "v_overlap": "{a}와(과) {b}의 전위 범위가 겹치므로, 이 전위 계열로는 어느 쪽이 애노드라고도 할 수 없습니다. 전위차는 0~{hi} V의 범위입니다(두 범위의 끝끼리의 차).",
+          "col_metal": "금속·합금",
+          "col_range": "부식 전위(V vs SCE)",
+          "col_src": "출처",
+          "cond": "값은 흐르는 해수 중의 부식 전위의 범위이며, 포화 칼로멜 전극(SCE) 기준입니다(같은 순서의 그림의 조건으로 유속 약 2.4~4 m/s, 약 10~27 ℃라고 적은 자료가 있습니다). 전위차는 갈바닉 부식이 일어나기 쉬운 정도를 가늠하는 어림값이며, 부식 속도 그 자체가 아닙니다.",
+          "h_notes": "이 조합의 주의 사항",
+          "n_crev": "{m}은(는) 흐름이 느린 물·공기가 잘 닿지 않는 물·틈 속에서는 부동태가 깨져 활성 상태({act}: {r})가 될 수 있습니다. 그때는 전위차가 달라지고, 애노드와 캐소드가 뒤바뀌기도 합니다.",
+          "n_act": "{m}은(는) 부동태가 깨져 활성이 된 상태의 값입니다. 보통 부동태가 유지되는 곳에서는 부동태 쪽의 값을 고르십시오.",
+          "n_overlap": "범위가 겹치므로, 이 전위 계열로는 어느 쪽이 애노드인지 정할 수 없습니다. 겹치는 조합은 겹치지 않는 조합보다 전위차가 작은 경우가 많지만, 범위가 넓은 금속(알루미늄 합금 등)에서는 최대 차가 0.2 V를 넘기도 합니다. 틈·흐름·온도·표면 상태에 따라 전위가 움직이면 어느 한쪽이 녹기 쉬워질 수 있습니다.",
+          "n_near": "범위는 겹치지 않지만 가까우므로(최소 차가 0.05 V 미만), 조건에 따라 순위가 뒤바뀔 수도 있습니다(0.05 V는 이 도구가 정한 구분이며, 규격의 값이 아닙니다).",
+          "n_zn": "아연 도금 강에서는 먼저 아연층이 녹아 아래의 강을 보호합니다(희생 방식). 아연이 없어진 곳에서는 강이 상대 금속과 연결되므로 ‘연강·주철’로도 확인하십시오.",
+          "n_cfrp": "CFRP의 탄소 섬유는 귀한 금속처럼 거동하며(미국 연방항공청 FAA의 보고서), 알루미늄과 조합하면 알루미늄이 녹기 쉬워집니다. 같은 보고서에서는 사이에 유리 섬유(E 유리)층을 넣어 절연하고, 실링재나 도금과 조합하는 방법을 들고 있습니다. 여기서는 흑연의 범위를 탄소 섬유의 참고값으로 사용합니다(CFRP 자체의 측정값이 아닙니다).",
+          "n_gr": "여기서는 흑연의 범위를 탄소 섬유(CFRP)의 참고값으로도 사용합니다(CFRP 자체의 측정값이 아닙니다).",
+          "n_al": "알루미늄 합금은 합금의 종류나 질별에 따라 전위가 다릅니다. 확인한 출처에서는 전체가 하나의 범위로 묶여 있어, 합금별 값은 확인할 수 없었습니다.",
+          "n_dezinc": "아연이 많은 황동은 해수나 고인 물속에서 탈아연 부식을 일으킬 수 있습니다(이종 금속 접촉과는 별개의 현상입니다).",
+          "n_hot_zn": "온수(60~82 ℃)에서 용존 산소와 탄산수소 이온이나 질산 이온을 포함하는 물에서는 아연과 강의 극성이 역전되어, 아연이 강을 보호하지 않게 될 수 있습니다(AGA). 이 경우 해수의 전위 계열에 의한 판정은 맞지 않습니다.",
+          "h_area": "면적비",
+          "a_none": "애노드가 정해지지 않으므로 면적비의 영향은 보여 주지 않습니다.",
+          "a_bad": "면적비에는 0보다 큰 수를 넣으십시오.",
+          "a_val": "캐소드({ca})의 면적 ÷ 애노드({an})의 면적 = {f}",
+          "a_big": "캐소드가 애노드보다 큰, 피해야 할 조합입니다. 단순화한 어림으로는 애노드가 녹는 전류 밀도가 면적이 같을 때의 약 {f}배가 됩니다(전류가 캐소드의 반응으로 정해진다고 본 경우의 비례 관계에 따른 어림이며, 부식 속도의 계산이 아닙니다).",
+          "a_small": "애노드가 캐소드보다 큰 조합입니다. 갈바닉 전류가 애노드의 넓은 면에 나뉘므로 애노드의 전류 밀도는 면적이 같을 때보다 작아지며, 비교적 좋은 조합입니다(전류가 없어지는 것은 아닙니다).",
+          "a_equal": "면적이 같은 경우입니다. 면적비를 바꾸면 애노드의 전류 밀도가 어떻게 변하는지 대략 알 수 있습니다.",
+          "a_rule": "예: 강판에 스테인리스강 볼트(큰 애노드 + 작은 캐소드)는 비교적 좋고, 스테인리스강 판에 강 볼트(작은 애노드 + 큰 캐소드)는 볼트가 빨리 녹으므로 피합니다.",
+          "h_env": "환경(물·염분·온도)",
+          "e_order": "이 전위 계열은 흐르는 해수에서의 값입니다. 다른 환경에서는 전위도 순위도 달라질 수 있으므로, 전위차의 수치는 참고로만 사용하십시오.",
+          "h_meas": "대책",
+          "meas": [
+            "전기적으로 절연한다: 물을 흡수하지 않는 수지 와셔·슬리브·개스킷으로 두 금속이 닿지 않게 합니다(볼트의 축과 구멍도). 종이나 섬유 와셔는 물을 흡수하므로 적합하지 않습니다.",
+            "도장한다면 캐소드 쪽도 도장한다: 애노드 쪽만 도장하면 도막의 작은 흠에 큰 캐소드의 전류가 모여 그곳이 깊게 녹습니다. 양쪽, 적어도 캐소드 쪽을 도장합니다.",
+            "물을 들이지 않고 고이지 않게 한다: 접촉부를 실링재로 막고, 물이 빠지는 길(배수)을 만듭니다.",
+            "전위가 가까운 금속을 고른다: 가능하면 같은 금속으로 하고, 안 되면 전위 계열에서 가까운 조합으로 합니다. 볼트 등 작은 부품은 상대와 같거나 더 귀한 금속으로 합니다.",
+            "희생 양극으로 보호한다: 해수 중의 구조물 등에서는 아연·알루미늄·마그네슘의 양극을 연결하여, 보호하려는 금속보다 먼저 녹게 합니다(설계는 전기 방식의 규격을 따릅니다).",
+            "점검할 수 있게 한다: 접촉부를 보이는 곳·교체할 수 있는 곳에 둡니다."
+          ],
+          "axis": "V vs SCE",
+          "chart_lead": "가로 막대가 전위의 범위입니다. 오른쪽일수록 귀하고(캐소드가 되기 쉬움), 왼쪽일수록 활성입니다(애노드가 되기 쉬움). 빗금은 부동태가 깨진 활성 상태입니다. 고른 A와 B를 색으로 표시합니다.",
+          "chart_label": "흐르는 해수 중의 전위 계열(가로 막대는 부식 전위의 범위)",
+          "leg_act": "활성 상태",
+          "l_failure": "파손 분석",
+          "l_materials": "재료 데이터 모음",
+          "disclaimer": "이 판정은 전위 계열에 근거한 어림입니다. 실제로 사용할 수 있는지는 사용 환경에서의 시험, 규격(ISO·JIS·ASTM 등), 제조사의 자료로 확인하십시오. 안전이나 구조에 관련된 판단은 전문가와 상담하십시오."
+        }
+      },
+      "sections": [
+        {
+          "h": "이종 금속 접촉 부식(갈바닉 부식)의 원리",
+          "p": "전위가 다른 두 금속이 전기적으로 연결되고 같은 전해질(해수·빗물·결로의 수막 등)에 닿으면 전지가 만들어집니다. 전위가 낮은(활성인) 금속이 애노드가 되어 녹고(금속 → 금속 이온 + 전자), 전자는 접촉부를 통해 전위가 높은(귀한) 금속으로 흘러, 그 표면에서 산소의 환원 등 캐소드 반응이 일어납니다. 애노드의 부식은 단독일 때보다 빨라지고, 캐소드의 부식은 억제됩니다. 일어나는 조건은 ‘서로 다른 금속’, ‘전기적 접촉’, ‘양쪽에 이어지는 전해질’의 세 가지이며, 어느 하나라도 끊으면 이종 금속 접촉에 의한 부식은 막을 수 있습니다(각 금속이 스스로 부식하는 만큼은 남습니다)."
+        },
+        {
+          "h": "전위 계열과 표준 전극 전위의 차이",
+          "p": "표준 전극 전위(Cu²⁺/Cu에서 +0.34 V 등)는 순금속이 활동도 1(대략 1 mol/L)인 그 이온의 용액과 평형에 있을 때의, 표준 수소 전극(SHE) 기준의 값이며, 합금, 표면의 산화 피막, 실제 환경을 포함하지 않습니다(이 도구의 전위 계열은 SCE 기준이며, SCE는 25 ℃에서 SHE에 대해 약 +0.24 V이므로 기준도 다릅니다). 조합을 생각할 때는 사용 환경에서 실제로 측정한 부식 전위를 늘어놓은 전위 계열(갈바닉 계열)을 사용합니다. 예를 들어 알루미늄과 티타늄은 표준 전극 전위로는 상당히 활성이지만, 산화 피막이 있기 때문에 해수 중의 전위는 훨씬 귀한 쪽에 있어, 표준 전극 전위의 순서와는 배열이 다릅니다. 이 도구는 표준 전극 전위의 표를 쓰지 않고, 해수 중의 전위 계열만으로 판정합니다(농도에 따른 평형 전위의 변화를 나타내는 네른스트 식도 여기서는 쓰지 않습니다)."
+        },
+        {
+          "h": "부동태와 활성",
+          "p": "스테인리스강이나 니켈 합금은 표면의 얇은 산화 피막(부동태 피막)으로 보호되어 있을 때는 귀한 전위를 나타냅니다. 흐름이 느린 물, 공기가 닿지 않는 물, 틈 속, 염화물이 많은 곳에서는 피막이 깨져 활성이 되고, 전위가 활성 쪽으로 움직입니다. 표의 값으로는 304계의 부동태가 −0.10~−0.04 V, 활성이 −0.58~−0.44 V입니다. 이 도구에서는 두 상태를 별도의 행으로 두었으므로, 조건에 맞는 쪽을 고르십시오. 반대로 해수 중에서 미생물 막이 붙으면 부동태 합금의 전위가 귀한 쪽으로 움직인다(+0.3~+0.4 V에 이르는 경우가 있다)는 보고도 있습니다."
+        },
+        {
+          "h": "면적비: 작은 애노드와 큰 캐소드를 피한다",
+          "p": "갈바닉 전류의 크기는 많은 경우 캐소드의 반응(물속 용존 산소의 환원)으로 정해지며, 캐소드의 면적이 클수록 전류도 커집니다. 그 전류가 애노드의 면에서 흘러나오므로, 애노드의 전류 밀도(녹는 속도)는 대략 ‘캐소드 면적 ÷ 애노드 면적’에 비례하여 커집니다. 스테인리스강 판을 강 볼트로 고정하면 작은 볼트가 빨리 녹습니다. 반대로 강판에 스테인리스강 볼트라면 전류가 넓은 강의 면에 나뉘므로 영향은 작아집니다. 이 도구의 면적비 수치는 이 비례 관계에 따른 어림을 보여 줄 뿐이며, 부식 속도는 계산하지 않습니다."
+        },
+        {
+          "h": "틈 부식·공식 부식과의 차이",
+          "p": "틈 부식은 같은 금속이라도 틈의 안과 밖에서 산소의 농도나 용액의 성분이 다르기 때문에 일어나는 국부 부식으로, 서로 다른 금속이 없어도 일어납니다. 공식 부식은 염화물 등에 의해 부동태 피막이 국부적으로 깨져 일어납니다. 이종 금속의 접촉부는 대개 틈도 만들기 때문에 두 가지가 겹칠 수 있습니다. 스테인리스강끼리의 볼트 체결이라도 틈 속에서 부식될 수 있습니다."
+        },
+        {
+          "h": "흔한 오해",
+          "p": "‘전위차가 ○ V 이하라면 안전’이라고 하나의 수로 정할 수는 없습니다. 허용의 기준은 자료마다 다르고, 면적비·전해질·온도·흐름에 따라 결과는 크게 달라집니다(이 도구는 허용 수치를 판정에 사용하지 않습니다). ‘애노드 쪽을 도장하면 막을 수 있다’는 역효과가 나기 쉬우며, 도장한다면 캐소드 쪽(가능하면 양쪽)입니다. ‘스테인리스강은 잘 녹슬지 않으므로 무엇과 조합해도 된다’도 잘못이며, 스테인리스강은 많은 금속에 대해 캐소드가 되어 상대의 부식을 빠르게 합니다."
+        },
+        {
+          "h": "데이터와 판정 방법",
+          "p": "전위는 흐르는 해수 중의 부식 전위의 범위(SCE 기준)를 출처에서 값마다 확인하여 넣었습니다. 주된 출처는 오스트랄라시아 부식 협회(ACA)의 교육 자료의 표이며, ACA의 표에 없는 니켈-크롬-몰리브덴 합금 625와, 부호를 읽어 낼 수 없었던 티타늄은 델라웨어 대학교 Sea Grant의 Dexter의 표의 값을 사용합니다. 이들은 LaQue에 의한 해수 중 데이터의 그림(ASTM G82의 부록에도 같은 종류의 그림이 있음)과 같은 순서의 표로 보이지만, ASTM G82의 본문은 여기서 확인하지 않았습니다. 판정에서는 두 범위가 겹치지 않을 때는 상한이 낮은 쪽을 애노드로 하고, 전위차를 ‘캐소드의 하한 − 애노드의 상한’부터 ‘캐소드의 상한 − 애노드의 하한’까지로 합니다. 범위가 겹칠 때는 어느 쪽이 애노드라고도 정하지 않습니다."
+        }
+      ],
+      "faq": [
+        {
+          "q": "애노드 지수(양극 지수)의 0.15 V·0.25 V·0.50 V는 쓰지 않습니까?",
+          "a": "이 도구에서는 쓰지 않습니다. 미군 규격 MIL-DTL-14072(지상 전자 장비의 마감 처리)에는 금을 기준으로 한 anodic index와, 조합해도 되는 차를 0.25 V까지로 하고 비바람이나 염분을 포함한 공기에 노출되지 않는 경우에는 0.50 V까지 넓혀도 된다는 기술이 있음을 확인했습니다. 그러나 자주 인용되는 ‘가혹한 환경에서는 0.15 V’의 출처는 확인할 수 없었습니다. 또 MIL-STD-889의 개정판 D는 (NAVAIR 기술자의 논문에 따르면) 전위차가 아니라 갈바닉 전류와 부식 속도로 조합을 나누고 있습니다. 값의 출처와 전제가 맞지 않으므로 판정에는 쓰지 않고, 전위차의 범위만 보여 줍니다."
+        },
+        {
+          "q": "전위차가 얼마 이하면 괜찮습니까?",
+          "a": "하나의 수로는 정할 수 없습니다. 차가 작을수록 잘 일어나지 않는 경향은 있지만, 갈바닉 전류는 면적비, 전해질의 전기 전도성, 캐소드 반응이 일어나기 쉬운 정도에 따라 크게 달라집니다. 차가 커도 캐소드가 작고 건조한 곳에서는 문제가 되기 어렵고, 차가 작아도 큰 캐소드와 해수의 조합에서는 문제가 될 수 있습니다."
+        },
+        {
+          "q": "스테인리스 볼트로 알루미늄 판을 고정해도 됩니까?",
+          "a": "알루미늄 합금이 애노드이며, 전위차가 0.66~0.96 V로 큰 조합입니다(부동태의 304계인 경우). 볼트가 작고 판이 크므로 면적비는 유리하며, 건조한 실내라면 문제가 되기 어렵지만, 해안가나 젖는 곳에서는 볼트 구멍 주위의 알루미늄이 부식되기 쉬워집니다. 절연 와셔·슬리브, 실링재, 물이 고이지 않는 형상을 조합하십시오."
+        },
+        {
+          "q": "구리관과 강관을 그대로 연결해도 됩니까?",
+          "a": "강이 애노드가 되어, 이음부 근처의 강 쪽이 부식되기 쉬워집니다(해수 중의 전위차는 0.23~0.42 V). 아연 도금 강관이라면 먼저 아연이 녹습니다. 급수·급탕 배관에서는 절연 이음을 사용하는 방법이 흔히 쓰입니다. 물의 성분이나 온도에 따라 순위가 바뀌기도 하므로, 배관의 규격과 제조사의 자료로 확인하십시오."
+        },
+        {
+          "q": "티타늄과 스테인리스강의 조합은 어떻습니까?",
+          "a": "해수 중에서 316계가 부동태일 때는 전위의 범위가 겹치며, 차가 작은(최대 0.16 V 정도) 조합입니다. 다만 틈 속 등에서 316계가 활성이 되면 스테인리스강 쪽이 애노드가 되기 쉬워집니다(전위 계열에서는 활성인 316계가 −0.46~−0.33 V)."
+        },
+        {
+          "q": "알루미늄 합금별 값은 없습니까?",
+          "a": "값을 확인할 수 있었던 출처에서는 알루미늄 합금이 하나의 범위(−1.00~−0.76 V)로 묶여 있습니다. 순서만 보여 주는 자료에는 2000계 등 구리를 포함하는 합금을 귀한 쪽에, 1100·3003·5052 등을 활성 쪽에 두는 것도 있지만, 합금별 전위의 값은 확인할 수 없었으므로 나누지 않았습니다."
+        },
+        {
+          "q": "해수 이외(담수·대기·토양 속)에서도 쓸 수 있습니까?",
+          "a": "참고로만 사용하십시오. 전위 계열은 흐르는 해수에서 측정한 것이며, 다른 환경에서는 전위도 순위도 달라질 수 있습니다. 예를 들어 아연과 강은 60~82 ℃의 온수에서 용존 산소와 탄산수소 이온이나 질산 이온을 포함하는 경우에 극성이 역전되어, 아연이 강을 보호하지 않게 될 수 있습니다. 사용 환경에서의 시험이나 규격·제조사의 자료로 확인하십시오."
+        }
+      ],
+      "a_mg": "마그네슘",
+      "b_mg": "마그네슘",
+      "a_zn": "아연(아연 도금층 포함)",
+      "b_zn": "아연(아연 도금층 포함)",
+      "a_al": "알루미늄 합금(여러 종류를 묶은 범위)",
+      "b_al": "알루미늄 합금(여러 종류를 묶은 범위)",
+      "a_cd": "카드뮴",
+      "b_cd": "카드뮴",
+      "a_steel": "연강·주철",
+      "b_steel": "연강·주철",
+      "a_las": "저합금강",
+      "b_las": "저합금강",
+      "a_nicast": "오스테나이트계 니켈 주철",
+      "b_nicast": "오스테나이트계 니켈 주철",
+      "a_ss410a": "스테인리스강 410·416·430(활성)",
+      "b_ss410a": "스테인리스강 410·416·430(활성)",
+      "a_ss304a": "스테인리스강 302·304·321·347(활성)",
+      "b_ss304a": "스테인리스강 302·304·321·347(활성)",
+      "a_ss316a": "스테인리스강 316·317(활성)",
+      "b_ss316a": "스테인리스강 316·317(활성)",
+      "a_in600a": "니켈-크롬 합금 600(활성)",
+      "b_in600a": "니켈-크롬 합금 600(활성)",
+      "a_albz": "알루미늄 청동",
+      "b_albz": "알루미늄 청동",
+      "a_brass": "황동(네이벌 황동·황동·단동)",
+      "b_brass": "황동(네이벌 황동·황동·단동)",
+      "a_cu": "구리",
+      "b_cu": "구리",
+      "a_sn": "주석",
+      "b_sn": "주석",
+      "a_solder": "주석-납 땜납(50/50)",
+      "b_solder": "주석-납 땜납(50/50)",
+      "a_adm": "애드미럴티 황동·알루미늄 황동",
+      "b_adm": "애드미럴티 황동·알루미늄 황동",
+      "a_bronze": "주석 청동(G·M)",
+      "b_bronze": "주석 청동(G·M)",
+      "a_sibz": "규소 청동",
+      "b_sibz": "규소 청동",
+      "a_ss410p": "스테인리스강 410·416(부동태)",
+      "b_ss410p": "스테인리스강 410·416(부동태)",
+      "a_ss430p": "스테인리스강 430(부동태)",
+      "b_ss430p": "스테인리스강 430(부동태)",
+      "a_cuni9010": "90-10 백동",
+      "b_cuni9010": "90-10 백동",
+      "a_pb": "납",
+      "b_pb": "납",
+      "a_cuni7030": "70-30 백동",
+      "b_cuni7030": "70-30 백동",
+      "a_ni": "니켈(Ni 200)",
+      "b_ni": "니켈(Ni 200)",
+      "a_in600p": "니켈-크롬 합금 600(부동태)",
+      "b_in600p": "니켈-크롬 합금 600(부동태)",
+      "a_ag": "은",
+      "b_ag": "은",
+      "a_monel": "니켈-구리 합금 400·K-500(모넬)",
+      "b_monel": "니켈-구리 합금 400·K-500(모넬)",
+      "a_ss304p": "스테인리스강 302·304·321·347(부동태)",
+      "b_ss304p": "스테인리스강 302·304·321·347(부동태)",
+      "a_ss316p": "스테인리스강 316·317(부동태)",
+      "b_ss316p": "스테인리스강 316·317(부동태)",
+      "a_in625": "니켈-크롬-몰리브덴 합금 625",
+      "b_in625": "니켈-크롬-몰리브덴 합금 625",
+      "a_ti": "티타늄·티타늄 합금",
+      "b_ti": "티타늄·티타늄 합금",
+      "a_pt": "백금",
+      "b_pt": "백금",
+      "a_gr": "흑연(탄소 섬유·CFRP의 참고값)",
+      "b_gr": "흑연(탄소 섬유·CFRP의 참고값)"
+    },
+    "de": {
+      "nav": "Kontaktkorrosions-Check",
+      "card": "Zwei Metalle und eine Umgebung wählen: welches Metall eher korrodiert, Bereich der Potentialdifferenz, Flächenverhältnis und Gegenmaßnahmen, mit Quellen",
+      "title": "Kontaktkorrosions-Check (Bewertung nach der galvanischen Spannungsreihe in Meerwasser)",
+      "description": "Zwei Metalle wie eine Edelstahlschraube und ein Aluminiumblech oder ein Kupferrohr und ein Stahlrohr sowie eine Umgebung wählen: Aus der galvanischen Spannungsreihe in strömendem Meerwasser (Bereiche gegen SCE) ergeben sich die eher korrodierende Seite (Anode), der Bereich der Potentialdifferenz, der Einfluss des Flächenverhältnisses, Hinweise zu Wasser, Salz und Temperatur sowie Gegenmaßnahmen, mit Quellen. Die Bewertung ist nur ein Richtwert.",
+      "h1": "Kontaktkorrosions-Check",
+      "lead": "Wählen Sie zwei Metalle (oder Legierungen) und die Einsatzumgebung. Angezeigt werden, welches Metall voraussichtlich die korrodierende Seite (Anode) wird, der Bereich der Potentialdifferenz, wie Flächenverhältnis und Vorhandensein von Wasser den Angriff beeinflussen, und Gegenmaßnahmen. Die Potentiale sind Bereiche des in strömendem Meerwasser gemessenen Korrosionspotentials (galvanische Spannungsreihe) und werden als Bereiche verglichen, nicht auf einen einzigen Wert gerundet. Die Bewertung ist ein Richtwert; ob eine Paarung tatsächlich einsetzbar ist, prüfen Sie bitte anhand von Versuchen, Normen und Herstellerunterlagen.",
+      "in_heading": "Werkstoffpaarung",
+      "a": "Metall A (z. B. Schraube, kleines Bauteil)",
+      "b": "Metall B (z. B. Blech, großes Bauteil)",
+      "env": "Einsatzumgebung",
+      "env_sea": "In Meerwasser getaucht (strömend)",
+      "env_marine": "Im Freien an der Küste (Gischt, Salz, Nass-trocken-Wechsel)",
+      "env_outdoor": "Im Freien im Binnenland (beregnet)",
+      "env_indoor_wet": "Innenraum mit Kondensation oder Spritzwasser",
+      "env_indoor_dry": "Trockener Innenraum (keine Kondensation)",
+      "env_fresh": "Süßwasser, Leitungswasser",
+      "env_hot": "Warmwasser (etwa 60 °C und mehr)",
+      "env_soil": "Im Erdreich",
+      "area": "Flächenverhältnis (benetzte Fläche A ÷ B)",
+      "out_heading": "Bewertung (Richtwert)",
+      "anode": "Korrodierende Seite (Anode)",
+      "de": "Bereich der Potentialdifferenz",
+      "ac": "Kathodenfläche ÷ Anodenfläche",
+      "chart_h": "Galvanische Spannungsreihe (strömendes Meerwasser, V vs SCE)",
+      "note": "Die Potentiale sind Bereiche des Korrosionspotentials in strömendem Meerwasser (gegen die gesättigte Kalomelelektrode, SCE), die einzeln anhand veröffentlichter Quellen geprüft wurden (hauptsächlich die Tabelle der Australasian Corrosion Association, ACA; Legierungen, die in der ACA-Tabelle fehlen, aus der Tabelle von Dexter, University of Delaware Sea Grant). Gold (Au) und Werte für einzelne Aluminiumlegierungen ließen sich nicht prüfen und sind nicht enthalten. Die Bewertung ist ein Richtwert nach der galvanischen Spannungsreihe; Korrosionsgeschwindigkeiten werden nicht berechnet. Entscheidungen, die Sicherheit oder Tragwerke betreffen, sind durch Versuche in der tatsächlichen Umgebung, Normen, Herstellerunterlagen und Fachleute abzusichern.",
+      "practice": "Aufgaben zu Korrosion und Oberflächenbehandlung lösen",
+      "related": "Verwandte Begriffe",
+      "js": {
+        "m": {
+          "mg": "Magnesium",
+          "zn": "Zink (einschließlich Zinküberzug)",
+          "al": "Aluminiumlegierungen (alle Sorten in einem Bereich)",
+          "cd": "Cadmium",
+          "steel": "Unlegierter Stahl, Gusseisen",
+          "las": "Niedriglegierter Stahl",
+          "nicast": "Austenitisches Nickel-Gusseisen",
+          "ss410a": "Nichtrostender Stahl 410, 416, 430 (aktiv)",
+          "ss304a": "Nichtrostender Stahl 302, 304, 321, 347 (aktiv)",
+          "ss316a": "Nichtrostender Stahl 316, 317 (aktiv)",
+          "in600a": "Nickel-Chrom-Legierung 600 (aktiv)",
+          "albz": "Aluminiumbronze",
+          "brass": "Messing (Marinemessing, Messing, Tombak)",
+          "cu": "Kupfer",
+          "sn": "Zinn",
+          "solder": "Zinn-Blei-Lot (50/50)",
+          "adm": "Admiralitätsmessing, Aluminiummessing",
+          "bronze": "Zinnbronze (G und M)",
+          "sibz": "Siliciumbronze",
+          "ss410p": "Nichtrostender Stahl 410, 416 (passiv)",
+          "ss430p": "Nichtrostender Stahl 430 (passiv)",
+          "cuni9010": "Kupfer-Nickel 90-10",
+          "pb": "Blei",
+          "cuni7030": "Kupfer-Nickel 70-30",
+          "ni": "Nickel (Ni 200)",
+          "in600p": "Nickel-Chrom-Legierung 600 (passiv)",
+          "ag": "Silber",
+          "monel": "Nickel-Kupfer-Legierung 400, K-500 (Monel)",
+          "ss304p": "Nichtrostender Stahl 302, 304, 321, 347 (passiv)",
+          "ss316p": "Nichtrostender Stahl 316, 317 (passiv)",
+          "in625": "Nickel-Chrom-Molybdän-Legierung 625",
+          "ti": "Titan, Titanlegierungen",
+          "pt": "Platin",
+          "gr": "Graphit (Richtwert für Kohlenstofffasern, CFK)"
+        },
+        "grp": {
+          "light": "Magnesium, Zink, Aluminium",
+          "iron": "Stahl und Gusseisen",
+          "ss": "Nichtrostende Stähle",
+          "cu": "Kupfer und Kupferlegierungen",
+          "ni": "Nickel und Nickellegierungen",
+          "other": "Cadmium, Zinn, Blei, Lot",
+          "noble": "Silber, Titan, Platin, Graphit"
+        },
+        "src": {
+          "aca": "ACA",
+          "dex": "Dexter"
+        },
+        "envs": {
+          "sea": {
+            "lv": "Elektrolyt: vorhanden (Meerwasser).",
+            "t": "Dies entspricht der Art von Bedingungen, unter denen die hier verwendete Spannungsreihe gemessen wurde. Meerwasser leitet gut; daher fließt leicht ein galvanischer Strom, und der angegriffene Bereich der Anode kann sich weiter von der Kontaktstelle ausdehnen."
+          },
+          "marine": {
+            "lv": "Die Bedingungen begünstigen den Angriff.",
+            "t": "Abgelagertes Salz und wiederholtes Benetzen und Trocknen hinterlassen in Spalten und Überlappungen einen salzreichen Wasserfilm, der die Kontaktkorrosion fördert. Da der Film dünn ist, konzentriert sich der Angriff meist unmittelbar neben der Kontaktstelle."
+          },
+          "outdoor": {
+            "lv": "Abhängig von den Bedingungen.",
+            "t": "Der Angriff schreitet fort, solange die Oberflächen durch Regen oder Tau nass sind. Formen, in denen sich Wasser sammelt und die schlecht abtrocknen (Spalten, Rillen ohne Abfluss), begünstigen ihn; vom Regen abgewaschene Flächen, die schnell trocknen, sind weniger betroffen. Stellen, die Streusalz ausgesetzt sind, sind wie Küstenbedingungen zu betrachten."
+          },
+          "indoor_wet": {
+            "lv": "Abhängig von den Bedingungen.",
+            "t": "Solange die Oberflächen durch Kondensation oder Spritzwasser nass sind, ist ein Elektrolyt vorhanden. Je länger sie nass bleiben und je mehr Schmutz oder Salz anhaftet, desto leichter schreitet der Angriff fort."
+          },
+          "indoor_dry": {
+            "lv": "Die Bedingungen hemmen den Angriff.",
+            "t": "Ohne Elektrolyt (Wasserfilm) fließt fast kein galvanischer Strom. Tritt jedoch jahreszeitlich Kondensation auf, ist die Luftfeuchte hoch oder lagern sich Staub und Salz ab, ist von „Innenraum mit Kondensation“ auszugehen."
+          },
+          "fresh": {
+            "lv": "Abhängig von den Bedingungen.",
+            "t": "Süßwasser leitet schlechter als Meerwasser, daher bleibt die Wirkung meist auf die Nähe der Kontaktstelle beschränkt. Andererseits können die Wasserzusammensetzung (gelöster Sauerstoff, Chlorid, Härte usw.) und die Temperatur die Reihenfolge der Potentiale gegenüber Meerwasser verändern."
+          },
+          "hot": {
+            "lv": "Vorsicht geboten.",
+            "t": "Höhere Temperaturen beschleunigen die meisten Reaktionen, und die Reihenfolge kann sich umkehren. So erklärt die American Galvanizers Association (AGA), dass Zink bei 60–82 °C in Wasser mit gelöstem Sauerstoff und Hydrogencarbonat- oder Nitrationen den Stahl unter Umständen nicht mehr schützt (Polaritätsumkehr)."
+          },
+          "soil": {
+            "lv": "Abhängig von den Bedingungen.",
+            "t": "Feuchte, Salzgehalt, Belüftung und spezifischer Widerstand des Bodens verändern das Verhalten stark, und die Reihenfolge der Potentiale muss nicht der in Meerwasser entsprechen. Für erdverlegte Rohrleitungen und Bauwerke sind die Normen zum kathodischen Korrosionsschutz und Fachleute heranzuziehen."
+          }
+        },
+        "ui": {
+          "examples": "Beispiele:",
+          "ex": [
+            "Edelstahlschraube + Aluminiumblech",
+            "Kupferrohr + Stahlrohr",
+            "Verzinkter Stahl + Kupfer",
+            "CFK + Aluminium",
+            "Titan + Edelstahl"
+          ],
+          "range_v": "{lo} bis {hi} V",
+          "de_v": "{lo}–{hi} V",
+          "same_short": "Gleiches Metall",
+          "de_same": "0 V (gleiches Metall)",
+          "overlap_short": "Nicht bestimmbar",
+          "v_same": "Es handelt sich um dasselbe Metall; daher gibt es keine Potentialdifferenz und keine Kontaktkorrosion. Spaltkorrosion oder Korrosion durch Unterschiede in der Sauerstoffkonzentration können jedoch trotzdem auftreten.",
+          "v_anode": "Die korrodierende Seite (Anode) ist „{an}“, die geschützte Seite (Kathode) ist „{ca}“. Die Potentialdifferenz beträgt {lo}–{hi} V (aus den Potentialbereichen in strömendem Meerwasser).",
+          "v_overlap": "Die Potentialbereiche von „{a}“ und „{b}“ überlappen sich; nach dieser Spannungsreihe lässt sich daher nicht sagen, welches Metall die Anode ist. Die Potentialdifferenz liegt im Bereich 0–{hi} V (Differenz zwischen den Enden der beiden Bereiche).",
+          "col_metal": "Metall oder Legierung",
+          "col_range": "Korrosionspotential (V vs SCE)",
+          "col_src": "Quelle",
+          "cond": "Die Werte sind Bereiche des Korrosionspotentials in strömendem Meerwasser gegen die gesättigte Kalomelelektrode (SCE); eine Quelle nennt als Bedingungen für ein Diagramm mit derselben Reihenfolge eine Strömungsgeschwindigkeit von etwa 2,4–4 m/s und etwa 10–27 °C. Die Potentialdifferenz ist ein Richtwert für die Neigung zur Kontaktkorrosion, nicht die Korrosionsgeschwindigkeit selbst.",
+          "h_notes": "Hinweise zu dieser Paarung",
+          "n_crev": "In langsam strömendem oder schlecht belüftetem Wasser und in Spalten kann „{m}“ die Passivität verlieren und in den aktiven Zustand übergehen („{act}“: {r}). Dann ändert sich die Potentialdifferenz, und Anode und Kathode können sogar die Rollen tauschen.",
+          "n_act": "Der Eintrag „{m}“ gibt den Wert für den aktiven Zustand nach dem Zusammenbruch der Passivschicht an. Wo die Passivschicht erhalten bleibt, wählen Sie stattdessen den passiven Eintrag.",
+          "n_overlap": "Die Bereiche überlappen sich; nach dieser Spannungsreihe lässt sich daher nicht festlegen, welches Metall die Anode ist. Überlappende Paarungen haben meist kleinere Differenzen als nicht überlappende, bei breiten Bereichen (etwa Aluminiumlegierungen) kann die größte Differenz aber 0,2 V übersteigen. Verschieben Spalten, Strömung, Temperatur oder Oberflächenzustand die Potentiale, kann jedes der beiden Metalle zur korrodierenden Seite werden.",
+          "n_near": "Die Bereiche überlappen sich nicht, liegen aber nahe beieinander (kleinste Differenz unter 0,05 V); unter manchen Bedingungen kann sich die Reihenfolge daher umkehren (0,05 V ist eine für dieses Werkzeug gewählte Grenze, kein Wert aus einer Norm).",
+          "n_zn": "Bei verzinktem Stahl korrodiert zuerst die Zinkschicht und schützt den darunterliegenden Stahl (kathodische Schutzwirkung als Opfermetall). Wo das Zink aufgezehrt ist, ist der Stahl mit dem anderen Metall verbunden; prüfen Sie daher auch „Unlegierter Stahl, Gusseisen“.",
+          "n_cfrp": "Kohlenstofffasern in CFK verhalten sich wie ein edles Metall (Bericht der US-Luftfahrtbehörde FAA), sodass mit CFK gepaartes Aluminium schneller korrodiert. Derselbe Bericht nennt eine isolierende Zwischenlage aus E-Glas, kombiniert mit Dichtstoffen und metallischen Überzügen. Hier dient der Bereich von Graphit als Richtwert für Kohlenstofffasern (es ist kein Messwert für CFK selbst).",
+          "n_gr": "Hier dient der Bereich von Graphit auch als Richtwert für Kohlenstofffasern (CFK); es ist kein Messwert für CFK selbst.",
+          "n_al": "Das Potential von Aluminiumlegierungen hängt von Legierung und Werkstoffzustand ab. In den geprüften Quellen sind alle Aluminiumlegierungen in einem Bereich zusammengefasst; Werte für einzelne Legierungen ließen sich nicht prüfen.",
+          "n_dezinc": "Messing mit hohem Zinkgehalt kann in Meerwasser oder stehendem Wasser entzinken (ein von der Kontaktkorrosion unabhängiges Phänomen).",
+          "n_hot_zn": "In Warmwasser (60–82 °C) mit gelöstem Sauerstoff und Hydrogencarbonat- oder Nitrationen kann sich die Polarität von Zink und Stahl umkehren, sodass Zink den Stahl nicht mehr schützt (AGA). In diesem Fall gilt die Bewertung nach der Spannungsreihe in Meerwasser nicht.",
+          "h_area": "Flächenverhältnis",
+          "a_none": "Es lässt sich keine Anode bestimmen; der Einfluss des Flächenverhältnisses wird daher nicht angezeigt.",
+          "a_bad": "Geben Sie für das Flächenverhältnis eine Zahl größer als 0 ein.",
+          "a_val": "Fläche der Kathode („{ca}“) ÷ Fläche der Anode („{an}“) = {f}",
+          "a_big": "Die Kathode ist größer als die Anode, eine zu vermeidende Paarung. Als vereinfachter Richtwert beträgt die anodische Stromdichte etwa das {f}-Fache des Werts bei gleichen Flächen (eine proportionale Abschätzung unter der Annahme, dass die kathodische Reaktion den Strom bestimmt, keine Berechnung der Korrosionsgeschwindigkeit).",
+          "a_small": "Die Anode ist größer als die Kathode. Der galvanische Strom verteilt sich auf die große Anodenoberfläche, sodass die anodische Stromdichte kleiner ist als bei gleichen Flächen; dies ist eine vergleichsweise günstige Paarung (der Strom verschwindet nicht).",
+          "a_equal": "Gleiche Flächen. Ändern Sie das Flächenverhältnis, um als Richtwert zu sehen, wie sich die anodische Stromdichte ändert.",
+          "a_rule": "Beispiel: Schrauben aus nichtrostendem Stahl in einem Stahlblech (große Anode, kleine Kathode) sind vergleichsweise unbedenklich, Stahlschrauben in einem Blech aus nichtrostendem Stahl (kleine Anode, große Kathode) werden dagegen vermieden, weil die Schrauben schnell korrodieren.",
+          "h_env": "Umgebung (Wasser, Salz, Temperatur)",
+          "e_order": "Diese Spannungsreihe gilt für strömendes Meerwasser. In anderen Umgebungen können sich sowohl die Potentiale als auch die Reihenfolge ändern; verwenden Sie die Potentialdifferenzen daher nur als Richtwert.",
+          "h_meas": "Gegenmaßnahmen",
+          "meas": [
+            "Elektrisch isolieren: Nicht wasseraufnehmende Kunststoffscheiben, -hülsen und -dichtungen verwenden, damit sich die beiden Metalle nicht berühren (auch der Schraubenschaft in der Bohrung). Scheiben aus Papier oder Faserstoff nehmen Wasser auf und sind ungeeignet.",
+            "Wenn beschichtet wird, auch die Kathode beschichten: Wird nur die Anode beschichtet, konzentriert sich der Strom der großen Kathode auf kleine Fehlstellen der Beschichtung, und dort entsteht ein tiefer Angriff. Beide Seiten beschichten, mindestens aber die Kathode.",
+            "Wasser fernhalten und ableiten: Die Fügestelle abdichten und Abflusswege vorsehen.",
+            "Metalle mit ähnlichem Potential wählen: Möglichst dasselbe Metall verwenden, sonst eine Paarung, die in der Spannungsreihe nahe beieinanderliegt. Kleine Teile wie Verbindungselemente aus demselben oder einem edleren Metall als die verbundenen Teile fertigen.",
+            "Opferanoden einsetzen: Bei Bauwerken in Meerwasser Anoden aus Zink, Aluminium oder Magnesium anschließen, die vor den zu schützenden Metallen korrodieren (Auslegung nach den Normen zum kathodischen Korrosionsschutz).",
+            "Prüfbarkeit sicherstellen: Fügestellen so anordnen, dass sie sichtbar und austauschbar sind."
+          ],
+          "axis": "V vs SCE",
+          "chart_lead": "Die Balken zeigen den Potentialbereich. Weiter rechts ist edler (eher Kathode), weiter links unedler (eher Anode). Schraffierte Balken sind der aktive Zustand nach dem Zusammenbruch der Passivschicht. Die gewählten Metalle A und B sind farbig hervorgehoben.",
+          "chart_label": "Galvanische Spannungsreihe in strömendem Meerwasser (Balken sind Bereiche des Korrosionspotentials)",
+          "leg_act": "Aktiver Zustand",
+          "l_failure": "Schadensanalyse",
+          "l_materials": "Werkstoffdatensammlung",
+          "disclaimer": "Diese Bewertung ist ein Richtwert auf Grundlage der galvanischen Spannungsreihe. Ob eine Paarung tatsächlich einsetzbar ist, muss durch Versuche in der Einsatzumgebung, Normen (ISO, JIS, ASTM usw.) und Herstellerunterlagen bestätigt werden. Ziehen Sie für Entscheidungen, die Sicherheit oder Tragwerke betreffen, Fachleute hinzu."
+        }
+      },
+      "sections": [
+        {
+          "h": "Wie Kontaktkorrosion (galvanische Korrosion) entsteht",
+          "p": "Sind zwei Metalle mit unterschiedlichem Potential elektrisch leitend verbunden und berühren denselben Elektrolyten (Meerwasser, Regenwasser, ein Kondenswasserfilm usw.), bildet sich ein galvanisches Element. Das Metall mit dem niedrigeren (unedleren) Potential wird zur Anode und löst sich auf (Metall → Metallionen + Elektronen); die Elektronen fließen über die Kontaktstelle zum Metall mit dem höheren (edleren) Potential, an dessen Oberfläche eine kathodische Reaktion wie die Sauerstoffreduktion abläuft. Die Anode korrodiert schneller als allein, die Kathode langsamer. Drei Bedingungen sind nötig: verschiedene Metalle, elektrischer Kontakt und ein Elektrolyt, der beide verbindet. Wird eine davon unterbrochen, lässt sich die Kontaktkorrosion verhindern (die Eigenkorrosion jedes Metalls bleibt bestehen)."
+        },
+        {
+          "h": "Galvanische Spannungsreihe und Standardelektrodenpotential",
+          "p": "Ein Standardelektrodenpotential (etwa +0,34 V für Cu²⁺/Cu) gilt für ein reines Metall im Gleichgewicht mit einer Lösung seiner Ionen der Aktivität 1 (ungefähr 1 mol/L), bezogen auf die Standardwasserstoffelektrode (SHE); Legierungen, oxidische Deckschichten und reale Umgebungen sind darin nicht enthalten (die Reihe in diesem Werkzeug ist auf die SCE bezogen, die bei 25 °C etwa +0,24 V gegen die SHE liegt; auch die Bezugselektrode ist also eine andere). Zur Beurteilung einer Paarung dient eine galvanische Spannungsreihe (praktische Spannungsreihe), in der die in der Einsatzumgebung tatsächlich gemessenen Korrosionspotentiale aufgeführt sind. So haben Aluminium und Titan sehr unedle Standardelektrodenpotentiale, liegen wegen ihrer Oxidschichten in Meerwasser aber deutlich auf der edleren Seite; die Reihenfolge unterscheidet sich also von der elektrochemischen Spannungsreihe. Dieses Werkzeug verwendet keine Standardelektrodenpotentiale und bewertet nur nach der Spannungsreihe in Meerwasser (auch die Nernst-Gleichung, die die Konzentrationsabhängigkeit des Gleichgewichtspotentials beschreibt, wird hier nicht verwendet)."
+        },
+        {
+          "h": "Passiver und aktiver Zustand",
+          "p": "Nichtrostende Stähle und Nickellegierungen zeigen edle Potentiale, solange sie durch eine dünne Oxidschicht (Passivschicht) geschützt sind. In langsam strömendem oder schlecht belüftetem Wasser, in Spalten und bei hohem Chloridgehalt kann die Schicht zusammenbrechen; die Legierung wird aktiv, und ihr Potential verschiebt sich in unedle Richtung. In der Tabelle liegt der 304-Typ im passiven Zustand bei −0,10 bis −0,04 V und im aktiven bei −0,58 bis −0,44 V. Dieses Werkzeug führt beide Zustände als getrennte Einträge; wählen Sie den, der zu den Bedingungen passt. Umgekehrt wurde berichtet, dass Biofilme in Meerwasser die Potentiale passiver Legierungen in edle Richtung verschieben (bis zu +0,3 bis +0,4 V)."
+        },
+        {
+          "h": "Flächenverhältnis: kleine Anoden und große Kathoden vermeiden",
+          "p": "Der galvanische Strom wird meist von der kathodischen Reaktion (Reduktion des gelösten Sauerstoffs im Wasser) bestimmt; eine größere Kathodenfläche ergibt also einen größeren Strom. Da dieser Strom über die Anodenoberfläche austritt, steigt die anodische Stromdichte (die Auflösungsgeschwindigkeit) etwa proportional zum Verhältnis Kathodenfläche ÷ Anodenfläche. Wird ein Blech aus nichtrostendem Stahl mit Stahlschrauben befestigt, korrodieren die kleinen Schrauben schnell. Schrauben aus nichtrostendem Stahl in einem Stahlblech verteilen den Strom dagegen auf die große Stahlfläche, und die Wirkung bleibt gering. Der Wert zum Flächenverhältnis in diesem Werkzeug zeigt nur diesen proportionalen Richtwert; eine Korrosionsgeschwindigkeit wird nicht berechnet."
+        },
+        {
+          "h": "Abgrenzung zu Spaltkorrosion und Lochkorrosion",
+          "p": "Spaltkorrosion ist eine örtliche Korrosion, die durch Unterschiede der Sauerstoffkonzentration oder der Lösungszusammensetzung zwischen dem Inneren und dem Äußeren eines Spalts entsteht; sie tritt auch ohne zweites Metall auf. Lochkorrosion entsteht, wo Chlorid oder ähnliche Ionen die Passivschicht örtlich durchbrechen. Fügestellen verschiedener Metalle bilden meist zugleich Spalten, sodass beide zusammenwirken können. Auch nichtrostender Stahl, der mit nichtrostendem Stahl verschraubt ist, kann in Spalten korrodieren."
+        },
+        {
+          "h": "Häufige Missverständnisse",
+          "p": "Eine einzige Zahl wie „unter x V ist es sicher“ kann eine Paarung nicht entscheiden. Die zulässigen Richtwerte unterscheiden sich je nach Unterlage, und das Ergebnis hängt stark von Flächenverhältnis, Elektrolyt, Temperatur und Strömung ab (dieses Werkzeug verwendet keinen zulässigen Wert für die Bewertung). „Die Anode zu beschichten verhindert den Angriff“ geht oft nach hinten los; wenn beschichtet wird, dann die Kathode (am besten beide). Auch „nichtrostender Stahl rostet kaum und lässt sich daher mit allem kombinieren“ ist falsch: Nichtrostender Stahl ist gegenüber vielen Metallen die Kathode und beschleunigt deren Korrosion."
+        },
+        {
+          "h": "Daten und Bewertungsverfahren",
+          "p": "Die Potentiale sind Bereiche des Korrosionspotentials in strömendem Meerwasser (gegen SCE), die einzeln anhand einer Quelle geprüft wurden. Hauptquelle ist die Tabelle in einer Lehrunterlage der Australasian Corrosion Association (ACA); für die Nickel-Chrom-Molybdän-Legierung 625, die in der ACA-Tabelle fehlt, und für Titan, dessen Vorzeichen sich nicht ablesen ließ, werden die Werte aus der Tabelle von Dexter (University of Delaware Sea Grant) verwendet. Diese Tabellen folgen offenbar derselben Reihenfolge wie das Diagramm der Meerwasserdaten von LaQue (ein Diagramm dieser Art findet sich auch in einem Anhang von ASTM G82), der Text von ASTM G82 selbst wurde hier jedoch nicht geprüft. Überlappen sich die beiden Bereiche nicht, gilt das Metall mit der niedrigeren Obergrenze als Anode, und die Potentialdifferenz reicht von (Untergrenze der Kathode − Obergrenze der Anode) bis (Obergrenze der Kathode − Untergrenze der Anode). Überlappen sich die Bereiche, wird keine Anode festgelegt."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Warum werden die Grenzwerte des anodischen Index (anodic index) von 0,15 V, 0,25 V und 0,50 V nicht verwendet?",
+          "a": "Dieses Werkzeug verwendet sie nicht. Bestätigt wurde, dass die US-Militärspezifikation MIL-DTL-14072 (Oberflächen für bodengestützte elektronische Geräte) einen auf Gold bezogenen anodic index festlegt, verträgliche Paarungen auf eine Differenz von höchstens 0,25 V begrenzt und eine Erweiterung auf 0,50 V zulässt, wenn die Paarungen weder Witterung noch salzhaltiger Luft ausgesetzt sind. Die Herkunft der oft zitierten „0,15 V für raue Umgebungen“ ließ sich jedoch nicht bestätigen, und die Revision D von MIL-STD-889 ordnet Paarungen (nach einem Aufsatz von NAVAIR-Ingenieuren) nicht nach der Potentialdifferenz, sondern nach galvanischem Strom und Korrosionsgeschwindigkeit ein. Da Herkunft und Voraussetzungen dieser Werte nicht zusammenpassen, werden sie für die Bewertung nicht verwendet; angezeigt wird nur der Bereich der Potentialdifferenz."
+        },
+        {
+          "q": "Welche Potentialdifferenz ist unbedenklich?",
+          "a": "Eine einzige Zahl kann das nicht entscheiden. Kleinere Differenzen sind tendenziell weniger kritisch, doch der galvanische Strom hängt stark vom Flächenverhältnis, von der Leitfähigkeit des Elektrolyten und davon ab, wie leicht die kathodische Reaktion abläuft. Eine große Differenz kann bei einer kleinen, trockenen Kathode wenig Probleme bereiten, während eine kleine Differenz bei einer großen Kathode in Meerwasser zu Problemen führen kann."
+        },
+        {
+          "q": "Darf ein Aluminiumblech mit Edelstahlschrauben befestigt werden?",
+          "a": "Die Aluminiumlegierung ist die Anode, und die Potentialdifferenz ist mit 0,66–0,96 V groß (für passiven Stahl vom 304-Typ). Da die Schrauben klein sind und das Blech groß ist, ist das Flächenverhältnis günstig, und in trockenen Innenräumen ist das selten ein Problem; an der Küste oder an nassen Stellen korrodiert das Aluminium um die Schraubenlöcher jedoch leicht. Kombinieren Sie isolierende Scheiben und Hülsen, Dichtstoff und eine Formgebung, in der sich kein Wasser sammelt."
+        },
+        {
+          "q": "Darf ein Kupferrohr direkt mit einem Stahlrohr verbunden werden?",
+          "a": "Der Stahl wird zur Anode, und die Stahlseite korrodiert in der Nähe der Verbindung leicht (Potentialdifferenz 0,23–0,42 V in Meerwasser). Bei verzinktem Stahlrohr löst sich zuerst das Zink auf. In Trinkwasser- und Warmwasserleitungen werden häufig Isolierverbindungen eingesetzt. Da sich die Reihenfolge mit Wasserzusammensetzung und Temperatur ändern kann, prüfen Sie die Normen für Rohrleitungen und die Herstellerunterlagen."
+        },
+        {
+          "q": "Wie verhält sich Titan mit nichtrostendem Stahl?",
+          "a": "In Meerwasser überlappen sich die Bereiche, wenn der 316-Typ passiv ist, und die Differenz ist klein (höchstens etwa 0,16 V). Wird der 316-Typ jedoch aktiv, etwa in einem Spalt, wird der nichtrostende Stahl leicht zur Anode (aktiver 316-Typ in der Spannungsreihe: −0,46 bis −0,33 V)."
+        },
+        {
+          "q": "Gibt es Werte für einzelne Aluminiumlegierungen?",
+          "a": "In den Quellen, deren Werte geprüft werden konnten, sind Aluminiumlegierungen in einem Bereich zusammengefasst (−1,00 bis −0,76 V). Einige Quellen, die nur die Reihenfolge angeben, stellen kupferhaltige Legierungen wie die 2000er-Reihe auf die edle Seite und 1100, 3003, 5052 und andere auf die unedle Seite; Potentialwerte für einzelne Legierungen ließen sich jedoch nicht prüfen, daher werden sie nicht getrennt."
+        },
+        {
+          "q": "Lässt sich das Werkzeug auch für andere Umgebungen als Meerwasser (Süßwasser, Atmosphäre, Erdreich) verwenden?",
+          "a": "Nur als Richtwert. Die Spannungsreihe wurde in strömendem Meerwasser gemessen; in anderen Umgebungen können sich Potentiale und Reihenfolge ändern. So können Zink und Stahl in Warmwasser von 60–82 °C mit gelöstem Sauerstoff und Hydrogencarbonat- oder Nitrationen ihre Polarität umkehren, sodass Zink den Stahl nicht mehr schützt. Prüfen Sie dies durch Versuche in der Einsatzumgebung, anhand von Normen und Herstellerunterlagen."
+        }
+      ],
+      "a_mg": "Magnesium",
+      "b_mg": "Magnesium",
+      "a_zn": "Zink (einschließlich Zinküberzug)",
+      "b_zn": "Zink (einschließlich Zinküberzug)",
+      "a_al": "Aluminiumlegierungen (alle Sorten in einem Bereich)",
+      "b_al": "Aluminiumlegierungen (alle Sorten in einem Bereich)",
+      "a_cd": "Cadmium",
+      "b_cd": "Cadmium",
+      "a_steel": "Unlegierter Stahl, Gusseisen",
+      "b_steel": "Unlegierter Stahl, Gusseisen",
+      "a_las": "Niedriglegierter Stahl",
+      "b_las": "Niedriglegierter Stahl",
+      "a_nicast": "Austenitisches Nickel-Gusseisen",
+      "b_nicast": "Austenitisches Nickel-Gusseisen",
+      "a_ss410a": "Nichtrostender Stahl 410, 416, 430 (aktiv)",
+      "b_ss410a": "Nichtrostender Stahl 410, 416, 430 (aktiv)",
+      "a_ss304a": "Nichtrostender Stahl 302, 304, 321, 347 (aktiv)",
+      "b_ss304a": "Nichtrostender Stahl 302, 304, 321, 347 (aktiv)",
+      "a_ss316a": "Nichtrostender Stahl 316, 317 (aktiv)",
+      "b_ss316a": "Nichtrostender Stahl 316, 317 (aktiv)",
+      "a_in600a": "Nickel-Chrom-Legierung 600 (aktiv)",
+      "b_in600a": "Nickel-Chrom-Legierung 600 (aktiv)",
+      "a_albz": "Aluminiumbronze",
+      "b_albz": "Aluminiumbronze",
+      "a_brass": "Messing (Marinemessing, Messing, Tombak)",
+      "b_brass": "Messing (Marinemessing, Messing, Tombak)",
+      "a_cu": "Kupfer",
+      "b_cu": "Kupfer",
+      "a_sn": "Zinn",
+      "b_sn": "Zinn",
+      "a_solder": "Zinn-Blei-Lot (50/50)",
+      "b_solder": "Zinn-Blei-Lot (50/50)",
+      "a_adm": "Admiralitätsmessing, Aluminiummessing",
+      "b_adm": "Admiralitätsmessing, Aluminiummessing",
+      "a_bronze": "Zinnbronze (G und M)",
+      "b_bronze": "Zinnbronze (G und M)",
+      "a_sibz": "Siliciumbronze",
+      "b_sibz": "Siliciumbronze",
+      "a_ss410p": "Nichtrostender Stahl 410, 416 (passiv)",
+      "b_ss410p": "Nichtrostender Stahl 410, 416 (passiv)",
+      "a_ss430p": "Nichtrostender Stahl 430 (passiv)",
+      "b_ss430p": "Nichtrostender Stahl 430 (passiv)",
+      "a_cuni9010": "Kupfer-Nickel 90-10",
+      "b_cuni9010": "Kupfer-Nickel 90-10",
+      "a_pb": "Blei",
+      "b_pb": "Blei",
+      "a_cuni7030": "Kupfer-Nickel 70-30",
+      "b_cuni7030": "Kupfer-Nickel 70-30",
+      "a_ni": "Nickel (Ni 200)",
+      "b_ni": "Nickel (Ni 200)",
+      "a_in600p": "Nickel-Chrom-Legierung 600 (passiv)",
+      "b_in600p": "Nickel-Chrom-Legierung 600 (passiv)",
+      "a_ag": "Silber",
+      "b_ag": "Silber",
+      "a_monel": "Nickel-Kupfer-Legierung 400, K-500 (Monel)",
+      "b_monel": "Nickel-Kupfer-Legierung 400, K-500 (Monel)",
+      "a_ss304p": "Nichtrostender Stahl 302, 304, 321, 347 (passiv)",
+      "b_ss304p": "Nichtrostender Stahl 302, 304, 321, 347 (passiv)",
+      "a_ss316p": "Nichtrostender Stahl 316, 317 (passiv)",
+      "b_ss316p": "Nichtrostender Stahl 316, 317 (passiv)",
+      "a_in625": "Nickel-Chrom-Molybdän-Legierung 625",
+      "b_in625": "Nickel-Chrom-Molybdän-Legierung 625",
+      "a_ti": "Titan, Titanlegierungen",
+      "b_ti": "Titan, Titanlegierungen",
+      "a_pt": "Platin",
+      "b_pt": "Platin",
+      "a_gr": "Graphit (Richtwert für Kohlenstofffasern, CFK)",
+      "b_gr": "Graphit (Richtwert für Kohlenstofffasern, CFK)"
     }
   }
 }
