@@ -1,0 +1,755 @@
+{
+  "id": "galvanic",
+  "order": 12,
+  "slug": "galvanic-corrosion-checker",
+  "cats": [
+    "corrosion",
+    "metals",
+    "composites"
+  ],
+  "cat": "corrosion",
+  "terms": [
+    "ガルバニック腐食",
+    "標準電極電位",
+    "不動態",
+    "犠牲陽極",
+    "局部電池",
+    "孔食",
+    "ステンレス鋼",
+    "CFRP(炭素繊維強化プラスチック)"
+  ],
+  "questions": [
+    "corrosion-005",
+    "corrosion-004",
+    "corrosion-001"
+  ],
+  "figures": [],
+  "compares": [
+    "sus304-vs-sus316"
+  ],
+  "form": {
+    "id": "galvanic-form",
+    "fields": [
+      {
+        "name": "a",
+        "options": [
+          "mg",
+          "zn",
+          "al",
+          "cd",
+          "steel",
+          "las",
+          "nicast",
+          "ss410a",
+          "ss304a",
+          "ss316a",
+          "in600a",
+          "albz",
+          "brass",
+          "cu",
+          "sn",
+          "solder",
+          "adm",
+          "bronze",
+          "sibz",
+          "ss410p",
+          "ss430p",
+          "cuni9010",
+          "pb",
+          "cuni7030",
+          "ni",
+          "in600p",
+          "ag",
+          "monel",
+          "ss304p",
+          "ss316p",
+          "in625",
+          "ti",
+          "pt",
+          "gr"
+        ],
+        "value": "ss304p"
+      },
+      {
+        "name": "b",
+        "options": [
+          "mg",
+          "zn",
+          "al",
+          "cd",
+          "steel",
+          "las",
+          "nicast",
+          "ss410a",
+          "ss304a",
+          "ss316a",
+          "in600a",
+          "albz",
+          "brass",
+          "cu",
+          "sn",
+          "solder",
+          "adm",
+          "bronze",
+          "sibz",
+          "ss410p",
+          "ss430p",
+          "cuni9010",
+          "pb",
+          "cuni7030",
+          "ni",
+          "in600p",
+          "ag",
+          "monel",
+          "ss304p",
+          "ss316p",
+          "in625",
+          "ti",
+          "pt",
+          "gr"
+        ],
+        "value": "al"
+      },
+      {
+        "name": "env",
+        "options": [
+          "sea",
+          "marine",
+          "outdoor",
+          "indoor_wet",
+          "indoor_dry",
+          "fresh",
+          "hot",
+          "soil"
+        ],
+        "value": "marine"
+      },
+      {
+        "name": "area",
+        "value": 1,
+        "attrs": "min=\"0\" step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "stats": [
+          "anode",
+          "de",
+          "ac"
+        ]
+      },
+      {
+        "box": "result"
+      },
+      {
+        "heading": "chart_h",
+        "box": "chart"
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "異種金属接触腐食チェッカー",
+      "card": "2つの金属と環境を選ぶと、どちらが溶けやすいか、電位差の範囲、面積比と対策を出典つきで示す",
+      "title": "異種金属接触腐食チェッカー(海水中の電位列で判定)",
+      "description": "ステンレスのボルトとアルミ板、銅管と鋼管のような2つの金属と環境を選ぶと、流れる海水中の電位列(SCE 基準の範囲)から、溶けやすい側(アノード)、電位差の範囲、面積比の影響、水・塩分・温度の注意、対策を出典つきで示します。判定は目安です。",
+      "h1": "異種金属接触腐食チェッカー",
+      "lead": "2つの金属(合金)と使う環境を選ぶと、どちらが溶けやすい側(アノード)になりそうか、電位差の範囲、面積比と水の有無による進みやすさ、対策を示します。電位は流れる海水中で測った腐食電位の範囲(電位列)で、1つの数に丸めずに範囲のまま比べます。判定は目安なので、実際に使えるかどうかは、試験・規格・メーカーの資料で確かめてください。",
+      "in_heading": "組み合わせ",
+      "a": "金属 A(例: ボルト・小さい部品)",
+      "b": "金属 B(例: 板・大きい部品)",
+      "env": "使う環境",
+      "env_sea": "海水に浸かる(流れる海水)",
+      "env_marine": "海沿いの屋外(しぶき・塩分・濡れ乾き)",
+      "env_outdoor": "内陸の屋外(雨がかかる)",
+      "env_indoor_wet": "屋内(結露・水がかりあり)",
+      "env_indoor_dry": "乾いた屋内(結露しない)",
+      "env_fresh": "淡水・水道水",
+      "env_hot": "温水(約 60 °C 以上)",
+      "env_soil": "土の中",
+      "area": "面積比(A の濡れる面積 ÷ B の濡れる面積)",
+      "out_heading": "判定(目安)",
+      "anode": "溶けやすい側(アノード)",
+      "de": "電位差の範囲",
+      "ac": "カソード面積 ÷ アノード面積",
+      "chart_h": "電位列(流れる海水、V vs SCE)",
+      "note": "電位は、流れる海水中の腐食電位の範囲(飽和カロメル電極 SCE 基準)を、公開の資料で値ごとに確かめて入れたものです(主にオーストラレーシア腐食協会 ACA の表、ACA にない合金はデラウェア大学 Sea Grant の Dexter の表)。金(Au)と、アルミニウム合金の合金ごとの値は確かめられなかったので入れていません。判定は電位列による目安で、腐食の速さは計算しません。安全や構造に関わる判断は、使う環境での試験・規格・メーカーの資料・専門家で確かめてください。",
+      "practice": "腐食と表面処理の問題を解く",
+      "related": "関連する用語",
+      "js": {
+        "m": {
+          "mg": "マグネシウム",
+          "zn": "亜鉛(亜鉛めっきの層を含む)",
+          "al": "アルミニウム合金(各種をまとめた範囲)",
+          "cd": "カドミウム",
+          "steel": "軟鋼・鋳鉄",
+          "las": "低合金鋼",
+          "nicast": "オーステナイト系ニッケル鋳鉄",
+          "ss410a": "ステンレス鋼 410・416・430(活性)",
+          "ss304a": "ステンレス鋼 302・304・321・347(活性)",
+          "ss316a": "ステンレス鋼 316・317(活性)",
+          "in600a": "ニッケル-クロム合金 600(活性)",
+          "albz": "アルミニウム青銅",
+          "brass": "黄銅(ネーバル黄銅・黄銅・丹銅)",
+          "cu": "銅",
+          "sn": "すず",
+          "solder": "すず-鉛はんだ(50/50)",
+          "adm": "アドミラルティ黄銅・アルミニウム黄銅",
+          "bronze": "すず青銅(G・M)",
+          "sibz": "けい素青銅",
+          "ss410p": "ステンレス鋼 410・416(不動態)",
+          "ss430p": "ステンレス鋼 430(不動態)",
+          "cuni9010": "90-10 キュプロニッケル",
+          "pb": "鉛",
+          "cuni7030": "70-30 キュプロニッケル",
+          "ni": "ニッケル(Ni 200)",
+          "in600p": "ニッケル-クロム合金 600(不動態)",
+          "ag": "銀",
+          "monel": "ニッケル-銅合金 400・K-500(モネル)",
+          "ss304p": "ステンレス鋼 302・304・321・347(不動態)",
+          "ss316p": "ステンレス鋼 316・317(不動態)",
+          "in625": "ニッケル-クロム-モリブデン合金 625",
+          "ti": "チタン・チタン合金",
+          "pt": "白金",
+          "gr": "黒鉛(炭素繊維・CFRP の目安)"
+        },
+        "grp": {
+          "light": "マグネシウム・亜鉛・アルミニウム",
+          "iron": "鋼・鋳鉄",
+          "ss": "ステンレス鋼",
+          "cu": "銅・銅合金",
+          "ni": "ニッケル・ニッケル合金",
+          "other": "カドミウム・すず・鉛・はんだ",
+          "noble": "銀・チタン・白金・黒鉛"
+        },
+        "src": {
+          "aca": "ACA",
+          "dex": "Dexter"
+        },
+        "envs": {
+          "sea": {
+            "lv": "電解質: あり(海水)。",
+            "t": "このツールの電位列と同じ種類の条件です。海水は電気を通しやすいので、ガルバニック電流が流れやすく、アノードの溶ける範囲も接触部から広がりやすくなります。"
+          },
+          "marine": {
+            "lv": "進みやすい条件です。",
+            "t": "塩分が付着し、濡れと乾きを繰り返すと、すき間や重ね合わせ部に塩分の濃い水の膜が残り、ガルバニック腐食が進みやすくなります。水の膜は薄いので、腐食は接触部のすぐ近くに集中しやすくなります。"
+          },
+          "outdoor": {
+            "lv": "条件しだいです。",
+            "t": "雨や結露で濡れている時間に進みます。水がたまる・乾きにくい形(すき間、水の抜けない溝)では進みやすく、雨で洗われてすぐ乾く所では進みにくくなります。凍結防止剤(塩)がかかる所は、海沿いに近い条件と考えてください。"
+          },
+          "indoor_wet": {
+            "lv": "条件しだいです。",
+            "t": "結露や水がかりで濡れている間は、電解質がある状態です。濡れる時間が長いほど、また汚れや塩分が付いているほど進みやすくなります。"
+          },
+          "indoor_dry": {
+            "lv": "進みにくい条件です。",
+            "t": "電解質(水の膜)がなければ、ガルバニック電流はほとんど流れません。ただし、季節によって結露する、湿度が高い、ほこりや塩分が付く、といった場合は「屋内(結露あり)」と考えてください。"
+          },
+          "fresh": {
+            "lv": "条件しだいです。",
+            "t": "淡水は海水より電気を通しにくく、影響は接触部の近くに限られやすくなります。一方で、水の成分(溶存酸素・塩化物・硬度など)と温度によって、電位の順位が海水と変わることがあります。"
+          },
+          "hot": {
+            "lv": "注意が必要です。",
+            "t": "温度が上がると多くの反応は速くなり、順位が入れ替わる例もあります。例えば亜鉛と鋼は、60〜82 °C で、溶存酸素と炭酸水素イオンや硝酸イオンを含む水の中では、亜鉛が鋼を守らなくなる(極性の反転)ことがあると、米国溶融亜鉛めっき協会(AGA)が説明しています。"
+          },
+          "soil": {
+            "lv": "条件しだいです。",
+            "t": "土の水分・塩分・通気・比抵抗によって大きく変わり、電位の順位も海水と同じとは限りません。埋設する配管や構造物は、電気防食の規格と専門家に確かめてください。"
+          }
+        },
+        "ui": {
+          "examples": "例:",
+          "ex": [
+            "ステンレスのボルト+アルミ板",
+            "銅管+鋼管",
+            "亜鉛めっき鋼+銅",
+            "CFRP+アルミ",
+            "チタン+ステンレス"
+          ],
+          "range_v": "{lo}〜{hi} V",
+          "de_v": "{lo}〜{hi} V",
+          "same_short": "同じ金属",
+          "de_same": "0 V(同じ金属)",
+          "overlap_short": "どちらとも言えない",
+          "v_same": "同じ金属どうしなので、電位差はなく、異種金属の接触腐食は起こりません。ただし、すきま腐食や酸素の濃度の差による腐食は別に起こりえます。",
+          "v_anode": "溶けやすい側(アノード)は {an}、腐食が抑えられる側(カソード)は {ca} です。電位差は {lo}〜{hi} V です(流れる海水中の電位の範囲から)。",
+          "v_overlap": "{a} と {b} は電位の範囲が重なるので、この電位列からはどちらがアノードとも言えません。電位差は 0〜{hi} V の範囲です(2つの範囲の端どうしの差)。",
+          "col_metal": "金属・合金",
+          "col_range": "腐食電位(V vs SCE)",
+          "col_src": "出典",
+          "cond": "値は流れる海水中の腐食電位の範囲で、飽和カロメル電極(SCE)基準です(同じ並びの図の条件として、流速 約 2.4〜4 m/s、約 10〜27 °C と書いた資料があります)。電位差はガルバニック腐食の起こりやすさの目安で、腐食の速さそのものではありません。",
+          "h_notes": "この組み合わせの注意",
+          "n_crev": "{m} は、流れの遅い水・空気の届きにくい水・すきまの中では不動態が壊れ、活性の状態({act}: {r})になることがあります。そのときは電位差が変わり、アノードとカソードが入れ替わることもあります。",
+          "n_act": "{m} は、不動態が壊れて活性になった状態の値です。ふつうに不動態が保たれている所では、不動態の方の値を選んでください。",
+          "n_overlap": "範囲が重なるので、この電位列からはどちらがアノードとも決められません。重なる組み合わせは、重ならない組み合わせより電位差が小さいことが多いものの、範囲の広い金属(アルミニウム合金など)では最大の差が 0.2 V を超えることもあります。すきま・流れ・温度・表面の状態で電位が動くと、どちらかが溶けやすくなることがあります。",
+          "n_near": "範囲は重なりませんが近い(最小の差が 0.05 V 未満)ので、条件によって順位が入れ替わることもあります(0.05 V はこのツールが決めた区切りで、規格の値ではありません)。",
+          "n_zn": "亜鉛めっき鋼では、まず亜鉛の層が溶けて下の鋼を守ります(犠牲防食)。亜鉛がなくなった所では鋼が相手の金属とつながるので、「軟鋼・鋳鉄」でも確かめてください。",
+          "n_cfrp": "CFRP の炭素繊維は、貴な金属のようにふるまい(米国連邦航空局 FAA の報告)、アルミニウムと組み合わせるとアルミニウムが溶けやすくなります。同じ報告では、間にガラス繊維(E ガラス)の層を入れて絶縁し、シール材やめっきと組み合わせることが挙げられています。ここでは黒鉛の範囲を炭素繊維の目安として使っています(CFRP そのものの測定値ではありません)。",
+          "n_gr": "ここでは黒鉛の範囲を、炭素繊維(CFRP)の目安としても使っています(CFRP そのものの測定値ではありません)。",
+          "n_al": "アルミニウム合金は、合金の種類や質別で電位が違います。確かめた出典では全体が1つの範囲にまとめられていて、合金ごとの値は確かめられませんでした。",
+          "n_dezinc": "亜鉛の多い黄銅は、海水やよどんだ水の中で脱亜鉛腐食を起こすことがあります(異種金属の接触とは別の現象です)。",
+          "n_hot_zn": "温水(60〜82 °C)で、溶存酸素と炭酸水素イオンや硝酸イオンを含む水では、亜鉛と鋼の極性が反転して、亜鉛が鋼を守らなくなることがあります(AGA)。この場合、海水の電位列による判定は当てはまりません。",
+          "h_area": "面積比",
+          "a_none": "アノードが決まらないので、面積比の影響は示しません。",
+          "a_bad": "面積比には 0 より大きい数を入れてください。",
+          "a_val": "カソード({ca})の面積 ÷ アノード({an})の面積 = {f}",
+          "a_big": "カソードがアノードより大きい、避けたい組み合わせです。単純化した目安では、アノードの溶ける電流密度は、面積が等しいときのおよそ {f} 倍になります(電流がカソードの反応で決まると考えた場合の比例の目安で、腐食速度の計算ではありません)。",
+          "a_small": "アノードがカソードより大きい組み合わせです。ガルバニック電流がアノードの広い面に分かれるので、アノードの電流密度は面積が等しいときより小さくなり、比較的よい組み合わせです(電流がなくなるわけではありません)。",
+          "a_equal": "面積が等しい場合です。面積比を変えると、アノードの電流密度の変わり方の目安がわかります。",
+          "a_rule": "例: 鋼の板にステンレス鋼のボルト(大きなアノード+小さなカソード)は比較的よく、ステンレス鋼の板に鋼のボルト(小さなアノード+大きなカソード)は、ボルトが速く溶けるので避けます。",
+          "h_env": "環境(水・塩分・温度)",
+          "e_order": "この電位列は流れる海水での値です。ほかの環境では電位も順位も変わることがあるので、電位差の数字は目安としてだけ使ってください。",
+          "h_meas": "対策",
+          "meas": [
+            "電気的に絶縁する: 水を吸わない樹脂のワッシャー・スリーブ・ガスケットで、2つの金属が触れないようにします(ボルトの軸と穴も)。紙や繊維のワッシャーは水を吸うので向きません。",
+            "塗るならカソード側も塗る: アノード側だけを塗ると、塗膜の小さな傷に大きなカソードの電流が集まり、そこが深く溶けます。両方、少なくともカソード側を塗ります。",
+            "水を入れない・ためない: 接触部をシール材でふさぎ、水が抜ける道(排水)をつくります。",
+            "電位の近い金属を選ぶ: できれば同じ金属にし、だめなら電位列で近い組み合わせにします。ボルトなど小さい部品は、相手と同じか、より貴な金属にします。",
+            "犠牲陽極で守る: 海水中の構造物などでは、亜鉛・アルミニウム・マグネシウムの陽極をつなぎ、守りたい金属より先に溶かします(設計は電気防食の規格に従います)。",
+            "点検できるようにする: 接触部を、見える所・交換できる所に置きます。"
+          ],
+          "axis": "V vs SCE",
+          "chart_lead": "横棒が電位の範囲です。右ほど貴(カソードになりやすい)、左ほど卑(アノードになりやすい)。斜線は不動態が壊れた活性の状態です。選んだ A と B を色で示します。",
+          "chart_label": "流れる海水中の電位列(横棒は腐食電位の範囲)",
+          "leg_act": "活性の状態",
+          "l_failure": "破損解析ナビ",
+          "l_materials": "材料データ集",
+          "disclaimer": "この判定は電位列に基づく目安です。実際に使えるかどうかは、使う環境での試験、規格(ISO・JIS・ASTM など)、メーカーの資料で確かめてください。安全や構造に関わる判断は、専門家に相談してください。"
+        }
+      },
+      "sections": [
+        {
+          "h": "異種金属接触腐食(ガルバニック腐食)のしくみ",
+          "p": "電位の異なる2つの金属が電気的につながり、同じ電解質(海水・雨水・結露の水の膜など)に触れると、電池ができます。電位の低い(卑な)金属がアノードになって溶け(金属 → 金属イオン + 電子)、電子は接触部を通って電位の高い(貴な)金属へ流れ、その表面で酸素の還元などのカソード反応が起こります。アノードの腐食は1つだけのときより速くなり、カソードの腐食は抑えられます。起こる条件は「異なる金属」「電気的な接触」「両方につながる電解質」の3つで、どれか1つを断てば、異種金属の接触による腐食は防げます(それぞれの金属がひとりでに腐食する分は残ります)。"
+        },
+        {
+          "h": "電位列と標準電極電位の違い",
+          "p": "標準電極電位(Cu²⁺/Cu で +0.34 V など)は、純金属が活量 1(おおよそ 1 mol/L)のそのイオンの溶液と平衡にあるときの、標準水素電極(SHE)基準の値で、合金、表面の酸化皮膜、実際の環境を含みません(このツールの電位列は SCE 基準で、SCE は 25 °C で SHE より約 +0.24 V なので、基準も違います)。組み合わせを考えるときは、使う環境で実際に測った腐食電位を並べた電位列(ガルバニック系列)を使います。例えば、アルミニウムとチタンは標準電極電位ではかなり卑ですが、酸化皮膜があるため海水中の電位はずっと貴な側にあり、標準電極電位の順とは並びが違います。このツールは標準電極電位の表を使わず、海水中の電位列だけで判定します(濃度による平衡電位の変化を表すネルンストの式も、ここでは使いません)。"
+        },
+        {
+          "h": "不動態と活性",
+          "p": "ステンレス鋼やニッケル合金は、表面の薄い酸化皮膜(不動態皮膜)に守られているときは貴な電位を示します。流れの遅い水、空気の届かない水、すきまの中、塩化物の多い所では皮膜が壊れて活性になり、電位が卑な側へ動きます。表の値では、304 系の不動態が −0.10〜−0.04 V、活性が −0.58〜−0.44 V です。このツールでは両方の状態を別の行にしているので、条件に合う方を選んでください。反対に、海水中で微生物の膜が付くと、不動態の合金の電位が貴な側へ動く(+0.3〜+0.4 V に達することがある)とも報告されています。"
+        },
+        {
+          "h": "面積比: 小さいアノードと大きいカソードを避ける",
+          "p": "ガルバニック電流の大きさは、多くの場合カソードの反応(水の中の溶存酸素の還元)で決まり、カソードの面積が大きいほど電流も大きくなります。その電流がアノードの面から流れ出るので、アノードの電流密度(溶ける速さ)は、おおよそ「カソード面積 ÷ アノード面積」に比例して大きくなります。ステンレス鋼の板を鋼のボルトで留めると、小さなボルトが速く溶けます。逆に、鋼の板にステンレス鋼のボルトなら、電流が広い鋼の面に分かれるので影響は小さくなります。このツールの面積比の数字は、この比例の目安を示すだけで、腐食速度は計算しません。"
+        },
+        {
+          "h": "すきま腐食・孔食との違い",
+          "p": "すきま腐食は、同じ金属でも、すきまの中と外で酸素の濃度や液の成分が違うために起こる局部腐食で、異なる金属がなくても起こります。孔食は、塩化物などで不動態皮膜が局所的に壊れて起こります。異種金属の接触部は、多くの場合すきまも作るので、両方が重なることがあります。ステンレス鋼どうしのボルト締めでも、すきまの中で腐食することがあります。"
+        },
+        {
+          "h": "よくある誤解",
+          "p": "「電位差が○ V 以下なら安全」と1つの数で決めることはできません。許容の目安は資料によって違い、面積比・電解質・温度・流れで結果は大きく変わります(このツールは許容の数値を判定に使っていません)。「アノード側を塗れば防げる」は逆効果になりやすく、塗るならカソード側(できれば両方)です。「ステンレス鋼はさびにくいので何と組み合わせてもよい」も誤りで、ステンレス鋼は多くの金属に対してカソードになり、相手の腐食を速めます。"
+        },
+        {
+          "h": "データと判定の決め方",
+          "p": "電位は、流れる海水中の腐食電位の範囲(SCE 基準)を、出典で値ごとに確かめて入れています。主な出典はオーストラレーシア腐食協会(ACA)の教育資料の表で、ACA の表にないニッケル-クロム-モリブデン合金 625 と、符号が読み取れなかったチタンは、デラウェア大学 Sea Grant の Dexter の表の値を使っています。これらは、LaQue による海水中のデータの図(ASTM G82 の付録にも同じ種類の図がある)と同じ並びの表と見られますが、ASTM G82 の本文はここでは確かめていません。判定では、2つの範囲が重ならないときは上限の低い方をアノードとし、電位差を「カソードの下限 − アノードの上限」から「カソードの上限 − アノードの下限」までとします。範囲が重なるときは、どちらがアノードとも決めません。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "アノード指数(陽極指数)の 0.15 V・0.25 V・0.50 V は使わないのですか?",
+          "a": "このツールでは使っていません。米軍の規格 MIL-DTL-14072(地上の電子機器の仕上げ)には、金を基準にした anodic index と、組み合わせてよい差を 0.25 V までとし、風雨や塩分を含む空気にさらされない場合には 0.50 V まで広げてよいという記述があることを確かめました。しかし、よく引用される「厳しい環境では 0.15 V」の出どころは確かめられませんでした。また、MIL-STD-889 の改訂版 D は(NAVAIR の技術者の論文によれば)、電位差ではなくガルバニック電流と腐食速度で組み合わせを分けています。値の出どころと前提がそろわないため、判定には使わず、電位差の範囲だけを示しています。"
+        },
+        {
+          "q": "電位差がいくつ以下なら大丈夫ですか?",
+          "a": "1つの数では決められません。差が小さいほど起こりにくい傾向はありますが、ガルバニック電流は、面積比、電解質の電気の通しやすさ、カソードの反応の起こりやすさで大きく変わります。差が大きくても、カソードが小さく乾いている所では問題になりにくく、差が小さくても、大きなカソードと海水の組み合わせでは問題になることがあります。"
+        },
+        {
+          "q": "ステンレスのボルトでアルミ板を留めてもよいですか?",
+          "a": "アルミニウム合金がアノードで、電位差は 0.66〜0.96 V と大きい組み合わせです(不動態の 304 系の場合)。ボルトが小さく板が大きいので面積比は有利で、乾いた屋内なら問題になりにくい一方、海沿いや濡れる所では、ボルト穴のまわりのアルミニウムが腐食しやすくなります。絶縁ワッシャー・スリーブ、シール材、水のたまらない形を組み合わせてください。"
+        },
+        {
+          "q": "銅管と鋼管をそのままつないでよいですか?",
+          "a": "鋼がアノードになり、つなぎ目の近くの鋼の側が腐食しやすくなります(海水中の電位差は 0.23〜0.42 V)。亜鉛めっき鋼管なら、まず亜鉛が溶けます。給水・給湯の配管では、絶縁継手を使う方法がよく取られます。水の成分や温度で順位が変わることもあるので、配管の規格とメーカーの資料で確かめてください。"
+        },
+        {
+          "q": "チタンとステンレス鋼の組み合わせはどうですか?",
+          "a": "海水中で 316 系が不動態のときは、電位の範囲が重なり、差は小さい(最大 0.16 V 程度)組み合わせです。ただし、すきまの中などで 316 系が活性になると、ステンレス鋼の側がアノードになりやすくなります(電位列では活性の 316 系は −0.46〜−0.33 V)。"
+        },
+        {
+          "q": "アルミニウム合金ごとの値はないのですか?",
+          "a": "値を確かめられた出典では、アルミニウム合金は1つの範囲(−1.00〜−0.76 V)にまとめられています。並び順だけを示す資料には、2000 系など銅を含む合金を貴な側、1100・3003・5052 などを卑な側に置くものもありますが、合金ごとの電位の値は確かめられなかったので分けていません。"
+        },
+        {
+          "q": "海水以外(淡水・大気・土の中)でも使えますか?",
+          "a": "目安としてだけ使ってください。電位列は流れる海水で測ったもので、ほかの環境では電位も順位も変わることがあります。例えば亜鉛と鋼は、60〜82 °C の温水で、溶存酸素と炭酸水素イオンや硝酸イオンを含む場合に極性が反転し、亜鉛が鋼を守らなくなることがあります。使う環境での試験や、規格・メーカーの資料で確かめてください。"
+        }
+      ],
+      "a_mg": "マグネシウム",
+      "b_mg": "マグネシウム",
+      "a_zn": "亜鉛(亜鉛めっきの層を含む)",
+      "b_zn": "亜鉛(亜鉛めっきの層を含む)",
+      "a_al": "アルミニウム合金(各種をまとめた範囲)",
+      "b_al": "アルミニウム合金(各種をまとめた範囲)",
+      "a_cd": "カドミウム",
+      "b_cd": "カドミウム",
+      "a_steel": "軟鋼・鋳鉄",
+      "b_steel": "軟鋼・鋳鉄",
+      "a_las": "低合金鋼",
+      "b_las": "低合金鋼",
+      "a_nicast": "オーステナイト系ニッケル鋳鉄",
+      "b_nicast": "オーステナイト系ニッケル鋳鉄",
+      "a_ss410a": "ステンレス鋼 410・416・430(活性)",
+      "b_ss410a": "ステンレス鋼 410・416・430(活性)",
+      "a_ss304a": "ステンレス鋼 302・304・321・347(活性)",
+      "b_ss304a": "ステンレス鋼 302・304・321・347(活性)",
+      "a_ss316a": "ステンレス鋼 316・317(活性)",
+      "b_ss316a": "ステンレス鋼 316・317(活性)",
+      "a_in600a": "ニッケル-クロム合金 600(活性)",
+      "b_in600a": "ニッケル-クロム合金 600(活性)",
+      "a_albz": "アルミニウム青銅",
+      "b_albz": "アルミニウム青銅",
+      "a_brass": "黄銅(ネーバル黄銅・黄銅・丹銅)",
+      "b_brass": "黄銅(ネーバル黄銅・黄銅・丹銅)",
+      "a_cu": "銅",
+      "b_cu": "銅",
+      "a_sn": "すず",
+      "b_sn": "すず",
+      "a_solder": "すず-鉛はんだ(50/50)",
+      "b_solder": "すず-鉛はんだ(50/50)",
+      "a_adm": "アドミラルティ黄銅・アルミニウム黄銅",
+      "b_adm": "アドミラルティ黄銅・アルミニウム黄銅",
+      "a_bronze": "すず青銅(G・M)",
+      "b_bronze": "すず青銅(G・M)",
+      "a_sibz": "けい素青銅",
+      "b_sibz": "けい素青銅",
+      "a_ss410p": "ステンレス鋼 410・416(不動態)",
+      "b_ss410p": "ステンレス鋼 410・416(不動態)",
+      "a_ss430p": "ステンレス鋼 430(不動態)",
+      "b_ss430p": "ステンレス鋼 430(不動態)",
+      "a_cuni9010": "90-10 キュプロニッケル",
+      "b_cuni9010": "90-10 キュプロニッケル",
+      "a_pb": "鉛",
+      "b_pb": "鉛",
+      "a_cuni7030": "70-30 キュプロニッケル",
+      "b_cuni7030": "70-30 キュプロニッケル",
+      "a_ni": "ニッケル(Ni 200)",
+      "b_ni": "ニッケル(Ni 200)",
+      "a_in600p": "ニッケル-クロム合金 600(不動態)",
+      "b_in600p": "ニッケル-クロム合金 600(不動態)",
+      "a_ag": "銀",
+      "b_ag": "銀",
+      "a_monel": "ニッケル-銅合金 400・K-500(モネル)",
+      "b_monel": "ニッケル-銅合金 400・K-500(モネル)",
+      "a_ss304p": "ステンレス鋼 302・304・321・347(不動態)",
+      "b_ss304p": "ステンレス鋼 302・304・321・347(不動態)",
+      "a_ss316p": "ステンレス鋼 316・317(不動態)",
+      "b_ss316p": "ステンレス鋼 316・317(不動態)",
+      "a_in625": "ニッケル-クロム-モリブデン合金 625",
+      "b_in625": "ニッケル-クロム-モリブデン合金 625",
+      "a_ti": "チタン・チタン合金",
+      "b_ti": "チタン・チタン合金",
+      "a_pt": "白金",
+      "b_pt": "白金",
+      "a_gr": "黒鉛(炭素繊維・CFRP の目安)",
+      "b_gr": "黒鉛(炭素繊維・CFRP の目安)"
+    },
+    "en": {
+      "nav": "Galvanic corrosion checker",
+      "card": "Pick two metals and an environment to see which one corrodes, the potential difference range, area ratio effects and countermeasures, with sources",
+      "title": "Galvanic Corrosion Checker (Seawater Galvanic Series)",
+      "description": "Pick two metals, such as a stainless bolt and an aluminum plate, and an environment. From the galvanic series in flowing seawater (ranges vs SCE), see which metal is the anode, the potential difference range, area ratio effects and countermeasures, with sources. A guide only.",
+      "h1": "Galvanic Corrosion Checker",
+      "lead": "Choose two metals (or alloys) and the service environment to see which one is likely to be the anode (the side that corrodes), the range of the potential difference, how the area ratio and the presence of water affect the attack, and countermeasures. Potentials are ranges of corrosion potential measured in flowing seawater (the galvanic series) and are compared as ranges, not rounded to single numbers. The result is a guide: confirm by testing, standards and manufacturer data.",
+      "in_heading": "Metal pair",
+      "a": "Metal A (e.g. bolt, small part)",
+      "b": "Metal B (e.g. plate, large part)",
+      "env": "Environment",
+      "env_sea": "Immersed in seawater (flowing)",
+      "env_marine": "Coastal outdoors (spray, salt, wet-dry)",
+      "env_outdoor": "Inland outdoors (rain)",
+      "env_indoor_wet": "Indoors with condensation or splashes",
+      "env_indoor_dry": "Dry indoors (no condensation)",
+      "env_fresh": "Fresh water, tap water",
+      "env_hot": "Hot water (about 60 °C or more)",
+      "env_soil": "Buried in soil",
+      "area": "Area ratio (wetted area of A ÷ wetted area of B)",
+      "out_heading": "Result (guide)",
+      "anode": "Corroding side (anode)",
+      "de": "Potential difference range",
+      "ac": "Cathode area ÷ anode area",
+      "chart_h": "Galvanic series (flowing seawater, V vs SCE)",
+      "note": "Potentials are ranges of corrosion potential in flowing seawater (vs the saturated calomel electrode, SCE), each checked against a published source (mainly the table of the Australasian Corrosion Association, ACA; alloys not in the ACA table are from the table by Dexter, University of Delaware Sea Grant). Gold and values for individual aluminum alloys could not be verified and are not included. The result is a guide based on the galvanic series and does not calculate corrosion rates. For decisions involving safety or structures, confirm with tests in the actual environment, standards, manufacturer data and specialists.",
+      "practice": "Practice corrosion and surface treatment questions",
+      "related": "Related terms",
+      "js": {
+        "m": {
+          "mg": "Magnesium",
+          "zn": "Zinc (incl. galvanized coating)",
+          "al": "Aluminum alloys (all grades, one range)",
+          "cd": "Cadmium",
+          "steel": "Mild steel, cast iron",
+          "las": "Low-alloy steel",
+          "nicast": "Austenitic nickel cast iron",
+          "ss410a": "Stainless steel 410, 416, 430 (active)",
+          "ss304a": "Stainless steel 302, 304, 321, 347 (active)",
+          "ss316a": "Stainless steel 316, 317 (active)",
+          "in600a": "Nickel-chromium alloy 600 (active)",
+          "albz": "Aluminum bronze",
+          "brass": "Naval, yellow and red brass",
+          "cu": "Copper",
+          "sn": "Tin",
+          "solder": "Lead-tin solder (50/50)",
+          "adm": "Admiralty brass, aluminum brass",
+          "bronze": "Tin bronzes (G and M)",
+          "sibz": "Silicon bronze",
+          "ss410p": "Stainless steel 410, 416 (passive)",
+          "ss430p": "Stainless steel 430 (passive)",
+          "cuni9010": "90-10 copper-nickel",
+          "pb": "Lead",
+          "cuni7030": "70-30 copper-nickel",
+          "ni": "Nickel (Ni 200)",
+          "in600p": "Nickel-chromium alloy 600 (passive)",
+          "ag": "Silver",
+          "monel": "Nickel-copper alloys 400, K-500 (Monel)",
+          "ss304p": "Stainless steel 302, 304, 321, 347 (passive)",
+          "ss316p": "Stainless steel 316, 317 (passive)",
+          "in625": "Nickel-chromium-molybdenum alloy 625",
+          "ti": "Titanium and titanium alloys",
+          "pt": "Platinum",
+          "gr": "Graphite (guide for carbon fiber, CFRP)"
+        },
+        "grp": {
+          "light": "Magnesium, zinc, aluminum",
+          "iron": "Steel and cast iron",
+          "ss": "Stainless steels",
+          "cu": "Copper and copper alloys",
+          "ni": "Nickel and nickel alloys",
+          "other": "Cadmium, tin, lead, solder",
+          "noble": "Silver, titanium, platinum, graphite"
+        },
+        "src": {
+          "aca": "ACA",
+          "dex": "Dexter"
+        },
+        "envs": {
+          "sea": {
+            "lv": "Electrolyte: present (seawater).",
+            "t": "This is the same kind of condition as the galvanic series used here. Seawater conducts well, so galvanic current flows easily and the attacked area on the anode can spread further from the contact."
+          },
+          "marine": {
+            "lv": "Conditions favor attack.",
+            "t": "Deposited salt and repeated wetting and drying leave a salt-rich water film in gaps and overlaps, which promotes galvanic corrosion. Because the film is thin, attack tends to concentrate right next to the contact."
+          },
+          "outdoor": {
+            "lv": "Depends on conditions.",
+            "t": "Attack proceeds while surfaces are wet from rain or dew. Shapes that trap water (gaps, grooves that do not drain) promote it; surfaces washed by rain that dry quickly suffer less. Treat places reached by de-icing salt like coastal conditions."
+          },
+          "indoor_wet": {
+            "lv": "Depends on conditions.",
+            "t": "While surfaces are wet from condensation or splashes, an electrolyte is present. The longer they stay wet, and the more dirt or salt is present, the faster the attack."
+          },
+          "indoor_dry": {
+            "lv": "Conditions resist attack.",
+            "t": "Without an electrolyte (a water film), almost no galvanic current flows. If condensation occurs seasonally, humidity is high, or dust and salt accumulate, treat it as indoors with condensation."
+          },
+          "fresh": {
+            "lv": "Depends on conditions.",
+            "t": "Fresh water conducts less than seawater, so the effect tends to stay near the contact. On the other hand, the water chemistry (dissolved oxygen, chloride, hardness) and temperature can change the order of potentials from that in seawater."
+          },
+          "hot": {
+            "lv": "Take care.",
+            "t": "Higher temperature speeds up most reactions, and the order can reverse. For example, the American Galvanizers Association (AGA) explains that zinc can stop protecting steel (polarity reversal) at 60 to 82 °C in water containing dissolved oxygen and bicarbonate or nitrate ions."
+          },
+          "soil": {
+            "lv": "Depends on conditions.",
+            "t": "Soil moisture, salts, aeration and resistivity change the behavior greatly, and the order of potentials need not match seawater. For buried pipes and structures, consult cathodic protection standards and specialists."
+          }
+        },
+        "ui": {
+          "examples": "Examples:",
+          "ex": [
+            "Stainless bolt + aluminum plate",
+            "Copper pipe + steel pipe",
+            "Galvanized steel + copper",
+            "CFRP + aluminum",
+            "Titanium + stainless"
+          ],
+          "range_v": "{lo} to {hi} V",
+          "de_v": "{lo}–{hi} V",
+          "same_short": "Same metal",
+          "de_same": "0 V (same metal)",
+          "overlap_short": "Cannot tell",
+          "v_same": "These are the same metal, so there is no potential difference and no galvanic (dissimilar-metal) corrosion. However, crevice corrosion or corrosion due to differences in oxygen concentration can still occur.",
+          "v_anode": "The corroding side (anode) is {an}; the protected side (cathode) is {ca}. The potential difference is {lo}–{hi} V (from the potential ranges in flowing seawater).",
+          "v_overlap": "The potential ranges of {a} and {b} overlap, so this galvanic series cannot tell which one is the anode. The potential difference is 0–{hi} V (between the ends of the two ranges).",
+          "col_metal": "Metal or alloy",
+          "col_range": "Corrosion potential (V vs SCE)",
+          "col_src": "Source",
+          "cond": "Values are ranges of corrosion potential in flowing seawater vs the saturated calomel electrode (SCE); one source gives the conditions for a chart with the same order as about 2.4–4 m/s and about 10–27 °C. The potential difference indicates the tendency for galvanic corrosion, not the corrosion rate itself.",
+          "h_notes": "Notes for this pair",
+          "n_crev": "In slow-moving or poorly aerated water and inside crevices, {m} can lose its passivity and become active ({act}: {r}). The potential difference then changes, and the anode and cathode can even swap.",
+          "n_act": "{m} is the value for the active state, after the passive film has broken down. Where the passive film is maintained, choose the passive entry instead.",
+          "n_overlap": "The ranges overlap, so this galvanic series cannot tell which metal is the anode. Overlapping pairs usually have smaller differences than non-overlapping ones, but with a wide range (such as aluminum alloys) the maximum difference can exceed 0.2 V. If crevices, flow, temperature or surface condition shift the potentials, either metal may become the corroding side.",
+          "n_near": "The ranges do not overlap but are close (minimum difference under 0.05 V), so the order may reverse under some conditions (0.05 V is a cut-off chosen for this tool, not a value from a standard).",
+          "n_zn": "On galvanized steel the zinc layer corrodes first and protects the steel beneath (sacrificial protection). Where the zinc is gone, the steel is coupled to the other metal, so also check \"Mild steel, cast iron\".",
+          "n_cfrp": "Carbon fibers in CFRP behave like a noble metal (report by the US Federal Aviation Administration, FAA), so aluminum coupled to CFRP corrodes faster. The same report lists an insulating layer of E-glass between the parts, combined with sealants and plating. Here the graphite range is used as a guide for carbon fiber (it is not a measured value for CFRP itself).",
+          "n_gr": "Here the graphite range is also used as a guide for carbon fiber (CFRP); it is not a measured value for CFRP itself.",
+          "n_al": "The potential of aluminum alloys varies with alloy and temper. In the sources checked, all aluminum alloys are given as one range; values for individual alloys could not be verified.",
+          "n_dezinc": "High-zinc brasses can suffer dezincification in seawater or stagnant water (a separate phenomenon from galvanic contact).",
+          "n_hot_zn": "In hot water (60 to 82 °C) containing dissolved oxygen and bicarbonate or nitrate ions, the polarity of zinc and steel can reverse so that zinc no longer protects steel (AGA). In that case the seawater galvanic series does not apply.",
+          "h_area": "Area ratio",
+          "a_none": "No anode can be identified, so the area ratio effect is not shown.",
+          "a_bad": "Enter a number greater than 0 for the area ratio.",
+          "a_val": "Area of cathode ({ca}) ÷ area of anode ({an}) = {f}",
+          "a_big": "The cathode is larger than the anode, a combination to avoid. As a simplified guide, the anodic current density is about {f} times that for equal areas (a proportional estimate assuming the cathodic reaction controls the current, not a corrosion rate calculation).",
+          "a_small": "The anode is larger than the cathode. The galvanic current is spread over the large anode surface, so the anodic current density is lower than for equal areas; this is a relatively favorable combination (the current does not disappear).",
+          "a_equal": "Equal areas. Change the area ratio to see how the anodic current density changes, as a guide.",
+          "a_rule": "Example: stainless steel bolts in a steel plate (large anode, small cathode) are relatively acceptable, whereas steel bolts in a stainless steel plate (small anode, large cathode) are avoided because the bolts corrode quickly.",
+          "h_env": "Environment (water, salt, temperature)",
+          "e_order": "This galvanic series is for flowing seawater. In other environments both the potentials and the order can change, so use the potential differences only as a guide.",
+          "h_meas": "Countermeasures",
+          "meas": [
+            "Insulate electrically: use non-absorbent plastic washers, sleeves and gaskets so the two metals do not touch (including the bolt shank in the hole). Paper or fiber washers absorb water and are unsuitable.",
+            "If you paint, paint the cathode too: painting only the anode concentrates the current from the large cathode at small defects in the coating, causing deep attack there. Paint both, or at least the cathode.",
+            "Keep water out and let it drain: seal the joint and provide drainage paths.",
+            "Choose metals close in potential: use the same metal if possible, otherwise a pair close together in the series. Make small parts such as fasteners of the same or a more noble metal than the parts they join.",
+            "Use sacrificial anodes: for structures in seawater, connect zinc, aluminum or magnesium anodes that corrode before the metals to be protected (design according to cathodic protection standards).",
+            "Allow inspection: place joints where they can be seen and replaced."
+          ],
+          "axis": "V vs SCE",
+          "chart_lead": "Bars show the potential range. Further right is more noble (tends to be the cathode); further left is more active (tends to be the anode). Hatched bars are the active state after the passive film breaks down. The selected A and B are highlighted.",
+          "chart_label": "Galvanic series in flowing seawater (bars are corrosion potential ranges)",
+          "leg_act": "Active state",
+          "l_failure": "Failure analysis navigator",
+          "l_materials": "Materials data",
+          "disclaimer": "This result is a guide based on the galvanic series. Whether a pair can actually be used must be confirmed by testing in the service environment, standards (ISO, JIS, ASTM and so on) and manufacturer data. Consult a specialist for decisions involving safety or structures."
+        }
+      },
+      "sections": [
+        {
+          "h": "How galvanic corrosion works",
+          "p": "When two metals with different potentials are electrically connected and in contact with the same electrolyte (seawater, rain water, a film of condensation), they form a cell. The metal with the lower (more active) potential becomes the anode and dissolves (metal → metal ions + electrons); the electrons flow through the contact to the metal with the higher (more noble) potential, where a cathodic reaction such as oxygen reduction takes place. The anode corrodes faster than it would alone and the cathode corrodes less. Three conditions are needed: dissimilar metals, electrical contact, and an electrolyte connecting both. Removing any one of them prevents the galvanic part of the attack (each metal can still corrode on its own)."
+        },
+        {
+          "h": "Galvanic series versus standard electrode potentials",
+          "p": "A standard electrode potential (such as +0.34 V for Cu²⁺/Cu) applies to a pure metal in equilibrium with a solution of its ions at unit activity (roughly 1 mol/L), referred to the standard hydrogen electrode (SHE); it does not include alloys, surface oxide films or real environments (the series in this tool is referred to SCE, which is about +0.24 V vs SHE at 25 °C, so the reference also differs). To judge a pair, use a galvanic series, which lists corrosion potentials actually measured in the environment. For example, aluminum and titanium have very negative standard electrode potentials, but because of their oxide films their potentials in seawater are much more noble, so the order differs from the table of standard electrode potentials. This tool does not use standard electrode potentials and judges only from the seawater galvanic series (the Nernst equation, which describes how equilibrium potentials change with concentration, is not used here either)."
+        },
+        {
+          "h": "Passive and active states",
+          "p": "Stainless steels and nickel alloys show noble potentials while protected by a thin oxide film (the passive film). In slow-moving or poorly aerated water, inside crevices and where chloride is high, the film can break down and the alloy becomes active, shifting its potential in the active direction. In the table, 302/304-type stainless steel is −0.10 to −0.04 V when passive and −0.58 to −0.44 V when active. This tool lists the two states as separate entries; choose the one that matches the conditions. Conversely, biofilms in seawater have been reported to shift the potentials of passive alloys in the noble direction (up to +0.3 to +0.4 V)."
+        },
+        {
+          "h": "Area ratio: avoid small anodes and large cathodes",
+          "p": "The galvanic current is usually controlled by the cathodic reaction (reduction of dissolved oxygen), so a larger cathode area gives a larger current. Because that current leaves through the anode surface, the anodic current density (the rate of dissolution) increases roughly in proportion to the ratio cathode area ÷ anode area. Steel bolts in a stainless steel plate corrode quickly; stainless steel bolts in a steel plate spread the current over the large steel surface and do much less harm. The area ratio figure in this tool only shows this proportional guide; it does not calculate a corrosion rate."
+        },
+        {
+          "h": "How it differs from crevice corrosion and pitting",
+          "p": "Crevice corrosion is localized corrosion caused by differences in oxygen concentration or solution chemistry between the inside and outside of a crevice; it can occur on a single metal. Pitting occurs where chloride or similar species locally break down the passive film. Joints between dissimilar metals usually also form crevices, so the two can act together. Even stainless steel bolted to stainless steel can corrode inside crevices."
+        },
+        {
+          "h": "Common misconceptions",
+          "p": "No single number such as \"safe below x V\" can decide a pair. Acceptance guides differ between documents, and the outcome depends strongly on the area ratio, the electrolyte, temperature and flow (this tool does not use an acceptance value in its result). \"Painting the anode prevents it\" often backfires; if you paint, paint the cathode (preferably both). \"Stainless steel does not rust, so it can be combined with anything\" is also wrong: stainless steel is the cathode to many metals and speeds up their corrosion."
+        },
+        {
+          "h": "Data and how the result is decided",
+          "p": "Potentials are ranges of corrosion potential in flowing seawater (vs SCE), each checked against a source. The main source is the table in an educational resource of the Australasian Corrosion Association (ACA); nickel-chromium-molybdenum alloy 625, which is not in the ACA table, and titanium, whose sign could not be read clearly in the ACA table, use the values in the table by Dexter (University of Delaware Sea Grant). These tables appear to follow the same order as LaQue's chart of seawater data (a chart of this kind is also in an appendix of ASTM G82), but the text of ASTM G82 itself was not checked here. If the two ranges do not overlap, the metal with the lower upper limit is taken as the anode, and the potential difference runs from (cathode lower limit − anode upper limit) to (cathode upper limit − anode lower limit). If the ranges overlap, no anode is assigned."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why are the anodic index limits of 0.15 V, 0.25 V and 0.50 V not used?",
+          "a": "They are not used in this tool. We confirmed that the US military specification MIL-DTL-14072 (finishes for ground based electronic equipment) defines an anodic index referred to gold, sets compatible couples at a maximum difference of 0.25 V, and allows this to be extended to 0.50 V where couples are not exposed to weather or salt-laden air. However, the origin of the often-quoted \"0.15 V for harsh environments\" could not be confirmed, and revision D of MIL-STD-889 (according to a paper by NAVAIR engineers) classifies couples by galvanic current and corrosion rate rather than by potential difference. Because the origins and assumptions of these values do not line up, the tool shows only the range of the potential difference."
+        },
+        {
+          "q": "What potential difference is acceptable?",
+          "a": "No single number decides it. Smaller differences tend to be less risky, but the galvanic current depends strongly on the area ratio, the conductivity of the electrolyte and how easily the cathodic reaction proceeds. A large difference may cause little trouble with a small, dry cathode, while a small difference can cause problems with a large cathode in seawater."
+        },
+        {
+          "q": "Can I fasten an aluminum plate with stainless steel bolts?",
+          "a": "The aluminum alloy is the anode and the potential difference is large, 0.66–0.96 V (for passive 302/304-type stainless steel). Because the bolts are small and the plate is large, the area ratio is favorable, and in dry indoor use it is seldom a problem; but in coastal or wet places, the aluminum around the bolt holes is prone to corrosion. Combine insulating washers and sleeves, sealant and a shape that does not trap water."
+        },
+        {
+          "q": "Can I join copper pipe directly to steel pipe?",
+          "a": "The steel becomes the anode and corrodes near the joint (potential difference 0.23–0.42 V in seawater). With galvanized pipe, the zinc corrodes first. In water supply and hot water piping, insulating (dielectric) fittings are commonly used. The order can change with water chemistry and temperature, so confirm with piping standards and manufacturer data."
+        },
+        {
+          "q": "What about titanium with stainless steel?",
+          "a": "In seawater, with 316-type stainless steel passive, the ranges overlap and the difference is small (at most about 0.16 V). If the 316-type steel becomes active, for example inside a crevice, the stainless steel is likely to become the anode (active 316-type is −0.46 to −0.33 V in the series)."
+        },
+        {
+          "q": "Are there values for individual aluminum alloys?",
+          "a": "In the sources whose values we could check, aluminum alloys are given as one range (−1.00 to −0.76 V). Some sources that give only the order place copper-containing alloys such as the 2000 series on the noble side and 1100, 3003, 5052 and others on the active side, but potential values for individual alloys could not be verified, so they are not separated."
+        },
+        {
+          "q": "Can I use it for environments other than seawater (fresh water, atmosphere, soil)?",
+          "a": "Use it only as a guide. The galvanic series was measured in flowing seawater; in other environments both potentials and order can change. For example, zinc and steel can reverse polarity in hot water at 60 to 82 °C containing dissolved oxygen and bicarbonate or nitrate ions, so that zinc no longer protects steel. Confirm by testing in the environment, standards and manufacturer data."
+        }
+      ],
+      "a_mg": "Magnesium",
+      "b_mg": "Magnesium",
+      "a_zn": "Zinc (incl. galvanized coating)",
+      "b_zn": "Zinc (incl. galvanized coating)",
+      "a_al": "Aluminum alloys (all grades, one range)",
+      "b_al": "Aluminum alloys (all grades, one range)",
+      "a_cd": "Cadmium",
+      "b_cd": "Cadmium",
+      "a_steel": "Mild steel, cast iron",
+      "b_steel": "Mild steel, cast iron",
+      "a_las": "Low-alloy steel",
+      "b_las": "Low-alloy steel",
+      "a_nicast": "Austenitic nickel cast iron",
+      "b_nicast": "Austenitic nickel cast iron",
+      "a_ss410a": "Stainless steel 410, 416, 430 (active)",
+      "b_ss410a": "Stainless steel 410, 416, 430 (active)",
+      "a_ss304a": "Stainless steel 302, 304, 321, 347 (active)",
+      "b_ss304a": "Stainless steel 302, 304, 321, 347 (active)",
+      "a_ss316a": "Stainless steel 316, 317 (active)",
+      "b_ss316a": "Stainless steel 316, 317 (active)",
+      "a_in600a": "Nickel-chromium alloy 600 (active)",
+      "b_in600a": "Nickel-chromium alloy 600 (active)",
+      "a_albz": "Aluminum bronze",
+      "b_albz": "Aluminum bronze",
+      "a_brass": "Naval, yellow and red brass",
+      "b_brass": "Naval, yellow and red brass",
+      "a_cu": "Copper",
+      "b_cu": "Copper",
+      "a_sn": "Tin",
+      "b_sn": "Tin",
+      "a_solder": "Lead-tin solder (50/50)",
+      "b_solder": "Lead-tin solder (50/50)",
+      "a_adm": "Admiralty brass, aluminum brass",
+      "b_adm": "Admiralty brass, aluminum brass",
+      "a_bronze": "Tin bronzes (G and M)",
+      "b_bronze": "Tin bronzes (G and M)",
+      "a_sibz": "Silicon bronze",
+      "b_sibz": "Silicon bronze",
+      "a_ss410p": "Stainless steel 410, 416 (passive)",
+      "b_ss410p": "Stainless steel 410, 416 (passive)",
+      "a_ss430p": "Stainless steel 430 (passive)",
+      "b_ss430p": "Stainless steel 430 (passive)",
+      "a_cuni9010": "90-10 copper-nickel",
+      "b_cuni9010": "90-10 copper-nickel",
+      "a_pb": "Lead",
+      "b_pb": "Lead",
+      "a_cuni7030": "70-30 copper-nickel",
+      "b_cuni7030": "70-30 copper-nickel",
+      "a_ni": "Nickel (Ni 200)",
+      "b_ni": "Nickel (Ni 200)",
+      "a_in600p": "Nickel-chromium alloy 600 (passive)",
+      "b_in600p": "Nickel-chromium alloy 600 (passive)",
+      "a_ag": "Silver",
+      "b_ag": "Silver",
+      "a_monel": "Nickel-copper alloys 400, K-500 (Monel)",
+      "b_monel": "Nickel-copper alloys 400, K-500 (Monel)",
+      "a_ss304p": "Stainless steel 302, 304, 321, 347 (passive)",
+      "b_ss304p": "Stainless steel 302, 304, 321, 347 (passive)",
+      "a_ss316p": "Stainless steel 316, 317 (passive)",
+      "b_ss316p": "Stainless steel 316, 317 (passive)",
+      "a_in625": "Nickel-chromium-molybdenum alloy 625",
+      "b_in625": "Nickel-chromium-molybdenum alloy 625",
+      "a_ti": "Titanium and titanium alloys",
+      "b_ti": "Titanium and titanium alloys",
+      "a_pt": "Platinum",
+      "b_pt": "Platinum",
+      "a_gr": "Graphite (guide for carbon fiber, CFRP)",
+      "b_gr": "Graphite (guide for carbon fiber, CFRP)"
+    }
+  }
+}
