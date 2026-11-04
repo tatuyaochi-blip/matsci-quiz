@@ -1,0 +1,581 @@
+{
+  "id": "steelcolor",
+  "order": 13,
+  "slug": "steel-color-temperature",
+  "cats": [
+    "heat-treatment",
+    "metals",
+    "thermal-properties",
+    "processing"
+  ],
+  "cat": "heat-treatment",
+  "terms": [
+    "焼戻し",
+    "マルテンサイト",
+    "焼入れ性",
+    "ステンレス鋼",
+    "不動態",
+    "溶接熱影響部"
+  ],
+  "questions": [
+    "heat-treatment-004",
+    "processing-011",
+    "metals-002"
+  ],
+  "figures": [],
+  "compares": [
+    "quenching-vs-tempering",
+    "sus304-vs-sus316"
+  ],
+  "form": {
+    "id": "steelcolor-form",
+    "fields": [
+      {
+        "name": "t",
+        "value": 1000,
+        "attrs": "min=\"200\" max=\"3000\" step=\"1\""
+      },
+      {
+        "name": "unit",
+        "options": [
+          "c",
+          "f"
+        ],
+        "value": "c"
+      }
+    ],
+    "outputs": [
+      {
+        "stats": [
+          "kelvin",
+          "xy",
+          "hex",
+          "peak",
+          "lum"
+        ],
+        "box": "swatch"
+      },
+      {
+        "heading": "fire_h",
+        "box": "fire"
+      },
+      {
+        "heading": "temper_h",
+        "box": "temper"
+      },
+      {
+        "heading": "tint_h",
+        "box": "tint"
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "鋼の色と温度",
+      "card": "温度を選ぶと、加熱した鋼の光の色を黒体放射から計算し、火色・焼戻し色・溶接焼けの表と出典つきで並べる",
+      "title": "鋼の色と温度(火色の計算・焼戻し色・溶接焼けの色)",
+      "description": "加熱した鋼の光の色(赤熱・黄熱・白熱)を、プランクの式と CIE 1931 の等色関数で計算して色の見本を出し、1905 年の米国標準局の火色の表と並べます。炭素鋼の焼戻し色とステンレスの溶接焼けの色も、出典の値で示します。色は目安で、温度計の代わりにはなりません。",
+      "h1": "鋼の色と温度",
+      "lead": "加熱した鋼が出す光の色と、表面の酸化膜による焼戻し色・溶接焼けの色を、しくみと出典つきで示します。温度を選ぶと、黒体放射の色をプランクの式と CIE 1931 の等色関数で計算して見本を出し、昔からの火色の表と並べます。色の見え方は周りの明るさ・目の慣れ・表面の状態で変わり、焼戻し色は加熱の時間でも変わるので、どれも目安です。温度は温度計で測ってください。",
+      "in_heading": "温度",
+      "t": "温度",
+      "unit": "単位",
+      "unit_c": "°C(セルシウス度)",
+      "unit_f": "°F(華氏)",
+      "out_heading": "加熱した鋼の光の色(黒体放射の計算)",
+      "kelvin": "絶対温度",
+      "xy": "色度 (x, y)",
+      "hex": "表示の色(sRGB)",
+      "peak": "放射の山の波長",
+      "lum": "明るさ(1000 ℃ を 1)",
+      "fire_h": "火色の表(1905 年の比較表)",
+      "temper_h": "焼戻し色(炭素鋼)",
+      "tint_h": "ステンレスの溶接焼けの色",
+      "note": "光の色は、プランクの式と CIE 1931 2° 視野の等色関数(CIE の公開の表、5 nm 刻み)による計算で、放射率は波長によらない(灰色体)と仮定しています。火色の表は米国標準局の 1905 年の論文、焼戻し色は米海軍の教材と Spon の Workshop Receipts、ステンレスの焼け色は英国ステンレス鋼協会(BSSA)の表の値で、出典で確かめた値だけを入れています(「灰色」の焼戻し色の温度など、確かめられなかった値は入れていません)。色の見本は画面の表示の色で目安です。温度計の代わりにはなりません。",
+      "practice": "熱処理の問題を解く",
+      "related": "関連する用語",
+      "sections": [
+        {
+          "h": "加熱した鋼が光るしくみ(黒体放射)",
+          "p": "物体は温度に応じて電磁波(熱放射)を出します。どの波長の光もすべて吸収する理想の物体を黒体といい、黒体が出す光の波長ごとの強さは、プランクの式 M(λ, T) = 2πhc²/λ⁵ × 1/(exp(hc/λkT) − 1) によって温度 T だけで決まります(h はプランク定数、c は光速、k はボルツマン定数)。温度が上がると、どの波長でも強くなり、特に短い波長の側が大きく伸びます。赤熱した鋼の色は、このスペクトルのうち目に見える部分(およそ 380〜780 nm)の形で決まります。"
+        },
+        {
+          "h": "ウィーンの変位則: 山は赤外にある",
+          "p": "黒体のスペクトルの山の波長は λmax = b/T(b ≈ 2898 µm·K)で、絶対温度に反比例します(ウィーンの変位則)。1000 ℃(1273 K)では約 2.3 µm、1600 ℃(1873 K)でも約 1.5 µm で、山は目に見えない赤外にあります。目に見えるのは山のすその短い波長の側で、そこでは波長が長いほど強いので、鋼はまず赤く光ります。また 400 ℃ と 1000 ℃ では、見える光の明るさが 1000 万倍ほど違います(このツールの計算)。"
+        },
+        {
+          "h": "なぜ赤 → 橙 → 黄色っぽく変わるのか",
+          "p": "温度が上がると山が短い波長の側へ動き、見える範囲の中で、緑や青の光の割合が増えていきます。そのため色度は、深い赤から橙、黄みの橙へと動きます。計算では 1600 ℃ でも色度は橙(x ≈ 0.54)ですが、昔の火色の表では 1000〜1200 ℃ ほどで「黄色」「白色」と呼んでいます。この食い違いは、とても明るい光が目には白っぽく見えやすいためと考えられます(推測)。"
+        },
+        {
+          "h": "青白い光にならない理由",
+          "p": "黒体の色度は、温度を上げると色度図の上の黒体軌跡に沿って動き、温度を無限大にしても (x, y) ≈ (0.240, 0.234) の青みがかった白に近づくだけです。昼光の白(CIE の D65、相関色温度 約 6500 K)に近い色度になるのにも数千 K が要ります。純鉄の融点は 1538 ℃(1811 K)なので、固体の鋼は橙〜黄みの色までで、青白く光ることはありません。"
+        },
+        {
+          "h": "色度座標 (x, y) と相関色温度",
+          "p": "CIE 1931 の表色系では、光のスペクトルに3つの等色関数 x̄・ȳ・z̄ を掛けて足し、三刺激値 X・Y・Z を出します。Y は明るさ(輝度)に当たり、x = X/(X+Y+Z)、y = Y/(X+Y+Z) の色度座標は、明るさを除いた色を表します。黒体の色度を温度ごとに結んだ線が黒体軌跡で、黒体軌跡の近くにある光の色を「色が最も近い黒体の温度」で表したものが相関色温度(単位 K)です。黒体そのものの相関色温度は、その温度に等しくなります。"
+        },
+        {
+          "h": "計算の方法と検算",
+          "p": "このツールは、プランクの式のスペクトルに CIE 1931 2° 視野の等色関数(CIE が公開する 1 nm 刻みの表から 5 nm ごとの値を使い、360〜830 nm を足す)を掛けて XYZ を出し、sRGB(IEC 61966-2-1 の変換行列とガンマ補正)に変えています。明るさは R・G・B の最大を 1 にそろえて正規化しています。400〜1600 ℃ の黒体の色度は sRGB で出せる色の外にあるため、負の成分を 0 にした近い色で表示します。同じ計算を別のプログラム(python)で行い、CIE の標準イルミナント A の色度(x = 0.44758、y = 0.40745)や、Robertson(1968)の黒体軌跡の表(1667 K など)と、小数第4位まで合うことを確かめています。"
+        },
+        {
+          "h": "放射率と灰色体",
+          "p": "実際の鋼は黒体ではなく、放射率 ε(同じ温度の黒体に比べた放射の割合)は 1 より小さくなります。放射率が波長によらない物体を灰色体といい、そのスペクトルは黒体の ε 倍になるだけで形は変わりません。色度 x、y は比なので ε が打ち消し合い、色は同じで明るさだけが下がります。ただし金属の放射率は、波長・温度・表面の酸化で変わるので、鋼を灰色体とみなすのは近似です。"
+        },
+        {
+          "h": "実際の見え方の注意",
+          "p": "同じ温度でも、色の見え方は周りの明るさ(暗い所か昼の光の下か)、目の慣れ、表面の酸化膜(スケール)で変わります。火色の表に「暗い所で見える」「昼の光で見える」と条件が書いてあるのはこのためです。1905 年の米国標準局の論文は、慣れた人どうしでも 50 ℃ 以上違うことがあると書いています。炎で加熱している金属は、実際より低い温度に見えるという注意もあります(米海軍の教材 NAVEDTRA 14250A)。日本でも、鍛造の技能検定に「鋼材の表面温度の判定」、金属熱処理業の技能実習評価試験に炉内の製品温度をおおむね判断する「火色試験」がありますが、正確な温度は温度計(熱電対・放射温度計など)で測ります。"
+        },
+        {
+          "h": "焼戻し色のしくみ",
+          "p": "焼戻し色(テンパーカラー)は、磨いた鋼を空気中で熱したときにできる、ごく薄い酸化膜の光の干渉による色です。膜の表面で反射した光と、膜の下の鋼の面で反射した光が重なり、膜の厚さで決まる波長の光が打ち消し合って、残りの色が見えます。膜が厚くなるにつれて、淡黄・わら色・茶・紫・青と色が移り、膜が厚くなりすぎると光を通さなくなって干渉の色は消えます。色の名前と温度の対応は、出典の表(米海軍の教材、Spon)の値で示しています。"
+        },
+        {
+          "h": "焼戻し色は時間・鋼の種類・雰囲気で変わる",
+          "p": "酸化膜の厚さは温度だけでなく加熱の時間でも増えるので、同じ色でも、高い温度で短く熱したのか、低い温度で長く熱したのかは区別できません。米国標準局の資料(LC630)は、色が出るまでの時間は主に炉の温度・鋼の成分・品物の大きさと形で決まると書いています。表は空気中で熱した炭素鋼の目安です。ステンレス鋼 1.4301 の BSSA の表では淡黄が約 290 ℃ で、炭素鋼の表(約 220 ℃)より高く、BSSA はクロムが多いほど熱に強いと書いています(加熱の時間の前提がそろっていないので、差の大きさは目安です)。雰囲気(溶接のシールドガスなど)でも色は変わります(BSSA)。"
+        },
+        {
+          "h": "ステンレスの溶接焼け(ヒートティント)",
+          "p": "ステンレス鋼でも、熱で表面の酸化膜が厚くなると色が出ます。溶接では溶接部のまわりにこの色が出て、溶接焼け(ヒートティント)と呼ばれます。目に見える溶接焼けは耐食性を下げます。クロムが鉄より酸化しやすいため、膜の下にクロムの減った層が残るからです(Euro Inox)。耐食性が要る所では、研削などの機械的な方法、酸洗い(ふつうは硝酸とふっ化水素酸の混合液)、電解研磨で、焼けとクロムの減った層を取り除きます(ASSDA)。"
+        },
+        {
+          "h": "よくある誤解",
+          "p": "「わら色なら硬さは○○」のように、焼戻し色だけで硬さが決まるわけではありません。色は表面の膜の厚さで、加熱の時間や鋼の種類で変わり、硬さは中の組織で決まります。「赤く光らなければ熱くない」も誤りで、黒体の計算では 400 ℃ の見える光は 1000 ℃ の 1000 万分の 1 ほどしかなく、明るい所では光って見えなくても、やけどをする温度です。また、色の見本は画面の色なので、画面に合わせて温度を判断することはできません。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "色で鋼の温度を測れますか?",
+          "a": "おおまかな目安にしかなりません。1905 年の米国標準局の論文は、色による温度の見積もりは大部分が個人の感覚で、慣れた人どうしでも 50 ℃ 以上違うことがあり、1200 ℃ を超えると目ではほとんど見積もれないと書いています。周りの明るさや、炎で加熱しているかどうかでも見え方は変わります。熱処理の温度は熱電対や放射温度計などで測ってください。"
+        },
+        {
+          "q": "焼戻し色がわら色なら、硬さは決まりますか?",
+          "a": "決まりません。焼戻し色は表面の薄い酸化膜の色で、膜の厚さは温度だけでなく加熱の時間・鋼の成分・品物の大きさと形で変わります(米国標準局 LC630)。硬さは焼戻しの温度と時間、鋼の成分で決まる中の組織によるので、硬さ試験で確かめます。焼戻しのしくみは「鋼の熱処理ラボ」も見てください。"
+        },
+        {
+          "q": "400〜690 ℃ ほどで、見本がどれも同じ赤なのはなぜですか?",
+          "a": "その温度の黒体の色度は、画面(sRGB)が出せる一番赤い色よりさらに深い赤で、画面の色の範囲の外にあるからです。このツールは負の成分を 0 にして近い色で表示するので、約 690 ℃ より下ではどれも #ff0000 になります。色度 (x, y) の数値は温度とともに変わっています。"
+        },
+        {
+          "q": "放射率の低い鋼(磨いた面など)では、色は変わりますか?",
+          "a": "放射率が波長によらない(灰色体)なら、スペクトルの形は同じで明るさだけが下がるので、色度は変わりません。金属の放射率は実際には波長や表面の酸化で変わるので、これは近似です。色よりも明るさが大きく変わるので、放射率の低い面は同じ温度でも暗く見えます。"
+        },
+        {
+          "q": "火色の表どうしで値が違うのはなぜですか?",
+          "a": "色の名前の付け方、観察した人、周りの明るさが違うためと考えられます(1905 年の米国標準局の論文は、色による見積もりは大部分が個人の感覚によると書いています)。同じ論文の比較表では、同じような色に対して、Pouillet の値は White & Taylor より 130〜260 ℃ ほど高い所が多くあります。このツールでは、表を1つにまとめずに、3つの目盛りをそのまま並べています。"
+        },
+        {
+          "q": "「白熱」は何 ℃ くらいですか?",
+          "a": "表によって違います。比較表の「White」は、White & Taylor で 1205 ℃、Howe で 1150 ℃、Pouillet で 1300 ℃ です。ただし黒体の計算では、1600 ℃ でも色度は橙で、白(昼光の白、x = 0.3127)には遠く、表の名前と計算は合いません。"
+        },
+        {
+          "q": "ステンレスの溶接焼けは取るべきですか?",
+          "a": "耐食性が大事な所では取るのがよいとされます。目に見える溶接焼けは耐食性を下げ(Euro Inox)、BSSA も用途によっては影響しうると書いています。取り方は研削などの機械的な方法、酸洗い、電解研磨で(ASSDA)、どこまで必要かは使う環境と規格・発注者の仕様で決めます。"
+        }
+      ],
+      "js": {
+        "ui": {
+          "slider": "温度(スライダー)",
+          "sep": "、",
+          "quick": "よく使う温度:",
+          "bad": "温度は {lo}〜{hi} の数で入れてください。",
+          "lead_v": "{t}({k} K)の黒体の光の色(計算): 色度 (x, y) = ({x}, {y})。放射の強さの山は {p} µm の赤外にあり、目に見えるのは、その山のすその短い波長の側(赤い側が強い)の光です。",
+          "swatch_label": "{t} の黒体の色の見本 {hex}",
+          "band1": "色の帯(明るさをそろえた色、400〜1600 ℃)",
+          "band2": "色の帯(明るさも入れた色。1600 ℃ の明るさを最大にした。目の慣れは考えない)",
+          "band_unit": "帯の目盛りの単位: {u}。黒い線が選んだ温度です。",
+          "h_notes": "この色を見るときの注意",
+          "n_out": "色の帯と火色の表は {lo}〜{hi} の範囲です。この温度は範囲の外ですが、計算はしています。",
+          "n_clip": "この温度の黒体の色度は、画面で出せる色の範囲(sRGB)の外にあります(青の成分が負になる)。負の成分を 0 にした、近い色で表示しています。",
+          "n_red": "約 690 ℃(約 1270 °F)より低い温度では緑の成分も 0 になり、画面ではどれも同じ赤(#ff0000)になります。計算の色度は、それよりさらに深い赤です。",
+          "n_dim": "この温度の光はとても弱く、1000 ℃ の明るさの 1 万分の 1 より小さい明るさです。明るい所ではほとんど見えません。見本は明るさをそろえて表示しています。",
+          "n_white": "火色の表では、このあたりの温度を「黄色」〜「白色」と呼んでいますが、計算の色度は橙です(表と計算が合わない所です)。",
+          "n_screen": "色の見本は画面の表示の色で、目安です。画面の設定や周りの明るさで見え方は変わります。温度計の代わりにはなりません。",
+          "method": "計算: プランクの式で黒体のスペクトルを出し、CIE 1931 2° 視野の等色関数(CIE の公開の表を 5 nm 刻み、360〜830 nm)で三刺激値 XYZ を求め、色度 (x, y) と sRGB(IEC 61966-2-1 の行列とガンマ補正、明るさは正規化)に変えています。放射率は波長によらない(灰色体)と仮定しています。「明るさ」は輝度 Y の比で、同じ放射率の黒体どうしの比です。",
+          "fire_near": "{t} にいちばん近い表の値:",
+          "fire_item": "「{n}」{v}",
+          "fire_note": "表は、米国標準局(今の NIST)の 1905 年の論文の比較表のまま(°C・°F とも原表の値。ただし Howe の White の °F は、原表の印字 2108 を、°C の 1150 と差の列 −98 から 2102 と読みました)です。3つの目盛りは別々に決められたもので、同じ行の色は、原表が近いものとして並べたものです。色の名前は原表の英語で、括弧の中はこのページの訳です。出典:",
+          "h_fire_cmp": "表と計算の色の比べ",
+          "fire_cmp": [
+            "「見え始めの赤」は、White & Taylor では 470 ℃(暗い所)、Howe では 475 ℃(昼の光)、Pouillet では 525 ℃ です。同じ行で比べると、Pouillet の値はほかの2つより 130〜260 ℃ ほど高い所が多くあります。",
+            "計算の色度は、500 ℃ でも 1000 ℃ でも赤〜橙で、大きくは変わりません。表の「暗い」「明るい」は、色度よりも明るさの違いを言っている所が多いと考えられます(推測)。上の「明るさも入れた帯」と合わせて見てください。",
+            "表では 1000〜1200 ℃ ほどで「黄色」「白色」になりますが、計算の色度は 1600 ℃ でも橙(x ≈ 0.54)で、昼光の白(CIE の D65、x = 0.3127)には遠く、この点は表と計算が合いません。とても明るい光は、目には白っぽく見えやすいためと考えられます(推測)。",
+            "同じ論文は、色による温度の見積もりは大部分が個人の感覚によるもので、同じ人でも周りの明るさで変わり、慣れた人どうしでも 50 ℃ 以上違うことがあり、1200 ℃ を超えると目ではほとんど見積もれない、と書いています。"
+          ],
+          "h_mech": "焼戻し色が出るしくみ(酸化膜の干渉)",
+          "fig_label": "酸化膜の表面で反射した光と、膜を通って鋼の面で反射した光が重なる図",
+          "fig_air": "空気",
+          "fig_oxide": "酸化膜",
+          "fig_steel": "鋼",
+          "fig_r1": "膜の表面で反射",
+          "fig_r2": "鋼の面で反射",
+          "mech1": "磨いた鋼を空気中で熱すると、表面にごく薄い酸化膜ができます。膜の表面で反射した光と、膜を通って鋼の面で反射した光が重なり、膜の厚さによって決まる波長の光が打ち消し合います(干渉)。打ち消されなかった残りの光が、色として見えます。",
+          "mech2": "温度が高いほど、また長く熱するほど膜は厚くなり、打ち消される波長が変わるので、色は淡黄 → わら色 → 茶 → 紫 → 青と移ります。膜がもっと厚くなると光を通さなくなり、干渉の色は見えなくなります。",
+          "mech_src": "しくみの説明(色が干渉によるものと 1925 年の U. R. Evans の研究で認められたこと、厚い膜では干渉が起きないこと)の出典:",
+          "temper_sw": "色の見本は、このページで選んだ画面の表示の色で、目安です(出典の値ではありません)。温度は出典の値のまま(°C・°F とも)です。",
+          "h_temper_notes": "焼戻し色を使うときの注意",
+          "temper_notes": [
+            "色は温度だけでは決まりません。米国標準局の資料(LC630)は、ある色にするのに要る加熱の時間は、主に炉の温度・鋼の成分・品物の大きさと形の3つで決まると書いています。同じ色でも、高い温度で短く熱したのか、低い温度で長く熱したのかは、色だけでは区別できません。",
+            "表は、磨いた炭素鋼を空気中で熱したときの目安です。米海軍の教材は、色を見るには表面を磨くこと、温度を測る設備がないときに使う方法であることを書いています。",
+            "焼戻し色は表面の薄い膜の色で、中の組織や硬さを示すものではありません。硬さは焼戻しの温度・時間・鋼の成分で決まるので、硬さ試験で確かめます。",
+            "2つの出典で、同じ温度に違う名前が付いている所があります(288 ℃ は米海軍の教材では濃い青、Spon では濃い紫)。"
+          ],
+          "tint_lead": "ステンレス鋼 1.4301(SUS304 に相当)を空気中で熱したときの色の目安です。溶接では、熱を受けた溶接部のまわりに、この色(溶接焼け、ヒートティント)が出ます。",
+          "tint_sw": "色の見本は画面の表示の色で、目安です。温度は BSSA の表の値です(°F は換算。BSSA によると、このような表のもとの試験は、ふつう 1 時間の加熱によるものです)。同じ記事は、加熱の時間が長いと色は濃くなり、表面の粗さ・雰囲気(溶接のシールドガスなど)・鋼の成分(特にクロムの量)でも変わると書いています。出典:",
+          "h_tint_care": "溶接焼けの注意",
+          "tint_care": [
+            "目に見える溶接焼けは、その面の耐食性を下げます。鉄よりクロムのほうが酸化しやすいので、焼けの膜の下に、クロムの少ない層が残るためです(Euro Inox)。BSSA も、用途によっては耐食性に影響しうると書いています。",
+            "いちばんよい耐食性にするには、焼けの膜とクロムの減った層を、機械的な方法(研削など)・化学的な方法(酸洗い。ふつうは硝酸とふっ化水素酸の混合液)・電解研磨で取り除きます(ASSDA)。Euro Inox も、焼けは酸洗いのペーストやゲル、または研削などのあとの硝酸処理で取り除けると書いています。",
+            "酸洗いの薬品は危険なので、薬品の扱いの決まりと保護具に従ってください。"
+          ],
+          "col_sw": "見本",
+          "col_color": "色",
+          "col_temp": "温度の目安",
+          "l_lab": "鋼の熱処理ラボ(状態図・焼戻し)",
+          "l_cmp": "焼入れと焼戻しの違い",
+          "l_ss": "ステンレス鋼のデータ",
+          "l_glossary": "用語集",
+          "safety": "安全: 赤熱・白熱した金属は、触れなくても強い放射熱を出します。溶接のアークの光は強い紫外線を含み、目や肌を傷めます。遮光の保護めがね・溶接面などの保護具を使ってください。この計算と表は目安で、温度計の代わりにはなりません。"
+        },
+        "fire": {
+          "wt_dark": "Lowest red visible in dark(暗い所でやっと見える赤)",
+          "wt_darkred": "Dark red, blood red, low red(暗赤色・血赤色)",
+          "wt_darkcherry": "Dark cherry red(暗いチェリーレッド)",
+          "wt_cherry": "Cherry, full red(チェリーレッド・赤)",
+          "wt_lightred": "Light red, light cherry(明るい赤・明るいチェリーレッド)",
+          "wt_orange": "Orange(橙色)",
+          "wt_lightorange": "Light orange(明るい橙色)",
+          "wt_yellow": "Yellow(黄色)",
+          "wt_lightyellow": "Light yellow(淡黄色)",
+          "wt_white": "White(白色)",
+          "pou_lowest": "Lowest red(見え始めの赤)",
+          "pou_darkred": "Dark red(暗赤色)",
+          "pou_lowcherry": "Lowest cherry(チェリーレッドの始まり)",
+          "pou_cherry": "Cherry(チェリーレッド)",
+          "pou_brightcherry": "Bright cherry(明るいチェリーレッド)",
+          "pou_darkorange": "Dark orange(暗い橙色)",
+          "pou_brightorange": "Bright orange(明るい橙色)",
+          "pou_white": "White(白色)",
+          "pou_brightwhite": "Very bright white(とても明るい白)",
+          "pou_dazzling": "Dazzling white(まぶしい白)",
+          "howe_day": "Lowest red visible in daylight(昼の光でやっと見える赤)",
+          "howe_dull": "Dull red(くすんだ赤)",
+          "howe_fullcherry": "Full cherry(チェリーレッド)",
+          "howe_lightred": "Light red(明るい赤)",
+          "howe_fullyellow": "Full yellow(黄色)",
+          "howe_lightyellow": "Light yellow(淡黄色)",
+          "howe_white": "White(白色)"
+        },
+        "src": {
+          "wt": "White & Taylor",
+          "pou": "Pouillet",
+          "howe": "Howe",
+          "navy": "米海軍の教材",
+          "spon": "Spon",
+          "nbs": "Waidner & Burgess「Optical Pyrometry」Bulletin of the Bureau of Standards 1(2), 1905, p. 209",
+          "navy_full": "米海軍 Aviation Structural Mechanic (AM)(NAVEDTRA 14315)Table 6-2",
+          "spon_full": "Spon's Workshop Receipts(American Library Edition)Vol. 3「Colour Tests」",
+          "lc630": "米国標準局(NBS)Letter Circular LC630「Bluing of Iron and Steel」",
+          "cam": "ケンブリッジ大学 M. Peet & H. K. D. H. Bhadeshia「Oxide on Steel and Tempering Colours」",
+          "bssa": "英国ステンレス鋼協会(BSSA)「Heat Tint (Temper) Colours on Stainless Steel Surface Heated in Air」",
+          "euroinox": "Euro Inox「Pickling and Passivating Stainless Steel」(2007)",
+          "assda": "オーストラリアステンレス鋼開発協会(ASSDA)「Stainless Fabrication: Common Traps to Avoid」"
+        },
+        "temper": {
+          "pale_yellow": "淡黄色(Pale yellow)",
+          "straw": "わら色(Straw)",
+          "golden": "金色がかった黄(Golden yellow)",
+          "brown": "茶(Brown)",
+          "brown_purple": "紫の斑のある茶(Brown dappled with purple)",
+          "purple": "紫(Purple)",
+          "dark_purple": "濃い紫(Dark purple)",
+          "dark_blue": "濃い青(Dark blue)",
+          "bright_blue": "明るい青(Bright blue)",
+          "pale_blue": "淡い青(Pale blue)",
+          "green_blue": "緑がかった青(Blue tinted with green)"
+        },
+        "spon": {
+          "very_pale_yellow": "Very pale yellow",
+          "straw_yellow": "Straw yellow",
+          "brown_yellow": "Brown yellow",
+          "light_purple": "Light purple",
+          "dark_purple": "Dark purple",
+          "clear_blue": "Clear blue",
+          "pale_blue": "Pale blue",
+          "blue_green": "Blue tinted with green"
+        },
+        "tint": {
+          "pale_yellow": "淡黄(pale yellow)",
+          "straw_yellow": "わら色(straw yellow)",
+          "dark_yellow": "濃い黄(dark yellow)",
+          "brown": "茶(brown)",
+          "purple_brown": "紫がかった茶(purple brown)",
+          "dark_purple": "濃い紫(dark purple)",
+          "blue": "青(blue)",
+          "dark_blue": "濃い青(dark blue)"
+        },
+        "url": {
+          "cam": "http://www.phase-trans.msm.cam.ac.uk/2008/Oxide/Oxide.html",
+          "lc630": "https://www.govinfo.gov/content/pkg/GOVPUB-C13-7666bb8911301f6cb01ab783a8633676/pdf/GOVPUB-C13-7666bb8911301f6cb01ab783a8633676.pdf",
+          "euroinox": "https://bssa.org.uk/wp-content/uploads/2021/07/Pickling-and-Passivating-Stainless-Steel.pdf",
+          "assda": "https://www.assda.asn.au/assda-accredited-fabricators/stainless-fabrication-common-traps-to-avoid"
+        }
+      }
+    },
+    "en": {
+      "nav": "Steel color and temperature",
+      "card": "Pick a temperature to see the calculated glow color of hot steel from blackbody radiation, beside sourced tables of heat colors, temper colors and weld heat tint",
+      "title": "Steel Color and Temperature: Heat Colors, Temper Colors, Heat Tint",
+      "description": "Calculates the glow color of hot steel (red, yellow and white heat) from Planck's law and the CIE 1931 color-matching functions and shows a swatch, side by side with the heat-color table of the U.S. Bureau of Standards (1905). Temper colors of carbon steel and heat-tint colors of stainless steel are shown with values from the sources. Colors are guides, not a thermometer.",
+      "h1": "Steel Color and Temperature",
+      "lead": "Two kinds of \"steel color\", with how they arise and where the numbers come from: the light emitted by hot steel, and the temper and heat-tint colors of the surface oxide film. Pick a temperature to see the blackbody color calculated from Planck's law and the CIE 1931 color-matching functions, beside the traditional heat-color tables. How colors look depends on the surrounding light, eye adaptation and the surface, and temper colors also depend on heating time, so everything here is a guide. Measure temperatures with a thermometer.",
+      "in_heading": "Temperature",
+      "t": "Temperature",
+      "unit": "Unit",
+      "unit_c": "°C (Celsius)",
+      "unit_f": "°F (Fahrenheit)",
+      "out_heading": "Glow color of hot steel (blackbody calculation)",
+      "kelvin": "Absolute temperature",
+      "xy": "Chromaticity (x, y)",
+      "hex": "Screen color (sRGB)",
+      "peak": "Peak wavelength",
+      "lum": "Brightness (1000 °C = 1)",
+      "fire_h": "Heat-color table (1905 comparison)",
+      "temper_h": "Temper colors (carbon steel)",
+      "tint_h": "Heat-tint colors of stainless steel",
+      "note": "The glow color is calculated with Planck's law and the CIE 1931 2° color-matching functions (the published CIE table, every 5 nm), assuming an emissivity independent of wavelength (gray body). The heat-color table is from a 1905 paper of the U.S. Bureau of Standards, temper colors from a U.S. Navy training manual and Spon's Workshop Receipts, and stainless heat-tint colors from the British Stainless Steel Association (BSSA). Only values checked in these sources are included (values that could not be checked, such as the temperature for a \"gray\" temper color, are left out). Swatches are screen colors and only a guide. Not a substitute for a thermometer.",
+      "practice": "Practise heat treatment questions",
+      "related": "Related terms",
+      "sections": [
+        {
+          "h": "Why hot steel glows (blackbody radiation)",
+          "p": "Every object emits electromagnetic radiation according to its temperature (thermal radiation). An ideal object that absorbs all light of every wavelength is called a blackbody, and the spectrum it emits is set by its temperature T alone through Planck's law, M(λ, T) = 2πhc²/λ⁵ × 1/(exp(hc/λkT) − 1), where h is the Planck constant, c the speed of light and k the Boltzmann constant. As T rises, the emission grows at every wavelength, and most strongly at short wavelengths. The color of red-hot steel is set by the shape of this spectrum within the visible range (about 380–780 nm)."
+        },
+        {
+          "h": "Wien's displacement law: the peak is in the infrared",
+          "p": "The peak wavelength of a blackbody spectrum is λmax = b/T (b ≈ 2898 µm·K), inversely proportional to the absolute temperature (Wien's displacement law). At 1000 °C (1273 K) it is about 2.3 µm and even at 1600 °C (1873 K) about 1.5 µm, in the invisible infrared. We see only the short-wavelength tail of the peak, where longer wavelengths are stronger, so steel first glows red. The visible brightness at 1000 °C is about ten million times that at 400 °C (calculated by this tool)."
+        },
+        {
+          "h": "Why the color goes red, orange, then yellowish",
+          "p": "As the temperature rises, the peak moves toward shorter wavelengths and the share of green and blue light in the visible range grows. The chromaticity therefore moves from deep red to orange and yellowish orange. In the calculation the chromaticity is still orange at 1600 °C (x ≈ 0.54), while the old heat-color tables call about 1000–1200 °C \"yellow\" and \"white\". A probable reason is that very bright light tends to look whitish to the eye (our inference)."
+        },
+        {
+          "h": "Why steel never glows bluish white",
+          "p": "As the temperature rises, the blackbody chromaticity moves along the Planckian locus of the chromaticity diagram, and even at infinite temperature it only approaches a bluish white at (x, y) ≈ (0.240, 0.234). Reaching a chromaticity close to daylight white (CIE D65, correlated color temperature about 6500 K) takes thousands of kelvin. Pure iron melts at 1538 °C (1811 K), so solid steel glows at most orange to yellowish, never bluish white."
+        },
+        {
+          "h": "Chromaticity (x, y) and correlated color temperature",
+          "p": "In the CIE 1931 system, a spectrum is multiplied by the three color-matching functions x̄, ȳ and z̄ and summed to give the tristimulus values X, Y and Z. Y corresponds to luminance, and the chromaticity coordinates x = X/(X+Y+Z) and y = Y/(X+Y+Z) describe the color without its brightness. The line joining blackbody chromaticities at each temperature is the Planckian locus; the correlated color temperature (in K) describes a light near this locus by the temperature of the blackbody closest in color. For a blackbody itself it equals its temperature."
+        },
+        {
+          "h": "How it is calculated and checked",
+          "p": "The tool multiplies the Planck spectrum by the CIE 1931 2° color-matching functions (every 5 nm from the CIE's published 1 nm table, summed from 360 to 830 nm) to get XYZ, then converts to sRGB (IEC 61966-2-1 matrix and gamma). Brightness is normalized so that the largest of R, G and B is 1. Blackbody chromaticities at 400–1600 °C lie outside the sRGB gamut, so they are shown as the nearest color with negative components set to 0. The same calculation in a separate program (Python) agrees to the fourth decimal place with the chromaticity of CIE standard illuminant A (x = 0.44758, y = 0.40745) and with Robertson's (1968) table of the Planckian locus (at 1667 K and other temperatures)."
+        },
+        {
+          "h": "Emissivity and gray bodies",
+          "p": "Real steel is not a blackbody; its emissivity ε (its emission relative to a blackbody at the same temperature) is less than 1. A body whose emissivity does not depend on wavelength is called a gray body: its spectrum is simply ε times the blackbody spectrum, with the same shape. Because x and y are ratios, ε cancels, so the color is the same and only the brightness drops. The emissivity of metals does change with wavelength, temperature and surface oxidation, however, so treating steel as a gray body is an approximation."
+        },
+        {
+          "h": "How the color actually looks",
+          "p": "At the same temperature, the color you see depends on the surrounding light (darkness or daylight), eye adaptation and the oxide scale on the surface; that is why the heat-color tables specify \"visible in dark\" or \"in daylight\". The 1905 Bureau of Standards paper notes that skilled observers may disagree by 50 °C or more. The U.S. Navy manual NAVEDTRA 14250A also warns that a flame makes the metal appear colder than it is. Japanese trade tests likewise include judging surface or furnace temperature by color, but accurate temperatures are measured with thermometers such as thermocouples or radiation thermometers."
+        },
+        {
+          "h": "How temper colors form",
+          "p": "Temper colors are interference colors of the very thin oxide film that forms when polished steel is heated in air. Light reflected at the top of the film overlaps light reflected at the steel underneath, and light of a wavelength set by the film thickness cancels, leaving the remaining colors. As the film thickens the color moves through pale yellow, straw, brown, purple and blue, and when the film becomes too thick it is no longer transparent and the interference colors disappear. The color names and temperatures here are the values in the source tables (the U.S. Navy manual and Spon)."
+        },
+        {
+          "h": "Temper colors depend on time, steel and atmosphere",
+          "p": "The oxide film thickens with heating time as well as with temperature, so the same color cannot tell a short heating at a higher temperature from a long heating at a lower one. The Bureau of Standards circular LC630 says the time to reach a color depends chiefly on the furnace temperature, the steel composition and the size and shape of the article. The table is a guide for carbon steel heated in air. In the BSSA chart for stainless steel 1.4301, pale yellow appears at about 290 °C, higher than in the carbon-steel tables (about 220 °C), and BSSA notes that more chromium makes a steel more heat resistant (the assumed heating times differ, so the size of the gap is only indicative). The atmosphere (such as the shielding gas in welding) also changes the colors (BSSA)."
+        },
+        {
+          "h": "Weld heat tint on stainless steel",
+          "p": "Stainless steel also shows colors when heat thickens its surface oxide; around welds these are called heat tint. Visible heat tint reduces corrosion resistance, because chromium oxidises more readily than iron and leaves a chromium-depleted layer under the tint (Euro Inox). Where corrosion resistance matters, the tint and the depleted layer are removed by grinding or other mechanical means, by acid pickling (usually with a nitric–hydrofluoric acid mixture) or by electropolishing (ASSDA)."
+        },
+        {
+          "h": "Common misconceptions",
+          "p": "A temper color alone does not fix the hardness (\"straw means hardness X\"): the color reflects the surface film thickness, which changes with heating time and steel type, whereas hardness depends on the microstructure inside. \"If it does not glow, it is not hot\" is also wrong: by the blackbody calculation, the visible light at 400 °C is about one ten-millionth of that at 1000 °C, so steel that does not visibly glow in a lit room can still cause severe burns. And because the swatches are screen colors, you cannot judge a temperature by matching them on screen."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I measure the temperature of steel from its color?",
+          "a": "Only roughly. The 1905 Bureau of Standards paper says color estimation is largely a personal matter, that skilled observers may disagree by 50 °C or more, and that above 1200 °C eye estimates are practically impossible. Surrounding light, and whether the steel is being heated with a flame, also change how it looks. Measure heat-treatment temperatures with thermocouples, radiation thermometers or similar instruments."
+        },
+        {
+          "q": "If the temper color is straw, is the hardness fixed?",
+          "a": "No. A temper color is the color of a thin surface oxide film, whose thickness depends not only on temperature but also on heating time, steel composition and the size and shape of the article (Bureau of Standards LC630). Hardness depends on the microstructure, set by tempering temperature, time and composition, so check it with a hardness test. See also the steel heat treatment lab for how tempering works."
+        },
+        {
+          "q": "Why do the swatches all look the same red from about 400 to 690 °C?",
+          "a": "At those temperatures the blackbody chromaticity is a deeper red than the reddest color a screen (sRGB) can show, so it lies outside the screen gamut. The tool sets negative components to 0 and shows the nearest color, which is #ff0000 below about 690 °C. The chromaticity (x, y) values still change with temperature."
+        },
+        {
+          "q": "Does the color change for steel with low emissivity, such as a polished surface?",
+          "a": "If the emissivity does not depend on wavelength (a gray body), the spectrum keeps its shape and only becomes weaker, so the chromaticity is unchanged. Real metal emissivity does vary with wavelength and surface oxidation, so this is an approximation. Brightness changes much more than color, so a low-emissivity surface looks darker at the same temperature."
+        },
+        {
+          "q": "Why do heat-color tables disagree?",
+          "a": "Probably because they use different color names, different observers and different lighting (the 1905 Bureau of Standards paper says color estimation is largely a personal matter). In that paper's comparison table, Pouillet's values for similar colors are often about 130–260 °C higher than White & Taylor's. This tool does not merge the tables; it shows the three scales side by side."
+        },
+        {
+          "q": "What temperature is \"white heat\"?",
+          "a": "It depends on the table. \"White\" in the comparison is 1205 °C for White & Taylor, 1150 °C for Howe and 1300 °C for Pouillet. In the blackbody calculation, however, the chromaticity is still orange at 1600 °C, far from white (daylight white, x = 0.3127), so the table names and the calculation disagree."
+        },
+        {
+          "q": "Should weld heat tint on stainless steel be removed?",
+          "a": "Where corrosion resistance matters, removal is recommended. Visible heat tint reduces corrosion resistance (Euro Inox), and BSSA notes it may affect corrosion performance in some applications. It can be removed by grinding or other mechanical means, pickling or electropolishing (ASSDA); how far to go depends on the service environment, standards and the purchaser's specification."
+        }
+      ],
+      "js": {
+        "ui": {
+          "slider": "Temperature (slider)",
+          "sep": "; ",
+          "quick": "Common temperatures:",
+          "bad": "Enter a temperature between {lo} and {hi}.",
+          "lead_v": "Calculated color of a blackbody at {t} ({k} K): chromaticity (x, y) = ({x}, {y}). The emission peak is at {p} µm in the infrared; what we see is the short-wavelength tail of that peak, where red is the strongest.",
+          "swatch_label": "Color swatch of a blackbody at {t}: {hex}",
+          "band1": "Color band (brightness normalized, 400–1600 °C)",
+          "band2": "Color band including brightness (scaled so that 1600 °C is the brightest; eye adaptation ignored)",
+          "band_unit": "Band scale in {u}. The black line marks the selected temperature.",
+          "h_notes": "Notes on this color",
+          "n_out": "The color band and the heat-color table cover {lo} to {hi}. This temperature is outside that range, but it is still calculated.",
+          "n_clip": "At this temperature the blackbody chromaticity lies outside the range of colors a screen can show (sRGB): the blue component is negative. It is shown as the nearest color, with negative components set to 0.",
+          "n_red": "Below about 690 °C (1270 °F) the green component also becomes 0, so the screen shows the same red (#ff0000) for all these temperatures. The calculated chromaticity is an even deeper red.",
+          "n_dim": "Light at this temperature is very weak: less than 1/10 000 of the brightness at 1000 °C. It is hard to see in a bright room. The swatch is shown at normalized brightness.",
+          "n_white": "The heat-color tables call this range \"yellow\" to \"white\", but the calculated chromaticity is orange. This is where the tables and the calculation disagree.",
+          "n_screen": "The swatch is a screen color and only a guide. Screen settings and room lighting change how it looks. It is not a substitute for a thermometer.",
+          "method": "Method: the blackbody spectrum from Planck's law is weighted with the CIE 1931 2° color-matching functions (the published CIE table, every 5 nm from 360 to 830 nm) to get the tristimulus values XYZ, then converted to chromaticity (x, y) and sRGB (IEC 61966-2-1 matrix and gamma, brightness normalized). The emissivity is assumed not to depend on wavelength (gray body). \"Brightness\" is the ratio of luminance Y for blackbodies with the same emissivity.",
+          "fire_near": "Table values closest to {t}:",
+          "fire_item": " \"{n}\" {v}",
+          "fire_note": "The table is reproduced from the comparison table in a 1905 paper of the U.S. Bureau of Standards (now NIST); both °C and °F are the values printed there, except Howe's \"White\" in °F, printed as 2108, which we read as 2102 from its 1150 °C and the difference column (−98). The three scales were set independently; colors on the same row are the ones the original table put side by side. Source:",
+          "h_fire_cmp": "Tables versus the calculated color",
+          "fire_cmp": [
+            "The \"lowest red\" is 470 °C for White & Taylor (in the dark), 475 °C for Howe (in daylight) and 525 °C for Pouillet. Row by row, Pouillet's values are often about 130–260 °C higher than the other two.",
+            "The calculated chromaticity stays red to orange from 500 °C to 1000 °C. Words such as \"dark\" and \"bright\" in the tables probably describe brightness more than chromaticity (our inference). Compare with the band that includes brightness.",
+            "In the tables the color becomes \"yellow\" and \"white\" at about 1000–1200 °C, but the calculated chromaticity is still orange at 1600 °C (x ≈ 0.54), far from daylight white (CIE D65, x = 0.3127). Here the tables and the calculation disagree. A very bright light probably tends to look whitish to the eye (our inference).",
+            "The same paper says that estimating temperature from color is largely a personal matter, varies for the same person with the surrounding light, that skilled observers may disagree by 50 °C or more, and that above 1200 °C eye estimates are practically impossible."
+          ],
+          "h_mech": "Why temper colors appear (interference in the oxide film)",
+          "fig_label": "Light reflected at the surface of the oxide film overlaps light that passes through the film and is reflected at the steel surface",
+          "fig_air": "Air",
+          "fig_oxide": "Oxide film",
+          "fig_steel": "Steel",
+          "fig_r1": "Reflected at film",
+          "fig_r2": "Reflected at steel",
+          "mech1": "When polished steel is heated in air, a very thin oxide film forms on the surface. Light reflected at the top of the film overlaps light that passes through the film and is reflected at the steel, and light of a wavelength set by the film thickness cancels out (interference). The remaining light is seen as a color.",
+          "mech2": "The higher the temperature and the longer the heating, the thicker the film, so the cancelled wavelength shifts and the color goes from pale yellow to straw, brown, purple and blue. When the film becomes much thicker it is no longer transparent and the interference colors disappear.",
+          "mech_src": "Source for the mechanism (interference accepted after U. R. Evans's 1925 work; no interference through thick, opaque oxide):",
+          "temper_sw": "Swatches are screen colors chosen for this page and only a guide (they are not values from the sources). Temperatures are as printed in the sources (both °C and °F).",
+          "h_temper_notes": "Notes on using temper colors",
+          "temper_notes": [
+            "Color is not set by temperature alone. The Bureau of Standards circular LC630 says the heating time needed for a given color depends chiefly on three factors: the oven or furnace temperature, the composition of the steel, and the size and shape of the article. The color alone cannot tell a short heating at a higher temperature from a long heating at a lower one.",
+            "The table is a guide for polished carbon steel heated in air. The Navy manual says the surface must be brightened to see the colors and that the method is for use when no temperature-measuring equipment is available.",
+            "A temper color is the color of a thin surface film; it does not show the microstructure or hardness inside. Hardness depends on the tempering temperature, time and steel composition, so check it with a hardness test.",
+            "The two sources sometimes give different names for the same temperature (288 °C is dark blue in the Navy manual but dark purple in Spon)."
+          ],
+          "tint_lead": "Guide colors for stainless steel 1.4301 (type 304) heated in air. In welding, these colors (heat tint) appear around the weld where the metal was heated.",
+          "tint_sw": "Swatches are screen colors and only a guide. Temperatures are from the BSSA chart (°F converted; BSSA says the tests behind such charts have usually used one hour of heating). The same article says colors deepen with longer exposure and also depend on surface roughness, atmosphere (e.g. shielding gas in welding) and composition, especially chromium content. Source:",
+          "h_tint_care": "Notes on weld heat tint",
+          "tint_care": [
+            "Visible weld heat tint reduces the corrosion resistance of the surface: chromium oxidises more readily than iron, leaving a chromium-depleted layer under the tint (Euro Inox). BSSA also notes that heat tint may affect corrosion performance in some applications.",
+            "For the best corrosion resistance, the tint and the chromium-depleted metal should be removed by mechanical means (e.g. grinding), chemical means (acid pickling, usually with a nitric–hydrofluoric acid mixture) or electropolishing (ASSDA). Euro Inox also describes removal with pickling pastes or gels, or grinding followed by nitric acid treatment.",
+            "Pickling acids are hazardous: follow the chemical-handling rules and use protective equipment."
+          ],
+          "col_sw": "Swatch",
+          "col_color": "Color",
+          "col_temp": "Approx. temperature",
+          "l_lab": "Steel heat treatment lab (phase diagram, tempering)",
+          "l_cmp": "Quenching vs tempering",
+          "l_ss": "Stainless steel data",
+          "l_glossary": "Glossary",
+          "safety": "Safety: red- and white-hot metal radiates intense heat even without contact. Welding arc light contains strong ultraviolet that harms eyes and skin. Use filter goggles, a welding helmet and other protective equipment. These calculations and tables are guides, not a substitute for a thermometer."
+        },
+        "fire": {
+          "wt_dark": "Lowest red visible in dark",
+          "wt_darkred": "Dark red, blood red, low red",
+          "wt_darkcherry": "Dark cherry red",
+          "wt_cherry": "Cherry, full red",
+          "wt_lightred": "Light red, light cherry",
+          "wt_orange": "Orange",
+          "wt_lightorange": "Light orange",
+          "wt_yellow": "Yellow",
+          "wt_lightyellow": "Light yellow",
+          "wt_white": "White",
+          "pou_lowest": "Lowest red",
+          "pou_darkred": "Dark red",
+          "pou_lowcherry": "Lowest cherry",
+          "pou_cherry": "Cherry",
+          "pou_brightcherry": "Bright cherry",
+          "pou_darkorange": "Dark orange",
+          "pou_brightorange": "Bright orange",
+          "pou_white": "White",
+          "pou_brightwhite": "Very bright white",
+          "pou_dazzling": "Dazzling white",
+          "howe_day": "Lowest red visible in daylight",
+          "howe_dull": "Dull red",
+          "howe_fullcherry": "Full cherry",
+          "howe_lightred": "Light red",
+          "howe_fullyellow": "Full yellow",
+          "howe_lightyellow": "Light yellow",
+          "howe_white": "White"
+        },
+        "src": {
+          "wt": "White & Taylor",
+          "pou": "Pouillet",
+          "howe": "Howe",
+          "navy": "U.S. Navy manual",
+          "spon": "Spon",
+          "nbs": "Waidner & Burgess, \"Optical Pyrometry\", Bulletin of the Bureau of Standards 1(2), 1905, p. 209",
+          "navy_full": "U.S. Navy, Aviation Structural Mechanic (AM) (NAVEDTRA 14315), Table 6-2",
+          "spon_full": "Spon's Workshop Receipts (American Library Edition), Vol. 3, \"Colour Tests\"",
+          "lc630": "National Bureau of Standards Letter Circular LC630, \"Bluing of Iron and Steel\"",
+          "cam": "University of Cambridge, M. Peet & H. K. D. H. Bhadeshia, \"Oxide on Steel and Tempering Colors\"",
+          "bssa": "British Stainless Steel Association (BSSA), \"Heat Tint (Temper) Colours on Stainless Steel Surface Heated in Air\"",
+          "euroinox": "Euro Inox, \"Pickling and Passivating Stainless Steel\" (2007)",
+          "assda": "Australian Stainless Steel Development Association (ASSDA), \"Stainless Fabrication: Common Traps to Avoid\""
+        },
+        "temper": {
+          "pale_yellow": "Pale yellow",
+          "straw": "Straw",
+          "golden": "Golden yellow",
+          "brown": "Brown",
+          "brown_purple": "Brown dappled with purple",
+          "purple": "Purple",
+          "dark_purple": "Dark purple",
+          "dark_blue": "Dark blue",
+          "bright_blue": "Bright blue",
+          "pale_blue": "Pale blue",
+          "green_blue": "Blue tinted with green"
+        },
+        "spon": {
+          "very_pale_yellow": "Very pale yellow",
+          "straw_yellow": "Straw yellow",
+          "brown_yellow": "Brown yellow",
+          "light_purple": "Light purple",
+          "dark_purple": "Dark purple",
+          "clear_blue": "Clear blue",
+          "pale_blue": "Pale blue",
+          "blue_green": "Blue tinted with green"
+        },
+        "tint": {
+          "pale_yellow": "Pale yellow",
+          "straw_yellow": "Straw yellow",
+          "dark_yellow": "Dark yellow",
+          "brown": "Brown",
+          "purple_brown": "Purple brown",
+          "dark_purple": "Dark purple",
+          "blue": "Blue",
+          "dark_blue": "Dark blue"
+        },
+        "url": {
+          "cam": "http://www.phase-trans.msm.cam.ac.uk/2008/Oxide/Oxide.html",
+          "lc630": "https://www.govinfo.gov/content/pkg/GOVPUB-C13-7666bb8911301f6cb01ab783a8633676/pdf/GOVPUB-C13-7666bb8911301f6cb01ab783a8633676.pdf",
+          "euroinox": "https://bssa.org.uk/wp-content/uploads/2021/07/Pickling-and-Passivating-Stainless-Steel.pdf",
+          "assda": "https://www.assda.asn.au/assda-accredited-fabricators/stainless-fabrication-common-traps-to-avoid"
+        }
+      }
+    }
+  }
+}
