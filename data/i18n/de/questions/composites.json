@@ -133,5 +133,50 @@
       "ca. 2,1 GPa"
     ],
     "explanation": "Bei Zug in Faserrichtung sind die Dehnungen von Faser und Harz gleich; daher werden die Lasten zum Zeitpunkt des Faserbruchs nach den Volumenanteilen addiert: σc = σf·Vf + σm′·(1 − Vf) = 3500 × 0,60 + 50 × 0,40 = 2100 + 20 = 2120 MPa, also etwa 2,1 GPa. Dabei ist σm′ nicht die Zugfestigkeit des Harzes, sondern die Spannung, die das Harz bei der Bruchdehnung der Fasern trägt. Der Beitrag des Harzes ist gering; fast die gesamte Festigkeit stammt von den Fasern. Ca. 1,4 GPa ist 3500 × 0,40 + 50 × 0,60 mit vertauschten Volumenanteilen von Faser und Harz. Ca. 3,5 GPa setzt die Faserfestigkeit unmittelbar als Festigkeit des Verbunds an, obwohl die Fasern nur 60 % des Ganzen ausmachen."
+  },
+  "composites-016": {
+    "question": "Ein Kunststoffverbund enthält unidirektional ausgerichtete Glas-Kurzfasern der Länge l = 2,0 mm (Zugfestigkeit 2,0 GPa) mit einem Volumenanteil von 30 % und wird in Faserrichtung gezogen. Die kritische Faserlänge betrage lc = 0,50 mm und die Spannung im Harz beim Faserbruch 40 MPa. Welcher Wert kommt der Festigkeit am nächsten, wenn man sie für einen Kurzfaserverbund mit l > lc mit σc = σf·Vf·(1 − lc/2l) + σm′·(1 − Vf) abschätzt?",
+    "choices": [
+      "Etwa 630 MPa",
+      "Etwa 480 MPa",
+      "Etwa 550 MPa"
+    ],
+    "explanation": "lc/2l = 0,50/(2 × 2,0) = 0,125, also σc = 2000 × 0,30 × (1 − 0,125) + 40 × 0,70 = 525 + 28 ≈ 553 MPa, etwa 550 MPa. In einer Kurzfaser baut sich die Spannung auf einer Länge von lc/2 von jedem Ende aus durch Schub an der Grenzfläche allmählich auf, sodass die Faserfestigkeit im Mittel nicht voll genutzt wird; der Faktor (1 − lc/2l) berücksichtigt diese Minderung. Etwa 630 MPa ergibt sich, wenn man ohne diese Minderung wie mit Endlosfasern rechnet, etwa 480 MPa, wenn man mit (1 − lc/l) zu stark abmindert. Ist l ein Mehrfaches von lc, wird nahezu die Festigkeit von Endlosfasern erreicht; bei l < lc werden die Fasern dagegen vor dem Bruch herausgezogen, und die Festigkeit ist ein kleiner, durch den Grenzflächenschub bestimmter Wert."
+  },
+  "composites-017": {
+    "question": "Laminate aus unidirektionalen Schichten werden normalerweise symmetrisch zur Mittelebene gestapelt, etwa [0/90/90/0], und unsymmetrische Lagenaufbauten wie [0/90] werden vermieden. Welche Aussage über den Hauptgrund trifft zu?",
+    "choices": [
+      "Unsymmetrische Aufbauten koppeln Dehnung und Biegung, sodass ungleiche Wärmeschrumpfung der Schichten beim Abkühlen von der Aushärtetemperatur die Platte verwölbt oder verdrillt",
+      "Ein symmetrischer Aufbau ergibt eine quasiisotrope Platte mit gleichem Elastizitätsmodul in allen Zugrichtungen, sodass keine richtungsabhängige Auslegung nötig ist",
+      "Bei symmetrischem Aufbau verhaken sich die Fasern benachbarter Schichten und das Harz zwischen den Schichten verschwindet, sodass keine Delamination auftreten kann"
+    ],
+    "explanation": "Eine unidirektionale Schicht schrumpft in Faserrichtung kaum, quer dazu aber wegen der Eigenschaften des Harzes stark. In einer unsymmetrischen [0/90]-Platte schrumpfen die Schichten ober- und unterhalb der Mittelebene unterschiedlich; dadurch entsteht eine Kopplung, bei der Kräfte in der Ebene eine Biegung und eine Biegung eine Dehnung in der Ebene hervorrufen, und schon das Abkühlen nach dem Aushärten bei hoher Temperatur verwölbt oder verdrillt die Platte. Ein zur Mittelebene symmetrischer Aufbau hebt die Wirkungen der oberen und der unteren Hälfte gegenseitig auf und beseitigt diese Kopplung. Symmetrie ist nicht dasselbe wie Quasiisotropie: [0/90]ₛ ist symmetrisch, hat aber unter 45° einen kleinen Elastizitätsmodul; um Isotropie zu erreichen, stapelt man etwa [0/±45/90]ₛ. Auch in einem symmetrischen Laminat sind die Schichten nur durch Harz verbunden, sodass Delamination trotzdem auftreten kann."
+  },
+  "composites-018": {
+    "question": "Ein unidirektionales CFK wird unter verschiedenen Winkeln θ zwischen Belastungsrichtung und Faserrichtung gezogen. Welche Aussage über die Änderung von Festigkeit und Versagensart bei Zunahme von θ von 0° auf 90° trifft zu?",
+    "choices": [
+      "Die Festigkeit sinkt proportional zu cos θ allmählich, beträgt bei 45° noch etwa 70 % des Werts bei 0°, und bei jedem Winkel versagen die Fasern durch Zugbruch",
+      "Die Festigkeit fällt schon bei kleinen Winkeln stark ab; bei kleinen Winkeln tritt Faserbruch, bei mittleren Schubversagen in der Ebene und nahe 90° Querzugversagen auf",
+      "Die Festigkeit ist bei θ = 45° am kleinsten; nahe 90° tragen die Fasern wieder die Last, sodass die Festigkeit symmetrisch zu 45° auf den Wert bei 0° zurückkehrt"
+    ],
+    "explanation": "In einem unidirektionalen Werkstoff sind die Schubfestigkeit in der Ebene und die Querzugfestigkeit um mindestens eine Größenordnung kleiner als die Zugfestigkeit in Faserrichtung. Bei Zug unter dem Winkel θ beträgt die Spannung in Faserrichtung σcos²θ, die Schubspannung σsinθcosθ und die Querspannung σsin²θ, und der Werkstoff versagt durch diejenige, die zuerst ihre Festigkeit erreicht. Nimmt man zum Beispiel 1500 MPa in Faserrichtung, 70 MPa für Schub und 40 MPa quer an, sinkt die Festigkeit schon bei θ = 10° durch Schub auf etwa 410 MPa, und bei großen Winkeln tritt Querzugversagen auf. Der Abfall ist daher nicht allmählich und proportional zu cos θ. Bei 90° tragen die Fasern kaum Last, und die Festigkeit wird von Harz und Grenzfläche bestimmt; sie kehrt also nicht auf den Wert bei 0° zurück."
+  },
+  "composites-019": {
+    "question": "Welche Aussage über die Verwendung eines Thermoplasts wie PEEK oder Polyamid statt eines Duroplasts wie Epoxidharz als Matrix eines Kohlenstofffaserverbunds trifft zu?",
+    "choices": [
+      "Thermoplaste besitzen ein vernetztes Netzwerk und erweichen daher beim Erwärmen nicht, sind also wärmebeständig, benötigen beim Formen aber lange Aushärtezeiten",
+      "Duroplaste sind schon vor dem Aushärten fest und gut handhabbar und lassen sich nach dem Formen durch Erwärmen beliebig oft erweichen, umformen oder verschweißen",
+      "Thermoplaste erweichen beim Erwärmen erneut, sind daher umformbar, schweißbar und zäh, lassen sich wegen ihrer hohen Schmelzviskosität aber schwer imprägnieren"
+    ],
+    "explanation": "Bei Thermoplasten sind die Molekülketten nicht vernetzt; sie lassen sich daher wiederholt durch Erwärmen erweichen und durch Abkühlen verfestigen. Deshalb können sie in kurzer Zeit verpresst, Bauteile miteinander verschweißt und leichter recycelt werden, und sie sind im Allgemeinen zäh und widerstandsfähiger gegen Delamination durch Schlag. Andererseits ist ihre Viskosität auch im geschmolzenen Zustand hoch, sodass das Imprägnieren, bei dem das Harz tief in die Bündel feiner Fasern eindringen muss, schwierig ist. Ein vernetztes Netzwerk, das beim Erwärmen nicht erweicht, haben die Duroplaste, und auch die zeitaufwendige Härtungsreaktion ist ein Merkmal der Duroplaste. Vor dem Aushärten ist ein Duroplast eine niedrigviskose Flüssigkeit, die leicht imprägniert, doch nach dem Aushärten lässt er sich durch Erwärmen nicht mehr umformen."
+  },
+  "composites-020": {
+    "question": "Die Dichte einer CFK-Platte wird zu 1,50 g/cm³ gemessen. Ohne Poren besteht der Feststoffanteil mit einem Volumenanteil von 60 % aus Kohlenstofffasern (Dichte 1,80 g/cm³) und von 40 % aus Epoxidharz (Dichte 1,20 g/cm³). Welcher Wert kommt dem Volumenanteil der Poren (Porengehalt) der Platte am nächsten?",
+    "choices": [
+      "Etwa 3,8 %",
+      "Etwa 6,0 %",
+      "Etwa 4,0 %"
+    ],
+    "explanation": "Nach der Mischungsregel beträgt die theoretische Dichte ohne Poren ρt = 0,60 × 1,80 + 0,40 × 1,20 = 1,56 g/cm³. Poren haben keine Masse, daher ist der vom Feststoff eingenommene Anteil des Plattenvolumens 1,50/1,56, und der Porengehalt beträgt (1,56 − 1,50)/1,56 ≈ 0,038, also etwa 3,8 %. Etwa 4,0 % teilt die Differenz durch die gemessene Dichte 1,50 und wählt damit das falsche Bezugsvolumen. Etwa 6,0 % liest die Dichtedifferenz von 0,06 g/cm³ unmittelbar als Prozentwert. Poren entstehen vor allem im Harz zwischen den Schichten und verringern die interlaminare Scherfestigkeit, die Druckfestigkeit und die Ermüdungslebensdauer; sie werden daher etwa durch Druckbeaufschlagung im Autoklaven gering gehalten."
   }
 }
