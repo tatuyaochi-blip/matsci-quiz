@@ -204,12 +204,14 @@ function setup() {
   // 0.01 以上は有効数字3桁、それより小さい数は 2.1×10⁻⁴ の形
   const SUP = { '-': '⁻', 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹' };
   const sci = v => {
-    if (v >= 0.01) return new Intl.NumberFormat(lang, { maximumSignificantDigits: 3 }).format(v);
+    if (v >= 0.01) return new Intl.NumberFormat(lang, { maximumSignificantDigits: 3, useGrouping: false }).format(v);
     const [m, e] = v.toExponential(1).split('e');
     return `${nf(1).format(Number(m))}×10${String(Number(e)).replace(/./g, ch => SUP[ch])}`;
   };
   const isF = () => E.unit.value === 'f';
-  const unitSym = () => (isF() ? '°F' : '°C');
+  // セルシウス度の記号: ja・zh-hant・ko の本文は ℃、en・de は °C(サイトの表記にそろえる)
+  const CS = ['ja', 'zh-hant', 'ko'].includes(lang) ? '℃' : '°C';
+  const unitSym = () => (isF() ? '°F' : CS);
   // 表の温度: 出典の °C と °F をそのまま使う(換算し直さない)
   const tempOf = (c, f) => `${nf(0).format(isF() ? f : c)} ${unitSym()}`;
   const rangeOf = e => (e.c2 != null ? `${nf(0).format(isF() ? e.f : e.c)}–${nf(0).format(isF() ? e.f2 : e.c2)} ${unitSym()}` : tempOf(e.c, e.f));
@@ -269,7 +271,7 @@ function setup() {
     E.t.max = String(isF() ? cToF(T_CALC_MAX) : T_CALC_MAX);
     for (const b of quick.querySelectorAll('[data-c]')) {
       const c = Number(b.dataset.c);
-      b.textContent = isF() ? `${nf(0).format(Math.round(cToF(c)))} °F` : `${nf(0).format(c)} °C`;
+      b.textContent = isF() ? `${nf(0).format(Math.round(cToF(c)))} °F` : `${nf(0).format(c)} ${CS}`;
     }
   }
   const readT = () => Number(String(E.t.value).replace(',', '.'));
@@ -373,7 +375,7 @@ function setup() {
       el('tbody', {}, ...TINT.map(r => el('tr', {},
         el('td', {}, el('span', { class: 'sc-chip', style: `background:${r.sw}` })),
         el('td', {}, T.tint[r.k]),
-        el('td', { class: 'sc-num' }, isF() ? `≈ ${nf(0).format(Math.round(cToF(r.c)))} °F` : `${nf(0).format(r.c)} °C`)))));
+        el('td', { class: 'sc-num' }, isF() ? `≈ ${nf(0).format(Math.round(cToF(r.c)))} °F` : `${nf(0).format(r.c)} ${CS}`)))));
   }
 
   function renderStatic() {
@@ -392,7 +394,7 @@ function setup() {
         el('p', { class: 'muted' }, srcLink(T.url.euroinox, T.src.euroinox), ' / ', srcLink(T.url.assda, T.src.assda))),
       el('div', { class: 'sc-links' },
         link('tools/iron-carbon-phase-diagram/', U.l_lab),
-        link('compare/quenching-vs-tempering/', U.l_cmp),
+        lang === 'ja' ? link('compare/quenching-vs-tempering/', U.l_cmp) : null,
         link('materials/?m=stainless-steel#md-card', U.l_ss),
         link('glossary/', U.l_glossary)),
       el('p', { class: 'muted' }, U.safety));
@@ -405,7 +407,7 @@ function setup() {
     if (!ok) {
       for (const k of ['kelvin', 'xy', 'hex', 'peak', 'lum']) out(k).textContent = '–';
       out('swatch').replaceChildren(el('p', { class: 'sc-lead' }, fill(U.bad, {
-        lo: isF() ? `${nf(0).format(cToF(T_CALC_MIN))} °F` : `${T_CALC_MIN} °C`, hi: isF() ? `${nf(0).format(cToF(T_CALC_MAX))} °F` : `${T_CALC_MAX} °C` })));
+        lo: isF() ? `${nf(0).format(cToF(T_CALC_MIN))} °F` : `${T_CALC_MIN} ${CS}`, hi: isF() ? `${nf(0).format(cToF(T_CALC_MAX))} °F` : `${T_CALC_MAX} ${CS}` })));
       out('fire').replaceChildren(fireTable(null));
       return;
     }
@@ -414,14 +416,14 @@ function setup() {
     const col = srgbOf(K);
     const lum = relY(K, cToK(1000));
     out('kelvin').textContent = `${nf(0).format(Math.round(K))} K`;
-    out('xy').textContent = `${nf(4).format(x)}, ${nf(4).format(y)}`;
+    out('xy').textContent = `${nf(4).format(x)}${lang === 'de' ? '; ' : ', '}${nf(4).format(y)}`;
     out('hex').textContent = col.hex;
     out('peak').textContent = `${nf(2).format(peakUm(K))} µm`;
     out('lum').textContent = sci(lum);
-    const tStr = isF() ? `${nf(0).format(v)} °F(${nf(0).format(Math.round(tc))} °C)` : `${nf(0).format(v)} °C`;
+    const tStr = isF() ? `${nf(0).format(v)} °F ≈ ${nf(0).format(Math.round(tc))} ${CS}` : `${nf(0).format(v)} ${CS}`;
 
     const notes = [];
-    if (tc < T_MIN || tc > T_MAX) notes.push(fill(U.n_out, { lo: isF() ? `${nf(0).format(cToF(T_MIN))} °F` : `${T_MIN} °C`, hi: isF() ? `${nf(0).format(cToF(T_MAX))} °F` : `${T_MAX} °C` }));
+    if (tc < T_MIN || tc > T_MAX) notes.push(fill(U.n_out, { lo: isF() ? `${nf(0).format(cToF(T_MIN))} °F` : `${T_MIN} ${CS}`, hi: isF() ? `${nf(0).format(cToF(T_MAX))} °F` : `${T_MAX} ${CS}` }));
     if (col.clipped) notes.push(U.n_clip);
     if (col.rgb[1] === 0) notes.push(U.n_red);
     if (lum < 1e-4) notes.push(U.n_dim);
