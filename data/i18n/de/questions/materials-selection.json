@@ -133,5 +133,50 @@
    "Kandidat C"
   ],
   "explanation": "Für die einzelnen Kandidaten ergibt sich Z für A zu 5000 × 2,0 + 1000 = 11000 Yen, für B zu 5000 × 1,5 + 3000 = 10500 Yen und für C zu 5000 × 1,2 + 6000 = 12000 Yen; gewählt wird also B mit dem kleinsten Z. Die Austauschkonstante α gibt an, wie viel man höchstens zu zahlen bereit ist, um 1 kg Masse einzusparen. Der billigste Kandidat A unterliegt wegen des hohen Strafterms für seine Masse, der leichteste Kandidat C, weil seine Mehrkosten den Wert der eingesparten Masse übersteigen. α hängt stark von der Anwendung ab: Bei α = 1000 Yen/kg ist Z für A 3000 Yen, für B 4500 Yen und für C 7200 Yen, und der billigste Kandidat A wird gewählt. Da die Abschätzung von α die Wahl entscheidet, kommt es darauf an, einen zur Anwendung passenden Wert festzulegen."
+ },
+ "materials-selection-016": {
+  "question": "Ein Zugstab gegebener Länge und Zugsteifigkeit soll bei frei wählbarer Querschnittsfläche möglichst leicht werden. Verglichen werden Stahl (E = 210 GPa, ρ = 7,8 g/cm³), eine Aluminiumlegierung (E = 70 GPa, ρ = 2,7 g/cm³) und eine Titanlegierung (E = 110 GPa, ρ = 4,5 g/cm³). Welche Aussage über das Ergebnis und die Folgerung daraus trifft zu?",
+  "choices": [
+   "E/ρ liegt bei allen bei etwa 25 GPa·cm³/g, die Masse des Zugstabs ändert sich kaum; leichte Metalle spielen ihren Vorteil bei Balken und Platten aus",
+   "Die Aluminiumlegierung hat etwa ein Drittel der Dichte von Stahl, daher hat ein Zugstab gleicher Steifigkeit auch etwa ein Drittel der Masse und ist unter Zug am leichtesten",
+   "Stahl hat den größten Elastizitätsmodul und damit auch das größte E/ρ, daher wiegt ein Zugstab gleicher Steifigkeit etwa ein Drittel eines Stabs aus Aluminium- oder Titanlegierung"
+  ],
+  "explanation": "Die Masse eines steifigkeitsbestimmten Zugstabs ist proportional zu ρ/E, daher wird E/ρ verglichen. Für Stahl ergibt sich 210/7,8 ≈ 26,9, für die Aluminiumlegierung 70/2,7 ≈ 25,9 und für die Titanlegierung 110/4,5 ≈ 24,4 GPa·cm³/g, also bei allen etwa 25. Bei vielen Metallen ändert sich der Elastizitätsmodul etwa im gleichen Verhältnis wie die Dichte, sodass ein durch die Zugsteifigkeit bestimmtes Bauteil aus jedem dieser Metalle nahezu dieselbe Masse hat. Metalle geringer Dichte werden erst bei Balken (√E/ρ) und Platten (∛E/ρ) vorteilhaft, bei denen ein dickerer Querschnitt quadratisch oder kubisch in die Steifigkeit eingeht. Allein aus dem Dichteverhältnis auf ein Drittel zu schließen, übersieht, dass auch der Elastizitätsmodul nur etwa ein Drittel beträgt; Stahl nur nach dem Elastizitätsmodul zu wählen, übersieht den Dichteunterschied."
+ },
+ "materials-selection-017": {
+  "question": "Ein Balken gegebener Biegesteifigkeit wird ausgelegt, indem bei gleichbleibender Querschnittsform nur die Größe verändert wird. Wird der Formfaktor φ, der die Effizienz der Querschnittsform beschreibt, als Verhältnis des Flächenträgheitsmoments zu dem eines Vollrundstabs gleicher Fläche definiert (I = φA²/(4π)), ist die Balkenmasse proportional zu ρ/√(φE). Das Wievielfache der Masse eines Balkens aus Vollrundstab (φ = 1) hat ein dünnwandiges Rohr mit φ = 9 aus demselben Werkstoff etwa?",
+  "choices": [
+   "Etwa das 0,11-Fache",
+   "Etwa das 0,33-Fache",
+   "Etwa das 0,48-Fache"
+  ],
+  "explanation": "Bei gleichem Werkstoff bleiben ρ und E unverändert, das Massenverhältnis ist also 1/√φ = 1/√9 ≈ 0,33, etwa das 0,33-Fache. Da eine Querschnittsfläche A ein Flächenträgheitsmoment I = φA²/(4π) liefert, sinkt die erforderliche Fläche proportional zu 1/√φ. Bei einem dünnwandigen Rohr ist φ ungefähr gleich dem Verhältnis von Radius zu Wanddicke r/t; φ = 9 entspricht einem Rohr mit r/t von etwa 9. Das 0,11-Fache setzt voraus, dass die Masse proportional zu 1/φ ist, das 0,48-Fache rechnet mit 1/∛φ; beides passt nicht zu einem Balken, dessen Steifigkeit quadratisch von der Fläche abhängt. Eine zu dünne Wand führt allerdings zu örtlichem Beulen, sodass der nutzbare Formfaktor φ für jeden Werkstoff begrenzt ist; der Materialindex wird in der Form √(φE)/ρ verglichen."
+ },
+ "materials-selection-018": {
+  "question": "Ein 1,0 m langer Zugstab aus einer Aluminiumlegierung (E = 70 GPa, σy = 250 MPa, ρ = 2700 kg/m³) trägt eine Zuglast von 10 kN. Welcher Wert kommt der kleinsten Masse am nächsten, bei der der Stab nicht fließt und sich zugleich um höchstens 1,0 mm verlängert? Die Querschnittsfläche ist frei wählbar.",
+  "choices": [
+   "Etwa 0,11 kg",
+   "Etwa 0,49 kg",
+   "Etwa 0,39 kg"
+  ],
+  "explanation": "Aus der Bedingung gegen Fließen F/A ≤ σy folgt A ≥ 1,0×10⁴/(250×10⁶) = 4,0×10⁻⁵ m² und eine Masse von 2700 × 4,0×10⁻⁵ × 1,0 ≈ 0,11 kg. Aus der Verlängerung FL/(EA) ≤ 1,0 mm folgt A ≥ 1,0×10⁴ × 1,0/(70×10⁹ × 1,0×10⁻³) ≈ 1,43×10⁻⁴ m² und eine Masse von etwa 0,39 kg. Um beide Bedingungen zu erfüllen, ist die größere Fläche nötig; die kleinste Masse beträgt also etwa 0,39 kg, und bei dieser Auslegung ist die Steifigkeit die maßgebende Randbedingung. Der Wert von etwa 0,11 kg berücksichtigt nur die Festigkeit; der Stab würde sich um etwa 3,6 mm verlängern und die Randbedingung verletzen. Der Wert von etwa 0,49 kg addiert die beiden Massen, doch derselbe Querschnitt erfüllt beide Bedingungen gleichzeitig, sodass nicht addiert wird."
+ },
+ "materials-selection-019": {
+  "question": "In ein Bauteil eines Präzisionsmessgeräts tritt von einer Seite Wärme mit konstanter Wärmestromdichte ein; dadurch entsteht ein Temperaturgradient über die Dicke, und das Bauteil verbiegt sich durch die unterschiedliche Wärmeausdehnung. Welche Werkstoffwahl minimiert bei gegebener Wärmestromdichte diese Verbiegung (thermische Verformung)?",
+  "choices": [
+   "Einen Werkstoff mit großem κ/α, der Wärmeleitfähigkeit κ geteilt durch den Längenausdehnungskoeffizienten α, wählen, sodass Temperaturgradient und Ausdehnungsneigung beide klein sind",
+   "Einen Werkstoff mit kleiner Wärmeleitfähigkeit κ wählen, sodass die Wärme schlecht durch das Bauteil gelangt und die Temperatur der Gegenseite nahezu unverändert bleibt",
+   "Einen Werkstoff mit großem σf/(Eα) wählen, sodass die durch den Temperaturunterschied entstehende Wärmespannung die Bruchspannung σf nicht erreicht"
+  ],
+  "explanation": "Fließt eine stationäre Wärmestromdichte q, ergibt sich nach dem Fourierschen Gesetz ein Temperaturgradient von q/κ; der Dehnungsgradient über die Dicke, also die Krümmung der Verbiegung, ist proportional zu αq/κ. Bei gegebenem q wird die Krümmung klein, wenn α/κ klein, anders gesagt κ/α groß ist; das ist der Materialindex zur Vermeidung thermischer Verformung. Ein Werkstoff mit kleiner Wärmeleitfähigkeit vergrößert bei gleicher Wärmestromdichte den Temperaturgradienten, sodass die Verbiegung sogar zunimmt. σf/(Eα) ist der Index gegen Bruch durch Wärmespannungen bei schnellen Temperaturänderungen und ein anderes Kriterium als das Ausmaß der Verbiegung, die auch ohne Riss auftritt. Werkstoffe mit großem κ/α sind etwa Silicium und Siliciumcarbid, die Wärme gut leiten und sich wenig ausdehnen."
+ },
+ "materials-selection-020": {
+  "question": "Die Kosten je Teil werden als „Werkstoffkosten + Werkzeug- und Vorrichtungskosten ÷ Stückzahl + Stundensatz für Anlage und Personal ÷ Stückzahl pro Stunde“ abgeschätzt. Welche Überlegung zum Vergleich des Druckgießens mit teurer Dauerform und des Sandgießens mit billigen Formen trifft zu?",
+  "choices": [
+   "Die Werkzeugkosten fallen bei jedem Teil gleich an, daher ändert sich der Kostenunterschied je Teil mit der Stückzahl nicht, und man wählt das Verfahren mit den billigeren Werkstoffkosten",
+   "Die Werkzeugkosten werden durch die Stückzahl geteilt, daher ist Sandguss bei kleinen und Druckguss bei großen Stückzahlen billiger, und bei einer Grenzstückzahl wechselt das günstigere Verfahren",
+   "Mit steigender Stückzahl wächst der Anteil der Werkzeugkosten, daher ist in der Massenfertigung Sandguss mit billigen Formen günstiger, und Druckguss eignet sich für Prototypen"
+  ],
+  "explanation": "Werkzeug- und Vorrichtungskosten sind Fixkosten, die unabhängig von der Stückzahl nur einmal anfallen; je Teil entfällt auf sie der durch die Stückzahl geteilte Betrag, der mit wachsender Stückzahl kleiner wird. Beim Druckgießen ist die Form teuer, die Fertigungszeit und die Kosten je Teil sind aber gering, sodass es mit steigender Stückzahl günstiger wird. Betragen etwa die Werkzeugkosten für Sandformen 100 000 Yen und für die Druckgießform 3 000 000 Yen und die übrigen Kosten je Teil 1500 Yen bzw. 300 Yen, liegt die Grenze bei (3 000 000 − 100 000)/(1500 − 300) ≈ 2400 Stück. Werden die Werkzeugkosten als Kosten je Teil behandelt, verschwindet der Einfluss der Stückzahl. Dass der Anteil der Werkzeugkosten in der Massenfertigung wächst, ist umgekehrt; der Anteil sinkt mit der Stückzahl."
  }
 }

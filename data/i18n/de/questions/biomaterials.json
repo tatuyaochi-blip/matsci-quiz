@@ -178,5 +178,50 @@
       "Na⁺ tauscht mit H⁺ aus der Flüssigkeit, das Netzwerk bricht zu einer kieselsäurereichen Gelschicht auf, und darauf scheidet sich Calciumphosphat ab, das zu Apatit kristallisiert"
     ],
     "explanation": "Bei Kontakt mit Körperflüssigkeit tauschen zuerst Na⁺ und Ca²⁺ an der Oberfläche mit H⁺ (H₃O⁺) aus der Flüssigkeit; der pH-Wert steigt, Si-O-Si-Bindungen werden hydrolysiert, und Si-OH-Gruppen kondensieren zu einer kieselsäurereichen Gelschicht. Darauf scheidet sich aus Ca²⁺ und Phosphationen aus der Flüssigkeit und aus dem Glas amorphes Calciumphosphat ab, das zu carbonathaltigem Apatit kristallisiert. Diese Schicht ähnelt dem Mineral des Knochens und verbindet sich über Kollagen und Knochenzellen mit dem Knochen. Bei Gläsern mit zu viel SiO₂ (bei schmelzgewonnenen Gläsern etwa 60 mol-% oder mehr) und entsprechend festem Netzwerk verläuft diese Reaktion zu langsam, und sie sind nicht bioaktiv. Eine nicht reagierende, inerte Schicht zu bilden ist ein Verhalten von Aluminiumoxid und ähnlichen Stoffen, und eine ungelöst bleibende Oberfläche passt nicht zu diesem Vorgang, der mit der Ionenfreisetzung beginnt."
+  },
+  "biomaterials-021": {
+    "question": "Bei Hüftendoprothesen wurden Metall-Metall-Gleitpaarungen, bei denen Hüftkopf und Pfanne beide aus einer Co-Cr-Mo-Legierung bestehen, als Kombination ohne Polyethylenabrieb eingesetzt; nach gemeldeten Problemen ging ihr Einsatz jedoch stark zurück. Was war das Hauptproblem?",
+    "choices": [
+      "Die Co-Cr-Mo-Legierung hat einen zu niedrigen Elastizitätsmodul, sodass sich der Kopf unter Last verformt, das Spiel zur Pfanne verschwindet und das Gelenk festfrisst",
+      "Sehr feine Metallabriebpartikel und gelöste Co- und Cr-Ionen verursachen Reaktionen im umgebenden Gewebe und erhöhen die Metallionenkonzentration im Blut",
+      "Die Co-Cr-Mo-Legierung kann in Körperflüssigkeiten keine Passivschicht bilden, sodass der Kopf durch gleichmäßige Korrosion in kurzer Zeit dünner wird und an Festigkeit verliert"
+    ],
+    "explanation": "Metall-Metall-Gleitpaarungen haben einen geringen volumetrischen Verschleiß, und man erwartete, die durch Polyethylenabrieb verursachte Osteolyse zu vermeiden. Der entstehende Abrieb besteht jedoch aus Metallpartikeln im Nanometerbereich in sehr großer Zahl; wegen ihrer großen Oberfläche lösen sie sich leicht, und Co- und Cr-Ionen gelangen in das umgebende Gewebe und ins Blut. Konzentriert eine verkippte Komponente die Last auf den Rand, nimmt der Verschleiß zu, und es wurden schädliche Reaktionen auf Metallabrieb gemeldet, etwa Entzündungen und Nekrosen des umgebenden Gewebes und als Pseudotumoren bezeichnete Schwellungen. Der Elastizitätsmodul der Co-Cr-Mo-Legierung liegt bei etwa 210 GPa und damit weit über dem des Knochens, ist also nicht zu niedrig. Außerdem schützt sie eine Passivschicht überwiegend aus Cr₂O₃, sodass sie nicht durch gleichmäßige Korrosion in kurzer Zeit dünner wird."
+  },
+  "biomaterials-022": {
+    "question": "Warum ist die Dampfsterilisation im Autoklaven bei etwa 121 °C für eine resorbierbare Knochenschraube aus Polymilchsäure (Glasübergangstemperatur etwa 60 °C) ungeeignet?",
+    "choices": [
+      "Der Hochdruckdampf vernetzt die Ketten der Polymilchsäure zu einem Netzwerk, sodass die Schraube im Körper nicht mehr hydrolysiert und nicht mehr resorbiert wird",
+      "Dampf von 121 °C kann Bakteriensporen nicht abtöten, daher ist die Dampfsterilisation nicht nur für Teile aus Polymilchsäure, sondern für alle Medizinprodukte unbrauchbar",
+      "Sie wird oberhalb der Glasübergangstemperatur Wasserdampf ausgesetzt, sodass die Hydrolyse die Molmasse senkt und sich auch die Form leicht verändert"
+    ],
+    "explanation": "Die Dampfsterilisation ist ein zuverlässiges Verfahren, das mit gesättigtem Wasserdampf um 121 °C selbst Sporen abtötet, und wird für Instrumente aus Titan und nichtrostendem Stahl breit eingesetzt. Polymilchsäure ist jedoch ein Polymer, dessen Esterbindungen in der Hauptkette durch Wasser hydrolysiert werden; wird sie weit oberhalb ihrer Glasübergangstemperatur Wasserdampf ausgesetzt, werden die Ketten beweglich, die Hydrolyse läuft schnell ab, und Molmasse und Festigkeit sinken. Da sie weich wird, verformt sich auch die Schraube leicht. Daher wird mit Ethylenoxidgas, das bei niedriger Temperatur wirkt, oder mit Gamma- bzw. Elektronenstrahlen sterilisiert. Auch Strahlung spaltet Ketten und senkt die Molmasse, sodass Dosis und Ausgangsmolmasse bei der Auslegung berücksichtigt werden. Dampf vernetzt das Polymer nicht in einer Weise, die seine Resorption verhindert."
+  },
+  "biomaterials-023": {
+    "question": "Dentale Komposite für Füllungen bestehen aus einem lichthärtenden Harz, dem ein anorganischer Füllstoff beigemischt ist, der bei der Polymerisation nicht schrumpft. Das Harz allein schrumpft bei der Polymerisation um 6,0 % seines Volumens, und das Komposit enthält 60 Vol.-% Füllstoff. Welcher Wert kommt der volumetrischen Polymerisationsschrumpfung des Komposits am nächsten? Der Schrumpfungsanteil des Harzes soll nicht vom Füllstoff abhängen.",
+    "choices": [
+      "Etwa 2,4 %",
+      "Etwa 3,6 %",
+      "Etwa 6,0 %"
+    ],
+    "explanation": "Nur der Harzanteil, der 40 % des Volumens ausmacht, schrumpft; die Gesamtschrumpfung beträgt also 0,40 × 6,0 % = 2,4 %. Der Wert von etwa 3,6 % verwechselt den Füllstoffanteil von 60 % mit dem Harzanteil und rechnet 0,60 × 6,0 %, der Wert von etwa 6,0 % berücksichtigt nicht, dass der Füllstoff nicht schrumpft. Da die Füllung an den Wänden der Kavität haftet, gerät die Klebefuge beim Schrumpfen während der Polymerisation unter Zug; öffnet sich ein Spalt, können Bakterien eindringen und Sekundärkaries verursachen. Mehr Füllstoff verringert die Schrumpfung und erhöht zudem Elastizitätsmodul und Verschleißfestigkeit. Außerdem wird die Kavität oft in mehreren dünnen Schichten gefüllt, die nacheinander gehärtet werden, um die Schrumpfspannung zu verringern."
+  },
+  "biomaterials-024": {
+    "question": "Polyetheretherketon (PEEK) wird unter anderem für Cages verwendet, die zwischen Wirbelkörper eingesetzt werden, um die knöcherne Fusion zu fördern. Welche Aussage über PEEK im Vergleich zu einer Titanlegierung trifft zu?",
+    "choices": [
+      "Sein Elastizitätsmodul ist mit etwa 200 GPa höher als der der Titanlegierung, daher trägt es mehr Last als der Knochen und fixiert bis zur Fusion fester",
+      "Sein Elastizitätsmodul liegt mit etwa 3 bis 4 GPa weit unter dem der Titanlegierung, und es ist röntgendurchlässig, sodass die Fusion postoperativ im Bild gut zu verfolgen ist",
+      "Es wird im Körper hydrolysiert und in etwa einem Jahr resorbiert, daher ist nach der Fusion keine Operation zur Entfernung des Cages nötig, und es bleibt kein Fremdkörper zurück"
+    ],
+    "explanation": "PEEK ist ein teilkristalliner Thermoplast, in dem aromatische Ringe über Keton- und Etherbindungen verknüpft sind; es ist chemisch stabil und baut sich im Körper kaum ab. Sein Elastizitätsmodul von etwa 3 bis 4 GPa ist weit niedriger als die etwa 110 GPa der Titanlegierung und entspricht dem der Kortikalis (etwa 7 bis 30 GPa) oder liegt darunter, sodass es weniger leicht Stress Shielding verursacht. Anders als Metalle lässt es Röntgenstrahlen gut durch und erzeugt in CT und MRT kaum Artefakte, sodass sich das Zusammenwachsen des Knochens im Cage gut beobachten lässt; auch das ist ein Vorteil. Andererseits ist es bioinert und verbindet sich kaum direkt mit dem Knochen, weshalb die Oberfläche mitunter mit Titan oder Hydroxylapatit beschichtet wird. Ein Elastizitätsmodul um 200 GPa ist typisch für Metalle wie Co-Cr-Legierungen, und die Resorption durch Hydrolyse für aliphatische Polyester wie Polymilchsäure."
+  },
+  "biomaterials-025": {
+    "question": "Welche Aussage über Silikon-Hydrogele, die in weichen Kontaktlinsen verwendet werden, um die zur Hornhaut gelangende Sauerstoffmenge zu erhöhen, trifft zu?",
+    "choices": [
+      "Sauerstoff gelangt vor allem gelöst im Wasser der Linse hindurch, daher wird Silikon zugesetzt, um den Wassergehalt der Linse und so die Sauerstoffdurchlässigkeit zu erhöhen",
+      "Silikon lässt kaum Sauerstoff durch, verleiht aber auch dünnen Linsen Reißfestigkeit, sodass der Sauerstoff umso leichter hindurchgelangt, je dünner die Linse ist",
+      "Siloxanbereiche, in denen sich Sauerstoff gut löst und schnell diffundiert, bilden Sauerstoffpfade, daher ist die Durchlässigkeit auch bei eher niedrigem Wassergehalt hoch"
+    ],
+    "explanation": "Die Hornhaut hat keine Blutgefäße und bezieht einen Großteil ihres Sauerstoffs aus Tränenflüssigkeit und Luft; ist die Sauerstoffdurchlässigkeit der Linse gering, leidet die Hornhaut unter Sauerstoffmangel. In herkömmlichen Hydrogelen wie Poly-HEMA gelangt der Sauerstoff gelöst im Wasser der Linse hindurch, sodass die Durchlässigkeit mit dem Wassergehalt steigt, aber durch die Durchlässigkeit des Wassers selbst begrenzt ist. In Silikon-Hydrogelen bilden zusammenhängende Siloxanbereiche, deren flexible Si-O-Ketten Sauerstoff gut lösen und schnell diffundieren lassen, Sauerstoffpfade, sodass auch bei eher niedrigem Wassergehalt eine weit höhere Durchlässigkeit als bei herkömmlichen Linsen erreicht wird. Da Siloxan Wasser abstößt, wird es mit hydrophilen Komponenten kombiniert, und die Oberfläche wird behandelt, um sie benetzbar zu machen. Dass Silikon keinen Sauerstoff durchlässt, ist das Gegenteil des Zutreffenden."
   }
 }
