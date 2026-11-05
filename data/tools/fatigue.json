@@ -1,0 +1,934 @@
+{
+  "id": "fatigue",
+  "order": 16,
+  "slug": "fatigue-life-calculator",
+  "cats": [
+    "fracture-fatigue",
+    "mechanical",
+    "metals"
+  ],
+  "cat": "fracture-fatigue",
+  "terms": [
+    "応力拡大係数",
+    "破壊靭性",
+    "パリス則",
+    "修正グッドマン線図",
+    "マイナー則",
+    "疲労限度",
+    "破壊前降伏"
+  ],
+  "questions": [
+    "fracture-fatigue-015",
+    "fracture-fatigue-010",
+    "fracture-fatigue-012"
+  ],
+  "figures": [],
+  "compares": [
+    "hardness-strength-toughness"
+  ],
+  "form": {
+    "id": "fatigue-form",
+    "fields": [
+      {
+        "name": "mode",
+        "options": [
+          "k",
+          "paris",
+          "mean",
+          "miner"
+        ],
+        "value": "k"
+      },
+      {
+        "name": "geo",
+        "options": [
+          "center",
+          "edge",
+          "finite",
+          "custom"
+        ],
+        "value": "center"
+      },
+      {
+        "name": "w",
+        "value": 200,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "y",
+        "value": 1.0,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "s",
+        "value": 200,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "a",
+        "value": 10,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "smax",
+        "value": 120,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "smin",
+        "value": 0,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "dsm",
+        "options": [
+          "pos",
+          "full"
+        ],
+        "value": "pos"
+      },
+      {
+        "name": "kic",
+        "value": 60,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "sy",
+        "value": 500,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "a0",
+        "value": 5,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "afm",
+        "options": [
+          "ac",
+          "set"
+        ],
+        "value": "ac"
+      },
+      {
+        "name": "af",
+        "value": 20,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "pp",
+        "options": [
+          "fp",
+          "mart",
+          "aus",
+          "bs",
+          "custom"
+        ],
+        "value": "fp"
+      },
+      {
+        "name": "cu",
+        "options": [
+          "si",
+          "us"
+        ],
+        "value": "si"
+      },
+      {
+        "name": "c",
+        "value": "6.9e-12",
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "m",
+        "value": 3,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "inm",
+        "options": [
+          "mm",
+          "am"
+        ],
+        "value": "mm"
+      },
+      {
+        "name": "mx",
+        "value": 400,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "mn",
+        "value": 0,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "sa",
+        "value": 200,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "sm",
+        "value": 150,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "su",
+        "value": 800,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "syy",
+        "value": 600,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "se",
+        "value": 300,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "sf",
+        "value": 1000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "bb",
+        "value": -0.09,
+        "attrs": "max=\"0\" step=\"any\""
+      },
+      {
+        "name": "se2",
+        "value": 250,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "bl",
+        "options": [
+          "ext",
+          "skip"
+        ],
+        "value": "ext"
+      },
+      {
+        "name": "s1",
+        "value": 400,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "n1",
+        "value": 1000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "s2",
+        "value": 320,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "n2",
+        "value": 10000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "s3",
+        "value": 240,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "n3",
+        "value": 200000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "s4",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "n4",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      }
+    ],
+    "outputs": [
+      {
+        "box": "res"
+      },
+      {
+        "heading": "presets_h",
+        "box": "presets"
+      }
+    ],
+    "svg": "fg-chart",
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "疲労寿命とき裂進展の計算",
+      "card": "応力拡大係数と限界き裂、パリス則の積分でき裂進展の寿命、平均応力の補正(グッドマン・ゲルバー・ゾーダーバーグ・SWT)、マイナー則を式と代入つきで",
+      "title": "疲労寿命とき裂進展の計算(応力拡大係数・限界き裂・パリス則・グッドマン線図・マイナー則)",
+      "description": "応力拡大係数 K = Yσ√(πa) と破壊靱性 K_IC から限界き裂長さと破壊応力を、パリス則 da/dN = C(ΔK)^m を積分してき裂が a₀ から限界まで進む回数を、修正グッドマン・ゲルバー・ゾーダーバーグ・SWT で平均応力を補正した等価な応力振幅を、バスキンの式とマイナー則で変動荷重の損傷の和を計算します。式と値を代入した形、定数の出典つき。",
+      "h1": "疲労寿命とき裂進展の計算",
+      "lead": "破壊力学と疲労の4つの計算を、式に値を代入した形といっしょに出します。①応力拡大係数と限界き裂(K・a_c・破壊応力・線形破壊力学の目安)、②パリス則によるき裂進展の寿命(a–N 曲線)、③平均応力の補正(修正グッドマン・ゲルバー・ゾーダーバーグ・SWT)、④S–N 曲線(バスキンの式)とマイナー則。長さは mm で入れ、式の中では m に直します。パリス則の定数のプリセットは出典で確かめた値だけを置いています。",
+      "in_heading": "入力",
+      "out_heading": "結果",
+      "presets_h": "パリス則のプリセット(C・m)",
+      "note": "式は教科書の定番のもの(線形破壊力学の K = Yσ√(πa)、パリス則、修正グッドマン・ゲルバー・ゾーダーバーグ・SWT の平均応力の補正、バスキンの式、マイナー則)。出典は結果の下とプリセットの表のリンクにあります。結果は計算の目安で、実際の部材の評価は規格(BS 7910 など)と専門家の判断に従ってください。",
+      "practice": "疲労・破壊の問題を解く",
+      "related": "関連する用語",
+      "chart_label": "結果のグラフ",
+      "mode": "計算",
+      "mode_k": "応力拡大係数と限界き裂",
+      "mode_paris": "パリス則の寿命",
+      "mode_mean": "平均応力の補正",
+      "mode_miner": "S–N 曲線とマイナー則",
+      "geo": "き裂の形(形状係数 Y)",
+      "geo_center": "中央き裂・無限板(Y = 1)",
+      "geo_edge": "縁き裂・半無限板(Y = 1.12)",
+      "geo_finite": "中央き裂・有限幅 W",
+      "geo_custom": "Y を自分で入れる",
+      "w": "板の幅 W(mm)",
+      "y": "形状係数 Y",
+      "s": "公称応力 σ(MPa)",
+      "a": "き裂の長さ a(mm)",
+      "smax": "最大応力 σ_max(MPa)",
+      "smin": "最小応力 σ_min(MPa)",
+      "dsm": "σ_min < 0 のときの Δσ",
+      "dsm_pos": "圧縮の側は数えない",
+      "dsm_full": "全幅 σ_max − σ_min",
+      "kic": "破壊靱性 K_IC(MPa√m)",
+      "sy": "降伏強さ σ_y(MPa・空欄可)",
+      "a0": "はじめのき裂 a₀(mm)",
+      "afm": "最後のき裂の長さ",
+      "afm_ac": "限界き裂 a_c まで",
+      "afm_set": "自分で決めた a_f まで",
+      "af": "最後のき裂 a_f(mm)",
+      "pp": "C・m のプリセット",
+      "pp_fp": "フェライト・パーライト鋼",
+      "pp_mart": "マルテンサイト鋼",
+      "pp_aus": "オーステナイト系ステンレス鋼",
+      "pp_bs": "BS 7910 簡易則(鋼)",
+      "pp_custom": "自分で入れる",
+      "cu": "C の単位",
+      "cu_si": "m/cycle と MPa√m",
+      "cu_us": "in/cycle と ksi√in",
+      "c": "C",
+      "m": "指数 m",
+      "inm": "応力の入れ方",
+      "inm_mm": "σ_max と σ_min",
+      "inm_am": "振幅 σ_a と平均 σ_m",
+      "mx": "最大応力 σ_max(MPa)",
+      "mn": "最小応力 σ_min(MPa)",
+      "sa": "応力振幅 σ_a(MPa)",
+      "sm": "平均応力 σ_m(MPa)",
+      "su": "引張強さ σ_u(MPa)",
+      "syy": "降伏強さ σ_y(MPa・空欄可)",
+      "se": "両振りの疲労限度 σ_e(MPa)",
+      "sf": "疲労強度係数 σ_f′(MPa)",
+      "bb": "疲労強度指数 b(負の数)",
+      "se2": "疲労限度 σ_e(MPa・空欄可)",
+      "bl": "疲労限度より下の応力",
+      "bl_ext": "S–N 線を延ばす(修正マイナー則)",
+      "bl_skip": "数えない(損傷 0)",
+      "s1": "σ_a1(MPa)",
+      "n1": "n1(回)",
+      "s2": "σ_a2(MPa)",
+      "n2": "n2(回)",
+      "s3": "σ_a3(MPa)",
+      "n3": "n3(回)",
+      "s4": "σ_a4(MPa)",
+      "n4": "n4(回)",
+      "js": {
+        "ui": {
+          "tabs_label": "計算の種類",
+          "tab_k": "① K と限界き裂",
+          "tab_paris": "② パリス則の寿命",
+          "tab_mean": "③ 平均応力",
+          "tab_miner": "④ マイナー則",
+          "examples": "例:",
+          "ex": [
+            "鋼板の中央き裂の余寿命",
+            "縁き裂の限界き裂長さ",
+            "平均応力のある軸(グッドマン)",
+            "3段の変動荷重(マイナー則)"
+          ],
+          "ex_note": "例の値は、計算のしかたを示すために作った数で、実際の部材や材料の測定データではありません。",
+          "rows_legend": "荷重のブロック(空の行は使いません)",
+          "col_sa": "応力振幅 σ_aᵢ(MPa)",
+          "col_n": "回数 nᵢ",
+          "rows_help": "1つの荷重の並び(1回のくり返しの単位)の中で、応力振幅 σ_aᵢ を nᵢ 回かけるとします。平均応力があるときは、③で補正した等価な振幅を入れてください。",
+          "a_half": "中央き裂は半長さ",
+          "a_depth": "縁き裂は深さ",
+          "a_lab": "き裂の長さ a(mm・{w})",
+          "a0_lab": "はじめのき裂 a₀(mm・{w})",
+          "c_si": "C(m/cycle、ΔK は MPa√m)",
+          "c_us": "C(in/cycle、ΔK は ksi√in)",
+          "need_w": "板の幅 W(mm、0 より大きい値)を入れてください。",
+          "need_y": "形状係数 Y(0 より大きい値)を入れてください。",
+          "need_k": "応力 σ とき裂の長さ a(どちらも 0 より大きい値)を入れてください。",
+          "a_over_w": "中央き裂の全長 2a が板の幅 W 以上です。2a < W にしてください。",
+          "k_main": "K = {k} MPa√m で、K_IC の {r} 倍です。この応力での限界き裂長さは a_c = {ac}、この長さのき裂で破壊する応力は σ_c = {sc} MPa です。",
+          "k_main_over": "K = {k} MPa√m が K_IC を超えています(K_IC の {r} 倍)。線形破壊力学では、このき裂はこの応力で不安定に進みます。限界き裂長さは a_c = {ac}、破壊する応力は σ_c = {sc} MPa です。",
+          "k_main_nok": "K = {k} MPa√m です。K_IC を入れると、限界き裂長さと破壊する応力も出します。",
+          "st_ac": "限界き裂 a_c",
+          "st_sc": "破壊する応力 σ_c",
+          "unit_line": "a = {a} mm = {am} m(MPa√m の K には m で入れる)",
+          "h_eq": "使った式と代入した値",
+          "k_eq_lead": "K はき裂の先の応力場の強さで、K が破壊靱性 K_IC に達するとき裂が不安定に進みます(線形破壊力学)。a_c は今の応力で K = K_IC になるき裂の長さ、σ_c は今のき裂で K = K_IC になる応力です。",
+          "k_note_center": "無限板の中央き裂は、き裂の全長を 2a とし、式には半長さ a を入れます。板の幅がき裂に比べて十分大きいときの値です(幅の影響は「有限幅」を選んでください)。",
+          "k_note_edge": "半無限板の縁き裂(板の縁から深さ a)の Y = 1.12 です(Gross・Seelig の表では 1.1215)。幅が有限の板や、曲げ・表面の半楕円のき裂は別の Y になります。",
+          "k_note_finite": "幅 W の板の中央き裂(全長 2a)に、Y = (1 − 0.025α² + 0.06α⁴)√sec(πα/2)、α = 2a/W を使いました(Gross・Seelig の表 4.1 の式)。Y が a で変わるので、a_c は二分法で解いています。",
+          "k_note_custom": "入れた Y は a によらない一定の値として使いました。ハンドブックの Y が a/W などで変わるときは、その a での値を入れてください。",
+          "h_finite": "有限幅の補正と正味断面",
+          "diff": "多項式の補正なしとの差 {d} %",
+          "finite_note": "多項式の補正のない Feddersen の形 √sec(πa/W) も、よく使われます。き裂が幅に近づくと、K より先に正味断面(き裂を除いた残りの断面)が降伏することがあります。",
+          "net_yield": "正味断面の応力 {n} MPa が降伏強さ {sy} MPa 以上です。き裂の前に断面が降伏するので、線形破壊力学の K だけでは評価できません。",
+          "h_lefm": "線形破壊力学の当てはまりの目安",
+          "lefm_note": "r_y は Irwin の、平面応力のき裂の先の塑性域の1次の見積もりで、2r_y は Irwin が応力の再配分を考えて補正した大きさです(平面ひずみではもっと小さく、係数は教科書によって違います)。K で評価できるのは、塑性域がき裂の長さや板厚に比べて十分小さいときです。2.5(K_IC/σ_y)² は、ASTM E399(-90)が有効な K_IC の測定に求める、試験片の厚さ B とき裂の長さ a の下限です(新しい版ではリガメントの条件で書かれています)。",
+          "ybf": "破壊する応力 σ_c = {sc} MPa が降伏強さ {sy} MPa 以上です。このき裂の長さでは、破壊より先に降伏します(破壊前降伏)。",
+          "s_over_sy": "公称応力が降伏強さ以上です。線形破壊力学の前提(小規模降伏)から外れます。",
+          "lefm_need_sy": "降伏強さ σ_y を入れると、塑性域の大きさと ASTM E399 の厚さの条件を出します。",
+          "h_caution": "注意",
+          "k_cautions": [
+            "中央き裂(内部のき裂)の a は全長の半分、縁き裂・表面き裂の a は深さです。全長を a に入れると K は √2 倍に出ます。",
+            "a を mm のまま √(πa) に入れると、MPa√m の K が √1000 ≈ 31.6 倍にずれます。このツールは mm で入れて m に直しています。",
+            "表面の半楕円のき裂(深さと長さの比、表面と最深部で K が違う)は、このツールの簡単な Y では表しきれません。Newman・Raju の式などのハンドブックの解を使ってください。",
+            "K_IC は平面ひずみの厚さで測った値です。薄い板では見かけの靱性が大きくなり、K_IC で計算すると安全側になります。",
+            "部材の評価(き裂の許容、検査の間隔)は BS 7910 などの規格と専門家の判断に従ってください。"
+          ],
+          "need_s": "σ_max(0 より大きい値)と σ_min(σ_max より小さい値)を入れてください。",
+          "need_a0": "はじめのき裂の長さ a₀(mm、0 より大きい値)を入れてください。",
+          "need_cm": "パリス則の C と m(どちらも 0 より大きい値)を入れてください。",
+          "need_af": "最後のき裂の長さ a_f(mm、0 より大きい値)を入れてください。",
+          "need_kic": "限界き裂まで計算するには K_IC を入れてください(または最後のき裂の長さを自分で決めてください)。",
+          "af_capped": "決めた a_f = {af} が限界き裂 a_c = {ac} より長いので、a_c までで計算しました(a_c で破壊するため)。",
+          "paris_none": "はじめのき裂 a₀ = {a0} が、すでに最後のき裂の長さ({ac})以上です。σ_max でこのき裂は不安定に進むので、き裂進展の寿命は 0 回です。",
+          "st_n": "き裂進展の回数 N",
+          "paris_main": "き裂が {a0} から {af} まで進む回数は N = {n} 回です。",
+          "st_af": "最後のき裂 a_f",
+          "st_dk0": "ΔK(a₀)(MPa√m)",
+          "st_dkf": "ΔK(a_f)(MPa√m)",
+          "ac_ref": "参考: σ_max での限界き裂 a_c = {ac}。",
+          "unit_line2": "a₀ = {a0} mm = {a0m} m、a_f = {af} mm = {afm} m",
+          "num_check": "数値積分(Simpson 則、2000 きざみ)= {n}、閉じた式 = {c}(相対差 {d})",
+          "num_line": "Y が a で変わるので数値積分(u = ln a に置き換えた Simpson 則、2000 きざみ): N = {n}",
+          "num_conv": "きざみを変えた確かめ: 500 きざみ {n1}、2000 きざみ {n2}",
+          "paris_eq_lead": "da/dN = C(ΔK)^m を、き裂が a₀ から a_f まで進む間で積分します。Y が一定なら閉じた式(m = 2 では対数の形)になり、Y が a で変わるときは数値で積分します。",
+          "paris_eq_note": "σ_min < 0 のとき、圧縮の間はき裂が閉じて進展に効かないとして ΔK = K_max(Δσ = σ_max)とするのが Norton などの教科書の書き方です。C と m は応力比 R に左右されるので、使う C・m を測った R と合わせてください。",
+          "h_a0": "はじめのき裂 a₀ の影響",
+          "a0_lead": "き裂が短いうちは ΔK が小さく進みが遅いので、寿命の大部分は a₀ に近い短い間に使われます。a₀ を半分・2倍にしたときの N:",
+          "a0_cols": [
+            "a₀",
+            "N",
+            "今の N との比"
+          ],
+          "lg_an": "a–N 曲線",
+          "lg_ac": "限界き裂 a_c",
+          "x_n": "回数 N",
+          "y_a": "き裂の長さ a(mm)",
+          "paris_cautions": [
+            "パリス則はき裂進展の中間の領域(第 II 領域)だけで成り立ちます。下限界 ΔK_th の近く(第 I 領域)では進みが遅くなって ΔK_th より下では進まず、K_max が K_IC に近い第 III 領域では急に速くなります。どちらもこの式では表せません。",
+            "結晶粒の数倍ほどの短いき裂は、長いき裂の da/dN より速く進むことがあり、パリス則の外です。",
+            "腐食環境(腐食疲労)、温度、荷重の周波数で C と m は変わります。プリセットは室温付近の腐食性のない環境のデータの上限です。",
+            "過大荷重のあとはき裂の進みが遅れる(遅延)など、荷重の順序で寿命が変わります。一定振幅の積分はそれを含みません。",
+            "限界き裂は K_IC だけで決めています。正味断面の降伏や漏れ(板を貫通)が先に起こることがあります。",
+            "結果は見当です。き裂が見つかった部材の評価は BS 7910 などの規格と専門家の判断に従ってください。"
+          ],
+          "min_over_max": "σ_min が σ_max より大きくなっています。",
+          "need_mean": "応力の値を入れてください(振幅は 0 以上)。",
+          "need_su": "引張強さ σ_u(0 より大きい値)を入れてください。",
+          "ok_in": "疲労限度以内",
+          "ok_out": "疲労限度を超える",
+          "mean_main": "修正グッドマンで補正した等価な両振りの応力振幅は σ_ar = {g} MPa で、疲労限度 {se} MPa に対して「{j}」です。",
+          "mean_main_noe": "修正グッドマンで補正した等価な両振りの応力振幅は σ_ar = {g} MPa です。疲労限度 σ_e を入れると比べます。",
+          "h_mean_tbl": "補正ごとの等価な応力振幅 σ_ar",
+          "mean_cols": [
+            "補正",
+            "σ_ar(MPa)",
+            "σ_e/σ_ar",
+            "判定"
+          ],
+          "m_goodman": "修正グッドマン",
+          "m_gerber": "ゲルバー",
+          "m_soderberg": "ゾーダーバーグ",
+          "m_swt": "SWT",
+          "m_goodman_na": "",
+          "m_gerber_na": "",
+          "m_soderberg_na": "σ_y がない",
+          "m_swt_na": "σ_max ≤ 0 では使えない",
+          "goodman_n": "修正グッドマン線の上で、原点からの荷重線に沿った安全率 n = 1/(σ_a/σ_e + σ_m/σ_u) = {n}。",
+          "neg_mean_line": "σ_m < 0(圧縮の平均応力): 修正グッドマン・ゾーダーバーグでは効かせず σ_m = 0 とし(安全側)、ゲルバーは (σ_m/σ_u)² のまま計算(圧縮の平均応力も引張と同じく不利に扱う形で、圧縮がふつう有利に働くという傾向とは合いません)",
+          "mean_eq_lead": "平均応力 σ_m のある繰返しを、同じ寿命になる平均応力 0 の両振りの振幅 σ_ar に直し、両振りの疲労限度 σ_e(や S–N 曲線)と比べます。",
+          "mean_eq_note": "ゾーダーバーグは引張強さの代わりに降伏強さを使うので最も安全側、修正グッドマンは設計の標準で安全側、ゲルバー(放物線)は延性の金属の実験の点に最もよく合う、とされます(IIT Madras の教材。Altair の資料もグッドマンをぜい性材料、ゲルバーを延性材料に勧めています)。SWT は σ_max·σ_a の積で補正する形です。",
+          "yield_warn": "σ_max = {mx} MPa が降伏強さ {sy} MPa を超えています。1回目で降伏するので、高サイクル疲労の補正の前提から外れます。",
+          "sm_over_su": "平均応力が引張強さ以上です。補正の式は使えません。",
+          "lg_yield": "降伏(σ_a + σ_m = σ_y)",
+          "x_sm": "平均応力 σ_m(MPa)",
+          "y_sa": "応力振幅 σ_a(MPa)",
+          "neg_mean_chart": "線図は σ_m ≥ 0 の側だけを描いています。圧縮の平均応力の点は σ_m = 0 の位置に置きました。",
+          "mean_cautions": [
+            "σ_e は平滑な試験片の両振りの疲労限度(または N 回の疲労強さ)です。部材では表面・寸法・切欠き(応力集中)の影響で下がります。",
+            "応力振幅と応力の幅(2倍)を取り違えないでください。σ_a = (σ_max − σ_min)/2 です。",
+            "R = −1 が両振り、R = 0 が片振り(σ_min = 0)です。",
+            "どの補正が合うかは材料と寿命の範囲で変わります。迷うときは安全側の修正グッドマンで見て、実験の値で確かめてください。"
+          ],
+          "need_basquin": "疲労強度係数 σ_f′(0 より大きい値)と疲労強度指数 b(負の数)を入れてください。",
+          "need_blocks": "荷重のブロック(応力振幅と回数)を少なくとも 1 行入れてください。",
+          "miner_main": "1つの荷重の並びの損傷の和は D = {d} です。D = 1 に達するまで、この並びをおよそ {r} 回くり返せます。",
+          "miner_main_over": "1つの荷重の並びの損傷の和が D = {d} で、1 以上です。マイナー則では、この並びを1回終える前に破断します({r} 回分)。",
+          "st_rep": "くり返せる回数 1/D",
+          "st_ne": "疲労限度での N_f",
+          "row_incomplete": "応力振幅か回数のどちらかだけが入った行は、計算に使っていません。",
+          "h_blocks": "ブロックごとの寿命と損傷",
+          "block_cols": [
+            "ブロック",
+            "σ_a(MPa)",
+            "nᵢ",
+            "Nᵢ",
+            "nᵢ/Nᵢ",
+            "疲労限度より下"
+          ],
+          "below_skip": "数えない",
+          "below_ext": "線を延ばした",
+          "block": "ブロック",
+          "miner_eq_lead": "各ブロックの応力振幅だけで壊れる回数 Nᵢ をバスキンの式から出し、加えた回数 nᵢ との比を足します(線形累積損傷則)。2N_f は反転の数(回数の2倍)なので、N_f は ½ を掛けて出します。",
+          "bl_note_skip": "疲労限度より下のブロックは、損傷を 0 として数えていません(マイナー則のもとの形)。き裂が進み始めると疲労限度より下でも損傷するので、危険側になることがあります。",
+          "bl_note_ext": "疲労限度より下のブロックも、バスキンの式をそのまま延ばして損傷を数えています(修正マイナー則。疲労限度より下を数えない形より安全側)。ここでは傾きを変えずに延ばしています。疲労限度より下で傾きを緩めて延ばす形(Haibach の方法など)もあり、どれを「修正マイナー則」と呼ぶかは資料によって違います。",
+          "lg_sn": "S–N 曲線(バスキンの式)",
+          "lg_se": "疲労限度",
+          "lg_blocks": "各ブロック",
+          "x_nf": "破断までの回数 N_f",
+          "miner_cautions": [
+            "マイナー則は荷重の順序を無視した近似です。高い応力から低い応力に移すと D < 1 で壊れ、低い応力から高い応力に移すと D > 1 になることがよくあると報告されています(Hardrath, NASA 1965)。D = 1 で壊れるとは限りません。",
+            "バスキンの式の σ_f′・b は材料と試験片(表面・寸法)で変わります。このツールに材料のプリセットはありません。自分のデータの値を入れてください。",
+            "不規則な荷重は、レインフロー法などでサイクルを数えてからブロックにします。",
+            "平均応力のあるブロックは、③の補正で等価な両振りの振幅にしてから入れてください。",
+            "低サイクル疲労(およそ 10⁴ 回より少ない)では、塑性ひずみの項(Coffin–Manson)が効き、応力のバスキンの式だけでは足りません。"
+          ],
+          "pp_fp": "フェライト・パーライト鋼(Barsom)",
+          "pp_mart": "マルテンサイト鋼(Barsom)",
+          "pp_aus": "オーステナイト系ステンレス鋼(Barsom)",
+          "pp_bs": "鋼・空気中(BS 7910 簡易則)",
+          "preset_lead": "da/dN = C(ΔK)^m の C と m。SI は da/dN が m/cycle、ΔK が MPa√m のときの値です。US は in/cycle と ksi√in の値で、右の列は US の値を換算した SI の値(元の値との一致の確かめ)です。",
+          "preset_cols": [
+            "材料",
+            "C(SI)",
+            "m",
+            "C(US)",
+            "US から換算"
+          ],
+          "preset_notes": [
+            "Barsom の式は、鋼の種類ごとの実験のき裂進展のデータの上限として出されたもので、室温付近の腐食性のない環境の長いき裂のデータです(Norton の表 6-2、Kinser ほか 2026 の引用)。",
+            "BS 7910 の簡易則(鋼・空気中)は、平均 + 2 標準偏差の上限です。A = 5.21×10⁻¹³(ΔK は N/mm^1.5、da/dN は mm/cycle)を、MPa√m と m/cycle に直しました(× 1000^1.5 ÷ 1000)。この A は、規格を引く論文 2 つ(Amirafshari・Stacey, OMAE2019 の表 3 の ln A = −28.28、ECF15 の論文の表 1)で確かめたもので、規格の本文は見ていません。",
+            "どの値も応力比 R、環境、温度で変わります。下限界 ΔK_th の値は、このツールでは扱っていません。"
+          ],
+          "src_h": "出典:",
+          "l_formula": "公式集の式",
+          "l_learn": "解説「金属はなぜ疲れるの?」",
+          "l_failure": "破損解析ナビ",
+          "l_tensile": "引張試験の解析",
+          "l_drill": "計算ドリル(破壊靱性)",
+          "paris_none_af": "決めた最後のき裂 a_f = {af} が、はじめのき裂 a₀ = {a0} 以下です。a_f を a₀ より長くしてください。"
+        }
+      },
+      "sections": [
+        {
+          "h": "応力拡大係数 K の意味",
+          "p": "き裂の先の応力は、き裂の先からの距離 r の平方根に反比例して大きくなり、その強さを1つの数で表したものが応力拡大係数 K です。き裂を開く向きの荷重(モード I)では K = Yσ√(πa) と書け、σ は公称応力、a はき裂の長さ(中央き裂は全長の半分、縁き裂は深さ)、Y はき裂と部材の形で決まる形状係数です。無限板の中央き裂では Y = 1、半無限板の縁き裂では Y ≈ 1.12、幅 W の板の中央き裂では α = 2a/W が大きくなるほど Y が大きくなります。単位は MPa√m で、a を m で入れます。"
+        },
+        {
+          "h": "破壊靱性 K_IC と限界き裂",
+          "p": "K がその材料の平面ひずみ破壊靱性 K_IC に達すると、き裂は不安定に進みます。K = K_IC を a について解くと、今の応力で壊れるき裂の長さ a_c = (1/π)(K_IC/(Yσ))² が、σ について解くと、今のき裂で壊れる応力 σ_c = K_IC/(Y√(πa)) が出ます。a_c は σ² に反比例するので、応力が 2 倍になると限界き裂は 1/4 になります。ただし、この考え方(線形破壊力学)が使えるのは、き裂の先の塑性域がき裂や部材の寸法に比べて小さいときで、σ_c が降伏強さに近いと、破壊より先に降伏します(破壊前降伏)。"
+        },
+        {
+          "h": "き裂進展の3つの領域",
+          "p": "一定の振幅の繰返し荷重で、1回あたりのき裂の進み da/dN を応力拡大係数の幅 ΔK = K_max − K_min に対して両対数で描くと、S 字の曲線になります。第 I 領域では下限界 ΔK_th より下でき裂が進まず、第 II 領域では直線(パリス則 da/dN = C(ΔK)^m)になり、第 III 領域では K_max が K_IC に近づいて急に速くなります。パリス則が使えるのは第 II 領域だけです。"
+        },
+        {
+          "h": "パリス則の積分と、はじめのき裂 a₀ が寿命を左右すること",
+          "p": "ΔK = YΔσ√(πa) をパリス則に入れ、き裂が a₀ から a_f まで進む回数を積分すると、Y が一定で m ≠ 2 なら N = [a_f^(1−m/2) − a₀^(1−m/2)]/[C(YΔσ√π)^m(1 − m/2)]、m = 2 なら N = ln(a_f/a₀)/(C(YΔσ)²π) です。金属でよくある m ≈ 3 では a^(−1/2) の差になり、a_f が a₀ より十分大きいと a_f はあまり効かず、寿命はほぼ a₀^(−1/2) で決まります。つまり、はじめのき裂(検査で見逃しうる大きさ)の見積もりが寿命を大きく左右します。Y が a で変わるとき(有限幅など)は数値で積分します。"
+        },
+        {
+          "h": "平均応力の補正の使い分け",
+          "p": "引張の平均応力は疲労強度を下げます。平均応力 σ_m と振幅 σ_a の繰返しを、同じ寿命の両振りの振幅 σ_ar に直す補正には、修正グッドマン σ_ar = σ_a/(1 − σ_m/σ_u)、ゲルバー σ_ar = σ_a/(1 − (σ_m/σ_u)²)、ゾーダーバーグ σ_ar = σ_a/(1 − σ_m/σ_y)、SWT σ_ar = √(σ_max·σ_a) などがあります。ゾーダーバーグが最も安全側、修正グッドマンは設計の標準で安全側、ゲルバーは延性の金属の実験の点によく合う、とされます。圧縮の平均応力は疲労にはふつう有利に働きますが、設計ではその効果を見込まないことが多いです。"
+        },
+        {
+          "h": "S–N 曲線とバスキンの式",
+          "p": "応力振幅 σ_a と破断までの回数 N_f の関係(S–N 曲線)は、高サイクルの範囲で両対数の直線に近く、バスキンの式 σ_a = σ_f′(2N_f)^b で表されます。σ_f′ は疲労強度係数、b は疲労強度指数(負の数)、2N_f は反転の数です。鉄鋼では、ある回数より先で曲線が水平になり、疲労限度を示すことが多いのに対して、アルミニウム合金などはふつう明確な疲労限度を示しません。"
+        },
+        {
+          "h": "マイナー則(線形累積損傷則)",
+          "p": "振幅の違う荷重が混じるとき、応力 i だけで壊れる回数 Nᵢ のうち nᵢ 回を使うと寿命の nᵢ/Nᵢ を使ったとみなし、その和 D = Σnᵢ/Nᵢ が 1 になったら壊れると考えるのがマイナー則です。荷重の順序の影響を無視した近似で、高い応力を先にかけると D < 1 で壊れ、低い応力を先にかけると D > 1 になることがよくあります。疲労限度より下の応力を数えない形と、S–N 曲線を延ばして数える形(修正マイナー則)があり、き裂が進み始めると疲労限度より下でも損傷するので、後者のほうが安全側です。"
+        },
+        {
+          "h": "よくある誤り",
+          "p": "1つ目は、mm と m の取り違えです。K の単位 MPa√m には a を m で入れます。mm のまま入れると K が約 31.6 倍に出ます。2つ目は、MPa√m と ksi√in の取り違えです。1 ksi√in = 1.099 MPa√m で、パリス則の C は単位の組で値が変わります(US の C を SI に直すには 0.0254 を掛け、1.099^m で割ります)。3つ目は、σ_min > 0 なのに ΔK に σ_max だけを使うこと、または応力の幅の代わりに振幅を使うことです。ΔK は応力の幅 Δσ から出し、σ_min < 0 のときの圧縮の部分はふつう数えません(このときは Δσ = σ_max になります)。4つ目は、中央き裂の a に全長(直径)を入れることです。式の a は半長さです。5つ目は、バスキンの式の 2N_f(反転の数)と N_f(回数)の取り違えです。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "中央き裂の a は全長ですか、半分ですか?",
+          "a": "半分です。K = Yσ√(πa) の a は、内部の中央き裂では全長 2a の半分、板の縁や表面から入るき裂では深さです。全長を入れると K が √2 倍に出ます。"
+        },
+        {
+          "q": "き裂の長さを mm で入れてもよいですか?",
+          "a": "このツールでは mm で入れてください。式の中で m に直して計算します(画面の式にも m の値を出しています)。手で計算するときは、MPa√m の K には a を m で入れてください。"
+        },
+        {
+          "q": "σ_min が負(圧縮)のとき、ΔK はどう取りますか?",
+          "a": "圧縮の間はき裂が閉じて進展にほとんど効かないとして、K_min < 0 なら ΔK = K_max(Δσ = σ_max)とするのが Norton などの教科書の書き方です。このツールの既定もそうです。全幅で計算したいときは「全幅 σ_max − σ_min」を選べます。使う C・m を測ったときの取り方に合わせるのが大事です。"
+        },
+        {
+          "q": "パリス則の C と m はどこで手に入りますか?",
+          "a": "その材料・環境・応力比で測ったき裂進展のデータ(ASTM E647 の試験など)から求めるのが基本です。目安として、Barsom による鋼の種類ごとの上限の式(フェライト・パーライト鋼 C = 6.9×10⁻¹²、m = 3.0 など、m/cycle と MPa√m)と、BS 7910 の簡易則をプリセットにしました。C の単位は m で決まるので、使う単位の組を必ず確かめてください。"
+        },
+        {
+          "q": "なぜ数値積分も出すのですか?",
+          "a": "形状係数 Y がき裂の長さで変わるとき(有限幅の板など)は閉じた式がないので、数値で積分します。Y が一定のときは閉じた式と数値積分の両方を出し、相対差が小さいことを見せています。"
+        },
+        {
+          "q": "修正グッドマンとゲルバーのどちらを使えばよいですか?",
+          "a": "延性の金属の実験の点にはゲルバーの放物線がよく合い、修正グッドマンの直線はそれより安全側とされます。設計では修正グッドマンを標準として使うことが多く、降伏も避けたいときはゾーダーバーグ(最も安全側)を使います。材料のデータがあれば、それと比べて選んでください。"
+        },
+        {
+          "q": "マイナー則で D が 1 より小さければ安全ですか?",
+          "a": "いいえ、言い切れません。マイナー則は順序の影響を無視した近似で、高い応力から先にかかると D < 1 で壊れることがあります。設計では D の許容値を 1 より小さく取ることもあります。規格や社内の基準に従ってください。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Fatigue and crack growth calculator",
+      "card": "Stress intensity factor and critical crack size, crack growth life by integrating the Paris law, mean stress corrections (Goodman, Gerber, Soderberg, SWT) and Miner’s rule, with the equations and substituted values",
+      "title": "Fatigue Life and Crack Growth Calculator (Stress Intensity, Critical Crack, Paris Law, Goodman, Miner)",
+      "description": "Calculate the critical crack size and fracture stress from the stress intensity factor K = Yσ√(πa) and fracture toughness K_IC, the number of cycles for a crack to grow from a₀ to the critical size by integrating the Paris law da/dN = C(ΔK)^m, the equivalent fully reversed stress amplitude with the modified Goodman, Gerber, Soderberg and SWT mean stress corrections, and the damage sum of variable-amplitude loading with the Basquin equation and Miner’s rule. Equations, substituted values and sources included.",
+      "h1": "Fatigue Life and Crack Growth Calculator",
+      "lead": "Four fracture mechanics and fatigue calculations, each shown with the equation and the values substituted into it: (1) stress intensity factor and critical crack size (K, a_c, fracture stress and LEFM checks), (2) fatigue crack growth life with the Paris law (a–N curve), (3) mean stress correction (modified Goodman, Gerber, Soderberg, SWT), and (4) the S–N curve (Basquin equation) with Miner’s rule. Enter lengths in mm; they are converted to m inside the equations. The Paris law presets contain only constants checked against a source.",
+      "in_heading": "Input",
+      "out_heading": "Result",
+      "presets_h": "Paris law presets (C and m)",
+      "note": "The equations are the standard textbook ones (LEFM K = Yσ√(πa), the Paris law, the modified Goodman, Gerber, Soderberg and SWT mean stress corrections, the Basquin equation and Miner’s rule). Sources are listed under the result and linked from the preset table. Results are estimates; assess real components according to codes such as BS 7910 and with expert judgment.",
+      "practice": "Practice fracture and fatigue questions",
+      "related": "Related terms",
+      "chart_label": "Result chart",
+      "mode": "Calculation",
+      "mode_k": "Stress intensity and critical crack",
+      "mode_paris": "Paris law life",
+      "mode_mean": "Mean stress correction",
+      "mode_miner": "S–N curve and Miner’s rule",
+      "geo": "Crack geometry (factor Y)",
+      "geo_center": "Center crack, infinite (Y = 1)",
+      "geo_edge": "Edge crack, semi-inf. (Y = 1.12)",
+      "geo_finite": "Center crack, finite width W",
+      "geo_custom": "Enter Y yourself",
+      "w": "Plate width W (mm)",
+      "y": "Geometry factor Y",
+      "s": "Nominal stress σ (MPa)",
+      "a": "Crack length a (mm)",
+      "smax": "Maximum stress σ_max (MPa)",
+      "smin": "Minimum stress σ_min (MPa)",
+      "dsm": "Δσ when σ_min < 0",
+      "dsm_pos": "Ignore compressive part",
+      "dsm_full": "Full range σ_max − σ_min",
+      "kic": "Fracture toughness K_IC (MPa√m)",
+      "sy": "Yield strength σ_y (MPa, optional)",
+      "a0": "Initial crack a₀ (mm)",
+      "afm": "Final crack length",
+      "afm_ac": "Up to critical a_c",
+      "afm_set": "Up to a chosen a_f",
+      "af": "Final crack a_f (mm)",
+      "pp": "C and m preset",
+      "pp_fp": "Ferrite–pearlite steels",
+      "pp_mart": "Martensitic steels",
+      "pp_aus": "Austenitic stainless",
+      "pp_bs": "BS 7910 simplified (steel)",
+      "pp_custom": "Enter yourself",
+      "cu": "Units of C",
+      "cu_si": "m/cycle and MPa√m",
+      "cu_us": "in/cycle and ksi√in",
+      "c": "C",
+      "m": "Exponent m",
+      "inm": "Stress input",
+      "inm_mm": "σ_max and σ_min",
+      "inm_am": "Amplitude σ_a, mean σ_m",
+      "mx": "Maximum stress σ_max (MPa)",
+      "mn": "Minimum stress σ_min (MPa)",
+      "sa": "Stress amplitude σ_a (MPa)",
+      "sm": "Mean stress σ_m (MPa)",
+      "su": "Tensile strength σ_u (MPa)",
+      "syy": "Yield strength σ_y (MPa, optional)",
+      "se": "Fully reversed fatigue limit σ_e (MPa)",
+      "sf": "Fatigue strength coefficient σ_f′ (MPa)",
+      "bb": "Fatigue strength exponent b (negative)",
+      "se2": "Fatigue limit σ_e (MPa, optional)",
+      "bl": "Stresses below the fatigue limit",
+      "bl_ext": "Extend S–N line (modified Miner)",
+      "bl_skip": "Ignore (no damage)",
+      "s1": "σ_a1 (MPa)",
+      "n1": "n1 (cycles)",
+      "s2": "σ_a2 (MPa)",
+      "n2": "n2 (cycles)",
+      "s3": "σ_a3 (MPa)",
+      "n3": "n3 (cycles)",
+      "s4": "σ_a4 (MPa)",
+      "n4": "n4 (cycles)",
+      "js": {
+        "ui": {
+          "tabs_label": "Type of calculation",
+          "tab_k": "1 K and critical crack",
+          "tab_paris": "2 Paris law life",
+          "tab_mean": "3 Mean stress",
+          "tab_miner": "4 Miner’s rule",
+          "examples": "Examples:",
+          "ex": [
+            "Center crack in a steel plate",
+            "Critical edge crack size",
+            "Shaft with mean stress (Goodman)",
+            "Three-block loading (Miner)"
+          ],
+          "ex_note": "The example values were made up to show how the calculation works; they are not measured data for real parts or materials.",
+          "rows_legend": "Load blocks (empty rows are ignored)",
+          "col_sa": "Stress amplitude σ_aᵢ (MPa)",
+          "col_n": "Cycles nᵢ",
+          "rows_help": "One load sequence (the unit that repeats) applies the stress amplitude σ_aᵢ for nᵢ cycles. If there is a mean stress, enter the equivalent amplitude corrected in calculation 3.",
+          "a_half": "half-length for a center crack",
+          "a_depth": "depth for an edge crack",
+          "a_lab": "Crack length a (mm, {w})",
+          "a0_lab": "Initial crack a₀ (mm, {w})",
+          "c_si": "C (m/cycle, ΔK in MPa√m)",
+          "c_us": "C (in/cycle, ΔK in ksi√in)",
+          "need_w": "Enter the plate width W (mm, greater than 0).",
+          "need_y": "Enter the geometry factor Y (greater than 0).",
+          "need_k": "Enter the stress σ and the crack length a (both greater than 0).",
+          "a_over_w": "The total length 2a of the center crack is at least the plate width W. Use 2a < W.",
+          "k_main": "K = {k} MPa√m, which is {r} times K_IC. At this stress the critical crack size is a_c = {ac}, and a crack of this length fractures at σ_c = {sc} MPa.",
+          "k_main_over": "K = {k} MPa√m exceeds K_IC ({r} times K_IC). In linear elastic fracture mechanics this crack grows unstably at this stress. The critical crack size is a_c = {ac} and the fracture stress is σ_c = {sc} MPa.",
+          "k_main_nok": "K = {k} MPa√m. Enter K_IC to get the critical crack size and the fracture stress as well.",
+          "st_ac": "Critical crack a_c",
+          "st_sc": "Fracture stress σ_c",
+          "unit_line": "a = {a} mm = {am} m (use m for K in MPa√m)",
+          "h_eq": "Equations and substituted values",
+          "k_eq_lead": "K measures the intensity of the stress field at the crack tip; when K reaches the fracture toughness K_IC the crack grows unstably (linear elastic fracture mechanics). a_c is the crack length at which K = K_IC at the present stress, and σ_c is the stress at which K = K_IC for the present crack.",
+          "k_note_center": "For a center crack in an infinite plate the total crack length is 2a and the half-length a goes into the equation. The value applies when the plate is much wider than the crack (choose “finite width” for the width effect).",
+          "k_note_edge": "Y = 1.12 is for an edge crack of depth a in a semi-infinite plate (1.1215 in the table of Gross and Seelig). Plates of finite width, bending and semi-elliptical surface cracks have different Y.",
+          "k_note_finite": "For a center crack (total length 2a) in a plate of width W, Y = (1 − 0.025α² + 0.06α⁴)√sec(πα/2) with α = 2a/W is used (the expression in Table 4.1 of Gross and Seelig). Because Y depends on a, a_c is found by bisection.",
+          "k_note_custom": "The Y you entered is used as a constant independent of a. If the handbook Y depends on a/W or similar, enter the value for this a.",
+          "h_finite": "Finite width correction and net section",
+          "diff": "{d} % from the form without the polynomial",
+          "finite_note": "The Feddersen form √sec(πa/W) without the polynomial is also widely used. As the crack approaches the width, the net section (the remaining cross-section) may yield before K becomes critical.",
+          "net_yield": "The net-section stress {n} MPa is at least the yield strength {sy} MPa. The section yields before the crack becomes critical, so K alone cannot assess it.",
+          "h_lefm": "Checks for linear elastic fracture mechanics",
+          "lefm_note": "r_y is Irwin’s first-order estimate of the plane-stress plastic zone ahead of the crack, and 2r_y is Irwin’s size corrected for stress redistribution (it is smaller in plane strain, and the factor differs between textbooks). K applies when the plastic zone is small compared with the crack length and the thickness. 2.5(K_IC/σ_y)² is the minimum specimen thickness B and crack length a that ASTM E399(-90) requires for a valid K_IC measurement (later editions state it as a ligament requirement).",
+          "ybf": "The fracture stress σ_c = {sc} MPa is at least the yield strength {sy} MPa. At this crack length the part yields before it fractures (yield before fracture).",
+          "s_over_sy": "The nominal stress is at least the yield strength. This is outside the small-scale yielding assumption of LEFM.",
+          "lefm_need_sy": "Enter the yield strength σ_y to get the plastic zone size and the ASTM E399 thickness requirement.",
+          "h_caution": "Cautions",
+          "k_cautions": [
+            "For a center (internal) crack, a is half the total length; for an edge or surface crack, a is the depth. Entering the total length gives a K √2 times too large.",
+            "Putting a in mm into √(πa) makes K in MPa√m off by √1000 ≈ 31.6. This tool takes mm and converts to m.",
+            "Semi-elliptical surface cracks (K depends on the depth-to-length ratio and differs between the surface and the deepest point) cannot be represented by the simple Y here. Use handbook solutions such as the Newman–Raju equations.",
+            "K_IC is measured at plane-strain thickness. Thin plates show a larger apparent toughness, so using K_IC is on the safe side.",
+            "Follow codes such as BS 7910 and expert judgment when assessing components (acceptable flaws, inspection intervals)."
+          ],
+          "need_s": "Enter σ_max (greater than 0) and σ_min (less than σ_max).",
+          "need_a0": "Enter the initial crack length a₀ (mm, greater than 0).",
+          "need_cm": "Enter the Paris law C and m (both greater than 0).",
+          "need_af": "Enter the final crack length a_f (mm, greater than 0).",
+          "need_kic": "Enter K_IC to integrate up to the critical crack size (or choose the final crack length yourself).",
+          "af_capped": "The chosen a_f = {af} is longer than the critical crack a_c = {ac}, so the integration stops at a_c (fracture occurs there).",
+          "paris_none": "The initial crack a₀ = {a0} is already at least the final crack length ({ac}). At σ_max this crack grows unstably, so the crack growth life is 0 cycles.",
+          "st_n": "Crack growth cycles N",
+          "paris_main": "The crack takes N = {n} cycles to grow from {a0} to {af}.",
+          "st_af": "Final crack a_f",
+          "st_dk0": "ΔK at a₀ (MPa√m)",
+          "st_dkf": "ΔK at a_f (MPa√m)",
+          "ac_ref": "For reference: critical crack at σ_max a_c = {ac}.",
+          "unit_line2": "a₀ = {a0} mm = {a0m} m, a_f = {af} mm = {afm} m",
+          "num_check": "Numerical integration (Simpson’s rule, 2000 steps) = {n}, closed form = {c} (relative difference {d})",
+          "num_line": "Y depends on a, so the integral is evaluated numerically (Simpson’s rule in u = ln a, 2000 steps): N = {n}",
+          "num_conv": "Step check: 500 steps {n1}, 2000 steps {n2}",
+          "paris_eq_lead": "da/dN = C(ΔK)^m is integrated while the crack grows from a₀ to a_f. With constant Y there is a closed form (a logarithm for m = 2); when Y depends on a, the integral is evaluated numerically.",
+          "paris_eq_note": "When σ_min < 0, textbooks such as Norton take ΔK = K_max (Δσ = σ_max) because the crack is closed during the compressive part and does not grow. C and m depend on the stress ratio R, so use C and m measured at a matching R.",
+          "h_a0": "Effect of the initial crack a₀",
+          "a0_lead": "While the crack is short, ΔK is small and growth is slow, so most of the life is spent near a₀. N with a₀ halved and doubled:",
+          "a0_cols": [
+            "a₀",
+            "N",
+            "Ratio to present N"
+          ],
+          "lg_an": "a–N curve",
+          "lg_ac": "Critical crack a_c",
+          "x_n": "Cycles N",
+          "y_a": "Crack length a (mm)",
+          "paris_cautions": [
+            "The Paris law holds only in the intermediate region (region II) of crack growth. Near the threshold ΔK_th (region I) growth slows and stops below ΔK_th, and in region III, where K_max approaches K_IC, it accelerates. Neither is described by this equation.",
+            "Short cracks a few grain sizes long can grow faster than long-crack da/dN data suggest and fall outside the Paris law.",
+            "C and m change with a corrosive environment (corrosion fatigue), temperature and loading frequency. The presets are upper bounds of data for non-aggressive environments near room temperature.",
+            "Load sequence changes the life, for example the retardation of growth after an overload. Constant-amplitude integration does not include this.",
+            "The critical crack is set by K_IC alone. Net-section yielding or leakage (a through-thickness crack) may occur first.",
+            "The result is an estimate. Assess cracked components according to codes such as BS 7910 and with expert judgment."
+          ],
+          "min_over_max": "σ_min is larger than σ_max.",
+          "need_mean": "Enter the stresses (the amplitude must be 0 or more).",
+          "need_su": "Enter the tensile strength σ_u (greater than 0).",
+          "ok_in": "within the fatigue limit",
+          "ok_out": "above the fatigue limit",
+          "mean_main": "The equivalent fully reversed stress amplitude with the modified Goodman correction is σ_ar = {g} MPa, {j} of {se} MPa.",
+          "mean_main_noe": "The equivalent fully reversed stress amplitude with the modified Goodman correction is σ_ar = {g} MPa. Enter the fatigue limit σ_e to compare.",
+          "h_mean_tbl": "Equivalent stress amplitude σ_ar by correction",
+          "mean_cols": [
+            "Correction",
+            "σ_ar (MPa)",
+            "σ_e/σ_ar",
+            "Check"
+          ],
+          "m_goodman": "Modified Goodman",
+          "m_gerber": "Gerber",
+          "m_soderberg": "Soderberg",
+          "m_swt": "SWT",
+          "m_goodman_na": "",
+          "m_gerber_na": "",
+          "m_soderberg_na": "no σ_y",
+          "m_swt_na": "not for σ_max ≤ 0",
+          "goodman_n": "Safety factor along the load line from the origin on the modified Goodman line, n = 1/(σ_a/σ_e + σ_m/σ_u) = {n}.",
+          "neg_mean_line": "σ_m < 0 (compressive mean stress): modified Goodman and Soderberg take no credit and use σ_m = 0 (safe side); Gerber is evaluated with (σ_m/σ_u)² as is (this treats a compressive mean stress as harmful, like a tensile one, which does not match the usual beneficial effect of compression)",
+          "mean_eq_lead": "A cycle with mean stress σ_m is converted to the fully reversed amplitude σ_ar that gives the same life, and compared with the fully reversed fatigue limit σ_e (or the S–N curve).",
+          "mean_eq_note": "Soderberg uses the yield strength instead of the tensile strength and is the most conservative; modified Goodman is the design standard and conservative; the Gerber parabola fits the test data for ductile metals best (IIT Madras teaching module; Altair’s documentation also recommends Goodman for brittle and Gerber for ductile materials). SWT corrects with the product σ_max·σ_a.",
+          "yield_warn": "σ_max = {mx} MPa exceeds the yield strength {sy} MPa. The part yields in the first cycle, outside the assumptions of these high-cycle corrections.",
+          "sm_over_su": "The mean stress is at least the tensile strength. The corrections cannot be used.",
+          "lg_yield": "Yield (σ_a + σ_m = σ_y)",
+          "x_sm": "Mean stress σ_m (MPa)",
+          "y_sa": "Stress amplitude σ_a (MPa)",
+          "neg_mean_chart": "The diagram shows only σ_m ≥ 0. A point with compressive mean stress is placed at σ_m = 0.",
+          "mean_cautions": [
+            "σ_e is the fully reversed fatigue limit (or the fatigue strength at N cycles) of smooth specimens. In components it is lowered by surface, size and notches (stress concentration).",
+            "Do not confuse the stress amplitude with the stress range (twice as large). σ_a = (σ_max − σ_min)/2.",
+            "R = −1 is fully reversed loading and R = 0 is zero-to-tension loading (σ_min = 0).",
+            "Which correction fits depends on the material and the life range. If unsure, check with the conservative modified Goodman and confirm with test data."
+          ],
+          "need_basquin": "Enter the fatigue strength coefficient σ_f′ (greater than 0) and the fatigue strength exponent b (negative).",
+          "need_blocks": "Enter at least one load block (stress amplitude and cycles).",
+          "miner_main": "The damage sum for one load sequence is D = {d}. The sequence can be repeated about {r} times before D reaches 1.",
+          "miner_main_over": "The damage sum for one load sequence is D = {d}, 1 or more. By Miner’s rule the part fails before completing one sequence ({r} of it).",
+          "st_rep": "Repeats 1/D",
+          "st_ne": "N_f at the fatigue limit",
+          "row_incomplete": "Rows with only the amplitude or only the cycles are not used.",
+          "h_blocks": "Life and damage for each block",
+          "block_cols": [
+            "Block",
+            "σ_a (MPa)",
+            "nᵢ",
+            "Nᵢ",
+            "nᵢ/Nᵢ",
+            "Below limit"
+          ],
+          "below_skip": "ignored",
+          "below_ext": "line extended",
+          "block": "Block",
+          "miner_eq_lead": "For each block, the life Nᵢ at that amplitude alone is found from the Basquin equation, and the ratios of the applied cycles nᵢ to Nᵢ are added (linear damage rule). 2N_f counts reversals (twice the cycles), so N_f is found with the factor ½.",
+          "bl_note_skip": "Blocks below the fatigue limit are counted as no damage (the original form of Miner’s rule). Once a crack starts to grow, stresses below the fatigue limit also cause damage, so this can be unconservative.",
+          "bl_note_ext": "Blocks below the fatigue limit are counted by extending the Basquin line as it is (modified Miner’s rule; more conservative than ignoring them). Here the line is extended with the same slope. Other versions extend it with a shallower slope below the fatigue limit (Haibach’s method, for example), and which one is called the “modified Miner’s rule” varies between sources.",
+          "lg_sn": "S–N curve (Basquin)",
+          "lg_se": "Fatigue limit",
+          "lg_blocks": "Blocks",
+          "x_nf": "Cycles to failure N_f",
+          "miner_cautions": [
+            "Miner’s rule is an approximation that ignores load sequence. Tests changing from high to low stress often fail at D < 1, and tests changing from low to high stress often reach D > 1 (Hardrath, NASA 1965). Failure does not necessarily occur at D = 1.",
+            "σ_f′ and b in the Basquin equation depend on the material and the specimen (surface, size). This tool has no material presets; enter values from your own data.",
+            "Irregular loading is first counted into cycles (for example with rainflow counting) and then grouped into blocks.",
+            "For blocks with a mean stress, enter the equivalent fully reversed amplitude from calculation 3.",
+            "In low-cycle fatigue (fewer than about 10⁴ cycles) the plastic strain term (Coffin–Manson) matters, and the stress-based Basquin equation alone is not enough."
+          ],
+          "pp_fp": "Ferrite–pearlite steels (Barsom)",
+          "pp_mart": "Martensitic steels (Barsom)",
+          "pp_aus": "Austenitic stainless steels (Barsom)",
+          "pp_bs": "Steel in air (BS 7910 simplified)",
+          "preset_lead": "C and m in da/dN = C(ΔK)^m. SI values are for da/dN in m/cycle and ΔK in MPa√m. US values are for in/cycle and ksi√in; the last column converts the US value to SI (a check of agreement with the SI value).",
+          "preset_cols": [
+            "Material",
+            "C (SI)",
+            "m",
+            "C (US)",
+            "From US"
+          ],
+          "preset_notes": [
+            "The Barsom equations were proposed as upper bounds of experimental crack growth data for each type of steel, for long cracks in non-aggressive environments near room temperature (Norton, Table 6-2; cited in Kinser et al. 2026).",
+            "The BS 7910 simplified law (steel in air) is an upper bound (mean + 2 standard deviations). A = 5.21×10⁻¹³ (ΔK in N/mm^1.5, da/dN in mm/cycle) is converted to MPa√m and m/cycle (× 1000^1.5 ÷ 1000). This A was checked in two papers that cite the standard (ln A = −28.28 in Table 3 of Amirafshari and Stacey, OMAE2019; Table 1 of an ECF15 paper); the text of the standard itself was not consulted.",
+            "All values change with the stress ratio R, the environment and the temperature. Threshold ΔK_th values are not handled in this tool."
+          ],
+          "src_h": "Sources:",
+          "l_formula": "Formula sheet",
+          "l_learn": null,
+          "l_failure": "Failure analysis guide",
+          "l_tensile": "Tensile test analyzer",
+          "l_drill": "Calculation drill (fracture toughness)",
+          "paris_none_af": "The chosen final crack a_f = {af} is not longer than the initial crack a₀ = {a0}. Make a_f longer than a₀."
+        }
+      },
+      "sections": [
+        {
+          "h": "What the stress intensity factor K means",
+          "p": "The stress ahead of a crack tip rises in inverse proportion to the square root of the distance r from the tip, and the stress intensity factor K expresses the strength of that field in one number. For loading that opens the crack (mode I), K = Yσ√(πa), where σ is the nominal stress, a is the crack length (half the total length for a center crack, the depth for an edge crack) and Y is a geometry factor set by the crack and the part. Y = 1 for a center crack in an infinite plate, Y ≈ 1.12 for an edge crack in a semi-infinite plate, and for a center crack in a plate of width W, Y grows as α = 2a/W increases. The unit is MPa√m, with a in m."
+        },
+        {
+          "h": "Fracture toughness K_IC and the critical crack size",
+          "p": "When K reaches the plane-strain fracture toughness K_IC of the material, the crack grows unstably. Solving K = K_IC for a gives the crack length that fails at the present stress, a_c = (1/π)(K_IC/(Yσ))², and solving for σ gives the stress that breaks the present crack, σ_c = K_IC/(Y√(πa)). Because a_c is inversely proportional to σ², doubling the stress reduces the critical crack to a quarter. This approach (linear elastic fracture mechanics) applies only when the plastic zone at the crack tip is small compared with the crack and the part; if σ_c is close to the yield strength, the part yields before it fractures (yield before fracture)."
+        },
+        {
+          "h": "The three regions of fatigue crack growth",
+          "p": "Under constant-amplitude loading, a log–log plot of the growth per cycle da/dN against the stress intensity factor range ΔK = K_max − K_min is S-shaped. In region I the crack does not grow below the threshold ΔK_th, in region II the curve is a straight line (the Paris law da/dN = C(ΔK)^m), and in region III growth accelerates as K_max approaches K_IC. The Paris law applies only to region II."
+        },
+        {
+          "h": "Integrating the Paris law, and why the initial crack a₀ controls the life",
+          "p": "Substituting ΔK = YΔσ√(πa) into the Paris law and integrating from a₀ to a_f gives, for constant Y and m ≠ 2, N = [a_f^(1−m/2) − a₀^(1−m/2)]/[C(YΔσ√π)^m(1 − m/2)], and for m = 2, N = ln(a_f/a₀)/(C(YΔσ)²π). For m ≈ 3, common in metals, this is a difference of a^(−1/2) terms; when a_f is much larger than a₀, a_f matters little and the life is set mainly by a₀^(−1/2). The estimate of the initial crack (the size that inspection could miss) therefore controls the life. When Y depends on a (finite width and so on), the integral is evaluated numerically."
+        },
+        {
+          "h": "Choosing a mean stress correction",
+          "p": "A tensile mean stress lowers the fatigue strength. Corrections that convert a cycle with mean stress σ_m and amplitude σ_a into a fully reversed amplitude σ_ar with the same life include modified Goodman σ_ar = σ_a/(1 − σ_m/σ_u), Gerber σ_ar = σ_a/(1 − (σ_m/σ_u)²), Soderberg σ_ar = σ_a/(1 − σ_m/σ_y) and SWT σ_ar = √(σ_max·σ_a). Soderberg is the most conservative, modified Goodman is the design standard and conservative, and Gerber fits test data for ductile metals well. A compressive mean stress is usually beneficial in fatigue, but designs often take no credit for it."
+        },
+        {
+          "h": "The S–N curve and the Basquin equation",
+          "p": "The relation between stress amplitude σ_a and cycles to failure N_f (the S–N curve) is close to a straight line on log–log axes in the high-cycle range and is written as the Basquin equation σ_a = σ_f′(2N_f)^b, where σ_f′ is the fatigue strength coefficient, b is the fatigue strength exponent (negative) and 2N_f is the number of reversals. Steels often show a fatigue limit where the curve becomes horizontal beyond a certain number of cycles, whereas aluminum alloys and many other non-ferrous metals usually show no clear fatigue limit."
+        },
+        {
+          "h": "Miner’s rule (linear damage rule)",
+          "p": "When loads of different amplitude are mixed, Miner’s rule assumes that nᵢ cycles at stress i use up the fraction nᵢ/Nᵢ of the life Nᵢ at that stress, and that failure occurs when the sum D = Σnᵢ/Nᵢ reaches 1. It is an approximation that ignores load sequence: applying high stresses first often leads to failure at D < 1, and applying low stresses first often gives D > 1. Stresses below the fatigue limit are either ignored or counted by extending the S–N curve (modified Miner’s rule); since stresses below the fatigue limit also cause damage once a crack grows, the latter is more conservative."
+        },
+        {
+          "h": "Common mistakes",
+          "p": "First, mixing up mm and m. K in MPa√m needs a in m; a in mm gives a K about 31.6 times too large. Second, mixing up MPa√m and ksi√in. 1 ksi√in = 1.099 MPa√m, and the Paris law C changes with the unit system (to convert a US C to SI, multiply by 0.0254 and divide by 1.099^m). Third, using only σ_max for ΔK when σ_min > 0, or using the amplitude instead of the range. ΔK comes from the stress range Δσ; when σ_min < 0 the compressive part is usually not counted (Δσ = σ_max in that case). Fourth, entering the total length (diameter) of a center crack as a; a in the equation is the half-length. Fifth, mixing up 2N_f (reversals) and N_f (cycles) in the Basquin equation."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is a for a center crack the total length or half of it?",
+          "a": "Half. In K = Yσ√(πa), a is half the total length 2a for an internal center crack, and the depth for a crack from an edge or surface. Entering the total length gives K √2 times too large."
+        },
+        {
+          "q": "Can I enter crack lengths in mm?",
+          "a": "Yes, enter mm in this tool. They are converted to m inside the equations (the equations on screen show the m values too). When calculating by hand, put a in m for K in MPa√m."
+        },
+        {
+          "q": "How is ΔK taken when σ_min is negative (compressive)?",
+          "a": "Textbooks such as Norton take ΔK = K_max (Δσ = σ_max) when K_min < 0, because the crack is closed during compression and hardly grows. This is the tool’s default. Choose “Full range σ_max − σ_min” to use the full range. What matters is to match the convention used when your C and m were measured."
+        },
+        {
+          "q": "Where do I get the Paris law C and m?",
+          "a": "Ideally from crack growth data measured for the material, environment and stress ratio (tests such as ASTM E647). As guides, the presets include Barsom’s upper-bound equations for types of steel (ferrite–pearlite steels C = 6.9×10⁻¹², m = 3.0 and so on, in m/cycle and MPa√m) and the BS 7910 simplified law. The units of C depend on m, so always check the unit system."
+        },
+        {
+          "q": "Why is a numerical integration shown as well?",
+          "a": "When the geometry factor Y depends on the crack length (a plate of finite width, for example) there is no closed form, so the integral is evaluated numerically. With constant Y both the closed form and the numerical integral are shown, to show that they agree closely."
+        },
+        {
+          "q": "Should I use modified Goodman or Gerber?",
+          "a": "The Gerber parabola fits test data for ductile metals well, and the modified Goodman line is more conservative. Designs often use modified Goodman as the standard, and Soderberg (the most conservative) when yielding must also be avoided. If you have material data, compare them and choose."
+        },
+        {
+          "q": "Is a part safe if Miner’s D is below 1?",
+          "a": "Not necessarily. Miner’s rule ignores sequence effects, and high stresses applied first can cause failure at D < 1. Designs sometimes set an allowable D below 1. Follow the applicable codes and in-house criteria."
+        }
+      ]
+    }
+  }
+}
