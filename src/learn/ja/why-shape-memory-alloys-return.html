@@ -1,0 +1,506 @@
+<!--
+{
+  "title": "形状記憶合金はなぜ元の形に戻るの? 温めると戻るしくみと超弾性",
+  "description": "形状記憶合金は、温度で原子の並び方が切り替わる合金です。曲げても原子の隣どうしの関係が変わらないので、温めると元の並びと形に戻ります。メガネや歯の矯正ワイヤーが曲げても戻る超弾性、変態温度の決まり方、使われ方と限界まで解説します。",
+  "series": "everyday-materials",
+  "order": 5,
+  "minutes": 12,
+  "updated": "2026-11-04",
+  "review": "2027-11",
+  "cats": ["functional-alloys", "crystal", "heat-treatment"],
+  "terms": ["形状記憶効果", "超弾性", "熱弾性型マルテンサイト変態"],
+  "sources": [
+    { "title": "University of Cambridge, DoITPoMS Teaching and Learning Package「Superelasticity and Shape Memory Alloys」(マルテンサイト変態は拡散なしのせん断型で、原子は原子間距離の一部だけ動く。マルテンサイトは内部が双晶。二方向の形状記憶効果はより複雑な熱処理と加工(訓練)で得られる。変形のすべてが変態によるときだけ元の形に戻り、大きすぎるひずみでは転位のすべりが起きて戻らない。超弾性で約8 %までのひずみが戻り、ふつうの金属の弾性ひずみは約0.5 %まで。超弾性の応力–ひずみ曲線にヒステリシス。繰り返しで欠陥がたまり、戻るひずみと力が下がる。メガネのフレーム、歯の矯正ワイヤー、ステント、温室の窓などのアクチュエータ。Ni-Ti はほぼ等原子比)", "url": "https://www.doitpoms.ac.uk/tlplib/superelasticity/printall.php" },
+    { "title": "筑波大学 金・高研究室(形状記憶合金の研究室)「形状記憶合金のメカニズム」(熱弾性型マルテンサイト変態。変態と逆変態の温度の差は鉄系を除き数度から数十度。三次元の結晶では24通りの兄弟晶ができ、互いのひずみを打ち消すので外形は変わらない。マルテンサイトはゴムのように柔らかく、境界が低い応力で動き、転位はできない。外力で向きの合う兄弟晶が育って変形し、加熱で母相に戻り形が元に戻る。逆変態温度以上では外力を除くだけで戻る(超弾性))", "url": "https://www.ims.tsukuba.ac.jp/~sma_lab/shapememoryalloy/mechanism/" },
+    { "title": "コトバンク「形状記憶合金」(化学辞典 第2版・日本大百科全書・ブリタニカ国際大百科事典ほか)(原子の拡散を伴わず結晶全体が連携を保ってせん断的に動くマルテンサイト変態。低温では方位の異なるバリアントができ外形は変わらない。ふつうの金属の変形は転位の運動による塑性変形。ほぼ1:1組成の Ti-Ni が最も有名で、Cu-Al-Ni・Cu-Zn-Al・Fe-Mn-Si なども。Ni-Ti は高価。用途に配管の継手、歯列矯正、温室の自動天窓開閉器、ボイラの湯量調節器)", "url": "https://kotobank.jp/word/%E5%BD%A2%E7%8A%B6%E8%A8%98%E6%86%B6%E5%90%88%E9%87%91" },
+    { "title": "Johnson Matthey, Medical Components「How does nitinol work?」(閲覧 2026年11月)(高温の強い相(オーステナイト)から冷やすと軟らかい相に変わり、加熱で元の形に戻る。マルテンサイトは最大8 %の戻るひずみ。変態温度は組成と熱処理で変えられ、Ni-Ti では +100 ℃より上から −100 ℃より下まで。変態温度の少し上で変形すると力でマルテンサイトができ、力を除くとすぐ戻る)", "url": "https://matthey.com/products-and-services/medical-components/resource-library/how-does-nitinol-work" },
+    { "title": "Johnson Matthey, Medical Components「Nitinol shape setting」(閲覧 2026年11月)(記憶させる形の型に固定して熱処理する。400 ℃でも可能だが、500 ℃に近い温度がよく使われる。時間は5分を超えることが多い。高い温度・長い時間ほど動作の温度が上がる)", "url": "https://matthey.com/en/products-and-services/medical-components/resource-library/nitinol-shape-setting" },
+    { "title": "T. Duerig, A. Pelton, D. Stöckel, An overview of nitinol medical applications, Materials Science and Engineering A 273–275, pp.149–160 (1999)(Ni-Ti はほぼ等原子比。超弾性のメガネのフレームは180°ねじっても戻る。矯正ワイヤーは一定の力を使った最初の製品。超弾性の力はひずみではなく温度で決まる。自己拡張型ステントは開いた形を記憶させて細く畳んでカテーテルで運ぶ。Af は体温より確実に低くする。ヒステリシス。疲労。矯正装置からのニッケル溶出の調査。p.151–157)", "url": "https://confluentmedical.com/wp-content/uploads/2023/05/029.pdf" },
+    { "title": "髙岡慧・垣生哲史(古河テクノマテリアル)「生体材料工学研究所と臨産学連携」東京医科歯科大学 生体材料工学研究所 60年史(世界で初めて超弾性合金として実用化に成功したのは諏訪精工舎と古河電気工業の眼鏡フレームと記す。トミーが開発した超弾性の歯列矯正用アーチワイヤーは1985年12月に厚生省の認可。のちにガイドワイヤー、ステント用チューブへ展開)", "url": "https://www.tmd.ac.jp/artis-cms/cms-files/Ti4.pdf" },
+    { "title": "Dentsply Sirona, A. Teramoto「SENTALLOY: The story of Superelasticity」(ホワイトペーパー)(三浦不二夫らとトミー・古河電工の共同研究による超弾性 Ni-Ti 矯正ワイヤーが、1985年に SENTALLOY の名で発売された)", "url": "https://dentsplysirona.com/content/dam/master/education/documents/upload/W/WHITE-PAPER---SENTALLOY---The-story-of-Superelasticity-by-Dr-Alberto-Teramoto-lnbffjq-en-1509.pdf" },
+    { "title": "C. M. Wayman, About Shape Memory Alloys, Transactions of the Materials Research Society of Japan 19B, pp.973–998 (1994)(冷やしてできたマルテンサイトは自己調整して外形が変わらない。力をかけると向きの合うバリアントが境界の移動で育つ。マルテンサイトは来た道を逆にたどって母相に戻る。二方向の形状記憶には変態を繰り返すなどの熱と加工の処理が要る。応力誘起マルテンサイトに要る応力は温度とともに上がる。鋼のマルテンサイトは逆変態せず焼戻しが起こるので、ふつう形状記憶を示さない)", "url": "https://www.mrs-j.org/pub/tmrsj/vol19B/vol19B_0973.pdf" },
+    { "title": "J. M. Jani, M. Leary, A. Subic, M. A. Gibson, A review of shape memory alloy research, applications and opportunities, Materials & Design 56, pp.1078–1113 (2014)(二方向の形状記憶は訓練が必要で、戻るひずみはふつう一方向の半分ほど。ひずみは劣化しやすい)", "url": "https://doi.org/10.1016/j.matdes.2013.11.084" },
+    { "title": "コトバンク「双晶」(世界大百科事典・日本大百科全書・ブリタニカ国際大百科事典ほか)(双晶は、2つの部分が境界の面に対して鏡に映した関係(鏡映)にあることが多く、その面を双晶面と呼ぶ)", "url": "https://kotobank.jp/word/%E5%8F%8C%E6%99%B6" }
+  ]
+}
+-->
+<p class="lead">形状記憶合金は、温度によって原子の並び方が2種類に切り替わる合金です。低い温度の並び方では、結晶の中に右向きと左向きに傾いた部分が交互に並んでいます。曲げると傾きの向きがそろうだけなので、原子の隣どうしの組み合わせは変わりません。温めると高い温度の並び方に戻り、その戻り方が一通りしかないので、形も元に戻ります。使う温度ですでに高い温度の並び方になっている合金では、力をかけたときだけ並び方が変わり、力を抜くとすぐに戻ります。これが、メガネのフレームや歯の矯正ワイヤーの「曲げても戻る」性質(超弾性)です。</p>
+
+<div class="learn-box"><p class="learn-box-h">この記事でわかること</p><ul>
+<li>ふつうの針金が、曲げると曲がったままになる理由</li>
+<li>形状記憶合金の中で、温度によって原子の並び方が切り替わること</li>
+<li>曲げても原子の隣どうしが変わらず、温めると元の形に戻るしくみ</li>
+<li>温めなくても、力を抜くだけで戻る「超弾性」のしくみ</li>
+<li>戻る温度の決め方、使われているところ、何回でも戻るわけではない限界</li>
+</ul><p class="muted">前提知識: 物は原子が集まってできている、という中学の理科の知識があれば読めます。</p></div>
+
+<section>
+<h2>身近なところでは</h2>
+<p>科学館や理科の実験で、こんな場面を見たことがあるかもしれません。まっすぐな針金をぐにゃぐにゃに曲げてから、お湯につけます。すると針金は、一瞬でまっすぐな形に戻ります。</p>
+<p>身の回りにも、よく似た材料があります。細いメタルフレームのメガネには、つるをねじってもパッと戻るものがあります。歯の矯正に使う細いワイヤーも、指で曲げても元の形に戻ります。こちらは、お湯につけなくても戻ります。</p>
+<p>どちらも、形状記憶合金と呼ばれる種類の合金です。代表は、ニッケル(Ni)とチタン(Ti)をほぼ同じ数の原子ずつ混ぜた Ni-Ti 合金です。ふつうの鉄や銅の針金は、曲げたら曲がったままで、お湯につけても戻りません。何が違うのでしょうか。</p>
+</section>
+
+<section>
+<h2>まず、ふつうの針金はなぜ曲がったままなのか</h2>
+<p>金属の中では、原子が規則正しく並んでいます。これを結晶と呼びます。小さな力なら、原子と原子の間がばねのように少し伸びるだけで、力を抜けば元に戻ります。ただし多くの金属で、こうして戻れる伸びは長さの0.5 %ほどまでです。</p>
+<p>それ以上曲げると、結晶の中で原子の面がずるっとずれます。ずれは一度に起こるのではなく、線のような乱れが結晶の中を通り抜けることで進みます。この乱れを{{term:転位}}と呼びます。転位が通った後は、ずれた面の上と下で、原子の隣どうしの組み合わせが入れ替わっています(図1)。</p>
+<p>新しい組み合わせも、元の組み合わせと同じくらい安定です。そのため、力を抜いても温めても、原子が元の相手のところへ戻る理由がありません。ふつうの針金が曲がったままになるのは、このためです。</p>
+<figure class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 196" role="img"><title>ふつうの金属では、原子の面が原子1個分ずれ、上下の隣どうしの組み合わせが入れ替わる</title>
+<text x="72" y="36" text-anchor="middle" class="sm">元の並び</text>
+<text x="254" y="36" text-anchor="middle" class="sm">面がずれた後</text>
+<line x1="40" y1="120" x2="104" y2="120" class="thin"/>
+<line x1="40" y1="104" x2="104" y2="104" class="thin"/>
+<line x1="40" y1="120" x2="40" y2="104" class="thin"/>
+<line x1="56" y1="120" x2="56" y2="104" class="thin"/>
+<line x1="72" y1="120" x2="72" y2="104" class="thin"/>
+<line x1="88" y1="120" x2="88" y2="104" class="thin"/>
+<line x1="104" y1="120" x2="104" y2="104" class="thin"/>
+<line x1="40" y1="88" x2="104" y2="88" class="thin"/>
+<line x1="40" y1="104" x2="40" y2="88" class="thin"/>
+<line x1="56" y1="104" x2="56" y2="88" class="thin"/>
+<line x1="72" y1="104" x2="72" y2="88" class="thin"/>
+<line x1="88" y1="104" x2="88" y2="88" class="thin"/>
+<line x1="104" y1="104" x2="104" y2="88" class="thin"/>
+<line x1="40" y1="72" x2="104" y2="72" class="thin"/>
+<line x1="40" y1="88" x2="40" y2="72" class="thin"/>
+<line x1="56" y1="88" x2="56" y2="72" class="thin"/>
+<line x1="72" y1="88" x2="72" y2="72" class="thin"/>
+<line x1="88" y1="88" x2="88" y2="72" class="thin"/>
+<line x1="104" y1="88" x2="104" y2="72" class="thin"/>
+<line x1="40" y1="56" x2="104" y2="56" class="thin"/>
+<line x1="40" y1="72" x2="40" y2="56" class="thin"/>
+<line x1="56" y1="72" x2="56" y2="56" class="thin"/>
+<line x1="72" y1="72" x2="72" y2="56" class="thin"/>
+<line x1="88" y1="72" x2="88" y2="56" class="thin"/>
+<line x1="104" y1="72" x2="104" y2="56" class="thin"/>
+<circle cx="40" cy="120" r="4.5" class="ok"/>
+<circle cx="56" cy="120" r="4.5" class="ok"/>
+<circle cx="72" cy="120" r="4.5" class="ok"/>
+<circle cx="88" cy="120" r="4.5" class="ok"/>
+<circle cx="104" cy="120" r="4.5" class="ok"/>
+<circle cx="40" cy="104" r="4.5" class="ok"/>
+<circle cx="56" cy="104" r="4.5" class="ok"/>
+<circle cx="72" cy="104" r="4.5" class="ok"/>
+<circle cx="88" cy="104" r="4.5" class="ok"/>
+<circle cx="104" cy="104" r="4.5" class="ok"/>
+<circle cx="40" cy="88" r="4.5" class="ok"/>
+<circle cx="56" cy="88" r="4.5" class="ok"/>
+<circle cx="72" cy="88" r="4.5" class="ok"/>
+<circle cx="88" cy="88" r="4.5" class="ok"/>
+<circle cx="104" cy="88" r="4.5" class="ok"/>
+<circle cx="40" cy="72" r="4.5" class="ok"/>
+<circle cx="56" cy="72" r="4.5" class="ok"/>
+<circle cx="72" cy="72" r="4.5" class="ok"/>
+<circle cx="88" cy="72" r="4.5" class="ok"/>
+<circle cx="104" cy="72" r="4.5" class="ok"/>
+<circle cx="40" cy="56" r="4.5" class="ok"/>
+<circle cx="56" cy="56" r="4.5" class="ok"/>
+<circle cx="72" cy="56" r="4.5" class="ok"/>
+<circle cx="88" cy="56" r="4.5" class="ok"/>
+<circle cx="104" cy="56" r="4.5" class="ok"/>
+<line x1="206" y1="120" x2="270" y2="120" class="thin"/>
+<line x1="206" y1="104" x2="270" y2="104" class="thin"/>
+<line x1="206" y1="120" x2="206" y2="104" class="thin"/>
+<line x1="222" y1="120" x2="222" y2="104" class="thin"/>
+<line x1="238" y1="120" x2="238" y2="104" class="thin"/>
+<line x1="254" y1="120" x2="254" y2="104" class="thin"/>
+<line x1="270" y1="120" x2="270" y2="104" class="thin"/>
+<line x1="206" y1="88" x2="270" y2="88" class="thin"/>
+<line x1="206" y1="104" x2="206" y2="88" class="thin"/>
+<line x1="222" y1="104" x2="222" y2="88" class="thin"/>
+<line x1="238" y1="104" x2="238" y2="88" class="thin"/>
+<line x1="254" y1="104" x2="254" y2="88" class="thin"/>
+<line x1="270" y1="104" x2="270" y2="88" class="thin"/>
+<line x1="222" y1="72" x2="286" y2="72" class="thin"/>
+<line x1="222" y1="88" x2="222" y2="72" class="thin"/>
+<line x1="238" y1="88" x2="238" y2="72" class="thin"/>
+<line x1="254" y1="88" x2="254" y2="72" class="thin"/>
+<line x1="270" y1="88" x2="270" y2="72" class="thin"/>
+<line x1="222" y1="56" x2="286" y2="56" class="thin"/>
+<line x1="222" y1="72" x2="222" y2="56" class="thin"/>
+<line x1="238" y1="72" x2="238" y2="56" class="thin"/>
+<line x1="254" y1="72" x2="254" y2="56" class="thin"/>
+<line x1="270" y1="72" x2="270" y2="56" class="thin"/>
+<line x1="286" y1="72" x2="286" y2="56" class="thin"/>
+<circle cx="206" cy="120" r="4.5" class="ok"/>
+<circle cx="222" cy="120" r="4.5" class="ok"/>
+<circle cx="238" cy="120" r="4.5" class="ok"/>
+<circle cx="254" cy="120" r="4.5" class="ok"/>
+<circle cx="270" cy="120" r="4.5" class="ok"/>
+<circle cx="206" cy="104" r="4.5" class="ok"/>
+<circle cx="222" cy="104" r="4.5" class="ok"/>
+<circle cx="238" cy="104" r="4.5" class="ok"/>
+<circle cx="254" cy="104" r="4.5" class="ok"/>
+<circle cx="270" cy="104" r="4.5" class="ok"/>
+<circle cx="206" cy="88" r="4.5" class="ok"/>
+<circle cx="222" cy="88" r="4.5" class="ok"/>
+<circle cx="238" cy="88" r="4.5" class="ok"/>
+<circle cx="254" cy="88" r="4.5" class="ok"/>
+<circle cx="270" cy="88" r="4.5" class="ok"/>
+<circle cx="222" cy="72" r="4.5" class="ok"/>
+<circle cx="238" cy="72" r="4.5" class="ok"/>
+<circle cx="254" cy="72" r="4.5" class="ok"/>
+<circle cx="270" cy="72" r="4.5" class="ok"/>
+<circle cx="286" cy="72" r="4.5" class="ok"/>
+<circle cx="222" cy="56" r="4.5" class="ok"/>
+<circle cx="238" cy="56" r="4.5" class="ok"/>
+<circle cx="254" cy="56" r="4.5" class="ok"/>
+<circle cx="270" cy="56" r="4.5" class="ok"/>
+<circle cx="286" cy="56" r="4.5" class="ok"/>
+<circle cx="56" cy="88" r="4.5" class="fa"/>
+<circle cx="56" cy="72" r="4.5" class="fa"/>
+<circle cx="222" cy="88" r="4.5" class="fa"/>
+<circle cx="238" cy="72" r="4.5" class="fa"/>
+<line x1="200" y1="80" x2="300" y2="80" class="dash"/>
+<line x1="118" y1="88" x2="184" y2="88" class="ac"/><polygon points="194,88 184,82 184,94" class="fa"/>
+<text x="151" y="78" text-anchor="middle" class="sm">力</text>
+<text x="170" y="156" text-anchor="middle" class="sm">色を付けた2個は、もう隣どうしではない</text>
+<text x="170" y="178" text-anchor="middle" class="m">→ 力を抜いても、温めても戻らない</text>
+</svg><figcaption class="fig-cap">左は元の結晶、右は点線の面で上の2段が原子1個分ずれた後。線は隣どうしの原子をつないだもの。省略・誇張していること: 実際は転位が一段ずつ通り抜けてずれが進み、1回のずれは目に見えないほど小さい。原子は小さく描いた(実際は接している)。</figcaption></figure>
+</section>
+
+<section>
+<h2>しくみ1: 温度で、原子の並び方が切り替わる</h2>
+<p>形状記憶合金の結晶には、温度によって2種類の並び方があります。高い温度で安定な並び方を「母相(ぼそう)」と呼びます。</p>
+<p>温度を下げると、ある温度で、結晶全体が別の並び方に切り替わります。この低い温度の並び方を{{term:マルテンサイト}}と呼びます。</p>
+<p>並び方が切り替わることを、変態と呼びます。この変態では、原子は遠くへ動きません。隣どうしの原子が手をつないだまま、一斉に少しずつずれます。一つの原子が動く距離は、原子と原子の間の距離より短いのです。温度を上げれば、同じ道をたどって母相の並び方に戻ります。</p>
+<p>Ni-Ti など多くの形状記憶合金では、温度を上げ下げするだけで、この変態を行ったり来たりできます。このような変態を、{{term:熱弾性型マルテンサイト変態}}と呼びます。冷やすときに変態する温度と、温めて戻る温度の差は、鉄系の合金を除くと数度から数十度です。</p>
+</section>
+
+<section>
+<h2>しくみ2: マルテンサイトは、傾いた部分が交互に並ぶ</h2>
+<p>母相からマルテンサイトに変わるとき、原子の並びはななめにゆがみます。ところが、結晶全体が同じ向きにゆがむわけではありません。右に傾いた部分と左に傾いた部分が、薄い層になって交互にできます(図2の右上)。</p>
+<p>このように、向きだけが違う同じ並び方が、境目をはさんで鏡に映したような関係で並んだものを、双晶(そうしょう)と呼びます。実際の立体の結晶では、傾きの向きが24通りあります。それらが互いのゆがみを打ち消すように組み合わさるので、冷やしても外の形はほとんど変わりません。</p>
+<figure class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 372" role="img"><title>母相を冷やすと双晶のマルテンサイトになり形は変わらない。力をかけると傾きがそろって形が変わり、温めると母相と元の形に戻る</title>
+<text x="72" y="50" text-anchor="middle" class="sm">母相(高い温度)</text>
+<text x="250" y="50" text-anchor="middle" class="sm">マルテンサイト(双晶)</text>
+<text x="265" y="240" text-anchor="middle" class="sm">傾きがそろう</text>
+<text x="72" y="240" text-anchor="middle" class="sm">母相に戻る</text>
+<line x1="40" y1="130" x2="104" y2="130" class="thin"/>
+<line x1="40" y1="114" x2="104" y2="114" class="thin"/>
+<line x1="40" y1="130" x2="40" y2="114" class="thin"/>
+<line x1="56" y1="130" x2="56" y2="114" class="thin"/>
+<line x1="72" y1="130" x2="72" y2="114" class="thin"/>
+<line x1="88" y1="130" x2="88" y2="114" class="thin"/>
+<line x1="104" y1="130" x2="104" y2="114" class="thin"/>
+<line x1="40" y1="98" x2="104" y2="98" class="thin"/>
+<line x1="40" y1="114" x2="40" y2="98" class="thin"/>
+<line x1="56" y1="114" x2="56" y2="98" class="thin"/>
+<line x1="72" y1="114" x2="72" y2="98" class="thin"/>
+<line x1="88" y1="114" x2="88" y2="98" class="thin"/>
+<line x1="104" y1="114" x2="104" y2="98" class="thin"/>
+<line x1="40" y1="82" x2="104" y2="82" class="thin"/>
+<line x1="40" y1="98" x2="40" y2="82" class="thin"/>
+<line x1="56" y1="98" x2="56" y2="82" class="thin"/>
+<line x1="72" y1="98" x2="72" y2="82" class="thin"/>
+<line x1="88" y1="98" x2="88" y2="82" class="thin"/>
+<line x1="104" y1="98" x2="104" y2="82" class="thin"/>
+<line x1="40" y1="66" x2="104" y2="66" class="thin"/>
+<line x1="40" y1="82" x2="40" y2="66" class="thin"/>
+<line x1="56" y1="82" x2="56" y2="66" class="thin"/>
+<line x1="72" y1="82" x2="72" y2="66" class="thin"/>
+<line x1="88" y1="82" x2="88" y2="66" class="thin"/>
+<line x1="104" y1="82" x2="104" y2="66" class="thin"/>
+<circle cx="40" cy="130" r="4.5" class="ok"/>
+<circle cx="56" cy="130" r="4.5" class="ok"/>
+<circle cx="72" cy="130" r="4.5" class="ok"/>
+<circle cx="88" cy="130" r="4.5" class="ok"/>
+<circle cx="104" cy="130" r="4.5" class="ok"/>
+<circle cx="40" cy="114" r="4.5" class="ok"/>
+<circle cx="56" cy="114" r="4.5" class="ok"/>
+<circle cx="72" cy="114" r="4.5" class="ok"/>
+<circle cx="88" cy="114" r="4.5" class="ok"/>
+<circle cx="104" cy="114" r="4.5" class="ok"/>
+<circle cx="40" cy="98" r="4.5" class="ok"/>
+<circle cx="56" cy="98" r="4.5" class="ok"/>
+<circle cx="72" cy="98" r="4.5" class="ok"/>
+<circle cx="88" cy="98" r="4.5" class="ok"/>
+<circle cx="104" cy="98" r="4.5" class="ok"/>
+<circle cx="40" cy="82" r="4.5" class="ok"/>
+<circle cx="56" cy="82" r="4.5" class="ok"/>
+<circle cx="72" cy="82" r="4.5" class="ok"/>
+<circle cx="88" cy="82" r="4.5" class="ok"/>
+<circle cx="104" cy="82" r="4.5" class="ok"/>
+<circle cx="40" cy="66" r="4.5" class="ok"/>
+<circle cx="56" cy="66" r="4.5" class="ok"/>
+<circle cx="72" cy="66" r="4.5" class="ok"/>
+<circle cx="88" cy="66" r="4.5" class="ok"/>
+<circle cx="104" cy="66" r="4.5" class="ok"/>
+<line x1="206" y1="130" x2="270" y2="130" class="thin"/>
+<line x1="213" y1="114" x2="277" y2="114" class="thin"/>
+<line x1="206" y1="130" x2="213" y2="114" class="thin"/>
+<line x1="222" y1="130" x2="229" y2="114" class="thin"/>
+<line x1="238" y1="130" x2="245" y2="114" class="thin"/>
+<line x1="254" y1="130" x2="261" y2="114" class="thin"/>
+<line x1="270" y1="130" x2="277" y2="114" class="thin"/>
+<line x1="220" y1="98" x2="284" y2="98" class="thin"/>
+<line x1="213" y1="114" x2="220" y2="98" class="thin"/>
+<line x1="229" y1="114" x2="236" y2="98" class="thin"/>
+<line x1="245" y1="114" x2="252" y2="98" class="thin"/>
+<line x1="261" y1="114" x2="268" y2="98" class="thin"/>
+<line x1="277" y1="114" x2="284" y2="98" class="thin"/>
+<line x1="213" y1="82" x2="277" y2="82" class="thin"/>
+<line x1="220" y1="98" x2="213" y2="82" class="thin"/>
+<line x1="236" y1="98" x2="229" y2="82" class="thin"/>
+<line x1="252" y1="98" x2="245" y2="82" class="thin"/>
+<line x1="268" y1="98" x2="261" y2="82" class="thin"/>
+<line x1="284" y1="98" x2="277" y2="82" class="thin"/>
+<line x1="206" y1="66" x2="270" y2="66" class="thin"/>
+<line x1="213" y1="82" x2="206" y2="66" class="thin"/>
+<line x1="229" y1="82" x2="222" y2="66" class="thin"/>
+<line x1="245" y1="82" x2="238" y2="66" class="thin"/>
+<line x1="261" y1="82" x2="254" y2="66" class="thin"/>
+<line x1="277" y1="82" x2="270" y2="66" class="thin"/>
+<circle cx="206" cy="130" r="4.5" class="ok"/>
+<circle cx="222" cy="130" r="4.5" class="ok"/>
+<circle cx="238" cy="130" r="4.5" class="ok"/>
+<circle cx="254" cy="130" r="4.5" class="ok"/>
+<circle cx="270" cy="130" r="4.5" class="ok"/>
+<circle cx="213" cy="114" r="4.5" class="ok"/>
+<circle cx="229" cy="114" r="4.5" class="ok"/>
+<circle cx="245" cy="114" r="4.5" class="ok"/>
+<circle cx="261" cy="114" r="4.5" class="ok"/>
+<circle cx="277" cy="114" r="4.5" class="ok"/>
+<circle cx="220" cy="98" r="4.5" class="ok"/>
+<circle cx="236" cy="98" r="4.5" class="ok"/>
+<circle cx="252" cy="98" r="4.5" class="ok"/>
+<circle cx="268" cy="98" r="4.5" class="ok"/>
+<circle cx="284" cy="98" r="4.5" class="ok"/>
+<circle cx="213" cy="82" r="4.5" class="ok"/>
+<circle cx="229" cy="82" r="4.5" class="ok"/>
+<circle cx="245" cy="82" r="4.5" class="ok"/>
+<circle cx="261" cy="82" r="4.5" class="ok"/>
+<circle cx="277" cy="82" r="4.5" class="ok"/>
+<circle cx="206" cy="66" r="4.5" class="ok"/>
+<circle cx="222" cy="66" r="4.5" class="ok"/>
+<circle cx="238" cy="66" r="4.5" class="ok"/>
+<circle cx="254" cy="66" r="4.5" class="ok"/>
+<circle cx="270" cy="66" r="4.5" class="ok"/>
+<line x1="206" y1="320" x2="270" y2="320" class="thin"/>
+<line x1="213" y1="304" x2="277" y2="304" class="thin"/>
+<line x1="206" y1="320" x2="213" y2="304" class="thin"/>
+<line x1="222" y1="320" x2="229" y2="304" class="thin"/>
+<line x1="238" y1="320" x2="245" y2="304" class="thin"/>
+<line x1="254" y1="320" x2="261" y2="304" class="thin"/>
+<line x1="270" y1="320" x2="277" y2="304" class="thin"/>
+<line x1="220" y1="288" x2="284" y2="288" class="thin"/>
+<line x1="213" y1="304" x2="220" y2="288" class="thin"/>
+<line x1="229" y1="304" x2="236" y2="288" class="thin"/>
+<line x1="245" y1="304" x2="252" y2="288" class="thin"/>
+<line x1="261" y1="304" x2="268" y2="288" class="thin"/>
+<line x1="277" y1="304" x2="284" y2="288" class="thin"/>
+<line x1="227" y1="272" x2="291" y2="272" class="thin"/>
+<line x1="220" y1="288" x2="227" y2="272" class="thin"/>
+<line x1="236" y1="288" x2="243" y2="272" class="thin"/>
+<line x1="252" y1="288" x2="259" y2="272" class="thin"/>
+<line x1="268" y1="288" x2="275" y2="272" class="thin"/>
+<line x1="284" y1="288" x2="291" y2="272" class="thin"/>
+<line x1="234" y1="256" x2="298" y2="256" class="thin"/>
+<line x1="227" y1="272" x2="234" y2="256" class="thin"/>
+<line x1="243" y1="272" x2="250" y2="256" class="thin"/>
+<line x1="259" y1="272" x2="266" y2="256" class="thin"/>
+<line x1="275" y1="272" x2="282" y2="256" class="thin"/>
+<line x1="291" y1="272" x2="298" y2="256" class="thin"/>
+<circle cx="206" cy="320" r="4.5" class="ok"/>
+<circle cx="222" cy="320" r="4.5" class="ok"/>
+<circle cx="238" cy="320" r="4.5" class="ok"/>
+<circle cx="254" cy="320" r="4.5" class="ok"/>
+<circle cx="270" cy="320" r="4.5" class="ok"/>
+<circle cx="213" cy="304" r="4.5" class="ok"/>
+<circle cx="229" cy="304" r="4.5" class="ok"/>
+<circle cx="245" cy="304" r="4.5" class="ok"/>
+<circle cx="261" cy="304" r="4.5" class="ok"/>
+<circle cx="277" cy="304" r="4.5" class="ok"/>
+<circle cx="220" cy="288" r="4.5" class="ok"/>
+<circle cx="236" cy="288" r="4.5" class="ok"/>
+<circle cx="252" cy="288" r="4.5" class="ok"/>
+<circle cx="268" cy="288" r="4.5" class="ok"/>
+<circle cx="284" cy="288" r="4.5" class="ok"/>
+<circle cx="227" cy="272" r="4.5" class="ok"/>
+<circle cx="243" cy="272" r="4.5" class="ok"/>
+<circle cx="259" cy="272" r="4.5" class="ok"/>
+<circle cx="275" cy="272" r="4.5" class="ok"/>
+<circle cx="291" cy="272" r="4.5" class="ok"/>
+<circle cx="234" cy="256" r="4.5" class="ok"/>
+<circle cx="250" cy="256" r="4.5" class="ok"/>
+<circle cx="266" cy="256" r="4.5" class="ok"/>
+<circle cx="282" cy="256" r="4.5" class="ok"/>
+<circle cx="298" cy="256" r="4.5" class="ok"/>
+<line x1="40" y1="320" x2="104" y2="320" class="thin"/>
+<line x1="40" y1="304" x2="104" y2="304" class="thin"/>
+<line x1="40" y1="320" x2="40" y2="304" class="thin"/>
+<line x1="56" y1="320" x2="56" y2="304" class="thin"/>
+<line x1="72" y1="320" x2="72" y2="304" class="thin"/>
+<line x1="88" y1="320" x2="88" y2="304" class="thin"/>
+<line x1="104" y1="320" x2="104" y2="304" class="thin"/>
+<line x1="40" y1="288" x2="104" y2="288" class="thin"/>
+<line x1="40" y1="304" x2="40" y2="288" class="thin"/>
+<line x1="56" y1="304" x2="56" y2="288" class="thin"/>
+<line x1="72" y1="304" x2="72" y2="288" class="thin"/>
+<line x1="88" y1="304" x2="88" y2="288" class="thin"/>
+<line x1="104" y1="304" x2="104" y2="288" class="thin"/>
+<line x1="40" y1="272" x2="104" y2="272" class="thin"/>
+<line x1="40" y1="288" x2="40" y2="272" class="thin"/>
+<line x1="56" y1="288" x2="56" y2="272" class="thin"/>
+<line x1="72" y1="288" x2="72" y2="272" class="thin"/>
+<line x1="88" y1="288" x2="88" y2="272" class="thin"/>
+<line x1="104" y1="288" x2="104" y2="272" class="thin"/>
+<line x1="40" y1="256" x2="104" y2="256" class="thin"/>
+<line x1="40" y1="272" x2="40" y2="256" class="thin"/>
+<line x1="56" y1="272" x2="56" y2="256" class="thin"/>
+<line x1="72" y1="272" x2="72" y2="256" class="thin"/>
+<line x1="88" y1="272" x2="88" y2="256" class="thin"/>
+<line x1="104" y1="272" x2="104" y2="256" class="thin"/>
+<circle cx="40" cy="320" r="4.5" class="ok"/>
+<circle cx="56" cy="320" r="4.5" class="ok"/>
+<circle cx="72" cy="320" r="4.5" class="ok"/>
+<circle cx="88" cy="320" r="4.5" class="ok"/>
+<circle cx="104" cy="320" r="4.5" class="ok"/>
+<circle cx="40" cy="304" r="4.5" class="ok"/>
+<circle cx="56" cy="304" r="4.5" class="ok"/>
+<circle cx="72" cy="304" r="4.5" class="ok"/>
+<circle cx="88" cy="304" r="4.5" class="ok"/>
+<circle cx="104" cy="304" r="4.5" class="ok"/>
+<circle cx="40" cy="288" r="4.5" class="ok"/>
+<circle cx="56" cy="288" r="4.5" class="ok"/>
+<circle cx="72" cy="288" r="4.5" class="ok"/>
+<circle cx="88" cy="288" r="4.5" class="ok"/>
+<circle cx="104" cy="288" r="4.5" class="ok"/>
+<circle cx="40" cy="272" r="4.5" class="ok"/>
+<circle cx="56" cy="272" r="4.5" class="ok"/>
+<circle cx="72" cy="272" r="4.5" class="ok"/>
+<circle cx="88" cy="272" r="4.5" class="ok"/>
+<circle cx="104" cy="272" r="4.5" class="ok"/>
+<circle cx="40" cy="256" r="4.5" class="ok"/>
+<circle cx="56" cy="256" r="4.5" class="ok"/>
+<circle cx="72" cy="256" r="4.5" class="ok"/>
+<circle cx="88" cy="256" r="4.5" class="ok"/>
+<circle cx="104" cy="256" r="4.5" class="ok"/>
+<circle cx="56" cy="98" r="4.5" class="fa"/>
+<circle cx="56" cy="82" r="4.5" class="fa"/>
+<circle cx="236" cy="98" r="4.5" class="fa"/>
+<circle cx="229" cy="82" r="4.5" class="fa"/>
+<circle cx="236" cy="288" r="4.5" class="fa"/>
+<circle cx="243" cy="272" r="4.5" class="fa"/>
+<circle cx="56" cy="288" r="4.5" class="fa"/>
+<circle cx="56" cy="272" r="4.5" class="fa"/>
+<line x1="118" y1="98" x2="186" y2="98" class="ac"/><polygon points="196,98 186,92 186,104" class="fa"/>
+<text x="152" y="88" text-anchor="middle" class="sm">冷やす</text>
+<line x1="250" y1="146" x2="250" y2="210" class="ac"/><polygon points="250,220 244,210 256,210" class="fa"/>
+<text x="258" y="186" text-anchor="start" class="sm">力をかける</text>
+<line x1="192" y1="288" x2="122" y2="288" class="ac"/><polygon points="112,288 122,282 122,294" class="fa"/>
+<text x="152" y="278" text-anchor="middle" class="sm">温める</text>
+<circle cx="40" cy="352" r="4.5" class="fa"/><text x="52" y="357" text-anchor="start" class="sm">色の2個は、どの段階でも上下の隣どうし</text>
+</svg><figcaption class="fig-cap">形状記憶効果の流れを、原子の並びの断面で描いた模式図。線は隣どうしの原子をつないだもの。省略・誇張していること: 傾き(ずれ)はとても大きく描いた。実際は母相とマルテンサイトでマス目の形そのものも少し違い、立体の結晶では傾きの向きが24通りある。双晶の層は実際にはもっと多く、薄い。</figcaption></figure>
+<aside class="analogy"><p class="analogy-h">たとえで言うと</p><p>トランプを1枚ずつ重ねた山を思い浮かべてください。下の何枚かは1枚ごとに少しずつ右へずらし、その上の何枚かは、同じだけ左へずらして戻します。山は途中で折れ曲がっていますが、いちばん上のカードは、いちばん下のカードの真上に来ます。そのため、山全体としては傾いていません。カード1枚が原子の1段にあたり、図2の右上がちょうどこの形です。</p><p class="analogy-limit"><strong>たとえが当てはまらない点:</strong> カードは好きな量だけずらせますが、原子の並びの傾きの角度は、結晶の種類で決まっています。また、カードは下のカードの上をすべりますが、原子は隣とつながったまま、原子どうしの間隔より短い距離だけずれます。このたとえが表すのは、「部分ごとには傾いていても、全体の形は変わらない」という点だけです。</p></aside>
+</section>
+
+<section>
+<h2>しくみ3: 曲げると、傾きの向きがそろうだけ</h2>
+<p>マルテンサイトの状態の合金に力をかけると、右向きと左向きの部分の境目が、小さな力で動きます。力の向きに合う傾きの部分が広がり、合わない部分が減っていきます。最後は、多くの部分が同じ向きに傾いてそろいます。すると、ゆがみが打ち消し合わなくなり、合金全体の形が変わります(図2の右下)。</p>
+<p>大事なのは、このとき原子の隣どうしの組み合わせが変わらないことです。境目が動くとき、原子は隣とつながったまま傾きの向きを変えるだけです。図1のように面ごとずれて相手が入れ替わる転位は、この変形には必要ありません。</p>
+<p>境目が小さな力で動くので、マルテンサイトの状態の合金は、軟らかく、小さな力で曲がります。冷えた形状記憶合金の針金を、指で簡単に曲げられるのはこのためです。</p>
+</section>
+
+<section>
+<h2>しくみ4: 温めると、元の並びと形に戻る</h2>
+<p>曲げた合金を温めて、母相に戻る温度を超えると、マルテンサイトは母相の並び方に戻ります。どの向きに傾いた部分も、戻り先は元の母相の決まった1つの並び方だけです。原子の隣どうしの組み合わせも変わっていないので、原子は元の位置へ戻ります。その結果、合金全体も曲げる前の形に戻ります(図2の左下)。これが{{term:形状記憶効果}}です。</p>
+<p>温めて戻した合金をまた冷やしても、傾きの向きが打ち消し合うように並ぶので、形はそのままです。もう一度曲げれば、また温めて戻せます。</p>
+<p>温めて戻るときの合金は、ただ形が戻るだけではありません。母相は、マルテンサイトより硬く強い並び方です。そのため、戻るときには大きな力を出せます。熱を、物を動かす力に変えているわけです。</p>
+</section>
+
+<section>
+<h2>温めなくても戻る: 超弾性</h2>
+<p>では、メガネのフレームや矯正ワイヤーは、なぜお湯につけなくても戻るのでしょうか。答えは、使う温度にあります。これらは、母相に戻る温度より高い温度、つまり母相の状態で使うように作ってあります。</p>
+<p>母相の合金に大きな力をかけると、力に後押しされて、母相の一部がマルテンサイトに変わります。並び方がななめにゆがむ変化なので、力はこの変化を助けるのです。このとき、力の向きに合う傾きのマルテンサイトが主にできるので、合金は大きく曲がります。</p>
+<p>ところが、その温度では本来、母相のほうが安定です。力を抜くと、マルテンサイトは母相に戻り、形もすぐに元に戻ります。この性質を{{term:超弾性}}と呼びます。形状記憶効果と同じ変態を使っていて、元に戻すきっかけが「温める」か「力を抜く」かの違いです。</p>
+<figure class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 262" role="img"><title>超弾性の合金は力がほぼ一定のまま大きく伸び、力を抜くと下の平らな線を通って元に戻る。ふつうの金属は伸びが残る</title>
+<text x="14" y="22" text-anchor="start" class="m">力(応力)</text>
+<line x1="50" y1="30" x2="50" y2="220" class="ln"/>
+<line x1="50" y1="220" x2="320" y2="220" class="ln"/>
+<path d="M50,220 L82,120 L242,110 L258,82 L250,160 L82,168 Z" class="ac"/>
+<polygon points="168,111 158,105 158,117" class="fa"/>
+<polygon points="158,165 168,159 168,171" class="fa"/>
+<text x="150" y="98" text-anchor="middle" class="a">超弾性の合金</text>
+<text x="150" y="192" text-anchor="start" class="sm">力を抜くときの線</text>
+<path d="M50,220 L66,72 C82,62 110,58 146,56 L128,220" class="ln"/>
+<text x="150" y="46" text-anchor="start" class="sm">ふつうの金属</text>
+<text x="50" y="238" text-anchor="middle" class="m">0</text>
+<text x="114" y="238" text-anchor="middle" class="m">2</text>
+<text x="178" y="238" text-anchor="middle" class="m">4</text>
+<text x="242" y="238" text-anchor="middle" class="m">6</text>
+<text x="306" y="238" text-anchor="middle" class="m">8</text>
+<text x="320" y="256" text-anchor="end" class="m">ひずみ(伸びの割合、%)</text>
+</svg><figcaption class="fig-cap">引っぱる力と伸びの関係の模式図。超弾性の合金は、力がほぼ一定のまま、母相がマルテンサイトに変わって伸びる(上の平らな線)。力を抜くと、低めの力で母相に戻る(下の平らな線)。ふつうの金属は約0.5 %を超えると転位で伸び、力を抜いても伸びが残る(「ふつうの金属」の線が0に戻らない)。省略していること: 線の高さと傾きは合金や温度で大きく変わり、2つの材料の力の大きさは正確な比べ方ではない。</figcaption></figure>
+<p>図3は、横軸に伸びの割合、縦軸に引っぱる力をとったグラフです。伸びの割合を、ひずみと呼びます。上の平らな線のとおり、変態が進むあいだは、力がほぼ一定のまま大きく伸びます。ふつうのばねは、曲げるほど押し返す力が強くなります。超弾性の合金では、曲げ方が多少変わっても、押し返す力があまり変わりません。この「ほぼ一定の力」が、後で見る矯正ワイヤーで生かされています。</p>
+<p>ただし、その力の大きさは温度で変わります。温度が高いほど母相が安定なので、変態させるにはより大きな力が要ります。同じワイヤーでも、冷えた部屋と体温では、押し返す力が違うのです。</p>
+</section>
+
+<section>
+<h2>戻る温度は、組成と熱処理で決める</h2>
+<p>形状記憶効果になるか超弾性になるかは、合金を使う温度が、母相に戻る温度より低いか高いかで決まります。お湯で戻る針金は、室温ではマルテンサイトで、お湯の温度で母相に戻るように作ってあります。メガネのフレームは、前の節で見たとおり、ふだんの温度ですでに母相です。</p>
+<p>変態する温度は、合金の組成(どの元素をどんな割合で混ぜるか)で大きく変わります。Ni-Ti では、ニッケルとチタンの割合がわずかに違うだけで、戻る温度が大きくずれます。そのため、製造では組成をとても細かく管理します。合金を作った後の熱処理(決まった温度で熱してから冷ますこと)でも調整できます。合金メーカーの技術資料によると、Ni-Ti の変態温度は、+100 ℃より上から −100 ℃より下まで選べます。</p>
+<p>戻したい形も、熱処理で決めます。合金を記憶させたい形の型に固定したまま、高い温度で数分以上熱します。Ni-Ti では、500 ℃に近い温度がよく使われます。この熱処理の温度や時間によっても、戻る温度は変わります。</p>
+</section>
+
+<section>
+<h2>「形を覚える」という言い方の注意</h2>
+<p>「形状記憶」という名前から、合金が形そのものを覚えているように思えます。けれども実際に決まっているのは、母相の原子の並び方とその向きです。形が戻るのは、マルテンサイトがその並び方へ戻るときに、原子が元の位置へ帰るからです。</p>
+<p>ですから、覚えている形は1つで、熱処理で決めた母相の形です。そして、曲げすぎて原子の隣どうしが入れ替わった分は戻りません(「よくある誤解」で見ます)。「覚えた形にいつでも戻る」のではなく、「変態だけで形を変えた範囲なら戻る」と考えるのが正確です。</p>
+</section>
+
+<section>
+<h2>鋼のマルテンサイトとの違い</h2>
+<p>マルテンサイトという名前は、鋼(はがね)の焼入れでも出てきます。焼入れは、赤く熱した鋼を水などで急に冷やす処理です。原子が遠くへ動かず(拡散せず)、一斉にずれて並び方が変わる点は、どちらも同じです。</p>
+<p>違うのは、その後です。焼入れした鋼では、炭素が鉄のすき間に閉じ込められ、結晶が大きくゆがんで硬くなります。温め直すと、母相に戻るより先に、閉じ込められていた炭素が鉄と炭素の小さな粒(炭化物)になって出てきます。これが焼戻しで、そのため元の並び方へそのまま戻ることはありません。形状記憶合金のマルテンサイトは硬くならず、むしろ軟らかく、温度で母相と行き来できます。</p>
+</section>
+
+<section>
+<h2>数字で見る: どこまで曲げても戻るのか</h2>
+<ul>
+<li>ふつうの金属が力を抜いて戻れる伸びは、多くの場合0.5 %ほどまでです。Ni-Ti の超弾性や形状記憶効果では、おおよそ6〜8 %まで戻ります。10倍以上です。</li>
+<li>長さ20 cm の線なら、0.5 %は1 mm、8 %は16 mm の伸びにあたります。</li>
+<li>直径1 mm の線を曲げる場合で考えます。ふつうの金属で戻れる範囲に収めるには、曲げの半径を約10 cm より大きくします。6 %まで戻る合金なら、半径約8 mm まで曲げても戻ります。線の表面の伸びの割合を「線の半径÷曲げの半径」として計算した目安です。</li>
+</ul>
+<p>ただし、6〜8 %は戻れる上限の目安です。製品では、繰り返し使っても傷まないように、使うひずみを小さめに設計します。</p>
+</section>
+
+<section>
+<h2>使われているところ</h2>
+<h3>メガネのフレーム</h3>
+<p>超弾性を使っています。合金メーカーの社員による寄稿では、超弾性合金を世界で初めて実用化した製品は、日本の眼鏡フレームだったとされています。超弾性のフレームは、180°ねじっても曲がりが残らないと報告されています。</p>
+<h3>歯の矯正ワイヤー</h3>
+<p>超弾性の「ほぼ一定の力」を使った最初の製品とされています。歯が少し動いてワイヤーの曲がりが減っても、歯にかかる力があまり変わりません。日本で開発された超弾性の Ni-Ti 矯正ワイヤーは、1985年に厚生省(当時)の認可を受けたとされています。</p>
+<h3>医療用のステントやガイドワイヤー</h3>
+<p>ステントは、血管などを内側から押し広げて支える網目の筒です。自分で広がる型(自己拡張型)の Ni-Ti のステントは、広げた形を記憶させてから細く畳みます。それを細い管(カテーテル)に入れて運びます。管から押し出すと、元の太さに広がります。体の中で確実に広がるように、母相に戻る温度を体温より確実に低く設定します。血管の中に通す細いガイドワイヤーにも、大きく曲げても折れ曲がったままにならない性質が使われています。体の中で使う機器では、ニッケルが溶け出す量なども調べられています。</p>
+<h3>温度で動く弁や部品</h3>
+<p>形状記憶効果は、温度で自動的に動く部品に使われます。例えば、温室の天窓を温度で自動的に開け閉めする装置や、ボイラの湯の量を温度で調節する部品があります。周りの温度が変わるだけで縮んだり伸びたりするので、モーターがなくても物を動かせます。配管の継手(つなぎ目)にも使われます。</p>
+<h3>Ni-Ti 以外の形状記憶合金</h3>
+<p>形状記憶合金は Ni-Ti だけではありません。銅を主にした Cu-Zn-Al 系や Cu-Al-Ni 系、鉄を主にした Fe-Mn-Si 系などもあります。Ni-Ti は丈夫でさびにくい一方、高価です。安い合金にもそれぞれ弱点があり、用途に合わせて選ばれます。</p>
+</section>
+
+<section>
+<h2>限界: 何回でも、どこまでも戻るわけではない</h2>
+<ul>
+<li><strong>戻れるのは数%まで:</strong> それを超えて変形させると、転位が動いて戻らない変形が残ります。</li>
+<li><strong>繰り返すと疲れる:</strong> 変態を何度も繰り返すと、結晶の中に小さな乱れが少しずつたまります。すると、戻るひずみや出せる力が減っていきます。ふつうの金属と同じように、繰り返しの変形で割れる疲労も起こります。</li>
+<li><strong>行きと帰りがずれる(ヒステリシス):</strong> しくみ1で見たとおり、冷やして変わる温度と温めて戻る温度は、同じではありません。超弾性でも、図3のように、力を抜くときの力はかけるときより弱くなります。かけた仕事の一部は、熱になって失われます。</li>
+<li><strong>温度に敏感:</strong> 力の大きさも、戻る温度も、温度や組成のわずかな違いで変わります。使う温度の範囲に合わせた設計が欠かせません。</li>
+</ul>
+</section>
+
+<section>
+<h2>よくある誤解</h2>
+<div class="myth"><p class="myth-q">誤解: 温めると戻るのは、熱で金属が軟らかくなるから</p><p>実際は逆です。温めて母相に戻った合金は、マルテンサイトの状態より硬く強くなります。軟らかいのは、冷えたマルテンサイトの状態のほうです。形が戻るのは、軟らかくなったからではなく、原子の並び方そのものが母相に切り替わるからです。</p><p>ろうそくやプラスチックのように、温めると軟らかくなる物の印象から生まれやすい誤解です。</p></div>
+<div class="myth"><p class="myth-q">誤解: 形状記憶合金は、どんなに曲げても元に戻る</p><p>戻れるのは、変態と傾きの向きの入れ替わりだけで形が変わった範囲です。Ni-Ti でもおおよそ6〜8 %までで、それより曲げると転位が動き、図1と同じずれが起きて形が残ります。強く折り曲げれば、温めても完全には戻りません。</p><p>メガネのフレームを大きくねじっても戻る様子が印象的なので、限りがないように思われがちです。</p></div>
+<div class="myth"><p class="myth-q">誤解: 冷やすと、また曲げたときの形に戻る</p><p>ふつうの形状記憶合金は、温めて記憶した形に戻るだけです。しくみ4で見たとおり、冷やしても形はそのままです。温度の上げ下げだけで2つの形を行き来させることもできます(二方向の形状記憶)。ただし、変態を何度も繰り返させるなどの特別な処理が必要で、戻る量もふつうは小さくなります。</p><p>「記憶」という言葉から、曲げた形も覚えていると考えてしまうことで生まれる誤解です。</p></div>
+</section>
+
+<section>
+<h2>もっと詳しく学ぶ</h2>
+<ul>
+<li>用語: {{term:形状記憶効果}} / {{term:超弾性}} / {{term:熱弾性型マルテンサイト変態}} / {{term:マルテンサイト}} / {{term:転位}} / {{term:磁性形状記憶合金}}</li>
+<li>関連する解説: 「<a href="{{home}}learn/why-metals-bend-and-glass-breaks/">金属はなぜ曲がるのに、ガラスや陶器は割れるの?</a>」 / 「<a href="{{home}}learn/why-quenching-hardens-steel/">焼入れで鋼(はがね)が硬くなるのはなぜ?</a>」</li>
+</ul>
+</section>
