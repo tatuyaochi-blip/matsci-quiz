@@ -309,7 +309,11 @@ function setup() {
   // ---- 結果の部品 ----
   const UNIT = { mmy: 'mm/y', mpy: 'mpy', umy: 'µm/y', gm2h: 'g/(m²·h)', gm2d: 'g/(m²·d)', gmd: 'g/(m²·d)', mdd: 'mdd' };
   const stats = rows => el('dl', { class: 'dy-stats' }, ...rows.map(([k, v]) => el('div', {}, el('dt', {}, k), el('dd', {}, v))));
-  const eq = (...lines) => el('p', { class: 'cr-eq' }, lines.filter(Boolean).join('\n'));
+  // 式の中に直接書いた定数(3.27×10⁻³ など)も、ドイツ語では小数点をコンマにする(差し込んだ値は nf でコンマになっている)
+  const decFix = t => (lang === 'de' ? t.replace(/(\d)\.(\d)/g, '$1,$2') : t);
+  const eq = (...lines) => el('p', { class: 'cr-eq' }, decFix(lines.filter(Boolean).join('\n')));
+  // 年数: 日本語・中国語・韓国語は数と「年/년」の間に空白を入れない
+  const yrs = v => (['ja', 'zh-hant', 'ko'].includes(lang.toLowerCase()) ? `${v}${U.years}` : `${v} ${U.years}`);
   const box = (h, ...kids) => el('div', { class: 'cr-box' }, h ? el('h3', {}, h) : null, ...kids);
   const warn = t => el('p', { class: 'cr-warn' }, t);
   const matName = () => (E.mat.value === 'custom' ? U.custom : T.mats[E.mat.value]);
@@ -403,12 +407,12 @@ function setup() {
     const life = lifeYears(allow, r.mmy);
     res.append(el('p', { class: 'cr-main' }, life != null ? fill(U.life_main, { y: sci(life), a: inp(allow), v: sci(r.mmy) })
       : r.mmy === 0 ? U.life_zero : fill(U.conv_main, { v: sci(r.mmy) })));
-    res.append(stats([[UNIT.mmy, sci(r.mmy)], [UNIT.mpy, sci(r.mpy)], [UNIT.umy, sci(r.umy)], [UNIT.gmd, sci(r.gmd)], [UNIT.mdd, sci(r.mdd)], [U.life, life == null ? '–' : `${sci(life)} ${U.years}`]]));
+    res.append(stats([[UNIT.mmy, sci(r.mmy)], [UNIT.mpy, sci(r.mpy)], [UNIT.umy, sci(r.umy)], [UNIT.gmd, sci(r.gmd)], [UNIT.mdd, sci(r.mdd)], [U.life, life == null ? '–' : yrs(sci(life))]]));
     const lines = [
       `1 mm/y = 1 / 0.0254 mpy = 39.37 mpy   1 mm/y = 1000 µm/y`,
       rho > 0 ? `g/(m²·d) = mm/y × ρ × 1000 / 365.25 = ${sci(r.mmy)} × ${inp(rho)} × 1000 / 365.25 = ${sci(r.gmd)}` : null,
       rho > 0 ? `mdd = 10 × g/(m²·d) = ${sci(r.mdd)}` : null,
-      life != null ? `${U.life_eq} = ${inp(allow)} mm / ${sci(r.mmy)} mm/y = ${sci(life)} ${U.years}` : null,
+      life != null ? `${U.life_eq} = ${inp(allow)} mm / ${sci(r.mmy)} mm/y = ${yrs(sci(life))}` : null,
     ];
     res.append(box(U.h_eq, eq(...lines), el('p', { class: 'muted' }, U.conv_note)));
     res.append(box(U.h_life, el('ul', {}, ...U.life_limits.map(s => el('li', {}, s)))));
