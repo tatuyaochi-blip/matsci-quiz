@@ -178,5 +178,50 @@
       "Etwa 1,6×10⁸ s⁻¹"
     ],
     "explanation": "Γ = 6D/λ² = 6 × 1,0×10⁻¹¹/(0,25×10⁻⁹)² = 6,0×10⁻¹¹/6,25×10⁻²⁰ ≈ 9,6×10⁸ s⁻¹. Etwa 1,6×10⁸ s⁻¹ vergisst den Faktor 6, und etwa 2,7×10⁷ s⁻¹ setzt die 6 fälschlich in den Nenner, D/(6λ²). Selbst bei etwa einer Milliarde Sprüngen pro Sekunde ist die Richtung jedes Sprungs zufällig, sodass die Nettoverschiebung nur etwa √(6Dt) beträgt, in einer Sekunde rund 8 µm – weit weniger als die gesamte Sprungstrecke von etwa 0,24 m. Atome schwingen etwa 10¹³-mal pro Sekunde, sodass nur etwa jede zehntausendste Schwingung zu einem erfolgreichen Sprung führt."
+  },
+  "defects-diffusion-021": {
+    "question": "Welche Aussage über eine Versetzungsschleife auf einer Gleitebene, deren Versetzungslinie in sich geschlossen ist, trifft zu?",
+    "choices": [
+      "Der Burgersvektor ist überall auf der Schleife gleich: Abschnitte senkrecht zu ihm sind Stufen-, parallele Schrauben-, dazwischen gemischte Versetzungen",
+      "Weil sich der Stufen- oder Schraubencharakter entlang der Schleife ändert, dreht sich auch der Burgersvektor und bleibt senkrecht zur örtlichen Linie",
+      "Weil die Linie geschlossen ist, ist der Burgersvektor null, und die Schleife bewegt sich auf ihrer Gleitebene, ohne den umgebenden Kristall zu verzerren"
+    ],
+    "explanation": "Eine Versetzungslinie kann nicht im Inneren eines Kristalls enden; sie muss an einer Oberfläche austreten, sich zu einer Schleife schließen oder auf andere Versetzungen treffen. Für eine einzelne Versetzung sind Betrag und Richtung der Abgleitung an der Grenze zwischen abgeglittenem und nicht abgeglittenem Bereich, also der Burgersvektor, überall gleich. In einer Schleife ändert sich daher nur die Linienrichtung von Ort zu Ort: Abschnitte senkrecht zu b sind Stufenversetzungen, Abschnitte parallel zu b Schraubenversetzungen, und dazwischen liegen gemischte Versetzungen mit beiden Anteilen. Unter einer Schubspannung dehnt sich die Schleife als Ganzes aus oder schrumpft. Aussagen, b ändere sich entlang der Schleife oder eine geschlossene Schleife habe b = 0, sind falsch, und die Schleife ist von einem Verzerrungsfeld umgeben."
+  },
+  "defects-diffusion-022": {
+    "question": "Kaltumformung eines geglühten Metalls erhöht die Versetzungsdichte um mehrere Größenordnungen. Welche Beschreibung der Frank-Read-Quelle, eines Mechanismus der Versetzungsmultiplikation, trifft zu?",
+    "choices": [
+      "Leerstellen lagern sich zu Scheiben zusammen, und jede Scheibe fällt zu einer Versetzungsschleife zusammen, sodass Versetzungen unabhängig vom Umformgrad zunehmen",
+      "Bei der Bewegung einer Versetzung zerfällt ihre Linie spontan in zwei Teile, sodass die Zahl der Versetzungen proportional zum Gleitweg zunimmt",
+      "Ein an beiden Enden verankertes Versetzungssegment baucht sich unter Schubspannung aus, umläuft die Ankerpunkte und gibt Schleife um Schleife ab, während es erhalten bleibt"
+    ],
+    "explanation": "Eine Frank-Read-Quelle ist ein Versetzungssegment der Länge L auf einer Gleitebene, das an beiden Enden durch Ausscheidungen oder Versetzungsknoten verankert ist. Unter Schubspannung baucht sich das Segment zwischen den festen Enden aus; hat es bei einer Spannung von etwa Gb/L die Halbkreisform überschritten, dehnt es sich instabil aus und umläuft die Ankerpunkte. Wo sich die umlaufenden Teile treffen, löschen sie sich aus; dabei lösen sich eine äußere Schleife und das ursprüngliche Segment voneinander, und das Segment wiederholt den Vorgang, sodass eine Quelle viele Schleifen abgibt. Schleifen aus zusammengefallenen Leerstellenscheiben sind ein eigener Mechanismus, der nach dem Abschrecken auftritt, und nicht der Hauptgrund für die Versetzungsmultiplikation beim Umformen. Eine Versetzungslinie kann nicht im Kristallinneren enden und daher auch nicht bei der Bewegung in zwei Teile zerfallen."
+  },
+  "defects-diffusion-023": {
+    "question": "Wie lautet beim Leerstellenmechanismus, bei dem Atome wie bei der Selbstdiffusion eines reinen Metalls durch Platzwechsel mit Leerstellen wandern, die Aktivierungsenergie Q des Diffusionskoeffizienten? E_f sei die Bildungsenergie einer Leerstelle und E_m die Wanderungsenergie für den Sprung eines Atoms in eine Leerstelle.",
+    "choices": [
+      "Q ≈ E_m: Im Gleichgewicht gibt es bei jeder Temperatur reichlich Leerstellen, sodass nur die Sprungbarriere zählt",
+      "Q ≈ E_f + E_m: Sowohl die Wahrscheinlichkeit eines leeren Nachbarplatzes als auch die Sprungfrequenz hängen von der Temperatur ab",
+      "Q ≈ E_f − E_m: Eine Leerstelle senkt die Sprungbarriere, sodass Q um diesen Betrag kleiner wird"
+    ],
+    "explanation": "Damit ein Atom nach dem Leerstellenmechanismus einen Sprung ausführen kann, muss zuerst ein benachbarter Gitterplatz leer sein; die Wahrscheinlichkeit dafür ist proportional zur Gleichgewichtskonzentration der Leerstellen exp(−E_f/kT). Die Frequenz, mit der das Atom dann die Barriere in die Leerstelle überwindet, ist proportional zu exp(−E_m/kT). Der Diffusionskoeffizient hängt vom Produkt beider ab, also Q ≈ E_f + E_m. Leerstellen sind im Gleichgewicht sehr selten, und ihre Zahl selbst ändert sich stark mit der Temperatur; nur E_m anzusetzen ist daher falsch, und es gibt auch keinen Grund, die Differenz zu bilden. Abschrecken friert Leerstellen aus hoher Temperatur ein, wodurch der Term E_f entfällt und die Diffusion bei tiefen Temperaturen schneller wird. Bei Zwischengitteratomen wie Kohlenstoff sind fast alle benachbarten Zwischengitterplätze frei, sodass Q im Wesentlichen nur die Wanderungsenergie ist."
+  },
+  "defects-diffusion-024": {
+    "question": "Wird eine feste Menge eines gelösten Stoffs als dünne Schicht auf eine Probenoberfläche aufgebracht und dann eindiffundiert (die Gesamtmenge des diffundierenden Stoffs bleibt konstant), gilt für die Oberflächenkonzentration C(0, t) = M/√(πDt), wobei M die Stoffmenge pro Flächeneinheit ist. Beträgt die Oberflächenkonzentration nach 1 h bei einer bestimmten Temperatur C₁, wie groß ist sie nach 4 h bei derselben Temperatur?",
+    "choices": [
+      "C₁/2",
+      "C₁/4",
+      "Weiterhin C₁"
+    ],
+    "explanation": "Bei konstanter Temperatur ist D konstant, die Oberflächenkonzentration ist also proportional zu 1/√t. Bei vierfacher Zeit ist √4 = 2, sodass die Oberflächenkonzentration auf C₁/2 sinkt. Gleichwertig lässt sich argumentieren: Bei fester Gesamtmenge M breitet sich der Stoff bis in eine Tiefe von etwa √(Dt) aus, und doppelte Tiefe halbiert das Konzentrationsniveau. C₁/4 nimmt fälschlich an, die Konzentration sei umgekehrt proportional zur Zeit. Ein konstanter Wert verwechselt diesen Fall mit der Fehlerfunktionslösung für eine konstante Oberflächenkonzentration bei fortlaufender Zufuhr, wie beim Aufkohlen. Bei der Dotierung von Halbleitern folgt auf eine Vorbelegung mit konstanter Oberflächenkonzentration ein Eintreiben mit unterbrochener Zufuhr bei konstanter Gesamtmenge, mit dem die Tiefe eingestellt wird."
+  },
+  "defects-diffusion-025": {
+    "question": "Eine Metallprobe wird bei hoher Temperatur gehalten, und die relative Längenänderung der Probe ΔL/L sowie die relative Änderung der mit XRD gemessenen Gitterkonstante Δa/a werden gleichzeitig erfasst, beide bezogen auf dieselbe Bezugstemperatur. Wenn die Leerstellenkonzentration (pro Gitterplatz) durch n/N ≈ 3(ΔL/L − Δa/a) gegeben ist, welcher Wert kommt ihr für ΔL/L = 1,85×10⁻² und Δa/a = 1,82×10⁻² am nächsten?",
+    "choices": [
+      "Etwa 1,0×10⁻⁴",
+      "Etwa 3,0×10⁻⁴",
+      "Etwa 9,0×10⁻⁴"
+    ],
+    "explanation": "n/N ≈ 3 × (1,85×10⁻² − 1,82×10⁻²) = 3 × 3,0×10⁻⁴ = 9,0×10⁻⁴. Bei der Bildung von Leerstellen wandern die verdrängten Atome unter anderem an die Oberfläche und schaffen zusätzliche Gitterplätze, sodass das Volumen der ganzen Probe stärker wächst als durch die Wärmeausdehnung des Gitters. Die Gitterkonstante aus XRD gibt nur die Ausdehnung des Gitters selbst wieder, daher liefert die Differenz beider Werte den Anteil der durch Leerstellen hinzugekommenen Gitterplätze. Die relative Volumenänderung ist etwa dreimal so groß wie die relative Längenänderung, daher der Faktor 3. Etwa 3,0×10⁻⁴ vergisst den Faktor 3, etwa 1,0×10⁻⁴ teilt durch 3. Der Vorteil dieser Methode ist, dass sie die Konzentration direkt liefert, ohne eine Bildungsenergie der Leerstellen vorauszusetzen. Wären Zwischengitteratome die vorherrschenden Defekte, wäre die Differenz negativ."
   }
 }

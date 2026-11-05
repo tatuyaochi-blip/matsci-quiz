@@ -178,5 +178,50 @@
       "Etwa 0,273 nm"
     ],
     "explanation": "Mit h = 1 und k = 0 ist h² + hk + k² = 1, also 1/d² = (4/3)/0,321² + 1/0,521² ≈ 12,94 + 3,68 = 16,62 nm⁻². Daraus folgt d ≈ 0,245 nm. Etwa 0,227 nm wendet die kubische Formel d = a/√(h² + k² + l²) auf die drei Indizes (101) an und erhält a/√2; etwa 0,273 nm vergisst den Faktor 4/3. Die Achsen in der Basisebene eines hexagonalen Kristalls schließen 120° ein, daher gilt die kubische Formel nicht. Bei XRD mit Cu-Kα-Strahlung (0,15406 nm) erscheint der Reflex dieser Ebene bei 2θ ≈ 36,6°."
+  },
+  "crystal-021": {
+    "question": "Ein Kristall hat eine Elementarzelle mit den Kantenlängen a = b ≠ c, und alle drei Winkel zwischen den Achsen betragen 90°. Zu welchem Kristallsystem gehört er?",
+    "choices": [
+      "Orthorhombisch",
+      "Hexagonal",
+      "Tetragonal"
+    ],
+    "explanation": "Das tetragonale System entspricht einem Würfel, der nur entlang einer Achse gestreckt oder gestaucht ist: a = b ≠ c und α = β = γ = 90°. Beispiele sind der Martensit in gehärtetem Stahl (tetragonal-raumzentriert) und BaTiO₃ bei Raumtemperatur. Drei verschiedene Kantenlängen bei lauter 90°-Winkeln kennzeichnen das orthorhombische System. Auch das hexagonale System hat a = b ≠ c, doch der Winkel zwischen der a- und der b-Achse beträgt 120°, die beiden anderen 90°. Wer nur auf die Kantenlängen achtet, verwechselt tetragonal und hexagonal. Die sieben Kristallsysteme unterscheiden sich durch die Kombination von Kantenlängen und Achsenwinkeln (letztlich durch die Symmetrie); das kubische System hat a = b = c und lauter 90°-Winkel."
+  },
+  "crystal-022": {
+    "question": "Welche Aussage über die kfz-Struktur, betrachtet als Stapelung dichtest gepackter Atomlagen, trifft zu?",
+    "choices": [
+      "Die dichtest gepackten Lagen sind die {111}-Ebenen senkrecht zur Raumdiagonale ([111]-Richtung), gestapelt als ABCABC… mit dreilagiger Periode",
+      "Die dichtest gepackten Lagen sind die {100}-Ebenen senkrecht zu einer Würfelfläche ([100]-Richtung), gestapelt als ABAB… mit zweilagiger Periode",
+      "Die dichtest gepackten Lagen sind die {111}-Ebenen senkrecht zur Raumdiagonale ([111]-Richtung), gestapelt als ABAB… mit zweilagiger Periode"
+    ],
+    "explanation": "Werden gleich große Kugeln in einer Ebene so dicht wie möglich angeordnet, entsteht eine Lage (A), in der jede Kugel sechs Nachbarn berührt. Die nächste Lage liegt in einer der beiden Arten von Mulden (B), und für die dritte Lage gibt es zwei Möglichkeiten. Liegt die dritte Lage auf Positionen (C), die sich von A und B unterscheiden, sodass ABCABC… mit dreilagiger Periode entsteht, ergibt sich kfz; diese dichtest gepackten Lagen sind die {111}-Ebenen senkrecht zur Raumdiagonale der Elementarzelle. Die Stapelung ABAB… mit zweilagiger Periode ist hdP, deren dichtest gepackte Lage die Basisebene senkrecht zur c-Achse ist. Die {100}-Ebenen der kfz-Struktur sind nicht dichtest gepackt. Dieses Bild zeigt auch anschaulich, dass ein einziger Fehler in der kfz-Stapelfolge einen Stapelfehler mit örtlich hdP-artiger Anordnung erzeugt."
+  },
+  "crystal-023": {
+    "question": "Die hexagonal dichteste Packung (hdP) entspricht keinem der 14 Bravais-Gitter unmittelbar. Welche Beschreibung der hdP-Struktur trifft zu?",
+    "choices": [
+      "Jedes Atom lässt sich als Gitterpunkt auffassen, was ein eigenes, basiszentriert-hexagonales Gitter mit Punkten auch in den Basismitten ergibt",
+      "Sie ist ein einfach hexagonales Gitter mit einem Atompaar an jedem Gitterpunkt; die Atome der mittleren Lage sind keine Gitterpunkte",
+      "Sie ist eine entlang der c-Achse gestreckte kfz-Elementarzelle und als Gitter dasselbe wie das tetragonal-raumzentrierte Gitter"
+    ],
+    "explanation": "Gitterpunkte sind eine Menge von Punkten, von denen jeder genau dieselbe Umgebung hat. In der hdP-Struktur sind die Nachbarn der Atome in der Basislage und in der mittleren Lage unterschiedlich orientiert, und keine reine Translation bildet die einen auf die anderen ab. Die Atome der mittleren Lage können daher keine Gitterpunkte sein, und hdP wird als einfach hexagonales Gitter beschrieben, an dessen Gitterpunkten jeweils ein Atompaar bei (0, 0, 0) und (2/3, 1/3, 1/2) sitzt. Jedes Atom als Gitterpunkt aufzufassen verletzt die Definition eines Gitterpunkts, und ein Bravais-Gitter namens basiszentriert-hexagonal gibt es nicht. Außerdem unterscheidet sich hdP von kfz durch die Stapelfolge der dichtest gepackten Lagen; es ist weder eine gestreckte kfz-Zelle noch ein tetragonales Gitter."
+  },
+  "crystal-024": {
+    "question": "Welche Aussage über die Drehsymmetrien, die ein Kristall mit Translationsperiodizität haben kann, trifft zu?",
+    "choices": [
+      "Alle 1-, 2-, 3-, 4-, 5- und 6-zähligen Drehachsen sind erlaubt, und Kristalle mit fünfzähliger Symmetrie sind als Ikosaeder verbreitet",
+      "Jede Drehsymmetrie ist mit Translationsperiodizität verträglich, sodass Kristalle mit 7- oder 8-zähligen Achsen grundsätzlich möglich sind",
+      "Nur 1-, 2-, 3-, 4- und 6-zählige Achsen sind mit Periodizität verträglich; Quasikristalle mit fünfzähligem Beugungsbild sind nicht periodisch"
+    ],
+    "explanation": "Nach der Drehung eines Gitters um eine Drehachse müssen die Verbindungsvektoren zwischen Gitterpunkten weiterhin Translationsvektoren des Gitters sein. Diese Bedingung beschränkt den Drehwinkel θ auf Werte, für die 2cosθ ganzzahlig ist, sodass nur 1-, 2-, 3-, 4- und 6-zählige Achsen erlaubt sind (kristallographische Einschränkung). Aus demselben Grund, aus dem sich eine Ebene nicht lückenlos mit regelmäßigen Fünfecken parkettieren lässt, hat kein periodischer Kristall eine 5-zählige oder eine 7- oder höherzählige Achse. Dennoch wurden Stoffe gefunden, deren scharfe Beugungsreflexe fünfzählig angeordnet sind, etwa in rasch abgeschreckten Al-Mn-Legierungen. Das sind Quasikristalle: Ihre Atome sind regelmäßig angeordnet, aber ohne Translationsperiodizität."
+  },
+  "crystal-025": {
+    "question": "Si (Gitterkonstante 0,5431 nm) und Ge (0,5658 nm) haben beide Diamantstruktur und bilden über alle Zusammensetzungen Mischkristalle. Wenn sich die Gitterkonstante linear mit der Zusammensetzung ändert (Vegardsche Regel), welcher Wert kommt der Gitterfehlpassung von Si₀.₈Ge₀.₂ gegenüber Si (dem relativen Unterschied der Gitterkonstanten) am nächsten?",
+    "choices": [
+      "Etwa 0,84 %",
+      "Etwa 3,3 %",
+      "Etwa 4,2 %"
+    ],
+    "explanation": "Nach der Vegardschen Regel ist a = 0,8 × 0,5431 + 0,2 × 0,5658 ≈ 0,5476 nm, und der relative Unterschied zu Si beträgt (0,5476 − 0,5431)/0,5431 ≈ 0,0084, also etwa 0,84 %. Das ist das 0,2-Fache der Fehlpassung zwischen reinem Ge und Si, (0,5658 − 0,5431)/0,5431 ≈ 4,2 %. Etwa 4,2 % vergleicht reines Ge mit Si und lässt den Ge-Anteil außer Acht, etwa 3,3 % verwechselt den Si-Anteil von 0,8 mit dem Ge-Anteil. Die Vegardsche Regel ist eine Näherung, die die Gitteraufweitung durch gelöste Atome als additiv behandelt; reale Mischkristalle können leicht von einer Geraden abweichen. Dennoch wird sie häufig genutzt, um die Zusammensetzung eines Mischkristalls aus einer mit XRD gemessenen Gitterkonstante abzuschätzen."
   }
 }
