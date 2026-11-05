@@ -1,0 +1,980 @@
+{
+  "id": "polymercalc",
+  "order": 15,
+  "slug": "polymer-calculator",
+  "cats": [
+    "polymers",
+    "characterization",
+    "thermal-properties"
+  ],
+  "cat": "polymers",
+  "terms": [
+    "ガラス転移温度",
+    "結晶化度",
+    "粘弾性",
+    "熱硬化性樹脂"
+  ],
+  "questions": [
+    "polymers-005",
+    "polymers-013",
+    "polymers-019"
+  ],
+  "figures": [],
+  "compares": [
+    "thermoplastic-vs-thermosetting"
+  ],
+  "form": {
+    "id": "polymercalc-form",
+    "fields": [
+      {
+        "name": "mode",
+        "options": [
+          "mw",
+          "step",
+          "xc",
+          "tg"
+        ],
+        "value": "mw"
+      },
+      {
+        "name": "msrc",
+        "options": [
+          "rows",
+          "paste"
+        ],
+        "value": "rows"
+      },
+      {
+        "name": "basis",
+        "options": [
+          "n",
+          "w"
+        ],
+        "value": "n"
+      },
+      {
+        "name": "mu",
+        "options": [
+          "gmol",
+          "kgmol"
+        ],
+        "value": "gmol"
+      },
+      {
+        "name": "m1",
+        "value": 10000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "x1",
+        "value": 5,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "m2",
+        "value": 20000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "x2",
+        "value": 12,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "m3",
+        "value": 40000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "x3",
+        "value": 20,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "m4",
+        "value": 60000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "x4",
+        "value": 15,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "m5",
+        "value": 80000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "x5",
+        "value": 8,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "m6",
+        "value": 120000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "x6",
+        "value": 3,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "m7",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "x7",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "m8",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "x8",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "p",
+        "value": 0.99,
+        "attrs": "min=\"0\" max=\"1\" step=\"any\""
+      },
+      {
+        "name": "r",
+        "value": 1,
+        "attrs": "min=\"0\" max=\"1\" step=\"any\""
+      },
+      {
+        "name": "mrep",
+        "value": 226.32,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "nsu",
+        "options": [
+          "1",
+          "2"
+        ],
+        "value": "2"
+      },
+      {
+        "name": "xt",
+        "value": "",
+        "attrs": "min=\"1\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "xm",
+        "options": [
+          "dens",
+          "dsc"
+        ],
+        "value": "dens"
+      },
+      {
+        "name": "pm",
+        "options": [
+          "pe",
+          "pp",
+          "pet",
+          "pa6",
+          "pom",
+          "peek",
+          "custom"
+        ],
+        "value": "pe"
+      },
+      {
+        "name": "rho",
+        "value": 0.95,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "rc",
+        "value": 1.003,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "ra",
+        "value": 0.852,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "h0u",
+        "options": [
+          "jg",
+          "kjmol"
+        ],
+        "value": "jg"
+      },
+      {
+        "name": "h0",
+        "value": 293,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "mru",
+        "value": 14.03,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "hm",
+        "value": 180,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "hc",
+        "value": 0,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "wf",
+        "value": 100,
+        "attrs": "min=\"0\" max=\"100\" step=\"any\""
+      },
+      {
+        "name": "tm",
+        "options": [
+          "ff",
+          "fox",
+          "wlf"
+        ],
+        "value": "ff"
+      },
+      {
+        "name": "tu",
+        "options": [
+          "C",
+          "K"
+        ],
+        "value": "C"
+      },
+      {
+        "name": "tginf",
+        "value": 100,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "kff",
+        "value": 100000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "mn",
+        "value": 20000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "tg1",
+        "value": 105,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "tg2",
+        "value": -10,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "w1",
+        "value": 60,
+        "attrs": "min=\"0\" max=\"100\" step=\"any\""
+      },
+      {
+        "name": "tr",
+        "value": 100,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "t",
+        "value": 120,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "c1",
+        "value": 17.44,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "c2",
+        "value": 51.6,
+        "attrs": "min=\"0\" step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "box": "res"
+      },
+      {
+        "heading": "presets_h",
+        "box": "presets"
+      }
+    ],
+    "svg": "pc-chart",
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "高分子の計算",
+      "card": "分子量の平均(Mn・Mw・Mz・Đ)、カロザースの式、密度・DSC の結晶化度、Tg(フローリー・フォックス・Fox・WLF)を式と代入つきで",
+      "title": "高分子の計算(Mn・Mw・分散度、カロザースの式、結晶化度、Fox の式・WLF)",
+      "description": "分子量の表(手入力・貼り付け)から数平均・重量平均・Z 平均分子量と分散度 Đ を、逐次重合の反応率からカロザースの式で重合度と Mn を、密度や DSC の融解熱から結晶化度を、フローリー・フォックスの式・Fox の式・WLF の式でガラス転移と時間温度換算を計算します。式と値を代入した形、定数の出典つき。",
+      "h1": "高分子の計算",
+      "lead": "高分子のレポートでよく使う4つの計算を、式に値を代入した形といっしょに出します。①分子量の平均(Mn・Mw・Mz・分散度 Đ)、②逐次重合の重合度(カロザースの式)、③結晶化度(密度法・DSC 法)、④ガラス転移(フローリー・フォックスの式・Fox の式・WLF の式)。定数のプリセットは出典で確かめた値だけを置き、出典へのリンクをつけています。",
+      "in_heading": "入力",
+      "out_heading": "結果",
+      "presets_h": "結晶化度のプリセット(ρc・ρa・ΔHm°)",
+      "note": "式は教科書の定番のもの(分子量の平均と重合度は IUPAC の用語の定義、カロザースの式と最も確からしい分布はフローリーの扱い、Fox の式、WLF の式)。定数の出典は結果の下と、プリセットの表のリンクにあります。結果は計算の目安で、試料の状態や測定の条件で変わります。",
+      "practice": "高分子・複合材料の問題を解く",
+      "related": "関連する用語",
+      "chart_label": "結果のグラフ",
+      "mode": "計算",
+      "mode_mw": "分子量の平均",
+      "mode_step": "逐次重合の重合度",
+      "mode_xc": "結晶化度",
+      "mode_tg": "ガラス転移",
+      "msrc": "表の入れ方",
+      "msrc_rows": "行に手で入れる(8 行まで)",
+      "msrc_paste": "2 列の表を貼り付ける",
+      "basis": "2 列目の量",
+      "basis_n": "本数 nᵢ(モル数・モル分率)",
+      "basis_w": "質量 wᵢ(質量分率・GPC の高さ)",
+      "mu": "分子量の単位",
+      "mu_gmol": "g/mol",
+      "mu_kgmol": "kg/mol",
+      "p": "反応率 p(0〜1)",
+      "r": "当量比 r = N_A/N_B(≤ 1)",
+      "mrep": "繰り返し単位の式量(g/mol)",
+      "nsu": "繰り返し単位に含まれる構造単位の数",
+      "nsu_1": "1(AB 型。ナイロン 6 など)",
+      "nsu_2": "2(AA–BB 型。ナイロン 66・PET など)",
+      "xt": "目標の Xn(要る p を出す・空欄可)",
+      "xm": "方法",
+      "xm_dens": "密度法",
+      "xm_dsc": "DSC 法(融解熱)",
+      "pm": "材料のプリセット",
+      "pm_pe": "ポリエチレン(PE)",
+      "pm_pp": "ポリプロピレン(iPP)",
+      "pm_pet": "PET",
+      "pm_pa6": "ナイロン 6(PA6)",
+      "pm_pom": "ポリアセタール(POM)",
+      "pm_peek": "PEEK",
+      "pm_custom": "自分で入れる",
+      "rho": "試料の密度 ρ(g/cm³)",
+      "rc": "完全結晶の密度 ρc(g/cm³)",
+      "ra": "完全非晶の密度 ρa(g/cm³)",
+      "h0u": "ΔHm° の単位",
+      "h0u_jg": "J/g",
+      "h0u_kjmol": "kJ/mol(繰り返し単位あたり)",
+      "h0": "完全結晶の融解熱 ΔHm°",
+      "mru": "繰り返し単位の式量(g/mol)",
+      "hm": "融解熱 ΔHm(J/g、試料あたり)",
+      "hc": "冷結晶化の発熱 ΔHc(J/g、なければ 0)",
+      "wf": "樹脂の質量分率 w(%)",
+      "tm": "式",
+      "tm_ff": "フローリー・フォックスの式(Tg と Mn)",
+      "tm_fox": "Fox の式(2 成分)",
+      "tm_wlf": "WLF の式(時間温度換算)",
+      "tu": "入れる温度の単位",
+      "tu_C": "℃",
+      "tu_K": "K",
+      "tginf": "Tg∞(Mn が十分大きいときの Tg)",
+      "kff": "定数 K(K·g/mol)",
+      "mn": "数平均分子量 Mn(g/mol)",
+      "tg1": "成分 1 の Tg₁",
+      "tg2": "成分 2 の Tg₂",
+      "w1": "成分 1 の質量分率 w₁(%)",
+      "tr": "基準温度 Tr(普遍的な値なら Tg)",
+      "t": "温度 T",
+      "c1": "C₁",
+      "c2": "C₂(K)",
+      "m1": "M1",
+      "x1": "n1",
+      "m2": "M2",
+      "x2": "n2",
+      "m3": "M3",
+      "x3": "n3",
+      "m4": "M4",
+      "x4": "n4",
+      "m5": "M5",
+      "x5": "n5",
+      "m6": "M6",
+      "x6": "n6",
+      "m7": "M7",
+      "x7": "n7",
+      "m8": "M8",
+      "x8": "n8",
+      "js": {
+        "mats": {
+          "pe": "ポリエチレン(PE)",
+          "pp": "ポリプロピレン(iPP)",
+          "pet": "PET",
+          "pa6": "ナイロン 6(PA6)",
+          "pom": "ポリアセタール(POM)",
+          "peek": "PEEK"
+        },
+        "ui": {
+          "tabs_label": "計算の種類",
+          "degc": "℃",
+          "tab_mw": "① 分子量の平均",
+          "tab_step": "② 重合度(カロザース)",
+          "tab_xc": "③ 結晶化度",
+          "tab_tg": "④ ガラス転移",
+          "examples": "例:",
+          "ex": [
+            "分子量の表(6 行)",
+            "ナイロン 66 の重縮合",
+            "PE の密度から",
+            "PET の DSC から",
+            "2 成分の Fox の式"
+          ],
+          "ex_note": "例の値は、計算のしかたを示すために作った数で、実際の試料の測定結果ではありません。",
+          "rows_legend": "分子量の表(空の行は使いません)",
+          "rows_help": "2 列目は、本数(モル数)の比でも、質量の比でもかまいません(合計を 1 や 100 にそろえなくてよい)。上の「2 列目の量」で、どちらかを選んでください。",
+          "paste": "分子量と量の 2 列を貼り付け(表計算ソフト・GPC の出力から)",
+          "paste_ph": "M\tw\n10000\t0.05\n20000\t0.12\n…",
+          "paste_help": "タブ・空白・コンマ・セミコロンの区切りを読みます。1 行目が見出しでもかまいません。貼り付けた表は URL に入れません(手入力の 8 行だけが共有の URL に残ります)。",
+          "col_n": "nᵢ(本数)",
+          "col_w": "wᵢ(質量)",
+          "read_ok": "{n} 行を読みました",
+          "read_header": "初めの {n} 行は見出しとして飛ばしました",
+          "read_bad": "{n} 行は数として読めませんでした(行 {lines})",
+          "read_none": "まだ読めるデータがありません。",
+          "need_mw": "分子量 Mᵢ(0 より大きい値)と、2 列目の量(0 以上で、少なくとも 1 つは 0 より大きい)を入れてください。",
+          "mw_main": "{n} 行から、Mn = {mn} g/mol、Mw = {mw} g/mol、分散度 Đ = {d} です。",
+          "rows_used": "使った行",
+          "row_incomplete": "Mᵢ か 2 列目のどちらかだけが入った行は、計算に使っていません。",
+          "one_row": "1 行だけなので、Mn = Mw = Mz、Đ = 1 になります。",
+          "kg_note": "入れた kg/mol は 1000 倍して g/mol で計算しています。",
+          "h_eq": "使った式と代入した値",
+          "mw_eq_lead_n": "nᵢ は分子量 Mᵢ の分子の本数(モル数)です。Mn は本数で重みをつけた平均、Mw は質量(nᵢMᵢ)で重みをつけた平均、Mz はさらに Mᵢ を掛けた重みの平均です。",
+          "mw_eq_lead_w": "wᵢ は分子量 Mᵢ の分子の質量です。本数は nᵢ = wᵢ/Mᵢ なので、Mn は Σwᵢ/Σ(wᵢ/Mᵢ)、Mw は質量で重みをつけた平均 Σwᵢ·Mᵢ/Σwᵢ になります。",
+          "mw_eq_note": "Mn ≤ Mw ≤ Mz で、等号はすべての分子が同じ分子量のときだけです。表は分布を何本かの柱で表したものなので、柱の取り方(区切りの幅)で値が少し変わります。dw/dlog M の曲線から点を読むときは、log M が等間隔になるように読みます(等間隔でないと、高さが各行の質量に比例しなくなります)。GPC の溶出曲線の高さは、多くの場合、質量(濃度)に比例する量なので「質量 wᵢ」を選びます(検出器と換算の方法によります)。",
+          "h_frac": "行ごとの数の分率と質量の分率",
+          "frac_cols": [
+            "行",
+            "Mᵢ(g/mol)",
+            "数の分率 nᵢ/Σn",
+            "質量の分率 wᵢ/Σw"
+          ],
+          "lg_w": "質量の分率",
+          "lg_n": "数の分率",
+          "lg_avg": "Mn・Mw の位置",
+          "log_axis": "対数目盛",
+          "y_frac": "分率",
+          "h_caution": "注意",
+          "mw_cautions": [
+            "GPC(SEC)の分子量は、ポリスチレンなどの標準試料で作った較正曲線による相対値(「ポリスチレン換算」)であることが多く、試料の本当の分子量とは違うことがあります。光散乱検出器などで絶対値を求める方法もあります。",
+            "分布の両端(とくに低分子量のすそ)の取り方で、Mn は大きく変わることがあります。Mw は高分子量の側に敏感です。",
+            "この計算は表のとおりに平均を出すだけで、GPC の基線の引き方や較正曲線の当てはめは扱いません。"
+          ],
+          "need_p": "反応率 p を 0 から 1 の値で入れてください。",
+          "need_r": "当量比 r を 0 より大きく 1 以下の値で入れてください。",
+          "r_over": "r は少ない方の官能基の数 ÷ 多い方の数なので、1 以下になります(1 より大きいときは逆数を入れてください)。",
+          "step_inf": "p = 1、r = 1 では、式の上では Xn が限りなく大きくなります(実際には副反応・不純物・平衡などで止まります)。",
+          "step_main": "反応率 p = {p} で、数平均重合度 Xn = {xn}、Mn ≈ {mn} g/mol です(末端基の質量は無視)。",
+          "step_main_nom": "反応率 p = {p} で、数平均重合度 Xn = {xn} です。繰り返し単位の式量を入れると Mn も出します。",
+          "xn_lim": "p → 1 での Xn の上限",
+          "step_eq_lead": "カロザースの式は、2 官能のモノマーの逐次重合(重縮合・重付加)で、はじめの構造単位の数 N₀ と反応後の分子の数 N から Xn = N₀/N = 1/(1 − p) とするものです。官能基 A と B の数が違うとき(r = N_A/N_B < 1)は Xn = (1 + r)/(1 + r − 2rp) です(p は A の反応率)。",
+          "step_note_r1": "Xw と Đ は、フローリーの最も確からしい分布(すべての官能基が同じ反応性で、環ができないとき)から出したもので、r = 1 のときだけ出しています。p → 1 で Đ → 2 です。",
+          "step_note_r": "r < 1 のときの Xw と Đ はこのページでは出していません(最も確からしい分布の Xw = (1 + p)/(1 − p) は r = 1 の式です)。",
+          "h_target": "目標の重合度に要る反応率",
+          "target_p": "Xn = {xt} にするには、p = {p}({pc} %)まで反応させる必要があります。",
+          "target_no": "この r では、p = 1 でも Xn は {lim} までしか届かないので、Xn = {xt} にはできません。",
+          "h_units": "構造単位と繰り返し単位(M₀ の取り方)",
+          "units_p": "IUPAC の定義では、重合度は分子の中のモノマー単位(1 つのモノマーからできた構造単位)の数です。カロザースの式の Xn もこの数え方で、Mn = Xn × M₀ の M₀ は構造単位の平均の質量です。ナイロン 6 のような AB 型では、繰り返し単位 1 つが構造単位 1 つです。ナイロン 66 や PET のような AA–BB 型では、繰り返し単位 1 つに構造単位が 2 つ入るので、M₀ は繰り返し単位の式量の半分になります(ナイロン 66: 226.32 ÷ 2 = 113.16 g/mol)。",
+          "units_p2": "繰り返し単位の数で重合度を数える教科書もあり、その場合は AA–BB 型で値が半分になります。レポートでは、どちらの数え方かを書いてください。末端基と、縮合で抜ける水などの質量は、Mn の目安には入れていません。",
+          "h_ptable": "反応率と重合度",
+          "step_cautions": [
+            "カロザースの式は逐次重合(重縮合・重付加)のものです。ラジカル重合のような連鎖重合では、反応の初めから高分子量の鎖ができるので、この式は使えません。",
+            "1 官能の不純物があると r が下がり、重合度の上限が大きく下がります(r = 0.99 で上限 199)。",
+            "式は官能基の反応性が鎖の長さによらず、環ができないとする理想の扱いです。"
+          ],
+          "preset_used": "プリセット: {m}(値と出典は下の表)。",
+          "peek_nodens": "PEEK は、完全非晶の密度 ρa を出典で確かめられなかったので、密度のプリセットを置いていません。ρc・ρa を自分で入れてください。",
+          "need_rcra": "ρc は ρa より大きい値にしてください。",
+          "need_dens": "試料の密度 ρ・完全結晶の密度 ρc・完全非晶の密度 ρa を、0 より大きい値で入れてください。",
+          "dens_main": "密度から求めた結晶化度は、質量分率で {w}、体積分率で {v} です。",
+          "xc_mass": "結晶化度(質量分率)",
+          "xc_vol": "結晶化度(体積分率)",
+          "dens_out": "ρ = {rho} が ρa = {ra} と ρc = {rc} の間にありません。結晶化度が 0 未満か 1 より大きくなり、空孔・充填材・ほかの結晶形などで式の前提が成り立っていない可能性があります。",
+          "dens_eq_lead": "試料が完全結晶の部分と完全非晶の部分だけからなり、それぞれの比容(1/ρ)が足し合わされるとすると、1/ρ = Xc/ρc + (1 − Xc)/ρa から質量分率の式が出ます。体積が足し合わされるとすると ρ = φc·ρc + (1 − φc)·ρa から体積分率の式が出ます。",
+          "dens_eq_note": "ρc は結晶格子から計算した密度、ρa は非晶の密度で、どちらも温度で変わり、資料によって値に幅があります。プリセットの値をそのまま使わず、レポートでは使った値と出典を書いてください。",
+          "dens_cautions": [
+            "空孔(ボイド)があると密度が下がり、結晶化度を低く見積もります。",
+            "ガラス繊維・タルクなどの充填材、可塑剤・添加剤が入っていると、ρ が樹脂だけの密度ではなくなり、この式は使えません。",
+            "PP・PA6・POM のように結晶形が複数ある高分子では、ρc は結晶形で違います。密度は ISO 1183 などの方法(水中置換・密度勾配管)で、温度をそろえて測ります。"
+          ],
+          "need_mru": "kJ/mol から J/g に直すには、繰り返し単位の式量を入れてください。",
+          "need_dsc": "ΔHm と ΔHc(0 以上)、ΔHm°(0 より大きい値)、樹脂の質量分率 w(0 % より大きく 100 % 以下)を入れてください。",
+          "dsc_main": "DSC の融解熱から求めた結晶化度は {x}(質量分率)です。",
+          "dsc_neg": "ΔHc が ΔHm より大きいので、結晶化度が負になりました。ピークの範囲の取り方や、基線を確かめてください。",
+          "dsc_over": "結晶化度が 100 % を超えました。ΔHm° の値と単位、樹脂の質量分率を確かめてください。",
+          "dsc_eq_lead": "Xc = (ΔHm − ΔHc)/ΔHm°。ΔHm は昇温で測った融解の吸熱(試料 1 g あたり)、ΔHc は同じ昇温の途中で起きた冷結晶化の発熱です。充填材が入っているときは、樹脂の質量分率 w で割って、樹脂 1 g あたりにします。",
+          "dsc_eq_note": "ΔHm° は「100 % 結晶だったときの融解熱」で、直接は測れないので、外挿などで決めた値です。資料によって幅があります(たとえば iPP では 150〜250 J/g の値が文献にあるとされます)。レポートでは使った ΔHm° と出典を書いてください。",
+          "dsc_cautions": [
+            "測定中の再結晶化・冷結晶化があると、ΔHm には測定中にできた結晶の分も入ります。もとの試料の結晶化度を求めるなら ΔHc を差し引き、ピークの重なりにも注意します。",
+            "ΔHm° の単位を確かめてください。kJ/mol の値は繰り返し単位 1 mol あたりなので、J/g にするには ×1000 ÷ 式量です(PE: 4.11 kJ/mol ÷ 14.03 g/mol ≈ 293 J/g)。",
+            "DSC・密度・XRD の結晶化度は、それぞれ違う性質(融解熱・体積・回折の強さ)から求めるので、同じ試料でも値が一致しないのがふつうです。"
+          ],
+          "need_ff": "Tg∞、K(0 以上)、Mn(0 より大きい値)を入れてください。",
+          "ff_main": "Mn = {mn} g/mol のとき、Tg = {t} です。",
+          "ff_neg": "Tg が 0 K 以下になりました。Mn が小さすぎ、式の範囲の外です。",
+          "ff_eq_lead": "フローリー・フォックスの式 Tg = Tg∞ − K/Mn は、鎖の末端が自由体積を持ち込み、末端の数が 1/Mn に比例することから、Mn が小さいほど Tg が下がることを表します。Tg∞ と K は高分子ごとに測定から決める値で、このページには既定値を置いていません(入っている値は計算の例として作ったものです)。",
+          "ff_eq_note": "K/Mn は温度の差なので、Tg∞ は ℃ でも K でも同じ形で計算できます。結果は K と ℃ の両方で出しています。",
+          "ff_cautions": [
+            "Mn が小さい(低分子量の)側では、測定値が式から外れることがあります。当てはまる分子量の範囲は高分子によって違います。",
+            "K と Tg∞ は、同じ高分子でも測定の方法(DSC の昇温速度など)と資料で違います。"
+          ],
+          "need_fox": "Tg₁・Tg₂ を入れてください(ケルビンにして 0 K より大きい値)。",
+          "need_w1": "成分 1 の質量分率 w₁ を 0〜100 % で入れてください。",
+          "fox_main": "成分 1 が {w} %(質量)のとき、Fox の式による Tg は {t} です。",
+          "fox_lin": "参考: 質量分率の単純な平均",
+          "fox_eq_lead": "Fox の式 1/Tg = w₁/Tg₁ + w₂/Tg₂(w は質量分率、w₂ = 1 − w₁)。温度の逆数を足し合わせる式なので、必ず絶対温度(K)で計算します。℃ で入れた値は、273.15 を足してから計算しています。",
+          "fox_eq_note": "Fox の式は、相溶する(1 つの Tg を示す)ブレンドやランダム共重合体の目安です。実際の系では、成分どうしの相互作用で式から上にも下にもずれます(ゴードン・テイラーの式などで補正します)。",
+          "h_wrong": "℃ のまま式に入れると(誤りの例)",
+          "fox_wrong": "℃ のまま 1/Tg = w₁/Tg₁ + w₂/Tg₂ に入れると {v} ℃ になり、正しい値 {t} ℃ と合いません。Tg が 0 ℃ に近い成分があると、さらに大きく狂います。",
+          "lg_fox": "Fox の式",
+          "lg_lin": "直線(単純な平均)",
+          "x_w1": "成分 1 の質量分率 w₁(%)",
+          "fox_cautions": [
+            "相分離している(Tg が 2 つ見える)ブレンドには使えません。",
+            "可塑剤を入れた系の目安にも使われますが、可塑剤の Tg の値は資料で違います。"
+          ],
+          "need_wlf": "Tr・T・C₁・C₂ を入れてください。",
+          "wlf_div": "C₂ + T − Tr が 0 以下なので、WLF の式は使えません(Tr よりずっと低い温度です)。",
+          "wlf_main_fast": "T − Tr = {dt} K では aT = {a} で、緩和の時間は基準温度のときの約 {a} 倍(約 1/{f})になります。",
+          "wlf_main_slow": "T − Tr = {dt} K では aT = {a} で、緩和の時間は基準温度のときの約 {f} 倍に長くなります。",
+          "wlf_below": "T が Tg(基準温度)より低い温度です。普遍的な定数での WLF の式は Tg から上で使う式で、Tg より下のガラス状態には当てはまらないとされます(アレニウスの形のほうがよいとされます)。",
+          "wlf_above": "T − Tg が 100 K を超えています。WLF の式は Tg からおよそ Tg + 100 K の範囲で使われる式で、それより高い温度ではアレニウスの形のほうがよいとされます。",
+          "wlf_eq_lead": "aT は、温度 T での緩和の時間(や粘度)と、基準温度 Tr での値の比です。aT < 1 なら T では速く、aT > 1 なら遅く進みます。周波数・時間の軸を aT でずらすと、ちがう温度の測定を 1 本のマスターカーブにまとめられます(時間温度換算)。",
+          "wlf_eq_note_uni": "C₁ = 17.44・C₂ = 51.6 K は、Tr = Tg としたときに多くの非晶性高分子におおよそ当てはまるとされる「普遍的な値」です(TA Instruments APN001、Shangguan ほか Polymers 9 (2017) 567)。実際の値は材料で違うので、データがあれば測定から決めた C₁・C₂ を入れてください。",
+          "wlf_eq_note_own": "入れた C₁・C₂ で計算しています(普遍的な値 17.44・51.6 K ではありません)。C₁・C₂ は Tr の取り方で変わるので、使った Tr といっしょに書いてください。",
+          "lg_range": "Tg と Tg + 100 K(普遍的な値の目安の範囲)",
+          "wlf_cautions": [
+            "WLF の式は非晶性高分子の Tg から上の温度域の式です。結晶性高分子や、Tg より下では別の扱い(アレニウスの式など)になります。",
+            "普遍的な値は目安で、材料ごとに当てはめた C₁・C₂ とは違います。製品の寿命の予測などには、その材料で測ったデータを使ってください。"
+          ],
+          "preset_lead": "ρc・ρa は、出典の表から取った代表値です(数をクリックすると出典)。ΔHm° は TA Instruments の資料 TN048(Blaine)の表で、J/g と kJ/mol の両方が載っています。右の 2 列は、このページで原子量から計算した繰り返し単位の式量と、kJ/mol を J/g に直した値です。",
+          "preset_cols": [
+            "材料",
+            "ρc(g/cm³)",
+            "ρa(g/cm³)",
+            "ΔHm°(J/g)",
+            "ΔHm°(kJ/mol)",
+            "式量(g/mol)",
+            "kJ/mol→J/g"
+          ],
+          "preset_notes": [
+            "値は資料によって幅があります。たとえば iPP の ρc には 0.946 g/cm³(Gaur・Wunderlich 1981、298 K)のほか、0.936 g/cm³(Mills, Polymer Foams Handbook 2007、20 ℃)もあり、iPP の ΔHm° には 207 J/g(TN048)のほか、6.94 kJ/mol(≈ 165 J/g、Gaur・Wunderlich 1981)や 209 J/g もあります。",
+            "PE は 298 K の値(Gaur・Wunderlich 1981)。iPP は単斜晶(α 晶)。POM は三方晶の値で、表に温度の記載はありません。PA6 は、ρc・ρa を読めたのがスキャンの PDF の文字の読み取りだけで、どの結晶形の値かも確かめられなかったので、密度のプリセットは置いていません(PA6 には α 晶・γ 晶があり、ρc が違います)。",
+            "PEEK は ρc = 1.40 g/cm³(Blundell・Osborn 1983 の値として引用)を確かめましたが、ρa を確かめられなかったので、密度のプリセットは置いていません。"
+          ],
+          "src_h": "式と定数の出典:",
+          "l_xc": "用語集: 結晶化度",
+          "l_tg": "用語集: ガラス転移温度",
+          "l_dsc": "測定法: DSC",
+          "l_xrd": "XRD の計算(結晶化度を XRD で求めるとき)",
+          "l_mat": "材料データ集"
+        }
+      },
+      "sections": [
+        {
+          "h": "分子量の平均と大小関係(Mn ≤ Mw ≤ Mz)",
+          "p": "合成高分子の分子には長さのばらつきがあるので、分子量は平均で表します。数平均分子量 Mn = ΣnᵢMᵢ/Σnᵢ は分子の本数で重みをつけた平均で、総質量を分子の本数で割った値です。重量平均分子量 Mw = ΣnᵢMᵢ²/ΣnᵢMᵢ は質量で重みをつけた平均で、大きい分子ほど強く効きます。Z 平均 Mz = ΣnᵢMᵢ³/ΣnᵢMᵢ² はさらに大きい分子に敏感です。どの分布でも Mn ≤ Mw ≤ Mz で、等しくなるのはすべての分子が同じ長さのときだけです。Mn は末端基の定量や浸透圧のように分子の数を数える方法と、Mw は光散乱のように質量で重みのつく方法と結びつきます。"
+        },
+        {
+          "h": "分散度 Đ = Mw/Mn",
+          "p": "Mw/Mn は分布の広さの目安で、IUPAC は 2009 年の勧告で、これを分散度 Đ(dispersity)と呼ぶことにしました(以前は多分散度・多分散指数とも呼ばれました)。Đ = 1 はすべての分子が同じ分子量で、分布が広いほど大きくなります。逐次重合の最も確からしい分布では、反応率 p が 1 に近づくと Đ = 1 + p は 2 に近づきます。Đ だけでは分布の形(すその長さや 2 つの山)は分からないので、GPC の曲線もあわせて見ます。"
+        },
+        {
+          "h": "逐次重合と連鎖重合で分子量の増え方が違う",
+          "p": "カロザースの式 Xn = 1/(1 − p) は、2 官能のモノマーが少しずつつながる逐次重合(ナイロンやポリエステルの重縮合など)のものです。p = 0.9 でも Xn は 10、p = 0.99 で 100 なので、高い分子量には 99 % を超える反応率が要ります。官能基の数が少しでもずれる(当量比 r < 1)と、p = 1 でも Xn は (1 + r)/(1 − r) で止まり、r = 0.99 では 199 です。一方、ラジカル重合のような連鎖重合では、活性な鎖の末端に次々とモノマーがつくので、反応の初めから高分子量の鎖ができ、反応が進むと高分子の量が増えていきます。この違いがあるので、カロザースの式を連鎖重合には使いません。"
+        },
+        {
+          "h": "重合度の数え方: 構造単位と繰り返し単位",
+          "p": "IUPAC の用語の定義では、重合度は分子の中のモノマー単位の数です。ナイロン 6 のように 1 種類のモノマー(AB 型)からできる高分子では、繰り返し単位と構造単位は同じです。ナイロン 66 や PET のように 2 種類のモノマー(AA 型と BB 型)が交互につながる高分子では、繰り返し単位 1 つに構造単位が 2 つ入ります。カロザースの式の Xn は構造単位の数なので、Mn = Xn × M₀ の M₀ には構造単位の平均の質量(繰り返し単位の式量の半分)を使います。繰り返し単位の数で重合度を表す本もあるので、どちらで数えたかを書くと誤解がありません。"
+        },
+        {
+          "h": "結晶化度は測り方で値が違う",
+          "p": "結晶性高分子の結晶化度は、密度法・DSC 法・X 線回折(XRD)法などで求めます。密度法は、完全結晶の密度 ρc と完全非晶の密度 ρa の間のどこに試料の密度があるかから出します。DSC 法は、融解の吸熱を、完全結晶の融解熱 ΔHm° と比べます。XRD 法は、結晶の回折ピークの面積と、非晶のなだらかな散乱(ハロー)の面積を分けて比べます。それぞれ体積・融解熱・回折の強さという違う性質から求め、結晶と非晶の境の中間的な部分の数え方も違うので、同じ試料でも値が一致しないのがふつうです。比べるときは同じ方法・同じ定数でそろえます。"
+        },
+        {
+          "h": "Tg が分子量で変わるわけ",
+          "p": "非晶部の分子の運動が凍結する温度がガラス転移温度 Tg です。鎖の末端は鎖の中ほどより動きやすく、まわりに余分なすき間(自由体積)を持ち込みます。末端の数は分子の本数に比例し、同じ質量なら 1/Mn に比例するので、Mn が小さいほど Tg が下がります。これを表すのがフローリー・フォックスの式 Tg = Tg∞ − K/Mn で、Mn が十分大きいと Tg は Tg∞ に近づき、ほとんど変わらなくなります。可塑剤を入れると Tg が下がるのも、分子の動きやすさが増すことによります。2 つの成分が相溶したブレンドや共重合体の Tg の目安には Fox の式 1/Tg = w₁/Tg₁ + w₂/Tg₂ を使います。"
+        },
+        {
+          "h": "WLF の式と時間温度換算",
+          "p": "非晶性高分子の粘弾性では、温度を上げることと、長い時間(低い周波数)で見ることが同じ効果を持ちます。温度 T での緩和時間と基準温度 Tr での緩和時間の比を移動因子 aT とすると、Tg から上の温度域では WLF の式 log aT = −C₁(T − Tr)/(C₂ + T − Tr) がよく当てはまります。Tr = Tg としたときの C₁ = 17.44、C₂ = 51.6 K は、多くの非晶性高分子のおおよその値として「普遍的な値」とされます(実際の値は材料でかなり違います)。式が使えるのは Tg からおよそ Tg + 100 K までとされ、それより高い温度や、Tg より下のガラス状態では、アレニウスの式のほうがよいとされます。普遍的な値は目安で、材料ごとに測った C₁・C₂ とは違います。"
+        },
+        {
+          "h": "よくある誤り",
+          "p": "1つ目は、nᵢ と wᵢ の取り違えです。GPC の曲線の高さは多くの場合、質量(濃度)に比例するので、それを本数として Mn を計算すると Mn が大きく出ます。2つ目は、Fox の式に ℃ のまま入れることです。温度の逆数を足す式なので、必ず K にします。3つ目は、ΔHm° の単位の取り違えです。J/g と kJ/mol(繰り返し単位 1 mol あたり)は、式量を掛けたり割ったりして直す必要があり、PE では 293 J/g が 4.11 kJ/mol に当たります。4つ目は、充填材の入った試料の DSC で、樹脂の質量分率で割り忘れることです。5つ目は、カロザースの式の Xn に繰り返し単位の式量を掛けて、AA–BB 型の Mn を 2 倍に見積もることです。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Mn と Mw のどちらを使えばよいですか?",
+          "a": "目的によります。分子の本数が効く性質(浸透圧、末端基の量、Tg の分子量依存など)は Mn と、質量で重みのつく性質(光散乱、溶融粘度の分子量依存など)は Mw と結びつきます。分布の広さを表すときは、両方と Đ = Mw/Mn を書きます。"
+        },
+        {
+          "q": "GPC の結果の分子量は本当の分子量ですか?",
+          "a": "多くの場合、ポリスチレンなどの標準試料で作った較正曲線による相対値です(「ポリスチレン換算」)。溶液中の分子の広がりが試料と標準試料で違うと、本当の分子量とずれます。光散乱検出器や汎用較正などで絶対値に近づける方法があります。"
+        },
+        {
+          "q": "カロザースの式は連鎖重合にも使えますか?",
+          "a": "使えません。カロザースの式は、2 官能のモノマーが少しずつつながる逐次重合のものです。ラジカル重合のような連鎖重合では、反応の初めから高分子量の鎖ができるので、反応率と重合度の関係がまったく違います。"
+        },
+        {
+          "q": "Xn = 1/(1 − p) の Xn は繰り返し単位の数ですか?",
+          "a": "構造単位(モノマー単位)の数です。ナイロン 66 や PET のような AA–BB 型では、繰り返し単位 1 つに構造単位が 2 つ入るので、Mn = Xn × M₀ の M₀ は繰り返し単位の式量の半分にします。"
+        },
+        {
+          "q": "密度法と DSC 法で結晶化度が合いません。",
+          "a": "ふつうのことです。それぞれ体積と融解熱という違う性質から求め、使う ρc・ρa・ΔHm° にも資料による幅があります。さらに、DSC では測定中の再結晶化、密度法では空孔や充填材が値を変えます。比べるときは方法と定数をそろえ、レポートには使った値と出典を書きます。"
+        },
+        {
+          "q": "Fox の式は ℃ で計算してもよいですか?",
+          "a": "いけません。1/Tg = w₁/Tg₁ + w₂/Tg₂ は温度の逆数を足す式なので、絶対温度(K)で計算し、結果を ℃ に直します。℃ のままだと値が合わず、Tg が 0 ℃ に近い成分があると大きく狂います。"
+        },
+        {
+          "q": "WLF の C₁ = 17.44、C₂ = 51.6 K はいつでも使えますか?",
+          "a": "基準温度を Tg にしたときの、多くの非晶性高分子のおおよその値とされる「普遍的な値」です。材料によって値は違い、使える範囲は Tg からおよそ Tg + 100 K までとされます。データがあれば、その材料で測った C₁・C₂ を使います。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Polymer calculator",
+      "card": "Molecular weight averages (Mn, Mw, Mz, Đ), the Carothers equation, crystallinity from density or DSC, and Tg (Flory–Fox, Fox, WLF), with the equations and substituted values",
+      "title": "Polymer Calculator (Mn, Mw, Carothers, Crystallinity, Fox, WLF)",
+      "description": "Mn, Mw, Mz and dispersity from a typed or pasted molecular weight table; degree of polymerization from the Carothers equation; crystallinity from density or DSC; Tg from the Flory–Fox and Fox equations and the WLF shift factor, with substituted equations and sourced constants.",
+      "h1": "Polymer Calculator",
+      "lead": "Four calculations that come up often in polymer lab reports, each shown with the equation and the values substituted into it: (1) molecular weight averages (Mn, Mw, Mz and dispersity Đ), (2) degree of polymerization in step-growth polymerization (Carothers equation), (3) crystallinity (density and DSC methods), and (4) the glass transition (Flory–Fox, Fox and WLF equations). The presets contain only constants checked against a source, with links to the sources.",
+      "in_heading": "Input",
+      "out_heading": "Result",
+      "presets_h": "Crystallinity presets (ρc, ρa, ΔHm°)",
+      "note": "The equations are the standard textbook ones (molecular weight averages and degree of polymerization as defined in IUPAC terminology, the Carothers equation and Flory’s most probable distribution, the Fox equation and the WLF equation). The sources of the constants are listed under the result and linked from the preset table. Results are estimates and depend on the sample and the measurement conditions.",
+      "practice": "Practice polymer and composite questions",
+      "related": "Related terms",
+      "chart_label": "Result chart",
+      "mode": "Calculation",
+      "mode_mw": "Molecular weight averages",
+      "mode_step": "Step-growth degree of polymerization",
+      "mode_xc": "Crystallinity",
+      "mode_tg": "Glass transition",
+      "msrc": "Table input",
+      "msrc_rows": "Type into rows (up to 8)",
+      "msrc_paste": "Paste a two-column table",
+      "basis": "Second column is",
+      "basis_n": "Number nᵢ (moles, mole fraction)",
+      "basis_w": "Mass wᵢ (mass fraction, GPC height)",
+      "mu": "Molecular weight unit",
+      "mu_gmol": "g/mol",
+      "mu_kgmol": "kg/mol",
+      "p": "Extent of reaction p (0–1)",
+      "r": "Stoichiometric ratio r = N_A/N_B (≤ 1)",
+      "mrep": "Repeat unit formula weight (g/mol)",
+      "nsu": "Structural units per repeat unit",
+      "nsu_1": "1 (AB type, e.g. nylon 6)",
+      "nsu_2": "2 (AA–BB type, e.g. nylon 66, PET)",
+      "xt": "Target Xn (gives the p needed; optional)",
+      "xm": "Method",
+      "xm_dens": "Density method",
+      "xm_dsc": "DSC (heat of fusion)",
+      "pm": "Material preset",
+      "pm_pe": "Polyethylene (PE)",
+      "pm_pp": "Polypropylene (iPP)",
+      "pm_pet": "PET",
+      "pm_pa6": "Nylon 6 (PA6)",
+      "pm_pom": "Polyoxymethylene (POM)",
+      "pm_peek": "PEEK",
+      "pm_custom": "Enter my own",
+      "rho": "Sample density ρ (g/cm³)",
+      "rc": "Fully crystalline density ρc (g/cm³)",
+      "ra": "Fully amorphous density ρa (g/cm³)",
+      "h0u": "Unit of ΔHm°",
+      "h0u_jg": "J/g",
+      "h0u_kjmol": "kJ/mol (per repeat unit)",
+      "h0": "Heat of fusion of 100 % crystalline polymer ΔHm°",
+      "mru": "Repeat unit formula weight (g/mol)",
+      "hm": "Heat of fusion ΔHm (J/g of sample)",
+      "hc": "Cold crystallization ΔHc (J/g; 0 if none)",
+      "wf": "Resin mass fraction w (%)",
+      "tm": "Equation",
+      "tm_ff": "Flory–Fox (Tg vs Mn)",
+      "tm_fox": "Fox equation (two components)",
+      "tm_wlf": "WLF equation (time–temperature shift)",
+      "tu": "Temperature unit for input",
+      "tu_C": "°C",
+      "tu_K": "K",
+      "tginf": "Tg∞ (Tg at very high Mn)",
+      "kff": "Constant K (K·g/mol)",
+      "mn": "Number-average molecular weight Mn (g/mol)",
+      "tg1": "Tg₁ of component 1",
+      "tg2": "Tg₂ of component 2",
+      "w1": "Mass fraction w₁ of component 1 (%)",
+      "tr": "Reference temperature Tr (Tg for the universal values)",
+      "t": "Temperature T",
+      "c1": "C₁",
+      "c2": "C₂ (K)",
+      "m1": "M1",
+      "x1": "n1",
+      "m2": "M2",
+      "x2": "n2",
+      "m3": "M3",
+      "x3": "n3",
+      "m4": "M4",
+      "x4": "n4",
+      "m5": "M5",
+      "x5": "n5",
+      "m6": "M6",
+      "x6": "n6",
+      "m7": "M7",
+      "x7": "n7",
+      "m8": "M8",
+      "x8": "n8",
+      "js": {
+        "mats": {
+          "pe": "Polyethylene (PE)",
+          "pp": "Polypropylene (iPP)",
+          "pet": "PET",
+          "pa6": "Nylon 6 (PA6)",
+          "pom": "Polyoxymethylene (POM)",
+          "peek": "PEEK"
+        },
+        "ui": {
+          "tabs_label": "Type of calculation",
+          "degc": "°C",
+          "tab_mw": "1. Molecular weight",
+          "tab_step": "2. Carothers",
+          "tab_xc": "3. Crystallinity",
+          "tab_tg": "4. Glass transition",
+          "examples": "Examples:",
+          "ex": [
+            "Molecular weight table (6 rows)",
+            "Nylon 66 polycondensation",
+            "PE from density",
+            "PET from DSC",
+            "Two-component Fox equation"
+          ],
+          "ex_note": "The example values are made up to show how the calculation works. They are not measurements of real samples.",
+          "rows_legend": "Molecular weight table (empty rows are ignored)",
+          "rows_help": "The second column can be a ratio of numbers (moles) or of masses; it does not have to add up to 1 or 100. Choose which one under “Second column is”.",
+          "paste": "Paste two columns: molecular weight and amount (from a spreadsheet or GPC export)",
+          "paste_ph": "M\tw\n10000\t0.05\n20000\t0.12\n…",
+          "paste_help": "Tabs, spaces, commas and semicolons are read as separators, and a header line is fine. The pasted table is not put in the URL (only the 8 typed rows are kept in the share URL).",
+          "col_n": "nᵢ (number)",
+          "col_w": "wᵢ (mass)",
+          "read_ok": "Read {n} rows",
+          "read_header": "skipped the first {n} lines as a header",
+          "read_bad": "{n} lines could not be read as numbers (lines {lines})",
+          "read_none": "No readable data yet.",
+          "need_mw": "Enter molecular weights Mᵢ (greater than 0) and amounts in the second column (0 or more, at least one greater than 0).",
+          "mw_main": "From {n} rows: Mn = {mn} g/mol, Mw = {mw} g/mol, dispersity Đ = {d}.",
+          "rows_used": "Rows used",
+          "row_incomplete": "Rows with only Mᵢ or only the second column filled in are not used.",
+          "one_row": "With a single row, Mn = Mw = Mz and Đ = 1.",
+          "kg_note": "Values entered in kg/mol are multiplied by 1000 and calculated in g/mol.",
+          "h_eq": "Equations and substituted values",
+          "mw_eq_lead_n": "nᵢ is the number (moles) of molecules with molecular weight Mᵢ. Mn is the average weighted by number, Mw the average weighted by mass (nᵢMᵢ), and Mz the average with one more factor of Mᵢ in the weight.",
+          "mw_eq_lead_w": "wᵢ is the mass of molecules with molecular weight Mᵢ. Since the number is nᵢ = wᵢ/Mᵢ, Mn = Σwᵢ/Σ(wᵢ/Mᵢ) and Mw is the mass-weighted average Σwᵢ·Mᵢ/Σwᵢ.",
+          "mw_eq_note": "Mn ≤ Mw ≤ Mz, with equality only when every molecule has the same molecular weight. The table represents the distribution as a set of bars, so the values change slightly with how the bars (slices) are chosen. When reading points from a dw/dlog M curve, take them at equal intervals of log M (otherwise the heights are no longer proportional to the mass in each row). The height of a GPC elution curve is usually proportional to mass (concentration), so choose “Mass wᵢ” (this depends on the detector and the conversion used).",
+          "h_frac": "Number and mass fractions by row",
+          "frac_cols": [
+            "Row",
+            "Mᵢ (g/mol)",
+            "Number fraction nᵢ/Σn",
+            "Mass fraction wᵢ/Σw"
+          ],
+          "lg_w": "Mass fraction",
+          "lg_n": "Number fraction",
+          "lg_avg": "Mn and Mw",
+          "log_axis": "log scale",
+          "y_frac": "Fraction",
+          "h_caution": "Cautions",
+          "mw_cautions": [
+            "GPC (SEC) molecular weights are often relative values from a calibration curve made with standards such as polystyrene (“polystyrene equivalent”), and can differ from the true molecular weight. Methods such as light scattering detection can give absolute values.",
+            "How the ends of the distribution are cut, especially the low molecular weight tail, can change Mn considerably. Mw is sensitive to the high molecular weight side.",
+            "This calculation only averages the table as given. It does not handle GPC baselines or calibration fitting."
+          ],
+          "need_p": "Enter the extent of reaction p between 0 and 1.",
+          "need_r": "Enter the stoichiometric ratio r, greater than 0 and at most 1.",
+          "r_over": "r is the number of the minority functional groups divided by the majority, so it is at most 1 (enter the reciprocal if yours is above 1).",
+          "step_inf": "With p = 1 and r = 1 the equation gives an unlimited Xn (in practice side reactions, impurities or equilibrium stop the growth).",
+          "step_main": "At p = {p}, the number-average degree of polymerization is Xn = {xn} and Mn ≈ {mn} g/mol (end groups neglected).",
+          "step_main_nom": "At p = {p}, the number-average degree of polymerization is Xn = {xn}. Enter the repeat unit formula weight to get Mn as well.",
+          "xn_lim": "Upper limit of Xn as p → 1",
+          "step_eq_lead": "The Carothers equation applies to step-growth polymerization (polycondensation, polyaddition) of bifunctional monomers: from the initial number of structural units N₀ and the number of molecules N after reaction, Xn = N₀/N = 1/(1 − p). When the numbers of A and B groups differ (r = N_A/N_B < 1), Xn = (1 + r)/(1 + r − 2rp), where p is the extent of reaction of A.",
+          "step_note_r1": "Xw and Đ come from Flory’s most probable distribution (all functional groups equally reactive, no rings) and are shown only for r = 1. As p → 1, Đ → 2.",
+          "step_note_r": "Xw and Đ are not shown for r < 1 (the most probable distribution’s Xw = (1 + p)/(1 − p) is for r = 1).",
+          "h_target": "Extent of reaction needed for a target degree of polymerization",
+          "target_p": "To reach Xn = {xt}, the reaction must go to p = {p} ({pc} %).",
+          "target_no": "With this r, Xn only reaches {lim} even at p = 1, so Xn = {xt} cannot be reached.",
+          "h_units": "Structural units and repeat units (choice of M₀)",
+          "units_p": "In the IUPAC definition, the degree of polymerization is the number of monomeric units (structural units each derived from one monomer molecule) in a molecule. The Xn of the Carothers equation counts these, so M₀ in Mn = Xn × M₀ is the mean mass of a structural unit. In AB-type polymers such as nylon 6 one repeat unit is one structural unit. In AA–BB-type polymers such as nylon 66 and PET one repeat unit contains two structural units, so M₀ is half the repeat unit formula weight (nylon 66: 226.32 ÷ 2 = 113.16 g/mol).",
+          "units_p2": "Some textbooks count the degree of polymerization in repeat units, which halves the value for AA–BB polymers. State which count you use in your report. The mass of end groups and of the water or other small molecules released is not included in this Mn estimate.",
+          "h_ptable": "Extent of reaction and degree of polymerization",
+          "step_cautions": [
+            "The Carothers equation is for step-growth polymerization (polycondensation, polyaddition). In chain-growth polymerization such as radical polymerization, long chains form from the start, so this equation does not apply.",
+            "A monofunctional impurity lowers r and sharply lowers the upper limit of the degree of polymerization (limit 199 at r = 0.99).",
+            "The equation is an ideal treatment that assumes the reactivity of a group does not depend on chain length and that no rings form."
+          ],
+          "preset_used": "Preset: {m} (values and sources in the table below).",
+          "peek_nodens": "There is no density preset for PEEK because its fully amorphous density ρa could not be checked against a source. Enter ρc and ρa yourself.",
+          "need_rcra": "ρc must be greater than ρa.",
+          "need_dens": "Enter the sample density ρ, the fully crystalline density ρc and the fully amorphous density ρa, all greater than 0.",
+          "dens_main": "The crystallinity from density is {w} by mass and {v} by volume.",
+          "xc_mass": "Crystallinity (mass fraction)",
+          "xc_vol": "Crystallinity (volume fraction)",
+          "dens_out": "ρ = {rho} is not between ρa = {ra} and ρc = {rc}. The crystallinity comes out below 0 or above 1; voids, fillers or another crystal form may break the assumptions of the equation.",
+          "dens_eq_lead": "If the sample consists only of fully crystalline and fully amorphous parts whose specific volumes (1/ρ) add, 1/ρ = Xc/ρc + (1 − Xc)/ρa gives the mass fraction. If their volumes add, ρ = φc·ρc + (1 − φc)·ρa gives the volume fraction.",
+          "dens_eq_note": "ρc is the density calculated from the crystal lattice and ρa the density of the amorphous polymer. Both depend on temperature and vary between sources. Do not take the preset values as given; state the values and sources you used in your report.",
+          "dens_cautions": [
+            "Voids lower the density and make the crystallinity come out too low.",
+            "With fillers such as glass fiber or talc, or with plasticizers and additives, ρ is no longer the density of the resin alone and this equation cannot be used.",
+            "In polymers with several crystal forms, such as PP, PA6 and POM, ρc differs by crystal form. Measure density by a method such as ISO 1183 (immersion or density gradient column) at a controlled temperature."
+          ],
+          "need_mru": "Enter the repeat unit formula weight to convert kJ/mol to J/g.",
+          "need_dsc": "Enter ΔHm and ΔHc (0 or more), ΔHm° (greater than 0) and the resin mass fraction w (above 0 % and at most 100 %).",
+          "dsc_main": "The crystallinity from the DSC heat of fusion is {x} (mass fraction).",
+          "dsc_neg": "ΔHc is larger than ΔHm, so the crystallinity is negative. Check the integration limits and the baseline of the peaks.",
+          "dsc_over": "The crystallinity is above 100 %. Check the value and unit of ΔHm° and the resin mass fraction.",
+          "dsc_eq_lead": "Xc = (ΔHm − ΔHc)/ΔHm°. ΔHm is the endotherm of melting measured on heating (per gram of sample) and ΔHc the exotherm of cold crystallization during the same heating. With fillers, divide by the resin mass fraction w to express it per gram of resin.",
+          "dsc_eq_note": "ΔHm° is the heat of fusion the polymer would have if it were 100 % crystalline. It cannot be measured directly and is obtained by extrapolation or similar methods, so values vary between sources (for iPP, literature values between 150 and 250 J/g are reported). State the ΔHm° and source you used in your report.",
+          "dsc_cautions": [
+            "If the sample recrystallizes or cold-crystallizes during the scan, ΔHm includes crystals formed during the measurement. To get the crystallinity of the original sample, subtract ΔHc and watch for overlapping peaks.",
+            "Check the unit of ΔHm°. A value in kJ/mol is per mole of repeat units; to convert to J/g multiply by 1000 and divide by the formula weight (PE: 4.11 kJ/mol ÷ 14.03 g/mol ≈ 293 J/g).",
+            "Crystallinities from DSC, density and XRD come from different properties (heat of fusion, volume, diffraction intensity), so they usually do not agree for the same sample."
+          ],
+          "need_ff": "Enter Tg∞, K (0 or more) and Mn (greater than 0).",
+          "ff_main": "For Mn = {mn} g/mol, Tg = {t}.",
+          "ff_neg": "Tg is at or below 0 K. Mn is too small and outside the range of the equation.",
+          "ff_eq_lead": "The Flory–Fox equation Tg = Tg∞ − K/Mn expresses that chain ends bring in free volume and that their number is proportional to 1/Mn, so Tg falls as Mn decreases. Tg∞ and K are determined from measurements for each polymer; this page has no default values for them (the values filled in are a made-up example).",
+          "ff_eq_note": "K/Mn is a temperature difference, so Tg∞ can be entered in °C or K with the same equation. The result is given in both K and °C.",
+          "ff_cautions": [
+            "At low Mn the measured values may deviate from the equation. The molecular weight range over which it fits differs between polymers.",
+            "K and Tg∞ differ between sources and measurement methods (such as the DSC heating rate), even for the same polymer."
+          ],
+          "need_fox": "Enter Tg₁ and Tg₂ (above 0 K when converted to kelvin).",
+          "need_w1": "Enter the mass fraction w₁ of component 1 between 0 and 100 %.",
+          "fox_main": "With {w} % (by mass) of component 1, the Fox equation gives Tg = {t}.",
+          "fox_lin": "For reference: simple mass-weighted mean",
+          "fox_eq_lead": "Fox equation 1/Tg = w₁/Tg₁ + w₂/Tg₂ (w are mass fractions, w₂ = 1 − w₁). It adds reciprocal temperatures, so it must be calculated in absolute temperature (K). Values entered in °C have 273.15 added before the calculation.",
+          "fox_eq_note": "The Fox equation is an estimate for miscible blends (showing a single Tg) and random copolymers. In real systems, interactions between the components make Tg deviate above or below it (corrections such as the Gordon–Taylor equation are used).",
+          "h_wrong": "If you put °C straight into the equation (an example of the error)",
+          "fox_wrong": "Putting °C straight into 1/Tg = w₁/Tg₁ + w₂/Tg₂ gives {v} °C, which does not match the correct {t} °C. It goes even more wrong when a component has a Tg near 0 °C.",
+          "lg_fox": "Fox equation",
+          "lg_lin": "Straight line (simple mean)",
+          "x_w1": "Mass fraction w₁ of component 1 (%)",
+          "fox_cautions": [
+            "It cannot be used for phase-separated blends (which show two Tg values).",
+            "It is also used as an estimate for plasticized systems, but the Tg of a plasticizer varies between sources."
+          ],
+          "need_wlf": "Enter Tr, T, C₁ and C₂.",
+          "wlf_div": "C₂ + T − Tr is 0 or less, so the WLF equation cannot be used (T is far below Tr).",
+          "wlf_main_fast": "At T − Tr = {dt} K, aT = {a}: relaxation times are about {a} times those at the reference temperature (about 1/{f}).",
+          "wlf_main_slow": "At T − Tr = {dt} K, aT = {a}: relaxation times are about {f} times longer than at the reference temperature.",
+          "wlf_below": "T is below Tg (the reference temperature). With the universal constants the WLF equation is for temperatures at or above Tg; it is not expected to hold in the glassy state below Tg, where the Arrhenius form is usually better.",
+          "wlf_above": "T − Tg is more than 100 K. The WLF equation is used from Tg to about Tg + 100 K; above that, the Arrhenius form is usually better.",
+          "wlf_eq_lead": "aT is the ratio of a relaxation time (or viscosity) at temperature T to its value at the reference temperature Tr. aT < 1 means faster at T, aT > 1 slower. Shifting the frequency or time axis by aT merges measurements at different temperatures into one master curve (time–temperature superposition).",
+          "wlf_eq_note_uni": "C₁ = 17.44 and C₂ = 51.6 K are the “universal” values said to fit many amorphous polymers roughly when Tr = Tg (TA Instruments APN001; Shangguan et al., Polymers 9 (2017) 567). Real values differ by material, so enter C₁ and C₂ fitted to measurements if you have them.",
+          "wlf_eq_note_own": "Calculated with the C₁ and C₂ you entered (not the universal 17.44 and 51.6 K). C₁ and C₂ depend on the choice of Tr, so state the Tr used along with them.",
+          "lg_range": "Tg and Tg + 100 K (approximate range for the universal values)",
+          "wlf_cautions": [
+            "The WLF equation is for amorphous polymers above Tg. Semicrystalline polymers and temperatures below Tg need a different treatment (such as the Arrhenius equation).",
+            "The universal values are a guide and differ from C₁ and C₂ fitted for a particular material. For predictions such as product lifetime, use data measured on that material."
+          ],
+          "preset_lead": "ρc and ρa are representative values taken from the tables of the sources (click a number for the source). ΔHm° is from the table in TA Instruments note TN048 (Blaine), which lists both J/g and kJ/mol. The two right-hand columns are calculated on this page: the repeat unit formula weight from atomic weights and the kJ/mol value converted to J/g.",
+          "preset_cols": [
+            "Material",
+            "ρc (g/cm³)",
+            "ρa (g/cm³)",
+            "ΔHm° (J/g)",
+            "ΔHm° (kJ/mol)",
+            "Formula wt (g/mol)",
+            "kJ/mol→J/g"
+          ],
+          "preset_notes": [
+            "Values vary between sources. For example, ρc of iPP is given as 0.946 g/cm³ (Gaur and Wunderlich, 1981; 298 K) and also as 0.936 g/cm³ (Mills, Polymer Foams Handbook, 2007; 20 °C), and ΔHm° of iPP as 207 J/g (TN048), 6.94 kJ/mol (≈ 165 J/g; Gaur and Wunderlich, 1981) and 209 J/g.",
+            "PE values are at 298 K (Gaur and Wunderlich, 1981). iPP is the monoclinic (α) form. POM is the trigonal form; the table gives no temperature. For PA6, ρc and ρa could be read only from a scanned PDF, and the crystal form could not be confirmed, so there is no density preset (PA6 has α and γ forms with different ρc).",
+            "For PEEK, ρc = 1.40 g/cm³ (cited as from Blundell and Osborn, 1983) was found, but ρa could not be checked, so there is no density preset."
+          ],
+          "src_h": "Sources of equations and constants:",
+          "l_xc": "Glossary: crystallinity",
+          "l_tg": "Glossary: glass transition temperature",
+          "l_dsc": "Methods: DSC",
+          "l_xrd": "XRD calculator (for crystallinity by XRD)",
+          "l_mat": "Materials data"
+        }
+      },
+      "sections": [
+        {
+          "h": "Molecular weight averages and their order (Mn ≤ Mw ≤ Mz)",
+          "p": "The molecules of a synthetic polymer differ in length, so molecular weight is given as an average. The number-average molecular weight Mn = ΣnᵢMᵢ/Σnᵢ is weighted by the number of molecules: the total mass divided by the number of molecules. The weight-average molecular weight Mw = ΣnᵢMᵢ²/ΣnᵢMᵢ is weighted by mass, so large molecules count more. The z-average Mz = ΣnᵢMᵢ³/ΣnᵢMᵢ² is even more sensitive to large molecules. For any distribution Mn ≤ Mw ≤ Mz, with equality only when all molecules have the same length. Mn goes with methods that count molecules, such as end-group analysis and osmometry, and Mw with mass-weighted methods such as light scattering."
+        },
+        {
+          "h": "Dispersity Đ = Mw/Mn",
+          "p": "Mw/Mn is a measure of the breadth of the distribution. In its 2009 recommendations IUPAC named it the dispersity Đ (it was formerly also called the polydispersity or polydispersity index). Đ = 1 means all molecules have the same molecular weight, and a broader distribution gives a larger Đ. In the most probable distribution of step-growth polymerization, Đ = 1 + p approaches 2 as the extent of reaction p approaches 1. Đ alone does not tell the shape of the distribution (a long tail or two peaks), so look at the GPC curve as well."
+        },
+        {
+          "h": "Step-growth and chain-growth polymerization build molecular weight differently",
+          "p": "The Carothers equation Xn = 1/(1 − p) is for step-growth polymerization, in which bifunctional monomers join step by step (such as the polycondensation of nylons and polyesters). Xn is only 10 at p = 0.9 and 100 at p = 0.99, so high molecular weight needs conversions above 99 %. If the numbers of functional groups are even slightly unbalanced (stoichiometric ratio r < 1), Xn stops at (1 + r)/(1 − r) even at p = 1: 199 for r = 0.99. In chain-growth polymerization such as radical polymerization, monomers add one after another to an active chain end, so long chains form from the start and the amount of polymer increases as the reaction proceeds. Because of this difference the Carothers equation is not used for chain-growth polymerization."
+        },
+        {
+          "h": "Counting the degree of polymerization: structural units and repeat units",
+          "p": "In IUPAC terminology the degree of polymerization is the number of monomeric units in a molecule. In a polymer made from one monomer (AB type) such as nylon 6, the repeat unit and the structural unit are the same. In polymers where two monomers (AA and BB types) alternate, such as nylon 66 and PET, one repeat unit contains two structural units. The Xn of the Carothers equation counts structural units, so M₀ in Mn = Xn × M₀ is the mean mass of a structural unit (half the repeat unit formula weight). Some books express the degree of polymerization in repeat units, so state which count you used to avoid confusion."
+        },
+        {
+          "h": "Crystallinity depends on how it is measured",
+          "p": "The crystallinity of a semicrystalline polymer is obtained by density, DSC, X-ray diffraction (XRD) and other methods. The density method places the sample density between the fully crystalline density ρc and the fully amorphous density ρa. The DSC method compares the melting endotherm with the heat of fusion of the fully crystalline polymer ΔHm°. The XRD method separates the areas of the crystalline diffraction peaks and of the broad amorphous halo. Each uses a different property — volume, heat of fusion, diffraction intensity — and treats the intermediate regions between crystal and amorphous differently, so the values usually differ for the same sample. When comparing, use the same method and the same constants."
+        },
+        {
+          "h": "Why Tg depends on molecular weight",
+          "p": "The glass transition temperature Tg is where molecular motion in the amorphous regions freezes. Chain ends move more easily than chain middles and bring extra space (free volume) around them. The number of ends is proportional to the number of molecules, which for a given mass is proportional to 1/Mn, so Tg falls as Mn decreases. The Flory–Fox equation Tg = Tg∞ − K/Mn describes this: at large enough Mn, Tg approaches Tg∞ and hardly changes. Plasticizers lower Tg because they also make molecular motion easier. For miscible blends and copolymers of two components, the Fox equation 1/Tg = w₁/Tg₁ + w₂/Tg₂ gives an estimate of Tg."
+        },
+        {
+          "h": "The WLF equation and time–temperature superposition",
+          "p": "In the viscoelasticity of amorphous polymers, raising the temperature has the same effect as observing over a longer time (at a lower frequency). With the shift factor aT defined as the ratio of a relaxation time at temperature T to that at the reference temperature Tr, the WLF equation log aT = −C₁(T − Tr)/(C₂ + T − Tr) fits well above Tg. With Tr = Tg, C₁ = 17.44 and C₂ = 51.6 K are taken as rough values for many amorphous polymers and are called the universal values (actual values vary considerably between materials). The equation is said to apply from Tg to about Tg + 100 K; at higher temperatures or in the glassy state below Tg, the Arrhenius equation is usually better. The universal values are a guide and differ from C₁ and C₂ measured for a particular material."
+        },
+        {
+          "h": "Common mistakes",
+          "p": "First, mixing up nᵢ and wᵢ. The height of a GPC curve is usually proportional to mass (concentration); treating it as a number makes Mn come out too high. Second, putting °C into the Fox equation. The equation adds reciprocal temperatures, so always use K. Third, mixing up the units of ΔHm°. J/g and kJ/mol (per mole of repeat units) are converted with the formula weight; for PE, 293 J/g corresponds to 4.11 kJ/mol. Fourth, forgetting to divide by the resin mass fraction in DSC of a filled sample. Fifth, multiplying the Xn of the Carothers equation by the repeat unit formula weight and so doubling Mn for an AA–BB polymer."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Should I use Mn or Mw?",
+          "a": "It depends on the purpose. Properties that depend on the number of molecules (osmotic pressure, end-group content, the molecular weight dependence of Tg) go with Mn; properties weighted by mass (light scattering, the molecular weight dependence of melt viscosity) go with Mw. To describe the breadth of a distribution, give both and Đ = Mw/Mn."
+        },
+        {
+          "q": "Is the molecular weight from GPC the true molecular weight?",
+          "a": "Often it is a relative value from a calibration curve made with standards such as polystyrene (“polystyrene equivalent”). If the size of the molecules in solution differs between the sample and the standards, it differs from the true molecular weight. Light scattering detectors and universal calibration bring it closer to absolute values."
+        },
+        {
+          "q": "Can the Carothers equation be used for chain-growth polymerization?",
+          "a": "No. The Carothers equation is for step-growth polymerization, in which bifunctional monomers join step by step. In chain-growth polymerization such as radical polymerization, long chains form from the start, so the relation between conversion and degree of polymerization is completely different."
+        },
+        {
+          "q": "Does Xn in Xn = 1/(1 − p) count repeat units?",
+          "a": "It counts structural (monomeric) units. In AA–BB polymers such as nylon 66 and PET, one repeat unit contains two structural units, so M₀ in Mn = Xn × M₀ is half the repeat unit formula weight."
+        },
+        {
+          "q": "My crystallinities from density and DSC do not agree.",
+          "a": "That is normal. They come from different properties, volume and heat of fusion, and the ρc, ρa and ΔHm° used vary between sources. Recrystallization during DSC and voids or fillers in the density method also shift the values. Use the same method and constants when comparing, and state the values and sources in your report."
+        },
+        {
+          "q": "Can I use °C in the Fox equation?",
+          "a": "No. 1/Tg = w₁/Tg₁ + w₂/Tg₂ adds reciprocal temperatures, so calculate in absolute temperature (K) and then convert the result to °C. In °C the result is wrong, badly so when a component has a Tg near 0 °C."
+        },
+        {
+          "q": "Can C₁ = 17.44 and C₂ = 51.6 K in the WLF equation always be used?",
+          "a": "They are the “universal” values, taken as rough values for many amorphous polymers when the reference temperature is Tg. The values differ by material, and the equation is said to apply from Tg to about Tg + 100 K. If you have data, use C₁ and C₂ measured for that material."
+        }
+      ]
+    }
+  }
+}
