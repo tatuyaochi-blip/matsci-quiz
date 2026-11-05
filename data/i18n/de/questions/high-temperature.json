@@ -178,5 +178,50 @@
    "Bei jedem Aufschmelzen und Wiedererstarren der Oberfläche durch das Erhitzen entstehen Erstarrungsrisse, daher tritt es nicht auf, solange die Oberfläche unter dem Schmelzpunkt bleibt"
   ],
   "explanation": "Eine plötzlich erhitzte Oberfläche will sich ausdehnen, wird aber vom noch kalten Inneren behindert, steht daher unter Druck-Wärmespannung und verformt sich, weil sie bei hoher Temperatur weich ist, plastisch auf Druck. Beim Abkühlen will sie sich zusammenziehen, gerät unter Zug und verformt sich in Gegenrichtung plastisch. Wiederholt sich das, entstehen auch ohne äußere Last durch diese wechselnden plastischen Dehnungen aus der unterschiedlichen Wärmeausdehnung Risse wie bei der Kurzzeitermüdung, die sich netzartig über die Oberfläche ausbreiten. Werkstoffe mit kleinem Wärmeausdehnungskoeffizienten sowie hoher Wärmeleitfähigkeit und Warmstreckgrenze sind weniger anfällig. Anders als beim Kriechbruch unter konstanter Last bestimmen die Zahl der Zyklen und die Temperaturschwankung die Lebensdauer. Es tritt ohne Aufschmelzen der Oberfläche auf und ist schon bei Temperaturen weit unter dem Schmelzpunkt ein Problem."
+ },
+ "high-temperature-021": {
+  "question": "Werden Ni-Al-Legierungen bei hoher Temperatur oxidiert, scheidet sich bei Al-armen Legierungen Al₂O₃ in Form von Teilchen im Inneren der Legierung aus (innere Oxidation), während an der Oberfläche Nickeloxid wächst. Legierungen mit mehr als einem bestimmten Al-Gehalt bilden an der Oberfläche eine geschlossene, schützende Al₂O₃-Schicht. Welche Erklärung für diesen Unterschied trifft zu?",
+  "choices": [
+   "Diffundiert Al im Vergleich zum eindringenden Sauerstoff schnell genug zur Oberfläche nach, wächst Al₂O₃ dort zu einer geschlossenen Schicht zusammen",
+   "Al₂O₃ ist thermodynamisch weniger stabil als Nickeloxid, daher bildet es sich an der Oberfläche nur, wenn die Al-Konzentration und damit die Aktivität hoch genug ist",
+   "In Al-reichen Legierungen steigt die Sauerstofflöslichkeit, sodass Sauerstoff schnell tief in die Legierung diffundiert und das innere Al auf einmal vollständig oxidiert"
+  ],
+  "explanation": "Al₂O₃ ist ein weit stabileres Oxid als NiO, sodass Al thermodynamisch auch bei geringem Gehalt bevorzugt oxidiert wird. Den Unterschied bewirkt ein Wettlauf der Diffusionsgeschwindigkeiten. Ist die Nachlieferung von Al durch Diffusion zur Oberfläche langsam im Vergleich zum Sauerstoff, der sich in der Legierung löst und nach innen diffundiert, bildet das Al vor Erreichen der Oberfläche Oxidteilchen in der Legierung, und die innere Oxidation schreitet fort. Ist die Al-Konzentration hoch und die Nachlieferung ausreichend, wachsen die Al₂O₃-Teilchen an der Oberfläche zu einer geschlossenen Schicht zusammen, und die weitere Oxidation wird von der langsamen Diffusion durch die Schicht bestimmt (Betrachtung nach Wagner). Ein Cr-Zusatz wie in Ni-Cr-Al-Legierungen lässt Cr₂O₃ den anfänglichen Sauerstoff abfangen und senkt den für eine geschlossene Schicht nötigen Al-Gehalt."
+ },
+ "high-temperature-022": {
+  "question": "Wird hochtemperaturbeständigen Legierungen, die Al₂O₃- oder Cr₂O₃-Schutzschichten bilden, eine geringe Menge von etwa 0,1 % oder weniger eines Reaktivelements wie Yttrium (Y) oder Hafnium (Hf) zugesetzt, nimmt das Abplatzen der Schicht bei wiederholtem Erhitzen und Abkühlen stark ab. Welche Erklärung dieses Effekts trifft zu?",
+  "choices": [
+   "Y und Hf bilden außen auf der Schicht eine dicke Oxidlage, die anstelle von Al₂O₃ als Schutzschicht wirkt, sodass das Al der Legierung nicht mehr verbraucht wird",
+   "Y und Hf senken den Längenausdehnungskoeffizienten der Legierung auf den Wert des Oxids, sodass beim Abkühlen keine Wärmespannung entsteht und die Schicht nicht mehr abplatzt",
+   "Sie binden den Schwefel der Legierung, halten ihn von der Grenzfläche fern und seigern an Korngrenzen der Schicht, was deren Wachstum ändert und die Haftung verbessert"
+  ],
+  "explanation": "Schwefel, der als Verunreinigung in der Legierung enthalten ist, seigert an die Grenzfläche zwischen Schicht und Legierung, schwächt die Bindung und lässt die Schicht unter der Wärmespannung beim Abkühlen abplatzen. Reaktivelemente wie Y und Hf binden Schwefel stark und unterdrücken so seine Seigerung an die Grenzfläche. Zudem seigern sie an die Korngrenzen der Schicht und verlangsamen das Wachstum durch Auswärtsdiffusion von Aluminium, sodass das Wachstum durch einwärts gerichteten Sauerstofftransport überwiegt und sich an der Grenzfläche weniger leicht Hohlräume bilden. Dass Legierungen mit sehr niedrigem Schwefelgehalt auch ohne Reaktivelemente besser haften, stützt diese Vorstellung. Die Elemente wirken schon in kleinsten Mengen; zu viel davon verursacht dagegen innere Oxidation oder beschleunigtes Schichtwachstum. Sie bilden keine dicke Oxidlage, und so geringe Zusätze ändern den Längenausdehnungskoeffizienten der Legierung kaum."
+ },
+ "high-temperature-023": {
+  "question": "Siliciumbasierte Keramiken wie SiC-faserverstärktes SiC (SiC/SiC) werden in trockener, heißer Luft durch eine SiO₂-Schutzschicht geschützt, können im Verbrennungsgas von Gasturbinen aber schnell abgetragen werden. Welche Kombination aus Hauptursache und Gegenmaßnahme trifft zu?",
+  "choices": [
+   "Wasserdampf im Verbrennungsgas reagiert mit SiO₂ zu flüchtigem Si(OH)₄, sodass die Schicht verloren geht; daher wird die Oberfläche mit einer Umgebungsschutzschicht abgedeckt",
+   "Stickstoff im Verbrennungsgas reagiert mit SiC zu Si₃N₄, das stark im Volumen schrumpft; daher wird die Oberfläche mit einer für Stickstoff undurchlässigen Metallschicht abgedeckt",
+   "Kohlendioxid im Verbrennungsgas lässt SiC Kohlenstoff aufnehmen und verspröden; daher wird zum Schutz vorab eine dicke Kohlenstoffschicht auf die Oberfläche aufgebracht"
+  ],
+  "explanation": "SiC oxidiert bei hoher Temperatur zu einer dichten SiO₂-Schicht an der Oberfläche, durch die Sauerstoff nur langsam diffundiert, sodass die Oxidation in trockener Luft langsam nach einem parabolischen Zeitgesetz verläuft. Verbrennungsgase enthalten jedoch viel Wasserdampf, und bei hohem Druck und hoher Strömungsgeschwindigkeit verflüchtigt sich die Schicht nach der Reaktion SiO₂ + 2H₂O → Si(OH)₄. Da die Schicht gleichzeitig wächst und sich verflüchtigt, wird der Werkstoff schließlich mit konstanter Geschwindigkeit abgetragen. Die Oberfläche wird daher mit einer Umgebungsschutzschicht (environmental barrier coating, EBC) aus Oxiden wie Seltenerdsilikaten abgedeckt, die kaum mit Wasserdampf reagieren und eine ähnliche Wärmeausdehnung wie SiC haben. Reaktionen mit Stickstoff oder Kohlendioxid im Verbrennungsgas sind nicht die Hauptursache dieses Abtrags."
+ },
+ "high-temperature-024": {
+  "question": "Für einen Teil der Niederdruckturbinenschaufeln von Flugtriebwerken werden inzwischen Legierungen auf Basis der intermetallischen Verbindung γ-TiAl eingesetzt. Welche Aussage über sie im Vergleich zu Nickelbasis-Superlegierungen trifft zu?",
+  "choices": [
+   "Ihre Dichte ist mit etwa 8 g/cm³ gleich der von Nickelbasis-Superlegierungen, ihr Schmelzpunkt mit etwa 2000 °C aber hoch, sodass sie sich für die heißesten Hochdruckturbinenschaufeln eignen",
+   "Als intermetallische Verbindungen sind sie schon bei Raumtemperatur sehr duktil und gut verarbeitbar, sodass sie sich leichter umformen und zerspanen lassen als Nickelbasis-Superlegierungen",
+   "Ihre Dichte ist mit etwa 4 g/cm³ etwa halb so groß wie die von Nickelbasis-Superlegierungen und die spezifische Festigkeit hoch, doch Duktilität und Zähigkeit bei Raumtemperatur sind gering"
+  ],
+  "explanation": "γ-TiAl ist eine intermetallische Verbindung mit geordneter L1₀-Struktur; ihre Dichte von etwa 3,8 bis 4,2 g/cm³ ist etwa halb so groß wie die von Nickelbasis-Superlegierungen mit etwa 8 bis 9 g/cm³. Die starke Bindung zwischen den Atomen lässt Festigkeit und Elastizitätsmodul auch bei hoher Temperatur nur wenig absinken, sodass die spezifische Festigkeit hoch ist; leichtere rotierende Schaufeln verringern zudem die Fliehkraft auf die Scheibe. Andererseits begrenzt die geordnete Struktur die Gleitsysteme, sodass die Bruchdehnung bei Raumtemperatur mit etwa 1 bis 2 % klein und auch die Bruchzähigkeit gering ist; beim Gießen und Zerspanen muss Rissbildung vermieden und Schäden durch Fremdkörper müssen berücksichtigt werden. Oxidationsbeständigkeit und Kriechfestigkeit beschränken den Einsatz auf die Niederdruckturbine, deren Temperatur niedriger ist als die der Hochdruckturbine. Auch der Schmelzpunkt liegt weit unter 2000 °C."
+ },
+ "high-temperature-025": {
+  "question": "Die Wirkung der Turbinenschaufelkühlung wird durch den Kühlwirkungsgrad φ = (Tg − Tm)/(Tg − Tc) ausgedrückt (Tg Temperatur des Verbrennungsgases, Tm des Schaufelmetalls, Tc der Kühlluft). Welcher Wert kommt der Metalltemperatur Tm der Schaufel bei Tg = 1800 K, Tc = 900 K und φ = 0,60 am nächsten?",
+  "choices": [
+   "Etwa 1440 K",
+   "Etwa 1260 K",
+   "Etwa 1080 K"
+  ],
+  "explanation": "Nach Tm aufgelöst ergibt sich Tm = Tg − φ(Tg − Tc) = 1800 − 0,60 × 900 = 1800 − 540 = 1260 K, also etwa 1260 K. Der Wert von etwa 1440 K folgt aus Tm = Tc + φ(Tg − Tc), wobei die Temperaturdifferenz von der Kühlluftseite aus addiert wird; das kehrt die Beziehung um, sodass das Metall umso heißer würde, je größer φ ist. Der Wert von etwa 1080 K multipliziert einfach Tg mit φ. Vom Verdichter abgezapfte Luft strömt durch das Innere der Schaufel und tritt aus kleinen Bohrungen an der Oberfläche aus, die sie mit einem Luftfilm bedeckt; so wird die Metalltemperatur einige hundert Kelvin unter der des Verbrennungsgases gehalten. Eine zusätzliche Wärmedämmschicht senkt sie weiter, doch je mehr Luft zur Kühlung verwendet wird, desto geringer ist der Wirkungsgrad des Triebwerks; eine höhere Temperaturbeständigkeit des Werkstoffs ist daher von großer Bedeutung."
  }
 }

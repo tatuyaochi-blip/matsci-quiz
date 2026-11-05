@@ -178,5 +178,50 @@
    "Die Rohstoffe Cobalt und Samarium sind billig und rosten kaum, sodass sie ohne Oberflächenbehandlung kostengünstig hergestellt werden können"
   ],
   "explanation": "Samarium-Cobalt-Magnete sind Verbindungen überwiegend auf Co-Basis; ihre Curie-Temperatur ist daher mit etwa 700–800 °C hoch und liegt weit über den etwa 310 °C von Nd₂Fe₁₄B, der Hauptphase der Neodym-Magnete. Magnetisierung und Koerzitivfeldstärke nehmen deshalb mit steigender Temperatur weniger ab, und der Temperaturkoeffizient der Remanenz ist klein, sodass manche Sorten auch über 250 °C einsetzbar sind. Andererseits ist ihre Remanenz mit etwa 0,8–1,2 T niedriger als die der stärksten Neodym-Magnete (etwa 1,4 T), und ihr maximales Energieprodukt reicht meist nicht an Neodym-Magnete heran. Außerdem sind Cobalt und Samarium teuer, und die Magnete sind spröde und brechen leicht. Ihre Korrosionsbeständigkeit ist recht gut, doch ein niedriger Preis ist kein Grund für ihre Wahl. Sie werden dort eingesetzt, wo die Stabilität bei hoher Temperatur Vorrang vor Preis und Stärke hat."
+ },
+ "magnetic-materials-021": {
+  "question": "Wie verhält sich die magnetische Suszeptibilität χ eines Antiferromagneten wie MnO, wenn sie in Abhängigkeit von der Temperatur gemessen wird?",
+  "choices": [
+   "Sie hat bei der Néel-Temperatur ein Maximum; darunter verstärkt sich die antiparallele Ordnung und χ wird kleiner, darüber fällt χ mit steigender Temperatur",
+   "Unterhalb der Néel-Temperatur tritt eine spontane Magnetisierung auf, und χ wird wie bei einem Ferromagneten sehr groß; oberhalb davon wird der Stoff paramagnetisch",
+   "Sie hat unabhängig von der Temperatur einen kleinen, konstanten negativen Wert und ändert sich beim Durchlaufen der Néel-Temperatur überhaupt nicht deutlich"
+  ],
+  "explanation": "In einem Antiferromagneten richten sich benachbarte Momente durch Austauschwechselwirkung antiparallel aus und heben sich insgesamt auf, sodass keine spontane Magnetisierung vorliegt. Oberhalb der Néel-Temperatur ist der Stoff paramagnetisch, und χ fällt nach der Curie-Weiss-Form χ = C/(T + θ) mit der Temperatur (θ ist eine positive Konstante). Unterhalb der Néel-Temperatur verstärkt sich die antiparallele Ordnung, und ein angelegtes Feld kann die Momente schwerer kippen, sodass χ kleiner wird; bei der Néel-Temperatur entsteht ein Maximum. Insbesondere bei einem Feld parallel zur Richtung der geordneten Momente strebt χ für T → 0 K gegen null. Eine spontane Magnetisierung und ein großes χ zeigen Ferromagnete und Ferrimagnete, einen kleinen, konstanten negativen Wert Diamagnete."
+ },
+ "magnetic-materials-022": {
+  "question": "Ist der Bahnbeitrag ausgelöscht und trägt nur der Spin bei, lässt sich das aus der Suszeptibilität eines paramagnetischen Salzes bestimmte effektive magnetische Moment als µ_eff = 2√(S(S+1)) µB schreiben. Welcher Wert kommt µ_eff von Cr³⁺ mit drei ungepaarten Elektronen (S = 3/2) am nächsten?",
+  "choices": [
+   "Etwa 3,00 µB",
+   "Etwa 7,50 µB",
+   "Etwa 3,87 µB"
+  ],
+  "explanation": "S(S+1) = (3/2)(5/2) = 3,75, also µ_eff = 2√3,75 ≈ 2 × 1,936 ≈ 3,87 µB. Der Wert von etwa 3,00 µB ist 2S µB; er entspricht dem Sättigungsmoment je Ion, wenn ein Feld alle Spins in dieselbe Richtung ausrichtet, und wird zur Abschätzung der Sättigungsmagnetisierung von Ferriten verwendet. Die paramagnetische Suszeptibilität hängt vom Mittelwert des Quadrats des Moments ab, und quantenmechanisch ist der Mittelwert von S² gleich S(S+1), sodass das aus der Curie-Konstante bestimmte effektive Moment größer als 2S ist. Der Wert von etwa 7,50 µB vergisst die Quadratwurzel. Bei 3d-Übergangsmetallionen in Kristallen ist der Bahnbeitrag nahezu ausgelöscht, sodass diese Formel gut passt; bei Seltenerdionen mit 4f-Elektronen wird dagegen der Gesamtdrehimpuls J verwendet."
+ },
+ "magnetic-materials-023": {
+  "question": "Welche Kombination aus Grundfrequenz des Brummens eines an 50 Hz Wechselstrom betriebenen Transformators und dessen Hauptursache trifft zu?",
+  "choices": [
+   "100 Hz. Die Längenänderung durch Magnetostriktion hängt vom Betrag, nicht von der Richtung der Magnetisierung ab, daher ändert der Kern je Periode zweimal seine Länge",
+   "50 Hz. Durch Magnetostriktion dehnt sich der Kern je nach Richtung der Magnetisierung aus oder zieht sich zusammen, daher schwingt er mit der Periode der Netzspannung",
+   "25 Hz. Wegen der Hysterese hinkt die Magnetisierung nach, sodass sich der Kern nur einmal in zwei Perioden der Netzspannung dehnt und zusammenzieht"
+  ],
+  "explanation": "Magnetostriktion ist die Änderung der Abmessungen eines Werkstoffs mit der Magnetisierung; die Dehnung hat bei umgekehrter Magnetisierung dasselbe Vorzeichen und ändert sich etwa mit deren Quadrat. Bei 50 Hz Wechselstrom wächst die Magnetisierung in jeder Periode einmal in positiver und einmal in negativer Richtung an, sodass sich der Kern je Periode zweimal dehnt und zusammenzieht und die Grundfrequenz 100 Hz beträgt. Da die Magnetostriktion nichtlinear von der Magnetisierung abhängt, treten auch Oberschwingungen wie 200 Hz und 300 Hz auf. Dass Dehnung und Stauchung mit der Richtung der Magnetisierung wechseln, übersieht, dass die Magnetostriktion eine gerade, richtungsunabhängige Funktion ist. Die Hysterese verzögert die Änderung der Magnetisierung, verdoppelt aber nicht die Periode. Zur Geräuschminderung werden etwa Elektrobleche mit etwa 6,5 % Si verwendet, deren Magnetostriktion nahezu null ist."
+ },
+ "magnetic-materials-024": {
+  "question": "Die Kernverluste P eines Elektroblechs werden als Summe P = af + bf² aus frequenzproportionalen Hystereseverlusten und zu f² proportionalen Wirbelstromverlusten geschrieben. Bei gleicher Scheitelflussdichte betrugen sie bei 50 Hz 1,00 W/kg und bei 100 Hz 2,60 W/kg. Welcher Wert kommt den Hystereseverlusten innerhalb der Kernverluste bei 50 Hz am nächsten?",
+  "choices": [
+   "Etwa 0,47 W/kg",
+   "Etwa 0,70 W/kg",
+   "Etwa 0,30 W/kg"
+  ],
+  "explanation": "Mit P/f = a + bf ergibt sich bei 50 Hz 1,00/50 = 0,0200 und bei 100 Hz 2,60/100 = 0,0260, also b = (0,0260 − 0,0200)/50 = 1,2×10⁻⁴ und a = 0,0200 − 50b = 0,0140. Die Hystereseverluste bei 50 Hz betragen af = 0,0140 × 50 = 0,70 W/kg, die Wirbelstromverluste 0,30 W/kg. Der Wert von etwa 0,30 W/kg vertauscht die beiden Verluste. Der Wert von etwa 0,47 W/kg behandelt die Hystereseverluste als frequenzunabhängige Konstante; die Hystereseverluste entsprechen aber der in jeder Periode verlorenen Schleifenfläche und sind daher proportional zur Frequenz. In realen Blechen kommen zusätzlich Exzess-Wirbelstromverluste (anomale Verluste) hinzu, die diese beiden Terme nicht erklären."
+ },
+ "magnetic-materials-025": {
+  "question": "Alnico-Magnete des Systems Al-Ni-Co-Fe werden durch eine Wärmebehandlung im Magnetfeld hergestellt, die längliche ferromagnetische Fe-Co-reiche Bereiche in einer schwach magnetischen Ni-Al-reichen Matrix in einer Richtung ausrichtet. Was ist der Hauptursprung ihrer Koerzitivfeldstärke?",
+  "choices": [
+   "Die Fe-Co-reiche Phase hat eine uniaxiale magnetokristalline Anisotropie, die ebenso stark ist wie die der Hauptphase von Neodym-Magneten",
+   "Domänenwände sind an den Grenzen der länglichen Phase stark verankert und unbeweglich, sodass die Koerzitivfeldstärke bei Erhalt vieler Weiss-Bezirke groß wird",
+   "Längliche Teilchen haben bei Magnetisierung in Längsrichtung ein kleines Entmagnetisierungsfeld, sodass eine Formanisotropie die Magnetisierung in dieser Richtung hält"
+  ],
+  "explanation": "Wird ein längliches ferromagnetisches Teilchen in Längsrichtung magnetisiert, treten Pole nur an seinen weit entfernten Enden auf, sodass das Entmagnetisierungsfeld klein und die magnetostatische Energie niedriger ist als bei Quermagnetisierung. Die Magnetisierung bleibt daher bevorzugt in Längsrichtung, und zum Umkehren ist ein großes Gegenfeld nötig. Das ist die Formanisotropie; bei Alnico erzeugt die Formanisotropie der länglich ausgerichteten, einige zehn nm dicken Fe-Co-reichen Phase die Koerzitivfeldstärke. Die Koerzitivfeldstärke ist weit kleiner als bei Neodym-Magneten, daher wird Alnico in Form langer Stäbe oder Hufeisen eingesetzt, um eine Entmagnetisierung durch das eigene Entmagnetisierungsfeld zu vermeiden; es hat aber eine hohe Remanenz und eine hohe Curie-Temperatur, sodass sich seine Eigenschaften mit der Temperatur wenig ändern. Die kubische Fe-Co-Phase hat eine kleine magnetokristalline Anisotropie, die nicht der Hauptursprung der Koerzitivfeldstärke ist."
  }
 }

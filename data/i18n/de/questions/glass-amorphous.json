@@ -178,5 +178,50 @@
    "Starke Flüssigkeiten wie SiO₂ zeigen eine nahezu lineare, Arrhenius-artige Gerade, fragile Flüssigkeiten wie viele Polymere ändern ihre Viskosität nahe Tg abrupt"
   ],
   "explanation": "Diese Einteilung geht auf Angell zurück und unterscheidet Flüssigkeiten danach, wie weit die Temperaturabhängigkeit der Viskosität (oder Relaxationszeit) von der Arrhenius-Geraden log η ∝ 1/T abweicht. Flüssigkeiten mit dreidimensionalem kovalentem Netzwerk wie SiO₂ und GeO₂ ändern ihre Struktur mit der Temperatur kaum und sind nahezu lineare „starke“ Flüssigkeiten. Viele Polymere und molekulare Flüssigkeiten ändern ihre Struktur bei Annäherung an Tg stark, sodass die Viskosität in einem engen Temperaturbereich steil ansteigt; das sind „fragile“ Flüssigkeiten, bei denen T₀ der VFT-Gleichung nahe bei Tg liegt. Die Namen haben nichts damit zu tun, wie leicht der Festkörper bricht; sie beschreiben, wie sich die Viskosität der Flüssigkeit mit der Temperatur ändert. Die Aussage mit vertauschten Beispielen verwechselt den Zusammenhang mit der Netzwerkstärke."
+ },
+ "glass-amorphous-021": {
+  "question": "Kieselglas (SiO₂-Glas) hat eine Dichte von 2,20 g/cm³, α-Quarz, der Kristall gleicher Zusammensetzung, 2,65 g/cm³. Welche Kombination aus dem Volumen des Kieselglases bei gleicher Masse und dem, was der Unterschied zeigt, trifft zu?",
+  "choices": [
+   "Etwa das 0,83-Fache des Kristalls; im Glas sind die Tetraeder dichter gepackt als im Kristall, sodass eine Struktur mit wenig Zwischenräumen entsteht",
+   "Etwa das 1,20-Fache des Kristalls; im Glas sind die SiO₄-Tetraeder zerstört, und die Koordinationszahl von Si ist von 4 auf 3 gesunken",
+   "Etwa das 1,20-Fache des Kristalls; die SiO₄-Tetraeder bleiben erhalten, doch die ungeordnete Verknüpfung ergibt eine Struktur mit vielen Zwischenräumen"
+  ],
+  "explanation": "Bei gleicher Masse ist das Volumen umgekehrt proportional zur Dichte; Kieselglas hat also das 2,65/2,20 ≈ 1,20-Fache des Volumens von α-Quarz. Auch im Glas sind die SiO₄-Tetraeder mit vier Sauerstoffatomen um jedes Si und der Si-O-Abstand nahezu wie im Kristall, doch die Si-O-Si-Winkel zwischen den Tetraedern und die Ringgrößen streuen, sodass die Packung schlechter und die Struktur offen mit vielen Zwischenräumen ist. Wegen dieser Zwischenräume lässt Kieselglas kleine Gasmoleküle wie Helium relativ leicht hindurch, und seine Dichte steigt unter hohem Druck. Das 0,83-Fache ist das umgekehrte Dichteverhältnis. Si ist im Glas bei Normaldruck weiterhin vierfach koordiniert, und die Tetraeder sind intakt; das größere Volumen auf eine kleinere Koordinationszahl zurückzuführen, ist daher falsch."
+ },
+ "glass-amorphous-022": {
+  "question": "In einem Na₂O-haltigen Silikatglas wird bei konstantem Gesamtgehalt an Alkalioxiden schrittweise ein Teil des Na₂O durch K₂O ersetzt. Wie ändert sich die elektrische Leitfähigkeit (Ionenleitfähigkeit)?",
+  "choices": [
+   "Da K⁺ größer und weniger beweglich ist als Na⁺, sinkt sie linear mit dem K₂O-Anteil und ist im reinen K₂O-Glas am niedrigsten",
+   "Bei mittleren Zusammensetzungen mit beiden Alkalien sinkt sie weit unter die der Gläser mit nur einem Alkali und durchläuft ein Minimum",
+   "Da die beiden Ionensorten einander die Wege erweitern, steigt sie bei mittleren Zusammensetzungen weit über die der Gläser mit nur einem Alkali und durchläuft ein Maximum"
+  ],
+  "explanation": "Die elektrische Leitung in Silikatgläsern erfolgt durch Sprünge von Alkaliionen zwischen Plätzen in den Zwischenräumen des Netzwerks. Werden zwei Alkalien gemischt, ändert sich die Leitfähigkeit nicht proportional zur Zusammensetzung, sondern fällt bei mittleren Zusammensetzungen um mehrere Größenordnungen und durchläuft ein Minimum. Dies ist der Mischalkalieffekt. Das Netzwerk um jedes Ion hat sich an dessen Größe und Bindung angepasst, sodass ein Sprung von Na⁺ auf einen K⁺-Platz oder von K⁺ auf einen Na⁺-Platz energetisch ungünstig ist und die zusammenhängenden Wege aus Plätzen derselben Sorte unterbrochen werden; darin sieht man die Ursache. Der Effekt wird bei der Auslegung von Glaszusammensetzungen mit hoher elektrischer Isolation oder geringer Alterung durch Ionenwanderung genutzt."
+ },
+ "glass-amorphous-023": {
+  "question": "Ein Borosilikatglas wird durch Wärmebehandlung in ein ineinander verschlungenes Gefüge aus einer SiO₂-reichen und einer alkali- und boratreichen Phase entmischt; dann wird die boratreiche Phase mit Säure herausgelöst, und das Glas wird durch Erhitzen verdichtet, sodass ein Glas mit etwa 96 % SiO₂ entsteht. Welche Aussage über den Kern dieses Verfahrens trifft zu?",
+  "choices": [
+   "Die Wärmebehandlung scheidet SiO₂-Kristalle aus, die als Gerüst erhalten bleiben, sodass eine Glaskeramik aus feinen Kristallen entsteht",
+   "Die Säure tauscht nur das Natrium der Oberflächenschicht gegen Wasserstoff aus und erzeugt Druckspannungen, sodass wie beim chemischen Vorspannen nur die Oberfläche SiO₂-reich wird",
+   "Die zusammenhängende SiO₂-reiche Phase des entmischten Glases bleibt als Gerüst erhalten, sodass ein hochkieselsäurehaltiges Glas ohne die zum Schmelzen von SiO₂ nötige Hitze entsteht"
+  ],
+  "explanation": "Borosilikatgläser bestimmter Zusammensetzung entmischen sich bei einer Wärmebehandlung um 500 bis 600 °C ohne Kristallisation in zwei Glasphasen (Phasentrennung), die ein zusammenhängendes, ineinander verschlungenes Gefüge bilden. Die alkali- und boratreiche Phase löst sich leicht in Säure, die SiO₂-reiche Phase kaum, sodass nach dem Auslaugen ein poröses SiO₂-Glas mit zusammenhängenden Poren zurückbleibt. Erhitzt man es auf etwa 1000 bis 1200 °C, fallen die Poren zusammen, das Glas verdichtet sich, und ein hochkieselsäurehaltiges Glas mit Temperaturbeständigkeit und geringer Wärmeausdehnung ähnlich wie Kieselglas entsteht bei niedrigerer Temperatur als beim Schmelzen von reinem SiO₂. Das Produkt ist ein amorphes Glas und keine Glaskeramik, und anders als beim chemischen Vorspannen durch Ionenaustausch ist die Zusammensetzung durchgehend SiO₂-reich."
+ },
+ "glass-amorphous-024": {
+  "question": "In wiederbeschreibbaren optischen Datenträgern und Phasenwechselspeichern werden dünne Schichten aus Chalkogeniden wie Ge₂Sb₂Te₅ zur Aufzeichnung zwischen kristallinem und amorphem Zustand umgeschaltet. Welcher Vorgang erzeugt den amorphen Zustand?",
+  "choices": [
+   "Mit einem kurzen, starken Licht- oder Strompuls über den Schmelzpunkt erhitzen, aufschmelzen und sofort abschrecken, sodass die ungeordnete Struktur der Schmelze eingefroren wird",
+   "Relativ lange bei einer Temperatur oberhalb der Kristallisationstemperatur und unterhalb des Schmelzpunkts halten, sodass sich die Atome nach und nach zum amorphen Zustand umordnen",
+   "Über den Schmelzpunkt erhitzen, aufschmelzen und dann langsam abkühlen, sodass die Atome in ungeordnetem Zustand erstarren"
+  ],
+  "explanation": "Der amorphe Zustand entsteht, indem die Schicht nur sehr kurz über den Schmelzpunkt erhitzt und aufgeschmolzen wird und durch Wärmeabfuhr an die Umgebung abschreckt, sodass die ungeordnete Atomanordnung der Schmelze eingefroren wird. Wird die Schicht dagegen etwas länger oberhalb der Kristallisationstemperatur und unterhalb des Schmelzpunkts gehalten, ordnen sich die Atome um und kehren in den kristallinen Zustand zurück; dieser Vorgang dient zum Löschen bzw. Schreiben in den kristallinen Zustand. Bei langsamem Abkühlen nach dem Aufschmelzen kristallisiert die Schicht unterwegs. Der amorphe Zustand hat einen hohen elektrischen Widerstand und ein geringes optisches Reflexionsvermögen, der kristalline einen niedrigen Widerstand und ein hohes Reflexionsvermögen; dieser Unterschied wird ausgelesen. Ge₂Sb₂Te₅ kristallisiert äußerst schnell, sein amorpher Zustand bleibt bei Betriebstemperatur aber lange erhalten, sodass schnelles Umschreiben und Datenerhalt vereinbar sind."
+ },
+ "glass-amorphous-025": {
+  "question": "Wird ein massives metallisches Glas erhitzt, wird es zwischen der Glasübergangstemperatur Tg und der Temperatur Tx, bei der die Kristallisation einsetzt, zu einer unterkühlten Schmelze mit stark verringerter Viskosität. Wie wird dieser Temperaturbereich ΔTx = Tx − Tg genutzt?",
+  "choices": [
+   "In diesem Bereich wachsen Kristalle schnell, daher wird das Glas durch kurzes Halten in ein feinkörniges kristallines Metall mit höherer Duktilität umgewandelt",
+   "In diesem Bereich lässt es sich in eine Form pressen und wie ein Polymer durch viskoses Fließen bis in feine Formen ausformen und nach dem Abkühlen als Glas verwenden",
+   "In diesem Bereich ist die elastische Grenzdehnung am größten, daher werden Teile mit großer Durchbiegung wie Federn bei dieser Temperatur eingesetzt"
+  ],
+  "explanation": "Oberhalb von Tg wird das metallische Glas zu einer unterkühlten Schmelze, deren Viskosität mit der Temperatur steil fällt, sodass es schon bei relativ geringer Spannung viskos fließt. Bei Legierungen, bei denen der Bereich ΔTx bis zum Kristallisationsbeginn bei Tx einige zehn Kelvin oder mehr beträgt, lässt sich das Glas in diesem Bereich in eine Form pressen und wie beim Thermoformen von Polymeren bis zu feinen Strukturen und Reliefs im Nanometerbereich abformen. Wird es vor der Kristallisation abgekühlt, erstarrt es amorph und behält seine hohe Festigkeit und große elastische Grenzdehnung. Zu langes Halten führt jedoch zur Kristallisation, sodass Temperatur- und Zeitfenster einzuhalten sind. Beim Kristallisieren entstehen meist viele spröde intermetallische Verbindungen, und die Duktilität steigt nicht. Da das Glas nahe Tg fließt, werden Federn und andere Teile, die seine elastische Dehnung nutzen, zudem nahe Raumtemperatur eingesetzt."
  }
 }

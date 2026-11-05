@@ -178,5 +178,50 @@
    "Die Bruchzähigkeit ist niedrig, sodass bei einem Riss sofort das ganze Bauteil bricht und es ausgetauscht werden kann, bevor ein Riss gefunden wird"
   ],
   "explanation": "Ein Riss, der etwa von der Innenoberfläche der Wand aus durch Ermüdung oder Spannungsrisskorrosion wächst, durchdringt schließlich die Wand, und das Fluid tritt aus. Ist die Länge dieses durchgehenden Risses dann deutlich kleiner als die kritische Risslänge, die durch Betriebsspannung und Bruchzähigkeit bestimmt ist, birst der Behälter nicht plötzlich, und es bleibt Zeit, das Leck zu erkennen und den Betrieb zu stoppen. Das ist das Leck-vor-Bruch-Konzept; es ist bei Werkstoffen höherer Bruchzähigkeit und bei niedrigeren Spannungen leichter erfüllt. Es handelt sich nicht um eine Auslegung zur Vermeidung von Lecks, sondern um die Nutzung eines Lecks als sicheres Warnzeichen. Ist die Bruchzähigkeit niedrig und erreicht der Riss die kritische Länge schon vor dem Durchdringen, kommt es vor jedem Leck zum Bersten, was gefährlich ist. Das Konzept wird in Verbindung mit Prüfungen zur Sicherheitsbewertung etwa von Rohrleitungen in kerntechnischen und chemischen Anlagen eingesetzt."
+ },
+ "fracture-fatigue-021": {
+  "question": "Bei Kleinbereichsfließen hängt die Rissspitzenöffnung (CTOD) δ über δ = K²/(mσyE) mit dem Spannungsintensitätsfaktor K zusammen (m ist ein von der Behinderung der Verformung abhängiger Faktor von etwa 1 bis 2). Welcher Wert kommt δ für einen Stahl mit der Streckgrenze σy = 500 MPa und dem Elastizitätsmodul E = 200 GPa bei K = 100 MPa·√m und m = 1 am nächsten?",
+  "choices": [
+   "Etwa 40 mm",
+   "Etwa 0,10 mm",
+   "Etwa 0,050 mm"
+  ],
+  "explanation": "δ = K²/(mσyE) = (100×10⁶)²/(1 × 500×10⁶ × 200×10⁹) = 1,0×10¹⁶/1,0×10²⁰ = 1,0×10⁻⁴ m, also etwa 0,10 mm. Mit G = K²/E lässt sich auch δ = G/(mσy) schreiben; die Energie für den Rissfortschritt lässt sich also als Produkt aus Öffnung und Streckgrenze ausdrücken. Der Wert von etwa 40 mm ergibt sich, wenn ohne E einfach (K/σy)² gerechnet wird; das verwechselt die CTOD mit der Formel zur Abschätzung der Größe der plastischen Zone. Der Wert von etwa 0,050 mm setzt m = 2 für einen stark behinderten ebenen Dehnungszustand an und passt nicht zur Vorgabe m = 1. Da sich die CTOD auch an sehr duktilen Stählen messen lässt, deren große plastische Zone eine Bewertung mit K nicht zulässt, wird sie zur Bewertung der Bruchzähigkeit geschweißter Konstruktionen verwendet."
+ },
+ "fracture-fatigue-022": {
+  "question": "Untersuchungen zum Ermüdungsrisswachstum zeigen, dass kurze Risse (mikrostrukturell kurze Risse), die nicht länger als einige Korndurchmesser sind, auch bei ΔK unterhalb des an langen Rissen bestimmten Schwellenwerts ΔK_th wachsen können und ihre Wachstumsgeschwindigkeit stark streut. Was ist der Hauptgrund?",
+  "choices": [
+   "Bei kurzen Rissen hat sich das Rissschließen durch Berührung der Rissflanken noch nicht ausgebildet, und Kornorientierung und Korngrenzen wirken direkt auf sie",
+   "Kurze Risse haben noch stumpfe Spitzen, sodass die Spannungskonzentration an der Spitze stärker ist als bei langen Rissen und sie bei gleichem ΔK schneller wachsen",
+   "Kurze Risse liegen an der Oberfläche, wo der Luftsauerstoff die Rissspitze oxidiert und das Oxid den Riss keilartig aufdrückt, sodass sie auch bei niedrigem ΔK wachsen"
+  ],
+  "explanation": "Bei langen Rissen berühren sich die Rissflanken wegen des hinter der Spitze zurückbleibenden plastisch verformten Werkstoffs, der Rauheit der Bruchflächen und der Oxide frühzeitig und schließen sich (Rissschließen), sodass das tatsächlich an der Spitze wirkende ΔK kleiner ist als der Nennwert. Bei einem kurzen Riss hat sich dieses Schließen noch nicht aufgebaut, sodass die wirksame Triebkraft bei gleichem nominellem ΔK größer ist und der Riss auch unterhalb von ΔK_th wächst. Erstreckt sich ein Riss zudem nur über wenige Körner, hängt sein Wachstum von der Kornorientierung ab, und er kann an Korngrenzen stehen bleiben, sodass die Streuung groß ist. Eine stumpfe Spitze schwächt die Spannungskonzentration sogar ab. Die Keilwirkung von Oxiden verstärkt das Rissschließen und verlangsamt das Wachstum, kann also nicht erklären, warum kurze Risse leichter wachsen."
+ },
+ "fracture-fatigue-023": {
+  "question": "Aus der Aufzeichnung einer unregelmäßig schwankenden Last soll die Ermüdungsschädigung mit der Miner-Regel abgeschätzt werden. Was ist der Hauptgrund für die Verwendung eines Zählverfahrens wie der Rainflow-Zählung?",
+  "choices": [
+   "Es trennt kleine Schwingungen ab, die größeren Schwingungen überlagert sind, und zählt jede geschlossene Hystereseschleife nach Amplitude und Mittelspannung",
+   "Die Schädigung ist allein durch die Zahl der Lastspitzen bestimmt, daher braucht man ein Verfahren, das die Spitzen ohne Rücksicht auf die Amplitude schnell zählt",
+   "Bei unregelmäßiger Last verschwindet der Einfluss der Mittelspannung, daher lässt sich jede Schwingung durch eine konstante Amplitude gleich der halben Differenz von Maximum und Minimum ersetzen"
+  ],
+  "explanation": "Die Lasten realer Bauteile sind komplexe Verläufe, in denen größeren Schwankungen kleinere überlagert sind. Die Rainflow-Zählung entnimmt aus der Folge der Lastmaxima und -minima jeweils dann einen Zyklus, wenn eine Schwingung zu ihrem Ausgangswert zurückkehrt; so bleibt nach dem Zählen der kleinen Schwingungen die sie umschließende große Schwingung als ein großer Zyklus erhalten. Die so gezählten Zyklen entsprechen geschlossenen Hystereseschleifen im Spannungs-Dehnungs-Diagramm, und aus Amplitude und Mittelspannung jedes Zyklus wird die Schädigung mit der Miner-Regel aufsummiert. Werden nur die Spitzen gezählt, lassen sich die großen Amplituden, die die Schädigung dominieren, nicht unterscheiden. Der Einfluss der Mittelspannung bleibt auch bei unregelmäßiger Last bestehen, und wird alles durch eine konstante Amplitude aus Gesamtmaximum und -minimum ersetzt, wird die Schädigung grob falsch eingeschätzt."
+ },
+ "fracture-fatigue-024": {
+  "question": "Bekanntlich steigt die Ermüdungsfestigkeit geschweißter Stahlverbindungen kaum, wenn die Zugfestigkeit des Grundwerkstoffs erhöht wird. Was ist der Hauptgrund?",
+  "choices": [
+   "Je fester der Stahl, desto stärker entfestigt die Schweißwärme die Wärmeeinflusszone, sodass die Festigkeit der Verbindung unabhängig vom Grundwerkstoff allein von der entfestigten Zone bestimmt wird",
+   "Kerbwirkung am Nahtübergang, kleine Fehler und Zugeigenspannungen nahe der Streckgrenze lassen die Rissbildung fast sofort abschließen, sodass die Lebensdauer fast nur vom Risswachstum abhängt",
+   "Schweißverbindungen werden oberhalb der Streckgrenze beansprucht und unterliegen daher stets der Kurzzeitermüdung, sodass die Lebensdauer allein von der Duktilität und nicht von der Festigkeit abhängt"
+  ],
+  "explanation": "Am Nahtübergang ändert sich die Geometrie abrupt, die Spannung konzentriert sich, und kleine Fehler wie Einbrandkerben und Schlackeneinschlüsse sind von Anfang an vorhanden. Zudem bleiben nach dem Abkühlen Zugeigenspannungen nahe der Streckgrenze zurück, sodass kaum Lebensdauer auf die Rissbildung entfällt und das Risswachstum den größten Teil ausmacht. Die Ermüdungsrisswachstumsgeschwindigkeit von Stählen hängt kaum von der Zugfestigkeit ab, sodass ein festerer Grundwerkstoff die Lebensdauer der Verbindung wenig verlängert. Bei der Bemessung von Schweißverbindungen werden daher von der Stahlfestigkeit unabhängige Beziehungen zwischen Spannungsschwingbreite und Lebensdauer verwendet, und wegen der Eigenspannungen wird meist auch auf eine Mittelspannungskorrektur verzichtet. Verbesserungen erzielen etwa Behandlungen, die den Nahtübergang glatt ausarbeiten."
+ },
+ "fracture-fatigue-025": {
+  "question": "Werden Rundstäbe durch Torsion zum Bruch gebracht, brechen duktile Metalle nahezu eben auf einer Fläche senkrecht zur Achse, spröde Werkstoffe wie Grauguss oder Kreide dagegen entlang einer Schraubenfläche unter etwa 45° zur Achse. Warum brechen spröde Werkstoffe schraubenförmig?",
+  "choices": [
+   "Spröde Werkstoffe sind schubempfindlich und gleiten daher entlang der Fläche unter 45° zur Achse, auf der die größte Schubspannung wirkt, auseinander",
+   "Die Torsionsschubspannung ist im Zentrum größer als an der Oberfläche, sodass sich ein im Zentrum entstehender Riss schräg nach außen zu einer Schraube ausbreitet",
+   "Bei reinem Schub wirkt die größte Zughauptspannung unter 45° zur Achse, und spröde Werkstoffe brechen auf der Fläche senkrecht dazu"
+  ],
+  "explanation": "Bei der Torsion eines Rundstabs befindet sich ein Oberflächenelement im Zustand reinen Schubs; die Schubspannung ist auf den Flächen senkrecht und parallel zur Achse am größten. Dreht man diesen Zustand um 45°, treten Zug- und Druckhauptspannungen vom Betrag der Schubspannung unter ±45° zur Achse auf. Duktile Metalle fließen und trennen sich durch Schub und brechen daher eben auf der Fläche senkrecht zur Achse, einer Fläche größter Schubspannung. Spröde Werkstoffe sind zugempfindlich und brechen auf der Fläche senkrecht zur größten Zughauptspannung, die sich als Schraube unter 45° um die Achse windet. Die Flächen größter Schubspannung liegen nicht unter 45°, sodass die Erklärung durch Schubbruch falsch ist. Die Schubspannung ist proportional zum Abstand vom Zentrum und an der Oberfläche, nicht im Zentrum, am größten."
  }
 }

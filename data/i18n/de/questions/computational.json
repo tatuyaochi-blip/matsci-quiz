@@ -178,5 +178,50 @@
       "NVT-Rechnungen mit konstanter Temperatur und konstantem Volumen bei jeder Temperatur, Bestimmung aus der Änderung der Zellgröße"
     ],
     "explanation": "Wärmeausdehnung ist die Volumenänderung mit der Temperatur bei konstantem Druck; die Rechnung muss daher eine Änderung der Zellgröße zulassen. In einer NPT-Rechnung hält ein Thermostat die Temperatur und ein Barostat den Druck konstant, und Form und Größe der Zelle ändern sich entsprechend der Spannung. Bei jeder Temperatur werden das mittlere Volumen oder der Gitterparameter im Gleichgewicht bestimmt, und aus deren Temperaturabhängigkeit ergibt sich der Wärmeausdehnungskoeffizient. Bei NVE oder NVT ist das Volumen fest, die Zellgröße kann sich nicht ändern, und die Wärmeausdehnung zeigt sich nur als Änderung des inneren Drucks. Auch für die Untersuchung von Vorgängen mit Volumenänderung wie Phasenumwandlungen und Schmelzen ist NPT die Grundlage. Das Ensemble wird passend zur gesuchten Größe gewählt."
+  },
+  "computational-021": {
+    "question": "In der Molekulardynamik werden für eine kubische Zelle der Kantenlänge L periodische Randbedingungen angesetzt, und die Kräfte auf jedes Atom werden nach der Minimum-Image-Konvention, die nur das nächste Bild jedes Partners berücksichtigt, aus den Atomen innerhalb eines Abschneideradius r_c berechnet. Wie ist r_c richtig zu wählen?",
+    "choices": [
+      "r_c kleiner als L/2 wählen, sodass kein Atom zugleich mit einem Partneratom und dessen Bild wechselwirkt",
+      "r_c größer als L wählen, sodass die Wechselwirkungen mit allen periodischen Bildatomen außerhalb der Zelle erfasst werden",
+      "r_c hängt nur von der Rechengeschwindigkeit ab und nicht von der Zellgröße, daher ist das Ergebnis unabhängig von L umso genauer, je kürzer r_c ist"
+    ],
+    "explanation": "Bei periodischen Randbedingungen reihen sich Kopien (Bilder) der Zelle unendlich um sie herum, sodass sich ein großer Kristall oder eine Flüssigkeit ohne Oberfläche mit wenigen Atomen darstellen lässt. Nach der Minimum-Image-Konvention wechselwirkt ein Atom nur mit dem nächsten unter einem Partneratom und dessen Bildern; überschreitet r_c den Wert L/2, liegen zwei Bilder desselben Atoms innerhalb der Kugel, was der Konvention widerspricht und den Partner doppelt zählt. Daher gilt r_c < L/2, das heißt, die Zellkante wird größer als das Doppelte von r_c gewählt. Ein zu kurzes r_c vergrößert andererseits den Fehler durch das Abschneiden des Potentials, kürzer ist also nicht genauer. Die langreichweitige Coulomb-Wechselwirkung wird nicht abgeschnitten, sondern etwa mit dem Ewald-Verfahren periodisch aufsummiert."
+  },
+  "computational-022": {
+    "question": "Werden Schichtabstand und Ablöseenergie der Schichten von Graphit mit Standard-DFT und einem GGA-Austausch-Korrelations-Funktional (etwa PBE) berechnet, ergibt sich nahezu keine Bindung zwischen den Schichten. Welche Kombination aus Hauptursache und Abhilfe trifft zu?",
+    "choices": [
+      "Zwischen den Schichten bestehen starke kovalente Bindungen, die GGA überschätzt, wodurch sich die Schichten zu eng zusammenziehen, daher wird auf LDA umgestellt, um die Bindung abzuschwächen",
+      "Der Schichtabstand ist so groß, dass eine Basis aus ebenen Wellen die Wellenfunktionen nicht darstellen kann, daher stimmt das Ergebnis bei höherer Cutoff-Energie mit dem Experiment überein",
+      "Die Dispersionskräfte zwischen den Schichten beruhen auf korrelierten Fluktuationen entfernter Elektronen, die lokale Näherungen nicht erfassen, daher wird eine Dispersionskorrektur ergänzt"
+    ],
+    "explanation": "Innerhalb der Graphitschichten herrschen starke kovalente Bindungen, zwischen den Schichten dagegen schwache Dispersionskräfte (Van-der-Waals-Kräfte). Die Dispersion ist eine Anziehung, die aus korrelierten Fluktuationen der Elektronendichte an entfernten Orten entsteht, und fällt in großem Abstand mit der sechsten Potenz des Abstands ab. Die Austausch-Korrelations-Energie von LDA oder GGA ist eine lokale Näherung, die nur von der Dichte und ihrem Gradienten an jedem Punkt abhängt; sie kann diese langreichweitige Korrelation nicht beschreiben, und GGA liefert nahezu keine Bindung zwischen den Schichten. Deshalb werden Verfahren verwendet, die für jedes Atompaar eine Korrektur der Form −C₆/r⁶ hinzufügen, oder Funktionale mit nichtlokaler Korrelation. LDA liefert durch Fehlerkompensation mitunter zufällig einen Schichtabstand nahe am Experiment, beschreibt die Dispersion aber nicht richtig."
+  },
+  "computational-023": {
+    "question": "Die Rechenzeit einer Standard-DFT-Rechnung soll mit der dritten Potenz der Atomzahl N wachsen. Eine Superzelle mit 64 Atomen braucht 2 Stunden. Welcher Wert kommt der Rechenzeit für eine Superzelle mit 256 Atomen unter gleichen Bedingungen am nächsten?",
+    "choices": [
+      "Etwa 8 Stunden",
+      "Etwa 128 Stunden",
+      "Etwa 32 Stunden"
+    ],
+    "explanation": "Die Atomzahl ist 256/64 = 4-mal so groß, die Rechenzeit wächst also um den Faktor 4³ = 64 auf 2 × 64 = 128 Stunden, etwa 128 Stunden. Etwa 8 Stunden ergeben sich, wenn die Zeit proportional zur Atomzahl angenommen wird, etwa 32 Stunden bei Proportionalität zu ihrem Quadrat. In der Standard-DFT ist die Zahl der Elektronenorbitale proportional zur Atomzahl, und der Aufwand für die Orthogonalisierung der Orbitale und die Diagonalisierung von Matrizen wächst mit deren dritter Potenz, sodass schon eine geringe Zunahme der Atomzahl die Rechnung stark verteuert. In der Praxis erlaubt eine größere Zelle weniger k-Punkte in der Brillouin-Zone, sodass der Aufwand etwas unter dieser Abschätzung liegen kann. Für Systeme mit mehr als einigen tausend Atomen werden Verfahren verwendet, deren Aufwand nahezu linear mit der Atomzahl wächst, oder an DFT-Ergebnissen trainierte interatomare Potentiale."
+  },
+  "computational-024": {
+    "question": "Aus mit DFT berechneten interatomaren Kraftkonstanten werden die Phononendispersionsrelationen einer Kristallstruktur berechnet; in einem Teil der Brillouin-Zone werden die Frequenzen imaginär (als negative Werte dargestellt). Welche Deutung trifft bei gut konvergierter Rechnung zu?",
+    "choices": [
+      "Imaginäre Frequenzen sind ein Rechenartefakt und keine echten Schwingungen, daher lassen sich Wärmekapazität und Wärmeleitfähigkeit einfach unter Auslassung dieses Teils bestimmen",
+      "Sie zeigen, dass die Energie beim Verschieben der Atome entlang dieser Mode steil ansteigt, und damit, dass der Kristall in dieser Struktur besonders stabil ist",
+      "Sie zeigen, dass die Energie beim Verschieben der Atome in diese Richtung sinkt, die Struktur also dynamisch instabil ist und eine stabilere Struktur existiert"
+    ],
+    "explanation": "In der harmonischen Näherung ist die Energieänderung beim Verschieben der Atome entlang einer Normalmode proportional zum Quadrat ihrer Frequenz. Eine imaginäre Frequenz (ω² < 0) bedeutet, dass die Energie bei Verschiebungen in diese Richtung sinkt, die Ausgangsstruktur also nicht in einem Energieminimum, sondern in einem Sattelpunkt liegt; sie ist dynamisch instabil. Werden die Atome entlang dieser Mode verschoben und die Struktur relaxiert, findet man häufig eine stabilere Struktur niedrigerer Symmetrie. Phasen, die nur bei hoher Temperatur existieren, etwa kubische Perowskite und krz-Titan, zeigen allerdings in der harmonischen Näherung bei 0 K imaginäre Frequenzen und werden bei hoher Temperatur durch Anharmonizität stabilisiert. Eigenschaften unter Auslassung des imaginären Teils zu bestimmen, übersieht die Instabilität."
+  },
+  "computational-025": {
+    "question": "In einer DFT-Rechnung steigt die Energie je Atom eines Metalls um 2,0 meV, wenn das Volumen je Atom vom Gleichgewichtswert V₀ = 16,0 Å³ um ±2,0 % verändert wird, in beiden Richtungen. Welcher Wert kommt dem Kompressionsmodul B bei der Näherung E(V) = E₀ + (B/(2V₀))(V − V₀)² am nächsten? Es gilt 1 eV/Å³ = 160,2 GPa.",
+    "choices": [
+      "Etwa 100 GPa",
+      "Etwa 50 GPa",
+      "Etwa 2,0 GPa"
+    ],
+    "explanation": "Die Volumenänderung beträgt ΔV = 0,020 × 16,0 = 0,32 Å³, also B = 2V₀ΔE/(ΔV)² = 2 × 16,0 × 0,0020/0,32² = 0,064/0,1024 = 0,625 eV/Å³. Umgerechnet ergibt sich 0,625 × 160,2 ≈ 100 GPa, also etwa 100 GPa. Etwa 50 GPa entstehen, wenn der Faktor 2 der Formel fehlt, etwa 2,0 GPa, wenn dieselbe Formel als B = 2ΔE/(V₀x²) (x = ΔV/V₀ = 0,020) geschrieben und vergessen wird, x zu quadrieren. Der Kompressionsmodul ist B = V(d²E/dV²) und folgt aus der Krümmung der Energie-Volumen-Kurve im Gleichgewicht. In der Praxis wird bei mehreren Volumina gerechnet und an die Birch-Murnaghan-Zustandsgleichung angepasst, um Gleichgewichtsvolumen und B gemeinsam zu bestimmen."
   }
 }
