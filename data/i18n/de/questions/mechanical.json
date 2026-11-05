@@ -178,5 +178,50 @@
    "Etwa 173 MPa"
   ],
   "explanation": "Nach dem Von-Mises-Kriterium beträgt die Schubfließgrenze bei reinem Schub τy = σy/√3, also 300/1,732 ≈ 173 MPa. Die Hauptspannungen bei reinem Schub sind σ₁ = τ, σ₂ = 0 und σ₃ = −τ, und das Fließen setzt ein, wenn die Vergleichsspannung √{[(σ₁ − σ₂)² + (σ₂ − σ₃)² + (σ₃ − σ₁)²]/2} = √3τ den Wert σy erreicht. Etwa 150 MPa ist der Wert nach dem Tresca-Kriterium, das die größte Schubspannung zugrunde legt, τy = σy/2. Etwa 300 MPa setzt die Fließgrenzen bei Schub und Zug fälschlich gleich. Torsionsversuche an duktilen Metallen liefern in vielen Fällen Werte nahe der Von-Mises-Vorhersage."
+ },
+ "mechanical-021": {
+  "question": "Bei einer Härteprüfung nach Brinell wird eine Kugel mit dem Durchmesser D = 10 mm mit F = 3000 kgf eingedrückt; der Eindruckdurchmesser beträgt d = 4,0 mm. Die Brinellhärte sei die Prüfkraft F (kgf) geteilt durch die Oberfläche des Eindrucks (mm²), und diese Oberfläche ergebe sich als Kugelkalotte zu πDh mit der Eindrucktiefe h = [D − √(D² − d²)]/2. Welcher Wert kommt der Brinellhärte am nächsten?",
+  "choices": [
+   "Etwa 114",
+   "Etwa 229",
+   "Etwa 239"
+  ],
+  "explanation": "Die Tiefe ist h = [10 − √(100 − 16)]/2 = (10 − 9,165)/2 ≈ 0,417 mm, die Oberfläche des Eindrucks also πDh = π × 10 × 0,417 ≈ 13,1 mm², und damit HB = 3000/13,1 ≈ 229. Etwa 114 ergibt sich, wenn in der Formel für die Tiefe die Division durch 2 vergessen und die Oberfläche dadurch doppelt so groß angesetzt wird. Etwa 239 behandelt den Eindruck als ebene Kreisfläche und teilt durch die Projektionsfläche πd²/4 ≈ 12,6 mm²; das ist eine andere Größe, die Meyer-Härte. Da die Brinellhärte durch die gekrümmte Oberfläche teilt, wächst der Unterschied zum Wert mit der Projektionsfläche, je tiefer der Eindruck ist. Der große Eindruck liefert auch bei groben Gefügen eine mittlere Härte, eignet sich aber nicht für dünne Bleche oder sehr harte Werkstoffe."
+ },
+ "mechanical-022": {
+  "question": "Ein 100 mm langer Metallstab wird ohne Einschnürung gleichmäßig gedehnt, im ersten Zug auf 120 mm und im zweiten Zug auf 150 mm. Welcher Wert kommt der Summe der wahren Dehnungen beider Züge am nächsten, wenn jede als ε = ln(L/L₀) mit L₀ als Länge zu Beginn des jeweiligen Zugs berechnet wird?",
+  "choices": [
+   "Etwa 0,41",
+   "Etwa 0,45",
+   "Etwa 0,50"
+  ],
+  "explanation": "Die wahre Dehnung des ersten Zugs ist ln(120/100) = ln 1,20 ≈ 0,182, die des zweiten ln(150/120) = ln 1,25 ≈ 0,223; die Summe beträgt etwa 0,405. Das stimmt mit ln 1,50 ≈ 0,405 für eine Dehnung von 100 mm auf 150 mm in einem Schritt überein: Wahre Dehnungen aufeinanderfolgender Stufen lassen sich addieren. Etwa 0,45 addiert die technischen Dehnungen 0,20 und 0,25; diese beziehen sich aber in jeder Stufe auf eine andere Ausgangslänge, sodass ihre Summe nicht die gesamte technische Dehnung von 0,50 ergibt. Etwa 0,50 ist diese gesamte technische Dehnung selbst und keine wahre Dehnung. Deshalb wird die Gesamtumformung bei mehreren aufeinanderfolgenden Walz- oder Ziehstichen mit der wahren Dehnung erfasst."
+ },
+ "mechanical-023": {
+  "question": "Aus demselben Rundstab aus Stahl werden Zugproben gefertigt, die sich nur in der Messlänge unterscheiden, und die Bruchdehnung (Verlängerung der Messlänge nach dem Bruch geteilt durch die Anfangsmesslänge) wird gemessen. Welche Aussage über das Ergebnis bei kürzerer Messlänge trifft zu?",
+  "choices": [
+   "Die Bruchdehnung ist ein Werkstoffkennwert und bleibt bei jeder Messlänge im Rahmen der Streuung gleich",
+   "Die Verlängerung in der Einschnürung verteilt sich über eine lange Messlänge, daher ist die Bruchdehnung bei längerer Messlänge größer",
+   "Die auf die Einschnürung konzentrierte örtliche Verlängerung hat einen größeren Anteil, daher ist die Bruchdehnung bei kürzerer Messlänge größer"
+  ],
+  "explanation": "Die Verlängerung bis zum Bruch setzt sich aus der Gleichmaßdehnung, die über die ganze Probe gleichmäßig auftritt, und der Einschnürdehnung zusammen, die sich auf die Einschnürung konzentriert. Die örtliche Verlängerung hängt kaum von der Messlänge ab und wird durch die Querschnittsgröße bestimmt; je kürzer die Messlänge, desto größer ist ihr Anteil an der Ausgangslänge und desto größer die gemessene Bruchdehnung. Die Bruchdehnung hängt also von der Probengeometrie ab und ist keine Werkstoffkonstante. Die Annahme, eine längere Messlänge ergebe größere Werte, kehrt den Zusammenhang um. Normen vergleichen daher Ergebnisse an Proben mit abgestimmten Abmessungen, etwa an Proportionalproben, deren Messlänge proportional zur Wurzel aus der Querschnittsfläche ist. Als von der Messlänge unabhängiges Maß der Duktilität dient auch die Brucheinschnürung."
+ },
+ "mechanical-024": {
+  "question": "Wird das Spannungs-Dehnungs-Diagramm einer Stahlprobe mit dem Traversenweg der Prüfmaschine (der Weg des Querhaupts, das die Einspannung bewegt) als Dehnung gezeichnet, ergibt sich aus der Steigung im elastischen Bereich oft ein Elastizitätsmodul, der deutlich unter dem Literaturwert von etwa 200 GPa liegt. Welche Aussage über den Hauptgrund trifft zu?",
+  "choices": [
+   "Die Erwärmung beim Versuch erhöht die Probentemperatur, schwächt die Bindungen und senkt den E-Modul selbst",
+   "Der Traversenweg enthält auch die elastische Verformung von Rahmen und Einspannung sowie Schlupf, sodass die Dehnung überschätzt wird",
+   "In der Probe bewegen sich schon Versetzungen, sodass auch im elastischen Bereich plastische Dehnung den E-Modul senkt"
+  ],
+  "explanation": "Der Traversenweg umfasst nicht nur die Verlängerung der Messlänge der Probe, sondern auch die elastische Verformung von Maschinenrahmen, Kraftmessdose und Einspannung, Schlupf in den Spannbacken und die Verformung der Probenköpfe. Die Dehnung wird dadurch überschätzt, die Steigung fällt kleiner aus, und der scheinbare E-Modul ist zu niedrig. Für genaue Werte misst man die Dehnung direkt mit einem Extensometer an der Messlänge oder bestimmt den Modul dynamisch aus der Resonanzfrequenz oder der Ultraschallgeschwindigkeit. Die Temperaturänderung der Probe im elastischen Bereich ist sehr gering und verändert den E-Modul nicht nennenswert. Auch geringe Versetzungsbewegungen sind nicht die Hauptursache für eine so große scheinbare Abnahme."
+ },
+ "mechanical-025": {
+  "question": "Welche Aussage über den Kerbschlagbiegeversuch nach Charpy, bei dem eine Vierkantprobe mit V-Kerb durch einen einzigen Schlag eines Pendelhammers gebrochen wird, trifft zu?",
+  "choices": [
+   "Die Brucharbeit folgt aus der verringerten Steighöhe des Hammers und dient zum Werkstoffvergleich und zur Bestimmung des Duktil-spröd-Übergangs",
+   "Aus der Brucharbeit ergibt sich die von der Risslänge unabhängige Bruchzähigkeit K_IC unmittelbar und ganz ohne Umrechnungsformel",
+   "Die Probe bricht mit derselben Dehnrate wie im langsam belasteten Zugversuch, daher entspricht der Wert der Zähigkeit aus dem Zugversuch"
+  ],
+  "explanation": "Beim Charpy-Versuch schwingt der angehobene Hammer herab und bricht die Probe; die potentielle Energie, die dem Unterschied zwischen Ausgangshöhe und geringerer Steighöhe nach dem Bruch entspricht, gilt als von der Probe verbrauchte Kerbschlagarbeit (J). Der Wert hängt von Probengröße, Kerbform und Dehnrate ab und lässt sich daher nicht unmittelbar in Festigkeitsberechnungen verwenden; er eignet sich aber gut, um Werkstoffe oder Temperaturen unter gleichen Bedingungen zu vergleichen, und Messungen bei verschiedenen Temperaturen ergeben die Übergangstemperatur vom duktilen zum spröden Verhalten. K_IC ist eine eigene Größe, die an Proben mit Ermüdungsanriss gemessen wird; Umrechnungen aus der Kerbschlagarbeit sind nur empirische Schätzungen. Die Dehnrate im Schlagversuch ist weit höher als im Zugversuch, und die Kerbschlagarbeit ist eine andere Größe als die Zähigkeit aus dem Zugversuch."
  }
 }

@@ -178,5 +178,50 @@
       "Etwa 1,2×10⁻⁷"
     ],
     "explanation": "T = 727 + 273 = 1000 K, also kT ≈ 0,0862 eV. Qs/2kT = 2,0/(2 × 0,0862) ≈ 11,6, also n/N = exp(−11,6) ≈ 9,1×10⁻⁶. Die 2 im Nenner des Exponenten ergibt sich daraus, dass Kationen- und Anionenleerstellen unabhängig voneinander angeordnet werden können, das Produkt ihrer Anteile im Gleichgewicht also exp(−Qs/kT) ist, und dass beide Anteile wegen der elektrischen Neutralität gleich sind. Etwa 8,3×10⁻¹¹ lässt diese 2 weg und rechnet mit exp(−Qs/kT), und etwa 1,2×10⁻⁷ rechnet mit der Temperatur in °C, also mit 727."
+  },
+  "ceramics-021": {
+    "question": "Mit den Elektronegativitäten nach Pauling Mg 1,31 und O 3,44 wird der ionische Bindungsanteil als 1 − exp[−(Δχ)²/4] abgeschätzt, wobei Δχ die Differenz der Elektronegativitäten ist. Welcher Wert kommt dem ionischen Bindungsanteil in MgO am nächsten?",
+    "choices": [
+      "Etwa 32 %",
+      "Etwa 41 %",
+      "Etwa 68 %"
+    ],
+    "explanation": "Δχ = 3,44 − 1,31 = 2,13, also (Δχ)²/4 = 4,54/4 ≈ 1,13 und 1 − exp(−1,13) ≈ 1 − 0,322 = 0,678, etwa 68 %. Die Bindung in MgO ist demnach zu fast 70 % ionisch, der Rest kovalent. Etwa 32 % hält exp(−1,13) für den ionischen Anteil; das ist der kovalente Anteil. Etwa 41 % verwendet Δχ, ohne es zu quadrieren. Die Bindung in Keramiken liegt zwischen ionisch und kovalent und wird mit wachsender Elektronegativitätsdifferenz ionischer. Verbindungen mit kleiner Differenz wie SiC sind stark kovalent, was zu Eigenschaften wie langsamer Atomdiffusion und schwieriger Sinterung führt."
+  },
+  "ceramics-022": {
+    "question": "Einkristalle aus MgO mit Steinsalzstruktur (NaCl-Typ) gleiten bei Raumtemperatur hauptsächlich auf {110}-Ebenen in <110>-Richtungen mit dem Burgersvektor (a/2)<110> (a ist die Gitterkonstante der kubischen Elementarzelle). Welche Aussage über den Grund trifft zu?",
+    "choices": [
+      "(a/2)<100> verbindet gleichartige Ionen und ist kürzer als (a/2)<110>, sollte also leichter gleiten, doch die Ionen sind zu groß, um sich zu bewegen",
+      "(a/2)<100> verbindet Mg²⁺ mit O²⁻ und ist daher keine Gittertranslation; die kürzeste Translation zwischen gleichartigen Ionen ist (a/2)<110>",
+      "(a/2)<110> ist der kürzeste Vektor von Mg²⁺ zu O²⁻, und jeder Gleitschritt tauscht Kationen und Anionen, was den Kristall elektrisch neutral hält"
+    ],
+    "explanation": "In der Steinsalzstruktur wechseln sich Kationen und Anionen entlang der Würfelkanten ab, sodass eine Verschiebung um (a/2)<100> ein O²⁻ an die Stelle eines Mg²⁺ setzen würde. Ein Burgersvektor muss eine Gittertranslation sein, die den Kristall nach der Verschiebung unverändert lässt, daher kommt (a/2)<100> nicht infrage. Die kürzeste Translation zwischen gleichartigen Ionen ist die halbe Flächendiagonale (a/2)<110>, und das ist der Burgersvektor. Die {110}-Ebenen werden als Gleitebenen gewählt, weil sich dort selbst mitten im Gleitvorgang gleich geladene Ionen nicht direkt gegenüberstehen, sodass die elektrostatische Abstoßung klein bleibt. Aussagen, (a/2)<100> verbinde gleichartige Ionen oder (a/2)<110> verbinde ungleichartige Ionen, verkennen die Anordnung der Ionen."
+  },
+  "ceramics-023": {
+    "question": "Eisen(II)-oxid existiert tatsächlich als nichtstöchiometrische Verbindung mit Eisenunterschuss (Fe₁₋ₓO), zum Beispiel als Fe₀.₉₅O. Welche Aussage über die Defektstruktur trifft zu?",
+    "choices": [
+      "Auf Fe²⁺-Plätzen gibt es Leerstellen; für jede Leerstelle werden zwei Fe²⁺ zu Fe³⁺ und gleichen die Ladung aus, was Löcherleitung (p-Typ) ergibt",
+      "Auf O²⁻-Plätzen gibt es Leerstellen; für jede Leerstelle bleiben zwei Elektronen zum Ladungsausgleich zurück, was Elektronenleitung (n-Typ) ergibt",
+      "Zusätzliche O²⁻-Ionen besetzen Zwischengitterplätze, aber Leerstellen entstehen nicht, sodass kein Ladungsausgleich nötig ist und die Leitfähigkeit gleich bleibt"
+    ],
+    "explanation": "Eisen kann die beiden Wertigkeiten Fe²⁺ und Fe³⁺ annehmen; in Eisen(II)-oxid wird daher ein Teil der Fe²⁺ zu Fe³⁺, und zum Ladungsausgleich bleiben einige Fe²⁺-Gitterplätze leer. Eine Leerstelle hinterlässt ein Defizit von zwei positiven Ladungen, das dadurch ausgeglichen wird, dass zwei Fe²⁺ zu Fe³⁺ werden. Einem Fe³⁺-Ion fehlt gegenüber Fe²⁺ ein Elektron, und dieses Loch transportiert Strom, indem es zu einem benachbarten Fe²⁺ wandert; das ergibt p-Leitung. Wegen der vielen Kationenleerstellen diffundiert Fe²⁺ bei der Hochtemperaturoxidation von Eisen schnell durch die FeO-Schicht. Sauerstoffleerstellen entsprächen einem Eisenüberschuss, was der Voraussetzung eines Eisenunterschusses widerspricht. Die Aussage, Zwischengittersauerstoff erfordere keinen Ladungsausgleich, missachtet die Bedingung der elektrischen Neutralität."
+  },
+  "ceramics-024": {
+    "question": "Wird Aluminiumoxidpulver mit einem kleinen Zusatz von MgO gesintert, entsteht nahezu porenfreies, lichtdurchlässiges Aluminiumoxid, das etwa für die Brennerrohre von Natriumdampf-Hochdrucklampen verwendet wird. Welche Aussage über die Hauptwirkung des MgO trifft zu?",
+    "choices": [
+      "MgO bildet bei hoher Temperatur viel Schmelze, die die Poren füllt, den Körper verdichtet und ihn wie Glas lichtdurchlässig macht",
+      "MgO reagiert mit Al₂O₃ zu einer durchsichtigen Glasphase, die die Körner vollständig ersetzt, sodass das Licht nicht mehr gestreut wird",
+      "Es bremst die Korngrenzenbewegung und anomales Kornwachstum, sodass Poren nicht in Körnern zurückbleiben, sondern über Korngrenzen bis zur vollen Dichte verschwinden"
+    ],
+    "explanation": "Im Endstadium des Sinterns schrumpfen und verschwinden Poren durch schnelle Diffusion entlang der Korngrenzen, solange sie auf den Korngrenzen liegen. Tritt anomales Kornwachstum auf, bei dem einige Körner plötzlich stark wachsen, lassen die wandernden Korngrenzen die Poren zurück, und in Körnern eingeschlossene Poren schrumpfen kaum noch. Eine kleine Menge MgO bremst die Korngrenzenbewegung und unterdrückt das anomale Kornwachstum, sodass die Poren auf den Korngrenzen bleiben und beseitigt werden; man erhält einen Körper nahe der theoretischen Dichte. Poren streuen Licht stark, daher wird das Aluminiumoxid durch ihre Beseitigung lichtdurchlässig. MgO wird nicht zugesetzt, um große Mengen Schmelze oder Glas zu bilden; viel an den Korngrenzen verbliebene Glasphase würde die Hochtemperaturfestigkeit verringern."
+  },
+  "ceramics-025": {
+    "question": "An ein 0,50 mm dickes piezoelektrisches PZT-Element werden 200 V in Dickenrichtung angelegt. Welcher Wert kommt der Dickenänderung am nächsten, wenn der piezoelektrische Koeffizient d₃₃ = 400 pm/V (= 400 pC/N) beträgt und sich das Element frei verformen kann?",
+    "choices": [
+      "Etwa 80 µm",
+      "Etwa 80 nm",
+      "Etwa 0,16 mm"
+    ],
+    "explanation": "Die Dehnung in Dickenrichtung ist S = d₃₃E, und die Feldstärke beträgt E = 200/(0,50×10⁻³) = 4,0×10⁵ V/m, also S = 400×10⁻¹² × 4,0×10⁵ = 1,6×10⁻⁴. Die Dickenänderung ist S × 0,50 mm = 8,0×10⁻⁸ m, etwa 80 nm; das entspricht d₃₃ × Spannung = 400 pm/V × 200 V und hängt daher nicht von der Dicke ab. Etwa 80 µm verwechselt pm (10⁻¹² m) mit nm (10⁻⁹ m). Etwa 0,16 mm hält die Dehnung von 1,6×10⁻⁴ für eine Länge in Metern. Die Auslenkung einer einzelnen piezoelektrischen Schicht ist sehr klein, daher stapeln Aktoren, die größere Hübe benötigen, Dutzende dünner Schichten in Vielschichtbauweise, um die Auslenkungen zu addieren."
   }
 }

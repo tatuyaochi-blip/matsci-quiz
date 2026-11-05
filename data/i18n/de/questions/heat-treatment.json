@@ -178,5 +178,50 @@
    "Die Frequenz ändert nur die Erwärmungsgeschwindigkeit und hat keinen Einfluss auf die Tiefe der gehärteten Schicht"
   ],
   "explanation": "Beim induktiven Erwärmen erzeugt das magnetische Wechselfeld einer Spule Wirbelströme im Stahl, deren Joulesche Wärme ihn erwärmt. Durch den Skineffekt konzentriert sich der Wechselstrom nahe der Oberfläche, und die Tiefe, in der er fließt (Eindringtiefe), ist umgekehrt proportional zur Quadratwurzel der Frequenz; je höher die Frequenz, desto stärker konzentriert sich die Erwärmung auf die Oberfläche und desto flacher ist die gehärtete Schicht. Für flache Härteschichten werden daher hohe, für tiefe niedrige Frequenzen gewählt. Da nur die Oberfläche rasch erwärmt und zu Martensit abgeschreckt wird, bleibt der Kern zäh, und an der Oberfläche verbleiben Druckeigenspannungen, die die Dauerfestigkeit erhöhen. Die Aussage, die Frequenz habe keinen Einfluss auf die Tiefe, ist falsch."
+ },
+ "heat-treatment-021": {
+  "question": "Wird erwärmter Stahl in Wasser oder Öl abgeschreckt, ändert sich die Abkühlung der Oberfläche in Stufen. Welche Beschreibung trifft zu?",
+  "choices": [
+   "Zuerst hemmt eine Dampfhaut die Wärmeabfuhr und die Abkühlung ist langsam; nach ihrem Aufreißen ist sie beim heftigen Sieden am schnellsten, zuletzt langsam durch Konvektion",
+   "Unmittelbar nach dem Eintauchen ist die Abkühlung am schnellsten, danach sinkt die Abkühlrate mit kleiner werdendem Temperaturunterschied stetig im gleichen Verhältnis",
+   "Anfangs ergibt heftiges Sieden die schnellste Abkühlung; nahe der Badtemperatur bedeckt eine Dampfhaut die Oberfläche, und die Abkühlung endet langsam durch sie"
+  ],
+  "explanation": "Taucht heißer Stahl in das Abschreckmittel, verdampft die Flüssigkeit an der Oberfläche schlagartig und bildet eine Dampfhaut. Dampf leitet Wärme schlecht, daher ist die Abkühlung in dieser Dampfhautphase überraschend langsam. Kühlt die Oberfläche ab, kann die Dampfhaut nicht mehr aufrechterhalten werden und bricht zusammen; die Flüssigkeit berührt die Oberfläche direkt und siedet heftig, und die Verdampfungswärme ergibt die schnellste Abkühlung. Sinkt die Temperatur in die Nähe des Siedepunkts des Abschreckmittels, hört das Sieden auf, und es folgt eine langsame Abkühlung durch Konvektion. Aussagen, die Abkühlung sei direkt nach dem Eintauchen am schnellsten oder eine Dampfhaut bilde sich nach dem Sieden, passen nicht zu dieser Abfolge. Örtlich verbleibende Dampfhaut verursacht Weichfleckigkeit, daher wird das Teil oder das Abschreckmittel bewegt, um die Dampfhaut früh aufzubrechen."
+ },
+ "heat-treatment-022": {
+  "question": "Werden Rundstäbe aus demselben unlegierten Stahl unter gleichen Bedingungen in Wasser abgeschreckt, ist die Härte in der Mitte umso niedriger, je größer der Durchmesser ist. Welche Erklärung dieses Masseneinflusses trifft zu?",
+  "choices": [
+   "In dickeren Stäben seigert der Kohlenstoff zur Mitte hin, sodass der Martensit in der Mitte weniger Kohlenstoff enthält und weicher ist",
+   "In dickeren Stäben kühlt die Oberfläche langsamer ab, sodass die Mitte vor der Oberfläche zu Martensit wird und dadurch weicher ausfällt",
+   "In dickeren Stäben kühlt die Mitte langsamer ab, erreicht die kritische Abkühlgeschwindigkeit nicht und bildet Perlit oder Bainit"
+  ],
+  "explanation": "Beim Abschrecken entweicht die Wärme über die Oberfläche, daher kühlt die Mitte langsamer ab als die Oberfläche, und der Unterschied wächst mit dem Durchmesser. Unterschreitet die Abkühlgeschwindigkeit in der Mitte die kritische Abkühlgeschwindigkeit, die nötig ist, um an der Nase des kontinuierlichen ZTU-Schaubilds vorbeizukommen, bildet sich statt Martensit Perlit oder Bainit, und die Härte sinkt. Das ist der Masseneinfluss. Legierte Stähle mit Zusätzen wie Mn, Cr und Mo für eine höhere Einhärtbarkeit haben niedrigere kritische Abkühlgeschwindigkeiten, sodass auch dicke Teile bis zur Mitte durchhärten und der Masseneinfluss kleiner ist. Die Stabdicke verändert die Kohlenstoffverteilung nicht. Die Mitte kühlt nie vor der Oberfläche ab, daher ist auch die Aussage falsch, die Mitte werde zuerst martensitisch."
+ },
+ "heat-treatment-023": {
+  "question": "Nach dem Anlassen können Stähle wie Ni-Cr-Stähle einen starken Abfall der Kerbschlagarbeit erleiden, wenn sie langsam durch den Bereich um 500 °C abgekühlt oder lange darin gehalten werden (Anlasssprödigkeit). Welche Kombination aus Hauptursache und Abhilfe trifft zu?",
+  "choices": [
+   "Martensit wandelt in diesem Bereich wieder in Austenit um; Abhilfe schafft ein Anlassen oberhalb der Temperatur A₁",
+   "Verunreinigungen wie P und Sb seigern an die ehemaligen Austenitkorngrenzen und schwächen sie; Abhilfe schaffen schnelles Abkühlen nach dem Anlassen und Mo-Zusatz",
+   "Die beim Anlassen ausgeschiedenen Karbide lösen sich hier wieder ganz auf und die Härte kehrt zurück; Abhilfe schafft eine kürzere Anlassdauer"
+  ],
+  "explanation": "Diese Anlasssprödigkeit tritt auf, wenn der Stahl nach dem Anlassen langsam den Bereich um 500 °C (etwa 375–575 °C) durchläuft oder darin gehalten wird, sodass sich Verunreinigungen wie P, Sb und Sn an den Korngrenzen des vor dem Härten vorhandenen Austenits (den ehemaligen Austenitkorngrenzen) anreichern und dort die Bindung schwächen. Der Bruch verläuft interkristallin, und die Übergangstemperatur vom duktilen zum spröden Verhalten steigt. Abhilfen sind ein geringerer Gehalt an Verunreinigungen, schnelles Abkühlen nach dem Anlassen (etwa in Wasser), um den Bereich rasch zu durchlaufen, und ein kleiner Zusatz von Mo, der die Wirkung der Seigerung unterdrückt. Anlassen unterhalb von A₁ wandelt Martensit nicht in Austenit zurück, und Erwärmen über A₁ würde das Härtungsgefüge selbst zerstören. Einen Mechanismus, bei dem sich Karbide auflösen und die Härte zurückkehrt, gibt es nicht."
+ },
+ "heat-treatment-024": {
+  "question": "Welche Aussage über den Zusammenhang zwischen der Morphologie des Martensits in Stahl und dem Kohlenstoffgehalt trifft zu?",
+  "choices": [
+   "Unabhängig vom Kohlenstoffgehalt besteht Martensit stets aus parallel gestapelten dünnen Platten mit gleicher innerer Struktur",
+   "Kohlenstoffarme Stähle bilden Linsen-(Platten-)martensit, kohlenstoffreiche Lattenmartensit, und je höher der C-Gehalt, desto zäher",
+   "Kohlenstoffarme Stähle bilden lange dünne Latten, kohlenstoffreiche Linsen-(Platten-)martensit, der feine innere Zwillinge enthält"
+  ],
+  "explanation": "Stähle mit wenig Kohlenstoff (etwa 0,6 % oder weniger) bilden Lattenmartensit, in dem sich lange, dünne Latten parallel zu Paketen ordnen; das Innere hat eine hohe Versetzungsdichte, und die Zähigkeit ist vergleichsweise gut. Stähle mit mehr Kohlenstoff (etwa 1 % oder mehr) bilden Linsen- oder Plattenmartensit, in dem linsenförmige Platten unter Winkeln zueinander entstehen und feine Umwandlungszwillinge enthalten. Er ist hart, aber spröde, und wo Platten aufeinandertreffen, können Mikrorisse entstehen. Bei mittleren Kohlenstoffgehalten liegt ein Gemisch vor. Aussagen, die die Morphologien bei niedrigem und hohem Kohlenstoffgehalt vertauschen oder die Morphologie für unabhängig vom Kohlenstoff erklären, sind falsch. Auch das Absinken der Ms-Temperatur mit dem Kohlenstoffgehalt hängt mit diesem Wechsel der Morphologie zusammen."
+ },
+ "heat-treatment-025": {
+  "question": "Die Ms-Temperatur eines Stahls wird mit der Gleichung von Andrews Ms(°C) = 539 − 423C − 30,4Mn − 17,7Ni − 12,1Cr − 7,5Mo (Elementsymbole in Massen-%) abgeschätzt. Welcher Wert kommt der Ms-Temperatur eines Cr-Mo-Stahls mit 0,40 % C, 0,70 % Mn, 1,0 % Cr, 0,20 % Mo und 0 % Ni am nächsten?",
+  "choices": [
+   "Etwa 335 °C",
+   "Etwa 370 °C",
+   "Etwa 504 °C"
+  ],
+  "explanation": "Die Terme sind 423 × 0,40 = 169,2, 30,4 × 0,70 ≈ 21,3, 12,1 × 1,0 = 12,1 und 7,5 × 0,20 = 1,5, also Ms ≈ 539 − 169,2 − 21,3 − 12,1 − 1,5 ≈ 335 °C. Etwa 370 °C zieht nur den Kohlenstoffterm ab, etwa 504 °C lässt den Kohlenstoffterm weg. Wie die Koeffizienten zeigen, senkt Kohlenstoff die Ms-Temperatur am stärksten, und auch alle hier aufgeführten Legierungselemente senken sie. Je niedriger Ms ist, desto mehr Restaustenit bleibt beim Abschrecken auf Raumtemperatur unumgewandelt zurück. Die Gleichung ist empirisch und an Stählen eines begrenzten Zusammensetzungsbereichs angepasst; für hochlegierte Stähle ist sie nur ein grober Anhaltswert."
  }
 }
