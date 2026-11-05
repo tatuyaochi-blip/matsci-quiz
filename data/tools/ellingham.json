@@ -1,0 +1,677 @@
+{
+  "id": "ellingham",
+  "order": 17,
+  "slug": "ellingham-diagram",
+  "cats": [
+    "thermodynamics",
+    "heat-treatment",
+    "corrosion",
+    "high-temperature",
+    "metals"
+  ],
+  "cat": "thermodynamics",
+  "terms": [
+    "エリンガム図",
+    "平衡酸素分圧",
+    "ギブスエネルギー",
+    "活量",
+    "ピリング・ベドワース比",
+    "酸化の放物線則"
+  ],
+  "questions": [
+    "thermodynamics-005",
+    "thermodynamics-008",
+    "thermodynamics-011"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "ellingham-form",
+    "fields": [
+      {
+        "name": "mode",
+        "options": [
+          "diag",
+          "h2",
+          "co",
+          "cmp"
+        ],
+        "value": "diag"
+      },
+      {
+        "name": "ox",
+        "options": [
+          "Cu2O",
+          "CoO",
+          "FeO",
+          "Fe3O4",
+          "Cr2O3",
+          "SiO2",
+          "TiO2",
+          "Al2O3",
+          "MgO",
+          "CaO"
+        ],
+        "value": "Cr2O3"
+      },
+      {
+        "name": "oa",
+        "options": [
+          "Cu2O",
+          "CoO",
+          "FeO",
+          "Fe3O4",
+          "Cr2O3",
+          "SiO2",
+          "TiO2",
+          "Al2O3",
+          "MgO",
+          "CaO"
+        ],
+        "value": "Al2O3"
+      },
+      {
+        "name": "t",
+        "value": 1000,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "tu",
+        "options": [
+          "C",
+          "K"
+        ],
+        "value": "C"
+      },
+      {
+        "name": "lines",
+        "options": [
+          "all",
+          "ox",
+          "sel"
+        ],
+        "value": "all"
+      },
+      {
+        "name": "ptot",
+        "value": 1,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "ptu",
+        "options": [
+          "atm",
+          "kPa",
+          "MPa"
+        ],
+        "value": "atm"
+      },
+      {
+        "name": "xh2",
+        "value": 100,
+        "attrs": "min=\"0\" max=\"100\" step=\"any\""
+      },
+      {
+        "name": "dp",
+        "value": -40,
+        "attrs": "min=\"-100\" max=\"100\" step=\"any\""
+      },
+      {
+        "name": "co",
+        "value": 30,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "co2",
+        "value": 5,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "pco",
+        "value": 1,
+        "attrs": "min=\"0\" step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "box": "res"
+      }
+    ],
+    "svg": "el-chart",
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "エリンガム図ラボ",
+      "card": "酸化物の ΔG°–T の線、平衡酸素分圧、H₂/H₂O 比と露点、CO/CO₂ 比と炭素による還元、2つの酸化物の比べを、JANAF のデータと式の代入つきで",
+      "title": "エリンガム図ラボ(平衡酸素分圧・H₂/H₂O・露点・CO/CO₂)",
+      "description": "酸化物の標準生成ギブズエネルギー ΔG°(O₂ 1 mol あたり)の線を NIST-JANAF の値で描き、温度から平衡酸素分圧、還元が進む H₂/H₂O 比と露点、CO/CO₂ 比、炭素で還元できる温度、金属 A が酸化物 B を還元できるかを、式と代入した値つきで計算します。",
+      "h1": "エリンガム図ラボ",
+      "lead": "酸化物の ΔG°(O₂ 1 mol あたり)と温度の線を NIST-JANAF のデータで描き、選んだ酸化物と温度について、①平衡酸素分圧、②還元が進む H₂/H₂O 比と雰囲気の露点、③CO/CO₂ 比と炭素で還元できる温度、④金属 A で酸化物 B を還元できるか、を式に値を代入した形で出します。純物質(活量1)・標準状態での平衡の見当です。",
+      "in_heading": "入力",
+      "out_heading": "結果",
+      "note": "熱力学データは NIST-JANAF Thermochemical Tables(第4版)の ΔfG を O₂ 1 mol あたりに直し、転移の温度で折れる直線に当てはめたもので、表の値との差は 1 kJ/(mol O₂) 以内です。飽和水蒸気圧は水が Wagner・Pruss(IAPWS)、氷が IAPWS 2011 の式です。結果は純物質・平衡の見当で、反応の速さや合金中の活量は含みません。",
+      "practice": "材料の熱力学の問題を解く",
+      "related": "関連する用語",
+      "chart_label": "エリンガム図(ΔG° と温度)",
+      "mode": "計算",
+      "mode_diag": "図と平衡酸素分圧",
+      "mode_h2": "H₂/H₂O と露点",
+      "mode_co": "CO/CO₂ と炭素",
+      "mode_cmp": "2つの比べ",
+      "ox": "酸化物",
+      "ox_Cu2O": "Cu₂O",
+      "ox_CoO": "CoO",
+      "ox_FeO": "FeO",
+      "ox_Fe3O4": "Fe₃O₄",
+      "ox_Cr2O3": "Cr₂O₃",
+      "ox_SiO2": "SiO₂",
+      "ox_TiO2": "TiO₂",
+      "ox_Al2O3": "Al₂O₃",
+      "ox_MgO": "MgO",
+      "ox_CaO": "CaO",
+      "oa": "金属 A(還元に使う)の酸化物",
+      "oa_Cu2O": "Cu₂O",
+      "oa_CoO": "CoO",
+      "oa_FeO": "FeO",
+      "oa_Fe3O4": "Fe₃O₄",
+      "oa_Cr2O3": "Cr₂O₃",
+      "oa_SiO2": "SiO₂",
+      "oa_TiO2": "TiO₂",
+      "oa_Al2O3": "Al₂O₃",
+      "oa_MgO": "MgO",
+      "oa_CaO": "CaO",
+      "t": "温度",
+      "tu": "温度の単位",
+      "tu_C": "℃",
+      "tu_K": "K",
+      "lines": "図に描く線",
+      "lines_all": "すべて",
+      "lines_ox": "酸化物だけ",
+      "lines_sel": "選んだ線だけ",
+      "ptot": "全圧 P",
+      "ptu": "全圧の単位",
+      "ptu_atm": "atm",
+      "ptu_kPa": "kPa",
+      "ptu_MPa": "MPa",
+      "xh2": "H₂ の割合(乾きガス中、残りは N₂、%)",
+      "dp": "露点(℃、0 ℃ 未満は霜点)",
+      "co": "CO(%)",
+      "co2": "CO₂(%)",
+      "pco": "炭素の還元での p(CO)(bar)",
+      "js": {
+        "lines": {
+          "Cu2O": "Cu₂O",
+          "CoO": "CoO",
+          "FeO": "FeO(Fe₀.₉₄₇O)",
+          "Fe3O4": "Fe₃O₄",
+          "Cr2O3": "Cr₂O₃",
+          "SiO2": "SiO₂",
+          "TiO2": "TiO₂",
+          "Al2O3": "Al₂O₃",
+          "MgO": "MgO",
+          "CaO": "CaO",
+          "H2O": "H₂/H₂O",
+          "CO": "C/CO",
+          "CO2": "C/CO₂",
+          "COCO2": "CO/CO₂"
+        },
+        "ui": {
+          "tabs_label": "計算の種類",
+          "degc": "℃",
+          "tab_diag": "① 図と平衡 p(O₂)",
+          "tab_h2": "② H₂/H₂O と露点",
+          "tab_co": "③ CO/CO₂ と炭素",
+          "tab_cmp": "④ 2つの比べ",
+          "examples": "例:",
+          "ex": [
+            "ステンレスの光輝焼鈍(Cr₂O₃・H₂)",
+            "銅のろう付け(Cu₂O・N₂–5 % H₂)",
+            "炭素で FeO を還元できる温度",
+            "Al で Cr₂O₃ を還元(テルミット)"
+          ],
+          "ex_note": "例の値(温度・露点・ガスの組成)は、計算のしかたを示すために作った数で、実際の炉や製品のデータではありません。",
+          "ox_label": "酸化物",
+          "ox_b": "酸化物 B(還元される)",
+          "legend_label": "線の一覧(酸化物を押すと選ぶ)",
+          "y_label": "ΔG° (kJ/mol O₂)",
+          "chart_cap": "太線が選んだ線({a})と比べる線、薄い線はほかの酸化物、破線は気体の反応、点線は安定でない範囲。丸は融解・沸騰・変態の温度。線にカーソルを当てると反応式が出ます。",
+          "tr_mp": "{s} の融点 {t}",
+          "tr_bp": "{s} の沸点(1 bar){t}",
+          "tr_tr": "{s} の固相の変態 {t}",
+          "h_basic": "{a} の ΔG° と平衡酸素分圧",
+          "s_dg": "ΔG°(O₂ 1 mol あたり)",
+          "s_po2": "平衡 p(O₂)",
+          "s_seg": "使った直線の区間",
+          "basic_note": "式の中の温度はケルビン(K)です。p° は標準圧力 0.1 MPa(1 bar、JANAF の標準状態)で、1 atm = 1.01325 bar として atm と Pa にも直しています。金属と酸化物は純物質(活量 1)とします。",
+          "feo_low": "ウスタイト(FeO)は約 570 ℃より下では安定でなく、Fe と Fe₃O₄ に分かれます(Cao ほか, ISIJ Int. 2023)。この温度では Fe と平衡するのは Fe₃O₄ なので、Fe₃O₄ の線も見てください。",
+          "diag_main": "{t} で、{a} の ΔG° は {g}、金属と酸化物が共存する平衡酸素分圧は {p} bar です。雰囲気の p(O₂) がこれより高ければ金属は酸化され、低ければ酸化物は分解(還元)される向きです。",
+          "h_trans": "線の折れと ΔG° = 0 の温度",
+          "no_trans": "この範囲(298〜2000 K)に、潜熱のある融解・沸騰・変態はありません(Cr の融解は 2000 K より上)。",
+          "zero_at": "ΔG° = 0(平衡 p(O₂) = 1 bar)になるのは {t} です。これより高い温度では、酸化物は 1 bar の酸素の中でも分解します。",
+          "zero_none": "{a}〜{b} のどこでも ΔG° < 0 で、1 bar の酸素の中では酸化物が安定です(平衡 p(O₂) が 1 bar に届く温度はこの範囲にありません)。",
+          "feo_cross": "JANAF の値で FeO(Fe₀.₉₄₇O)と Fe₃O₄ の線が交わるのは {t} です。文献のウスタイトの下限(約 570 ℃)とずれるのは、2 本の線がほぼ平行で、1 kJ/(mol O₂) ほどの差で交点が数十 K 動くことと、表のウスタイトが組成を固定した Fe₀.₉₄₇O であることによると考えられます(推測)。",
+          "h_table": "{t} でのすべての線(下ほど安定)",
+          "table_cols": [
+            "線",
+            "反応(O₂ 1 mol あたり)",
+            "ΔG°(kJ/mol O₂)",
+            "平衡 p(O₂)(bar)"
+          ],
+          "table_note": "気体の反応の行の「平衡 p(O₂)」は、両側の気体がすべて 1 bar のときの値です。図と同じく ΔG° の大きい線を上に並べています。上の行の酸化物は、下の行の金属で還元できる向きです(差が反応の ΔG°)。",
+          "need_ptot": "全圧を 0 より大きい値で入れてください。",
+          "need_xh2": "H₂ の割合を 0 より大きく 100 % 以下で入れてください。",
+          "need_dp": "露点を −100〜373 ℃ の範囲で入れてください(式の範囲)。",
+          "dp_high": "この露点の飽和水蒸気圧は全圧以上です。全圧か露点を見直してください。",
+          "h2_red": "{t} で、雰囲気の p(H₂)/p(H₂O) = {q} は境目の {r} より大きいので、還元側です({a} は還元され、金属は酸化されない向き。露点 {d} ℃)。",
+          "h2_ox": "{t} で、雰囲気の p(H₂)/p(H₂O) = {q} は境目の {r} より小さいので、酸化側です(金属は {a} に酸化される向き。露点 {d} ℃)。",
+          "s_req": "境目の p(H₂)/p(H₂O)",
+          "s_req_inv": "境目の p(H₂O)/p(H₂)",
+          "s_ratio": "雰囲気の p(H₂)/p(H₂O)",
+          "s_pw": "水蒸気分圧 p(H₂O)",
+          "s_ppm": "水蒸気の体積分率",
+          "s_po2_atm": "雰囲気の p(O₂)",
+          "s_dew_eq": "境目の露点",
+          "dew_below": "−100 ℃ より低い",
+          "h_eq": "使った式と代入した値",
+          "h2_eq_lead": "酸化物の生成(ΔG°₁)から 2H₂ + O₂ → 2H₂O(ΔG°₂)を引くと、酸化物 + H₂ → 金属 + H₂O の反応になり、平衡では p(H₂O)/p(H₂) が決まります。実際の p(H₂)/p(H₂O) が境目より大きければ還元が進む向きです。比は分圧の比なので、全圧や標準圧力の取り方によりません。",
+          "ice": "0.01 ℃ より下なので氷の昇華圧の式(霜点)",
+          "water": "水の飽和蒸気圧の式",
+          "h2_one": "p(H₂)/p(H₂O) = 1 になる(酸化物の線と H₂O の線が交わる)のは {t} です。",
+          "h2_one_none": "この範囲では {a} の線と H₂O の線は交わらず、p(H₂)/p(H₂O) = 1 になる温度はありません。",
+          "psat_note": "飽和水蒸気圧: 0.01 ℃(273.16 K)以上は Wagner・Pruss(1993、IAPWS)の水の式(〜647.096 K)、それより下は IAPWS R14-08(2011)の氷 Ih の昇華圧の式(50 K〜)で、露点は霜点として扱います。−100 ℃ より低い露点は出しません。露点計によっては 0 ℃ 未満を過冷却の水に対して表すことがあるので、どちらの値かを確かめてください。全圧の中の水蒸気の体積分率 = p(H₂O)/P(理想気体)。",
+          "h_caution": "注意",
+          "h2_cautions": [
+            "境目は純物質(活量 1)の金属と酸化物の値です。ステンレス鋼の Cr のように合金の中の金属は活量が 1 より小さく、スピネルなど複合酸化物ができると、境目はずれます。",
+            "エリンガム図は平衡だけを表し、酸化や還元の速さ(反応速度・拡散)は分かりません。境目に近い条件では、時間や温度の変化で結果が変わります。",
+            "実際の炉の雰囲気は、炉の中で測った露点と組成によります(配管・炉材・ワークからの水分や空気の入り込み)。設計や操業の判断は、規格・装置の仕様・専門家に従ってください。"
+          ],
+          "co_red": "{t} で、p(CO)/p(CO₂) = {q} は境目の {r} より大きいので、還元側です({a} は CO で還元される向き)。",
+          "co_ox": "{t} で、p(CO)/p(CO₂) = {q} は境目の {r} より小さいので、酸化側です(金属は {a} に酸化される向き)。",
+          "need_co": "CO と CO₂ の割合を 0 より大きい値で入れてください(比だけを使います)。",
+          "need_pco": "炭素の還元を見る p(CO) を 0 より大きい値で入れてください。",
+          "c_above": "p(CO) = {p} bar(炭素は活量 1 の黒鉛)では、{t} より高い温度で炭素がこの酸化物を還元できます(2C + O₂ → 2CO の線が下になる)。",
+          "c_below": "p(CO) = {p} bar では、{t} より低い温度で炭素がこの酸化物を還元できます。",
+          "c_always": "p(CO) = {p} bar では、{a}〜{b} のどこでも炭素がこの酸化物を還元できる向きです。",
+          "c_never": "p(CO) = {p} bar では、{a}〜{b} のどこでも炭素はこの酸化物を還元できません(2C + O₂ → 2CO の線が上にある)。",
+          "s_rco": "境目の p(CO)/p(CO₂)",
+          "s_qco": "雰囲気の p(CO)/p(CO₂)",
+          "s_ct": "炭素で還元できる境の温度",
+          "co_eq_lead": "酸化物の生成(ΔG°₁)から 2CO + O₂ → 2CO₂(ΔG°₃)を引くと、酸化物 + CO → 金属 + CO₂ になり、境目の p(CO)/p(CO₂) が決まります。炭素による還元は 2C + O₂ → 2CO の線との差で、p(CO) が 1 bar でないときは 2RT ln p(CO) だけ線を動かします。",
+          "c_note": "炭素の還元の温度は「p(CO) = 1 bar(既定)、炭素は黒鉛で活量 1」のときの値です。p(CO) を下げる(真空・不活性ガスで薄める)と、炭素の線が下がり、境の温度は下がります。2CO ⇄ C + CO₂(ブードア反応)の平衡で決まる気相の組成は、ここでは扱っていません。",
+          "co_cautions": [
+            "境目は純物質(活量 1)の値です。溶けた鉄の中の炭素や合金中の金属では活量が違い、境目がずれます。",
+            "高炉などの実際の還元は、気体の流れ・反応の速さ・炭素の溶け込み(浸炭)などで決まり、この図だけでは分かりません。",
+            "FeO は不定比の酸化物で、JANAF の表は Fe₀.₉₄₇O の組成のものです。"
+          ],
+          "cmp_same": "金属 A と酸化物 B が同じ金属です。同じ金属の酸化物どうし(FeO と Fe₃O₄ など)の比べは、ここでは扱いません。①のタブで 2 本の線を見てください。",
+          "out_range_a": "{a} のデータは {lo}〜{hi} の範囲だけです。",
+          "cmp_yes": "{t} で ΔG° = {d} < 0 なので、{a} は {b} を還元できる向きです(熱力学の上で)。",
+          "cmp_no": "{t} で ΔG° = {d} > 0 なので、{a} は {b} を還元できません(逆の向きの反応が進む)。",
+          "s_dga": "ΔG°(A の酸化)",
+          "s_dgb": "ΔG°(B の酸化)",
+          "s_diff": "還元の ΔG°(O₂ 1 mol あたり)",
+          "s_diff_rx": "整数の反応式の ΔG°",
+          "cmp_eq_lead": "2 本の線の縦の差が、金属 A が酸化物 B を還元する反応の ΔG° です(O₂ 1 mol にそろえたので O₂ が消える)。下にある線の金属が、上にある線の酸化物を還元できます。",
+          "cmp_cross": "2 本の線は {t} で交わり、その温度を境に向きが変わります。",
+          "cmp_nocross": "{a}〜{b} では 2 本の線は交わらず、向きは変わりません。",
+          "cmp_note": "ΔG° < 0 は熱力学の上で進めることを示すだけです。固体どうしの反応は接触や生成物の膜で止まることがあり、テルミットのように大きな発熱で一気に進む場合もあります。",
+          "cmp_cautions": [
+            "金属と酸化物はすべて純物質(活量 1)とします。生成物が固溶体や複合酸化物(スピネルなど)をつくると、ΔG° は変わります。",
+            "反応の熱(発熱量)や、生じる温度・速さはこの計算では分かりません。"
+          ],
+          "src_h": "出典:",
+          "need_t": "温度を入れてください。",
+          "out_range": "{a} のデータは {lo}〜{hi} の範囲だけです。範囲の中の温度を入れてください。",
+          "h_assume": "前提",
+          "assume": [
+            "ΔG° は NIST-JANAF の ΔfG(100 K おき)を O₂ 1 mol あたりに直し、融解・沸騰・変態の温度で折れる直線に当てはめた値です(表の値との差は 1 kJ/(mol O₂) 以内)。",
+            "標準状態は 0.1 MPa(1 bar)の理想気体と純物質です。金属・酸化物・炭素の活量は 1 とします。",
+            "式の中の温度はケルビン(T(K) = t(℃) + 273.15)、気体定数 R = 8.314 J/(mol·K) です。",
+            "NiO・ZnO・MnO・Ag₂O は、NIST-JANAF のウェブの表で見つけられなかったので置いていません。"
+          ],
+          "l_term": "用語: エリンガム図",
+          "l_po2": "用語: 平衡酸素分圧",
+          "l_learn": "解説: 鉄はなぜさびるの?",
+          "l_fec": "鋼の熱処理ラボ",
+          "l_diff": "拡散・表面処理シミュレーター",
+          "l_cat": "材料の熱力学の問題"
+        }
+      },
+      "sections": [
+        {
+          "h": "エリンガム図の読み方(O₂ 1 mol あたりで描くわけ)",
+          "p": "エリンガム図は、酸化物の生成反応の標準ギブズエネルギー変化 ΔG° を、O₂ 1 mol あたりにそろえて温度に対して描いた図です。4/3Cr + O₂ → 2/3Cr₂O₃ と 4/3Al + O₂ → 2/3Al₂O₃ のように酸素の量をそろえると、2つの反応の差をとったときに O₂ が消え、縦の差がそのまま「Al が Cr₂O₃ を還元する反応」の ΔG° になります。同じ温度で下にある線ほど ΔG° が負に大きく、その酸化物は安定で、下の線の金属は上の線の酸化物を還元できる向きです。酸化物 1 mol あたりで描くと、化学式によって酸素の数が違うので、このようには比べられません。"
+        },
+        {
+          "h": "線の傾きは −ΔS°",
+          "p": "ΔG° = ΔH° − TΔS° で、ΔH° と ΔS° は温度であまり変わらないので、線はほぼ直線になり、傾きは −ΔS° です。金属の酸化では気体の O₂ が固体の酸化物に取り込まれて ΔS° が負になるので、ほとんどの線は右上がりで、高温ほど酸化物は不安定になります。このページの JANAF の値では、O₂ 1 mol あたりの傾きは、多くの酸化物で 0.13〜0.23 kJ/(mol·K) ほどです(区間ごとの A + BT の B。金属が沸騰した後や、酸化物が融けた後はこの幅から外れます)。"
+        },
+        {
+          "h": "線が折れるところ(融解・沸騰・変態)",
+          "p": "金属や酸化物が融解・沸騰・変態する温度では ΔS° が変わり、線が折れます。反応する側の金属が融けたり沸騰したりすると、反応で失うエントロピーが大きくなり、線の傾きが急になります。たとえば Mg は JANAF の表で 1366 K(1 bar)で沸騰し、2Mg + O₂ → 2MgO の傾きは、この温度の前後で約 0.23 から約 0.41 kJ/(mol·K) に変わります。逆に酸化物が融けると傾きは緩やかになります(Cu₂O は 1517 K)。融解の折れは小さく、沸騰の折れが大きいのは、蒸発のエントロピーが融解よりずっと大きいからです。図の丸は、選んだ線のこうした温度です。"
+        },
+        {
+          "h": "CO の線が右下がりになるわけ",
+          "p": "2C + O₂ → 2CO では、気体が O₂ 1 mol から CO 2 mol に増えるので ΔS° が正で、線は右下がりです(このページの値で傾き約 −0.17〜−0.18 kJ/(mol·K))。そのため高温ほど多くの酸化物の線より下に来て、炭素がその酸化物を還元できるようになります。C + O₂ → CO₂ は気体の数が変わらないのでほぼ水平、2CO + O₂ → 2CO₂ は気体が減るので右上がりです。③のタブでは、選んだ酸化物の線と 2C + O₂ → 2CO の線が交わる温度を、p(CO) = 1 bar(既定)として出します(例③は FeO)。"
+        },
+        {
+          "h": "平衡酸素分圧と ΔG°",
+          "p": "金属と酸化物が純物質(活量 1)なら、平衡では ΔG° = RT ln(p(O₂)/p°) です。p° は標準圧力で、JANAF は 0.1 MPa(1 bar)を使うので、このページの p(O₂) はまず bar で出し、1 atm = 1.01325 bar として atm と Pa にも直します。雰囲気の p(O₂) が平衡の値より高ければ金属は酸化され、低ければ酸化物は分解する向きです。たとえば 1000 ℃(1273 K)の Cr₂O₃ では平衡の p(O₂) は 10⁻²² bar ほどで、ふつうの真空ではとても届かない低さです。そこで実際の雰囲気では、H₂/H₂O や CO/CO₂ の比で酸素の分圧を決めます。"
+        },
+        {
+          "h": "H₂/H₂O と CO/CO₂ の比の意味",
+          "p": "酸化物の線から 2H₂ + O₂ → 2H₂O の線を引くと「酸化物 + H₂ → 金属 + H₂O」の反応になり、平衡の比は (p(H₂)/p(H₂O))eq = exp[(ΔG°(H₂O) − ΔG°(酸化物))/(2RT)] です。雰囲気の p(H₂)/p(H₂O) がこれより大きければ還元側、小さければ酸化側です。比は分圧どうしの比なので、全圧によりません。CO/CO₂ も同じで、2CO + O₂ → 2CO₂ の線を使います。酸化物の線が H₂O の線より下にあるほど、境目の比は大きく(乾いた水素が要る)なります。"
+        },
+        {
+          "h": "露点と水蒸気分圧",
+          "p": "雰囲気の水分は露点で表すことが多く、露点は「その水蒸気分圧が飽和水蒸気圧に等しくなる温度」です。このページでは 0.01 ℃ 以上を Wagner・Pruss の水の式、それより下を IAPWS 2011 の氷の昇華圧の式で換算し、0 ℃ 未満は霜点として扱います。たとえば露点 −40 ℃ の水蒸気分圧は約 12.8 Pa で、1 atm の中の体積分率は約 127 ppm です。H₂ の分圧は、乾きガスの中の H₂ の割合(残りは N₂ など)に (全圧 − 水蒸気分圧) を掛けて出します。露点は相対湿度とは別のもので、同じ露点なら温度によらず水蒸気分圧は同じです。"
+        },
+        {
+          "h": "よくある誤り",
+          "p": "①温度を ℃ のまま RT に入れる(式の中はケルビン)。②酸化物 1 mol あたりの ΔG° を O₂ 1 mol あたりに直さずに比べる。③atm と bar と Pa を取り違える(p° = 1 bar の表で 1 atm を 1 とすると、差は 1.3 % ですが、Pa のまま入れると桁がずれます)。④露点を相対湿度と取り違える。⑤活量 1 の前提を忘れる(ステンレス鋼の Cr のように合金中の金属は活量が小さく、境目の p(O₂) や H₂/H₂O 比は図の値と違います)。⑥図が平衡だけで、速さが分からないことを忘れる。"
+        },
+        {
+          "h": "データと前提",
+          "p": "線は NIST-JANAF Thermochemical Tables(第4版)の ΔfG を 100 K おきに読み、O₂ 1 mol あたりに直して、転移の温度で折れる直線(区間ごとの ΔG° = A + BT)に当てはめたものです。表の値との差は最大 0.91 kJ/(mol O₂) です。結晶と液体の両方を含む表(cr,l)がある物質はそれを使い、CoO・Fe₃O₄・Fe₀.₉₄₇O は結晶の表を使いました。FeO の線は JANAF のウスタイト Fe₀.₉₄₇O の表で、文献ではウスタイトは約 570 ℃ より下で安定でないとされるので、その部分を点線にしています。NiO・ZnO・MnO・Ag₂O は JANAF のウェブの表で見つけられなかったので置いていません。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "エリンガム図で下にある金属は、必ず上の酸化物を還元しますか?",
+          "a": "熱力学の上ではその向きの反応の ΔG° が負なので可能ですが、実際に進むかは反応の速さ、生成物の除去、活量によります。固体どうしでは接触が悪いと進みにくく、生じた酸化物の膜で止まることもあります。"
+        },
+        {
+          "q": "p(O₂) は atm と bar のどちらで出していますか?",
+          "a": "JANAF の標準圧力 0.1 MPa(1 bar)に対する値をまず bar で出し、1 atm = 1.01325 bar として atm と Pa にも直しています。古い教科書の図は 1 atm を標準にしたものがありますが、ΔG° の差は O₂ 1 mol あたり RT ln 1.01325(1000 K で約 0.1 kJ)と小さいです。"
+        },
+        {
+          "q": "ステンレス鋼の光輝焼鈍で、この境目の露点を目安にしてよいですか?",
+          "a": "見当にはなりますが、そのままでは使えません。この計算は純 Cr と純 Cr₂O₃ の平衡で、鋼の中の Cr は活量が 1 より小さく、スピネルなどもできます。境目の露点は合金では違う値になり、実際の炉では測った露点・組成と、規格・装置の仕様に従ってください。"
+        },
+        {
+          "q": "露点が 0 ℃ より低いときは、水と氷のどちらの式ですか?",
+          "a": "0.01 ℃(273.16 K)より下は氷の昇華圧の式(IAPWS 2011)を使い、霜点として扱います。露点計の表示が過冷却の水に対するものなら、同じ数でも水蒸気分圧が少し違うので、計器の仕様を確かめてください。"
+        },
+        {
+          "q": "H₂/H₂O の境目は全圧で変わりますか?",
+          "a": "比 p(H₂)/p(H₂O) の境目は変わりません。ただし同じ露点(同じ水蒸気分圧)でも、全圧や H₂ の割合が変わると p(H₂) が変わるので、雰囲気の比は変わります。このページでは全圧と H₂ の割合を入れて、露点から雰囲気の比を出します。"
+        },
+        {
+          "q": "FeO の線を 570 ℃ より下で点線にしているのはなぜですか?",
+          "a": "ウスタイト(Fe₁₋ₓO)は約 570 ℃ より下では安定でなく、Fe と Fe₃O₄ に分かれるとされているからです(Cao ほか, ISIJ International 2023)。それより低い温度で Fe と平衡するのは Fe₃O₄ なので、Fe₃O₄ の線を使ってください。"
+        },
+        {
+          "q": "NiO や ZnO の線がないのはなぜですか?",
+          "a": "このページは NIST-JANAF のウェブの表で確かめた値だけを使っていて、NiO・ZnO・MnO・Ag₂O の表はそこで見つけられなかったからです。ほかの出典の値と混ぜると、標準状態や基準の取り方がそろわなくなるので、置いていません。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Ellingham diagram lab",
+      "card": "Oxide ΔG°–T lines, equilibrium oxygen pressure, H₂/H₂O ratio and dew point, CO/CO₂ ratio and carbon reduction, and metal-vs-oxide comparison, from JANAF data with the numbers substituted",
+      "title": "Ellingham Diagram Lab: pO₂, H₂/H₂O, Dew Point, CO/CO₂",
+      "description": "Plots oxide ΔG° per mol O₂ against temperature from NIST-JANAF data and calculates equilibrium pO₂, the H₂/H₂O ratio and dew point for reduction, the CO/CO₂ ratio, carbon reduction temperature and metal–oxide reduction, with substituted equations.",
+      "h1": "Ellingham diagram lab",
+      "lead": "Draws ΔG° (per mol O₂) against temperature for oxides using NIST-JANAF data and, for the oxide and temperature you choose, gives ① the equilibrium oxygen partial pressure, ② the H₂/H₂O ratio and atmosphere dew point at which reduction proceeds, ③ the CO/CO₂ ratio and the temperature at which carbon can reduce the oxide, and ④ whether metal A can reduce oxide B, each with the values substituted into the equation. Results are equilibrium estimates for pure substances (activity 1) in their standard states.",
+      "in_heading": "Input",
+      "out_heading": "Results",
+      "note": "Thermodynamic data are NIST-JANAF Thermochemical Tables (4th ed.) ΔfG values converted to per mol O₂ and fitted with straight lines that bend at transition temperatures; they agree with the tables within 1 kJ/(mol O₂). Saturation vapor pressure uses Wagner & Pruss (IAPWS) for water and the IAPWS 2011 equation for ice. Results are equilibrium estimates for pure substances and do not include reaction rates or activities in alloys.",
+      "practice": "Practice thermodynamics questions",
+      "related": "Related terms",
+      "chart_label": "Ellingham diagram (ΔG° vs temperature)",
+      "mode": "Calculation",
+      "mode_diag": "Diagram and pO₂",
+      "mode_h2": "H₂/H₂O and dew point",
+      "mode_co": "CO/CO₂ and carbon",
+      "mode_cmp": "Compare two",
+      "ox": "Oxide",
+      "ox_Cu2O": "Cu₂O",
+      "ox_CoO": "CoO",
+      "ox_FeO": "FeO",
+      "ox_Fe3O4": "Fe₃O₄",
+      "ox_Cr2O3": "Cr₂O₃",
+      "ox_SiO2": "SiO₂",
+      "ox_TiO2": "TiO₂",
+      "ox_Al2O3": "Al₂O₃",
+      "ox_MgO": "MgO",
+      "ox_CaO": "CaO",
+      "oa": "Oxide of metal A (reductant)",
+      "oa_Cu2O": "Cu₂O",
+      "oa_CoO": "CoO",
+      "oa_FeO": "FeO",
+      "oa_Fe3O4": "Fe₃O₄",
+      "oa_Cr2O3": "Cr₂O₃",
+      "oa_SiO2": "SiO₂",
+      "oa_TiO2": "TiO₂",
+      "oa_Al2O3": "Al₂O₃",
+      "oa_MgO": "MgO",
+      "oa_CaO": "CaO",
+      "t": "Temperature",
+      "tu": "Temperature unit",
+      "tu_C": "°C",
+      "tu_K": "K",
+      "lines": "Lines to draw",
+      "lines_all": "All lines",
+      "lines_ox": "Oxides only",
+      "lines_sel": "Selected only",
+      "ptot": "Total pressure P",
+      "ptu": "Pressure unit",
+      "ptu_atm": "atm",
+      "ptu_kPa": "kPa",
+      "ptu_MPa": "MPa",
+      "xh2": "H₂ in dry gas (rest N₂, %)",
+      "dp": "Dew point (°C; frost point below 0)",
+      "co": "CO (%)",
+      "co2": "CO₂ (%)",
+      "pco": "p(CO) for carbon reduction (bar)",
+      "js": {
+        "lines": {
+          "Cu2O": "Cu₂O",
+          "CoO": "CoO",
+          "FeO": "FeO (Fe₀.₉₄₇O)",
+          "Fe3O4": "Fe₃O₄",
+          "Cr2O3": "Cr₂O₃",
+          "SiO2": "SiO₂",
+          "TiO2": "TiO₂",
+          "Al2O3": "Al₂O₃",
+          "MgO": "MgO",
+          "CaO": "CaO",
+          "H2O": "H₂/H₂O",
+          "CO": "C/CO",
+          "CO2": "C/CO₂",
+          "COCO2": "CO/CO₂"
+        },
+        "ui": {
+          "tabs_label": "Calculation",
+          "degc": "°C",
+          "tab_diag": "① Diagram and pO₂",
+          "tab_h2": "② H₂/H₂O and dew point",
+          "tab_co": "③ CO/CO₂ and carbon",
+          "tab_cmp": "④ Compare two",
+          "examples": "Examples:",
+          "ex": [
+            "Bright annealing of stainless (Cr₂O₃, H₂)",
+            "Copper brazing (Cu₂O, N₂–5 % H₂)",
+            "Carbon reduction of FeO",
+            "Al reducing Cr₂O₃ (thermite)"
+          ],
+          "ex_note": "The example values (temperatures, dew points, gas compositions) were made up to show how the calculation works; they are not data from real furnaces or products.",
+          "ox_label": "Oxide",
+          "ox_b": "Oxide B (to be reduced)",
+          "legend_label": "Lines (press an oxide to select it)",
+          "y_label": "ΔG° (kJ/mol O₂)",
+          "chart_cap": "Thick lines: the selected line ({a}) and the line it is compared with; faint lines: other oxides; dashed: gas reactions; dotted: range where the phase is not stable. Circles mark melting, boiling and phase changes. Hover over a line to see its reaction.",
+          "tr_mp": "{s} melts at {t}",
+          "tr_bp": "{s} boils (1 bar) at {t}",
+          "tr_tr": "{s} solid-state transition at {t}",
+          "h_basic": "ΔG° and equilibrium oxygen pressure for {a}",
+          "s_dg": "ΔG° (per mol O₂)",
+          "s_po2": "Equilibrium p(O₂)",
+          "s_seg": "Line segment used",
+          "basic_note": "Temperatures in the equations are in kelvin. p° is the standard pressure 0.1 MPa (1 bar, the JANAF standard state); values are also converted to atm (1 atm = 1.01325 bar) and Pa. Metal and oxide are pure (activity 1).",
+          "feo_low": "Wüstite (FeO) is not stable below about 570 °C and splits into Fe and Fe₃O₄ (Cao et al., ISIJ Int. 2023). At this temperature Fe is in equilibrium with Fe₃O₄, so check the Fe₃O₄ line as well.",
+          "diag_main": "At {t}, ΔG° for {a} is {g} and the equilibrium oxygen partial pressure at which metal and oxide coexist is {p} bar. If the p(O₂) of the atmosphere is higher, the metal tends to oxidize; if lower, the oxide tends to decompose (be reduced).",
+          "h_trans": "Bends in the line and the temperature where ΔG° = 0",
+          "no_trans": "There is no melting, boiling or phase change with a latent heat in this range (298–2000 K); Cr melts above 2000 K.",
+          "zero_at": "ΔG° = 0 (equilibrium p(O₂) = 1 bar) at {t}. Above this temperature the oxide decomposes even in 1 bar of oxygen.",
+          "zero_none": "ΔG° < 0 everywhere from {a} to {b}, so the oxide is stable in 1 bar of oxygen (the equilibrium p(O₂) does not reach 1 bar in this range).",
+          "feo_cross": "With the JANAF values, the FeO (Fe₀.₉₄₇O) and Fe₃O₄ lines cross at {t}. That this differs from the literature lower limit of wüstite (about 570 °C) is probably because the two lines are almost parallel, so a difference of about 1 kJ/(mol O₂) moves the crossing by tens of kelvin, and because the tabulated wüstite has the fixed composition Fe₀.₉₄₇O (our inference).",
+          "h_table": "All lines at {t} (lower is more stable)",
+          "table_cols": [
+            "Line",
+            "Reaction (per mol O₂)",
+            "ΔG° (kJ/mol O₂)",
+            "Equilibrium p(O₂) (bar)"
+          ],
+          "table_note": "For gas reactions, “equilibrium p(O₂)” is the value when all the other gases are at 1 bar. As on the diagram, lines with higher ΔG° are listed first; a metal lower in the table can reduce the oxide of a metal higher up (the difference is the ΔG° of that reaction).",
+          "need_ptot": "Enter a total pressure greater than 0.",
+          "need_xh2": "Enter an H₂ fraction greater than 0 and at most 100 %.",
+          "need_dp": "Enter a dew point between −100 and 373 °C (the range of the equations).",
+          "dp_high": "The saturation vapor pressure at this dew point is at least the total pressure. Check the total pressure or the dew point.",
+          "h2_red": "At {t}, the atmosphere’s p(H₂)/p(H₂O) = {q} is above the boundary {r}, so it is reducing ({a} tends to be reduced and the metal does not oxidize; dew point {d} °C).",
+          "h2_ox": "At {t}, the atmosphere’s p(H₂)/p(H₂O) = {q} is below the boundary {r}, so it is oxidizing (the metal tends to oxidize to {a}; dew point {d} °C).",
+          "s_req": "Boundary p(H₂)/p(H₂O)",
+          "s_req_inv": "Boundary p(H₂O)/p(H₂)",
+          "s_ratio": "Atmosphere p(H₂)/p(H₂O)",
+          "s_pw": "Water vapor pressure p(H₂O)",
+          "s_ppm": "Water vapor volume fraction",
+          "s_po2_atm": "Atmosphere p(O₂)",
+          "s_dew_eq": "Boundary dew point",
+          "dew_below": "below −100 °C",
+          "h_eq": "Equations and substituted values",
+          "h2_eq_lead": "Subtracting 2H₂ + O₂ → 2H₂O (ΔG°₂) from the oxide formation (ΔG°₁) gives oxide + H₂ → metal + H₂O, whose equilibrium fixes p(H₂O)/p(H₂). If the actual p(H₂)/p(H₂O) is above the boundary, reduction proceeds. The ratio is a ratio of partial pressures, so it does not depend on the total pressure or the choice of standard pressure.",
+          "ice": "below 0.01 °C, so the ice sublimation equation (frost point)",
+          "water": "water saturation equation",
+          "h2_one": "p(H₂)/p(H₂O) = 1 (the oxide line crosses the H₂O line) at {t}.",
+          "h2_one_none": "In this range the {a} line does not cross the H₂O line, so there is no temperature where p(H₂)/p(H₂O) = 1.",
+          "psat_note": "Saturation vapor pressure: from 0.01 °C (273.16 K) up, the Wagner & Pruss (1993, IAPWS) equation for water (to 647.096 K); below that, the IAPWS R14-08(2011) sublimation equation for ice Ih (from 50 K), treating the dew point as a frost point. Dew points below −100 °C are not shown. Some hygrometers report sub-zero dew points relative to supercooled water, so check which one your reading is. Volume fraction of water vapor = p(H₂O)/P (ideal gas).",
+          "h_caution": "Cautions",
+          "h2_cautions": [
+            "The boundary is for the pure metal and oxide (activity 1). A metal dissolved in an alloy, such as Cr in stainless steel, has activity below 1, and complex oxides such as spinels shift the boundary.",
+            "An Ellingham diagram shows equilibrium only; it says nothing about rates (kinetics, diffusion). Near the boundary, the outcome can change with time and with temperature changes.",
+            "A real furnace atmosphere is whatever dew point and composition are measured in the furnace (moisture or air from piping, refractories and parts). Follow standards, equipment specifications and specialists for design and operating decisions."
+          ],
+          "co_red": "At {t}, p(CO)/p(CO₂) = {q} is above the boundary {r}, so it is reducing ({a} tends to be reduced by CO).",
+          "co_ox": "At {t}, p(CO)/p(CO₂) = {q} is below the boundary {r}, so it is oxidizing (the metal tends to oxidize to {a}).",
+          "need_co": "Enter CO and CO₂ fractions greater than 0 (only their ratio is used).",
+          "need_pco": "Enter a p(CO) greater than 0 for the carbon reduction.",
+          "c_above": "At p(CO) = {p} bar (carbon as graphite, activity 1), carbon can reduce this oxide above {t} (the 2C + O₂ → 2CO line lies lower).",
+          "c_below": "At p(CO) = {p} bar, carbon can reduce this oxide below {t}.",
+          "c_always": "At p(CO) = {p} bar, carbon can reduce this oxide everywhere from {a} to {b}.",
+          "c_never": "At p(CO) = {p} bar, carbon cannot reduce this oxide anywhere from {a} to {b} (the 2C + O₂ → 2CO line lies higher).",
+          "s_rco": "Boundary p(CO)/p(CO₂)",
+          "s_qco": "Atmosphere p(CO)/p(CO₂)",
+          "s_ct": "Carbon reduction temperature",
+          "co_eq_lead": "Subtracting 2CO + O₂ → 2CO₂ (ΔG°₃) from the oxide formation (ΔG°₁) gives oxide + CO → metal + CO₂, which fixes the boundary p(CO)/p(CO₂). Reduction by carbon is the difference from the 2C + O₂ → 2CO line; when p(CO) is not 1 bar, that line moves by 2RT ln p(CO).",
+          "c_note": "The carbon reduction temperature is for p(CO) = 1 bar (default) and graphite at activity 1. Lowering p(CO) (vacuum, dilution with inert gas) lowers the carbon line and lowers the temperature. The gas composition set by the Boudouard equilibrium 2CO ⇄ C + CO₂ is not treated here.",
+          "co_cautions": [
+            "The boundary is for pure substances (activity 1). Carbon dissolved in molten iron or a metal in an alloy has a different activity and shifts the boundary.",
+            "Actual reduction, for example in a blast furnace, is governed by gas flow, reaction rates and carbon pick-up (carburization), which this diagram alone cannot show.",
+            "FeO is a non-stoichiometric oxide; the JANAF table is for the composition Fe₀.₉₄₇O."
+          ],
+          "cmp_same": "Metal A and oxide B are the same metal. Comparisons between oxides of the same metal (such as FeO and Fe₃O₄) are not handled here; look at the two lines in tab ①.",
+          "out_range_a": "Data for {a} cover only {lo} to {hi}.",
+          "cmp_yes": "At {t}, ΔG° = {d} < 0, so {a} can reduce {b} (thermodynamically).",
+          "cmp_no": "At {t}, ΔG° = {d} > 0, so {a} cannot reduce {b} (the reverse reaction is favored).",
+          "s_dga": "ΔG° (oxidation of A)",
+          "s_dgb": "ΔG° (oxidation of B)",
+          "s_diff": "ΔG° of the reduction (per mol O₂)",
+          "s_diff_rx": "ΔG° of the integer equation",
+          "cmp_eq_lead": "The vertical gap between the two lines is the ΔG° of metal A reducing oxide B (per mol O₂, so O₂ cancels). The metal of the lower line can reduce the oxide of the upper line.",
+          "cmp_cross": "The two lines cross at {t}, where the direction changes.",
+          "cmp_nocross": "The two lines do not cross between {a} and {b}, so the direction does not change.",
+          "cmp_note": "ΔG° < 0 only means the reaction can proceed thermodynamically. Solid-state reactions can stall because of poor contact or a product layer, while some, like the thermite reaction, run away because of the large heat released.",
+          "cmp_cautions": [
+            "All metals and oxides are taken as pure (activity 1). If the products form solid solutions or complex oxides (such as spinels), ΔG° changes.",
+            "This calculation does not give the heat released or the resulting temperature and rate."
+          ],
+          "src_h": "Sources:",
+          "need_t": "Enter a temperature.",
+          "out_range": "Data for {a} cover only {lo} to {hi}. Enter a temperature inside this range.",
+          "h_assume": "Assumptions",
+          "assume": [
+            "ΔG° comes from NIST-JANAF ΔfG values (every 100 K) converted to per mol O₂ and fitted with straight lines that bend at melting, boiling and transition temperatures (within 1 kJ/(mol O₂) of the tables).",
+            "Standard states are ideal gases at 0.1 MPa (1 bar) and pure substances; metals, oxides and carbon have activity 1.",
+            "Temperatures in the equations are in kelvin (T(K) = t(°C) + 273.15); R = 8.314 J/(mol·K).",
+            "NiO, ZnO, MnO and Ag₂O are not included because we could not find them in the NIST-JANAF web tables."
+          ],
+          "l_term": "Term: Ellingham diagram",
+          "l_po2": "Term: equilibrium oxygen partial pressure",
+          "l_learn": null,
+          "l_fec": "Steel heat-treatment lab",
+          "l_diff": "Diffusion and surface treatment simulator",
+          "l_cat": "Thermodynamics questions"
+        }
+      },
+      "sections": [
+        {
+          "h": "Reading an Ellingham diagram (why per mol O₂)",
+          "p": "An Ellingham diagram plots the standard Gibbs energy change ΔG° of oxide formation, normalized to 1 mol of O₂, against temperature. Writing the reactions as 4/3Cr + O₂ → 2/3Cr₂O₃ and 4/3Al + O₂ → 2/3Al₂O₃ means that O₂ cancels when you subtract one from the other, so the vertical gap is directly the ΔG° of “Al reducing Cr₂O₃”. At a given temperature, the lower the line, the more negative ΔG° and the more stable the oxide; the metal of a lower line can reduce the oxide of a higher line. Plotting per mol of oxide would not allow this comparison, because different formulas contain different amounts of oxygen."
+        },
+        {
+          "h": "The slope is −ΔS°",
+          "p": "Since ΔG° = ΔH° − TΔS° and ΔH° and ΔS° change little with temperature, the lines are nearly straight with slope −ΔS°. In metal oxidation gaseous O₂ is taken into a solid oxide, so ΔS° is negative: most lines rise to the right and oxides become less stable at higher temperature. With the JANAF values on this page, the slope per mol O₂ is about 0.13 to 0.23 kJ/(mol·K) for most oxides (the B of each A + BT segment; it falls outside this range after the metal boils or the oxide melts)."
+        },
+        {
+          "h": "Where lines bend (melting, boiling, transitions)",
+          "p": "ΔS° changes where a metal or oxide melts, boils or transforms, so the line bends. When the metal on the reactant side melts or boils, the reaction loses more entropy and the line becomes steeper. For example, Mg boils at 1366 K (1 bar) in the JANAF table, and the slope of 2Mg + O₂ → 2MgO changes from about 0.23 to about 0.41 kJ/(mol·K) across that temperature. Conversely, when the oxide melts the line becomes less steep (Cu₂O at 1517 K). Bends at boiling are much larger than at melting because the entropy of vaporization is much larger than that of fusion. The circles on the chart mark these temperatures for the selected line."
+        },
+        {
+          "h": "Why the CO line slopes downward",
+          "p": "In 2C + O₂ → 2CO the gas increases from 1 mol of O₂ to 2 mol of CO, so ΔS° is positive and the line slopes downward (about −0.17 to −0.18 kJ/(mol·K) with the values here). At high temperature it therefore lies below many oxide lines, and carbon can reduce those oxides. C + O₂ → CO₂ keeps the number of gas molecules and is nearly horizontal, while 2CO + O₂ → 2CO₂ reduces it and rises. Tab ③ gives the temperature where the selected oxide line crosses the 2C + O₂ → 2CO line, for p(CO) = 1 bar by default (example ③ uses FeO)."
+        },
+        {
+          "h": "Equilibrium oxygen pressure and ΔG°",
+          "p": "If metal and oxide are pure (activity 1), equilibrium gives ΔG° = RT ln(p(O₂)/p°). JANAF uses p° = 0.1 MPa (1 bar), so this page reports p(O₂) in bar first and converts it to atm (1 atm = 1.01325 bar) and Pa. If the p(O₂) of the atmosphere is above the equilibrium value the metal oxidizes; if below, the oxide decomposes. For Cr₂O₃ at 1000 °C (1273 K), the equilibrium p(O₂) is about 10⁻²² bar, far lower than an ordinary vacuum can reach, which is why practical atmospheres set the oxygen potential with H₂/H₂O or CO/CO₂ ratios."
+        },
+        {
+          "h": "What the H₂/H₂O and CO/CO₂ ratios mean",
+          "p": "Subtracting the 2H₂ + O₂ → 2H₂O line from an oxide line gives “oxide + H₂ → metal + H₂O”, with equilibrium ratio (p(H₂)/p(H₂O))eq = exp[(ΔG°(H₂O) − ΔG°(oxide))/(2RT)]. An atmosphere with a higher p(H₂)/p(H₂O) is reducing, a lower one oxidizing. Because it is a ratio of partial pressures, it does not depend on total pressure. CO/CO₂ works the same way with the 2CO + O₂ → 2CO₂ line. The further an oxide line lies below the H₂O line, the larger the boundary ratio (the drier the hydrogen must be)."
+        },
+        {
+          "h": "Dew point and water vapor pressure",
+          "p": "The moisture of an atmosphere is often given as a dew point: the temperature at which its water vapor pressure equals the saturation vapor pressure. This page uses the Wagner & Pruss equation for water from 0.01 °C up and the IAPWS 2011 sublimation equation for ice below that, treating sub-zero dew points as frost points. For example, a dew point of −40 °C corresponds to about 12.8 Pa, or about 127 ppm by volume at 1 atm. The H₂ partial pressure is the H₂ fraction of the dry gas (the rest N₂ or similar) times (total pressure − water vapor pressure). Dew point is not relative humidity: the same dew point means the same water vapor pressure at any temperature."
+        },
+        {
+          "h": "Common mistakes",
+          "p": "(1) Using °C in RT (the equations need kelvin). (2) Comparing ΔG° per mol of oxide instead of per mol O₂. (3) Mixing up atm, bar and Pa (taking 1 atm as 1 in a 1 bar table is only a 1.3 % difference, but entering Pa shifts the result by orders of magnitude). (4) Confusing dew point with relative humidity. (5) Forgetting the activity-1 assumption (a metal in an alloy, such as Cr in stainless steel, has a lower activity, so the boundary p(O₂) and H₂/H₂O ratio differ from the diagram). (6) Forgetting that the diagram shows equilibrium only, not rates."
+        },
+        {
+          "h": "Data and assumptions",
+          "p": "The lines come from NIST-JANAF Thermochemical Tables (4th ed.) ΔfG values read every 100 K, converted to per mol O₂ and fitted with straight lines that bend at transition temperatures (ΔG° = A + BT for each segment). The largest difference from the tables is 0.91 kJ/(mol O₂). Combined crystal–liquid tables (cr,l) were used where available; for CoO, Fe₃O₄ and Fe₀.₉₄₇O the crystal tables were used. The FeO line is the JANAF wüstite Fe₀.₉₄₇O table; since wüstite is reported not to be stable below about 570 °C, that part is dotted. NiO, ZnO, MnO and Ag₂O are not included because we could not find them in the NIST-JANAF web tables."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Does a metal lower on the diagram always reduce the oxide above it?",
+          "a": "Thermodynamically the reaction in that direction has a negative ΔG°, so it is possible, but whether it happens depends on rates, removal of products and activities. Solid-state reactions proceed poorly with poor contact and can stop when a product layer forms."
+        },
+        {
+          "q": "Is p(O₂) given in atm or bar?",
+          "a": "First in bar, relative to the JANAF standard pressure of 0.1 MPa (1 bar), then converted to atm (1 atm = 1.01325 bar) and Pa. Older textbook diagrams may use 1 atm as the standard; the difference in ΔG° is RT ln 1.01325 per mol O₂, about 0.1 kJ at 1000 K."
+        },
+        {
+          "q": "Can I use the boundary dew point for bright annealing of stainless steel?",
+          "a": "As a rough guide only. The calculation is for pure Cr and pure Cr₂O₃; Cr in steel has activity below 1 and spinels can form, so the boundary dew point for an alloy is different. In a real furnace, go by the measured dew point and composition and by standards and equipment specifications."
+        },
+        {
+          "q": "Below 0 °C, is the dew point converted with the water or the ice equation?",
+          "a": "Below 0.01 °C (273.16 K) the ice sublimation equation (IAPWS 2011) is used, treating the value as a frost point. If your hygrometer reports relative to supercooled water, the same number corresponds to a slightly different vapor pressure, so check the instrument specification."
+        },
+        {
+          "q": "Does the H₂/H₂O boundary depend on total pressure?",
+          "a": "The boundary ratio p(H₂)/p(H₂O) does not. But at the same dew point (same water vapor pressure), changing the total pressure or the H₂ fraction changes p(H₂), and therefore the ratio of the atmosphere. This page takes the total pressure and H₂ fraction to turn a dew point into the atmosphere’s ratio."
+        },
+        {
+          "q": "Why is the FeO line dotted below 570 °C?",
+          "a": "Wüstite (Fe₁₋ₓO) is reported not to be stable below about 570 °C, splitting into Fe and Fe₃O₄ (Cao et al., ISIJ International 2023). At lower temperatures Fe is in equilibrium with Fe₃O₄, so use the Fe₃O₄ line."
+        },
+        {
+          "q": "Why are there no NiO or ZnO lines?",
+          "a": "This page uses only values checked in the NIST-JANAF web tables, and we could not find tables for NiO, ZnO, MnO or Ag₂O there. Mixing in values from other sources could mix different standard states and reference choices, so they are left out."
+        }
+      ]
+    }
+  }
+}
