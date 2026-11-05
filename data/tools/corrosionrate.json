@@ -822,6 +822,786 @@
           "a": "The ASTM G1 constant (8.76×10⁴) corresponds to 365 days, while ASTM G102 does not state the length of the year. Its K1 = 3.27×10⁻³ is the same to three digits for 365 and 365.25 days, and its mpy constant 0.1288 matches a calculation with 365.25 days (this check is our own calculation). The difference is about 0.07 %. This tool uses the G1 constants in calculation 1, the G102 constants in calculation 2, and 365.25 days for the conversion in calculation 3."
         }
       ]
+    },
+    "zh-hant": {
+      "nav": "腐蝕速率計算",
+      "card": "由質量損失或腐蝕電流密度（法拉第定律）求 mm/y、mpy、g/(m²·d)，並可換算單位與估算剩餘壽命。公式與常數取自 ASTM G1、G102",
+      "title": "腐蝕速率計算（重量損失、法拉第定律、mpy 換算、剩餘壽命）",
+      "description": "由浸泡試驗的質量損失（ASTM G1 的公式）或腐蝕電流密度 icorr（ASTM G102 的法拉第定律，合金的當量 EW），以 mm/y、mpy、µm/y、g/(m²·d)、mdd 計算腐蝕速率，並可換算單位，以及由腐蝕裕度估算剩餘壽命。會顯示所用的公式與代入數值後的形式，可直接抄入實驗報告。",
+      "h1": "腐蝕速率計算",
+      "lead": "由試片的質量損失或腐蝕電流密度，計算金屬因腐蝕而減少的速率。重量損失使用 ASTM G1 的公式 CR = K·W/(A·T·D)，電化學使用 ASTM G102 的 CR = K1·icorr·EW/ρ（合金的當量 EW 由成分求得），並在結果下方列出公式與代入的數值。也可換算單位（mm/y、mpy、µm/y、g/(m²·d)、mdd），並由腐蝕裕度求剩餘壽命的參考值。所有結果都是假設整個表面均勻減少時的平均速率，不代表孔蝕等局部腐蝕的深度。",
+      "in_heading": "輸入",
+      "out_heading": "結果",
+      "mats_h": "材料預設值（成分、當量、密度）",
+      "note": "公式與常數：ASTM G1-03 的 8.1（式 1 與 K 的表）、ASTM G102-23 的式 4～10 與表 2（兩者皆以 ASTM 公開的試閱頁面確認）。密度為代表值，出處見材料表中的連結。合金的當量由成分計算，並與 G102 表 1 的數值比較。所有計算都在本頁面中進行。請勿用於設備的判斷，並以規格、檢查結果與專家確認。",
+      "practice": "練習腐蝕與表面處理的題目",
+      "related": "相關名詞",
+      "mode": "計算",
+      "mode_wl": "由重量損失",
+      "mode_ec": "由腐蝕電流密度",
+      "mode_conv": "單位換算、剩餘壽命",
+      "mat": "材料",
+      "mat_custom": "自行輸入",
+      "rho": "密度 ρ（g/cm³）",
+      "w": "質量損失 W",
+      "wu": "W 的單位",
+      "wu_g": "g",
+      "wu_mg": "mg",
+      "a": "試片的表面積 A",
+      "au": "A 的單位",
+      "au_cm2": "cm²",
+      "au_mm2": "mm²",
+      "au_m2": "m²",
+      "t": "試驗時間 T",
+      "tu": "T 的單位",
+      "tu_h": "小時（h）",
+      "tu_d": "天（d）",
+      "isrc": "icorr 的輸入方式",
+      "isrc_ic": "直接輸入 icorr",
+      "isrc_rp": "由 Rp 與 Tafel 斜率",
+      "ic": "腐蝕電流密度 icorr",
+      "icu": "icorr 的單位",
+      "icu_ua_cm2": "µA/cm²",
+      "icu_ma_cm2": "mA/cm²",
+      "icu_a_m2": "A/m²",
+      "rp": "極化電阻 Rp（Ω·cm²）",
+      "ba": "陽極 Tafel 斜率 βa（mV/decade）",
+      "bc": "陰極 Tafel 斜率 βc（mV/decade）",
+      "ewm": "當量 EW",
+      "ewm_comp": "由成分計算",
+      "ewm_direct": "直接輸入 EW",
+      "ew": "當量 EW（g/mol）",
+      "rate": "腐蝕速率",
+      "ru": "速率的單位",
+      "ru_mmy": "mm/y",
+      "ru_mpy": "mpy（mil/y）",
+      "ru_umy": "µm/y",
+      "ru_gmd": "g/(m²·d)",
+      "ru_mdd": "mdd（mg/(dm²·d)）",
+      "allow": "腐蝕裕度（mm）",
+      "c_fe": "Fe（%）",
+      "n_fe": "Fe 的價數 n",
+      "n_fe_2": "2",
+      "n_fe_3": "3",
+      "c_cr": "Cr（%）",
+      "n_cr": "Cr 的價數 n",
+      "n_cr_3": "3",
+      "n_cr_6": "6",
+      "c_ni": "Ni（%）",
+      "n_ni": "Ni 的價數 n",
+      "n_ni_2": "2",
+      "n_ni_3": "3",
+      "c_mo": "Mo（%）",
+      "n_mo": "Mo 的價數 n",
+      "n_mo_3": "3",
+      "n_mo_4": "4",
+      "n_mo_6": "6",
+      "c_cu": "Cu（%）",
+      "n_cu": "Cu 的價數 n",
+      "n_cu_1": "1",
+      "n_cu_2": "2",
+      "c_zn": "Zn（%）",
+      "c_al": "Al（%）",
+      "c_mg": "Mg（%）",
+      "c_ti": "Ti（%）",
+      "n_ti": "Ti 的價數 n",
+      "n_ti_2": "2",
+      "n_ti_3": "3",
+      "n_ti_4": "4",
+      "c_sn": "Sn（%）",
+      "n_sn": "Sn 的價數 n",
+      "n_sn_2": "2",
+      "n_sn_4": "4",
+      "c_mn": "Mn（%）",
+      "c_si": "Si（%）",
+      "mat_cs": "碳鋼",
+      "mat_ss304": "不鏽鋼 304",
+      "mat_ss316": "不鏽鋼 316",
+      "mat_ss410": "不鏽鋼 410",
+      "mat_ss430": "不鏽鋼 430",
+      "mat_al": "鋁（純 Al）",
+      "mat_al6061": "鋁合金 6061",
+      "mat_cu": "銅（純 Cu）",
+      "mat_zn": "鋅",
+      "mat_ti": "純鈦（Grade 2）",
+      "mat_ni": "鎳（純 Ni）",
+      "js": {
+        "mats": {
+          "cs": "碳鋼",
+          "ss304": "不鏽鋼 304",
+          "ss316": "不鏽鋼 316",
+          "ss410": "不鏽鋼 410",
+          "ss430": "不鏽鋼 430",
+          "al": "鋁（純 Al）",
+          "al6061": "鋁合金 6061",
+          "cu": "銅（純 Cu）",
+          "zn": "鋅",
+          "ti": "純鈦（Grade 2）",
+          "ni": "鎳（純 Ni）"
+        },
+        "ui": {
+          "tabs_label": "計算的種類",
+          "tab_wl": "① 由重量損失",
+          "tab_ec": "② 由腐蝕電流密度",
+          "tab_conv": "③ 換算、剩餘壽命",
+          "examples": "例：",
+          "ex": [
+            "碳鋼的浸泡試驗",
+            "304 的電化學量測",
+            "管線的剩餘壽命"
+          ],
+          "ex_note": "範例的數值是為了說明計算方法而設定的，並非實際量測的結果。",
+          "comp_legend": "成分（質量 %）與價數",
+          "comp_help": "G102 表 1 的做法是不列入未滿 1 % 的元素。合計不是 100 % 時，以合計值相除，換算為質量分率。Zn 固定為 2、Al 為 3、Mg 為 2、Mn 為 2、Si 為 4（G102 表 1 中出現的價數）。",
+          "rp_legend": "由極化電阻求 icorr（icorr = B/Rp）",
+          "rp_help": "請輸入由量測求得的 βa、βc（本工具未設定 B 的預設值）。Rp 是量測的電阻（Ω）乘以試片面積（cm²）的值。",
+          "custom": "自行輸入的材料",
+          "need_wl": "請輸入質量損失 W（0 以上），以及面積 A、時間 T、密度 ρ（大於 0 的值）。",
+          "need_ic": "請輸入腐蝕電流密度 icorr。",
+          "need_rp": "請以大於 0 的值輸入 Rp、βa、βc。",
+          "need_ew": "請以大於 0 的值輸入當量 EW。",
+          "need_comp": "請以 0 以上的值輸入成分，且至少輸入 1 種元素。",
+          "need_rate": "請以 0 以上的值輸入腐蝕速率。",
+          "need_rho": "由 g/(m²·d)、mdd 換算為厚度的速率時，需要密度 ρ。",
+          "wl_main": "{m}的腐蝕速率為 {v} mm/y（假設整個表面均勻減少時的平均值）。",
+          "ec_main": "{m}的腐蝕速率為 {v} mm/y（假設 icorr 在整個表面均勻地持續流動時）。",
+          "ec_main_norho": "質量損失速率為 {g} g/(m²·d)。厚度的速率需要密度 ρ。",
+          "conv_main": "相當於 {v} mm/y。輸入腐蝕裕度，即可求出剩餘壽命的參考值。",
+          "life_main": "腐蝕裕度 {a} mm 除以 {v} mm/y，剩餘壽命的參考值為 {y} 年（假設速率不變時）。",
+          "life_zero": "速率為 0，因此無法計算剩餘壽命。",
+          "life": "剩餘壽命（參考值）",
+          "years": "年",
+          "life_eq": "剩餘壽命",
+          "h_eq": "使用的公式與代入的數值",
+          "wl_eq_lead": "ASTM G1 的式 1：CR = K·W/(A·T·D)。W 為質量損失（g），A 為試片最初的總表面積（cm²），T 為時間（h），D 為密度（g/cm³），K 為依單位而定的常數（G1 的表）。",
+          "wl_eq_note": "K = 8.76×10⁴（mm/y）為 8760 h/y × 10 mm/cm，以 1 年為 365 天。mpy 的 3.45×10⁶ 是將 8.76×10⁴ ÷ 0.0254 = 3.449×10⁶ 取 3 位有效數字的值，因此與 mm/y × 39.37 相差約 0.03 %。g/(m²·d) 取為 G1 的 g/(m²·h) 的 24 倍。質量的速率與密度無關。",
+          "h_wl_steps": "重量損失法的要點（ASTM G1）",
+          "wl_steps": [
+            "面積 A 是試驗前量測的試片總表面積（懸吊用孔洞等的面積也要修正），包含兩面與端面。",
+            "腐蝕產物以機械、化學或電解的方法去除。化學方法所用的溶液，應選擇盡量不溶解基材金屬者。",
+            "將未腐蝕的同樣試片（空白試片）以相同方法清洗，扣除其質量損失，即可修正清洗所損失的部分。",
+            "腐蝕嚴重時，反覆進行多次清洗與秤重，將質量損失對次數作圖。曲線的轉折點即為腐蝕所造成之損失的參考。"
+          ],
+          "ec_eq_lead": "ASTM G102 的式 5、6：CR = K1·icorr·EW/ρ，MR = K2·icorr·EW。icorr 的單位為 µA/cm²，EW 為當量（g/mol），ρ 的單位為 g/cm³。",
+          "ec_eq_note": "K1 = 3.27×10⁻³ mm·g/(µA·cm·y) 可由 10⁻⁶ A/µA × 3.156×10⁷ s/y × 10 mm/cm ÷ 96485 C/mol 求得（1 年 = 365.25 天；以 365 天計算，取 3 位有效數字也同為 3.27×10⁻³）。K2 = 8.954×10⁻³ 為 10⁻² × 86400 ÷ 96485，與年的長度無關。假設電流全部用於金屬的溶解，且在整個表面均勻流動。",
+          "h_ew": "當量 EW 的計算",
+          "ew_used": "使用的元素與價數：{list}。",
+          "sum_warn": "成分的合計為 {s} %，因此以合計值相除，換算為質量分率。",
+          "ew_g102": "本頁的計算 {calc}，ASTM G102 表 1（最低價數的欄）{g}，差 {d} %。",
+          "valence_note": "價數 n 以 G102 表 1 中最低的價數為預設值（Fe 2、Cr 3、Ni 2、Mo 3、Cu 1 等）。n 越小，EW 越大，速率也算得越大。G102 建議以腐蝕產物的分析或電位-pH 圖等其他方法確認價數。",
+          "h_rp": "關於由極化電阻求得的 icorr",
+          "rp_note": "icorr = B/Rp（G102 的式 10），B = βa·βc/(2.303(βa + βc))（式 7）。B 會因 βa、βc 的假設而大幅改變，且 Rp 可能包含溶液電阻（G102 的式 11 以 Rp = Ra − ρl 修正）。Rp 的量測方法請參考 ASTM G59。",
+          "conv_note": "1 mil = 0.001 in = 0.0254 mm，因此 1 mm/y = 39.37 mpy。換算為質量的速率時，以 1 年 = 365.25 天計算。重量損失的計算（G1 的 K）以 365 天計算，因此在③換回 g/(m²·d) 時相差約 0.07 %。1 g/m² = 10 mg/dm²，因此 mdd = 10 × g/(m²·d)。",
+          "h_life": "剩餘壽命估算的限制",
+          "life_limits": [
+            "假設速率固定。實際上，可能因生成鏽或皮膜而變慢，也可能因流動、溫度、水質改變而變快。",
+            "這是平均速率，孔蝕、間隙腐蝕、溝狀腐蝕這類局部減薄可能進行得快得多。",
+            "剩餘壽命請以檢查量測的壁厚及其減少的情形重新評估。能否繼續使用，應依設備的規格與專家判斷。"
+          ],
+          "h_caution": "注意",
+          "cautions": [
+            "由重量損失求得的值，是假設整個表面均勻減少時的平均速率。對孔蝕、間隙腐蝕、破裂這類局部腐蝕，會大幅低估深度的進展（ASTM G1 的 8.2 與 10.5.1）。",
+            "電化學的值會因量測條件（電位的掃描速率、溶液電阻、表面狀態）與 B 的假設而改變。請與重量損失的值比較。",
+            "請勿用於與設備或結構相關的判斷，並以規格、檢查結果與專家確認。"
+          ],
+          "l_galvanic": "異種金屬接觸腐蝕檢查工具（哪一方會溶解）",
+          "l_formula": "公式集：法拉第定律",
+          "mat_lead": "成分取 SAE 成分範圍的中央值（排除未滿 1 % 的元素，其餘為主成分），與 G102 表 1 註解中的想法相同。EW 以表 1 的最低價數計算。密度為代表值（點擊數字可看出處）。",
+          "mat_cols": [
+            "材料",
+            "成分（質量 %）",
+            "價數",
+            "EW（計算）",
+            "EW（G102）",
+            "ρ（g/cm³）"
+          ],
+          "mat_src": "出處："
+        }
+      },
+      "sections": [
+        {
+          "h": "腐蝕速率的表示方式",
+          "p": "腐蝕速率有兩種表示方式：厚度減少的速率（mm/y、µm/y、mpy），以及單位面積的質量減少的速率（g/(m²·d)、mdd = mg/(dm²·d)、g/(m²·h)）。管線或槽體的壁厚管理適合用厚度的速率，試驗的原始數據則適合用質量的速率，兩者之間的換算需要密度 ρ（1 mm/y 相當於 ρ × 1000/365.25 g/(m²·d)）。mpy 是 mils per year（每年減少幾 mil）的縮寫，1 mil 為 0.001 英吋 = 0.0254 mm，因此 1 mm/y = 39.37 mpy。"
+        },
+        {
+          "h": "重量損失法的步驟（ASTM G1、G31）",
+          "p": "重量損失法是量測試片的尺寸以求出總表面積 A，秤重後浸入試驗液中，經過設定的時間 T 後去除腐蝕產物，再秤重一次。由減少的質量 W，以 CR = K·W/(A·T·D) 求得速率（ASTM G1 的式 1）。去除腐蝕產物時，重要的是不溶解基材金屬；G1 說明了將未腐蝕的試片（空白試片）以相同方式清洗來修正的方法，以及反覆清洗與秤重、將質量損失對次數作圖的方法。浸泡試驗本身的條件由 ASTM G31（實驗室浸泡腐蝕試驗的指引）處理，列舉了試驗液的成分與量、溫度、氣體的通入、液體的流動、試片的支撐方式、試驗時間等影響結果的因子。G31 並未規定單一的程序，局部腐蝕的評估本身也不在其範圍內。"
+        },
+        {
+          "h": "K 值與 1 年的長度",
+          "p": "G1 的 K 就是單位換算本身。mm/y 的 8.76×10⁴ 為 8760 h/y × 10 mm/cm，以 1 年為 365 天（8760 小時）。另一方面，G102 的 K1 = 3.27×10⁻³ 可由 10⁻⁶ A/µA × 3.156×10⁷ s/y × 10 mm/cm ÷ 96485 C/mol 求得，3.156×10⁷ s 為 365.25 天（以 365 天計算，取 3 位有效數字也同為 3.27×10⁻³）。G102 並未寫明年的長度，但 mpy 的 K1 = 0.1288 與以 365.25 天計算的 0.12877 相符，以 365 天計算則為 0.1287（這項比對是本工具的計算，並非 G102 的記述）。本工具在①直接使用 G1、在②直接使用 G102 的常數，③換算為質量的速率時以 365.25 天計算。差異約 0.07 %，通常不會反映在結果的位數上。"
+        },
+        {
+          "h": "法拉第定律與當量 EW",
+          "p": "若腐蝕電流全部用於金屬的溶解，溶解的質量與流過的電量成正比（法拉第定律）。當量 EW 是 1 法拉第（96485 C）的電量所氧化的金屬質量（g），純金屬為 EW = M/n（原子量 ÷ 價數）。合金則取 EW = 1/Σ(nᵢ·fᵢ/Mᵢ)（fᵢ 為質量分率），G102 表 1 排除未滿 1 % 的元素，以成分範圍中央的成分計算。本工具的不鏽鋼預設值（SAE 範圍的中央）與表 1 的數值相差在 0.02 % 以內。價數常常不只一種（Fe 為 2 或 3，Cu 為 1 或 2 等），G102 建議以腐蝕產物的分析或電位-pH 圖等其他方法確認。"
+        },
+        {
+          "h": "極化電阻與腐蝕電流（Stern-Geary 方程式）",
+          "p": "在腐蝕電位的極近處使電位稍微變動時，電流幾乎與電位成正比，其斜率的倒數即為極化電阻 Rp。icorr = B/Rp，B = βa·βc/(2.303(βa + βc))（G102 的式 7、10），βa、βc 為陽極與陰極的 Tafel 斜率。B 會隨 βa、βc 的值變動數倍，因此本工具不設預設值，而是輸入由量測決定的 βa、βc。Rp 的量測方法見 ASTM G59。溶液電阻大時，表觀的 Rp 會變大，icorr 會被低估（G102 的式 11 以 Rp = Ra − ρl 修正）。"
+        },
+        {
+          "h": "與局部腐蝕的差異",
+          "p": "重量損失法與電化學方法，求得的都是將減少量平均分攤到整個面積的平均速率。孔蝕、間隙腐蝕、晶界腐蝕、應力腐蝕破裂這類只有一部分深入進行的腐蝕，即使質量減少得不多，孔洞也會很深，由平均速率求得的壁厚減少會大幅低估實際的深度（ASTM G1 的 8.2 與 10.5.1）。孔蝕要以深度規或顯微鏡量測孔的深度，以最深孔的深度與平均減薄量之比（孔蝕係數）表示（ASTM G46）。"
+        },
+        {
+          "h": "剩餘壽命估算的限制",
+          "p": "剩餘壽命 = 腐蝕裕度 ÷ 腐蝕速率，是速率不變且整個表面均勻減少時的參考值。在實際設備中，速率可能因鏽或皮膜而下降，也可能因流速、溫度、水質、塗裝劣化而加快。試驗室的速率也不能直接套用到現場。請以檢查量測的壁厚變化重新評估速率，能否繼續使用，應依設備的規格與專家的判斷。"
+        },
+        {
+          "h": "常見的錯誤",
+          "p": "常見的錯誤有：面積的 cm² 與 m² 弄錯（相差 10⁴ 倍）、時間的天與小時弄錯（24 倍）、忘記輸入密度或使用其他材料的密度、只用試片單面的面積、icorr 的 µA/cm² 與 mA/cm² 弄錯（1000 倍）、價數 n 弄錯（Fe 取 3 時速率變為 2/3）等。本工具以選擇單位的欄位換算，並在公式中列出換算後的值，請與報告中的數字核對。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "mpy 是什麼？",
+          "a": "是 mils per year 的縮寫，表示 1 年減少多少 mil（1 mil = 0.001 英吋 = 0.0254 mm），是美國常用的單位。1 mm/y = 39.37 mpy，1 mpy = 0.0254 mm/y = 25.4 µm/y。"
+        },
+        {
+          "q": "鐵以 1 µA/cm² 均勻溶解時，是多少 mm/y？",
+          "a": "以 Fe²⁺ 計（n = 2，EW = 27.92），設 ρ = 7.87 g/cm³，則 CR = 3.27×10⁻³ × 1 × 27.92 ÷ 7.87 ≈ 0.0116 mm/y（約 12 µm/y）。可作為由腐蝕電流估算速率時的參考。"
+        },
+        {
+          "q": "面積是單面還是兩面？",
+          "a": "ASTM G1 的 A 是試驗前量測的試片總表面積。板材要加總兩面與端面，懸吊用孔洞的面積也要修正。只用單面時，速率會算成約 2 倍。"
+        },
+        {
+          "q": "價數該選哪一個？",
+          "a": "預設為 ASTM G102 表 1 中最低的價數（Fe 2、Cr 3、Ni 2、Mo 3、Cu 1 等）。實際的溶解方式會隨環境改變，請由腐蝕產物的分析或電位-pH 圖確認，並在報告中寫明使用的價數。"
+        },
+        {
+          "q": "重量損失與電化學的值不一致。",
+          "a": "這是常有的事。重量損失是整個試驗期間的平均，電化學是量測當下的瞬間值，若速率因皮膜成長而隨時間改變，兩者就不會一致。B 的假設、溶液電阻、局部腐蝕、陰極反應的種類也會造成差異。請記錄兩者的條件後再比較。"
+        },
+        {
+          "q": "有腐蝕速率「好、壞」的參考表嗎？",
+          "a": "教科書等有時會刊載 mpy 的分級表，但本頁無法確認其出處，因此未列入。容許的速率由用途、設計的腐蝕裕度與規格決定。"
+        },
+        {
+          "q": "1 年是 365 天還是 365.25 天？",
+          "a": "ASTM G1 的 K（8.76×10⁴）為 365 天，ASTM G102 未寫明年的長度。K1 = 3.27×10⁻³ 不論以 365 天或 365.25 天計算，取 3 位有效數字都相同，而 mpy 的 K1 = 0.1288 與以 365.25 天計算的值相符（這是本工具的計算所做的比對）。差異約 0.07 %。本工具在①直接使用 G1、在②直接使用 G102 的常數，③的換算以 365.25 天計算。"
+        }
+      ]
+    },
+    "ko": {
+      "nav": "부식 속도 계산",
+      "card": "질량 감소·부식 전류 밀도(패러데이 법칙)로부터 mm/y·mpy·g/(m²·d)를 구하고, 단위 환산과 잔여 수명도 계산합니다. 식과 상수는 ASTM G1·G102에서",
+      "title": "부식 속도 계산(중량 감소·패러데이 법칙·mpy 환산·잔여 수명)",
+      "description": "침지 시험의 질량 감소(ASTM G1의 식)나 부식 전류 밀도 icorr(ASTM G102의 패러데이 법칙, 합금의 당량 EW)로부터 부식 속도를 mm/y·mpy·µm/y·g/(m²·d)·mdd로 계산하고, 단위 환산과 부식 여유로부터의 잔여 수명도 구합니다. 사용한 식과 값을 대입한 형태를 보여 주므로 실험 보고서에 옮겨 적을 수 있습니다.",
+      "h1": "부식 속도 계산",
+      "lead": "시험편의 질량 감소 또는 부식 전류 밀도로부터, 부식으로 금속이 줄어드는 속도를 계산합니다. 중량 감소는 ASTM G1의 식 CR = K·W/(A·T·D), 전기화학은 ASTM G102의 CR = K1·icorr·EW/ρ(합금의 당량 EW는 조성으로부터)를 사용하며, 결과 아래에 식과 대입한 값을 보여 줍니다. 단위 환산(mm/y·mpy·µm/y·g/(m²·d)·mdd)과, 부식 여유로부터 잔여 수명의 어림값도 구할 수 있습니다. 모두 전체 면이 균일하게 줄어든다고 했을 때의 평균 속도이며, 공식 부식 같은 국부 부식의 깊이는 나타내지 않습니다.",
+      "in_heading": "입력",
+      "out_heading": "결과",
+      "mats_h": "재료 프리셋(조성·당량·밀도)",
+      "note": "식과 상수: ASTM G1-03의 8.1(식 1과 K의 표), ASTM G102-23의 식 4~10과 표 2(둘 다 ASTM이 공개한 견본 페이지에서 확인했습니다). 밀도는 대표값이며, 출처는 재료 표의 링크입니다. 합금의 당량은 조성으로부터 계산하고 G102의 표 1의 값과 비교했습니다. 계산은 모두 이 페이지 안에서 이루어집니다. 설비의 판단에는 사용하지 말고, 규격·검사 결과·전문가를 통해 확인하십시오.",
+      "practice": "부식과 표면 처리 문제 풀기",
+      "related": "관련 용어",
+      "mode": "계산",
+      "mode_wl": "중량 감소로부터",
+      "mode_ec": "부식 전류 밀도로부터",
+      "mode_conv": "단위 환산·잔여 수명",
+      "mat": "재료",
+      "mat_custom": "직접 입력",
+      "rho": "밀도 ρ(g/cm³)",
+      "w": "질량 감소 W",
+      "wu": "W의 단위",
+      "wu_g": "g",
+      "wu_mg": "mg",
+      "a": "시험편의 표면적 A",
+      "au": "A의 단위",
+      "au_cm2": "cm²",
+      "au_mm2": "mm²",
+      "au_m2": "m²",
+      "t": "시험 시간 T",
+      "tu": "T의 단위",
+      "tu_h": "시간(h)",
+      "tu_d": "일(d)",
+      "isrc": "icorr의 입력 방법",
+      "isrc_ic": "icorr를 직접 입력",
+      "isrc_rp": "Rp와 타펠 기울기로부터",
+      "ic": "부식 전류 밀도 icorr",
+      "icu": "icorr의 단위",
+      "icu_ua_cm2": "µA/cm²",
+      "icu_ma_cm2": "mA/cm²",
+      "icu_a_m2": "A/m²",
+      "rp": "분극 저항 Rp(Ω·cm²)",
+      "ba": "애노드 타펠 기울기 βa(mV/decade)",
+      "bc": "캐소드 타펠 기울기 βc(mV/decade)",
+      "ewm": "당량 EW",
+      "ewm_comp": "조성으로부터 계산",
+      "ewm_direct": "EW를 직접 입력",
+      "ew": "당량 EW(g/mol)",
+      "rate": "부식 속도",
+      "ru": "속도의 단위",
+      "ru_mmy": "mm/y",
+      "ru_mpy": "mpy(mil/y)",
+      "ru_umy": "µm/y",
+      "ru_gmd": "g/(m²·d)",
+      "ru_mdd": "mdd(mg/(dm²·d))",
+      "allow": "부식 여유(mm)",
+      "c_fe": "Fe(%)",
+      "n_fe": "Fe의 가수 n",
+      "n_fe_2": "2",
+      "n_fe_3": "3",
+      "c_cr": "Cr(%)",
+      "n_cr": "Cr의 가수 n",
+      "n_cr_3": "3",
+      "n_cr_6": "6",
+      "c_ni": "Ni(%)",
+      "n_ni": "Ni의 가수 n",
+      "n_ni_2": "2",
+      "n_ni_3": "3",
+      "c_mo": "Mo(%)",
+      "n_mo": "Mo의 가수 n",
+      "n_mo_3": "3",
+      "n_mo_4": "4",
+      "n_mo_6": "6",
+      "c_cu": "Cu(%)",
+      "n_cu": "Cu의 가수 n",
+      "n_cu_1": "1",
+      "n_cu_2": "2",
+      "c_zn": "Zn(%)",
+      "c_al": "Al(%)",
+      "c_mg": "Mg(%)",
+      "c_ti": "Ti(%)",
+      "n_ti": "Ti의 가수 n",
+      "n_ti_2": "2",
+      "n_ti_3": "3",
+      "n_ti_4": "4",
+      "c_sn": "Sn(%)",
+      "n_sn": "Sn의 가수 n",
+      "n_sn_2": "2",
+      "n_sn_4": "4",
+      "c_mn": "Mn(%)",
+      "c_si": "Si(%)",
+      "mat_cs": "탄소강",
+      "mat_ss304": "스테인리스강 304",
+      "mat_ss316": "스테인리스강 316",
+      "mat_ss410": "스테인리스강 410",
+      "mat_ss430": "스테인리스강 430",
+      "mat_al": "알루미늄(순 Al)",
+      "mat_al6061": "알루미늄 합금 6061",
+      "mat_cu": "구리(순 Cu)",
+      "mat_zn": "아연",
+      "mat_ti": "순 티타늄(Grade 2)",
+      "mat_ni": "니켈(순 Ni)",
+      "js": {
+        "mats": {
+          "cs": "탄소강",
+          "ss304": "스테인리스강 304",
+          "ss316": "스테인리스강 316",
+          "ss410": "스테인리스강 410",
+          "ss430": "스테인리스강 430",
+          "al": "알루미늄(순 Al)",
+          "al6061": "알루미늄 합금 6061",
+          "cu": "구리(순 Cu)",
+          "zn": "아연",
+          "ti": "순 티타늄(Grade 2)",
+          "ni": "니켈(순 Ni)"
+        },
+        "ui": {
+          "tabs_label": "계산의 종류",
+          "tab_wl": "① 중량 감소로부터",
+          "tab_ec": "② 부식 전류 밀도로부터",
+          "tab_conv": "③ 환산·잔여 수명",
+          "examples": "예:",
+          "ex": [
+            "탄소강의 침지 시험",
+            "304의 전기화학 측정",
+            "배관의 잔여 수명"
+          ],
+          "ex_note": "예의 값은 계산 방법을 보여 주기 위해 만든 수이며, 실제 측정 결과가 아닙니다.",
+          "comp_legend": "조성(질량 %)과 가수",
+          "comp_help": "1 % 미만의 원소는 넣지 않는 것이 G102의 표 1의 방식입니다. 합계가 100 %가 아니면 합계로 나누어 질량 분율로 만듭니다. Zn은 2, Al은 3, Mg는 2, Mn은 2, Si는 4로 고정했습니다(G102의 표 1에 나오는 가수).",
+          "rp_legend": "분극 저항으로부터 icorr 구하기(icorr = B/Rp)",
+          "rp_help": "βa·βc는 측정에서 정한 값을 입력하십시오(이 도구에는 B의 기본값을 두지 않았습니다). Rp는 측정한 저항(Ω)에 시험편의 면적(cm²)을 곱한 값입니다.",
+          "custom": "직접 입력한 재료",
+          "need_wl": "질량 감소 W(0 이상), 면적 A·시간 T·밀도 ρ(0보다 큰 값)를 입력하십시오.",
+          "need_ic": "부식 전류 밀도 icorr를 입력하십시오.",
+          "need_rp": "Rp·βa·βc를 0보다 큰 값으로 입력하십시오.",
+          "need_ew": "당량 EW를 0보다 큰 값으로 입력하십시오.",
+          "need_comp": "조성을 0 이상의 값으로, 적어도 하나의 원소에 입력하십시오.",
+          "need_rate": "부식 속도를 0 이상의 값으로 입력하십시오.",
+          "need_rho": "g/(m²·d)·mdd에서 두께의 속도로 환산하려면 밀도 ρ가 필요합니다.",
+          "wl_main": "{m}의 부식 속도는 {v} mm/y(전체 면이 균일하게 줄어든다고 했을 때의 평균)입니다.",
+          "ec_main": "{m}의 부식 속도는 {v} mm/y(icorr가 전체 면에서 균일하게 계속 흐른다고 했을 때)입니다.",
+          "ec_main_norho": "질량 감소 속도는 {g} g/(m²·d)입니다. 두께의 속도를 구하려면 밀도 ρ가 필요합니다.",
+          "conv_main": "{v} mm/y에 해당합니다. 부식 여유를 입력하면 잔여 수명의 어림값을 구합니다.",
+          "life_main": "부식 여유 {a} mm를 {v} mm/y로 나누면, 잔여 수명의 어림값은 {y}년입니다(속도가 변하지 않는다고 했을 때).",
+          "life_zero": "속도가 0이므로 잔여 수명은 계산할 수 없습니다.",
+          "life": "잔여 수명(어림값)",
+          "years": "년",
+          "life_eq": "잔여 수명",
+          "h_eq": "사용한 식과 대입한 값",
+          "wl_eq_lead": "ASTM G1의 식 1: CR = K·W/(A·T·D). W는 질량 감소(g), A는 시험편의 처음 전체 표면적(cm²), T는 시간(h), D는 밀도(g/cm³), K는 단위별 상수(G1의 표)입니다.",
+          "wl_eq_note": "K = 8.76×10⁴(mm/y)는 8760 h/y × 10 mm/cm이며, 1년을 365일로 합니다. mpy의 3.45×10⁶은 8.76×10⁴ ÷ 0.0254 = 3.449×10⁶을 3자리로 반올림한 값이므로, mm/y × 39.37과는 0.03 % 정도 다릅니다. g/(m²·d)는 G1의 g/(m²·h)의 24배로 했습니다. 질량의 속도는 밀도에 의존하지 않습니다.",
+          "h_wl_steps": "중량 감소법의 요점(ASTM G1)",
+          "wl_steps": [
+            "면적 A는 시험 전에 측정한 시험편의 전체 표면적입니다(매달기 위한 구멍 등의 면적도 보정합니다). 양면과 끝면을 포함합니다.",
+            "부식 생성물은 기계적·화학적·전해 방법으로 제거합니다. 화학적 방법의 용액은 모재 금속을 되도록 녹이지 않는 것을 고릅니다.",
+            "부식되지 않은 같은 시험편(블랭크)을 같은 방법으로 세정하여 그 질량 감소를 빼면, 세정으로 잃은 양을 보정할 수 있습니다.",
+            "부식이 심할 때는 세정과 칭량을 여러 번 반복하고, 질량 감소를 횟수에 대해 그립니다. 꺾이는 점이 부식에 의한 감소량의 어림값입니다."
+          ],
+          "ec_eq_lead": "ASTM G102의 식 5·6: CR = K1·icorr·EW/ρ, MR = K2·icorr·EW. icorr는 µA/cm², EW는 당량(g/mol), ρ는 g/cm³입니다.",
+          "ec_eq_note": "K1 = 3.27×10⁻³ mm·g/(µA·cm·y)는 10⁻⁶ A/µA × 3.156×10⁷ s/y × 10 mm/cm ÷ 96485 C/mol로부터 구할 수 있습니다(1년 = 365.25일. 365일이라도 3자리로는 같은 3.27×10⁻³). K2 = 8.954×10⁻³은 10⁻² × 86400 ÷ 96485이며, 1년의 길이에 의존하지 않습니다. 전류가 모두 금속의 용해에 쓰이고, 전체 면에서 균일하게 흐른다고 가정합니다.",
+          "h_ew": "당량 EW의 계산",
+          "ew_used": "사용한 원소와 가수: {list}.",
+          "sum_warn": "조성의 합계가 {s} %이므로, 합계로 나누어 질량 분율로 만들었습니다.",
+          "ew_g102": "이 페이지의 계산 {calc}, ASTM G102의 표 1(가장 낮은 가수의 열) {g}, 차이 {d} %.",
+          "valence_note": "가수 n은 G102의 표 1에서 가장 낮은 가수를 기본값으로 했습니다(Fe 2, Cr 3, Ni 2, Mo 3, Cu 1 등). n이 작을수록 EW가 커지고, 속도는 크게 나옵니다. G102는 부식 생성물의 분석이나 전위-pH 도 등 다른 방법으로 가수를 확인할 것을 권합니다.",
+          "h_rp": "분극 저항으로부터의 icorr에 대하여",
+          "rp_note": "icorr = B/Rp(G102의 식 10), B = βa·βc/(2.303(βa + βc))(식 7). B는 βa·βc의 가정에 따라 크게 달라지며, Rp에는 용액 저항이 포함될 수 있습니다(G102의 식 11은 Rp = Ra − ρl로 보정). Rp의 측정 방법은 ASTM G59를 참고하십시오.",
+          "conv_note": "1 mil = 0.001 in = 0.0254 mm이므로 1 mm/y = 39.37 mpy. 질량의 속도로의 환산은 1년 = 365.25일로 했습니다. 중량 감소의 계산(G1의 K)은 365일이므로, ③에서 g/(m²·d)로 되돌리면 0.07 % 정도 다릅니다. 1 g/m² = 10 mg/dm²이므로 mdd = 10 × g/(m²·d)입니다.",
+          "h_life": "잔여 수명 추정의 한계",
+          "life_limits": [
+            "속도가 일정하다고 가정합니다. 실제로는 녹이나 피막이 생겨 느려지거나, 흐름·온도·수질이 바뀌어 빨라지기도 합니다.",
+            "평균 속도이므로, 공식 부식·틈 부식·홈 형태의 부식 같은 국부적인 감육은 훨씬 빨리 진행될 수 있습니다.",
+            "잔여 수명은 검사에서 측정한 두께와 그 감소 경향으로 다시 평가하십시오. 사용해도 되는지의 판단은 설비의 규격과 전문가에 따릅니다."
+          ],
+          "h_caution": "주의",
+          "cautions": [
+            "중량 감소로부터 구한 값은 전체 면에서 균일하게 줄어든다고 했을 때의 평균 속도입니다. 공식 부식·틈 부식·균열 같은 국부 부식에서는 깊이의 진행을 크게 과소평가합니다(ASTM G1의 8.2와 10.5.1).",
+            "전기화학의 값은 측정 조건(전위 주사 속도, 용액 저항, 표면 상태)과 B의 가정에 따라 달라집니다. 중량 감소의 값과 비교하십시오.",
+            "설비나 구조에 관련된 판단에는 사용하지 말고, 규격·검사 결과·전문가를 통해 확인하십시오."
+          ],
+          "l_galvanic": "이종 금속 접촉 부식 체커(어느 쪽이 녹는가)",
+          "l_formula": "공식집: 패러데이 법칙",
+          "mat_lead": "조성은 SAE 성분 범위의 중앙(1 % 미만의 원소는 제외하고, 나머지를 주성분으로)이며, G102의 표 1의 주에 있는 방식과 같습니다. EW는 표 1의 가장 낮은 가수로 계산했습니다. 밀도는 대표값입니다(수를 클릭하면 출처).",
+          "mat_cols": [
+            "재료",
+            "조성(질량 %)",
+            "가수",
+            "EW(계산)",
+            "EW(G102)",
+            "ρ(g/cm³)"
+          ],
+          "mat_src": "출처:"
+        }
+      },
+      "sections": [
+        {
+          "h": "부식 속도의 표현 방법",
+          "p": "부식 속도에는 두께가 줄어드는 속도(mm/y, µm/y, mpy)와, 단위 면적당 질량이 줄어드는 속도(g/(m²·d), mdd = mg/(dm²·d), g/(m²·h))의 두 가지가 있습니다. 배관이나 탱크의 두께 관리에는 두께의 속도가, 시험의 원래 값에는 질량의 속도가 쓰기 편하며, 둘 사이의 환산에는 밀도 ρ가 필요합니다(1 mm/y는 ρ × 1000/365.25 g/(m²·d)). mpy는 mil per year(1년에 몇 mil 줄어드는지)이며, 1 mil은 0.001인치 = 0.0254 mm이므로 1 mm/y = 39.37 mpy입니다."
+        },
+        {
+          "h": "중량 감소법의 순서(ASTM G1·G31)",
+          "p": "중량 감소법에서는 시험편의 치수를 재어 전체 표면적 A를 구하고, 칭량한 뒤 시험 용액에 담그고, 정한 시간 T 후에 부식 생성물을 제거하여 다시 칭량합니다. 줄어든 질량 W로부터 CR = K·W/(A·T·D)로 속도를 구합니다(ASTM G1의 식 1). 부식 생성물의 제거에서는 모재 금속을 녹이지 않는 것이 중요하며, G1은 부식되지 않은 시험편(블랭크)을 같은 방법으로 세정하여 보정하는 방법과, 세정과 칭량을 반복하여 질량 감소를 횟수에 대해 그리는 방법을 제시하고 있습니다. 침지 시험 자체의 조건은 ASTM G31(실험실 침지 부식 시험의 지침)이 다루며, 용액의 조성과 양, 온도, 가스 주입, 용액의 유동, 시험편의 지지 방법, 시험 시간 등을 결과에 영향을 주는 인자로 들고 있습니다. G31은 순서를 하나로 정하는 것이 아니며, 국부 부식의 평가 자체는 범위 밖입니다."
+        },
+        {
+          "h": "K의 값과 1년의 길이",
+          "p": "G1의 K는 단위 환산 그 자체입니다. mm/y의 8.76×10⁴은 8760 h/y × 10 mm/cm이며, 1년을 365일(8760시간)로 합니다. 한편 G102의 K1 = 3.27×10⁻³은 10⁻⁶ A/µA × 3.156×10⁷ s/y × 10 mm/cm ÷ 96485 C/mol로 구할 수 있으며, 3.156×10⁷ s는 365.25일입니다(365일이라도 3자리로는 3.27×10⁻³). G102는 1년의 길이를 적지 않았지만, mpy의 K1 = 0.1288은 365.25일로 계산한 0.12877과 맞고, 365일로는 0.1287이 됩니다(이 대조는 이 도구의 계산이며, G102의 기술이 아닙니다). 이 도구는 ①에서는 G1, ②에서는 G102의 상수를 그대로 사용하고, ③의 질량의 속도로의 환산은 365.25일로 했습니다. 차이는 0.07 % 정도이며, 보통은 결과의 자릿수에 나타나지 않습니다."
+        },
+        {
+          "h": "패러데이 법칙과 당량 EW",
+          "p": "부식 전류가 모두 금속의 용해에 쓰인다면, 녹는 질량은 흐른 전기량에 비례합니다(패러데이 법칙). 당량 EW는 1패러데이(96485 C)의 전기로 산화되는 금속의 질량(g)이며, 순금속이라면 EW = M/n(원자량 ÷ 가수)입니다. 합금에서는 EW = 1/Σ(nᵢ·fᵢ/Mᵢ)(fᵢ는 질량 분율)로 하며, G102의 표 1은 1 % 미만의 원소를 제외하고 성분 범위 중앙의 조성으로 계산하고 있습니다. 이 도구의 스테인리스강 프리셋(SAE 범위의 중앙)에서는 표 1의 값과 0.02 % 이내로 맞습니다. 가수는 하나로 정해지지 않는 경우가 많으며(Fe는 2 또는 3, Cu는 1 또는 2 등), G102는 부식 생성물의 분석이나 전위-pH 도 등 다른 방법으로 확인할 것을 권합니다."
+        },
+        {
+          "h": "분극 저항과 부식 전류(스턴-기어리 식)",
+          "p": "부식 전위의 아주 가까이에서 전위를 조금 움직이면, 전류는 전위에 거의 비례하며, 그 기울기의 역수가 분극 저항 Rp입니다. icorr = B/Rp, B = βa·βc/(2.303(βa + βc))(G102의 식 7·10)이며, βa·βc는 애노드와 캐소드의 타펠 기울기입니다. B는 βa·βc의 값에 따라 몇 배나 달라지므로, 이 도구는 기본값을 두지 않고, 측정에서 정한 βa·βc를 입력하는 형태로 했습니다. Rp의 측정 방법은 ASTM G59에 있습니다. 용액 저항이 크면 겉보기 Rp가 커지고, icorr를 작게 추정하게 됩니다(G102의 식 11은 Rp = Ra − ρl로 보정)."
+        },
+        {
+          "h": "국부 부식과의 차이",
+          "p": "중량 감소법도 전기화학적 방법도, 줄어든 양을 면적 전체로 고르게 나눈 평균 속도를 구합니다. 공식 부식·틈 부식·입계 부식·응력 부식 균열처럼 일부만 깊이 진행되는 부식에서는, 질량의 감소는 작아도 구멍은 깊어지며, 평균 속도로부터 구한 두께의 감소는 실제 깊이를 크게 과소평가합니다(ASTM G1의 8.2와 10.5.1). 공식 부식에서는 구멍의 깊이를 깊이 게이지나 현미경으로 측정하고, 가장 깊은 구멍의 깊이와 평균 감육량의 비(공식 계수)로 나타냅니다(ASTM G46)."
+        },
+        {
+          "h": "잔여 수명 추정의 한계",
+          "p": "잔여 수명 = 부식 여유 ÷ 부식 속도는, 속도가 변하지 않고 전체 면이 균일하게 줄어들 때의 어림값입니다. 실제 설비에서는 녹이나 피막으로 속도가 내려가거나, 유속·온도·수질·도장의 열화로 빨라지기도 합니다. 시험실의 속도를 그대로 현장에 적용할 수도 없습니다. 검사에서 측정한 두께의 추이로 속도를 다시 평가하고, 계속 사용해도 되는지는 설비의 규격과 전문가의 판단에 따릅니다."
+        },
+        {
+          "h": "흔한 실수",
+          "p": "면적을 cm²와 m²로 혼동하는 것(10⁴배의 차이), 시간을 일과 시간으로 혼동하는 것(24배), 밀도를 빠뜨리거나 다른 재료의 밀도를 사용하는 것, 시험편의 한쪽 면만의 면적을 사용하는 것, icorr의 µA/cm²와 mA/cm²를 혼동하는 것(1000배), 가수 n을 잘못 정하는 것(Fe를 3으로 하면 속도는 2/3) 등이 흔한 실수입니다. 이 도구는 단위를 고르는 칸에서 환산하고, 환산한 값을 식에 보여 주므로 보고서의 수와 대조하십시오."
+        }
+      ],
+      "faq": [
+        {
+          "q": "mpy란 무엇입니까?",
+          "a": "mils per year의 약자로, 1년에 몇 mil(1 mil = 0.001인치 = 0.0254 mm) 줄어드는지를 나타내는, 미국에서 자주 쓰이는 단위입니다. 1 mm/y = 39.37 mpy, 1 mpy = 0.0254 mm/y = 25.4 µm/y입니다."
+        },
+        {
+          "q": "철이 1 µA/cm²로 균일하게 녹으면 몇 mm/y입니까?",
+          "a": "Fe²⁺로 보고(n = 2, EW = 27.92) ρ = 7.87 g/cm³로 하면, CR = 3.27×10⁻³ × 1 × 27.92 ÷ 7.87 ≈ 0.0116 mm/y(약 12 µm/y)입니다. 부식 전류로부터 속도를 추정할 때의 어림값이 됩니다."
+        },
+        {
+          "q": "면적은 한쪽 면입니까, 양면입니까?",
+          "a": "ASTM G1의 A는 시험 전에 측정한 시험편의 전체 표면적입니다. 판이라면 양면과 끝면을 더하고, 매달기 위한 구멍의 면적도 보정합니다. 한쪽 면만으로 하면 속도는 약 2배로 나옵니다."
+        },
+        {
+          "q": "가수는 어느 것을 고르면 됩니까?",
+          "a": "기본값은 ASTM G102의 표 1에서 가장 낮은 가수입니다(Fe 2, Cr 3, Ni 2, Mo 3, Cu 1 등). 실제 용해 방식은 환경에 따라 달라지므로, 부식 생성물의 분석이나 전위-pH 도로 확인하고, 보고서에는 사용한 가수를 적으십시오."
+        },
+        {
+          "q": "중량 감소와 전기화학의 값이 맞지 않습니다.",
+          "a": "흔히 있는 일입니다. 중량 감소는 시험 기간 전체의 평균, 전기화학은 측정했을 때의 순간 값이므로, 피막의 성장으로 속도가 시간에 따라 바뀌면 맞지 않습니다. B의 가정, 용액 저항, 국부 부식, 캐소드 반응의 종류에 따라서도 차이가 생깁니다. 양쪽의 조건을 적고 비교하십시오."
+        },
+        {
+          "q": "부식 속도의 ‘좋음·나쁨’의 기준표가 있습니까?",
+          "a": "교과서 등에 mpy의 단계표가 실려 있는 경우가 있지만, 이 페이지에서는 출처를 확인할 수 없었으므로 싣지 않았습니다. 허용되는 속도는 용도·설계의 부식 여유·규격으로 정해집니다."
+        },
+        {
+          "q": "1년은 365일입니까, 365.25일입니까?",
+          "a": "ASTM G1의 K(8.76×10⁴)는 365일이며, ASTM G102는 1년의 길이를 적지 않았습니다. K1 = 3.27×10⁻³은 365일이든 365.25일이든 3자리로는 같고, mpy의 K1 = 0.1288은 365.25일로 계산한 값과 맞습니다(이 도구의 계산에 의한 대조입니다). 차이는 0.07 % 정도입니다. 이 도구는 ①에서는 G1, ②에서는 G102의 상수를 그대로 사용하고, ③의 환산은 365.25일로 했습니다."
+        }
+      ]
+    },
+    "de": {
+      "nav": "Korrosionsgeschwindigkeit berechnen",
+      "card": "Korrosionsgeschwindigkeit in mm/y, mpy und g/(m²·d) aus Massenverlust oder Korrosionsstromdichte (Faradaysches Gesetz), dazu Umrechnung der Einheiten und Restlebensdauer. Gleichungen und Konstanten nach ASTM G1 und G102",
+      "title": "Korrosionsgeschwindigkeit berechnen (Massenverlust, Faradaysches Gesetz, Umrechnung in mpy, Restlebensdauer)",
+      "description": "Berechnet die Korrosionsgeschwindigkeit in mm/y, mpy, µm/y, g/(m²·d) und mdd aus dem Massenverlust eines Tauchversuchs (Gleichung nach ASTM G1) oder aus der Korrosionsstromdichte icorr (Faradaysches Gesetz nach ASTM G102, mit der Äquivalentmasse EW der Legierung), rechnet Einheiten um und schätzt die Restlebensdauer aus einem Korrosionszuschlag ab. Die verwendeten Gleichungen werden mit eingesetzten Werten angezeigt und lassen sich in ein Versuchsprotokoll übernehmen.",
+      "h1": "Korrosionsgeschwindigkeit berechnen",
+      "lead": "Berechnet aus dem Massenverlust einer Probe oder aus der Korrosionsstromdichte, wie schnell ein Metall durch Korrosion abgetragen wird. Für den Massenverlust dient die Gleichung CR = K·W/(A·T·D) nach ASTM G1, für den elektrochemischen Weg CR = K1·icorr·EW/ρ nach ASTM G102 (die Äquivalentmasse EW der Legierung wird aus der Zusammensetzung berechnet); unter dem Ergebnis stehen die Gleichungen mit den eingesetzten Werten. Außerdem lassen sich Einheiten umrechnen (mm/y, mpy, µm/y, g/(m²·d), mdd) und die Restlebensdauer aus einem Korrosionszuschlag abschätzen. Alle Ergebnisse sind mittlere Geschwindigkeiten unter der Annahme eines gleichmäßigen Abtrags der gesamten Oberfläche; die Tiefe von Lochkorrosion oder anderer örtlicher Korrosion geben sie nicht wieder.",
+      "in_heading": "Eingaben",
+      "out_heading": "Ergebnisse",
+      "mats_h": "Voreingestellte Werkstoffe (Zusammensetzung, Äquivalentmasse, Dichte)",
+      "note": "Gleichungen und Konstanten: ASTM G1-03, Abschnitt 8.1 (Gleichung 1 und Tabelle der K-Werte), und ASTM G102-23, Gleichungen 4–10 und Tabelle 2 (beide anhand der von ASTM veröffentlichten Vorschauseiten geprüft). Die Dichten sind typische Werte; die Quellen sind in der Werkstofftabelle verlinkt. Die Äquivalentmassen der Legierungen werden aus der Zusammensetzung berechnet und mit Tabelle 1 von G102 verglichen. Alle Berechnungen erfolgen auf dieser Seite. Verwenden Sie die Ergebnisse nicht für Entscheidungen über Anlagen, sondern prüfen Sie sie anhand von Regelwerken, Prüfergebnissen und mit Fachleuten.",
+      "practice": "Aufgaben zu Korrosion und Oberflächenbehandlung lösen",
+      "related": "Verwandte Begriffe",
+      "mode": "Berechnung",
+      "mode_wl": "Aus Massenverlust",
+      "mode_ec": "Aus Korrosionsstromdichte",
+      "mode_conv": "Umrechnung und Restlebensdauer",
+      "mat": "Werkstoff",
+      "mat_custom": "Eigene Eingabe",
+      "rho": "Dichte ρ (g/cm³)",
+      "w": "Massenverlust W",
+      "wu": "Einheit von W",
+      "wu_g": "g",
+      "wu_mg": "mg",
+      "a": "Probenoberfläche A",
+      "au": "Einheit von A",
+      "au_cm2": "cm²",
+      "au_mm2": "mm²",
+      "au_m2": "m²",
+      "t": "Versuchsdauer T",
+      "tu": "Einheit von T",
+      "tu_h": "Stunden (h)",
+      "tu_d": "Tage (d)",
+      "isrc": "Eingabe von icorr",
+      "isrc_ic": "icorr direkt eingeben",
+      "isrc_rp": "Aus Rp und Tafel-Steigungen",
+      "ic": "Korrosions­stromdichte icorr",
+      "icu": "Einheit von icorr",
+      "icu_ua_cm2": "µA/cm²",
+      "icu_ma_cm2": "mA/cm²",
+      "icu_a_m2": "A/m²",
+      "rp": "Polarisationswiderstand Rp (Ω·cm²)",
+      "ba": "Anodische Tafel-Steigung βa (mV/Dekade)",
+      "bc": "Kathodische Tafel-Steigung βc (mV/Dekade)",
+      "ewm": "Äquivalentmasse EW",
+      "ewm_comp": "Aus der Zusammensetzung",
+      "ewm_direct": "EW direkt eingeben",
+      "ew": "Äquivalentmasse EW (g/mol)",
+      "rate": "Korrosions­geschwindigkeit",
+      "ru": "Einheit der Geschwindigkeit",
+      "ru_mmy": "mm/y",
+      "ru_mpy": "mpy (mil/y)",
+      "ru_umy": "µm/y",
+      "ru_gmd": "g/(m²·d)",
+      "ru_mdd": "mdd (mg/(dm²·d))",
+      "allow": "Korrosionszuschlag (mm)",
+      "c_fe": "Fe (%)",
+      "n_fe": "Wertigkeit n von Fe",
+      "n_fe_2": "2",
+      "n_fe_3": "3",
+      "c_cr": "Cr (%)",
+      "n_cr": "Wertigkeit n von Cr",
+      "n_cr_3": "3",
+      "n_cr_6": "6",
+      "c_ni": "Ni (%)",
+      "n_ni": "Wertigkeit n von Ni",
+      "n_ni_2": "2",
+      "n_ni_3": "3",
+      "c_mo": "Mo (%)",
+      "n_mo": "Wertigkeit n von Mo",
+      "n_mo_3": "3",
+      "n_mo_4": "4",
+      "n_mo_6": "6",
+      "c_cu": "Cu (%)",
+      "n_cu": "Wertigkeit n von Cu",
+      "n_cu_1": "1",
+      "n_cu_2": "2",
+      "c_zn": "Zn (%)",
+      "c_al": "Al (%)",
+      "c_mg": "Mg (%)",
+      "c_ti": "Ti (%)",
+      "n_ti": "Wertigkeit n von Ti",
+      "n_ti_2": "2",
+      "n_ti_3": "3",
+      "n_ti_4": "4",
+      "c_sn": "Sn (%)",
+      "n_sn": "Wertigkeit n von Sn",
+      "n_sn_2": "2",
+      "n_sn_4": "4",
+      "c_mn": "Mn (%)",
+      "c_si": "Si (%)",
+      "mat_cs": "Kohlenstoffstahl",
+      "mat_ss304": "Nichtrostender Stahl 304",
+      "mat_ss316": "Nichtrostender Stahl 316",
+      "mat_ss410": "Nichtrostender Stahl 410",
+      "mat_ss430": "Nichtrostender Stahl 430",
+      "mat_al": "Aluminium (Rein-Al)",
+      "mat_al6061": "Aluminiumlegierung 6061",
+      "mat_cu": "Kupfer (Rein-Cu)",
+      "mat_zn": "Zink",
+      "mat_ti": "Reintitan (Grade 2)",
+      "mat_ni": "Nickel (Rein-Ni)",
+      "js": {
+        "mats": {
+          "cs": "Kohlenstoffstahl",
+          "ss304": "Nichtrostender Stahl 304",
+          "ss316": "Nichtrostender Stahl 316",
+          "ss410": "Nichtrostender Stahl 410",
+          "ss430": "Nichtrostender Stahl 430",
+          "al": "Aluminium (Rein-Al)",
+          "al6061": "Aluminiumlegierung 6061",
+          "cu": "Kupfer (Rein-Cu)",
+          "zn": "Zink",
+          "ti": "Reintitan (Grade 2)",
+          "ni": "Nickel (Rein-Ni)"
+        },
+        "ui": {
+          "tabs_label": "Art der Berechnung",
+          "tab_wl": "1. Aus Massenverlust",
+          "tab_ec": "2. Aus Stromdichte",
+          "tab_conv": "3. Umrechnung, Lebensdauer",
+          "examples": "Beispiele:",
+          "ex": [
+            "Tauchversuch an Kohlenstoffstahl",
+            "Elektrochemische Messung an 304",
+            "Restlebensdauer einer Rohrleitung"
+          ],
+          "ex_note": "Die Beispielwerte sind frei gewählt, um den Rechenweg zu zeigen; es sind keine Messergebnisse.",
+          "comp_legend": "Zusammensetzung (Massen-%) und Wertigkeit",
+          "comp_help": "Nach dem Vorgehen von Tabelle 1 in G102 werden Elemente unter 1 % nicht berücksichtigt. Ergibt die Summe nicht 100 %, wird durch die Summe geteilt, um Massenanteile zu erhalten. Zn ist auf 2, Al auf 3, Mg auf 2, Mn auf 2 und Si auf 4 festgelegt (die in Tabelle 1 von G102 vorkommenden Wertigkeiten).",
+          "rp_legend": "icorr aus dem Polarisationswiderstand (icorr = B/Rp)",
+          "rp_help": "Geben Sie βa und βc ein, die aus Ihrer Messung bestimmt wurden (dieses Werkzeug hat keinen Standardwert für B). Rp ist der gemessene Widerstand (Ω) multipliziert mit der Probenfläche (cm²).",
+          "custom": "Eigener Werkstoff",
+          "need_wl": "Geben Sie den Massenverlust W (0 oder mehr) sowie Fläche A, Zeit T und Dichte ρ (größer als 0) ein.",
+          "need_ic": "Geben Sie die Korrosionsstromdichte icorr ein.",
+          "need_rp": "Geben Sie Rp, βa und βc als Werte größer als 0 ein.",
+          "need_ew": "Geben Sie eine Äquivalentmasse EW größer als 0 ein.",
+          "need_comp": "Geben Sie die Zusammensetzung mit Werten von 0 oder mehr ein, für mindestens ein Element.",
+          "need_rate": "Geben Sie eine Korrosionsgeschwindigkeit von 0 oder mehr ein.",
+          "need_rho": "Für die Umrechnung von g/(m²·d) oder mdd in eine Dickenabtragsgeschwindigkeit wird die Dichte ρ benötigt.",
+          "wl_main": "Die Korrosionsgeschwindigkeit von „{m}“ beträgt {v} mm/y (Mittelwert unter der Annahme eines gleichmäßigen Abtrags der gesamten Oberfläche).",
+          "ec_main": "Die Korrosionsgeschwindigkeit von „{m}“ beträgt {v} mm/y (unter der Annahme, dass icorr gleichmäßig über die gesamte Oberfläche fließt).",
+          "ec_main_norho": "Die Massenverlustrate beträgt {g} g/(m²·d). Für eine Dickenabtragsgeschwindigkeit wird die Dichte ρ benötigt.",
+          "conv_main": "Das entspricht {v} mm/y. Geben Sie einen Korrosionszuschlag ein, um die Restlebensdauer abzuschätzen.",
+          "life_main": "Der Korrosionszuschlag von {a} mm geteilt durch {v} mm/y ergibt eine geschätzte Restlebensdauer von {y} Jahren (bei gleichbleibender Geschwindigkeit).",
+          "life_zero": "Die Geschwindigkeit ist 0; die Restlebensdauer lässt sich daher nicht berechnen.",
+          "life": "Restlebensdauer (Schätzung)",
+          "years": "Jahre",
+          "life_eq": "Restlebensdauer",
+          "h_eq": "Verwendete Gleichungen und eingesetzte Werte",
+          "wl_eq_lead": "ASTM G1, Gleichung 1: CR = K·W/(A·T·D). Dabei ist W der Massenverlust (g), A die anfängliche Gesamtoberfläche der Probe (cm²), T die Zeit (h), D die Dichte (g/cm³) und K eine Konstante je Einheit (Tabelle in G1).",
+          "wl_eq_note": "K = 8,76×10⁴ (mm/y) ist 8760 h/y × 10 mm/cm; ein Jahr wird also mit 365 Tagen gerechnet. Die Konstante 3,45×10⁶ für mpy ist 8,76×10⁴ ÷ 0,0254 = 3,449×10⁶, auf drei Stellen gerundet; sie weicht daher von mm/y × 39,37 um etwa 0,03 % ab. g/(m²·d) wird als das 24-Fache des Werts von G1 in g/(m²·h) angesetzt. Massenbezogene Geschwindigkeiten hängen nicht von der Dichte ab.",
+          "h_wl_steps": "Wichtige Punkte des Massenverlustverfahrens (ASTM G1)",
+          "wl_steps": [
+            "Die Fläche A ist die vor dem Versuch gemessene Gesamtoberfläche der Probe (korrigiert um Aufhängelöcher u. Ä.). Sie umfasst beide Seiten und die Kanten.",
+            "Korrosionsprodukte werden mechanisch, chemisch oder elektrolytisch entfernt. Für die chemische Reinigung ist eine Lösung zu wählen, die möglichst wenig Grundwerkstoff löst.",
+            "Wird eine nicht korrodierte, gleichartige Probe (Blindprobe) auf dieselbe Weise gereinigt und ihr Massenverlust abgezogen, lässt sich der durch die Reinigung verursachte Verlust korrigieren.",
+            "Bei stark korrodierten Proben werden Reinigung und Wägung mehrmals wiederholt und der Massenverlust über der Zahl der Zyklen aufgetragen. Der Knickpunkt der Kurve zeigt den korrosionsbedingten Verlust an."
+          ],
+          "ec_eq_lead": "ASTM G102, Gleichungen 5 und 6: CR = K1·icorr·EW/ρ und MR = K2·icorr·EW, mit icorr in µA/cm², der Äquivalentmasse EW (g/mol) und ρ in g/cm³.",
+          "ec_eq_note": "K1 = 3,27×10⁻³ mm·g/(µA·cm·y) ergibt sich aus 10⁻⁶ A/µA × 3,156×10⁷ s/y × 10 mm/cm ÷ 96485 C/mol (ein Jahr mit 365,25 Tagen; auch mit 365 Tagen ergibt sich auf drei Stellen 3,27×10⁻³). K2 = 8,954×10⁻³ ist 10⁻² × 86400 ÷ 96485 und hängt nicht von der Länge des Jahres ab. Angenommen wird, dass der gesamte Strom der Metallauflösung dient und gleichmäßig über die Oberfläche fließt.",
+          "h_ew": "Berechnung der Äquivalentmasse EW",
+          "ew_used": "Verwendete Elemente und Wertigkeiten: {list}.",
+          "sum_warn": "Die Zusammensetzung ergibt in der Summe {s} %; sie wurde daher durch die Summe geteilt, um Massenanteile zu erhalten.",
+          "ew_g102": "Berechnung auf dieser Seite: {calc}; ASTM G102, Tabelle 1 (Spalte der niedrigsten Wertigkeit): {g}; Abweichung {d} %.",
+          "valence_note": "Als Standard für die Wertigkeit n dient die niedrigste in Tabelle 1 von G102 aufgeführte Wertigkeit (Fe 2, Cr 3, Ni 2, Mo 3, Cu 1 usw.). Je kleiner n, desto größer EW und desto höher die berechnete Geschwindigkeit. G102 empfiehlt, die Wertigkeit mit einem unabhängigen Verfahren zu bestätigen, etwa durch Analyse der Korrosionsprodukte oder mit einem Potential-pH-Diagramm (Pourbaix-Diagramm).",
+          "h_rp": "Zu icorr aus dem Polarisationswiderstand",
+          "rp_note": "icorr = B/Rp (G102, Gleichung 10) mit B = βa·βc/(2,303(βa + βc)) (Gleichung 7). B hängt stark von den angenommenen Werten βa und βc ab, und Rp kann den Lösungswiderstand enthalten (G102, Gleichung 11, korrigiert dies mit Rp = Ra − ρl). Zur Messung von Rp siehe ASTM G59.",
+          "conv_note": "1 mil = 0,001 in = 0,0254 mm, also 1 mm/y = 39,37 mpy. Für die Umrechnung in massenbezogene Geschwindigkeiten wird ein Jahr mit 365,25 Tagen gerechnet. Die Berechnung aus dem Massenverlust (K von G1) rechnet mit 365 Tagen; wird deren Ergebnis hier in Rechnung 3 nach g/(m²·d) zurückgerechnet, beträgt die Abweichung etwa 0,07 %. Da 1 g/m² = 10 mg/dm², gilt mdd = 10 × g/(m²·d).",
+          "h_life": "Grenzen der Restlebensdauerschätzung",
+          "life_limits": [
+            "Eine konstante Geschwindigkeit wird angenommen. In der Praxis können Rost oder Deckschichten den Abtrag verlangsamen, während Änderungen von Strömung, Temperatur oder Wasserbeschaffenheit ihn beschleunigen können.",
+            "Es handelt sich um eine mittlere Geschwindigkeit; örtliche Wanddickenverluste wie Lochkorrosion, Spaltkorrosion oder rinnenförmiger Angriff können viel schneller fortschreiten.",
+            "Überprüfen Sie die Restlebensdauer anhand der bei Inspektionen gemessenen Wanddicken und ihrer Abnahme. Ob eine Anlage weiter betrieben werden darf, entscheiden die einschlägigen Regelwerke und Fachleute."
+          ],
+          "h_caution": "Hinweise",
+          "cautions": [
+            "Werte aus dem Massenverlust sind Mittelwerte unter der Annahme eines gleichmäßigen Abtrags der gesamten Oberfläche. Bei örtlicher Korrosion wie Lochkorrosion, Spaltkorrosion oder Rissbildung unterschätzen sie die Eindringtiefe stark (ASTM G1, Abschnitte 8.2 und 10.5.1).",
+            "Elektrochemische Werte hängen von den Messbedingungen (Potentialvorschubgeschwindigkeit, Lösungswiderstand, Oberflächenzustand) und vom angenommenen B ab. Vergleichen Sie sie mit Ergebnissen aus dem Massenverlust.",
+            "Verwenden Sie die Ergebnisse nicht für Entscheidungen über Anlagen oder Konstruktionen, sondern prüfen Sie sie anhand von Regelwerken, Prüfergebnissen und mit Fachleuten."
+          ],
+          "l_galvanic": "Kontaktkorrosions-Check (welches Metall korrodiert)",
+          "l_formula": "Formelsammlung: Faradaysches Gesetz",
+          "mat_lead": "Die Zusammensetzungen sind die Mitten der SAE-Analysenbereiche (Elemente unter 1 % weggelassen, der Rest dem Hauptelement zugeschlagen) – dasselbe Vorgehen wie in den Anmerkungen zu Tabelle 1 von G102. EW ist mit den niedrigsten Wertigkeiten aus Tabelle 1 berechnet. Die Dichten sind typische Werte (ein Klick auf die Zahl zeigt die Quelle).",
+          "mat_cols": [
+            "Werkstoff",
+            "Zusammensetzung (Massen-%)",
+            "Wertigkeit",
+            "EW (berechnet)",
+            "EW (G102)",
+            "ρ (g/cm³)"
+          ],
+          "mat_src": "Quellen:"
+        }
+      },
+      "sections": [
+        {
+          "h": "Angabe der Korrosionsgeschwindigkeit",
+          "p": "Die Korrosionsgeschwindigkeit wird entweder als Dickenabtrag pro Zeit (mm/y, µm/y, mpy) oder als Massenverlust pro Fläche und Zeit (g/(m²·d), mdd = mg/(dm²·d), g/(m²·h)) angegeben. Für die Überwachung der Wanddicke von Rohrleitungen und Behältern eignet sich der Dickenabtrag, während massenbezogene Werte näher an den Rohdaten des Versuchs liegen; für die Umrechnung zwischen beiden wird die Dichte ρ benötigt (1 mm/y entspricht ρ × 1000/365,25 g/(m²·d)). mpy steht für mils per year, also den Abtrag in mil pro Jahr; 1 mil ist 0,001 Zoll = 0,0254 mm, daher gilt 1 mm/y = 39,37 mpy."
+        },
+        {
+          "h": "Ablauf des Massenverlustverfahrens (ASTM G1 und G31)",
+          "p": "Beim Massenverlustverfahren werden die Abmessungen der Probe gemessen, um die Gesamtoberfläche A zu bestimmen; die Probe wird gewogen, in die Prüflösung getaucht, nach der festgelegten Zeit T von den Korrosionsprodukten befreit und erneut gewogen. Aus dem Massenverlust W ergibt sich die Geschwindigkeit nach CR = K·W/(A·T·D) (ASTM G1, Gleichung 1). Beim Entfernen der Korrosionsprodukte kommt es darauf an, den Grundwerkstoff nicht anzugreifen; G1 beschreibt die Korrektur mit einer nicht korrodierten, ebenso gereinigten Blindprobe sowie das wiederholte Reinigen und Wägen, bei dem der Massenverlust über der Zahl der Zyklen aufgetragen wird. Die Bedingungen des Tauchversuchs selbst behandelt ASTM G31 (ein Leitfaden für Tauchkorrosionsversuche im Labor); dort werden als Einflussgrößen auf das Ergebnis unter anderem Zusammensetzung und Menge der Prüflösung, Temperatur, Gaseinleitung, Strömung der Lösung, die Halterung der Proben und die Versuchsdauer genannt. G31 schreibt kein einheitliches Verfahren vor, und die eigentliche Bewertung örtlicher Korrosion liegt außerhalb seines Anwendungsbereichs."
+        },
+        {
+          "h": "Die Konstanten K und die Länge des Jahres",
+          "p": "Die Konstanten K in G1 sind reine Einheitenumrechnungen. Für mm/y ist 8,76×10⁴ = 8760 h/y × 10 mm/cm; ein Jahr wird also mit 365 Tagen (8760 Stunden) gerechnet. Die Konstante K1 = 3,27×10⁻³ in G102 ergibt sich dagegen aus 10⁻⁶ A/µA × 3,156×10⁷ s/y × 10 mm/cm ÷ 96485 C/mol, wobei 3,156×10⁷ s 365,25 Tagen entsprechen (auch mit 365 Tagen ergibt sich auf drei Stellen 3,27×10⁻³). G102 nennt die Länge des Jahres nicht, doch die Konstante 0,1288 für mpy stimmt mit dem für 365,25 Tage berechneten Wert 0,12877 überein, während 365 Tage 0,1287 ergeben (dieser Abgleich ist eine Berechnung dieses Werkzeugs, keine Aussage in G102). Das Werkzeug verwendet in Rechnung 1 die Konstanten von G1 und in Rechnung 2 die von G102 unverändert und rechnet in Rechnung 3 für die Umrechnung in massenbezogene Geschwindigkeiten mit 365,25 Tagen. Der Unterschied beträgt etwa 0,07 % und zeigt sich in den angegebenen Stellen normalerweise nicht."
+        },
+        {
+          "h": "Faradaysches Gesetz und Äquivalentmasse EW",
+          "p": "Dient der gesamte Korrosionsstrom der Metallauflösung, ist die gelöste Masse proportional zur geflossenen Ladung (Faradaysches Gesetz). Die Äquivalentmasse EW ist die Masse des Metalls (g), die durch ein Faraday (96485 C) oxidiert wird; für ein reines Metall gilt EW = M/n (Atommasse geteilt durch Wertigkeit). Für eine Legierung gilt EW = 1/Σ(nᵢ·fᵢ/Mᵢ) mit dem Massenanteil fᵢ; Tabelle 1 von G102 lässt Elemente unter 1 % weg und rechnet mit den Mitten der Analysenbereiche. Mit den voreingestellten nichtrostenden Stählen dieses Werkzeugs (Mitten der SAE-Bereiche) stimmen die berechneten Werte auf 0,02 % genau mit Tabelle 1 überein. Die Wertigkeit ist oft nicht eindeutig (Fe 2 oder 3, Cu 1 oder 2 usw.), und G102 empfiehlt, sie mit einem unabhängigen Verfahren zu bestätigen, etwa durch Analyse der Korrosionsprodukte oder mit einem Potential-pH-Diagramm."
+        },
+        {
+          "h": "Polarisationswiderstand und Korrosionsstrom (Stern-Geary-Gleichung)",
+          "p": "Wird das Potential in unmittelbarer Nähe des Korrosionspotentials geringfügig verändert, ist der Strom nahezu proportional zum Potential; der Kehrwert der Steigung ist der Polarisationswiderstand Rp. Es gilt icorr = B/Rp mit B = βa·βc/(2,303(βa + βc)) (G102, Gleichungen 7 und 10), wobei βa und βc die anodische und die kathodische Tafel-Steigung sind. Da sich B mit βa und βc um ein Mehrfaches ändern kann, hat dieses Werkzeug keinen Standardwert und verlangt die aus der Messung bestimmten Werte βa und βc. Die Messung von Rp beschreibt ASTM G59. Ein großer Lösungswiderstand vergrößert das scheinbare Rp, sodass icorr zu klein abgeschätzt wird (G102, Gleichung 11, korrigiert dies mit Rp = Ra − ρl)."
+        },
+        {
+          "h": "Abgrenzung zur örtlichen Korrosion",
+          "p": "Sowohl das Massenverlustverfahren als auch die elektrochemischen Verfahren liefern eine mittlere Geschwindigkeit, bei der der Verlust auf die gesamte Fläche verteilt wird. Bei Korrosion, die nur an einzelnen Stellen in die Tiefe geht, wie Lochkorrosion, Spaltkorrosion, interkristalline Korrosion oder Spannungsrisskorrosion, kann der Massenverlust klein sein, während die Löcher tief werden; ein aus der mittleren Geschwindigkeit berechneter Wanddickenverlust unterschätzt die tatsächliche Eindringtiefe dann stark (ASTM G1, Abschnitte 8.2 und 10.5.1). Bei Lochkorrosion werden die Lochtiefen mit einem Tiefenmessgerät oder einem Mikroskop gemessen und als Verhältnis der Tiefe des tiefsten Lochs zum mittleren Abtrag (Lochfraßfaktor) angegeben (ASTM G46)."
+        },
+        {
+          "h": "Grenzen der Restlebensdauerschätzung",
+          "p": "Restlebensdauer = Korrosionszuschlag ÷ Korrosionsgeschwindigkeit ist ein Richtwert für eine gleichbleibende Geschwindigkeit und gleichmäßigen Abtrag. In realen Anlagen können Rost oder Deckschichten die Korrosion verlangsamen, während Strömungsgeschwindigkeit, Temperatur, Wasserbeschaffenheit oder eine schadhafte Beschichtung sie beschleunigen können. Auch lassen sich im Labor ermittelte Geschwindigkeiten nicht unmittelbar auf die Praxis übertragen. Überprüfen Sie die Geschwindigkeit anhand des Verlaufs der bei Inspektionen gemessenen Wanddicken; ob eine Anlage weiter betrieben werden darf, entscheiden die einschlägigen Regelwerke und Fachleute."
+        },
+        {
+          "h": "Häufige Fehler",
+          "p": "Typische Fehler sind: cm² und m² bei der Fläche verwechseln (Faktor 10⁴), Tage und Stunden bei der Zeit verwechseln (Faktor 24), die Dichte vergessen oder die eines anderen Werkstoffs verwenden, nur die Fläche einer Probenseite ansetzen, µA/cm² und mA/cm² bei icorr verwechseln (Faktor 1000) und die Wertigkeit n falsch wählen (Fe mit 3 ergibt zwei Drittel der Geschwindigkeit). Dieses Werkzeug rechnet die Einheiten über die Auswahlfelder um und zeigt die umgerechneten Werte in den Gleichungen, sodass Sie sie mit den Zahlen in Ihrem Protokoll vergleichen können."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Was ist mpy?",
+          "a": "mpy steht für mils per year, die Zahl der mil (1 mil = 0,001 Zoll = 0,0254 mm), die pro Jahr abgetragen werden – eine in den USA verbreitete Einheit. 1 mm/y = 39,37 mpy und 1 mpy = 0,0254 mm/y = 25,4 µm/y."
+        },
+        {
+          "q": "Wie viel mm/y ergibt sich, wenn sich Eisen gleichmäßig mit 1 µA/cm² auflöst?",
+          "a": "Für Fe²⁺ (n = 2, EW = 27,92) und ρ = 7,87 g/cm³ ist CR = 3,27×10⁻³ × 1 × 27,92 ÷ 7,87 ≈ 0,0116 mm/y (etwa 12 µm/y). Das ist ein praktischer Richtwert, um aus Korrosionsströmen Geschwindigkeiten abzuschätzen."
+        },
+        {
+          "q": "Zählt die Fläche einer Seite oder beider Seiten?",
+          "a": "In ASTM G1 ist A die vor dem Versuch gemessene Gesamtoberfläche der Probe. Bei einem Blech werden beide Seiten und die Kanten addiert und Aufhängelöcher berücksichtigt. Wird nur eine Seite angesetzt, ergibt sich etwa die doppelte Geschwindigkeit."
+        },
+        {
+          "q": "Welche Wertigkeit soll ich wählen?",
+          "a": "Standard ist die niedrigste in Tabelle 1 von ASTM G102 aufgeführte Wertigkeit (Fe 2, Cr 3, Ni 2, Mo 3, Cu 1 usw.). Wie sich das Metall tatsächlich löst, hängt von der Umgebung ab; bestätigen Sie die Wertigkeit daher durch Analyse der Korrosionsprodukte oder mit einem Potential-pH-Diagramm und geben Sie die verwendeten Wertigkeiten im Protokoll an."
+        },
+        {
+          "q": "Die Werte aus Massenverlust und Elektrochemie stimmen nicht überein.",
+          "a": "Das kommt häufig vor. Der Massenverlust liefert den Mittelwert über die gesamte Versuchsdauer, eine elektrochemische Messung dagegen eine Momentaufnahme; ändert sich die Geschwindigkeit durch wachsende Deckschichten im Lauf der Zeit, weichen beide voneinander ab. Auch das angenommene B, der Lösungswiderstand, örtliche Korrosion und die Art der kathodischen Reaktion führen zu Unterschieden. Halten Sie die Bedingungen beider Messungen fest und vergleichen Sie sie."
+        },
+        {
+          "q": "Gibt es eine Tabelle für „gute“ und „schlechte“ Korrosionsgeschwindigkeiten?",
+          "a": "Manche Lehrbücher enthalten Bewertungstabellen in mpy, doch eine Quelle dafür konnte nicht geprüft werden; diese Seite enthält daher keine. Welche Geschwindigkeit zulässig ist, hängt vom Verwendungszweck, vom konstruktiven Korrosionszuschlag und den Regelwerken ab."
+        },
+        {
+          "q": "Hat ein Jahr 365 oder 365,25 Tage?",
+          "a": "Die Konstante von ASTM G1 (8,76×10⁴) entspricht 365 Tagen, während ASTM G102 die Länge des Jahres nicht nennt. Dessen K1 = 3,27×10⁻³ ist für 365 und 365,25 Tage auf drei Stellen gleich, und die Konstante 0,1288 für mpy stimmt mit einer Berechnung für 365,25 Tage überein (dieser Abgleich ist eine Berechnung dieses Werkzeugs). Der Unterschied beträgt etwa 0,07 %. Das Werkzeug verwendet in Rechnung 1 die Konstanten von G1, in Rechnung 2 die von G102 und für die Umrechnung in Rechnung 3 365,25 Tage."
+        }
+      ]
     }
   }
 }
