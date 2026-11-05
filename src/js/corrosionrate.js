@@ -379,7 +379,7 @@ function setup() {
     }
     if (ewr) {
       const sumTxt = ewr.terms.map(t => `${t.n}×${nfmax(4).format(t.f)}/${t.W}`).join(' + ');
-      lines.push(`EW = 1 / Σ(nᵢ·fᵢ/Wᵢ) = 1 / (${sumTxt}) = 1 / ${sci(ewr.Q, 4)} = ${sci(EW, 4)}`);
+      lines.push(`EW = 1 / Σ(nᵢ·fᵢ/Mᵢ) = 1 / (${sumTxt}) = 1 / ${sci(ewr.Q, 4)} = ${sci(EW, 4)}`);
     }
     if (r.mmy != null) {
       lines.push(`CR(mm/y) = K1·icorr·EW/ρ = 3.27×10⁻³ × ${sci(i)} × ${sci(EW, 4)} / ${inp(rho)} = ${sci(r.mmy)} mm/y`);
