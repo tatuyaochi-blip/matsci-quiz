@@ -559,7 +559,7 @@
         },
         {
           "h": "マイナー則(線形累積損傷則)",
-          "p": "振幅の違う荷重が混じるとき、応力 i だけで壊れる回数 Nᵢ のうち nᵢ 回を使うと寿命の nᵢ/Nᵢ を使ったとみなし、その和 D = Σnᵢ/Nᵢ が 1 になったら壊れると考えるのがマイナー則です。荷重の順序の影響を無視した近似で、高い応力を先にかけると D < 1 で壊れ、低い応力を先にかけると D > 1 になることがよくあります。疲労限度より下の応力を数えない形と、S–N 曲線を延ばして数える形(修正マイナー則)があり、き裂が進み始めると疲労限度より下でも損傷するので、後者のほうが安全側です。"
+          "p": "振幅の違う荷重が混じるとき、応力 i だけで壊れる回数 Nᵢ のうち nᵢ 回を使うと寿命の nᵢ/Nᵢ を使ったとみなし、その和 D = Σnᵢ/Nᵢ が 1 になったら壊れると考えるのがマイナー則です。荷重の順序の影響を無視した近似で、高い応力を先にかけると D < 1 で壊れ、低い応力を先にかけると D > 1 になることがよくあります。疲労限度より下の応力を数えない形と、S–N 曲線を延ばして数える形(修正マイナー則など。延ばし方と呼び名は資料によって違う)があり、き裂が進み始めると疲労限度より下でも損傷するので、後者のほうが安全側です。"
         },
         {
           "h": "よくある誤り",
@@ -892,7 +892,7 @@
         },
         {
           "h": "Miner’s rule (linear damage rule)",
-          "p": "When loads of different amplitude are mixed, Miner’s rule assumes that nᵢ cycles at stress i use up the fraction nᵢ/Nᵢ of the life Nᵢ at that stress, and that failure occurs when the sum D = Σnᵢ/Nᵢ reaches 1. It is an approximation that ignores load sequence: applying high stresses first often leads to failure at D < 1, and applying low stresses first often gives D > 1. Stresses below the fatigue limit are either ignored or counted by extending the S–N curve (modified Miner’s rule); since stresses below the fatigue limit also cause damage once a crack grows, the latter is more conservative."
+          "p": "When loads of different amplitude are mixed, Miner’s rule assumes that nᵢ cycles at stress i use up the fraction nᵢ/Nᵢ of the life Nᵢ at that stress, and that failure occurs when the sum D = Σnᵢ/Nᵢ reaches 1. It is an approximation that ignores load sequence: applying high stresses first often leads to failure at D < 1, and applying low stresses first often gives D > 1. Stresses below the fatigue limit are either ignored or counted by extending the S–N curve (often called a modified Miner’s rule; how the curve is extended and what it is called vary between sources); since stresses below the fatigue limit also cause damage once a crack grows, the latter is more conservative."
         },
         {
           "h": "Common mistakes",
@@ -1225,7 +1225,7 @@
         },
         {
           "h": "Miner法則（線性累積損傷法則）",
-          "p": "振幅不同的負荷混在一起時，若在只以應力 i 就會破壞的次數 Nᵢ 中使用了 nᵢ 次，就視為用掉了壽命的 nᵢ/Nᵢ，並認為其總和 D = Σnᵢ/Nᵢ 達到 1 時就會破壞，這就是Miner法則。這是忽略負荷順序影響的近似，先施加高應力時常在 D < 1 時破壞，先施加低應力時常會 D > 1。低於疲勞限的應力有不計入的形式，以及延長 S–N 曲線來計入的形式（修正Miner法則）；裂縫開始擴展後，低於疲勞限也會造成損傷，因此後者偏安全側。"
+          "p": "振幅不同的負荷混在一起時，若在只以應力 i 就會破壞的次數 Nᵢ 中使用了 nᵢ 次，就視為用掉了壽命的 nᵢ/Nᵢ，並認為其總和 D = Σnᵢ/Nᵢ 達到 1 時就會破壞，這就是Miner法則。這是忽略負荷順序影響的近似，先施加高應力時常在 D < 1 時破壞，先施加低應力時常會 D > 1。低於疲勞限的應力有不計入的形式，以及延長 S–N 曲線來計入的形式（修正Miner法則等；延長方式與名稱因資料而異）；裂縫開始擴展後，低於疲勞限也會造成損傷，因此後者偏安全側。"
         },
         {
           "h": "常見的錯誤",
@@ -1558,7 +1558,7 @@
         },
         {
           "h": "마이너 법칙(선형 누적 손상 법칙)",
-          "p": "진폭이 다른 하중이 섞여 있을 때, 응력 i만으로 파괴되는 사이클 수 Nᵢ 가운데 nᵢ 사이클을 사용하면 수명의 nᵢ/Nᵢ를 사용한 것으로 보고, 그 합 D = Σnᵢ/Nᵢ가 1이 되면 파괴된다고 보는 것이 마이너 법칙입니다. 하중 순서의 영향을 무시한 근사로, 높은 응력을 먼저 가하면 D < 1에서 파괴되고, 낮은 응력을 먼저 가하면 D > 1이 되는 경우가 많습니다. 피로 한도보다 낮은 응력을 세지 않는 형태와, S–N 곡선을 연장하여 세는 형태(수정 마이너 법칙)가 있으며, 균열이 진전하기 시작하면 피로 한도보다 낮아도 손상되므로 후자가 안전 측입니다."
+          "p": "진폭이 다른 하중이 섞여 있을 때, 응력 i만으로 파괴되는 사이클 수 Nᵢ 가운데 nᵢ 사이클을 사용하면 수명의 nᵢ/Nᵢ를 사용한 것으로 보고, 그 합 D = Σnᵢ/Nᵢ가 1이 되면 파괴된다고 보는 것이 마이너 법칙입니다. 하중 순서의 영향을 무시한 근사로, 높은 응력을 먼저 가하면 D < 1에서 파괴되고, 낮은 응력을 먼저 가하면 D > 1이 되는 경우가 많습니다. 피로 한도보다 낮은 응력을 세지 않는 형태와, S–N 곡선을 연장하여 세는 형태(수정 마이너 법칙 등. 연장 방법과 명칭은 자료마다 다름)가 있으며, 균열이 진전하기 시작하면 피로 한도보다 낮아도 손상되므로 후자가 안전 측입니다."
         },
         {
           "h": "흔한 실수",
@@ -1891,7 +1891,7 @@
         },
         {
           "h": "Miner-Regel (lineare Schadensakkumulation)",
-          "p": "Wirken Lasten unterschiedlicher Amplitude zusammen, nimmt die Miner-Regel an, dass nᵢ Lastwechsel auf dem Spannungsniveau i den Anteil nᵢ/Nᵢ der Lebensdauer Nᵢ bei alleiniger Beanspruchung auf diesem Niveau verbrauchen, und dass der Bruch eintritt, wenn die Summe D = Σnᵢ/Nᵢ den Wert 1 erreicht. Sie ist eine Näherung, die den Einfluss der Lastreihenfolge vernachlässigt: Werden hohe Spannungen zuerst aufgebracht, tritt der Bruch oft bei D < 1 ein, werden niedrige zuerst aufgebracht, wird oft D > 1 erreicht. Spannungen unter der Dauerfestigkeit werden entweder nicht gezählt oder durch Verlängerung der Wöhlerlinie mitgezählt (modifizierte Miner-Regel); da Spannungen unter der Dauerfestigkeit schädigen, sobald ein Riss wächst, liegt die zweite Variante auf der sicheren Seite."
+          "p": "Wirken Lasten unterschiedlicher Amplitude zusammen, nimmt die Miner-Regel an, dass nᵢ Lastwechsel auf dem Spannungsniveau i den Anteil nᵢ/Nᵢ der Lebensdauer Nᵢ bei alleiniger Beanspruchung auf diesem Niveau verbrauchen, und dass der Bruch eintritt, wenn die Summe D = Σnᵢ/Nᵢ den Wert 1 erreicht. Sie ist eine Näherung, die den Einfluss der Lastreihenfolge vernachlässigt: Werden hohe Spannungen zuerst aufgebracht, tritt der Bruch oft bei D < 1 ein, werden niedrige zuerst aufgebracht, wird oft D > 1 erreicht. Spannungen unter der Dauerfestigkeit werden entweder nicht gezählt oder durch Verlängerung der Wöhlerlinie mitgezählt (etwa als modifizierte Miner-Regel; Art der Verlängerung und Bezeichnung sind je nach Quelle verschieden); da Spannungen unter der Dauerfestigkeit schädigen, sobald ein Riss wächst, liegt die zweite Variante auf der sicheren Seite."
         },
         {
           "h": "Häufige Fehler",
