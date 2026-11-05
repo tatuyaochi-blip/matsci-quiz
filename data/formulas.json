@@ -6022,7 +6022,7 @@
    "drill": [
     "faraday"
    ],
-   "tools": [],
+   "tools": [{"id": "corrosionrate", "mode": "ec"}],
    "terms": [
     "ファラデーの法則",
     "局部電池"
