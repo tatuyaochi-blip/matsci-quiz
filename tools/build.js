@@ -3757,6 +3757,7 @@ ${relCats.length ? `<section>
     <p class="mt-what" data-f="what">${esc(m.what)}</p>
     <p class="mt-how"><b>${esc(t('methods_how'))}</b> ${esc(m.how)}</p>
     <p class="mt-needs"><b>${esc(t('methods_needs'))}</b> ${needs}</p>
+    <details class="mt-more"><summary>${['methods_num_h', 'methods_sample_h', 'methods_miss'].map(k => esc(t(k))).join(' · ')}</summary>
     <h4>${esc(t('methods_num_h'))}</h4>
     <dl class="mt-dl">${['rl', 'rd', 'dl', 'vol', 'el', 'q'].map(f => row(f, esc(m[f]))).join('')}</dl>
     <h4>${esc(t('methods_sample_h'))}</h4>
@@ -3764,7 +3765,8 @@ ${relCats.length ? `<section>
     <h4>${esc(t('methods_miss'))}</h4>
     <ul class="mt-miss" data-f="miss">${m.miss.map(s => `<li>${esc(s)}</li>`).join('')}</ul>
     <p class="mt-pair"><b>${esc(t('methods_pair'))}</b> <span data-f="pair">${m.pair.map(id => `<a href="#m-${id}">${esc(byId[id].abbr || byId[id].name)}</a>`).join(' · ')}</span></p>${m.std.length ? `
-    <p class="mt-std"><b>${esc(t('methods_std'))}</b> ${m.std.map(esc).join(' / ')}</p>` : ''}${links ? `
+    <p class="mt-std"><b>${esc(t('methods_std'))}</b> ${m.std.map(esc).join(' / ')}</p>` : ''}
+    </details>${links ? `
     <p class="fm-links">${links}</p>` : ''}${tm.length ? `
     <p class="fm-terms term-chips"><b>${esc(t('methods_terms'))}</b> ${tm.join(' ')}</p>` : ''}
     <p class="fm-src">${esc(t('methods_src'))}: ${esc(m.src.map(s => ref[s].s).join('; '))}</p>

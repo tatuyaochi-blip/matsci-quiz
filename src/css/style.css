@@ -1632,6 +1632,12 @@ th[aria-sort] .md-sort-i { color: var(--accent); }
 .mt-need { display: inline-block; font-size: .8rem; padding: 1px 8px; margin: 2px 0; border-radius: 999px; border: 1px solid var(--border); }
 .mt-need.mt-k2 { border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
 .mt-card h4 { margin: 12px 0 4px; font-size: .9rem; }
+/* 手法のカードの数値・試料・落とし穴は最初は閉じる(一覧がスマートフォンで長くなりすぎないように。比べる表と結果の理由は閉じていても読める) */
+.mt-more { margin-top: 10px; }
+.mt-more > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 8px; min-height: 36px; font-size: .9rem; font-weight: 600; color: var(--accent); }
+.mt-more > summary::-webkit-details-marker { display: none; }
+.mt-more > summary::before { content: ""; width: 7px; height: 7px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); transition: transform .15s; flex: none; }
+.mt-more[open] > summary::before { transform: rotate(45deg); }
 .mt-dl { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 6px 16px; font-size: .88rem; line-height: 1.65; }
 .mt-dl dt { font-size: .78rem; color: var(--muted); font-weight: 600; }
 .mt-dl dd { margin: 0; overflow-wrap: anywhere; }
