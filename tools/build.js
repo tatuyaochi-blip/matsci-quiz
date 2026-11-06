@@ -3993,12 +3993,14 @@ ${relCats.length ? `<section>
     <div class="mt-head"><h3><a href="#f-${f.id}">${esc(f.name)}</a></h3></div>
     <p class="pp-look">${esc(f.look)}</p>
     <p class="mt-std"><b>${esc(need('prep_def_step'))}</b> <a href="#st-${f.step}">${esc(stOf[f.step].name)}</a></p>
+    <details class="mt-more"><summary>${[need('prep_causes_h'), ...(tips(f).length ? [need('prep_tips_h')] : [])].map(esc).join(' · ')}</summary>
     <h4>${esc(need('prep_causes_h'))}</h4>
     <ol class="pp-causes">${byW(f).map(c => `
       <li data-c="${c.id}"><p class="pp-c">${esc(c.t)}</p><p class="pp-fix"><b>${esc(need('prep_fix'))}</b> ${esc(c.fix)}</p>${c.w === 0 ? `<p class="pp-by muted">${esc(t('prep_by_tr', { t: byTr(c) }))}</p>` : ''}</li>`).join('')}
     </ol>${tips(f).length ? `
     <h4>${esc(need('prep_tips_h'))}</h4>
     <ul class="mt-miss pp-tips">${tips(f).map(m => `<li data-p="${m.id}"><b>${mLink(m.id)}</b> <span class="pp-tt">${esc(m.fx[f.id])}</span></li>`).join('')}</ul>` : ''}
+    </details>
     ${src(f.src)}
   </article>`;
     const stage = s => esc(need(`prep_stage_${s}`));
@@ -4011,6 +4013,7 @@ ${relCats.length ? `<section>
     <p class="mt-needs"><b>${esc(need('prep_traits'))}</b> ${m.tr.map(k => `<span class="mt-need">${esc(trName[k])}</span>`).join(' ')}</p>` : ''}
     <h4>${esc(need('prep_hard'))}</h4>
     ${ul(m.hard)}
+    <details class="mt-more"><summary>${[need('prep_steps_h'), need('prep_etch'), ...(Object.keys(m.fx).length ? [need('prep_fx_h')] : [])].map(esc).join(' · ')}</summary>
     <h4>${esc(need('prep_steps_h'))}</h4>
     <div class="fm-scroll pp-scroll"><table class="pp-tbl pp-steps"><thead><tr>${['stage', 'abr', 'surf', 'lub', 'time'].map(k => `<th scope="col">${esc(need(`prep_${k}`))}</th>`).join('')}</tr></thead><tbody>${m.steps.map(r => `
       <tr><td class="pp-sg">${stage(r.s)}</td>${r.t.map((x, i) => (i === 0 ? `<th scope="row">${esc(x)}</th>` : `<td data-l="${esc(need(`prep_${['abr', 'surf', 'lub', 'time'][i]}`))}">${esc(x)}</td>`)).join('')}</tr>`).join('')}
@@ -4023,7 +4026,8 @@ ${relCats.length ? `<section>
     <ul class="mt-miss">${Object.entries(m.fx).map(([id, x]) => `<li><b>${fLink(id)}</b> ${esc(x)}</li>`).join('')}</ul>` : ''}${m.miss.length ? `
     <h4>${esc(need('prep_miss'))}</h4>
     ${ul(m.miss)}` : ''}${m.std.length ? `
-    <p class="mt-std"><b>${esc(need('prep_std'))}</b> ${m.std.map(esc).join(' / ')}</p>` : ''}${links ? `
+    <p class="mt-std"><b>${esc(need('prep_std'))}</b> ${m.std.map(esc).join(' / ')}</p>` : ''}
+    </details>${links ? `
     <p class="fm-links">${links}</p>` : ''}${tm.length ? `
     <p class="fm-terms term-chips"><b>${esc(need('prep_terms'))}</b> ${tm.join(' ')}</p>` : ''}
     ${src(m.src)}
