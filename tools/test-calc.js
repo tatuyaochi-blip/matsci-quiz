@@ -3,12 +3,16 @@
 // ②の python は作業の記録(リポジトリの外)に残している。JS の出力を写した期待値は置かない。
 // 使い方: node tools/test-calc.js(全部合えば終了コード 0、1件でも違えば違ったものを出して 1)
 //
-// 外しているもの(import すると落ちる): fe-c・ashby・diffusion・composite・xrd・thermal・lever・xtal・eng・drill。
-//   どれも eng.js の 2 行目(const lang = document.documentElement.lang)がモジュールの読み込みのときに document を読むので、
-//   node では ReferenceError になる(drill は eng.js を使うモジュールを import している)。JS は変えずに外した。
-//   eng.js が document のないときも読めるようになったら、ここに足す。
+// 外しているもの: import できないツールはない(以前は eng.js などが読み込みのときに document を読んで落ちたが、今は読まない)。
+//   DOM に触れる関数(画面を描くもの)と、文章を組み立てるだけの関数はテストしない。比べる出典の値や独立の計算を用意していない計算も
+//   まだ入れていない: fe-c の Grossmann の D_I の表と冷却の道筋、diffusion の差分法・2段浸炭・シート抵抗、composite の順に壊す最終破壊と
+//   Cox のシアラグ、xrd の線の形と異常分散、lever の Scheil の式、xtal の切り口と矢印の図、drill の一部の型(ionic-apf・lever など)。
+//   drill は data/drill.json の問題の型から種 1〜20 の問題を作り、答えをこのファイルの中の式で別に出して比べる。
+import { readFileSync } from 'node:fs';
+
 const tools = {};
-for (const id of ['measure', 'ellingham', 'fatigue', 'corrosionrate', 'polymercalc', 'steelcolor', 'tensile', 'galvanic', 'micro', 'materials']) {
+for (const id of ['measure', 'ellingham', 'fatigue', 'corrosionrate', 'polymercalc', 'steelcolor', 'tensile', 'galvanic', 'micro', 'materials',
+  'fe-c', 'ashby', 'diffusion', 'composite', 'xrd', 'thermal', 'lever', 'xtal', 'eng', 'ptable', 'drill']) {
   try { tools[id] = await import(`../src/js/${id}.js`); } catch (e) { tools[id] = e; }
 }
 
@@ -252,6 +256,396 @@ T('materials', '温度の換算(273.15 を足し引きして元の小数の桁�
 T('materials', 'ほかの量の単位(拡散係数・抵抗率・熱膨張)', '① SI の定義(1 cm²/s = 10⁻⁴ m²/s、1 µΩ·cm = 10⁻⁸ Ω·m、1 ppm/K = 10⁻⁶ K⁻¹、1 W/(cm·K) = 100 W/(m·K))', m => [
   ['2.5 cm²/s → m²/s', m.conv(2.5, 'cm2s', 'm2s').n, 2.5e-4, rel(1e-12)], ['1.68 µΩ·cm → Ω·m', m.conv(1.68, 'uOcm', 'Om').n, 1.68e-8, rel(1e-12)],
   ['23.1 ppm/K → 1/K', m.conv(23.1, 'ppmK', 'perK').n, 2.31e-5, rel(1e-12)], ['4.01 W/(cm·K) → W/(m·K)', m.conv(4.01, 'Wcm', 'Wm').n, 401, EQ], ['値がないときは null', m.conv(null, 'GPa', 'MPa'), null, EQ]]);
+
+// =====================================================================
+// fe-c(鋼の熱処理ラボ): 状態図のてこの規則、変態点・炭素当量の経験式、焼入れ・焼戻しの式、丸棒の中心の冷え方
+// =====================================================================
+const FEC_X = { C: 0.15, Si: 0.30, Mn: 1.40, Ni: 0.20, Cr: 0.10, Mo: 0.05, V: 0.02, Cu: 0.20, B: 0.001 };
+T('fe-c', '室温の組織分率(てこの規則)', '① Callister, Materials Science and Engineering: An Introduction 9 章の式(亜共析 W_α′ = (0.76 − C₀)/(0.76 − 0.022)、過共析 W_Fe₃C′ = (C₁ − 0.76)/(6.70 − 0.76))。3.0 % C の亜共晶鋳鉄は 1147 ℃・727 ℃のてこの規則を python で(②)', m => {
+  const a = m.micro(0.40), b = m.micro(1.00), c = m.micro(3.0), part = (r, k) => r.parts.find(p => p[0] === k)[1];
+  return [['0.40 % C の初析フェライト', part(a, 'pro_a'), 0.4878048780487805, rel(1e-12)], ['0.40 % C のパーライト', part(a, 'pearlite'), 0.5121951219512195, rel(1e-12)],
+    ['0.40 % C の α の全量', a.total[0], 0.9433962264150944, rel(1e-12)], ['1.00 % C の初析セメンタイト', part(b, 'pro_c'), 0.0404040404040404, rel(1e-12)],
+    ['3.0 % C の分類', c.kind, 'ci_hypo', EQ], ['3.0 % C のパーライト(初晶γから)', part(c, 'pearlite_g'), 0.46202768424990653, rel(1e-9)],
+    ['3.0 % C の二次セメンタイト', part(c, 'sec_c'), 0.13982416760194538, rel(1e-9)], ['3.0 % C のレデブライト', part(c, 'led'), 0.39814814814814814, rel(1e-9)]];
+});
+T('fe-c', '状態図の点と相', '① Callister 9 章の Fe–Fe₃C 状態図(A3 は 0 % C で 912 ℃・共析 0.76 % C・727 ℃、Acm は 2.14 % C で 1147 ℃。0.40 % C は 900 ℃でγ、600 ℃で α + Fe₃C)', m => [
+  ['0 % C の A3', m.upperCrit(0), 912, abs(1e-9)], ['共析の 0.76 % C', m.upperCrit(0.76), 727, abs(1e-9)], ['2.14 % C の Acm', m.upperCrit(2.14), 1147, abs(1e-9)],
+  ['0.76 % C・727 ℃は共析の線の上', m.locate(0.76, 727)?.inv?.key, 'eutectoid', EQ], ['4.30 % C・1147 ℃は共晶の線の上', m.locate(4.30, 1147)?.inv?.key, 'eutectic', EQ],
+  ['0.40 % C・900 ℃', m.locate(0.40, 900).key, 'g', EQ], ['0.40 % C・600 ℃', m.locate(0.40, 600).key, 'ac', EQ]]);
+T('fe-c', '境目: 範囲の外', '関数の決まり(組成 0〜6.70 %・温度 400〜1600 ℃の外は null、2.14 % を超える upperCrit は NaN、Ms 以上ではマルテンサイト 0)', m => [
+  ['負の炭素量は null', m.locate(-0.1, 800), null, EQ], ['400 ℃より下は null', m.locate(1, 300), null, EQ], ['6.70 % を超える組織は null', m.micro(7), null, EQ],
+  ['3 % C の upperCrit は NaN', m.upperCrit(3), NaN, EQ], ['Ms より上ではマルテンサイト 0', m.kmFrac(300, 350), 0, EQ], ['D_I が 0 なら NaN', m.critD(0, 1), NaN, EQ], ['H = ∞ なら D = D_I', m.critD(2, Infinity), 2, EQ]]);
+T('fe-c', '変態点の経験式(S45C の成分の中央)', '② Andrews(J. Iron Steel Inst. 203 (1965) 721)の Ac1・Ac3・Ms の1次式、Steven–Haynes(1956)の Ms を check_testcalc2.py で(C 0.45・Si 0.25・Mn 0.75)。参考: C45E のデータシートの値 Ac1 725・Ac3 785・Ms 300 ℃(ページの LIT)', m => {
+  const r = m.transTemps({ C: 0.45, Si: 0.25, Mn: 0.75 });
+  return [['Ac1(Andrews)', r.ac1_and.v, 722.25, abs(1e-9)], ['Ac3(Andrews)', r.ac3_and.v, 784.9984601702628, rel(1e-12)], ['Ms(Andrews の1次式)', r.ms_and.v, 325.85, abs(1e-9)],
+    ['Ms(Steven–Haynes)', r.ms_sh.v, 322.95, abs(1e-9)], ['Ac1(Andrews)は C 0.6 % までの式の範囲の中', r.ac1_and.out.length, 0, EQ]];
+});
+T('fe-c', '焼入れ・焼戻し・溶接の式', '② Koistinen–Marburger(1959、α = 0.011)、Hollomon–Jaffe(P = T(Cc + log t)、Cc = 20)、Yurioka ら(1987)の HV = 884C(1 − 0.3C²) + 294、IIW の CE・Ito–Bessyo の Pcm・Yurioka の CEN を check_testcalc2.py で', m => {
+  const ce = m.ceAll(FEC_X), P = m.hjP(600, 1, 20);
+  return [['Ms 325 ℃から 25 ℃まで冷やしたマルテンサイト', m.kmFrac(325, 25), 0.96311683259876, rel(1e-12)], ['Ms 300 ℃で 50 % になる温度', m.kmTemp(300, 0.5), 236.98661994909588, rel(1e-12)],
+    ['600 ℃・1 h の P', P, 17463, rel(1e-12)], ['同じ P になる 650 ℃の時間(h)', m.hjTime(P, 650, 20), 0.08255671881638145, rel(1e-9)], ['同じ P になる 10 h の温度(℃)', m.hjTemp(P, 10, 20), 558.4214285714286, rel(1e-12)],
+    ['0.45 % C の 100 % マルテンサイトの HV', m.hvMart(0.45), 667.63365, rel(1e-12)],
+    ['CE(IIW)', ce.iiw, 0.444, rel(1e-12)], ['Pcm', ce.pcm, 0.25866666666666666, rel(1e-12)], ['CEN', ce.cen, 0.42250019372414027, rel(1e-9)],
+    ['CE 0.40 ちょうどは 2 段目(0.40〜0.45)', m.iiwBand(0.40), 1, EQ], ['CE 0.60 ちょうどは 3 段目(0.45〜0.60)', m.iiwBand(0.60), 2, EQ]];
+});
+T('fe-c', '丸棒の中心の冷え方(Bessel 関数の級数)', '② 無限長の円柱の中心の温度 θ = Σ 2J₁(λ)/(λ(J₀² + J₁²))·exp(−λ²Fo)(λJ₁ = Bi·J₀ の根)を scipy の Bessel 関数で(check_testcalc2.py)。2/√Fo½(∞) は Asimow ら(1941)の係数 4.458 に 0.2 % で合う', m => [
+  ['Fo = 0.2・Bi = ∞', m.centerTheta(0.2, Infinity), 0.5014868606073983, rel(1e-6)], ['Fo = 0.1・Bi = 1', m.centerTheta(0.1, 1), 0.9768165133858498, rel(1e-6)],
+  ['2/√Fo½(∞)', m.asimowCoef(), 4.466288037144203, rel(1e-6)]]);
+
+// =====================================================================
+// ashby(材料選択ラボ): 材料指標の導き方、チャートの線の傾き、撓み・強さの式からの質量
+// =====================================================================
+const STEEL = p => ({ rho: [7.85, 7.85], E: [210, 210], s: [300, 300] }[p] ?? null);
+T('ashby', '機能・制約・目的から導く指標', '① M. F. Ashby, Materials Selection in Mechanical Design 5th ed. の材料指標(引張棒 E/ρ・σf/ρ、梁 E^½/ρ・σf^⅔/ρ、板 E^⅓/ρ・σf^½/ρ、ばね σf²/E、圧力容器 K_IC/σf・K_IC²/σf、熱衝撃 σf/(Eα)、費用は Cm·ρ で割る)', m => {
+  const k = (fun, con, obj, free) => m.derive({ fun, con, obj, free }, { L: 1, S: 1, F: 1, W: 1, U: 1, R: 1, p: 1, q: 1, dT: 1, w: 1 }).key;
+  return [['引張棒・剛性・質量', k('tie', 'stiff', 'mass', 'area'), 'e1', EQ], ['引張棒・強さ・質量', k('tie', 'str', 'mass', 'area'), 's1', EQ], ['引張棒・剛性・費用', k('tie', 'stiff', 'cost', 'area'), 'ce1', EQ],
+    ['梁(正方形)・剛性・質量', k('beam', 'stiff', 'mass', 'sq'), 'e2', EQ], ['梁(正方形)・強さ・質量', k('beam', 'str', 'mass', 'sq'), 's23', EQ],
+    ['板・剛性・質量', k('panel', 'stiff', 'mass', 't'), 'e3', EQ], ['板・強さ・質量', k('panel', 'str', 'mass', 't'), 's12', EQ], ['ばね・体積', k('spring', 'energy', 'vol', 'size'), 'sp', EQ],
+    ['圧力容器・破壊前の降伏', k('vessel', 'ybb', 'perf', 'none'), 'ks', EQ], ['圧力容器・破壊前の漏れ', k('vessel', 'lbb', 'perf', 'none'), 'k2s', EQ], ['熱衝撃', k('thermal', 'shock', 'perf', 'none'), 'tsh', EQ]];
+});
+T('ashby', '両対数のチャートでの指標の線の傾き', '① Ashby 5th ed. の材料選択チャート(E–ρ の図で E/ρ・E^½/ρ・E^⅓/ρ の線の傾きは 1・2・3、σf–ρ の図で σf/ρ・σf^⅔/ρ・σf^½/ρ は 1・3/2・2、K_IC–σf の図で K_IC/σf は 1)', m => [
+  ['E/ρ', m.slope('e1', 'rho', 'E'), 1, rel(1e-12)], ['E^½/ρ', m.slope('e2', 'rho', 'E'), 2, rel(1e-12)], ['E^⅓/ρ', m.slope('e3', 'rho', 'E'), 3, rel(1e-12)],
+  ['σf/ρ', m.slope('s1', 'rho', 's'), 1, rel(1e-12)], ['σf^⅔/ρ', m.slope('s23', 'rho', 's'), 1.5, rel(1e-12)], ['σf^½/ρ', m.slope('s12', 'rho', 's'), 2, rel(1e-12)],
+  ['K_IC/σf', m.slope('ks', 's', 'K'), 1, rel(1e-12)], ['κ/α は E–ρ の図に描けない', m.fits('ka', 'rho', 'E'), false, EQ], ['同じ軸どうしは null', m.lineFit('e1', 'E', 'E'), null, EQ]]);
+T('ashby', '撓み・強さの式から部材の質量(鋼 ρ 7850 kg/m³、E 210 GPa、σf 300 MPa)', '② 剛性 S = F/δ の式(引張棒 δ = FL/(EA)、片持ち梁 δ = FL³/(3EI)・I = b⁴/12、板 I = Wt³/12)と強さ F = σf·A から質量を直接求めた値(check_testcalc2.py)。引張棒は S 10⁶ N/m・L 1 m、梁と板は S 10⁴ N/m・L 1 m・W 0.1 m、強さは F 10⁵ N', m => {
+  const mass = (sel, inp) => m.outOf(STEEL, m.derive(sel, inp).out).c;
+  const tie = m.derive({ fun: 'tie', con: 'stiff', obj: 'mass', free: 'area' }, { L: 1, S: 1e6 });
+  return [['引張棒・剛性', mass({ fun: 'tie', con: 'stiff', obj: 'mass', free: 'area' }, { L: 1, S: 1e6 }), 0.03738095238095238, rel(1e-12)],
+    ['片持ち梁(正方形)・剛性', mass({ fun: 'beam', con: 'stiff', obj: 'mass', free: 'sq' }, { L: 1, S: 1e4, sup: 'cant' }), 3.4260208767050804, rel(1e-12)],
+    ['片持ちの板・剛性', mass({ fun: 'panel', con: 'stiff', obj: 'mass', free: 't' }, { L: 1, S: 1e4, W: 0.1, sup: 'cant' }), 9.73083007958517, rel(1e-12)],
+    ['引張棒・強さ', mass({ fun: 'tie', con: 'str', obj: 'mass', free: 'area' }, { L: 1, F: 1e5 }), 2.6166666666666667, rel(1e-12)],
+    ['質量は指標 E/ρ の −1 乗に比例', m.outPow(tie.key, tie.out), -1, EQ]];
+});
+T('ashby', '範囲からの指標の幅(低炭素鋼の E^½/ρ)', '② Ashby の範囲(低炭素鋼 E 200〜220 GPa、ρ 7.8〜7.9 g/cm³)の両端と相乗平均から check_testcalc2.py で(下限 √200/7.9、上限 √220/7.8)', m => {
+  const r = m.indexOf(m.matById('lcs'), 'e2');
+  return [['下限', r.lo, 1.7901437498393609, rel(1e-12)], ['上限', r.hi, 1.9015893556655548, rel(1e-12)], ['代表値', r.c, 1.845025284326952, rel(1e-12)],
+    ['融点は K に直す(1470 ℃ → 1743.15 K)', m.range(m.matById('lcs'), 'T')[0], 1743.15, rel(1e-12)]];
+});
+T('ashby', '境目: 足切りの判定と値のない性質', '関数の決まり(範囲の全部が満たせば pass、一部なら part、満たさなければ fail、値がなければ na。性質がなければ null)', m => [
+  ['範囲 1〜2 に ≥ 1', m.screenOne([1, 2], 'ge', 1), 'pass', EQ], ['範囲 1〜2 に ≥ 2', m.screenOne([1, 2], 'ge', 2), 'part', EQ], ['範囲 1〜2 に ≤ 0.5', m.screenOne([1, 2], 'le', 0.5), 'fail', EQ],
+  ['値なし', m.screenOne(null, 'ge', 1), 'na', EQ], ['ない性質の範囲は null', m.range(m.matById('lcs'), 'zz'), null, EQ], ['範囲のない性質を含む指標は null', m.powRange(() => null, { E: 1 }), null, EQ]]);
+
+// =====================================================================
+// diffusion(拡散・表面処理シミュレーター): 誤差関数、Callister の例題、半導体のドーパント、濃度分布、最小二乗
+// =====================================================================
+T('diffusion', '誤差関数とその逆', '① Abramowitz & Stegun, Handbook of Mathematical Functions 表 7.1(erf 0.5 = 0.5204998778、erf 1 = 0.8427007929、erf 2 = 0.9953222650、erfc 3 = 2.209049700 × 10⁻⁵)と、python の math.erf・math.erfc・scipy の erfcinv(②)', m => [
+  ['erf(0.5)', m.erf(0.5), 0.5204998778130465, rel(1e-12)], ['erf(1)', m.erf(1), 0.8427007929497149, rel(1e-12)], ['erf(2)', m.erf(2), 0.9953222650189527, rel(1e-12)],
+  ['erf(−1) = −erf(1)', m.erf(-1), -0.8427007929497149, rel(1e-12)], ['erfc(3)', m.erfc(3), 2.2090496998585438e-5, rel(1e-10)], ['erfc(5)', m.erfc(5), 1.5374597944280351e-12, rel(1e-10)],
+  ['ierfc(0.5)', m.ierfc(0.5), 0.4769362762044699, rel(1e-12)], ['ierfc(0) は ∞', m.ierfc(0), Infinity, EQ], ['ierfc(2) は −∞', m.ierfc(2), -Infinity, EQ]]);
+T('diffusion', '浸炭の時間(Callister の例題)', '① Callister & Rethwisch 9th ed. 5 章の非定常拡散の例題(0.25 % C の鋼を 950 ℃・表面 1.20 % C、0.5 mm で 0.80 % C、D = 1.6 × 10⁻¹¹ m²/s: z = 0.392、t = 25,400 s = 7.1 h)。z は ② scipy の erfcinv でも', m => [
+  ['z(本の 3 桁)', m.zFor(0.25, 1.20, 0.80), 0.392, abs(0.0005)], ['z(②)', m.zFor(0.25, 1.20, 0.80), 0.39238977582104045, rel(1e-10)],
+  ['t(本の z = 0.392 で、本の 3 桁)', m.tFor(0.5e-3, 0.392, 1.6e-11), 25400, abs(50)]]);
+T('diffusion', 'アレニウスの式(Callister の例題と表 5.2)', '① Callister & Rethwisch 9th ed. 5 章の例題(Al 中の Mg、550 ℃: D = 6.7 × 10⁻¹³ m²/s。本は R = 8.31・T = 823 K で丸めるので相対 1.5 %)と表 5.2(γ鉄中の C: D₀ 2.3 × 10⁻⁵ m²/s・Q 148 kJ/mol、Al 中の Mg: 1.2 × 10⁻⁴・130)。② CODATA の R で check_testcalc2.py', m => {
+  const D = m.Dof(1.2e-4, 130, 550), cg = m.sysById('c_g'), mg = m.sysById('mg_al');
+  return [['550 ℃の D(本)', D, 6.7e-13, rel(0.015)], ['550 ℃の D(②)', D, 6.759750475206361e-13, rel(1e-10)], ['D から温度に戻す', m.TforD(1.2e-4, 130, D), 550, abs(1e-9)],
+    ['γ鉄中の C の D₀', cg.d0, 2.3e-5, EQ], ['γ鉄中の C の Q', cg.q, 148, EQ], ['Al 中の Mg の D₀', mg.d0, 1.2e-4, EQ], ['Al 中の Mg の Q', mg.q, 130, EQ],
+    ['D ≥ D₀ になる温度はない', m.TforD(1.2e-4, 130, 2e-4), NaN, EQ]];
+});
+T('diffusion', 'Si へのホウ素の拡散(Callister の例題)', '① Callister & Rethwisch 9th ed. 5.6 節の例題(D₀ 2.4 × 10⁻³ m²/s、Q 3.87 eV、900 ℃・30 分のプリデポジション、表面 3 × 10²⁶ m⁻³、1100 ℃・2 h のドライブイン、基板 10²⁰ m⁻³: Q₀ = 3.44 × 10¹⁸ m⁻²、x_j = 2.19 µm。本は k = 8.62 × 10⁻⁵ eV/K で丸めるので相対 1 %)。② CODATA の k で check_testcalc2.py(単位は cm)', m => {
+  const s = m.semi({ dop: 'bc', tp: 900, tpm: 30, ns: 3e20, td: 1100, tdm: 120, nb: 1e14, sum: false });
+  return [['Q₀(本、cm⁻²)', s.Q, 3.44e14, rel(0.01)], ['x_j(本、cm)', s.xjd, 2.19e-4, rel(0.01)],
+    ['900 ℃の D(②、cm²/s)', s.Dp, 5.687691883958814e-16, rel(1e-10)], ['1100 ℃の D(②)', s.Dd, 1.501121678950484e-13, rel(1e-10)],
+    ['Q₀(②)', s.Q, 342515790064917.6, rel(1e-10)], ['x_j(②)', s.xjd, 0.00021788946723276604, rel(1e-6)]];
+});
+T('diffusion', '濃度分布の解析解', '② 有限の板の厳密解(Crank, The Mathematics of Diffusion 4.3 のフーリエ級数)、半無限体の erfc、薄膜のガウス分布を check_testcalc2.py で。拡散対の中央は両側の平均(式の形から)', m => [
+  ['板(Dt/L² = 0.6、フーリエ級数の側)', m.pSlab(0.3e-3, 0.6e-6, 1e-3, 0.2, 1.0), 0.8947791214037326, rel(1e-9)],
+  ['板(Dt/L² = 0.01、鏡像の側)は半無限体の erfc と同じ', m.pSlab(0.1e-3, 1e-8, 1e-3, 0.2, 1.0), 0.5836000977495628, rel(1e-9)], ['半無限体の erfc', m.pErf(0.1e-3, 1e-8, 0.2, 1.0), 0.5836000977495628, rel(1e-12)],
+  ['薄膜のガウス分布', m.pGauss(1e-5, 1e-10, 2e-6, 0.1), 0.1878782578935445, rel(1e-12)], ['拡散対の x = 0', m.pCouple(0, 1e-10, 1, 0.2), 0.6, rel(1e-12)],
+  ['Dt = 0 の板の表面', m.pSlab(0, 0, 1e-3, 0.2, 1.0), 1.0, EQ]]);
+T('diffusion', '測定値から D₀ と Q(最小二乗)', '② scipy の linregress(ln D と 1/T)と t 分布の 97.5 % 点で check_testcalc2.py(1000〜1300 K の 4 点)。t(0.975; 3) = 3.182 は ① t 分布表。移動度は Arora ら(IEEE Trans. Electron Devices 29 (1982) 292)の式を python で', m => {
+  const f = m.fitArr([[1000, 2.1e-13], [1100, 2.0e-12], [1200, 9.0e-12], [1300, 4.4e-11]]);
+  return [['Q(kJ/mol)', f.Q, 189.99838881375692, rel(1e-9)], ['D₀', f.D0, 0.0018531850784555017, rel(1e-9)], ['r²', f.r2, 0.9981274851089357, rel(1e-9)], ['Q の 95 % 区間の幅', f.Qci, 25.037493424548913, rel(2e-4)],
+    ['t(0.975; 3)', m.t975(3), 3.182, abs(0.0005)], ['1 点では null', m.fitArr([[1000, 1e-12]]), null, EQ],
+    ['n 型 10¹⁶ cm⁻³ の移動度', m.mobility(1e16, 'n'), 1218.4069532889587, rel(1e-12)], ['p 型 10¹⁸ cm⁻³ の移動度', m.mobility(1e18, 'p'), 143.23226205513964, rel(1e-12)]];
+});
+
+// =====================================================================
+// composite(複合材料デザイナー): 複合則、単層の剛性、古典積層理論、短繊維、積層の書き方、破壊則
+// =====================================================================
+const T300 = { E1: 181e3, E2: 10.3e3, nu12: 0.28, G12: 7.17e3 };
+const ply = (th, Q) => ({ th, t: 0.125, Q, a1: 0, a2: 0 });
+T('composite', '一方向材の複合則(Callister の例題)', '① Callister & Rethwisch 9th ed. 16 章の例題(ガラス繊維 40 vol%・E 69 GPa、エポキシ E 3.4 GPa: 縦 E = 30 GPa、繊維と母材の荷重の比 13.5、横 E = 5.5 GPa)。② 値そのものは check_testcalc2.py(29.64・0.93117・5.4864)', m => {
+  const fr = m.fractions({ basis: 'vol', f: 0.4, vv: 0, rf: 2.58, rm: 1.2 });
+  const o = m.micro({ E1: 69, E2: 69, G12: 28, nu: 0.22, a1: 5, a2: 5, s: 3450 }, { E: 3.4, nu: 0.35, a: 60, s: 70, eu: NaN }, fr);
+  return [['縦の E(本)', o.E1, 30, abs(0.5)], ['縦の E(②)', o.E1, 29.64, rel(1e-12)], ['繊維の荷重の比 Ff/Fm(本)', o.share / (1 - o.share), 13.5, abs(0.05)],
+    ['繊維の荷重の割合(②)', o.share, 0.9311740890688259, rel(1e-12)], ['横の E(本)', o.E2r, 5.5, abs(0.05)], ['横の E(②)', o.E2r, 5.486435921421889, rel(1e-12)]];
+});
+T('composite', '単層の換算剛性 Q と 60° 回した Q̄(T300/5208)', '① A. K. Kaw, Mechanics of Composite Materials 2nd ed. 2 章の例題(E1 181 GPa、E2 10.3 GPa、ν12 0.28、G12 7.17 GPa: Q11 181.8、Q12 2.897、Q22 10.35、Q66 7.17 GPa。60° で Q̄11 23.65、Q̄12 32.46、Q̄16 20.05、Q̄22 109.4、Q̄26 54.19、Q̄66 36.74 GPa)。本の桁で比べる', m => {
+  const Q = m.Qmat(T300.E1, T300.E2, T300.nu12, T300.G12), B = m.Qbar(Q, 60);
+  return [['Q11', Q[0][0], 181.8e3, abs(50)], ['Q12', Q[0][1], 2.897e3, abs(0.5)], ['Q22', Q[1][1], 10.35e3, abs(5)], ['Q66', Q[2][2], 7.17e3, abs(5)],
+    ['Q̄11', B[0][0], 23.65e3, abs(5)], ['Q̄12', B[0][1], 32.46e3, abs(5)], ['Q̄16', B[0][2], 20.05e3, abs(5)], ['Q̄22', B[1][1], 109.4e3, abs(50)], ['Q̄26', B[1][2], 54.19e3, abs(5)], ['Q̄66', B[2][2], 36.74e3, abs(5)]];
+});
+T('composite', '古典積層理論(T300/5208、1 層 0.125 mm)', '② ABD 行列を numpy で別に組んで逆行列から Ex・νxy(check_testcalc2.py。Q̄ は T⁻¹QRTR⁻¹ の行列の積で)', m => {
+  const Q = m.Qmat(T300.E1, T300.E2, T300.nu12, T300.G12), L = m.laminate([0, 90, 90, 0].map(a => ply(a, Q)));
+  const U = m.laminate([0, 90].map(a => ply(a, Q))), QI = m.laminate([0, 45, -45, 90, 90, -45, 45, 0].map(a => ply(a, Q)));
+  return [['[0/90]s の A11(N/mm)', L.A[0][0], 48039.3243935596, rel(1e-10)], ['A12', L.A[0][1], 1448.4622221748657, rel(1e-10)], ['A66', L.A[2][2], 3585.0, rel(1e-10)],
+    ['D11(N·mm)', L.D[0][0], 1670.6043367718048, rel(1e-10)], ['D22', L.D[1][1], 331.034179626512, rel(1e-10)], ['Ex(MPa)', L.Ex, 95991.30189639775, rel(1e-9)], ['νxy', L.nuxy, 0.03015159435441715, rel(1e-8)],
+    ['対称なので B = 0', L.symB, true, EQ], ['[0/90] の B11(N)', U.B[0][0], -1339.5701571452928, rel(1e-10)], ['[0/90] は B ≠ 0', U.symB, false, EQ],
+    ['[0/±45/90]s の Ex', QI.Ex, 69675.74091664812, rel(1e-9)], ['[0/±45/90]s の νxy', QI.nuxy, 0.2960309433752795, rel(1e-8)]];
+});
+T('composite', '回した単層の E(θ)・Halpin–Tsai・質量率・短繊維', '② 1/Ex = cos⁴θ/E1 + (1/G12 − 2ν12/E1)sin²θcos²θ + sin⁴θ/E2、Halpin–Tsai(ξ = 2、Ef 230・Em 3.5 GPa、Vf 0.6)、質量率 0.6(ρf 1.8、ρm 1.2)の体積率、Callister 16 章の lc = σf·d/(2τc) と Kelly–Tyson の式(l ≥ lc: Vf σf(1 − lc/2l) + Vm σm′、l < lc: Vf τ l/d + Vm σm′。σf 3500 MPa、d 10 µm、τ 75 MPa、Vf 0.3、σm′ 60 MPa)を check_testcalc2.py で。Krenchel の配向の効率は ① Krenchel(1964)の 1・1/2・3/8・1/5', m => {
+  const lc = m.critLen(3500, 10, 75);
+  return [['45° の E(MPa)', m.lamE(T300.E1, T300.E2, T300.nu12, T300.G12, 45), 16737.218799067326, rel(1e-12)], ['0° は E1', m.lamE(T300.E1, T300.E2, T300.nu12, T300.G12, 0), 181e3, rel(1e-12)],
+    ['Halpin–Tsai', m.halpinTsai(230, 3.5, 2, 0.6), 17.614243323442132, rel(1e-12)], ['質量率 0.6 の体積率', m.fractions({ basis: 'mass', f: 0.6, vv: 0, rf: 1.8, rm: 1.2 }).vf, 0.5, rel(1e-12)],
+    ['空隙 2 % のとき', m.fractions({ basis: 'mass', f: 0.6, vv: 0.02, rf: 1.8, rm: 1.2 }).vf, 0.49, rel(1e-12)],
+    ['lc(mm)', lc, 0.23333333333333334, rel(1e-12)], ['l = 1 mm の強さ', m.kellyTyson(3500, 75, 10, 1.0, lc, 0.3, 0.7, 60), 969.5, rel(1e-12)], ['l = 0.1 mm の強さ', m.kellyTyson(3500, 75, 10, 0.1, lc, 0.3, 0.7, 60), 267.0, rel(1e-12)],
+    ['l = 1 mm の効率', m.ktEff(1.0, lc), 0.8833333333333333, rel(1e-12)], ['l = 0.1 mm の効率', m.ktEff(0.1, lc), 0.2142857142857143, rel(1e-12)],
+    ['Krenchel: そろった繊維', m.KRENCHEL.al, 1, EQ], ['直交 2 方向', m.KRENCHEL.bi, 0.5, EQ], ['面内でランダム', m.KRENCHEL.r2, 0.375, EQ], ['3 次元でランダム', m.KRENCHEL.r3, 0.2, EQ]];
+});
+T('composite', '積層の書き方と境目', '① 積層の記号の約束(s は対称、±θ は +θ と −θ、数字は繰り返し。Kaw 4 章の書き方)。角度は −90°〜90° に直し、読めないものは err(関数の決まり)', m => [
+  ['[0/±45/90]s', m.parseLayup('[0/±45/90]s').angles?.join('/'), '0/45/-45/90/90/-45/45/0', EQ], ['[0/90]2s', m.parseLayup('[0/90]2s').angles?.join('/'), '0/90/0/90/90/0/90/0', EQ],
+  ['[±45]s', m.parseLayup('[±45]s').angles?.join('/'), '45/-45/-45/45', EQ], ['135° は −45°', m.parseLayup('[135/45]').angles?.join('/'), '-45/45', EQ],
+  ['読めない', m.parseLayup('abc').err, 'syntax', EQ], ['空', m.parseLayup('').err, 'empty', EQ]]);
+T('composite', '破壊則(Tsai–Wu・Tsai–Hill・最大応力)', '② Tsai–Wu(F12 = −½√(F11F22))・Tsai–Hill の式と、強度比の2次方程式を check_testcalc2.py で(X = X′ 1500、Y 40、Y′ 246、S 68 MPa、σ = (500, 20, 30) MPa)。最大応力則は X/σ1', m => {
+  const Lm = { X: 1500, Xc: 1500, Y: 40, Yc: 246, S: 68 }, C = m.tsaiWuF(Lm), s = [500, 20, 30];
+  const mx = m.srMax([0, 0, 0], [100, 0, 0], Lm);
+  return [['Tsai–Wu の値', m.twIndex(s, C), 0.6978908962622788, rel(1e-12)], ['Tsai–Wu の強度比', m.srTsaiWu([0, 0, 0], s, C), 1.2858475580640136, rel(1e-10)],
+    ['Tsai–Hill の値', m.hillIndex(s, Lm), 0.5513033448673588, rel(1e-12)], ['最大応力則の強度比(σ1 = 100)', mx.r, 15, rel(1e-12)], ['そのモード', mx.mode, '1t', EQ]];
+});
+
+// =====================================================================
+// xrd(XRD 解析ワークベンチ): 面間隔とブラッグ角、消滅則と構造因子、指数づけ、LP 因子、結晶子の大きさ
+// =====================================================================
+T('xrd', '面間隔と回折角(Callister の例題)', '① Callister & Rethwisch 9th ed. 3 章の例題(BCC 鉄 a = 0.2866 nm の (220)、λ = 0.1790 nm: d = 0.1013 nm)。2θ は ② python で 124.08°(本の 124.26° は d を丸めた値からも出ないので比べない)', m => {
+  const d = 1 / Math.sqrt(m.invD2('cubic', 0.2866, 0.2866, 2, 2, 0));
+  return [['d220(本)', d, 0.1013, abs(0.00005)], ['d220(②)', d, 0.10132840174403226, rel(1e-12)], ['2θ(②)', m.twoTheta(d, 0.1790), 124.07793222910493, rel(1e-12)],
+    ['六方晶の (002) は c/2', 1 / Math.sqrt(m.invD2('hex', 0.25, 0.4, 0, 0, 2)), 0.2, rel(1e-12)], ['λ/2d > 1 は NaN', m.twoTheta(0.05, 0.15406), NaN, EQ]];
+});
+T('xrd', '回折パターンの線の並び(FCC の Cu・BCC の Fe)', '① B. D. Cullity, Elements of X-Ray Diffraction 3rd ed. 4 章の消滅則(FCC は hkl が全部偶数か全部奇数、BCC は h + k + l が偶数)と線の順。2θ は ② python(Cu a = 0.36146 nm・Cu Kα1 0.1540601 nm、Fe a = 0.28665 nm・Co Kα1 0.1789011 nm)', m => {
+  const cu = m.simulate({ type: 'fcc', a: 0.36146, ea: 'Cu', lam: 0.1540601, src: 'cuka1', B: 0, disp: 'off', mono: 'none', tmin: 20, tmax: 100 }).lines;
+  const fe = m.simulate({ type: 'bcc', a: 0.28665, ea: 'Fe', lam: 0.1789011, src: 'coka1', B: 0, disp: 'off', mono: 'none', tmin: 20, tmax: 165 }).lines;
+  return [['Cu の線', cu.map(l => l.label).join(' '), '(111) (200) (220) (311) (222)', EQ], ['Cu (111) の 2θ', cu[0].tt, 43.32197622613202, rel(1e-10)], ['Cu (311) の 2θ', cu[3].tt, 89.95022549032407, rel(1e-10)],
+    ['Fe の線', fe.map(l => l.label).join(' '), '(110) (200) (211) (220) (310)', EQ], ['Fe (211) の 2θ', fe[2].tt, 99.7029113065682, rel(1e-10)], ['いちばん強い線は 100', Math.max(...cu.map(l => l.rel)), 100, rel(1e-12)]];
+});
+T('xrd', '構造因子と消滅則', '① Cullity 3rd ed. 4-13 節の例(NaCl: F(111) = 4(f_Na − f_Cl)、F(200) = 4(f_Na + f_Cl)。BCC: F(100) = 0、F(110) = 2f。ダイヤモンド: F(200) = F(222) = 0、|F(111)|² = 32f²)。散乱因子を f_Na 11・f_Cl 17・f 10 に固定して', m => {
+  const F = (type, h, k, l, fa = 10, fb = 0) => m.structureFactor(m.STRUCT[type].sites(), { A: [fa, 0], B: [fb, 0] }, h, k, l);
+  const F2 = v => v[0] ** 2 + v[1] ** 2;
+  return [['NaCl F(111)', F('nacl', 1, 1, 1, 11, 17)[0], -24, abs(1e-9)], ['NaCl F(200)', F('nacl', 2, 0, 0, 11, 17)[0], 112, abs(1e-9)], ['BCC F(100)', F2(F('bcc', 1, 0, 0)), 0, abs(1e-9)],
+    ['BCC F(110)', F('bcc', 1, 1, 0)[0], 20, abs(1e-9)], ['ダイヤモンド F(200)', F2(F('diamond', 2, 0, 0)), 0, abs(1e-9)], ['ダイヤモンド F(222)', F2(F('diamond', 2, 2, 2)), 0, abs(1e-9)],
+    ['ダイヤモンド |F(111)|²', F2(F('diamond', 1, 1, 1)), 3200, abs(1e-9)], ['FCC F(100)', F2(F('fcc', 1, 0, 0)), 0, abs(1e-9)]];
+});
+T('xrd', '指数づけ(測った 2θ から構造と格子定数)', '② Cu(FCC、a = 0.36150 nm)・Cu Kα1 0.15406 nm の 2θ を python で出し(小数 4 桁に丸めた 43.3169・50.4493・74.1261・89.9375・95.1474°)、それを入れて FCC と a に戻るか。BCC の Fe も同じ(Co Kα1、a = 0.28665 nm)', m => {
+  const r = m.indexCubic([43.3169, 50.4493, 74.1261, 89.9375, 95.1474], 0.15406, 0.1, 'lsq').res[0];
+  const f = m.indexCubic([52.3753, 77.2338, 99.7029, 123.9212], 0.1789011, 0.1, 'lsq').res[0];
+  return [['Cu の構造', r.type, 'fcc', EQ], ['Cu の a(nm)', r.final.a, 0.36150, abs(1e-5)], ['合ったピーク', r.nMatch, 5, EQ], ['Fe の構造', f.type, 'bcc', EQ], ['Fe の a', f.final.a, 0.28665, abs(1e-5)]];
+});
+T('xrd', 'LP 因子と原子散乱因子', '① Cullity 3rd ed. の LP 因子 (1 + cos²2θ)/(sin²θ cosθ)(2θ = 90° で 2√2)。散乱角 0 の原子散乱因子は電子の数(International Tables Vol. C 表 6.1.1.4 の係数の和は Z に 0.05 以内で合う)。② 2θ = 43.3° は python', m => [
+  ['2θ = 90°', m.lpFactor(90, 'none', 0.15406), 2 * Math.SQRT2, rel(1e-12)], ['2θ = 43.3°', m.lpFactor(43.3, 'none', 0.15406), 12.091023757284082, rel(1e-12)],
+  ['f₀(Cu, 0)', m.f0('Cu', 0), 29, abs(0.05)], ['f₀(Fe, 0)', m.f0('Fe', 0), 26, abs(0.05)], ['f₀(Al, 0)', m.f0('Al', 0), 13, abs(0.05)], ['ない元素は NaN', m.f0('Xx', 0), NaN, EQ]]);
+T('xrd', '結晶子の大きさ・ひずみ・ピークの移動・ベガード則', '② Scherrer の式 D = Kλ/(β cosθ)(K 0.9、λ 0.15406 nm、β² = βm² − βi²)と Williamson–Hall の直線(scipy の linregress)、Δa/a = 0.2 % の 2θ の移動(厳密と −2ε tanθ)、ベガード則を check_testcalc2.py で', m => {
+  const rows = [[38.2, 0.30, 0.08], [44.4, 0.33, 0.08], [64.6, 0.42, 0.09], [77.6, 0.50, 0.10]].map(([tt, b, bi]) => ({ tt, b, bi }));
+  const r = m.sizeStrain(rows, 0.15406, 0.9, 'gauss'), sh = m.shiftOf(0.36146 / Math.sqrt(3), 0.1540601, 0.002);
+  return [['38.2° の D(nm)', r.pts[0].D, 29.07659633474687, rel(1e-12)], ['W–H の D', r.wh.D, 49.73917911048371, rel(1e-9)], ['W–H の ε', r.wh.eps, 0.0015417100557183591, rel(1e-9)],
+    ['移動(厳密)', sh.exact, -0.09082636133724975, rel(1e-9)], ['移動(近似)', sh.approx, -0.09102232885791328, rel(1e-9)], ['ベガード則の x', m.vegardX(0.3570, 0.36146, 0.3524), 0.49227373068432817, rel(1e-12)],
+    ['測った幅が装置の幅以下は使わない', m.sizeStrain([{ tt: 40, b: 0.05, bi: 0.08 }], 0.15406, 0.9, 'gauss').pts[0].ok, false, EQ]];
+});
+
+// =====================================================================
+// thermal(熱膨張・熱応力ラボ): 拘束の熱応力、バイメタル・Stoney、中空円筒、焼きばめ、熱衝撃、Eurocode の鋼の熱ひずみ
+// =====================================================================
+T('thermal', '両端を固定した棒の熱応力(Callister の例題)', '① Callister & Rethwisch 9th ed. 19 章の例題(黄銅の棒、20 ℃で応力なし、E 100 GPa・α 20 × 10⁻⁶/℃、圧縮 172 MPa を超えない温度: 106 ℃)', m => {
+  const f = t => m.conStress({ type: 'rod', E: 100e9, de: 20e-6 * (t - 20) }).s + 172e6;
+  return [['172 MPa になる温度(℃)', m.solveT(f, 20, 500), 106, abs(0.01)], ['86 ℃上げたときの応力(Pa)', m.conStress({ type: 'rod', E: 100e9, de: 20e-6 * 86 }).s, -172e6, rel(1e-12)]];
+});
+T('thermal', '拘束の種類ごとの熱応力', '② σ = −Eε(一軸)、−Eε/(1 − ν)(等二軸)、−Eε/(1 − 2ν)(3軸)、ばね −Eε/(1 + EA/(kL))、すき間 g の壁 −E(εL − g)/L を check_testcalc2.py で(アルミ E 70 GPa・ν 0.33・α 23 × 10⁻⁶・ΔT 100 K、鋼 E 200 GPa・ε 10⁻³)', m => [
+  ['等二軸', m.conStress({ type: 'plate', E: 70e9, nu: 0.33, de: 23e-6 * 100 }).s, -240298507.4626866, rel(1e-12)], ['3軸', m.conStress({ type: 'tri', E: 70e9, nu: 0.33, de: 23e-6 * 100 }).s, -473529411.7647059, rel(1e-12)],
+  ['ばね(k 10⁸ N/m、A 10⁻⁴ m²、L 1 m)', m.conStress({ type: 'spring', E: 200e9, de: 1e-3, L: 1, A: 1e-4, k: 1e8 }).s, -166666666.6666667, rel(1e-12)],
+  ['すき間 1 mm・L 2 m', m.conStress({ type: 'gap', E: 200e9, de: 1e-3, L: 2, g: 1e-3 }).s, -1e8, rel(1e-12)], ['すき間が埋まらなければ 0', m.conStress({ type: 'gap', E: 200e9, de: 1e-3, L: 0.5, g: 1e-3 }).s, 0, EQ]]);
+T('thermal', 'バイメタル・Stoney の式', '① Timoshenko(J. Opt. Soc. Am. 11 (1925) 233)の式で、厚さと E が同じときは 1/ρ = 3Δε/(2h)。② 一般の場合と Stoney の式 κ = 6σf tf/(Ms ts²)(Ms = E/(1 − ν))は check_testcalc2.py', m => [
+  ['同じ厚さ・同じ E(1/m)', m.bimetal({ E1: 200e9, E2: 200e9, t1: 1e-3, t2: 1e-3, de: 1e-3 }), 0.75, rel(1e-12)],
+  ['0.5 mm(200 GPa)と 1.5 mm(70 GPa)', m.bimetal({ E1: 200e9, E2: 70e9, t1: 0.5e-3, t2: 1.5e-3, de: 1e-3 }), 0.7017299592746006, rel(1e-12)],
+  ['Stoney の曲率(1/m)', m.stoneyK(200e6, 1e-6, 130e9 / (1 - 0.28), 500e-6), 0.026584615384615384, rel(1e-12)],
+  ['曲率から応力に戻す', m.stoneyS(0.026584615384615384, 1e-6, 130e9 / (1 - 0.28), 500e-6), 200e6, rel(1e-12)]]);
+T('thermal', '中空円筒の定常の熱応力', '② Timoshenko & Goodier, Theory of Elasticity 3rd ed. 151 節の閉じた式(σθ・σr・σz、両端自由)を check_testcalc2.py で(E 200 GPa、ν 0.3、α 12 × 10⁻⁶、内面が 100 K 高い、内径 50 mm・外径 100 mm の半径)', m => {
+  const p = { E: 200e9, nu: 0.3, a: 12, dT: 100, ra: 0.05, rb: 0.1 }, at = r => m.cylStress({ ...p, r });
+  return [['内面の σθ', at(0.05).st, -209823707.27617764, rel(1e-9)], ['外面の σθ', at(0.1).st, 133033435.58096519, rel(1e-9)], ['中ほどの σr', at(0.075).sr, -26704841.146214504, rel(1e-9)],
+    ['中ほどの σθ', at(0.075).st, 17439705.545861743, rel(1e-9)], ['内面の σz(= σθ)', at(0.05).sz, -209823707.27617767, rel(1e-9)], ['内面の σr は 0', at(0.05).sr, 0, abs(1)]];
+});
+T('thermal', '焼きばめ・熱衝撃・はんだの寿命', '② 同じ材料の中実の軸の焼きばめ p = Eδ/(2d)·(1 − d²/D²)(Shigley の厚肉円筒の式)、R = σf(1 − ν)/(Eα)、Manson の式、Engelmaier の式を check_testcalc2.py で', m => {
+  const l = m.lame({ dl: 50e-6, d: 0.05, D: 0.1, di: 0, Eo: 200e9, nuo: 0.3, Ei: 200e9, nui: 0.3 });
+  return [['しめしろ 50 µm の面圧(Pa)', l.p, 75e6, rel(1e-12)], ['外側の内面の σθ', l.sto, 125e6, rel(1e-12)], ['中実の軸の σθ = −p', l.sti, -75e6, rel(1e-12)],
+    ['R(K)', m.shockR(70e6, 0.22, 70e9, 9), 86.66666666666667, rel(1e-12)], ['Manson(β = 5)', m.manson(5), 0.4695675836338868, rel(1e-12)], ['β = 0 は 0', m.manson(0), 0, EQ],
+    ['はんだの寿命(回)', m.solder({ F: 0.7, LD: 3e-3, h: 0.1e-3, da: 10, dT: 100, Ts: 50, f: 2 }).N, 978.4241908792418, rel(1e-9)]];
+});
+T('thermal', '鋼の熱ひずみ(Eurocode 3)', '① EN 1993-1-2 3.4.1.1 の式(20 ℃で 0、750〜860 ℃は 1.1 × 10⁻²、860 ℃より上は 2 × 10⁻⁵θ − 6.2 × 10⁻³)。範囲の外は NaN(関数の決まり)', m => {
+  const s = m.matById('steel'), c = m.CURVES.steel;
+  return [['20 ℃', m.curveEps(c, 20), 0, abs(1e-12)], ['800 ℃', m.curveEps(c, 800), 1.1e-2, rel(1e-12)], ['1000 ℃', m.curveEps(c, 1000), 0.0138, rel(1e-12)],
+    ['20 → 800 ℃の熱ひずみ(曲線)', m.thStrain(s, 12, 20, 800, true).eps, 1.1e-2, rel(1e-12)], ['曲線を使わないとき', m.thStrain(s, 12, 20, 800, false).eps, 12e-6 * 780, rel(1e-12)],
+    ['1300 ℃は範囲の外', m.curveEps(c, 1300), NaN, EQ]];
+});
+
+// =====================================================================
+// lever(2元系状態図ラボ): Callister の例題のタイラインとてこの規則、組織、wt% と at%、理想溶液、PCHIP
+// =====================================================================
+T('lever', 'Cu–Ni の 35 % Ni・1250 ℃(Callister の例題)', '① Callister & Rethwisch 9th ed. 9 章の例題(C_L = 31.5、Cα = 42.5 wt% Ni、W_L = 0.68、Wα = 0.32)。組成は本の桁、分率は 2 桁', m => {
+  const p = m.locate('cuni', 35, 1250).phases;
+  return [['液相の組成', p[0][1], 31.5, abs(0.05)], ['α の組成', p[1][1], 42.5, abs(0.05)], ['液相の分率', p[0][2], 0.68, abs(0.005)], ['α の分率', p[1][2], 0.32, abs(0.005)]];
+});
+T('lever', 'Pb–Sn の 40 % Sn・150 ℃(Callister の例題)', '① Callister & Rethwisch 9th ed. 9 章の例題(Cα = 11、Cβ = 99 wt% Sn、Wα = 0.67、Wβ = 0.33)。共晶の点(183 ℃、18.3・61.9・97.8 wt% Sn)も Callister の図の値', m => {
+  const p = m.locate('pbsn', 40, 150).phases, inv = m.invariant(m.SYS.pbsn);
+  return [['α の組成', p[0][1], 11, abs(0.05)], ['β の組成', p[1][1], 99, abs(0.05)], ['α の分率', p[0][2], 0.67, abs(0.005)], ['β の分率', p[1][2], 0.33, abs(0.005)],
+    ['共晶温度', inv.t, 183, EQ], ['共晶の液相の組成', inv.phases[1][1], 61.9, EQ], ['183 ℃ちょうどは共晶の線の上', m.locate('pbsn', 40, 183).inv?.key, 'eut', EQ]];
+});
+T('lever', '共晶温度の直下の組織(Pb–Sn)', '② Callister 9 章の式(初晶 α′ = (61.9 − C₀)/(61.9 − 18.3)、α の全量 = (97.8 − C₀)/(97.8 − 18.3)、過共晶の初晶 β = (C₀ − 61.9)/(97.8 − 61.9))を check_testcalc2.py で', m => {
+  const a = m.constituents('pbsn', 40, 182), b = m.constituents('pbsn', 80, 182), w = (r, k) => r.parts.find(p => p.k === k).w;
+  return [['40 % Sn の初晶 α', w(a, 'pa'), 0.5022935779816514, rel(1e-12)], ['40 % Sn の共晶', w(a, 'eut'), 1 - 0.5022935779816514, rel(1e-12)],
+    ['40 % Sn の α の全量(共晶温度の直下)', m.invLevers('pbsn', 40).below[0][2], 0.7270440251572327, rel(1e-12)], ['80 % Sn の初晶 β', w(b, 'pb'), 0.5041782729805014, rel(1e-12)]];
+});
+T('lever', 'wt% と at%・密度', '① Callister & Rethwisch 9th ed. 4 章の例題(97 wt% Al–3 wt% Cu は 1.30 at% Cu)。② 50 wt% Ni(Cu–Ni)の at% と、比体積の和の密度(周期表ツールの Pb 11.3・Sn 7.265 g/cm³ を入力)は check_testcalc2.py。原子量は IUPAC の標準原子量', m => [
+  ['3 wt% Cu(本)', m.toAt(m.SYS.alcu, 3), 1.30, abs(0.005)], ['3 wt% Cu(②)', m.toAt(m.SYS.alcu, 3), 1.2961920335735928, rel(1e-12)], ['50 wt% Ni', m.toAt(m.SYS.cuni, 50), 51.98504568918267, rel(1e-12)],
+  ['at% から wt% に戻す', m.toWt(m.SYS.cuni, 51.98504568918267), 50, rel(1e-12)], ['0 と 100 はそのまま', m.toAt(m.SYS.cuni, 100), 100, EQ], ['Pb–40 % Sn の密度', m.rhoOf(m.SYS.pbsn, 40), 9.245917333032999, rel(1e-12)]]);
+T('lever', '理想溶液の固相線・液相線と PCHIP', '② 固相と液相で各成分の化学ポテンシャルが等しい式(ΔHf Cu 13.26・Ni 17.48 kJ/mol、Tm Cu 1084.62・Ni 1455 ℃、Ω = 0、1300 ℃)を scipy の fsolve で解いた値と、scipy の PchipInterpolator の値(check_testcalc2.py)', m => {
+  const r = m.solveReg(1300 + 273.15, { HA: 13260, TA: 1084.62 + 273.15, HB: 17480, TB: 1455 + 273.15 }), f = m.pchip([[0, 0], [1, 1], [2, 4], [3, 3], [5, 0]]);
+  return [['固相の x_Ni', r[0], 0.6069948871573703, rel(1e-9)], ['液相の x_Ni', r[1], 0.5384295991830507, rel(1e-9)], ['融点より上では解なし', m.solveReg(1500 + 273.15, { HA: 13260, TA: 1357.77, HB: 17480, TB: 1728.15 }), null, EQ],
+    ['PCHIP(0.5)', f(0.5), 0.3125, rel(1e-12)], ['PCHIP(1.5)', f(1.5), 2.6875, rel(1e-12)], ['PCHIP(2.5)', f(2.5), 3.6467391304347827, rel(1e-12)], ['PCHIP(4)', f(4), 1.664855072463768, rel(1e-12)],
+    ['てこの規則', m.lever(40, 11, 99), 59 / 88, rel(1e-12)], ['範囲の外は null', m.locate('pbsn', 40, 400), null, EQ]];
+});
+
+// =====================================================================
+// xtal(結晶構造ビューア): 単位格子の値、すき間、面密度・線密度、すべり系、六方最密
+// =====================================================================
+T('xtal', '単位格子の原子数・配位数・充填率', '① Callister & Rethwisch 9th ed. 3 章(SC 1・6・π/6、BCC 2・8・√3π/8、FCC 4・12・√2π/6、HCP(c/a = √(8/3))6・12・√2π/6)とダイヤモンド構造(8・4・√3π/16)。原子半径は a の単位で BCC √3/4、FCC √2/4', m => {
+  const c = st => m.cellInfo(st);
+  return [['SC の原子数', c('sc').n, 1, rel(1e-12)], ['SC の配位数', c('sc').cn, 6, EQ], ['SC の充填率', c('sc').apf, Math.PI / 6, rel(1e-12)],
+    ['BCC の原子数', c('bcc').n, 2, rel(1e-12)], ['BCC の配位数', c('bcc').cn, 8, EQ], ['BCC の充填率', c('bcc').apf, Math.sqrt(3) * Math.PI / 8, rel(1e-12)], ['BCC の r/a', c('bcc').r, Math.sqrt(3) / 4, rel(1e-12)],
+    ['FCC の原子数', c('fcc').n, 4, rel(1e-12)], ['FCC の配位数', c('fcc').cn, 12, EQ], ['FCC の充填率', c('fcc').apf, Math.SQRT2 * Math.PI / 6, rel(1e-12)], ['FCC の r/a', c('fcc').r, Math.SQRT2 / 4, rel(1e-12)],
+    ['ダイヤモンドの原子数', c('diamond').n, 8, rel(1e-12)], ['ダイヤモンドの配位数', c('diamond').cn, 4, EQ], ['ダイヤモンドの充填率', c('diamond').apf, Math.sqrt(3) * Math.PI / 16, rel(1e-12)],
+    ['HCP の原子数', c('hcp').n, 6, rel(1e-12)], ['HCP の充填率', c('hcp').apf, Math.SQRT2 * Math.PI / 6, rel(1e-12)]];
+});
+T('xtal', 'すき間の数と入る球の半径比', '① すき間の幾何(FCC・HCP の八面体 √2 − 1 = 0.414・四面体 √(3/2) − 1 = 0.225、原子 1 個あたり 1 個と 2 個。BCC の八面体 2/√3 − 1 = 0.155(短い方)・四面体 √(5/3) − 1 = 0.291、単位格子に 6 個と 12 個。SC の立方体のすき間 √3 − 1)', m => {
+  const v = (st, k) => m.voidInfo(st, k);
+  return [['FCC 八面体の比', v('fcc', 'oct').ratio, Math.SQRT2 - 1, rel(1e-12)], ['FCC 八面体の数', v('fcc', 'oct').n, 4, rel(1e-12)], ['FCC 四面体の比', v('fcc', 'tet').ratio, Math.sqrt(1.5) - 1, rel(1e-12)], ['FCC 四面体の数', v('fcc', 'tet').n, 8, rel(1e-12)],
+    ['BCC 八面体の比', v('bcc', 'oct').ratio, 2 / Math.sqrt(3) - 1, rel(1e-12)], ['BCC 八面体の数', v('bcc', 'oct').n, 6, rel(1e-12)], ['BCC 四面体の比', v('bcc', 'tet').ratio, Math.sqrt(5 / 3) - 1, rel(1e-12)], ['BCC 四面体の数', v('bcc', 'tet').n, 12, rel(1e-12)],
+    ['HCP 八面体は原子 1 個に 1 個', v('hcp', 'oct').perAtom, 1, rel(1e-12)], ['HCP 四面体は原子 1 個に 2 個', v('hcp', 'tet').perAtom, 2, rel(1e-12)], ['SC 立方体のすき間の比', v('sc', 'cube').ratio, Math.sqrt(3) - 1, rel(1e-12)]];
+});
+T('xtal', '面密度と線密度(a の単位)', '① Callister & Rethwisch 9th ed. 3 章の面密度・線密度の例題の考え方(FCC (100) 2/a²、(110) √2/a²、(111) 4/(√3a²)、BCC (100) 1/a²、(110) √2/a²、(111) は面の間隔が a/(2√3) なので 1/(√3a²)。線密度 FCC [110] √2/a、[100] 1/a、BCC [111] 2/(√3a))', m => {
+  const p = (st, h) => m.planeInfo(st, h).pd, l = (st, u) => m.lineInfo(st, u).ld;
+  return [['FCC (100)', p('fcc', [1, 0, 0]), 2, rel(1e-12)], ['FCC (110)', p('fcc', [1, 1, 0]), Math.SQRT2, rel(1e-12)], ['FCC (111)', p('fcc', [1, 1, 1]), 4 / Math.sqrt(3), rel(1e-12)],
+    ['BCC (100)', p('bcc', [1, 0, 0]), 1, rel(1e-12)], ['BCC (110)', p('bcc', [1, 1, 0]), Math.SQRT2, rel(1e-12)], ['BCC (111)', p('bcc', [1, 1, 1]), 1 / Math.sqrt(3), rel(1e-12)],
+    ['FCC [110]', l('fcc', [1, 1, 0]), Math.SQRT2, rel(1e-12)], ['FCC [100]', l('fcc', [1, 0, 0]), 1, rel(1e-12)], ['BCC [111]', l('bcc', [1, 1, 1]), 2 / Math.sqrt(3), rel(1e-12)],
+    ['(000) は null', m.planeInfo('fcc', [0, 0, 0]), null, EQ], ['[000] は null', m.lineInfo('fcc', [0, 0, 0]), null, EQ]];
+});
+T('xtal', 'すべり系と六方最密の面', '① Callister & Rethwisch 9th ed. 表 7.1(FCC {111}⟨110⟩ と BCC {110}⟨111⟩ はどちらも 12 のすべり系)。HCP の底面は面密度 2/(√3a²)、充填率 π/(2√3) = 0.9069', m => [
+  ['FCC のすべり系の数', m.SLIP.fcc.length, 12, EQ], ['BCC のすべり系の数', m.SLIP.bcc.length, 12, EQ], ['FCC (111)[1−10]', m.slipFamily('fcc', [1, 1, 1], [1, -1, 0]), 'fcc', EQ],
+  ['BCC (110)[1−11]', m.slipFamily('bcc', [1, 1, 0], [1, -1, 1]), 'bcc011', EQ], ['面の中にない方向は null', m.slipFamily('fcc', [1, 1, 1], [1, 0, 0]), null, EQ],
+  ['HCP 底面の面密度', m.hcpPlaneInfo('basal', m.IDEAL_CA).pd, 2 / Math.sqrt(3), rel(1e-12)], ['HCP 底面の充填率', m.hcpPlaneInfo('basal', m.IDEAL_CA).ppf, Math.PI / (2 * Math.sqrt(3)), rel(1e-12)]]);
+
+// =====================================================================
+// eng(電子回路の計算の共通部品): E 系列と SI 接頭辞の表示
+// =====================================================================
+T('eng', '抵抗の E 系列', '① IEC 60063 の E24・E12 の値(1.0 1.1 1.2 1.3 1.5 1.6 1.8 2.0 2.2 2.4 2.7 3.0 3.3 3.6 3.9 4.3 4.7 5.1 5.6 6.2 6.8 7.5 8.2 9.1)。eUp は x 以上で最小、eNear は対数で最も近い値', m => [
+  ['E24 の数', m.E24.length, 24, EQ], ['E24 の 4.3・5.1', `${m.E24[15]} ${m.E24[17]}`, '4.3 5.1', EQ], ['E12 の数', m.E12.length, 12, EQ],
+  ['4.5 kΩ 以上の E24', m.eUp(4500), 4700, EQ], ['5.0 kΩ に最も近い E24', m.eNear(5000), 5100, EQ], ['1.5 kΩ に最も近い E12', m.eNear(1500, m.E12), 1500, EQ], ['ちょうど 1 kΩ', m.eUp(1000), 1000, EQ],
+  ['9.5 Ω 以上の E24 は次の桁', m.eUp(9.5), 10, EQ], ['0 は NaN', m.eUp(0), NaN, EQ], ['負は NaN', m.eNear(-1), NaN, EQ]]);
+T('eng', 'SI 接頭辞と指数の表示', '① SI 文書(第 9 版)の接頭辞(k = 10³、M = 10⁶、µ = 10⁻⁶ など)。丸めて 1000 になるときは次の接頭辞、負はマイナス記号「−」(関数の決まり)', m => [
+  ['4700 Ω', m.si(4700, 'Ω'), '4.7 kΩ', EQ], ['999.6 Ω は 1 kΩ', m.si(999.6, 'Ω'), '1 kΩ', EQ], ['2.2 × 10⁻⁶ F', m.si(2.2e-6, 'F'), '2.2 µF', EQ], ['−0.0033 A', m.si(-0.0033, 'A'), '−3.3 mA', EQ],
+  ['0', m.si(0, 'V'), '0 V', EQ], ['数でないとき', m.si(NaN, 'V'), '–', EQ], ['5.913 × 10⁻¹²', m.sci(5.913e-12), '5.913 × 10⁻¹²', EQ], ['指数 0 は数だけ', m.sci(3.2), '3.200', EQ]]);
+
+T('eng', '数の表示(有効数字・マイナス記号)', '関数の決まり(既定の有効数字 3 桁、英語の桁区切り、負はマイナス記号「−」、−0 は「0」、数でないときは「–」)', m => [
+  ['1234567', m.num(1234567), '1,230,000', EQ], ['0.012345(4 桁)', m.num(0.012345, 4), '0.01235', EQ], ['−0.0001', m.num(-0.0001), '−0.0001', EQ], ['−0', m.num(-0), '0', EQ], ['NaN', m.num(NaN), '–', EQ]]);
+
+// =====================================================================
+// ptable(材料のための周期表): 周期表の位置と、格子定数から出した密度・半径・充填率
+// =====================================================================
+T('ptable', '周期表の位置', '① IUPAC の周期表(18 族の長周期型。Fe は 4 周期 8 族、Au は 6 周期 11 族、Hf は 6 周期 4 族、ランタノイドは下の段)', m => [
+  ['H', m.pos(1).join(','), '1,1', EQ], ['He', m.pos(2).join(','), '1,18', EQ], ['B', m.pos(5).join(','), '2,13', EQ], ['Al', m.pos(13).join(','), '3,13', EQ], ['Fe', m.pos(26).join(','), '4,8', EQ],
+  ['Ag', m.pos(47).join(','), '5,11', EQ], ['Ba', m.pos(56).join(','), '6,2', EQ], ['La は下の段', m.pos(57).join(','), '8,3', EQ], ['Hf', m.pos(72).join(','), '6,4', EQ], ['Au', m.pos(79).join(','), '6,11', EQ]]);
+T('ptable', '格子定数から出した密度・原子間距離の半分・充填率', '② x = nM/(N_A a³)(原子量は CIAAW の標準原子量 Fe 55.845・Cu 63.546・Al 26.982・W 183.84、a は表の値)を check_testcalc2.py で。h は BCC √3a/4・FCC √2a/4(pm)、f は ① BCC 0.68・FCC 0.74(表の桁)', m => {
+  const e = s => m.EL.find(x => x.s === s);
+  return [['Fe の x', e('Fe').x, 7.874220103783387, abs(0.0005)], ['Cu の x', e('Cu').x, 8.937510696804765, abs(0.0005)], ['Al の x', e('Al').x, 2.6986517450965426, abs(0.0005)], ['W の x', e('W').x, 19.253763523041275, abs(0.005)],
+    ['Fe の h', e('Fe').h, e('Fe').a * 1000 * Math.sqrt(3) / 4, abs(0.05)], ['Cu の h', e('Cu').h, e('Cu').a * 1000 * Math.SQRT2 / 4, abs(0.05)], ['Fe の f', e('Fe').f, 0.68, EQ], ['Cu の f', e('Cu').f, 0.74, EQ]];
+});
+T('ptable', '境目: 図の濃淡の段', '関数の決まり(区切りの値以上で次の段。密度は 2・4・7・10・15 g/cm³、気体と範囲で示したヤング率は塗らない、値なしは −1)。Fe のヤング率 211 GPa は ① WebElements の値', m => {
+  const e = s => m.EL.find(x => x.s === s);
+  return [['気体の密度は塗らない', m.valueOf(e('N'), 'rho'), undefined, EQ], ['密度 7.87 は 4 段目(7〜10)', m.binOf(7.87, 'rho'), 3, EQ], ['ちょうど 7 も 4 段目', m.binOf(7, 'rho'), 3, EQ],
+    ['2 未満は 1 段目', m.binOf(0.53, 'rho'), 0, EQ], ['値なしは −1', m.binOf(undefined, 'rho'), -1, EQ], ['Fe のヤング率', m.valueOf(e('Fe'), 'E'), 211, EQ]];
+});
+
+// =====================================================================
+// drill(計算ドリル): 種で決まる問題を作り、その答えをこのテストの中の式で別に出して比べる
+// =====================================================================
+// 問題の型と数値の範囲は data/drill.json。名前は問題の数値に関係しないので、鍵をそのまま返すものにする
+const DRILL = JSON.parse(readFileSync(new URL('../data/drill.json', import.meta.url), 'utf8'));
+const NAME = new Proxy({}, { get: (_, k) => String(k) });
+const DX = { D: DRILL.data, N: { el: NAME, mat: NAME, x: NAME, diff: NAME } };
+const SEEDS = Array.from({ length: 20 }, (_, i) => i + 1);
+// 誤差関数(マクローリン級数、|x| ≤ 3 で使う)と erfc の逆(二分法)。浸炭の問題の z のために、拡散のツールとは別に書く
+const erfS = x => { let t = x, s = x; for (let n = 1; n < 120; n++) { t *= -x * x / n; s += t / (2 * n + 1); } return 2 / Math.sqrt(Math.PI) * s; };
+const ierfcS = p => { let lo = 0, hi = 3; for (let i = 0; i < 100; i++) { const mid = (lo + hi) / 2; if (1 - erfS(mid) > p) lo = mid; else hi = mid; } return (lo + hi) / 2; };
+// Callister 9 章の Fe–Fe₃C と共晶系の点(wt%)、IUPAC の標準原子量
+const FE = { P: 0.022, S: 0.76, CM: 6.70 }, EUT = { pbsn: [18.3, 61.9, 97.8], agcu: [8.0, 71.9, 91.2], alsi: [1.65, 12.6, 100] };
+const AW = { Cu: 63.546, Ni: 58.693, Pb: 207.2, Sn: 118.71, Al: 26.982, Si: 28.085, Ag: 107.87, Pt: 195.08 };
+const AB = { cuni: ['Cu', 'Ni'], pbsn: ['Pb', 'Sn'], agcu: ['Cu', 'Ag'], alsi: ['Al', 'Si'], alcu: ['Al', 'Cu'], ptag: ['Pt', 'Ag'] };
+const CK = c => c + 273.15, Rg = DRILL.data.c.R;
+const ANS = {
+  'd-spacing': v => v.a / Math.hypot(v.h, v.k, v.l),
+  'bragg-angle': v => 2 * Math.asin(v.lam * Math.hypot(v.h, v.k, v.l) / (2 * v.a)) * 180 / Math.PI,
+  'lattice-from-peak': v => v.lam / (2 * Math.sin(v.tt / 2 * Math.PI / 180)) * Math.hypot(v.h, v.k, v.l),
+  density: v => (v.st === 'bcc' ? 2 : 4) * DRILL.data.aw[v.mat] / (DRILL.data.c.NA * (v.a * 1e-7) ** 3),
+  'atomic-radius': v => (v.v === 'a2r' ? v.a * (v.st === 'bcc' ? Math.sqrt(3) : Math.SQRT2) / 4 : v.rr * (v.st === 'bcc' ? 4 / Math.sqrt(3) : 2 * Math.SQRT2)),
+  'planar-density': v => ({ bcc: { 100: 1, 110: 2 / Math.SQRT2, 111: 0.5 / (Math.sqrt(3) / 2) }, fcc: { 100: 2, 110: 2 / Math.SQRT2, 111: 2 / (Math.sqrt(3) / 2) } })[v.st][v.pl] / v.a ** 2,
+  proeutectoid: v => { const w = v.v.startsWith('hypo') ? (FE.S - v.c0) / (FE.S - FE.P) : (v.c0 - FE.S) / (FE.CM - FE.S); return v.v.endsWith('pro') ? w : 1 - w; },
+  eutectic: v => {
+    const [ca, ce, cb] = EUT[v.sys], hypo = v.v.startsWith('hypo'), we = hypo ? (v.c0 - ca) / (ce - ca) : (cb - v.c0) / (cb - ce);
+    return { eut: we, prim: 1 - we, phase: hypo ? (cb - v.c0) / (cb - ca) : (v.c0 - ca) / (cb - ca) }[v.v.split('-')[1]];
+  },
+  'wt-at': v => { const [A, B] = AB[v.sys]; return v.v === 'w2a' ? 100 * (v.x / AW[B]) / (v.x / AW[B] + (100 - v.x) / AW[A]) : 100 * v.x * AW[B] / (v.x * AW[B] + (100 - v.x) * AW[A]); },
+  arrhenius: v => v.D0 * Math.exp(-v.Q * 1e3 / (Rg * CK(v.tc))),
+  'carb-depth': v => 2 * ierfcS((v.cx - v.c0) / (v.cs - v.c0)) * Math.sqrt(v.D0 * Math.exp(-v.Q * 1e3 / (Rg * CK(v.tc))) * v.hours * 3600) * 1e3,
+  'carb-time': v => (v.x / 1e3 / (2 * ierfcS((v.cx - v.c0) / (v.cs - v.c0)))) ** 2 / (v.D0 * Math.exp(-v.Q * 1e3 / (Rg * CK(v.tc)))) / 3600,
+  'time-temp': v => v.h1 * Math.exp(v.Q * 1e3 / Rg * (1 / CK(v.t2c) - 1 / CK(v.t1c))),
+  'true-stress': v => (v.v === 'stress' ? v.s * (1 + v.e) : Math.log(1 + v.e)),
+  'kic-crack': v => (v.v === 'internal' ? 2 : 1) * (v.K / (v.Y * v.s)) ** 2 / Math.PI * 1e3,
+  'thermal-stress': v => { const k = v.E * 1e3 * v.al * 1e-6; return v.v === 'stress' ? k * (v.t2 - v.t1) : v.t1 + v.sa / k; },
+  rom: v => { const w = v.f / 100, vf = v.basis === 'mass' ? (w / v.rf) / (w / v.rf + (1 - w) / v.rm) : w; return vf * v.ef + (1 - vf) * v.em; },
+  faraday: v => { const M = DRILL.data.aw[v.mat], F = DRILL.data.c.F; return v.v === 'mass' ? v.I * v.days * 86400 * M / (v.n * F) : v.i * 1e-6 * M / (v.n * F * v.d) * 365 * 86400 * 1e4; },
+  'larson-miller': v => { const C = DRILL.data.c.LMC, P = CK(v.t1c) * (C + Math.log10(v.h1)); return v.v === 'time' ? 10 ** (P / CK(v.t2c) - C) : P / (C + Math.log10(v.h2)) - 273.15; },
+  vacancy: v => DRILL.data.c.NA * v.d / DRILL.data.aw[v.mat] * 1e6 * Math.exp(-v.Qv / (DRILL.data.c.kB * CK(v.tc))),
+  'hall-petch': v => { const x = d => 1 / Math.sqrt(d * 1e-6), k = (v.s1 - v.s2) / (x(v.d1) - x(v.d2)); return v.s1 + k * (x(v.d3) - x(v.d1)); },
+  schmid: v => {
+    const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2], n = a => Math.sqrt(dot(a, a));
+    const mm = Math.abs(dot(v.ax, v.pl)) / (n(v.ax) * n(v.pl)) * Math.abs(dot(v.ax, v.b)) / (n(v.ax) * n(v.b));
+    return v.v === 'tau' ? v.s * mm : v.tc / mm;
+  },
+  'kic-stress': v => v.K / (v.Y * Math.sqrt(Math.PI * v.a / 1e3)),
+  'film-stress': v => v.E * 1e3 / (1 - v.nu) * (v.af - v.as) * 1e-6 * (v.t1 - v.t2),
+  bimetal: v => {
+    // σ1A1 + σ2A2 = 0 と α1ΔT + σ1/E1 = α2ΔT + σ2/E2 の連立1次方程式をクラメルの公式で
+    const E1 = v.E1 * 1e3, E2 = v.E2 * 1e3, r = (v.a2 - v.a1) * 1e-6 * v.dT, det = v.A1 * (-1 / E2) - v.A2 / E1;
+    const s1 = (0 * (-1 / E2) - v.A2 * r) / det, s2 = (v.A1 * r - 0 / E1) / det;
+    return Math.abs((v.v === 'hi') === (v.a1 > v.a2) ? s1 : s2);
+  },
+  'rom-trans': v => { const w = v.f / 100, vf = v.basis === 'mass' ? (w / v.rf) / (w / v.rf + (1 - w) / v.rm) : w; return 1 / (vf / v.ef + (1 - vf) / v.em); },
+  semiconductor: v => { const s = v.Nd * 1e6 * DRILL.data.c.e * v.mu * 1e-4; return v.v === 'rho' ? 1 / s : s; },
+  'wire-resistance': v => { const c = DRILL.data.cond[v.cond]; return c.r20 * (1 + c.aR * (v.tc - 20)) * v.L / (Math.PI * (v.d / 1e3) ** 2 / 4); },
+};
+const drillChecks = (m, ids, tol) => ids.flatMap(id => {
+  const T0 = DRILL.types.find(t => t.id === id);
+  return SEEDS.map(seed => { const p = m.makeProblem(T0, seed, DX); return [`${id} 種 ${seed}(${JSON.stringify(p.vals)})`, p.sol.ans, ANS[id](p.vals), tol]; });
+});
+T('drill', '種つきの乱数(mulberry32)', '② mulberry32 と FNV-1a の種の混ぜ方を python で別に書いた値(check_testcalc2.py、型 d-spacing の種 1・2・3 の最初の 3 つ)。同じ種なら同じ問題', m => {
+  const r = s => { const g = m.makeRng(s, 'd-spacing'); return [g.f(), g.f(), g.f()]; };
+  const T0 = DRILL.types.find(t => t.id === 'density');
+  return [['種 1', r(1).join(' '), [0.6574787879362702, 0.044178798561915755, 0.3103187601082027].join(' '), EQ], ['種 2', r(2).join(' '), [0.1472165088634938, 0.7230713723693043, 0.7788771432824433].join(' '), EQ],
+    ['種 3', r(3).join(' '), [0.6189667207654566, 0.890563829569146, 0.540736568858847].join(' '), EQ],
+    ['同じ種の問題は同じ', JSON.stringify(m.makeProblem(T0, 7, DX).vals), JSON.stringify(m.makeProblem(T0, 7, DX).vals), EQ]];
+});
+T('drill', '結晶の問題の答え(種 1〜20)', '① Callister 3 章の式(立方晶の d = a/√(h² + k² + l²)、ブラッグの式 λ = 2d sinθ、理論密度 ρ = nA/(V_C N_A)、BCC 4r = √3a・FCC 4r = √2a、面密度)をこのテストの中で書き、問題の数値から出した値。問題文の定数(N_A・原子量)は data/drill.json の値', m =>
+  drillChecks(m, ['d-spacing', 'bragg-angle', 'lattice-from-peak', 'density', 'atomic-radius', 'planar-density'], rel(1e-12)));
+T('drill', '状態図の問題の答え(種 1〜20)', '① Callister 9 章のてこの規則と点(Fe–Fe₃C の 0.022・0.76・6.70 wt% C、共晶 Pb–Sn 18.3・61.9・97.8、Cu–Ag 8.0・71.9・91.2 wt%)、Al–Si の共晶(1.65・12.6 wt% Si、ASM の Al–Si 状態図の定番の値。Si 側は純 Si の 100)と、IUPAC の標準原子量での wt% ↔ at% をこのテストの中で', m =>
+  drillChecks(m, ['proeutectoid', 'eutectic', 'wt-at'], rel(1e-12)));
+T('drill', '拡散の問題の答え(種 1〜20)', '① Callister 5 章の式(D = D₀ exp(−Q/RT)、一定表面濃度の (Cx − C₀)/(Cs − C₀) = erfc(x/2√(Dt))、同じ Dt になる時間)をこのテストの中で。erfc の逆は級数と二分法で別に書く。② check_testcalc2.py の scipy の erfcinv でも種 1〜5 が合う', m =>
+  drillChecks(m, ['arrhenius', 'carb-depth', 'carb-time', 'time-temp'], rel(1e-9)));
+T('drill', '機械・熱・複合材・電気化学・クリープの問題の答え(種 1〜20)', '① 標準の式(真応力 σ(1 + ε)・真ひずみ ln(1 + ε)、Hall–Petch、Schmid 因子 cosφ cosλ、破壊靱性 σ = K/(Y√(πa))・a = (K/(Yσ))²/π、拘束の熱応力 EαΔT、薄膜 Eα差ΔT/(1 − ν)、2本の棒のつり合い、複合則 Vf Ef + Vm Em と逆複合則(質量率は体積率に直す)、ファラデーの法則 m = ItM/(nF)、Larson–Miller P = T(C + log t)、空孔 N exp(−Qv/kT)、σ = neμ、R = ρ(1 + αΔT)L/A)をこのテストの中で。問題文の定数は data/drill.json の値', m =>
+  drillChecks(m, ['true-stress', 'hall-petch', 'schmid', 'kic-stress', 'kic-crack', 'thermal-stress', 'film-stress', 'bimetal', 'rom', 'rom-trans', 'faraday', 'larson-miller', 'vacancy', 'semiconductor', 'wire-resistance'], rel(1e-9)));
+T('drill', '答えの判定と入力の読み取り', '関数の決まり(相対の許容差で比べる、単位は換算してから。よくある間違いの値・10 の累乗のずれ・符号を見分ける。2,3 × 10^-5 などを読む)。温度の換算は ① SI(T/K = t/℃ + 273.15)', m => {
+  const sol = { ans: 0.2, fam: 'len', unit: 'nm', alt: { half: 0.1 } };
+  return [['同じ値', m.judge(sol, 0.2, 'nm', 0.01).ok, true, EQ], ['Å で入れても同じ', m.judge(sol, 2, 'Å', 0.01).ok, true, EQ], ['1 % の中', m.judge(sol, 0.2019, 'nm', 0.01).ok, true, EQ], ['1 % の外', m.judge(sol, 0.2021, 'nm', 0.01).ok, false, EQ],
+    ['よくある間違い', m.judge(sol, 0.1, 'nm', 0.01).hint?.id, 'half', EQ], ['100 倍', m.judge(sol, 20, 'nm', 0.01).hint?.n, 2, EQ], ['符号', m.judge(sol, -0.2, 'nm', 0.01).hint?.kind, 'sign', EQ],
+    ['25 ℃ → K', m.convert('temp', 25, '°C', 'K'), 298.15, rel(1e-12)], ['2 h → min', m.convert('time', 2, 'h', 'min'), 120, rel(1e-12)],
+    ['「2,3 × 10^-5 m2/s」', m.parseAnswer('2,3 × 10^-5 m2/s', 'diff', 'en')?.v, 2.3e-5, rel(1e-12)], ['その単位', m.parseAnswer('2,3 × 10^-5 m2/s', 'diff', 'en')?.u, 'm²/s', EQ],
+    ['ドイツ語の「1.234,5」', m.parseAnswer('1.234,5', 'len', 'de')?.v, 1234.5, rel(1e-12)], ['英語の「1,234」は桁区切り', m.parseAnswer('1,234', 'len', 'en')?.v, 1234, rel(1e-12)], ['数でない', m.parseAnswer('abc', 'len', 'en'), null, EQ]];
+});
 
 // =====================================================================
 // 実行
