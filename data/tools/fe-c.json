@@ -591,7 +591,7 @@
         },
         {
           "h": "Ac・Ar と、合金元素が変態点を動かすしくみ",
-          "p": "状態図の A1・A3 は平衡の温度ですが、実際の加熱では変態が遅れて高い側(Ac1・Ac3)、冷却では低い側(Ar1・Ar3)にずれ、ずれは加熱・冷却が速いほど大きくなります。焼入れや焼ならしの加熱温度は、加熱時の Ac3(過共析鋼では Ac1)を基準に決めます。合金元素は変態点を動かし、その向きは経験式の係数の符号に表れます。Andrews の式では Ni と Mn が Ac1 を下げ(オーステナイトを安定にする元素)、Si と Cr が上げます(フェライトを安定にする元素)。Ac3 は炭素の平方根に比例して下がり、Si・Mo・V・W で上がります。Ms は炭素で大きく下がり(1 % あたり約420〜470 ℃)、Mn・Ni・Cr・Mo でも下がります。経験式は限られた鋼のデータに合わせた式なので、式ごとに作られた成分の範囲があり、同じ成分でも式によって数〜十数℃違います。"
+          "p": "状態図の A1・A3 は平衡の温度ですが、実際の加熱では変態が遅れて高い側(Ac1・Ac3)、冷却では低い側(Ar1・Ar3)にずれ、ずれは加熱・冷却が速いほど大きくなります。焼入れの加熱温度は加熱時の Ac3(過共析鋼では Ac1)、焼ならしは Ac3(過共析鋼では Acm)を基準に決めます。合金元素は変態点を動かし、その向きは経験式の係数の符号に表れます。Andrews の式では Ni と Mn が Ac1 を下げ(オーステナイトを安定にする元素)、Si と Cr が上げます(フェライトを安定にする元素)。Ac3 は炭素の平方根に比例して下がり、Si・Mo・V・W で上がります。Ms は炭素で大きく下がり(1 % あたり約420〜470 ℃)、Mn・Ni・Cr・Mo でも下がります。経験式は限られた鋼のデータに合わせた式なので、式ごとに作られた成分の範囲があり、同じ成分でも式によって数〜十数℃違います。"
         },
         {
           "h": "マルテンサイト変態: Ms・Mf と残留オーステナイト",
@@ -1063,7 +1063,7 @@
         },
         {
           "h": "Ac and Ar, and how alloying elements shift the transformation temperatures",
-          "p": "A1 and A3 on the phase diagram are equilibrium temperatures, but in real heating the transformations lag and shift up (Ac1, Ac3), and on cooling they shift down (Ar1, Ar3), more so the faster the heating or cooling. Heating temperatures for hardening and normalizing are set with reference to Ac3 on heating (Ac1 for hypereutectoid steels). Alloying elements shift the transformation temperatures, and the direction shows in the signs of the coefficients of the empirical formulas. In Andrews’s formula, Ni and Mn lower Ac1 (austenite stabilizers) and Si and Cr raise it (ferrite stabilizers). Ac3 falls with the square root of carbon and rises with Si, Mo, V and W. Ms falls steeply with carbon (by about 420–470 °C per 1 %) and also with Mn, Ni, Cr and Mo. Empirical formulas are fitted to data from a limited set of steels, so each has its own composition range, and different formulas give values several to more than ten degrees apart for the same composition."
+          "p": "A1 and A3 on the phase diagram are equilibrium temperatures, but in real heating the transformations lag and shift up (Ac1, Ac3), and on cooling they shift down (Ar1, Ar3), more so the faster the heating or cooling. The hardening temperature is set with reference to Ac3 on heating (Ac1 for hypereutectoid steels), and the normalizing temperature with reference to Ac3 (Acm for hypereutectoid steels). Alloying elements shift the transformation temperatures, and the direction shows in the signs of the coefficients of the empirical formulas. In Andrews’s formula, Ni and Mn lower Ac1 (austenite stabilizers) and Si and Cr raise it (ferrite stabilizers). Ac3 falls with the square root of carbon and rises with Si, Mo, V and W. Ms falls steeply with carbon (by about 420–470 °C per 1 %) and also with Mn, Ni, Cr and Mo. Empirical formulas are fitted to data from a limited set of steels, so each has its own composition range, and different formulas give values several to more than ten degrees apart for the same composition."
         },
         {
           "h": "The martensite transformation: Ms, Mf and retained austenite",
@@ -1535,7 +1535,7 @@
         },
         {
           "h": "Ac、Ar與合金元素移動變態點的機制",
-          "p": "相圖的A1、A3是平衡溫度，但實際加熱時變態會延遲而偏向高溫側（Ac1、Ac3），冷卻時偏向低溫側（Ar1、Ar3），加熱與冷卻越快，偏移越大。淬火與正常化的加熱溫度，以加熱時的Ac3（過共析鋼為Ac1）為基準決定。合金元素會移動變態點，其方向表現在經驗式係數的正負號上。在Andrews的公式中，Ni與Mn使Ac1下降（使沃斯田鐵穩定的元素），Si與Cr使其上升（使肥粒鐵穩定的元素）。Ac3與碳的平方根成比例下降，並因Si、Mo、V、W而上升。Ms因碳而大幅下降（每1 %約420〜470 ℃），也因Mn、Ni、Cr、Mo而下降。經驗式是配合有限鋼種資料的公式，因此各公式都有其建立時的成分範圍，即使成分相同，不同公式的值也會相差數℃到十數℃。"
+          "p": "相圖的A1、A3是平衡溫度，但實際加熱時變態會延遲而偏向高溫側（Ac1、Ac3），冷卻時偏向低溫側（Ar1、Ar3），加熱與冷卻越快，偏移越大。淬火的加熱溫度以加熱時的Ac3（過共析鋼為Ac1）為基準，正常化則以Ac3（過共析鋼為Acm）為基準決定。合金元素會移動變態點，其方向表現在經驗式係數的正負號上。在Andrews的公式中，Ni與Mn使Ac1下降（使沃斯田鐵穩定的元素），Si與Cr使其上升（使肥粒鐵穩定的元素）。Ac3與碳的平方根成比例下降，並因Si、Mo、V、W而上升。Ms因碳而大幅下降（每1 %約420〜470 ℃），也因Mn、Ni、Cr、Mo而下降。經驗式是配合有限鋼種資料的公式，因此各公式都有其建立時的成分範圍，即使成分相同，不同公式的值也會相差數℃到十數℃。"
         },
         {
           "h": "麻田散鐵變態：Ms、Mf與殘留沃斯田鐵",
@@ -2007,7 +2007,7 @@
         },
         {
           "h": "Ac·Ar와, 합금 원소가 변태점을 움직이는 원리",
-          "p": "상태도의 A1·A3는 평형 온도이지만, 실제 가열에서는 변태가 늦어져 높은 쪽(Ac1·Ac3)으로, 냉각에서는 낮은 쪽(Ar1·Ar3)으로 어긋나며, 그 차이는 가열·냉각이 빠를수록 커집니다. 담금질이나 불림의 가열 온도는 가열 시의 Ac3(과공석강에서는 Ac1)를 기준으로 정합니다. 합금 원소는 변태점을 움직이며, 그 방향은 경험식 계수의 부호에 나타납니다. Andrews의 식에서는 Ni와 Mn이 Ac1을 낮추고(오스테나이트를 안정화하는 원소), Si와 Cr이 높입니다(페라이트를 안정화하는 원소). Ac3는 탄소의 제곱근에 비례하여 낮아지고, Si·Mo·V·W에 의해 높아집니다. Ms는 탄소에 의해 크게 낮아지며(1 %당 약 420~470 ℃), Mn·Ni·Cr·Mo에 의해서도 낮아집니다. 경험식은 한정된 강의 데이터에 맞춘 식이므로 식마다 만들어진 성분 범위가 있으며, 같은 성분이라도 식에 따라 수~십수 ℃ 차이가 납니다."
+          "p": "상태도의 A1·A3는 평형 온도이지만, 실제 가열에서는 변태가 늦어져 높은 쪽(Ac1·Ac3)으로, 냉각에서는 낮은 쪽(Ar1·Ar3)으로 어긋나며, 그 차이는 가열·냉각이 빠를수록 커집니다. 담금질의 가열 온도는 가열 시의 Ac3(과공석강에서는 Ac1), 불림은 Ac3(과공석강에서는 Acm)를 기준으로 정합니다. 합금 원소는 변태점을 움직이며, 그 방향은 경험식 계수의 부호에 나타납니다. Andrews의 식에서는 Ni와 Mn이 Ac1을 낮추고(오스테나이트를 안정화하는 원소), Si와 Cr이 높입니다(페라이트를 안정화하는 원소). Ac3는 탄소의 제곱근에 비례하여 낮아지고, Si·Mo·V·W에 의해 높아집니다. Ms는 탄소에 의해 크게 낮아지며(1 %당 약 420~470 ℃), Mn·Ni·Cr·Mo에 의해서도 낮아집니다. 경험식은 한정된 강의 데이터에 맞춘 식이므로 식마다 만들어진 성분 범위가 있으며, 같은 성분이라도 식에 따라 수~십수 ℃ 차이가 납니다."
         },
         {
           "h": "마르텐사이트 변태: Ms·Mf와 잔류 오스테나이트",
@@ -2479,7 +2479,7 @@
         },
         {
           "h": "Ac und Ar und wie Legierungselemente die Umwandlungspunkte verschieben",
-          "p": "A1 und A3 im Zustandsdiagramm sind Gleichgewichtstemperaturen; bei realem Erwärmen verzögert sich die Umwandlung und verschiebt sich zu höheren Temperaturen (Ac1, Ac3), beim Abkühlen zu niedrigeren (Ar1, Ar3), und zwar umso stärker, je schneller erwärmt oder abgekühlt wird. Die Erwärmungstemperatur beim Härten und Normalglühen wird anhand von Ac3 beim Erwärmen festgelegt (bei übereutektoiden Stählen anhand von Ac1). Legierungselemente verschieben die Umwandlungspunkte; die Richtung zeigt sich im Vorzeichen der Koeffizienten der empirischen Formeln. In der Formel von Andrews senken Ni und Mn das Ac1 (austenitstabilisierende Elemente), Si und Cr erhöhen es (ferritstabilisierende Elemente). Ac3 sinkt proportional zur Quadratwurzel des Kohlenstoffgehalts und steigt durch Si, Mo, V und W. Ms sinkt stark mit dem Kohlenstoffgehalt (je 1 % um etwa 420 bis 470 °C) und sinkt auch durch Mn, Ni, Cr und Mo. Empirische Formeln sind an die Daten einer begrenzten Zahl von Stählen angepasst; jede Formel hat daher einen Bereich der Zusammensetzung, für den sie aufgestellt wurde, und für dieselbe Zusammensetzung unterscheiden sich die Formeln um einige bis über zehn Grad."
+          "p": "A1 und A3 im Zustandsdiagramm sind Gleichgewichtstemperaturen; bei realem Erwärmen verzögert sich die Umwandlung und verschiebt sich zu höheren Temperaturen (Ac1, Ac3), beim Abkühlen zu niedrigeren (Ar1, Ar3), und zwar umso stärker, je schneller erwärmt oder abgekühlt wird. Die Erwärmungstemperatur beim Härten wird anhand von Ac3 beim Erwärmen festgelegt (bei übereutektoiden Stählen anhand von Ac1), beim Normalglühen anhand von Ac3 (bei übereutektoiden Stählen anhand von Acm). Legierungselemente verschieben die Umwandlungspunkte; die Richtung zeigt sich im Vorzeichen der Koeffizienten der empirischen Formeln. In der Formel von Andrews senken Ni und Mn das Ac1 (austenitstabilisierende Elemente), Si und Cr erhöhen es (ferritstabilisierende Elemente). Ac3 sinkt proportional zur Quadratwurzel des Kohlenstoffgehalts und steigt durch Si, Mo, V und W. Ms sinkt stark mit dem Kohlenstoffgehalt (je 1 % um etwa 420 bis 470 °C) und sinkt auch durch Mn, Ni, Cr und Mo. Empirische Formeln sind an die Daten einer begrenzten Zahl von Stählen angepasst; jede Formel hat daher einen Bereich der Zusammensetzung, für den sie aufgestellt wurde, und für dieselbe Zusammensetzung unterscheiden sich die Formeln um einige bis über zehn Grad."
         },
         {
           "h": "Martensitische Umwandlung: Ms, Mf und Restaustenit",
