@@ -323,7 +323,7 @@ export function parsePairs(text) {
 // =====================================================================
 // 画面
 // =====================================================================
-const form = document.getElementById('diff-form');
+const form = typeof document !== 'undefined' ? document.getElementById('diff-form') : null;
 if (form) {
   const T = JSON.parse(form.dataset.text || '{}');
   const el = form.elements;

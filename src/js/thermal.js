@@ -322,7 +322,7 @@ export function solveT(f, from, to) {
 // =====================================================================
 // 画面
 // =====================================================================
-const form = document.getElementById('thermal-form');
+const form = typeof document !== 'undefined' ? document.getElementById('thermal-form') : null;
 if (form) {
   const T = JSON.parse(form.dataset.text || '{}');
   const el = form.elements;

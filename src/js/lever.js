@@ -407,7 +407,7 @@ export function randomPoint(id, rnd = Math.random, view) {
 
 // ======================================================================
 // ---- ここから画面 ----
-const form = document.getElementById('lever-form');
+const form = typeof document !== 'undefined' ? document.getElementById('lever-form') : null;
 if (form) {
   const T = JSON.parse(form.dataset.text);
   const el = form.elements;

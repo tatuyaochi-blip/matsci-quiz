@@ -126,7 +126,7 @@ const SHADE = [4, 15, 26, 37, 48, 60]; // var(--accent) を混ぜる割合 %(明
 const XRD = { bcc: ['bcc', [1, 1, 0]], fcc: ['fcc', [1, 1, 1]], dia: ['diamond', [1, 1, 1]], sc: ['sc', [1, 0, 0]] };
 const DIAMOND_A = 0.35669; // 炭素のダイヤモンド(準安定)の格子定数(ASM、25 °C)
 
-const form = document.getElementById('ptable-form');
+const form = typeof document !== 'undefined' ? document.getElementById('ptable-form') : null;
 if (form) {
   const T = JSON.parse(form.dataset.text);
   const el = form.elements;

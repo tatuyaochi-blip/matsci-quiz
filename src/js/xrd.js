@@ -433,7 +433,7 @@ export function pattern(lines, p) {
 }
 
 // ================= ここから画面 =================
-const form = document.getElementById('xrd-form');
+const form = typeof document !== 'undefined' ? document.getElementById('xrd-form') : null;
 if (form) {
   const T = JSON.parse(form.dataset.text);
   const el = form.elements;
