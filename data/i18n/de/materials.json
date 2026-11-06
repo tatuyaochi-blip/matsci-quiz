@@ -238,7 +238,7 @@
     "GPa": "GPa",
     "MPa": "MPa",
     "none": "",
-    "MPam": "MPa·m¹ᐟ²",
+    "MPam": "MPa·√m",
     "pct": "%",
     "Wm": "W/(m·K)",
     "Wcm": "W/(cm·K)",
