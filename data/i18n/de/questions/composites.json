@@ -178,5 +178,50 @@
       "Etwa 4,0 %"
     ],
     "explanation": "Nach der Mischungsregel beträgt die theoretische Dichte ohne Poren ρt = 0,60 × 1,80 + 0,40 × 1,20 = 1,56 g/cm³. Poren haben keine Masse, daher ist der vom Feststoff eingenommene Anteil des Plattenvolumens 1,50/1,56, und der Porengehalt beträgt (1,56 − 1,50)/1,56 ≈ 0,038, also etwa 3,8 %. Etwa 4,0 % teilt die Differenz durch die gemessene Dichte 1,50 und wählt damit das falsche Bezugsvolumen. Etwa 6,0 % liest die Dichtedifferenz von 0,06 g/cm³ unmittelbar als Prozentwert. Poren entstehen vor allem im Harz zwischen den Schichten und verringern die interlaminare Scherfestigkeit, die Druckfestigkeit und die Ermüdungslebensdauer; sie werden daher etwa durch Druckbeaufschlagung im Autoklaven gering gehalten."
+  },
+  "composites-021": {
+    "question": "Eine Harzplatte (Elastizitätsmodul Em = 3,0 GPa) enthält Glaskurzfasern (Elastizitätsmodul Ef = 72 GPa), die deutlich länger als die kritische Faserlänge sind, mit einem Volumenanteil Vf = 30 % und regelloser Orientierung in der Plattenebene. Schätzt man den Elastizitätsmodul in der Ebene mit dem Orientierungsfaktor K = 3/8 als E = K·Vf·Ef + (1 − Vf)·Em, welcher Wert kommt ihm am nächsten?",
+    "choices": [
+      "Etwa 10,2 GPa",
+      "Etwa 23,7 GPa",
+      "Etwa 8,1 GPa"
+    ],
+    "explanation": "E = 3/8 × 0,30 × 72 + 0,70 × 3,0 = 8,1 + 2,1 = 10,2 GPa, also etwa 10,2 GPa. Bei regelloser Orientierung in der Ebene liegen nicht alle Fasern in Belastungsrichtung, daher steifen sie die Platte weniger aus als ausgerichtete Fasern. Dies beschreibt der Krenchel-Faktor K: 1 für ausgerichtete Fasern, 3/8 für regellose Orientierung in der Ebene und 1/5 für regellose räumliche Orientierung. Etwa 23,7 GPa vergisst den Faktor K und ergibt den Wert eines unidirektionalen Verbunds in Faserrichtung. Etwa 8,1 GPa lässt den Matrixterm (1 − Vf)Em weg. Eine Platte mit regelloser Orientierung in der Ebene ist wenig richtungsabhängig, aber deutlich weniger steif als ein unidirektionaler Verbund mit gleichem Vf in Faserrichtung."
+  },
+  "composites-022": {
+    "question": "Welche Aussage über mit Aramidfasern (Fasern aus aromatischem Polyamid) verstärkte Verbundwerkstoffe trifft zu?",
+    "choices": [
+      "Sie sind unter Zug und Druck fester als Kohlenstofffasern, können aber keine Stoßenergie aufnehmen und eignen sich daher weder für ballistischen Schutz noch für Schutzausrüstungen",
+      "Sie sind leicht und zugfest, doch unter Druck knicken und beulen die Fasern leicht aus, sodass die Druckfestigkeit weit unter der Zugfestigkeit liegt",
+      "Als anorganische Fasern nehmen sie kein Wasser auf und sind UV-beständig, sodass sie im Freien ohne Abdeckung ihre Eigenschaften behalten"
+    ],
+    "explanation": "Aramidfasern sind organische Fasern, deren steife Molekülketten stark in Faserachse orientiert sind. Ihre Dichte ist mit etwa 1,4 g/cm³ kleiner als die von Kohlenstoff- und Glasfasern; sie haben eine hohe Zugfestigkeit, sind zäh und nehmen Stoßenergie gut auf, weshalb sie in Schutzwesten und Schutzausrüstungen eingesetzt werden. Unter Druck bilden die Kettenbündel dagegen leicht Knickbänder und falten sich, sodass die Druckfestigkeit des Verbunds weit unter seiner Zugfestigkeit liegt. Die Aussagen, sie seien druckfest oder stoßempfindlich, sind falsch. Als organische Polymere nehmen sie außerdem Wasser auf und werden durch UV-Licht geschädigt; im Freien werden sie daher abgedeckt."
+  },
+  "composites-023": {
+    "question": "Gleiche zylindrische Fasern werden in einer Richtung ausgerichtet und bis zur Berührung der Nachbarn gepackt, wobei die Faserzentren im Querschnitt auf einem Dreiecksgitter (hexagonale Anordnung) liegen. Welcher Wert kommt dem theoretisch maximalen Faservolumenanteil am nächsten?",
+    "choices": [
+      "Etwa 74 %",
+      "Etwa 79 %",
+      "Etwa 91 %"
+    ],
+    "explanation": "Bei hexagonaler Anordnung enthält ein gleichseitiges Dreieck der Seitenlänge d drei Sechstel eines Kreises, also einen halben Kreis. Die Dreiecksfläche ist (√3/4)d², der halbe Kreis πd²/8, daher gilt Vf = (πd²/8)/((√3/4)d²) = π/(2√3) ≈ 0,907, also etwa 91 %. Etwa 79 % ist π/4 ≈ 0,785 für eine quadratische Anordnung, und etwa 74 % ist die Packungsdichte dichtest gepackter gleich großer Kugeln, ein anderes Problem als der Querschnitt von Zylindern. In realen unidirektionalen Laminaten braucht das Harz Zwischenräume zum Eindringen zwischen die Fasern, und die Faseranordnung ist unregelmäßig; üblich ist daher ein Vf um etwa 60 %. Liegt er weit darüber, nehmen Harzmangel und Poren zu."
+  },
+  "composites-024": {
+    "question": "Ein CFK mit Epoxidharzmatrix wird lange in feuchter Umgebung eingesetzt, und das Harz nimmt Feuchtigkeit auf. Welche Aussage über die Veränderung trifft zu?",
+    "choices": [
+      "Wasser plastifiziert das Harz und senkt die Glasübergangstemperatur; Druck- und interlaminare Schubfestigkeit in der Wärme sinken",
+      "Wasser wird in die Kohlenstofffasern aufgenommen und lässt sie quellen, sodass Zugfestigkeit und E-Modul in Faserrichtung stark sinken",
+      "Wasser treibt die Vernetzung des Harzes weiter voran und erhöht die Glasübergangstemperatur, sodass die Warmfestigkeit sogar steigt"
+    ],
+    "explanation": "Epoxidharz nimmt bis zu einigen Massenprozent Wasser auf; die Wassermoleküle lagern sich zwischen die Ketten ein und wirken wie ein Weichmacher, sodass die Glasübergangstemperatur sinkt und das Harz bei hoher Temperatur an Steifigkeit verliert. Harzdominierte Eigenschaften wie die Druckfestigkeit in Faserrichtung, die interlaminare Schubfestigkeit und die Eigenschaften quer zur Faser nehmen ab; im Flugzeugbau gilt daher der warm-feuchte Zustand (hot-wet) als kritischer Auslegungsfall. Kohlenstofffasern selbst nehmen kaum Wasser auf, sodass sich die faserdominierten Zugeigenschaften in Faserrichtung wenig ändern. Die Aussage, Feuchte treibe die Vernetzung voran und erhöhe die Glasübergangstemperatur, ist ebenfalls falsch; beim Trocknen geht die Weichmacherwirkung größtenteils zurück."
+  },
+  "composites-025": {
+    "question": "Bei einem Sandwichelement sind dünne Deckschichten (CFK- oder Aluminiumlegierungsbleche) auf einen leichten Kern (Waben oder Schaum) geklebt. Welche Aussage erklärt zutreffend, warum es leicht und zugleich biegesteif und biegefest ist?",
+    "choices": [
+      "Der Kern trägt Zug und Druck aus der Biegung, während die Deckschichten vor allem Schub aufnehmen und den Kern vor Beschädigung und Stößen schützen",
+      "Die Deckschichten liegen fern der neutralen Faser und tragen Zug und Druck aus der Biegung; der Kern nimmt vor allem Schub auf und hält sie auf Abstand",
+      "Deckschichten und Kern erhalten denselben E-Modul, sodass die Steifigkeit nach der Mischungsregel bei gleicher Dehnung proportional zum Volumenanteil steigt"
+    ],
+    "explanation": "Bei Biegung nehmen Zug- und Druckdehnungen mit dem Abstand von der neutralen Faser zu. Ein Sandwichelement legt steife Deckschichten weit von der neutralen Faser entfernt; sie tragen daher den größten Teil der Biegespannung, und die Biegesteifigkeit steigt etwa mit dem Quadrat des Deckschichtabstands. Der leichte Kern hält die Deckschichten auf Abstand und überträgt den Schub zwischen ihnen. Ein dickerer Kern erhöht die Steifigkeit stark bei geringem Mehrgewicht. Die Aussage mit vertauschten Rollen von Deckschichten und Kern ist falsch; der Kern ist weich und trägt kaum Biegespannung. Deckschichten und Kern unterscheiden sich in der Steifigkeit gewöhnlich stark, und das Verhalten wird nicht mit der Mischungsregel bei gleicher Dehnung erklärt."
   }
 }

@@ -178,5 +178,50 @@
       "Etwa das 32-Fache"
     ],
     "explanation": "Die Überspannung steigt um 0,30 − 0,12 = 0,18 V, und der Strom verzehnfacht sich je 0,12 V; er steigt also auf 10 hoch (0,18/0,12), d. h. 10 hoch 1,5 ≈ 31,6, also etwa das 32-Fache. Etwa das 2,5-Fache nimmt an, dass der Strom proportional zur Überspannung ist (0,30/0,12), und etwa das 4,5-Fache verwechselt den dekadischen mit dem natürlichen Logarithmus und rechnet exp(0,18/0,12). Die Tafel-Gleichung gilt, wenn die Überspannung so groß ist, dass die Rückreaktion vernachlässigt werden kann. Mit ihr bestimmt man b aus der Steigung des geraden Teils einer halblogarithmisch aufgetragenen Polarisationskurve und den Korrosionsstrom aus dem Schnittpunkt der bis zum Korrosionspotential extrapolierten Geraden."
+  },
+  "corrosion-021": {
+    "question": "Der Polarisationswiderstand eines Stahls, gemessen durch geringe Potentialänderung um das Korrosionspotential, betrug Rp = 1000 Ω·cm². Mit den anodischen und kathodischen Tafel-Steigungen βa = βc = 0,12 V/Dekade und der Stern-Geary-Gleichung icorr = B/Rp mit B = βaβc/[2,303(βa + βc)]: Welcher Wert kommt der Korrosionsstromdichte am nächsten?",
+    "choices": [
+      "Etwa 52 µA/cm²",
+      "Etwa 26 µA/cm²",
+      "Etwa 60 µA/cm²"
+    ],
+    "explanation": "B = 0,12 × 0,12/[2,303 × (0,12 + 0,12)] = 0,0144/0,553 ≈ 0,0261 V, also icorr = 0,0261/1000 ≈ 2,6×10⁻⁵ A/cm², etwa 26 µA/cm². Etwa 60 µA/cm² vergisst den Faktor 2,303, und etwa 52 µA/cm² setzt B als β/2,303 an, ohne die beiden Steigungen zu kombinieren. Löst sich Eisen als Fe²⁺, entspricht diese Stromdichte einem Abtrag der Oberfläche von etwa 0,3 mm pro Jahr. Das Polarisationswiderstandsverfahren schätzt die Korrosionsgeschwindigkeit wiederholt ab, ohne die Probe stark zu polarisieren, und wird daher zur Korrosionsüberwachung eingesetzt; der Wert ist jedoch ein Richtwert, der von den angenommenen Tafel-Steigungen und der Korrektur des Elektrolytwiderstands abhängt."
+  },
+  "corrosion-022": {
+    "question": "Strom, der aus den Schienen einer Gleichstrombahn in den Boden austritt, kann in eine nahe erdverlegte Stahlrohrleitung eintreten und an anderer Stelle wieder aus ihr in den Boden austreten. Welche Kombination aus Ort und Ursache der starken Streustromkorrosion trifft zu?",
+    "choices": [
+      "Wo der Strom aus dem Rohr in den Boden austritt, weil das Rohr dort Anode ist und Eisen in Lösung geht",
+      "Wo der Strom aus dem Boden in das Rohr eintritt, weil die eintretenden Kationen die Stahloberfläche auflösen",
+      "Auf der ganzen stromführenden Länge im Rohr, weil die Joulesche Wärme es gleichmäßig oxidiert"
+    ],
+    "explanation": "Wo Strom aus dem Metall in den Elektrolyten (feuchten Boden) übertritt, muss die Ladung durch die anodische Reaktion Fe → Fe²⁺ + 2e⁻ getragen werden, sodass sich Eisen auflöst. Nach dem Faradayschen Gesetz löst 1 A, der ein Jahr lang austritt, etwa 9 kg Eisen auf; konzentriert sich dies örtlich, kann das Rohr in kurzer Zeit durchlöchert werden. Wo der Strom eintritt, ist das Rohr Kathode, also im selben Zustand wie beim kathodischen Korrosionsschutz. Im Rohr fließen nur Elektronen, und eine gleichmäßige Oxidation durch Joulesche Wärme gibt es nicht. Gegenmaßnahmen sind die Streustromableitung (Drainage), bei der das Rohr mit der Schiene verbunden wird, damit der Strom zurückfließt, ohne in den Boden auszutreten, sowie Isolierstücke und Umhüllungen."
+  },
+  "corrosion-023": {
+    "question": "In Rohrleitungen aus Kupferlegierungen können an Stellen schneller, turbulenter Strömung, etwa unmittelbar hinter Bögen und Fittings, hufeisenförmige, in Strömungsrichtung ausgerichtete Mulden entstehen und die Wand durchbrechen. Welche Kombination aus Mechanismus und Gegenmaßnahme für diese Erosionskorrosion trifft zu?",
+    "choices": [
+      "Schnelle Strömung transportiert keinen gelösten Sauerstoff, sodass ein Belüftungselement entsteht; daher erhöht man die Geschwindigkeit weiter, um Sauerstoff zuzuführen",
+      "Sandkörner im Wasser schleifen die Wand nur mechanisch ab, ohne Beteiligung der Korrosion; daher verwendet man stattdessen Rohre aus gehärtetem Kohlenstoffstahl",
+      "Schnelle Strömung trägt die Schutzschicht ständig ab, sodass sich frisches Metall löst; man senkt die Geschwindigkeit oder nimmt einen Werkstoff mit festerer Schicht"
+    ],
+    "explanation": "Kupfer und Kupferlegierungen korrodieren langsam, weil Schutzschichten wie Oberflächenoxide sie bedecken. Bei schneller, turbulenter Strömung tragen Strömungsschub und aufprallende Blasen die Schicht ständig ab, und das blanke Metall löst sich; mechanische Wirkung und Korrosion wirken zusammen und bilden die typischen, in Strömungsrichtung ausgerichteten Mulden. Gegenmaßnahmen sind eine geringere Strömungsgeschwindigkeit, das Vermeiden turbulenzerzeugender Formen und der Wechsel zu Werkstoffen wie Kupfer-Nickel, deren Schichten fester sind und schnellere Strömung aushalten. Belüftungselemente durch Sauerstoffmangel entstehen dort, wo die Strömung stagniert; eine höhere Geschwindigkeit ist hier der falsche Ansatz. Den Korrosionsanteil zu übergehen und auf einen harten Stahl mit geringer Korrosionsbeständigkeit zu wechseln, ist ebenfalls ungeeignet."
+  },
+  "corrosion-024": {
+    "question": "Als Richtwert für die Beständigkeit nichtrostender Stähle gegen Lochkorrosion dient die Wirksumme PREN = Cr + 3,3Mo + 16N (Gehalte jeweils in Massen-%). Welcher Wert kommt der PREN eines Duplexstahls mit 22,0 Massen-% Cr, 3,0 Massen-% Mo und 0,17 Massen-% N am nächsten?",
+    "choices": [
+      "Etwa 31,9",
+      "Etwa 34,6",
+      "Etwa 27,7"
+    ],
+    "explanation": "PREN = 22,0 + 3,3 × 3,0 + 16 × 0,17 = 22,0 + 9,9 + 2,72 ≈ 34,6. Etwa 31,9 lässt den Stickstoffterm weg, und etwa 27,7 vergisst den Faktor 3,3 beim Mo. Eine Zusammensetzung wie SUS316 mit 17 % Cr und 2,5 % Mo ergibt etwa 25; dieser Stahl ist daher gegen Lochkorrosion und Spaltkorrosion durch Chloride als deutlich beständiger einzuschätzen. Schon kleine Mengen Mo und N stärken die Passivschicht und erhöhen die kritische Temperatur, ab der Lochkorrosion einsetzt. Die PREN ist jedoch nur ein aus der Zusammensetzung berechneter Richtwert; für den N-Koeffizienten gibt es auch Varianten mit 16 oder 30, und Wärmebehandlungszustand, Schweißgefüge und Einsatzumgebung können das tatsächliche Verhalten abweichen lassen. Bei der Werkstoffauswahl wird die Eignung daher durch Versuche abgesichert."
+  },
+  "corrosion-025": {
+    "question": "Unter den Korrosionsinhibitoren, die etwa Kühlwasser zugesetzt werden, unterstützen anodische Inhibitoren wie Nitrite die Passivierung des Metalls. Welcher Hinweis zu ihrer Anwendung trifft zu?",
+    "choices": [
+      "Bei zu geringer Dosierung kann sich die Korrosion auf wenige ungeschützte Anoden konzentrieren und örtlichen Angriff wie Lochkorrosion hervorrufen",
+      "Auch bei zu geringer Dosierung verlangsamt sich nur die gleichmäßige Korrosion etwas; örtlicher Angriff wie Lochkorrosion ist nicht zu befürchten",
+      "Sie hemmen nur die Sauerstoffreduktion an der Kathode, daher bleibt die Korrosion unabhängig von der Dosierung in ihrer Form gleichmäßig"
+    ],
+    "explanation": "Anodische Inhibitoren unterstützen die Passivierung der Metalloberfläche und blockieren die Orte der anodischen Reaktion. Bei ausreichender Menge wird die ganze Oberfläche passiv; bei zu wenig Inhibitor bleiben kleine Anoden unblockiert, während die Kathodenfläche groß bleibt, sodass sich der Korrosionsstrom auf diese kleinen Bereiche konzentriert und tiefen örtlichen Angriff wie Lochkorrosion erzeugt. Deshalb nennt man anodische Inhibitoren auch „gefährliche“ Inhibitoren, deren Konzentration sorgfältig überwacht werden muss. Die Aussage, eine zu geringe Dosierung sei unbedenklich, ist falsch. Die Hemmung der kathodischen Reaktion ist die Aufgabe kathodischer Inhibitoren und beschreibt nicht die anodischen."
   }
 }

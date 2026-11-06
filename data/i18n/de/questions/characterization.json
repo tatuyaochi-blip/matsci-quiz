@@ -178,5 +178,50 @@
       "kfz, mit (111) als Reflex beim kleinsten Winkel"
     ],
     "explanation": "Für kubische Kristalle gilt sin²θ = (λ²/4a²)(h² + k² + l²); die Verhältnisse der sin²θ-Werte sind also gleich denen von h² + k² + l². Multipliziert man mit 3, erhält man die ganzen Zahlen 3 : 4 : 8 : 11 : 12, die (111), (200), (220), (311) und (222) entsprechen und zur Auslöschungsregel des kfz-Gitters passen, nach der nur Reflexe mit lauter ungeraden oder lauter geraden h, k, l auftreten. Das krz-Gitter zeigt (110), (200), (211) … mit geradem h + k + l, im Verhältnis 2 : 4 : 6 … = 1 : 2 : 3 …, und das kubisch-primitive Gitter ergibt 1 : 2 : 3 : 4 : 5 : 6 : 8 …; bei keinem tritt ein Verhältnis wie 1,33 auf. Ein Verhältnis nahe 4/3 zwischen den ersten beiden Reflexen ist ein schnelles Erkennungszeichen für kfz."
+  },
+  "characterization-021": {
+    "question": "Bei der Feinbereichsbeugung (SAED) im TEM wird der Elektronenstrahl auf einen Teil der Probe begrenzt, und das Beugungsbild sieht je nach Gefüge unterschiedlich aus. Welche Zuordnung von Gefüge und Beugungsbild trifft zu?",
+    "choices": [
+      "Ein einzelnes Korn liefert konzentrische Ringe, ein feinkörniger Vielkristall dagegen regelmäßig angeordnete Punkte",
+      "Ein einzelnes Korn liefert regelmäßig angeordnete Punkte, ein feinkörniger Vielkristall dagegen konzentrische Ringe",
+      "Ein amorpher Stoff liefert scharfe Punktmuster, ein Kristall mittelt die Streuung und erscheint gleichmäßig verschwommen"
+    ],
+    "explanation": "In einem einzelnen Korn beugen nur die reziproken Gitterpunkte, die auf der Ewald-Kugel liegen; es entsteht ein regelmäßiges Punktmuster, das die Richtung der Zonenachse widerspiegelt. Sind viele feine Körner mit regelloser Orientierung beleuchtet, verteilen sich die Punkte gleichen Netzebenenabstands in alle Richtungen und bilden konzentrische Ringe. Wie bei den Debye-Ringen der Pulver-XRD folgt der Netzebenenabstand d aus dem Ringradius R und der Kameralänge L über Rd = Lλ. Die Aussage, ein Einkristall liefere Ringe und ein Vielkristall Punkte, vertauscht die Zuordnung. Ein amorpher Stoff hat keine Fernordnung und liefert daher keine scharfen Punkte, sondern nur breite, diffuse Ringe (Halos)."
+  },
+  "characterization-022": {
+    "question": "Welche Aussage über die Auger-Elektronenspektroskopie (AES) trifft zu?",
+    "choices": [
+      "Sie misst die vom Elektronenstrahl angeregte charakteristische Röntgenstrahlung und liefert die mittlere Zusammensetzung bis etwa 1 µm Tiefe",
+      "Die Energie der Auger-Elektronen hängt von der Energie der Primärelektronen ab, daher bestimmt man die Elemente durch Variieren der Spannung",
+      "Sie wird mit einem fein fokussierten Elektronenstrahl angeregt und analysiert die obersten wenigen nm auf kleinerer Fläche als XPS"
+    ],
+    "explanation": "Bei der AES erzeugt der Elektronenstrahl ein Loch in einer inneren Schale; füllt ein äußeres Elektron dieses Loch, wird mit der frei werdenden Energie ein weiteres Elektron, das Auger-Elektron, emittiert und gemessen. Seine Energie ist durch die Abstände der Energieniveaus des Atoms festgelegt und hängt nicht von der Energie der Primärelektronen ab. Auger-Elektronen sind mit etwa einigen zehn eV bis etwa 2000 eV langsam und legen im Festkörper nur kurze Wege zurück, sodass die Informationstiefe wenige nm beträgt. Da sich ein Elektronenstrahl fein fokussieren lässt, analysiert die AES kleinere Flächen als die mit Röntgenstrahlung angeregte XPS; in Kombination mit Ionenzerstäubung liefert sie auch Tiefenprofile. Die Messung charakteristischer Röntgenstrahlung zur mittleren Zusammensetzung bis etwa 1 µm Tiefe beschreibt die EDX. Da der Prozess mindestens drei Elektronen erfordert, lassen sich H und He nicht nachweisen."
+  },
+  "characterization-023": {
+    "question": "Bei der Messung der Raman-Streuung von Silizium mit einem Laser der Wellenlänge 532,0 nm erscheint eine Stokes-Linie bei einer Raman-Verschiebung von 520 cm⁻¹. Die Raman-Verschiebung ist die Differenz der Wellenzahlen (Kehrwerte der Wellenlängen) von einfallendem und gestreutem Licht. Welcher Wert kommt der Wellenlänge dieser Stokes-Linie am nächsten?",
+    "choices": [
+      "Etwa 547,1 nm",
+      "Etwa 517,7 nm",
+      "Etwa 532,0 nm"
+    ],
+    "explanation": "Die Wellenzahl des einfallenden Lichts beträgt 1/(532,0×10⁻⁷ cm) ≈ 18797 cm⁻¹. Bei der Stokes-Streuung gibt das Licht Energie an eine Gitterschwingung (Phonon) ab, sodass seine Wellenzahl sinkt: 18797 − 520 = 18277 cm⁻¹; die Wellenlänge ist 1/18277 cm ≈ 547,1 nm. Etwa 517,7 nm addiert 520 zur Wellenzahl; das ist die Anti-Stokes-Linie, bei der das Licht Energie von einem Phonon aufnimmt, und sie ist bei Raumtemperatur wesentlich schwächer. Etwa 532,0 nm ist die Wellenlänge des einfallenden Lichts selbst, also die elastische Rayleigh-Streuung. Die Raman-Verschiebung ist durch die Schwingungen des Stoffes festgelegt und bleibt bei Änderung der Laserwellenlänge gleich; deshalb dient sie zur Beurteilung von Kristallphase, Spannung und Kristallinität."
+  },
+  "characterization-024": {
+    "question": "Welche Aussage beschreibt das Prinzip des sin²ψ-Verfahrens zur röntgenographischen Messung der Eigenspannung an der Oberfläche eines Stahlbauteils zutreffend?",
+    "choices": [
+      "Der Beugungswinkel derselben Netzebenen wird bei mehreren Kippwinkeln ψ gemessen; die Spannung folgt aus der Steigung von d über sin²ψ",
+      "Eigenspannungen verschieben die Reflexe nicht, sondern verbreitern sie nur; eine Messung der Halbwertsbreite liefert Betrag und Vorzeichen der Spannung",
+      "Spannungen verschieben die Reflexe nicht und ändern nur ihre Intensität, daher folgt die Spannung aus den Intensitätsverhältnissen bei jedem ψ"
+    ],
+    "explanation": "Eine gleichmäßige Spannung in der Randschicht verzerrt das Kristallgitter elastisch; der Netzebenenabstand d hängt dann von der Messrichtung ab, und der Beugungsreflex verschiebt sich. Beim sin²ψ-Verfahren wird der Winkel ψ zwischen Probennormale und Normale der beugenden Netzebenen variiert und jeweils 2θ desselben Reflexes gemessen. Man trägt d (oder 2θ) über sin²ψ auf; die Steigung der Geraden, multipliziert mit einem Faktor aus Elastizitätsmodul und Querkontraktionszahl, ergibt die Spannung, und ihr Vorzeichen unterscheidet Zug von Druck. Die Reflexbreite wächst mit kleiner Kristallitgröße und ungleichmäßiger Verzerrung und kann Betrag und Richtung einer gleichmäßigen Spannung nicht liefern. Die Behauptung, die Reflexlage ändere sich nicht, ist ebenfalls falsch."
+  },
+  "characterization-025": {
+    "question": "Misst man ein gewalztes Metallblech oder eine Schicht auf einem Substrat mit XRD in derselben θ-2θ-Anordnung wie ein Pulver, weichen die Intensitätsverhältnisse der Reflexe manchmal stark von den Pulverwerten der Datenbank ab. Welcher Hauptgrund trifft zu?",
+    "choices": [
+      "Das Walzen ändert die Gitterkonstante und damit die Auslöschungsregeln, sodass im Pulver fehlende neue Reflexe stark werden",
+      "Die Körner haben eine Vorzugsorientierung, und θ-2θ erfasst nur die Beugung an Netzebenen parallel zur Oberfläche",
+      "Feine Körner verbreitern die Reflexe, wodurch sich die Reihenfolge der Reflexhöhen bei gleichbleibenden Flächen umkehrt"
+    ],
+    "explanation": "In der θ-2θ-Anordnung tragen nur Netzebenen parallel zur Probenoberfläche zur Beugung bei. Die Pulverwerte sind Intensitätsverhältnisse für regellos orientierte Körner; richten eine Walztextur oder die Orientierung einer Schicht bestimmte Ebenen parallel zur Oberfläche aus, werden deren Reflexe stark und die übrigen schwach. Dies ist die Vorzugsorientierung (Textur), die mit Polfiguren oder EBSD genauer untersucht wird. Eine geringe Änderung der Gitterkonstante verschiebt nur die Reflexlagen; die Auslöschungsregeln sind durch die Kristallstruktur festgelegt und ändern sich nicht. Die Verbreiterung durch feine Körner betrifft alle Reflexe und kann das Intensitätsverhältnis bestimmter Ebenen nicht stark verändern."
   }
 }
