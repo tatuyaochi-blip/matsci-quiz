@@ -4411,7 +4411,7 @@ ${D.faq.length ? `<section class="faq" id="faq">
     <p class="ph-terms term-chips"><b>${esc(U.terms)}</b> ${tm.join(' ')}</p>` : ''}
   </article>`;
     };
-    const jsText = Object.fromEntries(['count', 'fav_n', 'copied', 'copy_fail', 'made', 'copy_made', 'reset', 'fav_first', 'check_empty', 'check_n', 'check_none', 'level_error', 'level_style', 'level_hint', 'check_how', 'check_delete'].map(k => [k, U[k]]));
+    const jsText = Object.fromEntries(['count', 'fav_n', 'copied', 'copy_fail', 'made', 'copy_made', 'reset', 'fav_first', 'check_empty', 'check_n', 'check_none', 'level_error', 'level_style', 'level_hint', 'check_how', 'check_delete', 'show_rest'].map(k => [k, U[k]]));
     const ruleJson = JSON.stringify(Object.fromEntries(D.rules.map(r => [r.id, { name: r.name, level: r.level, why: r.why, fix: r.fix }]))).replace(/</g, '\\u003c');
     const nOf = g => D.phrases.filter(p => p.g === g.id).length;
     const lvBadge = l => `<span class="ph-lv ph-lv-${l}">${esc(U[`level_${l}`])}</span>`;
@@ -4487,7 +4487,7 @@ ${D.faq.length ? `<section class="faq" id="faq">
   <h3 id="rules">${esc(U.rules_h)}</h3>
   <p>${esc(D.check.rules_lead)}</p>
   <div class="fm-scroll"><table class="ph-rules"><thead><tr><th scope="col">${esc(U.rule_name)}</th><th scope="col">${esc(U.rule_ex)}</th><th scope="col">${esc(U.rule_why)}</th></tr></thead><tbody>${D.rules.map(r => `
-    <tr id="r-${r.id}"><td>${lvBadge(r.level)} <b>${esc(r.name)}</b></td><td class="ph-rule-ex"><span lang="en">${esc(r.bad)}</span> → <span lang="en">${esc(r.good)}</span></td><td>${esc(r.why)} ${esc(r.fix)}</td></tr>`).join('')}
+    <tr id="r-${r.id}"><td>${lvBadge(r.level)} <b>${esc(r.name)}</b></td><td class="ph-rule-ex" data-h="${esc(U.rule_ex)}"><span lang="en">${esc(r.bad)}</span> → <span lang="en">${esc(r.good)}</span></td><td data-h="${esc(U.rule_why)}">${esc(r.why)} ${esc(r.fix)}</td></tr>`).join('')}
   </tbody></table></div>
 </section>
 <script type="application/json" id="ph-rules">${ruleJson}</script>
