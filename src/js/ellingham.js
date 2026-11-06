@@ -377,7 +377,7 @@ function setup() {
       if (uns) p.setAttribute('stroke-dasharray', '2 4');
       else if (L.kind === 'gas') p.setAttribute('stroke-dasharray', '8 4');
       const t = document.createElementNS(NS, 'title');
-      t.textContent = `${name(x.id)}: ${L.eq}`;
+      t.textContent = `${name(x.id)}: ${decFix(L.eq)}`;
       p.append(t);
     });
     // 強調した線の名前と転移の点: 線の点と描いた座標から、データ → 画面の対応を求める
@@ -399,15 +399,15 @@ function setup() {
             html += `<circle cx="${X(xOf(tr[0])).toFixed(1)}" cy="${Y(g).toFixed(1)}" r="4" fill="var(--bg)" stroke="${col[st]}" stroke-width="2"><title>${trName(tr)}</title></circle>`;
           }
           const [t1, g1] = L.knots[L.knots.length - 1];
-          html += `<text x="${Math.min(X(xOf(t1)), 580).toFixed(1)}" y="${(Y(g1) - 8).toFixed(1)}" font-size="13" text-anchor="end" fill="var(--text)" stroke="var(--bg)" stroke-width="3" paint-order="stroke">${L.kind === 'ox' ? L.ox : L.eq.replace(/ /g, '')}</text>`;
+          html += `<text x="${Math.min(X(xOf(t1)), 580).toFixed(1)}" y="${(Y(g1) - 8).toFixed(1)}" font-size="13" text-anchor="end" fill="var(--text)" stroke="var(--bg)" stroke-width="3" paint-order="stroke">${L.kind === 'ox' ? L.ox : decFix(L.eq.replace(/ /g, ''))}</text>`;
         }
         svg.insertAdjacentHTML('beforeend', html);
       }
     }
     cap.textContent = fill(U.chart_cap, { a: name(hi[0][0]) });
-    legend.replaceChildren(...LINES.map(L => el('button', { type: 'button', 'data-line': L.id, 'aria-pressed': String(strong.has(L.id)), disabled: L.kind === 'gas' ? true : null, title: L.eq },
+    legend.replaceChildren(...LINES.map(L => el('button', { type: 'button', 'data-line': L.id, 'aria-pressed': String(strong.has(L.id)), disabled: L.kind === 'gas' ? true : null, title: decFix(L.eq) },
       el('span', { class: `el-key${L.kind === 'gas' ? ' el-gas' : ''}`, style: strong.has(L.id) ? `border-top-color:${col[strong.get(L.id)]}` : 'opacity:.6' }),
-      L.kind === 'ox' ? L.ox : L.eq)));
+      L.kind === 'ox' ? L.ox : decFix(L.eq))));
   }
 
   // ---- 共通の結果: ΔG° と平衡 p(O₂) ----
@@ -442,7 +442,7 @@ function setup() {
     res.append(box(fill(U.h_table, { t: kc(Tk) }), el('div', { class: 'el-tbl-wrap' }, el('table', { class: 'el-tbl' },
       el('thead', {}, el('tr', {}, ...U.table_cols.map(c => el('th', { scope: 'col' }, c)))),
       el('tbody', {}, ...rows.map(({ x, g }) => el('tr', { class: x.id === id ? 'el-on' : null },
-        el('th', { scope: 'row' }, name(x.id)), el('td', {}, x.eq), el('td', { class: 'el-num' }, fix(g, 1)), el('td', { class: 'el-num' }, sci(pO2(g, Tk), 2))))))),
+        el('th', { scope: 'row' }, name(x.id)), el('td', {}, decFix(x.eq)), el('td', { class: 'el-num' }, fix(g, 1)), el('td', { class: 'el-num' }, sci(pO2(g, Tk), 2))))))),
       el('p', { class: 'muted' }, U.table_note)));
     drawChart(Tk, [[id, 'a']], [[Tk, g, `${fix(g, 0)}`]]);
   }
