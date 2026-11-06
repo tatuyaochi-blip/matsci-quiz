@@ -95,7 +95,10 @@ function init() {
     html.classList.add('fm-print-sel');
     window.print();
   });
-  window.addEventListener('afterprint', () => html.classList.remove('fm-print-sel'));
+  // 記号の表と説明は画面では最初は閉じている(details)。印刷のときだけ全部開き、終わったら元に戻す
+  const xs = [...list.querySelectorAll('details.fm-x')];
+  window.addEventListener('beforeprint', () => { for (const d of xs) { d.dataset.was = d.open ? '1' : ''; d.open = true; } });
+  window.addEventListener('afterprint', () => { html.classList.remove('fm-print-sel'); for (const d of xs) d.open = d.dataset.was === '1'; });
   app.querySelector('[data-share]').addEventListener('click', async () => {
     if (!picked.size) { flash(t('formulas_pick_first')); return; }
     const u = new URL(location.pathname, location.origin);
