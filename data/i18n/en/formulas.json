@@ -1062,9 +1062,9 @@
     "yield strength",
     "specimen thickness, crack length"
    ],
-   "when": "Irwin’s first-order estimate (about one third in plane strain). 2.5(K_IC/σ_y)² is the ASTM E399 validity requirement; thinner specimens approach plane stress and show higher apparent toughness.",
+   "when": "Irwin’s first-order estimate (about one third in plane strain). 2.5(K_IC/σ_y)² is the ASTM E399 validity requirement (on thickness and crack length in older editions, on the remaining ligament W − a in newer ones); thinner specimens approach plane stress and show higher apparent toughness.",
    "miss": "Treating r_p as a diameter; calling a thin-sheet value K_IC.",
-   "ex": "K = 50 MPa·√m, σ_y = 500 MPa: plane-stress plastic zone r_p = (1/2π)(50/500)² = 1.59 mm (about one third in plane strain). A valid K_IC test needs thickness and crack length ≥ 2.5(K_IC/σ_y)² = 25.0 mm.",
+   "ex": "K = 50 MPa·√m, σ_y = 500 MPa: plane-stress plastic zone r_p = (1/2π)(50/500)² = 1.59 mm (about one third in plane strain). A valid K_IC test needs a remaining ligament W − a (thickness and crack length in older editions) ≥ 2.5(K_IC/σ_y)² = 25.0 mm.",
    "kw": "plastic zone plane strain plane stress specimen thickness E399"
   },
   "paris": {

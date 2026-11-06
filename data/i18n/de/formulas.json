@@ -1062,9 +1062,9 @@
         "Streckgrenze",
         "Probendicke, Risslänge"
       ],
-      "when": "Abschätzung erster Ordnung nach Irwin (im ebenen Dehnungszustand etwa ein Drittel). 2,5(K_IC/σ_y)² ist die Gültigkeitsbedingung nach ASTM E399; dünnere Proben nähern sich dem ebenen Spannungszustand und zeigen eine höhere scheinbare Zähigkeit.",
+      "when": "Abschätzung erster Ordnung nach Irwin (im ebenen Dehnungszustand etwa ein Drittel). 2,5(K_IC/σ_y)² ist die Gültigkeitsbedingung nach ASTM E399 (in älteren Ausgaben für Dicke und Risslänge, in neueren für das Restligament W − a); dünnere Proben nähern sich dem ebenen Spannungszustand und zeigen eine höhere scheinbare Zähigkeit.",
       "miss": "r_p als Durchmesser behandeln. Einen an dünnem Blech gemessenen Wert als K_IC bezeichnen.",
-      "ex": "K = 50 MPa·√m; σ_y = 500 MPa: plastische Zone im ebenen Spannungszustand r_p = (1/2π)(50/500)² = 1,59 mm (im ebenen Dehnungszustand etwa ein Drittel). Für eine gültige K_IC-Messung müssen Dicke und Risslänge mindestens 2,5(K_IC/σ_y)² = 25,0 mm betragen.",
+      "ex": "K = 50 MPa·√m; σ_y = 500 MPa: plastische Zone im ebenen Spannungszustand r_p = (1/2π)(50/500)² = 1,59 mm (im ebenen Dehnungszustand etwa ein Drittel). Für eine gültige K_IC-Messung muss das Restligament W − a (in älteren Ausgaben Dicke und Risslänge) mindestens 2,5(K_IC/σ_y)² = 25,0 mm betragen.",
       "kw": "plastische Zone ebener Dehnungszustand ebener Spannungszustand Probendicke E399"
     },
     "paris": {
