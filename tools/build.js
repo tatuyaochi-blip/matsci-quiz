@@ -3576,6 +3576,7 @@ ${relCats.length ? `<section>
     <div class="fm-eqs">${f.f.map(y => `
       <p class="fm-eq"><span class="fm-f">${fx(dec(y.t))}</span>${y.l ? `<span class="fm-l">${fx(y.l)}</span>` : ''}<span class="fm-d" title="${esc(t('formulas_dim'))}">[${esc(y.d)}]</span></p>`).join('')}
     </div>
+    <details class="mt-more fm-x"><summary>${['formulas_sym', 'formulas_when', 'formulas_miss', 'formulas_ex'].map(k => esc(t(k))).join(' · ')}</summary>
     <table class="fm-sym"><thead><tr><th scope="col">${esc(t('formulas_sym'))}</th><th scope="col">${esc(t('formulas_meaning'))}</th><th scope="col">${esc(t('formulas_unit'))}</th></tr></thead><tbody>${f.sym.map(y => `
       <tr><td class="fm-s">${fx(y.s)}</td><td>${fx(y.m)}</td><td class="fm-u">${esc(y.u)}</td></tr>`).join('')}
     </tbody></table>
@@ -3585,6 +3586,7 @@ ${relCats.length ? `<section>
       <div><dt>${esc(t('formulas_miss'))}</dt><dd>${fx(f.miss)}</dd></div>
       <div><dt>${esc(t('formulas_ex'))}</dt><dd>${fx(f.ex)}</dd></div>
     </dl>
+    </details>
     ${links ? `<p class="fm-links">${links}</p>` : ''}${tm.length ? `
     <p class="fm-terms term-chips"><b>${esc(t('formulas_terms'))}</b> ${tm.join(' ')}</p>` : ''}
     <p class="fm-src">${esc(t('formulas_src'))}: ${esc(srcText(f))}</p>

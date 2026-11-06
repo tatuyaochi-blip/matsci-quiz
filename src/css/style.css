@@ -1632,7 +1632,7 @@ th[aria-sort] .md-sort-i { color: var(--accent); }
 .mt-need { display: inline-block; font-size: .8rem; padding: 1px 8px; margin: 2px 0; border-radius: 999px; border: 1px solid var(--border); }
 .mt-need.mt-k2 { border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
 .mt-card h4 { margin: 12px 0 4px; font-size: .9rem; }
-/* 手法のカードの数値・試料・落とし穴は最初は閉じる(一覧がスマートフォンで長くなりすぎないように。比べる表と結果の理由は閉じていても読める) */
+/* 手法のカードの数値・試料・落とし穴と、公式集のカードの記号・条件・間違い・例は最初は閉じる(一覧がスマートフォンで長くなりすぎないように。比べる表と結果の理由は閉じていても読める) */
 .mt-more { margin-top: 10px; }
 .mt-more > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 8px; min-height: 36px; font-size: .9rem; font-weight: 600; color: var(--accent); }
 .mt-more > summary::-webkit-details-marker { display: none; }
@@ -1742,6 +1742,7 @@ th[aria-sort] .md-sort-i { color: var(--accent); }
   .fm-sym thead { display: none; }
   .fm-sym th, .fm-sym td { padding: .3mm 1.5mm .3mm 0; border-bottom: 0; }
   .fm-sym .fm-s { font-size: 8.5pt; }
+  .fm-x > summary { display: none; }
   .fm-more { display: none; font-size: 7.5pt; line-height: 1.45; gap: 1mm; margin-top: 1mm; }
   html.fm-print-more .fm-more { display: grid; }
   .fm-more dt { font-size: 7.5pt; }
