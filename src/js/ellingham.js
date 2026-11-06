@@ -247,6 +247,8 @@ function setup() {
 .el-box p { margin: 4px 0; line-height: 1.7; }
 .el-main { font-size: 1.05rem; line-height: 1.7; margin: 0 0 10px; padding: 10px 12px; border-radius: 8px; background: var(--accent-soft); }
 .el-eq { font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace); font-size: .88rem; line-height: 1.8; white-space: pre-wrap; overflow-wrap: anywhere; margin: 4px 0; }
+.dy-stats .el-pmain { white-space: nowrap; font-size: 1.1rem; }
+.dy-stats .el-sub { display: block; font-size: .72rem; font-weight: 500; color: var(--muted); }
 .el-warn { color: var(--text); border-left: 3px solid var(--accent-2); padding-left: 8px; }
 .el-tbl-wrap { overflow-x: auto; }
 .el-tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
@@ -332,7 +334,8 @@ function setup() {
   });
   const tempK = () => { const v = numOf('t'); return E.tu.value === 'K' ? v : v + K0; };
   const xOf = k => (E.tu.value === 'K' ? k : k - K0);
-  const pBar = (p, sig = 3) => `${sci(p, sig)} bar (${sci((p * P_STD) / ATM, sig)} atm, ${sci(p * P_STD, sig)} Pa)`;
+  // p(O₂) は bar を大きく、atm と Pa を下の行に小さく(カードが何行にも折り返さないように)
+  const pBar = (p, sig = 3) => el('span', {}, el('span', { class: 'el-pmain' }, `${sci(p, sig)} bar`), el('small', { class: 'el-sub' }, `${sci((p * P_STD) / ATM, sig)} atm · ${sci(p * P_STD, sig)} Pa`));
   const ptotPa = () => numOf('ptot') * ({ atm: ATM, kPa: 1e3, MPa: 1e6 }[E.ptu.value] ?? ATM);
   const trName = ([t, k, s]) => fill(U[`tr_${k}`], { s, t: kc(t) });
 
@@ -391,6 +394,7 @@ function setup() {
         const ay = (d[i2][1] - d[0][1]) / (pts[i2][1] - pts[0][1]), by = d[0][1] - ay * pts[0][1];
         const X = v => ax * v + bx, Y = v => ay * v + by;
         let html = '';
+        const placed = []; // 置いた線の名前の y(重なりを避ける)
         for (const [id, st] of strong) {
           const L = byId[id];
           if (!ids.includes(id)) continue;
@@ -399,7 +403,18 @@ function setup() {
             html += `<circle cx="${X(xOf(tr[0])).toFixed(1)}" cy="${Y(g).toFixed(1)}" r="4" fill="var(--bg)" stroke="${col[st]}" stroke-width="2"><title>${trName(tr)}</title></circle>`;
           }
           const [t1, g1] = L.knots[L.knots.length - 1];
-          html += `<text x="${Math.min(X(xOf(t1)), 580).toFixed(1)}" y="${(Y(g1) - 8).toFixed(1)}" font-size="13" text-anchor="end" fill="var(--text)" stroke="var(--bg)" stroke-width="3" paint-order="stroke">${L.kind === 'ox' ? L.ox : decFix(L.eq.replace(/ /g, ''))}</text>`;
+          // 線の名前は線の端の上に置く。ほかの線・名前と 12px 以内で重なるときは下に、それでも重なるときは上へずらす
+          // 名前の幅(1文字 約7.5px)にわたって、ほかの強調した線と 0 の線が文字の箱を通るかを調べる(薄い線は見ない)
+          const lx = Math.min(X(xOf(t1)), (svg.viewBox.baseVal?.width || 600) - 20), label = L.kind === 'ox' ? L.ox : L.eq.replace(/ /g, '');
+          const pxPerK = (X(xOf(t1)) - X(xOf(t1 - 100))) / 100, wK = (label.length * 7.5 + 4) / (pxPerK || 1);
+          const near = y => placed.some(q => Math.abs(q - y) < 15) || (Y(0) > y - 15 && Y(0) < y + 5) || [...strong.keys()].some(o => o !== id && ids.includes(o) && [0, 0.25, 0.5, 0.75, 1].some(f => {
+            const g = dG(o, t1 - f * wK); if (!Number.isFinite(g)) return false;
+            const yo = Y(g); return yo > y - 15 && yo < y + 5;
+          }));
+          let ly = Y(g1) - 8;
+          if (near(ly)) { const dn = Y(g1) + 18; ly = !near(dn) ? dn : [ly - 14, ly - 28].find(y => !near(y)) ?? ly; }
+          placed.push(ly);
+          html += `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" font-size="13" text-anchor="end" fill="var(--text)" stroke="var(--bg)" stroke-width="3" paint-order="stroke">${L.kind === 'ox' ? L.ox : decFix(L.eq.replace(/ /g, ''))}</text>`;
         }
         svg.insertAdjacentHTML('beforeend', html);
       }
