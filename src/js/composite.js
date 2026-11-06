@@ -492,7 +492,7 @@ export const KRENCHEL = { al: 1, bi: 0.5, pm45: 0.25, r2: 3 / 8, r3: 1 / 5 };
 // =====================================================================
 // 画面
 // =====================================================================
-const form = document.getElementById('comp-form');
+const form = typeof document !== 'undefined' ? document.getElementById('comp-form') : null;
 if (form) ui();
 
 function ui() {

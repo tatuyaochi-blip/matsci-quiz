@@ -357,7 +357,7 @@ export const LIT = {
 // =====================================================================
 // ここから画面
 // =====================================================================
-const form = document.getElementById('fe-c-form');
+const form = typeof document !== 'undefined' ? document.getElementById('fe-c-form') : null;
 if (form) {
   const T = JSON.parse(form.dataset.text || '{}');
   const el = form.elements;
