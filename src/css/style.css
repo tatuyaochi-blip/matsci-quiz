@@ -1764,6 +1764,8 @@ th[aria-sort] .md-sort-i { color: var(--accent); }
 .ph-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin: 0 0 12px; min-width: 0; scroll-margin-top: 12px; }
 .ph-card:target { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
 .ph-card.is-fav { border-color: var(--accent); }
+.ph-js .ph-card.ph-folded { display: none; }
+.ph-rest { margin: 0 0 1rem; }
 .ph-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
 .ph-head h3 { margin: 0; font-size: 1.02rem; line-height: 1.55; min-width: 0; }
 .ph-head h3 a { color: inherit; text-decoration: none; }
@@ -1833,7 +1835,12 @@ th[aria-sort] .md-sort-i { color: var(--accent); }
   .ph-card, .ph-check-ui { padding: 12px; }
   .ph-sel-btns .btn, .ph-check-btns .btn { flex: 1 1 auto; }
   .ph-head { flex-wrap: wrap; }
-  .ph-rules th, .ph-rules td { padding: 6px; }
+  /* 点検の規則の表は、狭い画面では1行を1つの枠にして縦に並べる(3列のままだと「理由」の列が数文字の幅になる) */
+  .ph-rules thead { display: none; }
+  .ph-rules, .ph-rules tbody, .ph-rules tr, .ph-rules td { display: block; width: auto; }
+  .ph-rules tr { padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .ph-rules td { padding: 2px 0; border: 0; min-width: 0 !important; }
+  .ph-rules td[data-h]::before { content: attr(data-h); display: block; font-size: .75rem; font-weight: 600; color: var(--muted); }
 }
 /* 印刷: 表現集のページだけ。ヘッダー・広告・検索欄・点検・読み物は出さず、表現のカードを2段に並べる。
    「お気に入りを印刷」は html.ph-print-fav、「表示中の表現を印刷」は html.ph-print-shown(phrases.js) */
@@ -1858,6 +1865,8 @@ th[aria-sort] .md-sort-i { color: var(--accent); }
   .ph-more dt { font-size: 7.5pt; }
   .ph-w b, .ph-r b { border: .4pt solid #999; }
   html.ph-print-fav .ph-card:not(.is-fav), html.ph-print-fav .ph-group:not(.has-fav) { display: none !important; }
+  html.ph-print-shown .ph-js .ph-card.ph-folded { display: block; }
+  .ph-rest { display: none !important; }
 }
 /* ---- 組織写真の計測室(/measure/。動きは measure.js。枠・カードは手法ナビの mt-*、表は試料調製ガイドの pp-tbl、リンク・出典は公式集の fm-* を使う) ---- */
 .ms-privacy { padding: 8px 12px; border-radius: 10px; background: var(--ok-bg); font-size: .9rem; line-height: 1.7; }

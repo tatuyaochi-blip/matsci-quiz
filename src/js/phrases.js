@@ -219,6 +219,16 @@ function init() {
   const msg = app.querySelector('.ph-msg');
   const none = document.querySelector('.ph-none');
   let group = '';
+  // 検索・絞り込みをしていないときは、場面ごとに最初の FOLD 個(とお気に入り)だけを見せ、残りは「残り n 個」のボタンで開く
+  const FOLD = 3;
+  const opened = new Set();
+  const rest = new Map(groups.map(g => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'btn btn-ghost btn-small ph-rest'; b.hidden = true;
+    b.addEventListener('click', () => { opened.add(g.dataset.g); render(); });
+    g.append(b);
+    return [g, b];
+  }));
 
   // お気に入り: このブラウザに残したもの(保存できないブラウザでも、開いている間は使える)
   const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { return []; } };
@@ -244,7 +254,17 @@ function init() {
       c.hidden = !show;
       if (show) n++;
     }
+    const plain = !ws.length && !group && !only.checked;
     for (const g of groups) {
+      let i = 0, k = 0;
+      for (const c of g.querySelectorAll('.ph-card')) {
+        const fold = plain && !opened.has(g.dataset.g) && !c.hidden && i++ >= FOLD && !c.classList.contains('is-fav');
+        c.classList.toggle('ph-folded', fold);
+        if (fold) k++;
+      }
+      const b = rest.get(g);
+      b.hidden = !k;
+      b.textContent = t('show_rest', { n: k });
       g.hidden = !g.querySelector('.ph-card:not([hidden])');
       g.classList.toggle('has-fav', !!g.querySelector('.ph-card.is-fav'));
     }
@@ -354,8 +374,11 @@ function init() {
   const reveal = () => {
     const m = location.hash.match(/^#(p-[a-z0-9-]+|g-[a-z0-9-]+)$/);
     const el = m && document.getElementById(m[1]);
-    if (!el || !list.contains(el) || (!el.hidden && !el.closest('[hidden]'))) return;
-    q.value = ''; group = ''; only.checked = false; render();
+    if (!el || !list.contains(el) || (!el.hidden && !el.closest('[hidden]') && !el.classList.contains('ph-folded'))) return;
+    const g = el.closest('.ph-group');
+    if (g) opened.add(g.dataset.g);
+    if (el.hidden || el.closest('[hidden]')) { q.value = ''; group = ''; only.checked = false; }
+    render();
     el.scrollIntoView();
   };
   window.addEventListener('hashchange', reveal);
