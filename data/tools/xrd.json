@@ -682,7 +682,7 @@
         "tab_index": "指数づけ",
         "tab_size": "結晶子サイズ",
         "tab_shift": "ピークの移動",
-        "og_el": "元素(25 °C の構造)",
+        "og_el": "元素(25 ℃ の構造)",
         "og_cmp": "化合物",
         "og_atom": "原子",
         "og_ion": "イオン",
@@ -925,7 +925,7 @@
         },
         {
           "h": "データの出典",
-          "p": "元素の格子定数は周期表ツールと同じ ASM などの値(25 °C)、化合物の格子定数は Handbook of Mineralogy(NaCl・KCl・LiF・MgO・CaF₂・ZnS・ZnO)、Vurgaftman ら(2001、III–V 族半導体)、Kisi と Elcombe(1989、ウルツ鉱型 ZnS と ZnO の u、COD 1100044)です。原子散乱因子の係数は International Tables for Crystallography Vol. C(1992)Table 6.1.1.4、異常分散の補正は Henke, Gullikson と Davis(1993)の表、X線の波長は X-ray Data Booklet の Table 1-2(Bearden 1967 に基づく光子エネルギー)から λ = hc/E で求めた値、温度因子は Peng, Ren, Dudarev と Whelan(1996)の 293 K の値、NaCl は Finger と King(1978)の表にある 1 bar・室温の平均二乗変位から、MgO は Hazen(1976)の値です。例と検算のデータは NBS Circular 539(Cu・α-Fe)、Handbook of Mineralogy(NaCl)と、大学の資料に載った PDF カード 4-787(Al)・27-1402(Si)の値です。計算は Python で別に作ったプログラムと突き合わせ、Cu・α-Fe・Al・Si では位置と強度の順番が標準パターンと合うことを確かめています。NaCl も温度因子を入れると強度の順番が標準パターンとそろいます(B を 0 にすると高角の (420)・(422) が強く出すぎます)。"
+          "p": "元素の格子定数は周期表ツールと同じ ASM などの値(25 ℃)、化合物の格子定数は Handbook of Mineralogy(NaCl・KCl・LiF・MgO・CaF₂・ZnS・ZnO)、Vurgaftman ら(2001、III–V 族半導体)、Kisi と Elcombe(1989、ウルツ鉱型 ZnS と ZnO の u、COD 1100044)です。原子散乱因子の係数は International Tables for Crystallography Vol. C(1992)Table 6.1.1.4、異常分散の補正は Henke, Gullikson と Davis(1993)の表、X線の波長は X-ray Data Booklet の Table 1-2(Bearden 1967 に基づく光子エネルギー)から λ = hc/E で求めた値、温度因子は Peng, Ren, Dudarev と Whelan(1996)の 293 K の値、NaCl は Finger と King(1978)の表にある 1 bar・室温の平均二乗変位から、MgO は Hazen(1976)の値です。例と検算のデータは NBS Circular 539(Cu・α-Fe)、Handbook of Mineralogy(NaCl)と、大学の資料に載った PDF カード 4-787(Al)・27-1402(Si)の値です。計算は Python で別に作ったプログラムと突き合わせ、Cu・α-Fe・Al・Si では位置と強度の順番が標準パターンと合うことを確かめています。NaCl も温度因子を入れると強度の順番が標準パターンとそろいます(B を 0 にすると高角の (420)・(422) が強く出すぎます)。"
         }
       ],
       "faq": [
