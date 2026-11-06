@@ -2403,7 +2403,7 @@
   {
    "id": "t-kic",
    "g": "mech",
-   "ja": "平面ひずみ破壊靱性は〜に従って求めた",
+   "ja": "平面ひずみ破壊靭性は〜に従って求めた",
    "en": "The plane-strain fracture toughness was determined in accordance with {規格}.",
    "v": {
     "規格": "ASTM E399"
@@ -2415,7 +2415,7 @@
     "破壊靭性",
     "応力拡大係数"
    ],
-   "kw": "破壊靱性 K_IC ASTM E399"
+   "kw": "破壊靭性 K_IC ASTM E399"
   },
   {
    "id": "e-solution",
@@ -3170,7 +3170,7 @@
   {
    "id": "n-sqrt-m",
    "g": "num",
-   "ja": "破壊靱性の単位は MPa√m か、m の 1/2 乗を上付きで書く",
+   "ja": "破壊靭性の単位は MPa√m か、m の 1/2 乗を上付きで書く",
    "en": "The fracture toughness of the tempered steel was {値}.",
    "v": {
     "値": "45 MPa√m"
@@ -3182,7 +3182,7 @@
     "破壊靭性",
     "応力拡大係数"
    ],
-   "kw": "MPa√m 破壊靱性 単位"
+   "kw": "MPa√m 破壊靭性 単位"
   },
   {
    "id": "n-hv",
