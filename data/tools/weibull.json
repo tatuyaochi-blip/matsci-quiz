@@ -1462,7 +1462,7 @@
           "d_ten": "Querschnittsdicke d (mm)",
           "l_ten": "Messlänge L (mm)",
           "paste": "Festigkeitsdaten (MPa, etwa 10 bis 100 Werte)",
-          "paste_ph": "384, 300, 298, 371, …",
+          "paste_ph": "384 300 298 371 …",
           "paste_help": "Mit dem Punkt (.) als Dezimalzeichen werden die Werte durch Kommas, Leerzeichen, Zeilenumbrüche, Semikolons oder Tabulatoren getrennt; mit dem Komma (,) durch Leerzeichen, Zeilenumbrüche, Semikolons oder Tabulatoren (dann wird 412,5 als Dezimalzahl gelesen, und Zahlen mit „.“ werden nicht gelesen). Werte ohne Einheit eingeben. Das Werkzeug sortiert sie. Daten bis 1800 Zeichen werden in die Teilen-URL aufgenommen.",
           "read": "{n} Werte gelesen (min. {a}, max. {b} MPa).",
           "read_none": "Keine lesbaren Zahlen.",
