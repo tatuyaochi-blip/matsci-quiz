@@ -1,0 +1,1074 @@
+{
+  "id": "strength",
+  "order": 21,
+  "slug": "strengthening-calc",
+  "cats": [
+    "strengthening",
+    "metals",
+    "heat-treatment",
+    "mechanical",
+    "defects-diffusion"
+  ],
+  "cat": "strengthening",
+  "terms": [
+    "ホール・ペッチの関係",
+    "転位",
+    "テイラー因子",
+    "オロワン機構",
+    "固溶強化",
+    "析出硬化",
+    "加工硬化",
+    "臨界分解せん断応力",
+    "分散強化",
+    "バーガースベクトル"
+  ],
+  "questions": [
+    "strengthening-007",
+    "strengthening-010",
+    "strengthening-013"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "strength-form",
+    "fields": [
+      {
+        "name": "mode",
+        "options": [
+          "hp",
+          "dis",
+          "ppt",
+          "ss",
+          "sum"
+        ],
+        "value": "hp"
+      },
+      {
+        "name": "hmat",
+        "options": [
+          "custom",
+          "fe",
+          "ni",
+          "cu",
+          "al"
+        ],
+        "value": "custom"
+      },
+      {
+        "name": "hs0",
+        "value": 70,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "hk",
+        "value": 0.74,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "hku",
+        "options": [
+          "m",
+          "mm",
+          "um"
+        ],
+        "value": "m"
+      },
+      {
+        "name": "hd1",
+        "value": 20,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "hd2",
+        "value": 5,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "hdu",
+        "options": [
+          "um",
+          "nm",
+          "mm"
+        ],
+        "value": "um"
+      },
+      {
+        "name": "mat",
+        "options": [
+          "cu",
+          "al",
+          "fe",
+          "ni",
+          "custom"
+        ],
+        "value": "cu"
+      },
+      {
+        "name": "G",
+        "value": 48,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "b",
+        "value": 0.2556,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "nu",
+        "value": 0.34,
+        "attrs": "min=\"0\" max=\"0.5\" step=\"any\""
+      },
+      {
+        "name": "M",
+        "value": 3.06,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "dal",
+        "value": 0.3,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "dr1",
+        "value": "1e14",
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "dr2",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "dru",
+        "options": [
+          "m2",
+          "cm2"
+        ],
+        "value": "m2"
+      },
+      {
+        "name": "pform",
+        "options": [
+          "basic",
+          "ashby"
+        ],
+        "value": "basic"
+      },
+      {
+        "name": "pdef",
+        "options": [
+          "c3",
+          "e3",
+          "e2",
+          "in"
+        ],
+        "value": "c3"
+      },
+      {
+        "name": "pr",
+        "value": 20,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "pf",
+        "value": 2,
+        "attrs": "min=\"0\" max=\"100\" step=\"any\""
+      },
+      {
+        "name": "pl",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "pg",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "sk",
+        "value": 30,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "sn",
+        "options": [
+          "h",
+          "t"
+        ],
+        "value": "h"
+      },
+      {
+        "name": "sc",
+        "value": 4,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "sc2",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "scu",
+        "options": [
+          "at",
+          "mass"
+        ],
+        "value": "at"
+      },
+      {
+        "name": "s0",
+        "value": 50,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "xss",
+        "value": 60,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "xgb",
+        "value": 0,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "xdis",
+        "value": 100,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "xppt",
+        "value": 200,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "comb",
+        "options": [
+          "lin",
+          "rss",
+          "mix",
+          "pow"
+        ],
+        "value": "mix"
+      },
+      {
+        "name": "sq",
+        "value": 1.5,
+        "attrs": "min=\"0\" step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "box": "res"
+      }
+    ],
+    "svg": "sg-chart",
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "強化機構の計算ラボ",
+      "card": "結晶粒の微細化(ホール・ペッチ)、転位強化(テイラーの式)、析出・分散強化(オロワン機構と切断の交点)、固溶強化で降伏応力がどれだけ上がるかを、単位の換算と代入つきで。重ね合わせの方法による違いも積み上げの棒で",
+      "title": "強化機構の計算ラボ(ホール・ペッチ・テイラーの式・オロワン応力・固溶強化・重ね合わせ)",
+      "description": "金属の強化機構の式に値を代入して、降伏応力の上がり方の桁をつかむ計算ツールです。ホール・ペッチの関係 σy = σ₀ + k·d^(−1/2)(d と k の単位の換算つき)、テイラーの式 Δσ = MαGb√ρ、オロワン応力(基本形 Gb/L とオロワン・アシュビーの式、粒子の間隔の定義を選べる)と規則相の切断との交点、固溶強化 Δσ = k·cⁿ、線形・二乗和の平方根・混ぜ方による重ね合わせと積み上げの棒グラフ。式と出典つき。",
+      "h1": "強化機構の計算ラボ",
+      "lead": "金属の降伏応力を上げる4つの強化機構(結晶粒の微細化・転位・析出と分散粒子・固溶)の式に値を入れ、強化の量を MPa で出します。単位は m・Pa の系に直してから代入した形を見せるので、d の µm と m、b の nm、ρ の m⁻² と cm⁻²、k の単位の取り違えに気づけます。最後のタブで、機構ごとの寄与を重ね合わせる方法(線形の和・二乗和の平方根など)による違いを比べます。結晶粒度番号から粒径への換算は、組織写真の計測室でできます。",
+      "in_heading": "入力",
+      "out_heading": "結果",
+      "presets_h": "例",
+      "note": "式は教科書・論文・講義資料で確かめた定番のもので、出典は結果の下にあります。係数は材料・組織・状態で大きく変わるので、結果は桁をつかむための目安です。温度とひずみ速度の影響は扱っていません。実際の強さは引張試験の測定値が優先し、設計の判断は規格と専門家に従ってください。",
+      "practice": "強化機構の問題を解く",
+      "related": "関連する用語",
+      "chart_label": "結果のグラフ",
+      "mode": "計算",
+      "mode_hp": "結晶粒(ホール・ペッチ)",
+      "mode_dis": "転位(テイラー)",
+      "mode_ppt": "析出・分散粒子",
+      "mode_ss": "固溶強化",
+      "mode_sum": "重ね合わせ",
+      "hmat": "σ₀ と k の値",
+      "hmat_custom": "自分で入れる",
+      "hmat_fe": "純鉄(Cordero ほか)",
+      "hmat_ni": "純ニッケル(Cordero ほか)",
+      "hmat_cu": "純銅(Cordero ほか)",
+      "hmat_al": "純アルミニウム(Cordero ほか)",
+      "hs0": "摩擦応力 σ₀(MPa)",
+      "hk": "ホール・ペッチ係数 k",
+      "hku": "k の単位",
+      "hku_m": "MPa·m^(1/2)",
+      "hku_mm": "MPa·mm^(1/2)",
+      "hku_um": "MPa·µm^(1/2)",
+      "hd1": "結晶粒径 d₁",
+      "hd2": "比べる粒径 d₂(空欄可)",
+      "hdu": "d の単位",
+      "hdu_um": "µm",
+      "hdu_nm": "nm",
+      "hdu_mm": "mm",
+      "mat": "材料",
+      "mat_cu": "銅(Cu)",
+      "mat_al": "アルミニウム(Al)",
+      "mat_fe": "鉄(α-Fe)",
+      "mat_ni": "ニッケル(Ni)",
+      "mat_custom": "自分で入れる",
+      "G": "剛性率 G(GPa)",
+      "b": "バーガースベクトル b(nm)",
+      "nu": "ポアソン比 ν",
+      "M": "テイラー因子 M",
+      "dal": "係数 α",
+      "dr1": "転位密度 ρ₁",
+      "dr2": "比べる ρ₂(空欄可)",
+      "dru": "ρ の単位",
+      "dru_m2": "m⁻²",
+      "dru_cm2": "cm⁻²",
+      "pform": "オロワン応力の式",
+      "pform_basic": "基本形 Δτ = Gb/L",
+      "pform_ashby": "オロワン・アシュビーの式",
+      "pdef": "粒子の間隔 L の定義",
+      "pdef_c3": "立方体の中心間隔",
+      "pdef_e3": "立方体の面と面の間隔",
+      "pdef_e2": "すべり面の面と面の間隔",
+      "pdef_in": "L を入力",
+      "pr": "粒子の半径 r(nm)",
+      "pf": "体積分率 f(%)",
+      "pl": "間隔 L(nm)",
+      "pg": "切断: 逆位相境界エネルギー γ(J/m²、空欄可)",
+      "sk": "係数 k(MPa/濃度ⁿ)",
+      "sn": "指数 n",
+      "sn_h": "1/2(フライシャー)",
+      "sn_t": "2/3(ラブシュ)",
+      "sc": "濃度 c",
+      "sc2": "比べる濃度 c₂(空欄可)",
+      "scu": "濃度の単位",
+      "scu_at": "at%",
+      "scu_mass": "mass%",
+      "s0": "摩擦応力 σ₀(MPa)",
+      "xss": "固溶 Δσ_ss(MPa)",
+      "xgb": "粒界 Δσ_gb(MPa)",
+      "xdis": "転位 Δσ_dis(MPa)",
+      "xppt": "析出 Δσ_ppt(MPa)",
+      "comb": "重ね合わせの方法",
+      "comb_lin": "線形の和",
+      "comb_rss": "二乗和の平方根",
+      "comb_mix": "混ぜ方(よく使う形)",
+      "comb_pow": "べき q の和",
+      "sq": "指数 q",
+      "js": {
+        "ui": {
+          "tabs_label": "強化機構の種類",
+          "tab_hp": "① 結晶粒",
+          "tab_dis": "② 転位",
+          "tab_ppt": "③ 析出・分散",
+          "tab_ss": "④ 固溶",
+          "tab_sum": "⑤ 重ね合わせ",
+          "examples": "例:",
+          "ex": [
+            "鋼の粒を 50 → 5 µm に",
+            "強加工で ρ 10¹² → 10¹⁵",
+            "析出粒子のオロワン応力",
+            "固溶強化の濃度依存",
+            "4つの機構の重ね合わせ",
+            "切断とオロワンの交点"
+          ],
+          "ex_note": "例の値と、入力欄に最初から入っている値(σ₀・k・濃度の係数 k・γ・重ね合わせの各寄与など)は、計算のしかたを示すために作った数で、実在の材料や合金の測定データではありません。材料を選んだときに入る G・b・ν・M と、「Cordero ほか」の σ₀・k は、結果の下の出典の値です。",
+          "sub_mat": "材料の定数(②・③で共通)",
+          "help_mat": "材料を選ぶと、G(WebElements の剛性率)、b(格子定数から FCC は a/√2、BCC は √3a/2)、ν、M = 3.06 が入ります。欄を変えると「自分で入れる」になります。",
+          "help_hp": "結晶粒度番号から粒径に直すときは、組織写真の計測室の換算を使ってください。d が平均切片長さか円相当径かは資料によって違うので、k を出した資料と同じ定義の d を入れます。",
+          "help_dis": "1×10¹⁴ m⁻² は「1e14」と入れられます。cm⁻² の値は 10⁴ 倍すると m⁻² になります。",
+          "help_ppt": "体積分率は % で入れます(5 % なら 5)。γ を入れると、規則相の粒子を転位の対が切る式(Brown・Ham)の強さと、オロワンとの交点を出します。",
+          "help_ss": "k は、濃度の単位と指数 n をそろえて資料の値を入れます(k の単位は MPa/(at%)ⁿ などで、n によって変わります)。このツールは代表の k を置いていません。",
+          "help_sum": "各寄与は引張の降伏応力(MPa)で入れます。せん断の Δτ はテイラー因子 M を掛けて Δσ にしてから入れます。下のボタンは、①・②・④で比べる値(d₂・ρ₂・c₂)が入っていればその値、なければ1つ目の値で、③は切断とオロワンの小さいほうで入れます。",
+          "from_tabs": "①〜④の結果を入れる",
+          "bars_label": "重ね合わせの方法ごとの降伏応力の積み上げの棒グラフ",
+          "hdu_um": "µm",
+          "hdu_nm": "nm",
+          "hdu_mm": "mm",
+          "hku_m": "MPa·m^(1/2)",
+          "hku_mm": "MPa·mm^(1/2)",
+          "hku_um": "MPa·µm^(1/2)",
+          "hmat_custom": "自分で入れる",
+          "hmat_fe": "純鉄(Cordero ほか)",
+          "hmat_ni": "純ニッケル(Cordero ほか)",
+          "hmat_cu": "純銅(Cordero ほか)",
+          "hmat_al": "純アルミニウム(Cordero ほか)",
+          "pform_basic": "基本形 Δτ = Gb/L",
+          "pform_ashby": "オロワン・アシュビーの式",
+          "pdef_c3": "立方体の中心間隔",
+          "pdef_e3": "立方体の面と面の間隔",
+          "pdef_e2": "すべり面の面と面の間隔",
+          "pdef_in": "L を入力",
+          "scu_at": "at%",
+          "scu_mass": "mass%",
+          "comb_lin": "線形の和",
+          "comb_rss": "二乗和の平方根",
+          "comb_mix": "混ぜ方(よく使う形)",
+          "comb_pow": "べき q の和",
+          "fn_basic": "基本形 Δτ = Gb/L",
+          "fn_ashby": "オロワン・アシュビーの式",
+          "cn_lin": "線形の和",
+          "cn_rss": "二乗和の平方根",
+          "cn_mix": "混ぜ方(よく使う形)",
+          "cn_pow": "べき q の和",
+          "h_eq": "使った式と代入した値",
+          "h_miss": "よくある誤り",
+          "h_caution": "注意",
+          "eq_given": "入力",
+          "hp_need": "ホール・ペッチ係数 k と、0 より大きい結晶粒径 d₁ を入れてください。",
+          "hp_main": "結晶粒径 {d} では、σy = {s} です(粒界の寄与 k·d^(−1/2) は {g})。",
+          "hp_main_gb": "結晶粒径 {d} での粒界の寄与 k·d^(−1/2) は {g} です(σ₀ を入れると σy を出します)。",
+          "hp_main2": "結晶粒径を {d1} から {d2} にすると、σy は {s1} から {s2} になり、{ds} 上がります(d^(−1/2) は {r} 倍)。",
+          "hp_main2b": "結晶粒径を {d1} から {d2} にすると、σy は {s1} から {s2} になり、{ds} 下がります(d^(−1/2) は {r} 倍)。",
+          "hp_nano": "d が 100 nm 以下です。数十 nm 以下では強さの伸びが鈍り、式の値は実際より高めに出ることがあります。",
+          "hp_nano20": "d が 20 nm 以下です。およそ 10〜20 nm より小さいと、強さが頭打ちになったり、かえって下がったりすることがあり(逆ホール・ペッチ)、この式は使えません。",
+          "hp_no_s0": "σ₀ が空欄なので、粒界の寄与 k·d^(−1/2) だけを出しています。",
+          "s_k_si": "k(m の単位で)",
+          "s_d1m": "d₁(m で)",
+          "s_gb1": "粒界の寄与(d₁)",
+          "s_sy1": "σy(d₁)",
+          "s_gb2": "粒界の寄与(d₂)",
+          "s_sy2": "σy(d₂)",
+          "s_dsy": "σy の差",
+          "hp_eq_lead": "ホール・ペッチの関係 σy = σ₀ + k·d^(−1/2) で、σ₀ は粒界がないときの摩擦応力、k は粒界の強化の効きやすさです。k を MPa·m^(1/2) にそろえ、d を m に直してから代入します。",
+          "hp_eq_note": "粒界の寄与は 1/√d に比例するので、粒径を 1/100 にすると 10 倍、1/4 にすると 2 倍になります。",
+          "hp_miss_d": "d を {u} の数のまま({d})MPa·m^(1/2) の k と組み合わせると、k·d^(−1/2) = {w} になります。正しくは {c} で、{r} 倍違います。",
+          "h_kvals": "純金属の σ₀ と k の例(Cordero ほか 2016 の表 1)",
+          "kv_cols": [
+            "金属",
+            "σ₀(MPa)",
+            "k(MPa·m^(1/2))",
+            "k(MPa·µm^(1/2))"
+          ],
+          "kv_note": "多くの研究のデータ(粒径の範囲は金属ごとに違う、0.2 % 塑性ひずみ付近)にまとめて当てはめた純金属の値で、合金・鋼の値ではありません。鋼の k は、固溶した炭素・窒素などで大きく変わります。実際の計算には、対象の材料について測った資料の値を使ってください。",
+          "hp_cautions": [
+            "結晶粒の大きさ以外(固溶・析出・転位密度・集合組織)が同じ材料どうしの比べを前提にしています。σ₀ にはそれらの寄与が含まれます。",
+            "d の定義(平均切片長さ・円相当径など)で値が変わります。k を出した資料と同じ定義の d を使ってください。",
+            "およそ 10〜20 nm より細かい粒では、式から外れます(逆ホール・ペッチ)。高温では細かい粒ほどクリープしやすくなります。",
+            "温度とひずみ速度の影響は扱っていません。"
+          ],
+          "x_d": "結晶粒径 d (µm)",
+          "y_sy": "降伏応力 σy (MPa)",
+          "y_gb": "k·d^(−1/2) (MPa)",
+          "cap_hp": "結晶粒径と降伏応力(横軸は対数)。印は入れた粒径。",
+          "key_hp": "σy = σ₀ + k·d^(−1/2)",
+          "key_hp_gb": "k·d^(−1/2)",
+          "key_pts": "入れた値",
+          "key_20nm": "d = 20 nm",
+          "dis_need": "G・b・M(0 より大きい値)、係数 α、転位密度 ρ₁(0 以上)を入れてください。",
+          "dis_main": "転位密度 {r} では、Δσ = MαGb√ρ = {s} です(せん断応力では Δτ = {t})。",
+          "dis_main2": "転位密度が {r1} から {r2} になると、Δσ は {s1} から {s2} になり、{ds} 上がります(√ρ は {x} 倍)。",
+          "dis_main2b": "転位密度が {r1} から {r2} になると、Δσ は {s1} から {s2} になり、{ds} 下がります(√ρ は {x} 倍)。",
+          "dis_alpha": "α が 0.1〜1 の外にあります。入力を確かめてください。",
+          "dis_rho_odd": "ρ が 10⁹〜10¹⁷ m⁻² の外にあります。単位(m⁻² と cm⁻²)を確かめてください。",
+          "s_rho1": "ρ₁",
+          "s_tau1": "Δτ(ρ₁)",
+          "s_sig1": "Δσ(ρ₁)",
+          "s_rho2": "ρ₂",
+          "s_sig2": "Δσ(ρ₂)",
+          "s_dsig": "Δσ の差",
+          "dis_eq_lead": "テイラーの式は、すべり面を貫く転位(林転位)の間隔がおよそ 1/√ρ であることから、転位を動かすせん断応力 Δτ = αGb√ρ を与えます。多結晶の引張の降伏応力にはテイラー因子 M を掛けて Δσ = MΔτ とします。G は MPa、b は m、ρ は m⁻² で代入します。",
+          "dis_eq_note": "ρ が 100 倍になっても Δσ は 10 倍にとどまります。焼なまし材の初めの転位密度の寄与を除くときは、Δσ₂ − Δσ₁ のように差をとります。",
+          "dis_miss_m": "M を掛け忘れると、せん断応力の {t} を引張の降伏応力として使ってしまいます(正しくは {s})。",
+          "dis_miss_sqrt": "√ を付け忘れて ρ のまま掛けると {w} MPa のような桁外れの値になります。",
+          "dis_miss_b": "b を nm のまま(m に直さず)代入すると 10⁹ 倍、ρ を cm⁻² のまま入れると √10⁴ = 100 倍ずれます。",
+          "h_rho": "転位密度の目安",
+          "rho_list": [
+            "焼なました金属でおよそ 10¹⁰〜10¹² m⁻²、強い冷間加工でおよそ 10¹⁵ m⁻² 程度まで増えます(資料によっては 10¹⁶ m⁻² まで)。",
+            "α は資料によって幅があり、M を掛ける形 σ = MαGb√ρ で、室温の純金属ではおよそ 0.2〜0.4 という報告があります(Kassner 2004)。M を含めない書き方や、別の定義では値が違うので、資料の式の形を確かめてください。"
+          ],
+          "dis_cautions": [
+            "転位密度は TEM・X 線回折などで測った値で、測り方で違いが出ます。",
+            "転位が壁や小角粒界に並んだ組織(回復した組織)では、同じ ρ でも強さが違うことがあります。",
+            "温度とひずみ速度の影響は扱っていません。"
+          ],
+          "x_rho": "転位密度 ρ (m⁻²)",
+          "y_dsig": "Δσ (MPa)",
+          "cap_dis": "テイラーの式による強化の量(横軸は対数)。印は入れた ρ。",
+          "key_dis": "Δσ = MαGb√ρ(α = {a}、M = {m})",
+          "ppt_need_mat": "G・b・M(0 より大きい値)とポアソン比 ν(0〜0.5)を入れてください。",
+          "ppt_need": "粒子の半径 r(0 より大きい値)と体積分率 f(0 以上 100 % 未満)を入れてください。L を入力にしたときは L も入れてください。",
+          "ppt_bad_l": "この r と f では間隔が 0 以下になります(粒子が重なる)。f を小さくするか、間隔の定義を確かめてください。",
+          "ppt_bad_ashby": "この r と f では、オロワン・アシュビーの式が使えません(面と面の間隔 λ が 0 以下か、2r̄ が b 以下)。",
+          "ppt_main0": "体積分率が 0 なので、粒子による強化はありません(間隔が無限大)。",
+          "ppt_main": "{f}では、間隔 {L}、Δτ = {t}、テイラー因子 {m} を掛けた Δσ = {s} です(転位が粒子の間を張り出して通り抜けるとした値)。",
+          "ppt_cut_low": "切断の式では Δτ = {c}(Δσ = {cs})で、オロワンの {o} より小さいので、この大きさの粒子は切られるほうが楽です。強化の量は小さいほうの切断で決まります。",
+          "ppt_cut_high": "切断の式では Δτ = {c}(Δσ = {cs})で、オロワンの {o} より大きいので、この大きさの粒子は迂回されます(オロワン機構)。",
+          "ppt_small": "r が 1 nm より小さく、粒子を連続体として扱う式の前提から外れます。",
+          "s_f": "体積分率 f",
+          "s_L": "間隔 L",
+          "s_lam": "面と面の間隔 λ",
+          "s_dtau": "Δτ(オロワン)",
+          "s_dsigp": "Δσ = MΔτ",
+          "s_cut": "Δτ(切断)",
+          "s_cut_sig": "Δσ = {s}",
+          "eq_cut": "切断(規則相の粒子、Brown・Ham の弱く結合した転位の対):",
+          "ppt_eq_lead_b": "転位の線張力を約 Gb²/2 とすると、間隔 L の粒子の間で転位が半円まで張り出して通り抜けるせん断応力は Δτ ≈ Gb/L です。L の定義(中心どうしか、面と面か、3次元か、すべり面の上か)は資料で違い、値が変わるので、定義を選んで代入します。",
+          "ppt_eq_lead_a": "オロワン・アシュビーの式は、転位の性格と粒子の大きさによる線張力の変わり方を ln の項で入れた形です。λ はすべり面の上で正方形に並ぶとした粒子の面と面の間隔、r̄ = πr/4 は球を勝手な面で切った切り口の平均の半径です。",
+          "ppt_eq_note": "f を % のまま(5 % を 5 として)代入すると間隔が大きくずれます。r と直径の取り違えにも気をつけてください。",
+          "h_cmp": "間隔の定義と式による違い",
+          "cmp_cols": [
+            "式と L の定義",
+            "L・λ",
+            "Δτ",
+            "Δσ = MΔτ"
+          ],
+          "row_basic": "Gb/L({d})",
+          "row_ashby": "オロワン・アシュビー(λ)",
+          "cmp_note": "同じ r と f でも、間隔の定義と式で値が数十 % 以上変わります。論文の値と比べるときは、どの定義の間隔と、どの式を使ったかをそろえてください。",
+          "h_cross": "切断とオロワンの交点(臨界半径)",
+          "cross_main": "この f と γ では、半径 {r} で切断とオロワンの強さが等しくなります(Δτ = {t}、Δσ = {s})。これより小さい粒子は切られ、大きい粒子は迂回されるので、強化はこの付近で最大になります。",
+          "cross_none": "0.3 nm〜2 µm の範囲で、2つの式は交わりませんでした。",
+          "cross_note": "交点は、切断の式を1つ(規則相の粒子を転位の対が切る形)に決めたときの目安です。切断の強さは、整合ひずみ・剛性率の差・逆位相境界など機構ごとに式が違い、大きな粒子では転位の対の結合が強い形の式が使われます。",
+          "cross_hint": "逆位相境界エネルギー γ を入れると、規則相の粒子を切る強さと、オロワンとの交点(臨界半径)を出します。",
+          "ppt_cautions": [
+            "粒子は同じ大きさの球で、一様に散らばっているとしています。大きさの分布や形(板・針)で値は変わります。",
+            "転位が切れない硬い粒子(酸化物・非整合な析出物・大きく育った析出物)にオロワンの式を使います。小さく整合な析出物は、ふつう転位に切られます。",
+            "高温では、転位が上昇運動で粒子を乗り越えられるので、強化は小さくなります。温度とひずみ速度の影響は扱っていません。"
+          ],
+          "x_r": "粒子の半径 r (nm)",
+          "y_dsigp": "Δσ = MΔτ (MPa)",
+          "cap_ppt": "粒子の半径と強化の量(f = {f} %、M = {m}、横軸は対数)。",
+          "key_oro": "オロワン({f})",
+          "key_cut": "切断(Brown・Ham)",
+          "mark_r": "r = {r} nm",
+          "mark_x": "交点 {r} nm",
+          "ss_need": "係数 k と、0 以上の濃度 c を入れてください。",
+          "ss_main": "濃度 {c} {u} で、Δσ = k·c^({n}) = {s} です。",
+          "ss_main2": "濃度を {c} から {c2} {u} にすると、Δσ は {s} から {s2} になります(n = {n} で {r} 倍)。",
+          "s_ss1": "Δσ(c)",
+          "s_ss2": "Δσ(c₂)",
+          "s_ss_other": "n = {n} とした値",
+          "ss_eq_lead": "固溶強化の大きさは、溶質原子のまわりのひずみの場と転位の相互作用で決まり、濃度 c の 1/2 乗(フライシャー)や 2/3 乗(ラブシュ)に比例するとするモデルがよく使われます。Δσ = k·cⁿ の k は、濃度の単位と n をそろえて資料の値を入れます。",
+          "ss_eq_note": "n = 1/2 では濃度を 4 倍にすると 2 倍、n = 2/3 では約 2.52 倍です。c = 0 で Δσ = 0 です。",
+          "ss_cautions": [
+            "1種類の溶質を、固溶限の範囲で、析出させずに入れた場合の形です。いくつもの溶質の足し方は別の議論があります。",
+            "k は母相と溶質の組み合わせ(原子の大きさの差・剛性率の差)で大きく違います。",
+            "鋼の炭素・窒素のような侵入型の溶質は、置換型より強く効き、時効で転位を固着することもあります。",
+            "温度とひずみ速度の影響は扱っていません。"
+          ],
+          "x_c": "濃度 c ({u})",
+          "y_dss": "Δσ (MPa)",
+          "cap_ss": "濃度と固溶強化の量(n = 1/2 と 2/3)。印は入れた濃度。",
+          "sum_need": "σ₀ を入れ、各寄与は 0 以上で入れてください(空欄は 0 として扱います)。",
+          "sum_need_q": "指数 q(0 より大きい値)を入れてください。",
+          "sum_main": "{m}では σy = {s} です。線形の和では {l}、二乗和の平方根では {r} で、{d} % 違います。",
+          "sum_q_odd": "q が 1〜2 の外にあります。q = 1 は線形の和、q = 2 は二乗和にあたり、ふつうはこの間の値を使います。",
+          "sum_eq_lead": "機構ごとの寄与 Δσᵢ の合わせ方は確定していません。ここでは σ₀ はいつも単純に足し、残りの合わせ方を4通りで比べます。",
+          "sum_eq_note": "「二乗和の平方根」は σ₀ を除いた寄与どうしを合わせる形です。σ₀ まで含めて二乗和にする書き方もあり、値はさらに下がります。",
+          "h_which": "どの足し方を使うか",
+          "which_list": [
+            "同じすべり面の上に強さの近い点状の障害物(転位の林と析出物など)が混ざっているとき、転位はそれらを区別せずに引っかかるので、強さは二乗和の平方根に近くなるとされます。",
+            "強さの大きく違う障害物どうしや、格子の摩擦・粒界のように性質の違う抵抗は、線形の和に近くなるとされます。",
+            "その中間の指数 q(1〜2)を実験に合わせて使うこともあります。アルミニウム合金では線形の和が使われる例が多くあります。",
+            "合わせ方で見積もりが数十 % 変わることがあるので、どの式を使ったかを明らかにして比べます。"
+          ],
+          "sum_cautions": [
+            "各寄与の式の係数はそれぞれ目安なので、重ね合わせた値は実測(引張試験の降伏応力・耐力)で確かめてください。",
+            "結晶粒の寄与 Δσ_gb は k·d^(−1/2) だけです。ホール・ペッチの σ₀ にはほかの機構の寄与が含まれることがあるので、二重に数えないようにします。",
+            "温度とひずみ速度の影響は扱っていません。設計の判断は規格と専門家に従ってください。"
+          ],
+          "cap_sum": "重ね合わせの方法ごとの降伏応力(MPa)。二乗和・べきの部分は、図のために各寄与の二乗(q 乗)の比で分けて描いています。",
+          "key_ss": "固溶",
+          "key_gb": "粒界",
+          "key_disl": "転位",
+          "key_ppt": "析出",
+          "src_h": "出典:",
+          "src_byu": "BYU の講義資料(Callister & Rethwisch の転位密度)",
+          "src_vaid": "規則相の切断とオロワンの式の一覧(arXiv:2104.05906)",
+          "src_pan": "Pandat の資料: 析出強化のモデルと重ね合わせ(Ardell 1985 を引く)",
+          "src_wel": "WebElements の剛性率(Wikipedia の表)",
+          "l_hp": "ホール・ペッチの関係",
+          "l_measure": "結晶粒度番号の換算",
+          "l_formula": "公式集",
+          "l_learn_cold": "寒いと鉄が割れやすくなるのはなぜ?",
+          "l_dis": "転位",
+          "l_wh": "加工硬化",
+          "l_taylor": "テイラー因子",
+          "l_burgers": "バーガースベクトル",
+          "l_learn_bend": "金属は曲がるのにガラスはなぜ割れるの?",
+          "l_orowan": "オロワン機構",
+          "l_ppt": "析出硬化",
+          "l_disp": "分散強化",
+          "l_ss": "固溶強化",
+          "l_learn_quench": "焼入れで鋼が硬くなるのはなぜ?",
+          "l_crss": "臨界分解せん断応力",
+          "l_schmid": "シュミット因子",
+          "l_proof": "0.2%耐力",
+          "tensile_slug": "tensile-test-analyzer",
+          "l_tensile": "引張試験のデータ解析",
+          "l_cat": "材料の強化の分野"
+        }
+      },
+      "sections": [
+        {
+          "h": "強化は転位の動きを妨げること",
+          "p": "金属の塑性変形は、転位がすべり面の上を動くことで進みます。そのため金属を強くするには、転位の動きを妨げる障害物を入れます。結晶粒を細かくすると粒界が、冷間加工で転位を増やすと転位どうしのからみ合いが、時効でできた析出物や分散させた硬い粒子が、溶け込んだ溶質原子のひずみの場が、それぞれ障害物になります。このツールは、それぞれの機構で降伏応力がどれだけ上がるかを、定番の式に値を入れて見積もります。"
+        },
+        {
+          "h": "結晶粒の微細化(ホール・ペッチの関係)",
+          "p": "降伏応力は σy = σ₀ + k·d^(−1/2) のように、結晶粒径 d の平方根に反比例して上がります。粒界の手前で止まった転位の列(転位の堆積)の先端に応力が集中し、それが隣の粒のすべりを起こす条件から、この形が導かれます。粒が小さいほど列が短く、大きな外部の応力が要ります。k は BCC の鉄鋼で大きく、FCC のアルミニウムや銅で小さいので、細粒化の効果は鋼で特に大きくなります。結晶粒の微細化は、強さと同時に靭性も高め、延性脆性遷移温度を下げる数少ない強化法です。"
+        },
+        {
+          "h": "転位強化(テイラーの式)",
+          "p": "加工で増えた転位は、動く転位にとって、すべり面を貫く林のような障害物になります。その間隔がおよそ 1/√ρ なので、転位を動かすせん断応力は Δτ = αGb√ρ、多結晶の引張の降伏応力では Δσ = MαGb√ρ になります。G は剛性率、b はバーガースベクトルの大きさ、α は 1 より小さい係数です。転位密度が 100 倍になっても強さは 10 倍にとどまるので、ひずみが大きくなるほど加工硬化は鈍くなります。"
+        },
+        {
+          "h": "テイラー因子とシュミット因子(τ と σ の換算)",
+          "p": "転位を動かすのはすべり面の上のせん断応力 τ で、引張試験で測るのは引張応力 σ です。単結晶では、すべり系のシュミット因子 cosφ cosλ(最大 0.5)を使って τ = σ cosφ cosλ と換算します。多結晶では、粒どうしがすき間なく変形するために、各粒で5つ以上の独立なすべり系を働かせる必要があり、向きの悪い系も使うので、σ = Mτ のテイラー因子 M はシュミット因子の最大値の逆数 2 より大きく、ランダムな向きの FCC 金属で約 3.06 です。Stoller と Zinkle(2000)は、{110} 面ですべる BCC 金属でも平均は 3.06 としています。オロワン応力やテイラーの式のせん断応力を降伏応力と比べるときは、M を掛けます。"
+        },
+        {
+          "h": "析出・分散強化と、粒子の大きさで機構が切り替わるわけ",
+          "p": "転位が切れない硬い粒子があると、転位は粒子の間で弓なりに張り出し、半円を超えると粒子のまわりにループを残して通り抜けます(オロワン機構)。その応力は Δτ ≈ Gb/L で、粒子の間隔 L に反比例します。体積分率が同じなら、間隔は粒子の半径にほぼ比例するので、細かい粒子ほど強くなります。一方、時効の初めの小さく整合な析出物は、転位に切られて通過され、切る抵抗は粒子が大きいほど増えます。そのため、粒子が育つにつれて、強さは切断の線に沿って上がり、迂回(オロワン)の線に沿って下がり、2つが交わる大きさで最大になります。これがピーク時効にあたり、それより大きくなると過時効で軟らかくなります。"
+        },
+        {
+          "h": "粒子の間隔の定義",
+          "p": "粒子の間隔は資料によって定義が違います。粒子1個が一辺 L の立方体を占めるとすると、中心どうしの間隔は L = [4πr³/(3f)]^(1/3) で、f の 1/3 乗に反比例します。すべり面の上の粒子を考えるときは、面の切り口の平均の半径 r̄ = πr/4 と、正方形に並んだ切り口の面と面の間隔 λ = (√(π/f) − 2)·r̄ を使う書き方があり、こちらは √f にほぼ反比例します。オロワン・アシュビーの式は、この λ と r̄ を使い、転位の性格と粒子の大きさで変わる線張力を ln(2r̄/b) と √(1 − ν) の項で入れています。同じ r と f でも定義で値が数十 % 変わるので、比べるときは定義をそろえます。"
+        },
+        {
+          "h": "固溶強化",
+          "p": "溶け込んだ溶質原子は母相と大きさや剛性率が違うので、まわりの格子をひずませ、転位がそばを通るときの抵抗になります。強化の量は濃度 c に対して c^(1/2)(フライシャー)や c^(2/3)(ラブシュ)に比例するとするモデルがよく使われ、濃度を増やすほど伸びは鈍ります。係数は母相と溶質の組み合わせで大きく違い、鋼に入った炭素や窒素のような侵入型の溶質は、置換型の溶質よりはるかに強く効きます。固溶強化は、析出強化のように時間とともに弱くなる心配が少なく、高温でも効果を保ちやすい強化法です。"
+        },
+        {
+          "h": "重ね合わせの方法",
+          "p": "いくつもの機構が同時に働くとき、降伏応力を σy = σ₀ + ΣΔσᵢ と単純に足すか、二乗和の平方根で合わせるか、その中間の指数を使うかは確定していません。同じすべり面の上の強さの近い点状の障害物どうしは二乗和の平方根に近く、性質の大きく違う抵抗どうしは線形の和に近いとされ、σ₀ + Δσ_ss + Δσ_gb + √(Δσ_dis² + Δσ_ppt²) のように混ぜる書き方もよく使われます。合わせ方で見積もりが数十 % 変わることがあるので、どの式を使ったかを明らかにして、引張試験の測定値と比べます。"
+        },
+        {
+          "h": "強度と延性の兼ね合い",
+          "p": "強化した金属は、ふつう一様伸びが小さくなります。くびれは加工硬化率 dσ/dε が流動応力 σ まで下がったときに始まるので、σ を上げても加工硬化率が同じなら、早くくびれます。加工硬化は特に延性を下げます。結晶粒の微細化は強さと靭性を同時に上げられますが、数十 nm まで細かくすると粒の中に転位がたまりにくく、加工硬化率が下がって一様伸びは小さくなります。TRIP 鋼や TWIP 鋼は、変形中のマルテンサイト変態や変形双晶で加工硬化率を高く保ち、強さと一様伸びを両立させます。"
+        },
+        {
+          "h": "よくある誤り",
+          "p": "1つ目は d の単位で、µm のまま MPa·m^(1/2) の k と組み合わせると、粒界の寄与が 1000 分の 1 になります。2つ目は √ の付け忘れで、d^(−1/2) を 1/d にしたり、テイラーの式で √ρ を ρ にしたりします。3つ目は τ と σ の取り違えで、オロワン応力やテイラーの式のせん断応力に M を掛け忘れます。4つ目は b の単位で、nm のまま代入すると 10⁹ 倍ずれます。5つ目は ρ の単位で、cm⁻² と m⁻² は 10⁴ 倍違います。6つ目は k の単位で、MPa·mm^(1/2) や MPa·µm^(1/2) の値をそのまま使います。ほかに、体積分率を % のまま入れること、半径と直径の取り違えもよくあります。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "ホール・ペッチ係数 k の単位は何ですか?",
+          "a": "MPa·m^(1/2)(MPa·√m)がよく使われます。k·d^(−1/2) が MPa になるように、d を m で代入します。資料によっては MPa·mm^(1/2) や MPa·µm^(1/2) で書かれているので、1 MPa·µm^(1/2) = 10⁻³ MPa·m^(1/2) のように換算してから使います。このツールは k の単位を選べます。"
+        },
+        {
+          "q": "結晶粒度番号から粒径を出せますか?",
+          "a": "このツールではなく、組織写真の計測室の換算を使ってください。ASTM E112 の番号 G から平均切片長さ ℓ̄ や粒の面積に直せます。ホール・ペッチの d には、k を出した資料と同じ定義の値を入れます。"
+        },
+        {
+          "q": "テイラーの式の α はいくつにすればよいですか?",
+          "a": "決まった値はなく、材料・温度・式の書き方で違います。M を掛ける形 σ = MαGb√ρ で、室温の純金属ではおよそ 0.2〜0.4 という報告があります。M を含めない書き方や別の定義の資料では値が違うので、使う資料の式の形と合わせてください。"
+        },
+        {
+          "q": "オロワン応力に M を掛けるのはなぜですか?",
+          "a": "Gb/L は、すべり面の上で転位を動かすせん断応力 Δτ だからです。多結晶の引張の降伏応力 Δσ と比べるには、テイラー因子 M(ランダムな向きの FCC で約 3.06)を掛けます。掛け忘れると、強化の量を約 3 分の 1 に見積もってしまいます。"
+        },
+        {
+          "q": "基本形 Gb/L とオロワン・アシュビーの式のどちらを使えばよいですか?",
+          "a": "桁をつかむには基本形、論文の値と比べるにはその論文と同じ式と間隔の定義を使います。オロワン・アシュビーの式は、転位の性格と粒子の大きさによる線張力の変わり方を ln の項で入れた形で、多くの条件で基本形より小さな値になります。どちらも、粒子が同じ大きさの球で一様に散らばっていることを前提にしています。"
+        },
+        {
+          "q": "切断の強さはなぜ1つの式だけなのですか?",
+          "a": "切断の強さは、整合ひずみ・剛性率の差・逆位相境界・積層欠陥など、機構ごとに式が違い、係数も多様だからです。このツールは、規則相の粒子を転位の対が切る形(Brown・Ham)を1つだけ置き、オロワンとの交点の考え方を図で示しています。交点の半径は目安として見てください。"
+        },
+        {
+          "q": "ナノ結晶や強加工材にもこれらの式は使えますか?",
+          "a": "外れることがあります。ホール・ペッチの関係は、およそ 10〜20 nm より細かい粒で頭打ちになったり逆転したりします。強加工材では転位が壁や小角粒界に並び、粒界と転位の寄与を分けにくくなります。こうした材料では、引張試験などの測定値を優先してください。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Strengthening Mechanisms Lab",
+      "card": "How much grain refinement (Hall–Petch), dislocation strengthening (Taylor equation), precipitate and dispersion strengthening (Orowan and its crossover with shearing) and solid-solution strengthening raise the yield stress, with unit conversion and substituted values. Stacked bars show how the superposition rule changes the result",
+      "title": "Strengthening Mechanisms Lab (Hall–Petch, Taylor Equation, Orowan Stress, Solid Solution, Superposition)",
+      "description": "A calculator that substitutes values into the equations for strengthening mechanisms in metals to get a feel for the magnitude of the yield stress increase: the Hall–Petch relationship σy = σ₀ + k·d^(−1/2) (with conversion of the units of d and k), the Taylor equation Δσ = MαGb√ρ, the Orowan stress (basic form Gb/L and the Ashby–Orowan equation, with a choice of particle spacing definition) and its crossover with shearing of ordered particles, solid-solution strengthening Δσ = k·cⁿ, and superposition by linear sum, root sum of squares or a mixed form with a stacked bar chart. With equations and sources.",
+      "h1": "Strengthening Mechanisms Lab",
+      "lead": "Enter values into the equations for four mechanisms that raise the yield stress of metals (grain refinement, dislocations, precipitates and dispersed particles, solute atoms) and get the strengthening in MPa. The tool shows the values after converting them to m and Pa, so you can catch mix-ups of d in µm and m, b in nm, ρ in m⁻² and cm⁻², and the units of k. The last tab compares ways of superposing the contributions of the mechanisms (linear sum, root sum of squares and so on). To convert a grain size number to a grain size, use the Micrograph Measuring Room.",
+      "in_heading": "Input",
+      "out_heading": "Result",
+      "presets_h": "Examples",
+      "note": "The equations are standard ones checked against textbooks, papers and lecture notes; the sources are listed below the result. Coefficients vary greatly with material, microstructure and condition, so the results are estimates for getting the order of magnitude. The effects of temperature and strain rate are not included. Measured strengths from tensile tests take priority, and design decisions should follow standards and experts.",
+      "practice": "Practice questions on strengthening mechanisms",
+      "related": "Related terms",
+      "chart_label": "Result chart",
+      "mode": "Calculation",
+      "mode_hp": "Grain size (Hall–Petch)",
+      "mode_dis": "Dislocations (Taylor)",
+      "mode_ppt": "Precipitates and dispersoids",
+      "mode_ss": "Solid solution",
+      "mode_sum": "Superposition",
+      "hmat": "Values of σ₀ and k",
+      "hmat_custom": "Enter my own",
+      "hmat_fe": "Pure iron (Cordero et al.)",
+      "hmat_ni": "Pure nickel (Cordero et al.)",
+      "hmat_cu": "Pure copper (Cordero et al.)",
+      "hmat_al": "Pure aluminum (Cordero et al.)",
+      "hs0": "Friction stress σ₀ (MPa)",
+      "hk": "Hall–Petch coefficient k",
+      "hku": "Unit of k",
+      "hku_m": "MPa·m^(1/2)",
+      "hku_mm": "MPa·mm^(1/2)",
+      "hku_um": "MPa·µm^(1/2)",
+      "hd1": "Grain size d₁",
+      "hd2": "Grain size d₂ to compare (optional)",
+      "hdu": "Unit of d",
+      "hdu_um": "µm",
+      "hdu_nm": "nm",
+      "hdu_mm": "mm",
+      "mat": "Material",
+      "mat_cu": "Copper (Cu)",
+      "mat_al": "Aluminum (Al)",
+      "mat_fe": "Iron (α-Fe)",
+      "mat_ni": "Nickel (Ni)",
+      "mat_custom": "Enter my own",
+      "G": "Shear modulus G (GPa)",
+      "b": "Burgers vector b (nm)",
+      "nu": "Poisson’s ratio ν",
+      "M": "Taylor factor M",
+      "dal": "Coefficient α",
+      "dr1": "Dislocation density ρ₁",
+      "dr2": "ρ₂ to compare (optional)",
+      "dru": "Unit of ρ",
+      "dru_m2": "m⁻²",
+      "dru_cm2": "cm⁻²",
+      "pform": "Orowan stress equation",
+      "pform_basic": "Basic Δτ = Gb/L",
+      "pform_ashby": "Ashby–Orowan equation",
+      "pdef": "Definition of spacing L",
+      "pdef_c3": "Cube cell, center-to-center",
+      "pdef_e3": "Cube cell, surface-to-surface",
+      "pdef_e2": "Slip plane, surface-to-surface",
+      "pdef_in": "Enter L",
+      "pr": "Particle radius r (nm)",
+      "pf": "Volume fraction f (%)",
+      "pl": "Spacing L (nm)",
+      "pg": "Shearing: APB energy γ (J/m², optional)",
+      "sk": "Coefficient k (MPa/concentrationⁿ)",
+      "sn": "Exponent n",
+      "sn_h": "1/2 (Fleischer)",
+      "sn_t": "2/3 (Labusch)",
+      "sc": "Concentration c",
+      "sc2": "c₂ to compare (optional)",
+      "scu": "Unit of concentration",
+      "scu_at": "at%",
+      "scu_mass": "mass%",
+      "s0": "Friction stress σ₀ (MPa)",
+      "xss": "Solute Δσ_ss (MPa)",
+      "xgb": "Grain boundary Δσ_gb (MPa)",
+      "xdis": "Dislocation Δσ_dis (MPa)",
+      "xppt": "Precipitate Δσ_ppt (MPa)",
+      "comb": "Superposition rule",
+      "comb_lin": "Linear sum",
+      "comb_rss": "Root sum of squares",
+      "comb_mix": "Mixed (common form)",
+      "comb_pow": "Power sum with q",
+      "sq": "Exponent q",
+      "js": {
+        "ui": {
+          "tabs_label": "Strengthening mechanism",
+          "tab_hp": "① Grain size",
+          "tab_dis": "② Dislocations",
+          "tab_ppt": "③ Particles",
+          "tab_ss": "④ Solid solution",
+          "tab_sum": "⑤ Superposition",
+          "examples": "Examples:",
+          "ex": [
+            "Steel grains from 50 to 5 µm",
+            "Heavy cold work: ρ 10¹² → 10¹⁵",
+            "Orowan stress of precipitates",
+            "Concentration dependence of solutes",
+            "Superposing four mechanisms",
+            "Crossover of shearing and Orowan"
+          ],
+          "ex_note": "The example values and the values already in the fields (σ₀, k, the solute coefficient k, γ, the contributions to superpose and so on) are numbers made up to show how the calculation works; they are not measured data for real materials or alloys. The G, b, ν and M filled in when you choose a material, and σ₀ and k marked “Cordero et al.”, are values from the sources listed below the result.",
+          "sub_mat": "Material constants (shared by ② and ③)",
+          "help_mat": "Choosing a material fills in G (shear modulus from WebElements), b (from the lattice constant: a/√2 for FCC, √3a/2 for BCC), ν and M = 3.06. Changing a field switches the choice to “Enter my own”.",
+          "help_hp": "To convert a grain size number to a grain size, use the conversion in the Micrograph Measuring Room. Whether d is the mean intercept length or the equivalent circle diameter differs between sources, so enter d with the same definition as the source of k.",
+          "help_dis": "1×10¹⁴ m⁻² can be entered as “1e14”. Multiply a value in cm⁻² by 10⁴ to get m⁻².",
+          "help_ppt": "Enter the volume fraction in % (5 for 5 %). Entering γ gives the strength from the equation for pairs of dislocations shearing ordered particles (Brown and Ham) and its crossover with Orowan.",
+          "help_ss": "Enter k from your source with the same concentration unit and exponent n (the unit of k, such as MPa/(at%)ⁿ, depends on n). This tool does not provide typical values of k.",
+          "help_sum": "Enter each contribution as a tensile yield stress (MPa). Multiply a shear Δτ by the Taylor factor M to get Δσ before entering it. The button below uses, for ①, ② and ④, the value to compare (d₂, ρ₂, c₂) if one is entered and otherwise the first value, and for ③ the smaller of shearing and Orowan.",
+          "from_tabs": "Fill in the results of ①–④",
+          "bars_label": "Stacked bar chart of the yield stress for each superposition rule",
+          "hdu_um": "µm",
+          "hdu_nm": "nm",
+          "hdu_mm": "mm",
+          "hku_m": "MPa·m^(1/2)",
+          "hku_mm": "MPa·mm^(1/2)",
+          "hku_um": "MPa·µm^(1/2)",
+          "hmat_custom": "Enter my own",
+          "hmat_fe": "Pure iron (Cordero et al.)",
+          "hmat_ni": "Pure nickel (Cordero et al.)",
+          "hmat_cu": "Pure copper (Cordero et al.)",
+          "hmat_al": "Pure aluminum (Cordero et al.)",
+          "pform_basic": "Basic Δτ = Gb/L",
+          "pform_ashby": "Ashby–Orowan equation",
+          "pdef_c3": "Cube cell, center-to-center",
+          "pdef_e3": "Cube cell, surface-to-surface",
+          "pdef_e2": "Slip plane, surface-to-surface",
+          "pdef_in": "Enter L",
+          "scu_at": "at%",
+          "scu_mass": "mass%",
+          "comb_lin": "Linear sum",
+          "comb_rss": "Root sum of squares",
+          "comb_mix": "Mixed (common form)",
+          "comb_pow": "Power sum with q",
+          "fn_basic": "basic form Δτ = Gb/L",
+          "fn_ashby": "Ashby–Orowan equation",
+          "cn_lin": "linear sum",
+          "cn_rss": "root sum of squares",
+          "cn_mix": "mixed form",
+          "cn_pow": "power sum with q",
+          "h_eq": "Equations and substituted values",
+          "h_miss": "Common mistakes",
+          "h_caution": "Cautions",
+          "eq_given": "input",
+          "hp_need": "Enter the Hall–Petch coefficient k and a grain size d₁ greater than 0.",
+          "hp_main": "At a grain size of {d}, σy = {s} (the grain boundary contribution k·d^(−1/2) is {g}).",
+          "hp_main_gb": "At a grain size of {d}, the grain boundary contribution k·d^(−1/2) is {g} (enter σ₀ to get σy).",
+          "hp_main2": "Changing the grain size from {d1} to {d2} raises σy from {s1} to {s2}, an increase of {ds} (d^(−1/2) changes by a factor of {r}).",
+          "hp_main2b": "Changing the grain size from {d1} to {d2} lowers σy from {s1} to {s2}, a decrease of {ds} (d^(−1/2) changes by a factor of {r}).",
+          "hp_nano": "d is 100 nm or less. Below a few tens of nanometers the gain in strength slows, and the equation may give values higher than the actual ones.",
+          "hp_nano20": "d is 20 nm or less. Below about 10 to 20 nm the strength may level off or even decrease (inverse Hall–Petch), and this equation cannot be used.",
+          "hp_no_s0": "σ₀ is blank, so only the grain boundary contribution k·d^(−1/2) is shown.",
+          "s_k_si": "k (in m units)",
+          "s_d1m": "d₁ (in m)",
+          "s_gb1": "Grain boundary contribution (d₁)",
+          "s_sy1": "σy (d₁)",
+          "s_gb2": "Grain boundary contribution (d₂)",
+          "s_sy2": "σy (d₂)",
+          "s_dsy": "Difference in σy",
+          "hp_eq_lead": "In the Hall–Petch relationship σy = σ₀ + k·d^(−1/2), σ₀ is the friction stress without grain boundaries and k expresses how effective grain boundary strengthening is. k is put in MPa·m^(1/2) and d is converted to m before substitution.",
+          "hp_eq_note": "The grain boundary contribution is proportional to 1/√d, so reducing the grain size to 1/100 makes it 10 times larger, and reducing it to 1/4 makes it 2 times larger.",
+          "hp_miss_d": "If d is left as a number in {u} ({d}) and combined with k in MPa·m^(1/2), k·d^(−1/2) = {w}. The correct value is {c}, {r} times different.",
+          "h_kvals": "Examples of σ₀ and k for pure metals (Table 1 of Cordero et al. 2016)",
+          "kv_cols": [
+            "Metal",
+            "σ₀ (MPa)",
+            "k (MPa·m^(1/2))",
+            "k (MPa·µm^(1/2))"
+          ],
+          "kv_note": "These are values for pure metals fitted to data from many studies taken together (the range of grain sizes differs from metal to metal, at around 0.2 % plastic strain); they are not values for alloys or steels. The k of steels changes greatly with dissolved carbon, nitrogen and so on. For actual calculations, use values from sources that measured the material in question.",
+          "hp_cautions": [
+            "The comparison assumes materials that are the same except for grain size (solutes, precipitates, dislocation density, texture). σ₀ includes those contributions.",
+            "The value changes with the definition of d (mean intercept length, equivalent circle diameter and so on). Use d with the same definition as the source of k.",
+            "Grains finer than about 10 to 20 nm depart from the equation (inverse Hall–Petch). At high temperatures, finer grains creep more easily.",
+            "The effects of temperature and strain rate are not included."
+          ],
+          "x_d": "Grain size d (µm)",
+          "y_sy": "Yield stress σy (MPa)",
+          "y_gb": "k·d^(−1/2) (MPa)",
+          "cap_hp": "Grain size and yield stress (logarithmic horizontal axis). The dots are the grain sizes entered.",
+          "key_hp": "σy = σ₀ + k·d^(−1/2)",
+          "key_hp_gb": "k·d^(−1/2)",
+          "key_pts": "Values entered",
+          "key_20nm": "d = 20 nm",
+          "dis_need": "Enter G, b and M (greater than 0), the coefficient α and a dislocation density ρ₁ (0 or more).",
+          "dis_main": "At a dislocation density of {r}, Δσ = MαGb√ρ = {s} (as a shear stress, Δτ = {t}).",
+          "dis_main2": "When the dislocation density changes from {r1} to {r2}, Δσ rises from {s1} to {s2}, an increase of {ds} (√ρ changes by a factor of {x}).",
+          "dis_main2b": "When the dislocation density changes from {r1} to {r2}, Δσ falls from {s1} to {s2}, a decrease of {ds} (√ρ changes by a factor of {x}).",
+          "dis_alpha": "α is outside 0.1 to 1. Check the input.",
+          "dis_rho_odd": "ρ is outside 10⁹ to 10¹⁷ m⁻². Check the unit (m⁻² or cm⁻²).",
+          "s_rho1": "ρ₁",
+          "s_tau1": "Δτ (ρ₁)",
+          "s_sig1": "Δσ (ρ₁)",
+          "s_rho2": "ρ₂",
+          "s_sig2": "Δσ (ρ₂)",
+          "s_dsig": "Difference in Δσ",
+          "dis_eq_lead": "The Taylor equation gives the shear stress to move dislocations as Δτ = αGb√ρ, because the spacing of dislocations threading the slip plane (forest dislocations) is about 1/√ρ. For the tensile yield stress of a polycrystal, multiply by the Taylor factor M: Δσ = MΔτ. G is substituted in MPa, b in m and ρ in m⁻².",
+          "dis_eq_note": "Even if ρ increases 100 times, Δσ increases only 10 times. To remove the contribution of the initial dislocation density of the annealed material, take the difference, such as Δσ₂ − Δσ₁.",
+          "dis_miss_m": "Forgetting M means using the shear stress {t} as the tensile yield stress (the correct value is {s}).",
+          "dis_miss_sqrt": "Forgetting the square root and multiplying by ρ itself gives an absurd value such as {w} MPa.",
+          "dis_miss_b": "Substituting b in nm (without converting to m) shifts the result by 10⁹ times, and entering ρ in cm⁻² as if it were m⁻² shifts it by √10⁴ = 100 times.",
+          "h_rho": "Typical dislocation densities",
+          "rho_list": [
+            "About 10¹⁰ to 10¹² m⁻² in annealed metals, increasing to about 10¹⁵ m⁻² with heavy cold work (up to 10¹⁶ m⁻² in some sources).",
+            "α varies between sources; for the form with M, σ = MαGb√ρ, values of about 0.2 to 0.4 have been reported for pure metals at room temperature (Kassner 2004). Forms without M and other definitions give different values, so check the form of the equation in your source."
+          ],
+          "dis_cautions": [
+            "Dislocation densities are measured by TEM, X-ray diffraction and so on, and differ with the method.",
+            "In microstructures where dislocations are arranged in walls or low-angle boundaries (recovered microstructures), the strength can differ even at the same ρ.",
+            "The effects of temperature and strain rate are not included."
+          ],
+          "x_rho": "Dislocation density ρ (m⁻²)",
+          "y_dsig": "Δσ (MPa)",
+          "cap_dis": "Strengthening from the Taylor equation (logarithmic horizontal axis). The dots are the values of ρ entered.",
+          "key_dis": "Δσ = MαGb√ρ (α = {a}, M = {m})",
+          "ppt_need_mat": "Enter G, b and M (greater than 0) and Poisson’s ratio ν (0 to 0.5).",
+          "ppt_need": "Enter the particle radius r (greater than 0) and the volume fraction f (0 or more and less than 100 %). When “Enter L” is chosen, enter L as well.",
+          "ppt_bad_l": "With this r and f the spacing is 0 or less (the particles overlap). Reduce f or check the definition of the spacing.",
+          "ppt_bad_ashby": "With this r and f the Ashby–Orowan equation cannot be used (the surface-to-surface spacing λ is 0 or less, or 2r̄ is b or less).",
+          "ppt_main0": "The volume fraction is 0, so there is no strengthening from particles (the spacing is infinite).",
+          "ppt_main": "With the {f}, the spacing is {L}, Δτ = {t}, and Δσ = {s} after multiplying by the Taylor factor {m} (the value for dislocations bowing out between the particles and passing them).",
+          "ppt_cut_low": "The shearing equation gives Δτ = {c} (Δσ = {cs}), less than the Orowan value of {o}, so particles of this size are more easily sheared. The strengthening is set by the smaller value, shearing.",
+          "ppt_cut_high": "The shearing equation gives Δτ = {c} (Δσ = {cs}), more than the Orowan value of {o}, so particles of this size are bypassed (Orowan mechanism).",
+          "ppt_small": "r is less than 1 nm, outside the assumption of equations that treat particles as a continuum.",
+          "s_f": "Volume fraction f",
+          "s_L": "Spacing L",
+          "s_lam": "Surface-to-surface spacing λ",
+          "s_dtau": "Δτ (Orowan)",
+          "s_dsigp": "Δσ = MΔτ",
+          "s_cut": "Δτ (shearing)",
+          "s_cut_sig": "Δσ = {s}",
+          "eq_cut": "Shearing (ordered particles, weakly coupled dislocation pairs of Brown and Ham):",
+          "ppt_eq_lead_b": "Taking the dislocation line tension as about Gb²/2, the shear stress for a dislocation to bow out into a semicircle between particles with spacing L and pass them is Δτ ≈ Gb/L. The definition of L (center-to-center or surface-to-surface, in three dimensions or on the slip plane) differs between sources and changes the value, so choose a definition and substitute it.",
+          "ppt_eq_lead_a": "The Ashby–Orowan equation includes, through the ln term, how the line tension changes with dislocation character and particle size. λ is the surface-to-surface spacing of particles taken to lie in a square array on the slip plane, and r̄ = πr/4 is the mean radius of the sections of a sphere cut by random planes.",
+          "ppt_eq_note": "Substituting f in % (5 for 5 %) shifts the spacing greatly. Also take care not to mix up the radius and the diameter.",
+          "h_cmp": "Differences by spacing definition and equation",
+          "cmp_cols": [
+            "Equation and definition of L",
+            "L or λ",
+            "Δτ",
+            "Δσ = MΔτ"
+          ],
+          "row_basic": "Gb/L ({d})",
+          "row_ashby": "Ashby–Orowan (λ)",
+          "cmp_note": "Even for the same r and f, the value changes by tens of percent or more with the spacing definition and the equation. When comparing with values in papers, match the definition of the spacing and the equation used.",
+          "h_cross": "Crossover of shearing and Orowan (critical radius)",
+          "cross_main": "For this f and γ, the shearing and Orowan strengths become equal at a radius of {r} (Δτ = {t}, Δσ = {s}). Smaller particles are sheared and larger particles are bypassed, so the strengthening is greatest near this size.",
+          "cross_none": "The two equations do not cross in the range 0.3 nm to 2 µm.",
+          "cross_note": "The crossover is an estimate for one chosen shearing equation (pairs of dislocations shearing ordered particles). Shearing strengths have different equations for each mechanism, such as coherency strain, modulus mismatch and antiphase boundaries, and for large particles a form with strongly coupled dislocation pairs is used.",
+          "cross_hint": "Enter the antiphase boundary energy γ to get the strength for shearing ordered particles and its crossover with Orowan (the critical radius).",
+          "ppt_cautions": [
+            "The particles are assumed to be spheres of equal size, uniformly dispersed. Size distribution and shape (plates, needles) change the value.",
+            "The Orowan equation is used for hard particles that dislocations cannot cut (oxides, incoherent precipitates, precipitates that have grown large). Small coherent precipitates are usually sheared by dislocations.",
+            "At high temperatures, dislocations can climb over particles, so the strengthening becomes smaller. The effects of temperature and strain rate are not included."
+          ],
+          "x_r": "Particle radius r (nm)",
+          "y_dsigp": "Δσ = MΔτ (MPa)",
+          "cap_ppt": "Particle radius and strengthening (f = {f} %, M = {m}, logarithmic horizontal axis).",
+          "key_oro": "Orowan ({f})",
+          "key_cut": "Shearing (Brown and Ham)",
+          "mark_r": "r = {r} nm",
+          "mark_x": "Crossover {r} nm",
+          "ss_need": "Enter the coefficient k and a concentration c of 0 or more.",
+          "ss_main": "At a concentration of {c} {u}, Δσ = k·c^({n}) = {s}.",
+          "ss_main2": "Changing the concentration from {c} to {c2} {u} changes Δσ from {s} to {s2} (a factor of {r} for n = {n}).",
+          "s_ss1": "Δσ (c)",
+          "s_ss2": "Δσ (c₂)",
+          "s_ss_other": "Value for n = {n}",
+          "ss_eq_lead": "The magnitude of solid-solution strengthening is set by the interaction of dislocations with the strain fields around solute atoms, and models in which it is proportional to the 1/2 power (Fleischer) or the 2/3 power (Labusch) of the concentration c are commonly used. For k in Δσ = k·cⁿ, enter the value from your source with the same concentration unit and n.",
+          "ss_eq_note": "For n = 1/2, quadrupling the concentration doubles Δσ; for n = 2/3 it increases it about 2.52 times. At c = 0, Δσ = 0.",
+          "ss_cautions": [
+            "This is the form for a single solute added within the solubility limit without precipitating. How to add several solutes is a separate question.",
+            "k varies greatly with the combination of matrix and solute (difference in atomic size, difference in shear modulus).",
+            "Interstitial solutes such as carbon and nitrogen in steel act more strongly than substitutional ones and can also pin dislocations by aging.",
+            "The effects of temperature and strain rate are not included."
+          ],
+          "x_c": "Concentration c ({u})",
+          "y_dss": "Δσ (MPa)",
+          "cap_ss": "Concentration and solid-solution strengthening (n = 1/2 and 2/3). The dots are the concentrations entered.",
+          "sum_need": "Enter σ₀, and enter each contribution as 0 or more (blank fields are treated as 0).",
+          "sum_need_q": "Enter the exponent q (greater than 0).",
+          "sum_main": "With the {m}, σy = {s}. The linear sum gives {l} and the root sum of squares {r}, a difference of {d} %.",
+          "sum_q_odd": "q is outside 1 to 2. q = 1 corresponds to the linear sum and q = 2 to the sum of squares; values between them are normally used.",
+          "sum_eq_lead": "How to combine the contributions Δσᵢ of the mechanisms is not settled. Here σ₀ is always simply added, and four ways of combining the rest are compared.",
+          "sum_eq_note": "“Root sum of squares” combines the contributions other than σ₀. Some write it with σ₀ included in the sum of squares, which gives an even lower value.",
+          "h_which": "Which rule to use",
+          "which_list": [
+            "When point obstacles of similar strength (such as forest dislocations and precipitates) are mixed on the same slip plane, dislocations are caught on them without distinguishing them, so the strength is said to approach the root sum of squares.",
+            "Obstacles of very different strength, and resistances of a different nature such as lattice friction and grain boundaries, are said to approach the linear sum.",
+            "An intermediate exponent q (1 to 2) fitted to experiments is also used. For aluminum alloys, the linear sum is used in many examples.",
+            "The rule can change the estimate by tens of percent, so state which equation was used when comparing."
+          ],
+          "sum_cautions": [
+            "The coefficients in each contribution are estimates, so check the superposed value against measurements (yield stress or proof stress from tensile tests).",
+            "The grain boundary contribution Δσ_gb is k·d^(−1/2) only. The σ₀ of the Hall–Petch relationship may include contributions from other mechanisms, so avoid counting them twice.",
+            "The effects of temperature and strain rate are not included. Design decisions should follow standards and experts."
+          ],
+          "cap_sum": "Yield stress (MPa) for each superposition rule. For drawing, the sum-of-squares and power parts are divided in proportion to the square (q-th power) of each contribution.",
+          "key_ss": "Solute",
+          "key_gb": "Grain boundary",
+          "key_disl": "Dislocation",
+          "key_ppt": "Precipitate",
+          "src_h": "Sources:",
+          "src_byu": "BYU lecture notes (dislocation densities from Callister & Rethwisch)",
+          "src_vaid": "List of shearing and Orowan equations for ordered particles (arXiv:2104.05906)",
+          "src_pan": "Pandat documentation: precipitation strengthening model and superposition (citing Ardell 1985)",
+          "src_wel": "WebElements shear moduli (Wikipedia table)",
+          "l_hp": "Hall–Petch relationship",
+          "l_measure": "Grain size number conversion",
+          "l_formula": "Formulas",
+          "l_dis": "Dislocation",
+          "l_wh": "Work hardening",
+          "l_taylor": "Taylor factor",
+          "l_burgers": "Burgers vector",
+          "l_orowan": "Orowan mechanism",
+          "l_ppt": "Precipitation hardening",
+          "l_disp": "Dispersion strengthening",
+          "l_ss": "Solid-solution strengthening",
+          "l_crss": "Critical resolved shear stress",
+          "l_schmid": "Schmid factor",
+          "l_proof": "0.2% offset yield strength",
+          "tensile_slug": "tensile-test-analyzer",
+          "l_tensile": "Tensile test data analysis",
+          "l_cat": "Strengthening"
+        }
+      },
+      "sections": [
+        {
+          "h": "Strengthening means hindering dislocation motion",
+          "p": "Plastic deformation of metals proceeds as dislocations move on slip planes. So to make a metal stronger, obstacles that hinder dislocation motion are introduced. Grain boundaries when the grains are refined, entanglement of dislocations when cold work multiplies them, precipitates formed by aging or dispersed hard particles, and the strain fields of dissolved solute atoms each act as obstacles. This tool estimates how much each mechanism raises the yield stress by entering values into standard equations."
+        },
+        {
+          "h": "Grain refinement (Hall–Petch relationship)",
+          "p": "The yield stress rises in inverse proportion to the square root of the grain size d, as σy = σ₀ + k·d^(−1/2). Stress concentrates at the head of a row of dislocations stopped in front of a grain boundary (a dislocation pile-up), and this form is derived from the condition that it sets off slip in the neighboring grain. The smaller the grain, the shorter the row, and the larger the external stress required. k is large for BCC steels and small for FCC aluminum and copper, so grain refinement is especially effective in steel. Grain refinement is one of the few strengthening methods that raises toughness along with strength and lowers the ductile-to-brittle transition temperature."
+        },
+        {
+          "h": "Dislocation strengthening (Taylor equation)",
+          "p": "Dislocations multiplied by deformation act on moving dislocations like a forest of obstacles threading the slip plane. Their spacing is about 1/√ρ, so the shear stress to move dislocations is Δτ = αGb√ρ, and the tensile yield stress of a polycrystal is Δσ = MαGb√ρ. G is the shear modulus, b the magnitude of the Burgers vector and α a coefficient smaller than 1. Even if the dislocation density increases 100 times, the strength increases only 10 times, so work hardening slows as strain increases."
+        },
+        {
+          "h": "Taylor factor and Schmid factor (converting τ and σ)",
+          "p": "What moves dislocations is the shear stress τ on the slip plane, while a tensile test measures the tensile stress σ. In a single crystal, the Schmid factor cosφ cosλ of the slip system (at most 0.5) converts them as τ = σ cosφ cosλ. In a polycrystal, five or more independent slip systems must operate in each grain so that the grains deform without gaps, and poorly oriented systems are used too, so the Taylor factor M in σ = Mτ is larger than 2, the reciprocal of the maximum Schmid factor, and is about 3.06 for randomly oriented FCC metals. Stoller and Zinkle (2000) give an average of 3.06 for BCC metals slipping on {110} planes as well. When comparing the shear stress from the Orowan stress or the Taylor equation with a yield stress, multiply by M."
+        },
+        {
+          "h": "Precipitate and dispersion strengthening, and why the mechanism changes with particle size",
+          "p": "When there are hard particles that dislocations cannot cut, a dislocation bows out between the particles and, once past a semicircle, passes them leaving a loop around each particle (Orowan mechanism). The stress is Δτ ≈ Gb/L, inversely proportional to the particle spacing L. At the same volume fraction the spacing is roughly proportional to the particle radius, so finer particles give higher strength. Small coherent precipitates early in aging, on the other hand, are sheared by dislocations, and the resistance to shearing increases as the particles grow. So as particles grow, the strength rises along the shearing line, falls along the bypass (Orowan) line, and is greatest at the size where the two cross. This corresponds to peak aging, and beyond it overaging softens the alloy."
+        },
+        {
+          "h": "Definitions of particle spacing",
+          "p": "The definition of particle spacing differs between sources. If each particle occupies a cube of side L, the center-to-center spacing is L = [4πr³/(3f)]^(1/3), inversely proportional to the 1/3 power of f. When considering particles on the slip plane, one form uses the mean radius of the sections r̄ = πr/4 and the surface-to-surface spacing of the sections in a square array λ = (√(π/f) − 2)·r̄, which is roughly inversely proportional to √f. The Ashby–Orowan equation uses this λ and r̄ and includes the line tension, which changes with dislocation character and particle size, through the ln(2r̄/b) and √(1 − ν) terms. Even for the same r and f, the value changes by tens of percent with the definition, so match the definitions when comparing."
+        },
+        {
+          "h": "Solid-solution strengthening",
+          "p": "Dissolved solute atoms differ in size and shear modulus from the matrix, so they distort the surrounding lattice and resist dislocations passing nearby. Models in which the strengthening is proportional to c^(1/2) (Fleischer) or c^(2/3) (Labusch) of the concentration c are commonly used, and the gain slows as the concentration increases. The coefficient varies greatly with the combination of matrix and solute, and interstitial solutes such as carbon and nitrogen in steel act far more strongly than substitutional solutes. Solid-solution strengthening is less likely than precipitate strengthening to weaken over time and tends to retain its effect at high temperatures."
+        },
+        {
+          "h": "Superposition rules",
+          "p": "When several mechanisms operate at once, whether to simply add the yield stress as σy = σ₀ + ΣΔσᵢ, combine by the root sum of squares, or use an intermediate exponent is not settled. Point obstacles of similar strength on the same slip plane are said to approach the root sum of squares, and resistances of very different nature to approach the linear sum; mixed forms such as σ₀ + Δσ_ss + Δσ_gb + √(Δσ_dis² + Δσ_ppt²) are also commonly used. The rule can change the estimate by tens of percent, so state which equation was used and compare with tensile test measurements."
+        },
+        {
+          "h": "Balancing strength and ductility",
+          "p": "A strengthened metal usually has a smaller uniform elongation. Necking begins when the work-hardening rate dσ/dε falls to the flow stress σ, so if σ is raised while the work-hardening rate stays the same, necking comes earlier. Work hardening lowers ductility in particular. Grain refinement can raise strength and toughness together, but with grains refined to a few tens of nanometers, dislocations hardly accumulate inside the grains, the work-hardening rate falls and the uniform elongation becomes small. TRIP and TWIP steels keep the work-hardening rate high through martensitic transformation or deformation twinning during deformation, combining strength with uniform elongation."
+        },
+        {
+          "h": "Common mistakes",
+          "p": "The first is the unit of d: combining d in µm with k in MPa·m^(1/2) makes the grain boundary contribution 1/1000 of the correct value. The second is forgetting the square root: using 1/d instead of d^(−1/2), or ρ instead of √ρ in the Taylor equation. The third is mixing up τ and σ: forgetting to multiply the shear stress from the Orowan stress or the Taylor equation by M. The fourth is the unit of b: substituting it in nm shifts the result by 10⁹ times. The fifth is the unit of ρ: cm⁻² and m⁻² differ by 10⁴ times. The sixth is the unit of k: using a value in MPa·mm^(1/2) or MPa·µm^(1/2) as it is. Entering the volume fraction in % and mixing up the radius and the diameter are also common."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the unit of the Hall–Petch coefficient k?",
+          "a": "MPa·m^(1/2) (MPa·√m) is commonly used. Substitute d in m so that k·d^(−1/2) comes out in MPa. Some sources give it in MPa·mm^(1/2) or MPa·µm^(1/2), so convert before use, for example 1 MPa·µm^(1/2) = 10⁻³ MPa·m^(1/2). This tool lets you choose the unit of k."
+        },
+        {
+          "q": "Can I get the grain size from a grain size number?",
+          "a": "Use the conversion in the Micrograph Measuring Room rather than this tool. It converts the ASTM E112 number G to the mean intercept length ℓ̄ or the grain area. For d in the Hall–Petch relationship, enter a value with the same definition as the source of k."
+        },
+        {
+          "q": "What value should I use for α in the Taylor equation?",
+          "a": "There is no fixed value; it differs with material, temperature and how the equation is written. For the form with M, σ = MαGb√ρ, values of about 0.2 to 0.4 have been reported for pure metals at room temperature. Sources that write the equation without M or define it differently give different values, so match the form of the equation in the source you use."
+        },
+        {
+          "q": "Why multiply the Orowan stress by M?",
+          "a": "Because Gb/L is the shear stress Δτ that moves a dislocation on the slip plane. To compare it with the tensile yield stress Δσ of a polycrystal, multiply by the Taylor factor M (about 3.06 for randomly oriented FCC). Forgetting it underestimates the strengthening by about a factor of 3."
+        },
+        {
+          "q": "Should I use the basic form Gb/L or the Ashby–Orowan equation?",
+          "a": "Use the basic form for the order of magnitude, and, to compare with values in a paper, the same equation and spacing definition as that paper. The Ashby–Orowan equation includes, through the ln term, how the line tension changes with dislocation character and particle size, and under many conditions gives smaller values than the basic form. Both assume spheres of equal size uniformly dispersed."
+        },
+        {
+          "q": "Why is there only one equation for shearing?",
+          "a": "Because shearing strengths have different equations for each mechanism, such as coherency strain, modulus mismatch, antiphase boundaries and stacking faults, and the coefficients vary widely. This tool provides only one form, pairs of dislocations shearing ordered particles (Brown and Ham), and shows the idea of the crossover with Orowan in the chart. Treat the crossover radius as an estimate."
+        },
+        {
+          "q": "Do these equations work for nanocrystalline or heavily deformed metals?",
+          "a": "They may not. The Hall–Petch relationship levels off or reverses for grains finer than about 10 to 20 nm. In heavily deformed metals, dislocations are arranged in walls and low-angle boundaries, and the grain boundary and dislocation contributions become hard to separate. For such materials, give priority to measured values from tensile tests and the like."
+        }
+      ]
+    }
+  }
+}

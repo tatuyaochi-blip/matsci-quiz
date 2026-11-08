@@ -2594,6 +2594,10 @@
    "tools": [
     {
      "id": "xtal"
+    },
+    {
+     "id": "strength",
+     "mode": "dis"
     }
    ],
    "terms": [
@@ -3181,7 +3185,12 @@
    "drill": [
     "hall-petch"
    ],
-   "tools": [],
+   "tools": [
+    {
+     "id": "strength",
+     "mode": "hp"
+    }
+   ],
    "terms": [
     "ホール・ペッチの関係"
    ],
@@ -3256,6 +3265,10 @@
    "tools": [
     {
      "id": "xtal"
+    },
+    {
+     "id": "strength",
+     "mode": "dis"
     }
    ],
    "terms": [
