@@ -1,0 +1,777 @@
+{
+  "id": "stress",
+  "order": 19,
+  "slug": "stress-state",
+  "cats": [
+    "mechanical",
+    "fracture-fatigue",
+    "metals",
+    "characterization"
+  ],
+  "cat": "mechanical",
+  "terms": [
+    "ヤング率",
+    "0.2%耐力",
+    "臨界分解せん断応力",
+    "応力集中係数",
+    "有限要素法"
+  ],
+  "questions": [
+    "mechanical-027",
+    "mechanical-020",
+    "mechanical-029",
+    "fracture-fatigue-025"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "stress-form",
+    "fields": [
+      {
+        "name": "mode",
+        "options": [
+          "plane",
+          "tri",
+          "yield",
+          "ros",
+          "pstrain"
+        ],
+        "value": "plane"
+      },
+      {
+        "name": "ys",
+        "options": [
+          "st",
+          "pv"
+        ],
+        "value": "st"
+      },
+      {
+        "name": "rt",
+        "options": [
+          "rect",
+          "delta"
+        ],
+        "value": "rect"
+      },
+      {
+        "name": "sx",
+        "value": 80,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "sy",
+        "value": -40,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "sz",
+        "value": 0,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "txy",
+        "value": 45,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "tyz",
+        "value": 0,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "tzx",
+        "value": 0,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "th",
+        "value": 30,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "pp",
+        "value": 2,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "pr",
+        "value": 500,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "pt",
+        "value": 10,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "sy0",
+        "value": 250,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "ea",
+        "value": 450,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "eb",
+        "value": 380,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "ec",
+        "value": -120,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "em",
+        "value": 200,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "nu",
+        "value": 0.3,
+        "attrs": "min=\"-0.99\" max=\"0.49\" step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "box": "res"
+      }
+    ],
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "応力状態ラボ",
+      "card": "平面応力の座標変換とモールの円、3次元の主応力と不変量、トレスカとミーゼスの安全率、ひずみゲージのロゼットから主応力までを、式と代入つきで",
+      "title": "応力状態ラボ(モールの応力円・主応力・トレスカとミーゼス・ひずみゲージのロゼット)",
+      "description": "σx・σy・τxy から任意の角度の応力、主応力と主方向、最大せん断応力をモールの円と要素の図で示します。6成分の3次元の応力から主応力・不変量 I1・I2・I3・静水圧応力・偏差応力・3つのモールの円、トレスカとミーゼスの相当応力と安全率(薄肉円筒の内圧も)、直角・デルタのロゼットの読みから主ひずみと主応力、平面応力と平面ひずみの違いも。式と値を代入した形、符号の約束、出典つき。",
+      "h1": "応力状態ラボ",
+      "lead": "材料力学の応力の計算を5つ、式に値を代入した形と図といっしょに出します。①平面応力の座標変換とモールの円(θ を動かすと円の上の点と要素の向きが連動)、②3次元の主応力・不変量・3つのモールの円、③トレスカとミーゼスの降伏条件と安全率、④ひずみゲージのロゼットから主ひずみ・主応力、⑤平面応力と平面ひずみの比べ。応力は MPa、ひずみは µε(×10⁻⁶)、角度は度です。引張が正、τxy は +x 面で +y 向きが正、θ は x 軸から反時計回りが正です。",
+      "in_heading": "入力",
+      "out_heading": "結果",
+      "note": "式は材料力学の定番のもの(座標変換・主応力・モールの円・不変量・トレスカとミーゼスの条件・薄肉円筒・ロゼットの式)で、出典は結果の下にあります。等方・線形弾性の小さなひずみを前提にした計算です。設計の判断は規格・材料のデータと専門家に従ってください。",
+      "practice": "機械的性質の問題を解く",
+      "related": "関連する用語",
+      "chart_label": "応力の図",
+      "mode": "計算",
+      "mode_plane": "平面応力とモールの円",
+      "mode_tri": "3次元の応力",
+      "mode_yield": "降伏条件",
+      "mode_ros": "ロゼット",
+      "mode_pstrain": "平面ひずみ",
+      "ys": "応力の入れ方",
+      "ys_st": "成分を入れる",
+      "ys_pv": "薄肉円筒の内圧",
+      "rt": "ロゼットの形",
+      "rt_rect": "直角 0/45/90°",
+      "rt_delta": "デルタ 0/60/120°",
+      "sx": "σx(MPa)",
+      "sy": "σy(MPa)",
+      "sz": "σz(MPa)",
+      "txy": "τxy(MPa)",
+      "tyz": "τyz(MPa)",
+      "tzx": "τzx(MPa)",
+      "th": "面の角度 θ(°)",
+      "pp": "内圧 p(MPa)",
+      "pr": "半径 r(mm)",
+      "pt": "肉厚 t(mm)",
+      "sy0": "降伏応力 σY(MPa)",
+      "ea": "ゲージ a の読み(µε)",
+      "eb": "ゲージ b の読み(µε)",
+      "ec": "ゲージ c の読み(µε)",
+      "em": "ヤング率 E(GPa)",
+      "nu": "ポアソン比 ν",
+      "js": {
+        "ui": {
+          "tabs_label": "計算の種類",
+          "tab_plane": "① 平面応力",
+          "tab_tri": "② 3次元",
+          "tab_yield": "③ 降伏条件",
+          "tab_ros": "④ ロゼット",
+          "tab_pstrain": "⑤ 平面ひずみ",
+          "examples": "例:",
+          "ex": [
+            "主応力とモールの円",
+            "純粋せん断でトレスカとミーゼス",
+            "薄肉円筒の内圧と安全率",
+            "直角ロゼットから主応力",
+            "デルタロゼット",
+            "3次元の応力の主応力"
+          ],
+          "ex_note": "例の値と、入力欄に最初から入っている値は、計算のしかたを示すために作った数で、実在の部材の測定データではありません。",
+          "conv_plane": "符号の約束: 引張が正。τxy は +x 面で +y 向き(−x 面では −y 向き)が正。θ は x 軸から反時計回りに測った、傾けた面の法線(x' 軸)の角度。モールの円は τ を下向きに正として描き、要素を θ 回すと円の上の点も同じ向きに 2θ 回ります。",
+          "conv_tri": "符号の約束: 引張が正。τxy は +x 面で +y 向き、τyz は +y 面で +z 向き、τzx は +z 面で +x 向きが正(応力の行列は対称)。主応力は σ₁ ≥ σ₂ ≥ σ₃ の順に並べます。",
+          "conv_ros": "向きの約束: ゲージ a を基準(0°)にし、b・c は a から反時計回りに 45°・90°(直角)か 60°・120°(デルタ)。主方向の角度 φ も、ゲージ a から反時計回りが正です。せん断ひずみは工学ひずみ γ(テンソルのせん断ひずみ ε_xy = γ/2)で示します。",
+          "fig_tau_down": "τ(下が正)",
+          "fig_mohr": "モールの応力円",
+          "fig_elem": "θ 回した要素の応力",
+          "slider": "θ を動かす",
+          "cap_mohr": "X は x 面の (σx, τxy)、Y は y 面の (σy, −τxy)。x' は角度 θ の面の (σx', τx'y')で、X から同じ向きに 2θ 回った点です。点線の円は σz = 0 を含めた円で、σ₁ と σ₂ が同じ符号のときはこれが最大せん断応力を決めます。",
+          "key_circle": "面内の円",
+          "key_zero": "σz = 0 との円",
+          "cap_elem": "x 軸から θ = {t} 回した要素。矢印は引張なら外向き、圧縮なら内向き。せん断の矢印は +x' 面で τx'y' > 0 なら +y' 向きです(長さは大きさの目安)。",
+          "need_s": "σx・σy・τxy を入れてください。",
+          "need_s6": "6つの成分を入れてください(ない成分は 0)。",
+          "plane_main": "主応力は σ₁ = {s1}(向き {a})、σ₂ = {s2}(向き {b})。面内の最大せん断応力は τmax = {t} で、法線が {c} の面(と、それに直角な面)に働きます。",
+          "plane_main_iso": "σx = σy で τxy = 0 なので、どの向きの面でも σ = {s}、τ = 0 です(モールの円が点になる)。",
+          "s_s1": "主応力 σ₁",
+          "s_s2": "主応力 σ₂",
+          "s_thp": "σ₁ の向き θp",
+          "any_dir": "どの向きも",
+          "s_tmax": "面内の最大せん断応力",
+          "s_ths": "τmax の面の法線 θs",
+          "s_ths_sub": "その面の σ = {c}",
+          "s_tabs": "絶対の最大せん断応力",
+          "s_tabs_sub": "σz = 0 を含めた (σmax − σmin)/2",
+          "s_sth": "σx'(θ = {t})",
+          "s_tth": "τx'y'(θ = {t})",
+          "s_syth": "σy'(θ = {t} + 90°)",
+          "h_eq": "式と値",
+          "plane_eq_lead": "円の中心 C と半径 R から主応力を、2θ の三角関数で角度 θ の面の応力を出します。",
+          "eq_iso": "R = 0 なので、主方向はどの向きでもよい",
+          "eq_dir_s1": "σ₁ の向き。σ₂ はこれに 90°",
+          "plane_note": "θp は atan2 で求めているので、σ₁ の向きと σ₂ の向きを取り違えません(tan2θp だけからだと、どちらの向きか決まりません)。",
+          "th_empty": "θ が空なので 0° として計算しました。",
+          "th_big": "θ は 180° ごとに同じ面に戻ります(2θ は 360° ごと)。",
+          "abs_note": "σ₁ と σ₂ が同じ符号なので、面内の τmax より、σz = 0 の面を含めた絶対の最大せん断応力 {t} の方が大きくなります(面外に 45° 傾いた面)。延性材料の降伏では、こちらが効きます。",
+          "h_caution": "注意",
+          "plane_cautions": [
+            "平面応力(σz = τyz = τzx = 0)の計算です。薄い板の表面などで成り立ちます。厚い部材の内部では ⑤ を見てください。",
+            "円の上では角度が 2 倍になります。円の上で 90° 離れた点は、要素では 45° 離れた面です。",
+            "教科書によっては τ を上向きを正に描き、点を (σx, −τxy) に置きます。見た目の回る向きは同じになります(このページの約束は上の枠)。"
+          ],
+          "cap_tri": "3つの円の中と、外の大きな円の内側・小さな2つの円の外側の範囲に、あらゆる向きの面の (σ, τ) が入ります。最大のせん断応力は大きな円の半径 (σ₁ − σ₃)/2 です。",
+          "tri_main": "主応力は σ₁ = {a}、σ₂ = {b}、σ₃ = {c}。最大せん断応力は (σ₁ − σ₃)/2 = {t}、静水圧応力(平均の垂直応力)は σm = {m} です。",
+          "tri_zero": "すべての成分が 0 です。",
+          "tri_hydro": "3つの主応力が等しい静水圧の状態です。どの向きも主方向で、どの面にもせん断応力は働かず、偏差応力とミーゼスの相当応力は 0 です。",
+          "tri_double": "主応力に等しいものが2つあります(重根)。その2つの主方向は、それらで張る面の中のどの向きでもよいので、表では示していません。",
+          "s_p1": "主応力 σ₁",
+          "s_p2": "主応力 σ₂",
+          "s_p3": "主応力 σ₃",
+          "s_tmax3": "最大せん断応力",
+          "s_sm": "静水圧応力 σm",
+          "s_vm": "ミーゼスの相当応力",
+          "h_dirs": "主方向(x・y・z との方向余弦)",
+          "dir_cols": [
+            "主応力",
+            "値",
+            "方向余弦 (l, m, n)"
+          ],
+          "dir_any": "一つに決まらない",
+          "dir_note": "方向余弦は単位ベクトルの x・y・z 成分で、向きの ± はどちらでも同じ軸です。",
+          "tri_eq_lead": "主応力は特性方程式 σ³ − I1σ² + I2σ − I3 = 0 の3つの実数解で、ここでは対称行列の固有値(ヤコビ法)として求め、不変量で確かめています。",
+          "eq_check": "確かめ",
+          "eq_dev": "偏差応力 s = σ − σm(垂直成分)",
+          "eq_same": "の成分は元と同じ",
+          "eq_devp": "偏差応力の主値",
+          "tri_note": "I1・I2・I3 は座標の取り方によらない量(不変量)です。I2 は資料によって符号を逆に定義することがあります(そのときは特性方程式の I2 の項の符号も逆)。ここでは I2 = σ₁σ₂ + σ₂σ₃ + σ₃σ₁ になる符号をとっています。偏差応力は、応力から静水圧の部分 σm を引いたもので、延性の金属の降伏はこちらで決まります。",
+          "tri_cautions": [
+            "τxy・τyz・τzx の向きの約束をそろえて入れてください(行列は対称で、τyx = τxy などとします)。",
+            "主応力は σ₁ ≥ σ₂ ≥ σ₃ の代数の大きさの順で、絶対値の順ではありません(−200 MPa の圧縮は σ₃ です)。"
+          ],
+          "fig_shear": "純粋せん断",
+          "fig_now": "今の応力",
+          "fig_yield": "平面応力の降伏曲面",
+          "need_pv": "内圧 p と半径 r・肉厚 t(0 より大きい値)を入れてください。",
+          "need_sy": "降伏応力 σY(0 より大きい値)を入れてください。",
+          "yield_main": "トレスカの相当応力 {a}(安全率 {b})、ミーゼスの相当応力 {c}(安全率 {d})。",
+          "yield_both": "どちらの条件でも相当応力が降伏応力に達しています(降伏の見込み)。",
+          "yield_tr": "トレスカの条件では降伏に達し、ミーゼスの条件ではまだです。2つの条件の差が出る応力の状態です。",
+          "yield_beyond": "相当応力が降伏応力を超えている場合、ここでの応力は弾性として計算した値で、降伏したあとの応力の分布は表していません。",
+          "s_tr": "トレスカの相当応力",
+          "s_ntr": "トレスカの安全率",
+          "s_nvm": "ミーゼスの安全率",
+          "s_ratio": "σ_T/σ_vM",
+          "s_k": "せん断の降伏応力 k",
+          "s_k_sub": "トレスカ σY/2 / ミーゼス σY/√3",
+          "eq_tresca": "トレスカ",
+          "eq_mises": "ミーゼス",
+          "eq_kshear": "純粋せん断で降伏するせん断応力",
+          "yield_eq_lead": "主応力から、トレスカは最大と最小の主応力の差、ミーゼスは主応力の差の二乗の平均から相当応力を出し、単軸引張の降伏応力 σY と比べます。",
+          "yield_eq_pv": "両端を閉じた薄肉円筒の内圧による応力(周方向 σθ、軸方向 σz、半径方向 σr ≈ 0)を σy・σx に置き、主応力から相当応力を出します。",
+          "yield_note": "安全率 n = σY/σeq は、応力をすべて同じ割合で大きくしたとき、何倍で降伏に達するかを表します(比例して増える荷重のとき)。",
+          "pv_thick": "r/t が 10 より小さい(よく使われる目安)ので、薄肉の近似(肉厚の中で応力が一様、σr ≈ 0)の誤差が大きくなります。厚肉円筒の式(ラメの式)で確かめてください。",
+          "h_ref": "3つの基準の状態での違い",
+          "ref_cols": [
+            "状態",
+            "σ_T",
+            "σ_vM",
+            "トレスカで降伏",
+            "ミーゼスで降伏"
+          ],
+          "ref_shear": "純粋せん断 τ",
+          "ref_uni": "単軸引張 σ",
+          "ref_bi": "等二軸引張 σ, σ",
+          "ref_note": "両方の条件を単軸引張の σY に合わせているので、単軸と等二軸(σ₃ = 0)では一致し、差は純粋せん断で最大(σ_T/σ_vM = 2/√3 ≈ 1.155)になります。どの状態でも σ_T ≥ σ_vM なので、トレスカの方が安全側(降伏を早めに見込む)です。",
+          "fig_plane_only": "図は平面応力(σz = τyz = τzx = 0)のときだけ、面内の主応力 (σa, σb) = (σ₁, σ₂) の点を置きます。",
+          "yield_cautions": [
+            "トレスカとミーゼスは延性の金属の降伏の目安です。鋳鉄・セラミックス・ガラスなどの脆い材料には、最大主応力説やモール・クーロンの条件など別の考え方を使います。",
+            "等方で、引張と圧縮の降伏応力が等しい材料を前提にしています。静水圧の部分は降伏にききません。",
+            "安全率の目標値は、規格・用途・荷重の不確かさで決まります。このツールは値を示すだけです。"
+          ],
+          "cap_yield": "実線の楕円がミーゼス、破線の六角形がトレスカの降伏曲面(σ₃ = 0)。赤い点が今の応力 (σa, σb) = ({a}, {b})、原点からの点線と曲面の交点が、同じ割合で荷重を増やしたときに降伏する応力です。",
+          "key_mises": "ミーゼスの楕円",
+          "key_tresca": "トレスカの六角形",
+          "fig_x": "ゲージ a(x 軸)",
+          "fig_ccw": "反時計回り",
+          "fig_ros": "ロゼットのゲージの向きと主方向",
+          "need_e": "3つのゲージの読み(µε)を入れてください。",
+          "need_enu": "ヤング率 E(0 より大きい値)とポアソン比 ν(−1 < ν < 0.5)を入れると、主応力も出します。",
+          "ros_main": "主ひずみは ε₁ = {a}、ε₂ = {b}。ε₁ の向きはゲージ a から {p}(反時計回りが正)。最大せん断ひずみ γmax = {g}(工学ひずみ)。主応力は σ₁ = {s1}、σ₂ = {s2}(平面応力)。",
+          "ros_main_iso": "3つのゲージの読みが等しく、主ひずみは ε₁ = ε₂ = {a} でどの向きも主方向です。主応力は σ₁ = σ₂ = {s1}(平面応力)。",
+          "s_e1": "主ひずみ ε₁",
+          "s_e2": "主ひずみ ε₂",
+          "s_phi": "ε₁ の向き φ(a から)",
+          "s_gmax": "最大せん断ひずみ γmax",
+          "s_gmax_sub": "工学ひずみ。ε_xy で表すと {e} µε",
+          "s_rs1": "主応力 σ₁",
+          "s_rs2": "主応力 σ₂",
+          "s_rtau": "面内の最大せん断応力",
+          "s_ez": "厚さ方向のひずみ εz",
+          "eq_iso_e": "R = 0 なので、主方向はどの向きでもよい",
+          "eq_phi": "ゲージ a から ε₁ の向きまで、反時計回りが正",
+          "eq_gamma": "γ は工学せん断ひずみ。テンソルのせん断ひずみは ε_xy = γ/2",
+          "ros_eq_lead": "3つの読みから εx・εy・γxy を出し、ひずみのモールの円(中心 (ε₁ + ε₂)/2、半径 γmax/2)と同じ形で主ひずみと向きを求めます。主応力は平面応力のフックの法則で出します。",
+          "ros_note": "直角とデルタの式は、ひずみゲージのメーカーの技術資料(TN-515)の閉じた式と同じ値になることを確かめています。φ は atan2 で求めているので、ε₁ と ε₂ のどちらの向きかを取り違えません。",
+          "h_order": "ゲージの番号と向きの決め方",
+          "ros_order": [
+            "ゲージ a を基準の向き(0°)にします。多くの場合、部材の軸の向きに合わせます。",
+            "b・c は a から反時計回りに数えます(直角は 45°・90°、デルタは 60°・120°)。上から見て時計回りに番号を付けたロゼットなら、出た角度の符号を逆に読みます。",
+            "ロゼットの裏表(上から見るか下から見るか)でも回る向きが逆になります。貼った面を外から見た向きで番号を確かめてください。"
+          ],
+          "ros_cautions": [
+            "主応力は等方・線形弾性の材料の平面応力(表面に貼ったゲージ)を前提にしています。降伏したあとや、異方性の材料(複合材料・単結晶)には使えません。",
+            "ゲージの横感度の補正・温度補償(見かけのひずみ)・リード線の抵抗の補正は扱っていません。読みは補正したあとの値を入れてください。",
+            "E の誤差はそのまま応力の誤差になります(E が 3 % 違えば応力も 3 %)。"
+          ],
+          "cap_ros": "ゲージ a・b・c の向き(a から反時計回り)と、主ひずみ ε₁ の向き({p})・ε₂ の向き(その 90°)。",
+          "ps_main": "平面ひずみ(εz = 0)では σz = ν(σx + σy) = {z} が生じ、平面応力(σz = 0)では εz = {e} の厚さの変化が生じます。ミーゼスの相当応力は、平面応力 {a}、平面ひずみ {b} です。",
+          "h_ps": "平面応力と平面ひずみの比べ",
+          "ps_cols": [
+            "",
+            "平面応力(σz = 0)",
+            "平面ひずみ(εz = 0)"
+          ],
+          "row_g": "γxy(工学ひずみ)",
+          "row_p": "主応力 σ₁ / σ₂ / σ₃",
+          "row_n": "安全率(トレスカ / ミーゼス)",
+          "ps_tbl_note": "面内の応力 σx・σy・τxy は同じとして比べています。主応力は σz を含めて大きい順です。",
+          "ps_eq_lead": "一般化したフックの法則 εz = [σz − ν(σx + σy)]/E で、平面応力は σz = 0、平面ひずみは εz = 0 とおきます。",
+          "eq_pstress": "平面応力",
+          "eq_pstrain": "平面ひずみ",
+          "ps_note": "薄い板は平面応力、厚い板の内部や長い部材の断面(厚さの方向に縮めない)は平面ひずみに近くなります。き裂のある板の破壊靭性 K_c が厚い板で下がって K_IC に近づくのも、平面ひずみで σz が生じ、せん断の降伏が起こりにくくなる(相当応力が下がる)ためです。",
+          "ps_cautions": [
+            "等方・線形弾性、小さなひずみの前提です。熱ひずみ αΔT は入れていません(熱応力は熱膨張・熱応力ラボで)。",
+            "平面ひずみの σz は面内の応力から決まるので、自分で入れる値ではありません。σz を自由に入れるときは ② か ③ を使ってください。"
+          ],
+          "src_h": "出典:",
+          "src_books": "教科書では Gere & Goodno, Mechanics of Materials の応力・ひずみの解析の章、Dowling, Mechanical Behavior of Materials 4版 の6・7章(応力の不変量・降伏条件)に同じ式があります。",
+          "l_formula": "公式集(弾性定数とフックの法則)",
+          "l_term": "用語集: ヤング率",
+          "l_cat": "機械的性質の分野",
+          "l_tensile": "引張試験のデータ解析",
+          "l_fatigue": "疲労寿命の計算",
+          "l_thermal": "熱膨張・熱応力ラボ"
+        }
+      },
+      "sections": [
+        {
+          "h": "応力の成分と符号の約束",
+          "p": "物体の中の小さな立方体の要素の各面に働く力を、面積あたりで表したものが応力です。面に垂直な成分が垂直応力 σ、面に沿う成分がせん断応力 τ で、3次元では σx・σy・σz と τxy・τyz・τzx の6つの成分で表します(モーメントのつり合いから τxy = τyx などが成り立ち、応力の行列は対称になります)。このツールでは引張を正、τxy は +x の面で +y 向きに働くとき正とします。+x の面の τxy と +y の面の τyx は、要素を同じ向きに回そうとしないように、角で向かい合う向きに働きます。教科書によって、せん断応力の符号や、モールの円で τ を上下どちらを正に描くかの流儀が違うので、ほかの資料と比べるときは約束をそろえてください。"
+        },
+        {
+          "h": "座標変換の考え方",
+          "p": "同じ点の応力でも、どの向きの面で見るかで σ と τ の値は変わります。x 軸から反時計回りに θ 回した面(法線が x' 軸)の応力は、σx' = (σx + σy)/2 + (σx − σy)/2·cos2θ + τxy·sin2θ、τx'y' = −(σx − σy)/2·sin2θ + τxy·cos2θ です。式に 2θ が現れるのは、力の成分を分けるのに1回、面積の向きを変えるのに1回、角度の三角関数が掛かるからです。σx' + σy' = σx + σy は向きによらず一定です。角度は度とラジアンを取り違えやすいので、電卓のモードに注意してください。"
+        },
+        {
+          "h": "主応力と主方向",
+          "p": "θ を変えていくと、せん断応力が 0 になる向きが互いに直角に2つあり、その面の垂直応力が主応力です。σ₁, σ₂ = (σx + σy)/2 ± √[((σx − σy)/2)² + τxy²] で、大きい方を σ₁ とします。向きは tan2θp = 2τxy/(σx − σy) から出ますが、tan だけでは2つの向きのどちらが σ₁ か決まらないので、atan2 を使うか、求めた角度を変換の式に入れて確かめます。主応力の面から 45° 回した面で、面内のせん断応力が最大 τmax = (σ₁ − σ₂)/2 になり、その面の垂直応力は (σx + σy)/2 です。脆い材料は最大の主応力に垂直な面で割れやすく、延性の材料はせん断応力の大きい面ですべって降伏します。"
+        },
+        {
+          "h": "モールの円の描き方と読み方",
+          "p": "横軸を σ、縦軸を τ にとり、x 面の点 X (σx, τxy) と y 面の点 Y (σy, −τxy) を結ぶ線を直径とする円を描くと、どの向きの面の (σ, τ) もこの円の上にあります。中心は ((σx + σy)/2, 0)、半径は √[((σx − σy)/2)² + τxy²] で、円が σ 軸と交わる2点が主応力、円の一番上と下が最大せん断応力です。要素を θ 回すと、円の上の点は 2θ 回ります。このツールは τ を下向きに正として描くので、要素と円の上の点が同じ向き(反時計回り)に回ります。τ を上向きに正とする資料には、時計回りのせん断を正とする別の約束で点を置いて同じ見た目にするものと、円の上の点が要素と逆の向きに回るものがあります。"
+        },
+        {
+          "h": "3次元の応力とモールの3つの円",
+          "p": "一般の3次元の応力でも、せん断応力が 0 になる互いに直角な3つの面があり、その垂直応力が主応力 σ₁ ≥ σ₂ ≥ σ₃ です。主応力は応力の行列の固有値で、特性方程式 σ³ − I1σ² + I2σ − I3 = 0 の3つの実数解になります。主応力の2つずつを直径の両端とする3つの円を描くと、どの向きの面の (σ, τ) も、大きな円の内側で小さな2つの円の外側の範囲に入ります。最大のせん断応力は (σ₁ − σ₃)/2 です。平面応力でも σz = 0 が3つ目の主応力なので、σ₁ と σ₂ が同じ符号(例えば等二軸引張)なら、最大のせん断応力は面内の値ではなく、面外に傾いた面の σ₁/2 になります。"
+        },
+        {
+          "h": "不変量と静水圧応力・偏差応力",
+          "p": "I1 = σx + σy + σz、I2 = σxσy + σyσz + σzσx − τxy² − τyz² − τzx²、I3 = 応力の行列の行列式は、座標の向きによらない量(不変量)で、主応力で書くと I1 = σ₁ + σ₂ + σ₃、I2 = σ₁σ₂ + σ₂σ₃ + σ₃σ₁、I3 = σ₁σ₂σ₃ です(I2 を逆の符号で定義する資料もあるので、比べるときは定義を確かめてください)。I1/3 が静水圧応力(平均の垂直応力)σm で、体積の変化にかかわります。応力から σm を引いたものが偏差応力で、形の変化にかかわります。金属の塑性変形は転位のすべりによるせん断の変形なので、降伏は偏差応力で決まり、静水圧だけでは降伏しません。偏差応力の第2不変量 J2 を使うと、ミーゼスの相当応力は √(3J2) と書けます。"
+        },
+        {
+          "h": "トレスカとミーゼスの考え方と違い",
+          "p": "トレスカの条件は、最大せん断応力 (σ₁ − σ₃)/2 がある値 k に達すると降伏すると考え、単軸引張に合わせると k = σY/2、相当応力は σ₁ − σ₃ です。ミーゼスの条件は、偏差応力の第2不変量(せん断のひずみエネルギー)がある値に達すると降伏すると考え、相当応力は √{½[(σ₁ − σ₂)² + (σ₂ − σ₃)² + (σ₃ − σ₁)²]}、純粋せん断で降伏するせん断応力は σY/√3 ≈ 0.577σY です。平面応力の (σ₁, σ₂) の図では、トレスカは六角形、ミーゼスはその外側に接する楕円になります。両者は単軸引張と等二軸引張で一致し、純粋せん断で最も違い(約 15 %)、トレスカの方が常に安全側です。延性の金属の実験はミーゼスに近いことが多いとされますが、簡単で安全側のトレスカも設計で使われます。"
+        },
+        {
+          "h": "薄肉円筒の応力と降伏",
+          "p": "両端を閉じた薄肉の円筒に内圧 p がかかると、周方向の応力 σθ = pr/t と軸方向の応力 σz = pr/(2t) が生じ、周方向が軸方向の2倍になります(r は半径、t は肉厚)。半径方向の応力は内面で −p、外面で 0 で、r/t が大きければほかの2つに比べて小さいので 0 とみなします。r/t がおよそ 10 より小さいと薄肉の近似の誤差が大きくなるので厚肉円筒の式を使う、というのがよく使われる目安です(出典のある決まった境ではありません)。σθ と σz はどちらも引張なので、トレスカの相当応力は σ₃ = σr ≈ 0 との差の σθ になり、ミーゼスでは √(σθ² − σθσz + σz²) = (√3/2)σθ です。容器の設計の許容応力や肉厚は、圧力容器の規格に従って決めます。"
+        },
+        {
+          "h": "ひずみゲージのロゼットの式と向き",
+          "p": "ひずみゲージは1つの向きの垂直ひずみしか測れないので、平面のひずみの3つの成分 εx・εy・γxy を求めるには、向きの違う3つのゲージを重ねたロゼットを使います。向き θ のゲージの読みは ε(θ) = εx cos²θ + εy sin²θ + γxy sinθ cosθ です。直角ロゼット(0°/45°/90°)では εx = εa、εy = εc、γxy = 2εb − εa − εc、デルタロゼット(0°/60°/120°)では εx = εa、εy = (2εb + 2εc − εa)/3、γxy = (2/√3)(εb − εc) となり、主ひずみはひずみのモールの円から出ます。ゲージの番号は a から反時計回りに数える約束で、時計回りに付けると角度の符号が逆になります。主応力は等方・線形弾性の材料の平面応力として、σ₁ = E(ε₁ + νε₂)/(1 − ν²) などで出します。"
+        },
+        {
+          "h": "平面応力と平面ひずみ",
+          "p": "薄い板では厚さ方向の応力が 0(平面応力、σz = 0)とみなせ、そのとき板は εz = −ν(σx + σy)/E だけ厚さが変わります。厚い板の内部や長い部材の断面のように厚さ方向に縮めない状態(平面ひずみ、εz = 0)では、逆に σz = ν(σx + σy) が生じます。面内の応力が同じでも、σz が加わると、ポアソン比が正の材料ではミーゼスの相当応力が下がり(σx + σy = 0 なら変わらない)、降伏しにくくなります。き裂のある板の破壊靭性 K_c が板厚とともに下がり、平面ひずみ破壊靭性 K_IC の値で一定になるのは、厚い板の中央が平面ひずみになり、塑性域が小さくなるためです。どちらの状態かを取り違えると、ひずみから応力を出す式も変わるので注意します。"
+        },
+        {
+          "h": "よくある誤り",
+          "p": "① 円の上の角度 2θ と要素の角度 θ を取り違える。② 工学せん断ひずみ γ とテンソルのせん断ひずみ ε_xy(= γ/2)を混ぜる(ひずみのモールの円の縦軸は γ/2)。③ 角度の向き(反時計回りか時計回りか)やロゼットの番号の向きを逆にする。④ 度とラジアンを混ぜる。⑤ 平面応力と平面ひずみを取り違える。⑥ 主応力を絶対値の大きい順に並べる(σ₁ ≥ σ₂ ≥ σ₃ は代数の順)。⑦ 平面応力で σz = 0 の主応力を忘れ、σ₁ と σ₂ が同じ符号のときの最大せん断応力を小さく見積もる。⑧ tan2θp だけで向きを決め、σ₁ と σ₂ の向きを入れ替える。"
+        },
+        {
+          "h": "このツールの前提と限界",
+          "p": "応力の変換・主応力・不変量は、材料によらない力のつり合いと座標の変換だけで決まります。ロゼットから応力を出す計算と平面ひずみの比べは、等方・線形弾性の小さなひずみを前提にしています。降伏条件は延性の金属の目安で、脆い材料には最大主応力説など別の考え方を使います。ひずみゲージの横感度・温度補償・ゲージ率の補正は扱いません。応力集中・残留応力・繰り返しの荷重(疲労)も含みません。設計や安全の判断は、規格・材料のデータと専門家に従ってください。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "モールの円で τ を下向きに正にしているのはなぜですか?",
+          "a": "要素を反時計回りに θ 回したとき、円の上の点も反時計回りに 2θ 回るようにするためです。τ を上向きに正にする資料には、時計回りに回そうとするせん断を正として点を置き、同じ見た目にするもの(Roylance の講義資料など)と、点が要素と逆の向きに回るものがあります。どちらでも主応力と最大せん断応力の値は同じです。"
+        },
+        {
+          "q": "トレスカとミーゼスのどちらを使えばよいですか?",
+          "a": "延性の金属の実験はミーゼスに近いことが多いとされます。トレスカは計算が簡単で、どの応力の状態でもミーゼスより相当応力が大きいか等しいので安全側です。差は最大でも純粋せん断の約 15 % です。使う規格が指定しているときは、それに従ってください。"
+        },
+        {
+          "q": "純粋せん断で降伏するせん断応力はいくつですか?",
+          "a": "単軸引張の降伏応力を σY とすると、トレスカでは σY/2、ミーゼスでは σY/√3 ≈ 0.577σY です。例えば σY = 300 MPa なら 150 MPa と約 173 MPa です。③の「純粋せん断でトレスカとミーゼス」の例で確かめられます。"
+        },
+        {
+          "q": "ロゼットの γ と ε_xy は何が違いますか?",
+          "a": "γ(工学せん断ひずみ)は直角だった2本の線のなす角の変化(ラジアン)で、ε_xy(テンソルのせん断ひずみ)はその半分です。ひずみの座標変換やモールの円は ε_xy で書くと応力と同じ形になり、ひずみのモールの円の縦軸は γ/2 です。このツールでは γ を示し、ε_xy の値も添えています。"
+        },
+        {
+          "q": "等二軸引張で面内の最大せん断応力が 0 なのに降伏するのはなぜですか?",
+          "a": "平面応力でも σz = 0 が3つ目の主応力なので、σ₁ = σ₂ = σ のとき、面外に 45° 傾いた面に σ/2 のせん断応力が働きます。トレスカ・ミーゼスとも相当応力は σ で、σ = σY で降伏します。①の「絶対の最大せん断応力」と②の3つの円で確かめられます。"
+        },
+        {
+          "q": "静水圧だけをかけると降伏しますか?",
+          "a": "延性の金属は、静水圧だけでは降伏しません。どの面にもせん断応力が働かず、偏差応力とミーゼス・トレスカの相当応力が 0 になるためです。体積は体積弾性率に応じて弾性的に縮むだけです。②で σx = σy = σz、せん断を 0 にすると確かめられます。"
+        },
+        {
+          "q": "ロゼットの読みから出した応力は、どのくらい信用できますか?",
+          "a": "等方・線形弾性の材料の表面(平面応力)で、ゲージの横感度・温度による見かけのひずみを補正した読みなら、E と ν の値の確かさがそのまま応力の確かさになります。降伏したあと、異方性の材料、応力の勾配の大きい場所(ゲージの長さの中で応力が変わる)では、この計算は使えません。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Stress State Lab",
+      "card": "Plane stress transformation and Mohr’s circle, 3D principal stresses and invariants, Tresca and von Mises safety factors, and strain gage rosettes to principal stresses, with equations and substituted values",
+      "title": "Stress State Lab (Mohr’s Circle, Principal Stresses, Tresca and von Mises, Strain Gage Rosettes)",
+      "description": "Find the stresses on any plane from σx, σy and τxy, with principal stresses, principal directions and maximum shear shown on Mohr’s circle and a rotated element. Also: principal stresses, invariants I1, I2, I3, hydrostatic and deviatoric stress and the three Mohr’s circles for a 3D state; Tresca and von Mises equivalent stresses and safety factors (including a thin-walled pressurized cylinder); principal strains and stresses from rectangular and delta rosettes; and plane stress versus plane strain. Equations with substituted values, sign conventions and sources.",
+      "h1": "Stress State Lab",
+      "lead": "Five calculations from mechanics of materials, each shown with the equation, the values substituted into it and a diagram: (1) plane stress transformation and Mohr’s circle (move θ and the point on the circle and the element rotate together), (2) 3D principal stresses, invariants and the three Mohr’s circles, (3) the Tresca and von Mises yield criteria with safety factors, (4) principal strains and stresses from a strain gage rosette, and (5) plane stress versus plane strain. Stresses are in MPa, strains in µε (×10⁻⁶) and angles in degrees. Tension is positive, τxy is positive in +y on the +x face, and θ is positive counterclockwise from the x axis.",
+      "in_heading": "Input",
+      "out_heading": "Result",
+      "note": "The equations are the standard ones from mechanics of materials (stress transformation, principal stresses, Mohr’s circle, invariants, the Tresca and von Mises criteria, thin-walled cylinders and rosette equations). Sources are listed under the result. The calculations assume an isotropic, linear elastic material and small strains. Base design decisions on codes, material data and expert judgment.",
+      "practice": "Practice mechanical properties questions",
+      "related": "Related terms",
+      "chart_label": "Stress diagram",
+      "mode": "Calculation",
+      "mode_plane": "Plane stress and Mohr’s circle",
+      "mode_tri": "3D stress",
+      "mode_yield": "Yield criteria",
+      "mode_ros": "Rosette",
+      "mode_pstrain": "Plane strain",
+      "ys": "Stress input",
+      "ys_st": "Components",
+      "ys_pv": "Thin cylinder",
+      "rt": "Rosette type",
+      "rt_rect": "Rect. 0/45/90°",
+      "rt_delta": "Delta 0/60/120°",
+      "sx": "σx (MPa)",
+      "sy": "σy (MPa)",
+      "sz": "σz (MPa)",
+      "txy": "τxy (MPa)",
+      "tyz": "τyz (MPa)",
+      "tzx": "τzx (MPa)",
+      "th": "Plane angle θ (°)",
+      "pp": "Internal pressure p (MPa)",
+      "pr": "Radius r (mm)",
+      "pt": "Wall thickness t (mm)",
+      "sy0": "Yield strength σY (MPa)",
+      "ea": "Gage a reading (µε)",
+      "eb": "Gage b reading (µε)",
+      "ec": "Gage c reading (µε)",
+      "em": "Young’s modulus E (GPa)",
+      "nu": "Poisson’s ratio ν",
+      "js": {
+        "ui": {
+          "tabs_label": "Type of calculation",
+          "tab_plane": "1 Plane stress",
+          "tab_tri": "2 3D",
+          "tab_yield": "3 Yield",
+          "tab_ros": "4 Rosette",
+          "tab_pstrain": "5 Plane strain",
+          "examples": "Examples:",
+          "ex": [
+            "Principal stresses and Mohr’s circle",
+            "Pure shear: Tresca vs von Mises",
+            "Thin cylinder safety factor",
+            "Principal stresses from a rectangular rosette",
+            "Delta rosette",
+            "Principal stresses of a 3D state"
+          ],
+          "ex_note": "The example values and the values already in the input fields are made up to show how the calculations work. They are not measured data for any real component.",
+          "conv_plane": "Sign convention: tension is positive. τxy is positive when it acts in +y on the +x face (and in −y on the −x face). θ is the angle of the inclined plane’s normal (the x′ axis), measured counterclockwise from the x axis. Mohr’s circle is drawn with τ positive downward, so rotating the element by θ moves the point on the circle by 2θ in the same direction.",
+          "conv_tri": "Sign convention: tension is positive. τxy is positive in +y on the +x face, τyz in +z on the +y face and τzx in +x on the +z face (the stress matrix is symmetric). Principal stresses are ordered σ₁ ≥ σ₂ ≥ σ₃.",
+          "conv_ros": "Orientation convention: gage a is the reference (0°), and b and c are at 45° and 90° (rectangular) or 60° and 120° (delta) counterclockwise from a. The principal angle φ is also positive counterclockwise from gage a. Shear strain is given as engineering strain γ (tensor shear strain ε_xy = γ/2).",
+          "fig_tau_down": "τ (positive down)",
+          "fig_mohr": "Mohr’s circle for stress",
+          "fig_elem": "Stresses on the rotated element",
+          "slider": "Move θ",
+          "cap_mohr": "X is the x face (σx, τxy) and Y is the y face (σy, −τxy). x′ is the plane at angle θ, (σx′, τx′y′), reached by rotating 2θ from X in the same direction. The dotted circles include σz = 0; when σ₁ and σ₂ have the same sign, they set the maximum shear stress.",
+          "key_circle": "In-plane circle",
+          "key_zero": "Circles with σz = 0",
+          "cap_elem": "Element rotated by θ = {t} from the x axis. Arrows point outward for tension and inward for compression. On the +x′ face the shear arrow points in +y′ when τx′y′ > 0 (lengths indicate magnitude only).",
+          "need_s": "Enter σx, σy and τxy.",
+          "need_s6": "Enter all six components (use 0 for any that are absent).",
+          "plane_main": "Principal stresses are σ₁ = {s1} (direction {a}) and σ₂ = {s2} (direction {b}). The maximum in-plane shear stress is τmax = {t}, acting on the plane whose normal is at {c} (and the plane at right angles to it).",
+          "plane_main_iso": "Because σx = σy and τxy = 0, every plane carries σ = {s} and τ = 0 (Mohr’s circle shrinks to a point).",
+          "s_s1": "Principal stress σ₁",
+          "s_s2": "Principal stress σ₂",
+          "s_thp": "Direction of σ₁, θp",
+          "any_dir": "Any direction",
+          "s_tmax": "Max in-plane shear stress",
+          "s_ths": "Normal of τmax plane, θs",
+          "s_ths_sub": "σ on that plane = {c}",
+          "s_tabs": "Absolute max shear stress",
+          "s_tabs_sub": "(σmax − σmin)/2 including σz = 0",
+          "s_sth": "σx′ (θ = {t})",
+          "s_tth": "τx′y′ (θ = {t})",
+          "s_syth": "σy′ (θ = {t} + 90°)",
+          "h_eq": "Equations and values",
+          "plane_eq_lead": "The principal stresses come from the circle’s center C and radius R, and the stresses on the plane at θ from the trigonometric functions of 2θ.",
+          "eq_iso": "R = 0, so every direction is a principal direction",
+          "eq_dir_s1": "direction of σ₁; σ₂ is at 90° to it",
+          "plane_note": "θp is found with atan2, so the directions of σ₁ and σ₂ are not mixed up (tan 2θp alone does not tell which is which).",
+          "th_empty": "θ is empty, so 0° was used.",
+          "th_big": "The plane repeats every 180° of θ (every 360° of 2θ).",
+          "abs_note": "σ₁ and σ₂ have the same sign, so the absolute maximum shear stress including the σz = 0 plane, {t}, is larger than the in-plane τmax (on planes tilted 45° out of the plane). This is the one that matters for yielding of ductile materials.",
+          "h_caution": "Cautions",
+          "plane_cautions": [
+            "This is a plane stress calculation (σz = τyz = τzx = 0), which holds for example at the surface of a thin plate. For the interior of thick parts, see tab 5.",
+            "Angles double on the circle. Points 90° apart on the circle are planes 45° apart on the element.",
+            "Some textbooks plot τ positive upward and place the point at (σx, −τxy). The visual direction of rotation is then the same (this page’s convention is in the box above)."
+          ],
+          "cap_tri": "The (σ, τ) pairs for planes of every orientation lie inside the large circle and outside the two small circles. The maximum shear stress is the radius of the large circle, (σ₁ − σ₃)/2.",
+          "tri_main": "Principal stresses are σ₁ = {a}, σ₂ = {b} and σ₃ = {c}. The maximum shear stress is (σ₁ − σ₃)/2 = {t}, and the hydrostatic (mean normal) stress is σm = {m}.",
+          "tri_zero": "All components are zero.",
+          "tri_hydro": "The three principal stresses are equal (a hydrostatic state). Every direction is principal, no plane carries shear stress, and the deviatoric stress and von Mises equivalent stress are zero.",
+          "tri_double": "Two principal stresses are equal (a repeated root). Their principal directions can be any direction in the plane they span, so they are not listed.",
+          "s_p1": "Principal stress σ₁",
+          "s_p2": "Principal stress σ₂",
+          "s_p3": "Principal stress σ₃",
+          "s_tmax3": "Maximum shear stress",
+          "s_sm": "Hydrostatic stress σm",
+          "s_vm": "Von Mises equivalent stress",
+          "h_dirs": "Principal directions (direction cosines to x, y, z)",
+          "dir_cols": [
+            "Principal stress",
+            "Value",
+            "Direction cosines (l, m, n)"
+          ],
+          "dir_any": "Not unique",
+          "dir_note": "Direction cosines are the x, y and z components of a unit vector; + and − give the same axis.",
+          "tri_eq_lead": "The principal stresses are the three real roots of the characteristic equation σ³ − I1σ² + I2σ − I3 = 0. Here they are computed as the eigenvalues of the symmetric matrix (Jacobi method) and checked against the invariants.",
+          "eq_check": "Check",
+          "eq_dev": "Deviatoric stress s = σ − σm (normal components)",
+          "eq_same": "components unchanged",
+          "eq_devp": "Principal deviatoric stresses",
+          "tri_note": "I1, I2 and I3 do not depend on the choice of axes (they are invariants). Some sources define I2 with the opposite sign (and then the sign of the I2 term in the characteristic equation flips too); here I2 = σ₁σ₂ + σ₂σ₃ + σ₃σ₁. The deviatoric stress is the stress minus its hydrostatic part σm, and it controls yielding of ductile metals.",
+          "tri_cautions": [
+            "Enter τxy, τyz and τzx with the same sign convention (the matrix is symmetric, with τyx = τxy and so on).",
+            "Principal stresses are ordered algebraically, σ₁ ≥ σ₂ ≥ σ₃, not by absolute value (−200 MPa compression is σ₃)."
+          ],
+          "fig_shear": "Pure shear",
+          "fig_now": "Current",
+          "fig_yield": "Plane stress yield surfaces",
+          "need_pv": "Enter the internal pressure p, radius r and wall thickness t (values above 0).",
+          "need_sy": "Enter the yield strength σY (a value above 0).",
+          "yield_main": "Tresca equivalent stress {a} (safety factor {b}); von Mises equivalent stress {c} (safety factor {d}).",
+          "yield_both": "The equivalent stress reaches the yield strength under both criteria (yielding expected).",
+          "yield_tr": "Yielding is reached under Tresca but not yet under von Mises. This is a stress state where the two criteria differ.",
+          "yield_beyond": "When the equivalent stress exceeds the yield strength, the stresses here are elastic values and do not describe the stress distribution after yielding.",
+          "s_tr": "Tresca equivalent stress",
+          "s_ntr": "Tresca safety factor",
+          "s_nvm": "Von Mises safety factor",
+          "s_ratio": "σ_T/σ_vM",
+          "s_k": "Shear yield stress k",
+          "s_k_sub": "Tresca σY/2 / von Mises σY/√3",
+          "eq_tresca": "Tresca",
+          "eq_mises": "Von Mises",
+          "eq_kshear": "shear stress at yield in pure shear",
+          "yield_eq_lead": "From the principal stresses, Tresca uses the difference between the largest and smallest, and von Mises the mean of the squared differences, to form an equivalent stress that is compared with the uniaxial yield strength σY.",
+          "yield_eq_pv": "The stresses from internal pressure in a closed thin-walled cylinder (hoop σθ, axial σz, radial σr ≈ 0) are placed in σy and σx, and the equivalent stresses come from the principal stresses.",
+          "yield_note": "The safety factor n = σY/σeq tells by what factor all stresses can be scaled together before yield is reached (for proportional loading).",
+          "pv_thick": "r/t is below 10 (a common rule of thumb), so the thin-wall approximation (uniform stress through the wall, σr ≈ 0) becomes inaccurate. Check with the thick-walled cylinder (Lamé) equations.",
+          "h_ref": "Differences in three reference states",
+          "ref_cols": [
+            "State",
+            "σ_T",
+            "σ_vM",
+            "Yield by Tresca",
+            "Yield by von Mises"
+          ],
+          "ref_shear": "Pure shear τ",
+          "ref_uni": "Uniaxial tension σ",
+          "ref_bi": "Equibiaxial σ, σ",
+          "ref_note": "Both criteria are matched to σY in uniaxial tension, so they agree in uniaxial and equibiaxial tension (σ₃ = 0) and differ most in pure shear (σ_T/σ_vM = 2/√3 ≈ 1.155). Since σ_T ≥ σ_vM for every state, Tresca is the conservative one (it predicts yielding earlier).",
+          "fig_plane_only": "The diagram shows the point (σa, σb) = (σ₁, σ₂) only for plane stress (σz = τyz = τzx = 0).",
+          "yield_cautions": [
+            "Tresca and von Mises are guides to yielding of ductile metals. Brittle materials such as cast iron, ceramics and glass need other approaches, such as the maximum principal stress or Mohr–Coulomb criteria.",
+            "They assume an isotropic material with equal yield strengths in tension and compression. The hydrostatic part of the stress does not affect yielding.",
+            "Target safety factors depend on codes, the application and load uncertainty. This tool only reports the values."
+          ],
+          "cap_yield": "The solid ellipse is von Mises and the dashed hexagon is Tresca (σ₃ = 0). The red dot is the current stress (σa, σb) = ({a}, {b}); where the dotted line from the origin meets each surface is the stress at yield if the load is increased proportionally.",
+          "key_mises": "Von Mises ellipse",
+          "key_tresca": "Tresca hexagon",
+          "fig_x": "gage a (x axis)",
+          "fig_ccw": "counterclockwise",
+          "fig_ros": "Rosette gage directions and principal directions",
+          "need_e": "Enter the three gage readings (µε).",
+          "need_enu": "Enter Young’s modulus E (above 0) and Poisson’s ratio ν (−1 < ν < 0.5) to get the principal stresses as well.",
+          "ros_main": "Principal strains are ε₁ = {a} and ε₂ = {b}. The direction of ε₁ is {p} from gage a (counterclockwise positive). Maximum shear strain γmax = {g} (engineering strain). Principal stresses are σ₁ = {s1} and σ₂ = {s2} (plane stress).",
+          "ros_main_iso": "All three gages read the same, so ε₁ = ε₂ = {a} and every direction is principal. The principal stresses are σ₁ = σ₂ = {s1} (plane stress).",
+          "s_e1": "Principal strain ε₁",
+          "s_e2": "Principal strain ε₂",
+          "s_phi": "Direction of ε₁, φ (from a)",
+          "s_gmax": "Max shear strain γmax",
+          "s_gmax_sub": "Engineering strain; as ε_xy, {e} µε",
+          "s_rs1": "Principal stress σ₁",
+          "s_rs2": "Principal stress σ₂",
+          "s_rtau": "Max in-plane shear stress",
+          "s_ez": "Through-thickness strain εz",
+          "eq_iso_e": "R = 0, so every direction is a principal direction",
+          "eq_phi": "from gage a to the ε₁ direction, counterclockwise positive",
+          "eq_gamma": "γ is engineering shear strain; tensor shear strain is ε_xy = γ/2",
+          "ros_eq_lead": "εx, εy and γxy are found from the three readings, and the principal strains and direction follow from the strain Mohr’s circle (center (ε₁ + ε₂)/2, radius γmax/2). The principal stresses come from Hooke’s law for plane stress.",
+          "ros_note": "The rectangular and delta results have been checked to match the closed-form equations in the strain gage manufacturer’s tech note (TN-515). φ is found with atan2, so the ε₁ and ε₂ directions are not mixed up.",
+          "h_order": "Numbering and orienting the gages",
+          "ros_order": [
+            "Take gage a as the reference direction (0°), usually along the axis of the part.",
+            "Count b and c counterclockwise from a (45° and 90° for rectangular, 60° and 120° for delta). If your rosette is numbered clockwise as seen from above, read the sign of the angle in reverse.",
+            "Viewing the rosette from the other side also reverses the direction. Check the numbering as seen from outside the bonded surface."
+          ],
+          "ros_cautions": [
+            "The principal stresses assume plane stress (a gage bonded on a free surface) in an isotropic, linear elastic material. They do not apply after yielding or to anisotropic materials (composites, single crystals).",
+            "Transverse sensitivity correction, temperature compensation (apparent strain) and lead wire correction are not included. Enter readings that have already been corrected.",
+            "Any error in E carries straight into the stresses (3 % off in E means 3 % off in stress)."
+          ],
+          "cap_ros": "Directions of gages a, b and c (counterclockwise from a), and of the principal strains ε₁ ({p}) and ε₂ (90° from it).",
+          "ps_main": "Plane strain (εz = 0) produces σz = ν(σx + σy) = {z}, while plane stress (σz = 0) produces a thickness change εz = {e}. The von Mises equivalent stress is {a} in plane stress and {b} in plane strain.",
+          "h_ps": "Plane stress versus plane strain",
+          "ps_cols": [
+            "",
+            "Plane stress (σz = 0)",
+            "Plane strain (εz = 0)"
+          ],
+          "row_g": "γxy (engineering)",
+          "row_p": "Principal stresses σ₁ / σ₂ / σ₃",
+          "row_n": "Safety factor (Tresca / von Mises)",
+          "ps_tbl_note": "The in-plane stresses σx, σy and τxy are the same in both columns. Principal stresses include σz and are listed from largest to smallest.",
+          "ps_eq_lead": "Generalized Hooke’s law εz = [σz − ν(σx + σy)]/E with σz = 0 for plane stress and εz = 0 for plane strain.",
+          "eq_pstress": "Plane stress",
+          "eq_pstrain": "Plane strain",
+          "ps_note": "Thin plates are close to plane stress, and the interior of thick plates or the cross section of long parts (not free to contract through the thickness) is close to plane strain. The drop in fracture toughness K_c toward K_IC in thick plates comes from the same effect: in plane strain σz appears, shear yielding becomes harder (the equivalent stress drops) and the plastic zone at the crack tip is smaller.",
+          "ps_cautions": [
+            "Isotropic, linear elastic and small strains are assumed. Thermal strain αΔT is not included (use the Thermal Expansion and Stress Lab for thermal stress).",
+            "In plane strain σz follows from the in-plane stresses and is not an input. To enter σz freely, use tab 2 or 3."
+          ],
+          "src_h": "Sources:",
+          "src_books": "The same equations appear in textbooks such as Gere & Goodno, Mechanics of Materials (analysis of stress and strain) and Dowling, Mechanical Behavior of Materials, 4th ed., chapters 6 and 7 (stress invariants and yield criteria).",
+          "l_formula": "Formulas (elastic constants, Hooke’s law)",
+          "l_term": "Glossary: Young’s modulus",
+          "l_cat": "Mechanical properties",
+          "l_tensile": "Tensile Test Analyzer",
+          "l_fatigue": "Fatigue life calculator",
+          "l_thermal": "Thermal Expansion and Stress Lab"
+        }
+      },
+      "sections": [
+        {
+          "h": "Stress components and the sign convention",
+          "p": "Stress is the force per unit area acting on the faces of a small cube inside a body. The component normal to a face is the normal stress σ, and the component along the face is the shear stress τ. In 3D the state is described by six components, σx, σy, σz, τxy, τyz and τzx (moment equilibrium gives τxy = τyx and so on, so the stress matrix is symmetric). This tool takes tension as positive and τxy as positive when it acts in +y on the +x face. The τxy on the +x face and the τyx on the +y face point toward or away from the same corner, so they do not try to spin the element. Textbooks differ on the sign of shear stress and on whether τ is plotted upward or downward on Mohr’s circle, so match conventions before comparing with other sources."
+        },
+        {
+          "h": "How stress transformation works",
+          "p": "The same point carries different σ and τ depending on the orientation of the plane. For the plane rotated counterclockwise by θ from the x axis (normal along x′), σx′ = (σx + σy)/2 + (σx − σy)/2·cos 2θ + τxy·sin 2θ and τx′y′ = −(σx − σy)/2·sin 2θ + τxy·cos 2θ. The 2θ appears because trigonometric factors enter twice: once in resolving the force and once in tilting the area. The sum σx′ + σy′ = σx + σy is the same for every orientation. Degrees and radians are easy to mix up, so check your calculator mode."
+        },
+        {
+          "h": "Principal stresses and principal directions",
+          "p": "As θ changes, there are two perpendicular orientations where the shear stress vanishes, and the normal stresses on those planes are the principal stresses: σ₁, σ₂ = (σx + σy)/2 ± √[((σx − σy)/2)² + τxy²], with σ₁ the larger. The direction follows from tan 2θp = 2τxy/(σx − σy), but tan alone does not tell which of the two directions belongs to σ₁, so use atan2 or substitute the angle back into the transformation equation. Planes at 45° to the principal planes carry the maximum in-plane shear stress τmax = (σ₁ − σ₂)/2, with normal stress (σx + σy)/2. Brittle materials tend to crack perpendicular to the largest principal stress, while ductile materials yield by slip on planes of high shear stress."
+        },
+        {
+          "h": "Drawing and reading Mohr’s circle",
+          "p": "Plot σ on the horizontal axis and τ on the vertical axis, mark the x face point X (σx, τxy) and the y face point Y (σy, −τxy), and draw the circle with XY as its diameter. The (σ, τ) pair for every plane lies on this circle. Its center is ((σx + σy)/2, 0) and its radius √[((σx − σy)/2)² + τxy²]; it crosses the σ axis at the principal stresses, and its top and bottom give the maximum shear stress. Rotating the element by θ moves the point on the circle by 2θ. This tool plots τ positive downward so that the element and the point on the circle turn the same way (counterclockwise). Among books that plot τ positive upward, some use a different rule, taking shear that tends to turn the element clockwise as positive, to get the same picture; in others the point on the circle turns opposite to the element."
+        },
+        {
+          "h": "3D stress and the three Mohr’s circles",
+          "p": "Any 3D stress state has three mutually perpendicular planes free of shear stress, and their normal stresses are the principal stresses σ₁ ≥ σ₂ ≥ σ₃. They are the eigenvalues of the stress matrix and the three real roots of the characteristic equation σ³ − I1σ² + I2σ − I3 = 0. Drawing three circles, each with two principal stresses at the ends of its diameter, the (σ, τ) pair for any plane lies inside the large circle and outside the two small ones. The maximum shear stress is (σ₁ − σ₃)/2. In plane stress, σz = 0 is the third principal stress, so when σ₁ and σ₂ have the same sign (equibiaxial tension, for example), the maximum shear stress is σ₁/2 on a plane tilted out of the plane, not the in-plane value."
+        },
+        {
+          "h": "Invariants, hydrostatic stress and deviatoric stress",
+          "p": "I1 = σx + σy + σz, I2 = σxσy + σyσz + σzσx − τxy² − τyz² − τzx² and I3 = the determinant of the stress matrix do not depend on the orientation of the axes (they are invariants). In terms of principal stresses, I1 = σ₁ + σ₂ + σ₃, I2 = σ₁σ₂ + σ₂σ₃ + σ₃σ₁ and I3 = σ₁σ₂σ₃ (some sources define I2 with the opposite sign, so check the definition when comparing). I1/3 is the hydrostatic (mean normal) stress σm, which relates to volume change. Subtracting σm from the stress leaves the deviatoric stress, which relates to change of shape. Plastic deformation of metals is shear deformation by dislocation slip, so yielding is controlled by the deviatoric stress, and hydrostatic stress alone does not cause yielding. With the second invariant of the deviatoric stress, J2, the von Mises equivalent stress is √(3J2)."
+        },
+        {
+          "h": "Tresca and von Mises: ideas and differences",
+          "p": "The Tresca criterion says yielding starts when the maximum shear stress (σ₁ − σ₃)/2 reaches a value k; matching uniaxial tension gives k = σY/2 and an equivalent stress σ₁ − σ₃. The von Mises criterion says yielding starts when the second invariant of the deviatoric stress (the distortional strain energy) reaches a critical value; the equivalent stress is √{½[(σ₁ − σ₂)² + (σ₂ − σ₃)² + (σ₃ − σ₁)²]}, and the shear stress at yield in pure shear is σY/√3 ≈ 0.577σY. On a plane stress (σ₁, σ₂) diagram, Tresca is a hexagon and von Mises an ellipse circumscribing it. The two agree in uniaxial and equibiaxial tension, differ most in pure shear (about 15 %), and Tresca is always the conservative one. Experiments on ductile metals often lie closer to von Mises, but the simpler, conservative Tresca criterion is also used in design."
+        },
+        {
+          "h": "Thin-walled cylinders and yielding",
+          "p": "Internal pressure p in a closed thin-walled cylinder produces a hoop stress σθ = pr/t and an axial stress σz = pr/(2t), so the hoop stress is twice the axial stress (r is the radius and t the wall thickness). The radial stress is −p at the inner surface and 0 at the outer surface; when r/t is large it is small compared with the other two and is taken as 0. A common rule of thumb (not a sharp limit from a specific source) is that below roughly r/t = 10 the thin-wall approximation becomes inaccurate and the thick-walled cylinder equations should be used. Since σθ and σz are both tensile, the Tresca equivalent stress is σθ (measured against σ₃ = σr ≈ 0), and the von Mises value is √(σθ² − σθσz + σz²) = (√3/2)σθ. Allowable stresses and wall thicknesses for real vessels come from pressure vessel codes."
+        },
+        {
+          "h": "Strain gage rosette equations and orientation",
+          "p": "A strain gage measures normal strain in one direction only, so the three plane strain components εx, εy and γxy are found with a rosette of three gages in different directions. A gage at angle θ reads ε(θ) = εx cos²θ + εy sin²θ + γxy sin θ cos θ. For a rectangular rosette (0°/45°/90°), εx = εa, εy = εc and γxy = 2εb − εa − εc; for a delta rosette (0°/60°/120°), εx = εa, εy = (2εb + 2εc − εa)/3 and γxy = (2/√3)(εb − εc). The principal strains then follow from the strain Mohr’s circle. Gages are numbered counterclockwise from a; numbering them clockwise reverses the sign of the angle. The principal stresses follow for plane stress in an isotropic, linear elastic material, for example σ₁ = E(ε₁ + νε₂)/(1 − ν²)."
+        },
+        {
+          "h": "Plane stress and plane strain",
+          "p": "In a thin plate the through-thickness stress can be taken as zero (plane stress, σz = 0), and the plate changes thickness by εz = −ν(σx + σy)/E. Where the material cannot contract through the thickness, as in the interior of a thick plate or the cross section of a long part (plane strain, εz = 0), a stress σz = ν(σx + σy) develops instead. For the same in-plane stresses, the added σz lowers the von Mises equivalent stress in materials with a positive Poisson’s ratio (it is unchanged when σx + σy = 0), making yielding harder. This is why the fracture toughness K_c of a cracked plate falls with thickness and levels off at the plane strain fracture toughness K_IC: the center of a thick plate is in plane strain and the plastic zone is smaller. Mixing up the two states also changes the equations for converting strain to stress."
+        },
+        {
+          "h": "Common mistakes",
+          "p": "(1) Confusing the angle 2θ on the circle with θ on the element. (2) Mixing engineering shear strain γ with tensor shear strain ε_xy (= γ/2); the vertical axis of the strain Mohr’s circle is γ/2. (3) Reversing the direction of angles (counterclockwise versus clockwise) or of the rosette numbering. (4) Mixing degrees and radians. (5) Confusing plane stress with plane strain. (6) Ordering principal stresses by absolute value (σ₁ ≥ σ₂ ≥ σ₃ is algebraic order). (7) Forgetting the σz = 0 principal stress in plane stress and underestimating the maximum shear stress when σ₁ and σ₂ have the same sign. (8) Taking the direction from tan 2θp alone and swapping the σ₁ and σ₂ directions."
+        },
+        {
+          "h": "Assumptions and limits of this tool",
+          "p": "Stress transformation, principal stresses and invariants follow from equilibrium and coordinate rotation alone and do not depend on the material. Converting rosette readings to stress and comparing plane stress with plane strain assume an isotropic, linear elastic material and small strains. The yield criteria are guides for ductile metals; brittle materials need other approaches such as the maximum principal stress criterion. Transverse sensitivity, temperature compensation and gage factor corrections are not handled, nor are stress concentrations, residual stresses or cyclic loading (fatigue). Base design and safety decisions on codes, material data and expert judgment."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why is τ plotted positive downward on Mohr’s circle?",
+          "a": "So that rotating the element counterclockwise by θ also moves the point on the circle counterclockwise by 2θ. Among sources that plot τ positive upward, some take shear that tends to turn the element clockwise as positive, which gives the same picture (Roylance’s MIT notes, for example), while in others the point turns opposite to the element. Either way, the principal stresses and maximum shear stress are the same."
+        },
+        {
+          "q": "Should I use Tresca or von Mises?",
+          "a": "Experiments on ductile metals often lie closer to von Mises. Tresca is simpler and conservative, since its equivalent stress is greater than or equal to the von Mises value for every stress state; the largest difference, in pure shear, is about 15 %. If the code you work to specifies one, follow it."
+        },
+        {
+          "q": "What shear stress causes yielding in pure shear?",
+          "a": "With uniaxial yield strength σY, it is σY/2 by Tresca and σY/√3 ≈ 0.577σY by von Mises. For σY = 300 MPa that is 150 MPa and about 173 MPa. You can check this with the example “Pure shear: Tresca vs von Mises” in tab 3."
+        },
+        {
+          "q": "What is the difference between γ and ε_xy for a rosette?",
+          "a": "γ (engineering shear strain) is the change in angle, in radians, between two lines that were at right angles, and ε_xy (tensor shear strain) is half of it. Strain transformation and the strain Mohr’s circle take the same form as for stress when written with ε_xy, and the vertical axis of the strain Mohr’s circle is γ/2. This tool reports γ and also gives the ε_xy value."
+        },
+        {
+          "q": "Why does equibiaxial tension cause yielding when the in-plane maximum shear stress is zero?",
+          "a": "In plane stress, σz = 0 is still the third principal stress, so when σ₁ = σ₂ = σ a shear stress of σ/2 acts on planes tilted 45° out of the plane. The Tresca and von Mises equivalent stresses are both σ, and yielding starts at σ = σY. See the absolute maximum shear stress in tab 1 and the three circles in tab 2."
+        },
+        {
+          "q": "Does hydrostatic pressure alone cause yielding?",
+          "a": "Not in ductile metals. No plane carries shear stress, so the deviatoric stress and the von Mises and Tresca equivalent stresses are zero. The volume simply shrinks elastically according to the bulk modulus. Check it in tab 2 with σx = σy = σz and zero shear."
+        },
+        {
+          "q": "How reliable are stresses calculated from rosette readings?",
+          "a": "On the surface of an isotropic, linear elastic material (plane stress), with readings corrected for transverse sensitivity and temperature-induced apparent strain, the stresses are as reliable as the values of E and ν. The calculation does not apply after yielding, to anisotropic materials, or where the stress changes steeply over the gage length."
+        }
+      ]
+    }
+  }
+}

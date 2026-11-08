@@ -11,7 +11,7 @@
 import { readFileSync } from 'node:fs';
 
 const tools = {};
-for (const id of ['measure', 'creep', 'ellingham', 'fatigue', 'corrosionrate', 'polymercalc', 'steelcolor', 'tensile', 'galvanic', 'micro', 'materials',
+for (const id of ['measure', 'creep', 'stress', 'ellingham', 'fatigue', 'corrosionrate', 'polymercalc', 'steelcolor', 'tensile', 'galvanic', 'micro', 'materials',
   'fe-c', 'ashby', 'diffusion', 'composite', 'xrd', 'thermal', 'lever', 'xtal', 'eng', 'ptable', 'drill']) {
   try { tools[id] = await import(`../src/js/${id}.js`); } catch (e) { tools[id] = e; }
 }
@@ -55,6 +55,69 @@ T('measure', '境目: 0・負の値・E562 の格子の表', '① ASTM E562 の�
   ['stats 1 個の s', m.stats([3]).s, null, EQ], ['pointFieldsFor(p = 0)', m.pointFieldsFor(10, 0, 100), null, EQ],
   ['gridFor(3 %)', m.gridFor(0.03), 100, EQ], ['gridFor(7 %)', m.gridFor(0.07), 49, EQ], ['gridFor(15 %)', m.gridFor(0.15), 25, EQ], ['gridFor(50 %)', m.gridFor(0.5), 16, EQ],
   ['gridFor(97 %、少ない方で見る)', m.gridFor(0.97), 100, EQ]]);
+
+// =====================================================================
+// stress(応力状態ラボ): 平面応力の変換・主応力、3次元の固有値と不変量、トレスカ・ミーゼス、薄肉円筒、ロゼット、平面ひずみ
+// ②の python は review の check/calc_stress.py(numpy のテンソルの回転・eigh・solve で別に計算。459 項目一致)
+// =====================================================================
+T('stress', '平面応力の主応力(問題 mechanical-027 と Roylance の例)', '① 問題 mechanical-027 の解説(σx 120・σy 0・τxy 80 → σ₁ 160、σ₂ −40、τmax 100 MPa)と、Roylance「Transformation of Stresses and Strains」の例(σx 5・σy −3・τxy 4 → 中心 1、半径 √32)を手で', m => {
+  const a = m.principal2(120, 0, 80), b = m.principal2(5, -3, 4);
+  return [['027 σ₁', a.s1, 160, rel(1e-12)], ['027 σ₂', a.s2, -40, rel(1e-12)], ['027 τmax', a.tauMax, 100, rel(1e-12)], ['027 θp = ½atan(160/120)', a.thp, 26.56505117707799, abs(1e-9)],
+    ['Roylance σ₁', b.s1, 1 + Math.sqrt(32), rel(1e-12)], ['Roylance σ₂', b.s2, 1 - Math.sqrt(32), rel(1e-12)], ['θs = θp − 45°', a.ths, 26.56505117707799 - 45, abs(1e-9)]];
+});
+T('stress', '例①: σx 80・σy −40・τxy 45 と θ = 30° の面', '② calc_stress.py(Q σ Qᵀ の回転と numpy.linalg.eigh。C 20、R 75 → σ₁ 95・σ₂ −55、θp 18.435°、σx′ 88.971・τx′y′ −29.462)', m => {
+  const p = m.principal2(80, -40, 45), t = m.transform(80, -40, 45, 30);
+  return [['σ₁', p.s1, 95, rel(1e-12)], ['σ₂', p.s2, -55, rel(1e-12)], ['θp', p.thp, 18.43494882292201, abs(1e-9)], ['τabs(σz = 0 を含む)', p.tauAbs, 75, rel(1e-12)],
+    ["σx'", t.sx, 88.97114317029975, rel(1e-12)], ["τx'y'", t.txy, -29.46152422706631, rel(1e-12)], ["σy'", t.sy, -48.97114317029975, rel(1e-12)]];
+});
+T('stress', '境目(平面): τxy = 0・σx = σy・すべて 0・等二軸', '関数の決まり(円が点のときは角度 NaN、τxy = 0 なら主方向は 0°)と ①(等二軸 200・200 では面内 τmax 0、σz = 0 を含めた τabs = 100)', m => [
+  ['τxy = 0 の θp', m.principal2(100, 20, 0).thp, 0, abs(1e-12)], ['σx < σy・τ = 0 の θp', m.principal2(20, 100, 0).thp, 90, abs(1e-12)], ['σx = σy・τ = 0 の θp', m.principal2(50, 50, 0).thp, NaN, EQ],
+  ['σx = σy・τ 30 の θp', m.principal2(50, 50, 30).thp, 45, abs(1e-12)], ['すべて 0 の σ₁', m.principal2(0, 0, 0).s1, 0, EQ], ['等二軸の面内 τmax', m.principal2(200, 200, 0).tauMax, 0, EQ],
+  ['等二軸の τabs', m.principal2(200, 200, 0).tauAbs, 100, rel(1e-12)], ['数でない入力', m.principal2(NaN, 1, 1), null, EQ]]);
+T('stress', '例⑥: 3次元の主応力と不変量', '② calc_stress.py(numpy.linalg.eigvalsh、I2 = ½[(tr σ)² − tr σ²]、I3 = det)', m => {
+  const c = [60, 30, -20, 20, -10, 15], e = m.eig3(...c), I = m.invariants(...c);
+  return [['σ₁', e.s[0], 70.9289543671339, rel(1e-10)], ['σ₂', e.s[1], 25.212866470683345, rel(1e-10)], ['σ₃', e.s[2], -26.141820837817214, rel(1e-10)],
+    ['I1', I.I1, 70, rel(1e-12)], ['I2', I.I2, -725, rel(1e-12)], ['I3', I.I3, -46750, rel(1e-10)], ['σm', I.sm, 70 / 3, rel(1e-12)], ['σ_vM = √(3J2)', m.vonMises(...c), 84.1130192063036, rel(1e-10)],
+    ['σ_vM = √(3J2)(J2 から)', Math.sqrt(3 * I.J2), 84.1130192063036, rel(1e-10)]];
+});
+T('stress', '境目(3次元): 重根・等三軸・すべて 0・順序', '② calc_stress.py(diag(100, 100, 50)・diag(80, −20, −20) を回した成分の固有値)と ①(等三軸は偏差応力 0、単軸 100 は σ₁ 100・σ₂ = σ₃ = 0、σ₃ が最も小さい代数の値)', m => {
+  const r = m.eig3(94.835301110418, 84.505903331255, 70.658795558327, 8.94552088255, 21.321713298811, -12.310096912653);
+  const h = m.eig3(70, 70, 70, 0, 0, 0), z = m.eig3(0, 0, 0, 0, 0, 0), u = m.eig3(-100, -100, -400, 0, 0, 0);
+  return [['重根 σ₁', r.s[0], 100, abs(1e-8)], ['重根 σ₂', r.s[1], 100, abs(1e-8)], ['重根 σ₃', r.s[2], 50, abs(1e-8)], ['重根の印 12', r.same12, true, EQ], ['重根の印 23', r.same23, false, EQ],
+    ['等三軸 J2', m.invariants(70, 70, 70, 0, 0, 0).J2, 0, EQ], ['等三軸の印', h.same12 && h.same23, true, EQ], ['等三軸 Tresca', m.tresca(70, 70, 70, 0, 0, 0), 0, EQ],
+    ['すべて 0', z.s.join(','), '0,0,0', EQ], ['圧縮の順序 σ₁', u.s[0], -100, abs(1e-12)], ['圧縮の順序 σ₃', u.s[2], -400, abs(1e-12)],
+    ['純粋せん断の σ₁・σ₃', m.eig3(0, 0, 0, 100, 0, 0).s.map(v => Math.round(v * 1e9) / 1e9).join(','), '100,0,-100', EQ]];
+});
+T('stress', 'トレスカとミーゼス(純粋せん断・単軸・等二軸・静水圧)', '① 問題 mechanical-020(σY 300 で純粋せん断の降伏 τ = σY/√3 ≈ 173 MPa、トレスカ σY/2 = 150)と DoITPoMS「Yield criteria for metals」(Y = 2k と Y = √3k)', m => {
+  const s = m.yieldState({ sx: 0, sy: 0, sz: 0, txy: 100, tyz: 0, tzx: 0 }, 250), b = m.yieldState({ sx: 200, sy: 200, sz: 0, txy: 0, tyz: 0, tzx: 0 }, 250);
+  const h = m.yieldState({ sx: 70, sy: 70, sz: 70, txy: 0, tyz: 0, tzx: 0 }, 250);
+  return [['020 の k(ミーゼス)', m.yieldState({ sx: 0, sy: 0, sz: 0, txy: 1, tyz: 0, tzx: 0 }, 300).kVm, 173.20508075688772, rel(1e-12)], ['k(トレスカ)', s.kTr, 125, rel(1e-12)],
+    ['純粋せん断 σ_T', s.tr, 200, rel(1e-12)], ['純粋せん断 σ_vM', s.vm, 100 * Math.sqrt(3), rel(1e-12)], ['σ_T/σ_vM = 2/√3', s.ratio, 2 / Math.sqrt(3), rel(1e-12)],
+    ['安全率 トレスカ', s.nTr, 1.25, rel(1e-12)], ['等二軸 σ_T', b.tr, 200, rel(1e-12)], ['等二軸 σ_vM', b.vm, 200, rel(1e-12)], ['静水圧の安全率', h.nVm, Infinity, EQ],
+    ['平面の mises2(100, −100)', m.mises2(100, -100), 100 * Math.sqrt(3), rel(1e-12)], ['平面の tresca2(100, 50)', m.tresca2(100, 50), 100, rel(1e-12)]];
+});
+T('stress', '例③: 薄肉円筒(p 2 MPa・r 500 mm・t 10 mm・σY 250 MPa)', '① Roylance「Pressure Vessels」の σθ = pr/b・σz = pr/2b から手で(σθ 100、σz 50、σr ≈ 0 → トレスカ 100 で n 2.5、ミーゼス √7500 = 86.603 で n 2.887)', m => {
+  const c = m.thinCylinder(2, 500, 10), y = m.yieldState({ sx: c.axial, sy: c.hoop, sz: 0, txy: 0, tyz: 0, tzx: 0 }, 250);
+  return [['σθ', c.hoop, 100, rel(1e-12)], ['σz', c.axial, 50, rel(1e-12)], ['n トレスカ', y.nTr, 2.5, rel(1e-12)], ['n ミーゼス', y.nVm, 250 / Math.sqrt(7500), rel(1e-12)], ['t = 0', m.thinCylinder(2, 500, 0), null, EQ]];
+});
+T('stress', '例④⑤: 直角・デルタのロゼットから主ひずみ・主応力', '② calc_stress.py(ε(θ) の3本を numpy.linalg.solve、ひずみテンソルを eigh、平面応力のこわさ行列)と ① Micro-Measurements TN-515 の閉じた式(rosetteTN)', m => {
+  const a = m.rosette('rect', 450, 380, -120), b = m.rosette('delta', 300, 500, -200);
+  const sa = m.strainToStress(a.e1 * 1e-6, a.e2 * 1e-6, 200e3, 0.3), sb = m.strainToStress(b.e1 * 1e-6, b.e2 * 1e-6, 70e3, 0.33);
+  const ta = m.rosetteTN('rect', 450, 380, -120), tb = m.rosetteTN('delta', 300, 500, -200);
+  return [['直角 ε₁', a.e1, 522.0014005574768, rel(1e-12)], ['直角 ε₂', a.e2, -192.0014005574768, rel(1e-12)], ['直角 φ', a.phi, 18.515194802839318, abs(1e-9)], ['直角 γxy', a.gxy, 430, rel(1e-12)],
+    ['直角 σ₁', sa.s1, 102.0661495363151, rel(1e-10)], ['直角 σ₂', sa.s2, -7.78043525060083, rel(1e-9)], ['直角 TN-515 の ε_P', ta.p, a.e1, rel(1e-12)], ['直角 TN-515 の ε_Q', ta.q, a.e2, rel(1e-12)],
+    ['デルタ ε₁', b.e1, 616.3331998932266, rel(1e-12)], ['デルタ ε₂', b.e2, -216.33319989322658, rel(1e-12)], ['デルタ φ', b.phi, 38.051056875993, abs(1e-9)], ['デルタ γxy', b.gxy, 808.2903768654761, rel(1e-12)],
+    ['デルタ σ₁', sb.s1, 42.807796066650575, rel(1e-10)], ['デルタ σ₂', sb.s2, -1.0167512905311678, rel(1e-8)], ['デルタ TN-515 の ε_P', tb.p, b.e1, rel(1e-12)], ['デルタ TN-515 の ε_Q', tb.q, b.e2, rel(1e-12)],
+    ['γmax = ε₁ − ε₂', a.gmax, a.e1 - a.e2, rel(1e-12)], ['ε_xy = γ/2', a.exy, 215, rel(1e-12)]];
+});
+T('stress', '境目(ロゼット): 3つ同じ・εa = εc の ±45°', '① TN-515 の主軸の決め方(ε₁ = ε₃ で ε₂ > ε₁ なら φ_P = +45°、ε₂ < ε₁ なら −45°、3つ同じなら決まらない)', m => [
+  ['3つ同じ φ', m.rosette('rect', 100, 100, 100).phi, NaN, EQ], ['3つ同じ ε₁', m.rosette('delta', 100, 100, 100).e1, 100, rel(1e-12)], ['εb > εa = εc', m.rosette('rect', 200, 300, 200).phi, 45, abs(1e-12)],
+  ['εb < εa = εc', m.rosette('rect', 200, 100, 200).phi, -45, abs(1e-12)], ['すべて 0', m.rosette('rect', 0, 0, 0).e1, 0, EQ], ['形の名前の誤り', m.rosette('tee', 1, 2, 3), null, EQ], ['ν = 0.5 は出さない', m.strainToStress(1e-3, 0, 200e3, 0.5), null, EQ]]);
+T('stress', '平面応力と平面ひずみ(σx 80・σy −40・τxy 45、E 200 GPa、ν 0.3)', '① σz = ν(σx + σy) = 0.3 × 40 = 12 MPa、εz = −ν(σx + σy)/E = −6.0 × 10⁻⁵ を手で、② calc_stress.py(コンプライアンス行列で εz = 0 を解く。σ_vM 131.434・130.150)', m => {
+  const q = m.planeCompare(80, -40, 45, 200e3, 0.3);
+  return [['平面ひずみ σz', q.pe.sz, 12, rel(1e-12)], ['平面ひずみ εz', q.pe.ez, 0, EQ], ['平面応力 εz', q.ps.ez, -6e-5, rel(1e-12)],
+    ['平面応力 σ_vM', q.ps.vm, 131.43439428094916, rel(1e-10)], ['平面ひずみ σ_vM', q.pe.vm, 130.14991356124673, rel(1e-10)], ['G', q.G, 200e3 / 2.6, rel(1e-12)]];
+});
 
 // =====================================================================
 // creep(クリープ寿命ラボ): Larson–Miller、OSD、Manson–Haferd、ノートン則、Monkman–Grant、Robinson
