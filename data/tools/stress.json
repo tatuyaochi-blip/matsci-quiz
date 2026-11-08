@@ -464,11 +464,11 @@
     },
     "en": {
       "nav": "Stress State Lab",
-      "card": "Plane stress transformation and Mohr’s circle, 3D principal stresses and invariants, Tresca and von Mises safety factors, and strain gage rosettes to principal stresses, with equations and substituted values",
+      "card": "Plane stress transformation and Mohr’s circle, 3D principal stresses and invariants, Tresca and von Mises safety factors, and strain gauge rosettes to principal stresses, with equations and substituted values",
       "title": "Stress State Lab (Mohr’s Circle, Principal Stresses, Tresca and von Mises, Strain Gage Rosettes)",
       "description": "Find the stresses on any plane from σx, σy and τxy, with principal stresses, principal directions and maximum shear shown on Mohr’s circle and a rotated element. Also: principal stresses, invariants I1, I2, I3, hydrostatic and deviatoric stress and the three Mohr’s circles for a 3D state; Tresca and von Mises equivalent stresses and safety factors (including a thin-walled pressurized cylinder); principal strains and stresses from rectangular and delta rosettes; and plane stress versus plane strain. Equations with substituted values, sign conventions and sources.",
       "h1": "Stress State Lab",
-      "lead": "Five calculations from mechanics of materials, each shown with the equation, the values substituted into it and a diagram: (1) plane stress transformation and Mohr’s circle (move θ and the point on the circle and the element rotate together), (2) 3D principal stresses, invariants and the three Mohr’s circles, (3) the Tresca and von Mises yield criteria with safety factors, (4) principal strains and stresses from a strain gage rosette, and (5) plane stress versus plane strain. Stresses are in MPa, strains in µε (×10⁻⁶) and angles in degrees. Tension is positive, τxy is positive in +y on the +x face, and θ is positive counterclockwise from the x axis.",
+      "lead": "Five calculations from mechanics of materials, each shown with the equation, the values substituted into it and a diagram: (1) plane stress transformation and Mohr’s circle (move θ and the point on the circle and the element rotate together), (2) 3D principal stresses, invariants and the three Mohr’s circles, (3) the Tresca and von Mises yield criteria with safety factors, (4) principal strains and stresses from a strain gauge rosette, and (5) plane stress versus plane strain. Stresses are in MPa, strains in µε (×10⁻⁶) and angles in degrees. Tension is positive, τxy is positive in +y on the +x face, and θ is positive counterclockwise from the x axis.",
       "in_heading": "Input",
       "out_heading": "Result",
       "note": "The equations are the standard ones from mechanics of materials (stress transformation, principal stresses, Mohr’s circle, invariants, the Tresca and von Mises criteria, thin-walled cylinders and rosette equations). Sources are listed under the result. The calculations assume an isotropic, linear elastic material and small strains. Base design decisions on codes, material data and expert judgment.",
@@ -498,9 +498,9 @@
       "pr": "Radius r (mm)",
       "pt": "Wall thickness t (mm)",
       "sy0": "Yield strength σY (MPa)",
-      "ea": "Gage a reading (µε)",
-      "eb": "Gage b reading (µε)",
-      "ec": "Gage c reading (µε)",
+      "ea": "Gauge a reading (µε)",
+      "eb": "Gauge b reading (µε)",
+      "ec": "Gauge c reading (µε)",
       "em": "Young’s modulus E (GPa)",
       "nu": "Poisson’s ratio ν",
       "js": {
@@ -523,7 +523,7 @@
           "ex_note": "The example values and the values already in the input fields are made up to show how the calculations work. They are not measured data for any real component.",
           "conv_plane": "Sign convention: tension is positive. τxy is positive when it acts in +y on the +x face (and in −y on the −x face). θ is the angle of the inclined plane’s normal (the x′ axis), measured counterclockwise from the x axis. Mohr’s circle is drawn with τ positive downward, so rotating the element by θ moves the point on the circle by 2θ in the same direction.",
           "conv_tri": "Sign convention: tension is positive. τxy is positive in +y on the +x face, τyz in +z on the +y face and τzx in +x on the +z face (the stress matrix is symmetric). Principal stresses are ordered σ₁ ≥ σ₂ ≥ σ₃.",
-          "conv_ros": "Orientation convention: gage a is the reference (0°), and b and c are at 45° and 90° (rectangular) or 60° and 120° (delta) counterclockwise from a. The principal angle φ is also positive counterclockwise from gage a. Shear strain is given as engineering strain γ (tensor shear strain ε_xy = γ/2).",
+          "conv_ros": "Orientation convention: gauge a is the reference (0°), and b and c are at 45° and 90° (rectangular) or 60° and 120° (delta) counterclockwise from a. The principal angle φ is also positive counterclockwise from gauge a. Shear strain is given as engineering strain γ (tensor shear strain ε_xy = γ/2).",
           "fig_tau_down": "τ (positive down)",
           "fig_mohr": "Mohr’s circle for stress",
           "fig_elem": "Stresses on the rotated element",
@@ -634,13 +634,13 @@
           "cap_yield": "The solid ellipse is von Mises and the dashed hexagon is Tresca (σ₃ = 0). The red dot is the current stress (σa, σb) = ({a}, {b}); where the dotted line from the origin meets each surface is the stress at yield if the load is increased proportionally.",
           "key_mises": "Von Mises ellipse",
           "key_tresca": "Tresca hexagon",
-          "fig_x": "gage a (x axis)",
+          "fig_x": "gauge a (x axis)",
           "fig_ccw": "counterclockwise",
-          "fig_ros": "Rosette gage directions and principal directions",
-          "need_e": "Enter the three gage readings (µε).",
+          "fig_ros": "Rosette gauge directions and principal directions",
+          "need_e": "Enter the three gauge readings (µε).",
           "need_enu": "Enter Young’s modulus E (above 0) and Poisson’s ratio ν (−1 < ν < 0.5) to get the principal stresses as well.",
-          "ros_main": "Principal strains are ε₁ = {a} and ε₂ = {b}. The direction of ε₁ is {p} from gage a (counterclockwise positive). Maximum shear strain γmax = {g} (engineering strain). Principal stresses are σ₁ = {s1} and σ₂ = {s2} (plane stress).",
-          "ros_main_iso": "All three gages read the same, so ε₁ = ε₂ = {a} and every direction is principal. The principal stresses are σ₁ = σ₂ = {s1} (plane stress).",
+          "ros_main": "Principal strains are ε₁ = {a} and ε₂ = {b}. The direction of ε₁ is {p} from gauge a (counterclockwise positive). Maximum shear strain γmax = {g} (engineering strain). Principal stresses are σ₁ = {s1} and σ₂ = {s2} (plane stress).",
+          "ros_main_iso": "All three gauges read the same, so ε₁ = ε₂ = {a} and every direction is principal. The principal stresses are σ₁ = σ₂ = {s1} (plane stress).",
           "s_e1": "Principal strain ε₁",
           "s_e2": "Principal strain ε₂",
           "s_phi": "Direction of ε₁, φ (from a)",
@@ -651,22 +651,22 @@
           "s_rtau": "Max in-plane shear stress",
           "s_ez": "Through-thickness strain εz",
           "eq_iso_e": "R = 0, so every direction is a principal direction",
-          "eq_phi": "from gage a to the ε₁ direction, counterclockwise positive",
+          "eq_phi": "from gauge a to the ε₁ direction, counterclockwise positive",
           "eq_gamma": "γ is engineering shear strain; tensor shear strain is ε_xy = γ/2",
           "ros_eq_lead": "εx, εy and γxy are found from the three readings, and the principal strains and direction follow from the strain Mohr’s circle (center (ε₁ + ε₂)/2, radius γmax/2). The principal stresses come from Hooke’s law for plane stress.",
-          "ros_note": "The rectangular and delta results have been checked to match the closed-form equations in the strain gage manufacturer’s tech note (TN-515). φ is found with atan2, so the ε₁ and ε₂ directions are not mixed up.",
-          "h_order": "Numbering and orienting the gages",
+          "ros_note": "The rectangular and delta results have been checked to match the closed-form equations in the strain gauge manufacturer’s tech note (TN-515). φ is found with atan2, so the ε₁ and ε₂ directions are not mixed up.",
+          "h_order": "Numbering and orienting the gauges",
           "ros_order": [
-            "Take gage a as the reference direction (0°), usually along the axis of the part.",
+            "Take gauge a as the reference direction (0°), usually along the axis of the part.",
             "Count b and c counterclockwise from a (45° and 90° for rectangular, 60° and 120° for delta). If your rosette is numbered clockwise as seen from above, read the sign of the angle in reverse.",
             "Viewing the rosette from the other side also reverses the direction. Check the numbering as seen from outside the bonded surface."
           ],
           "ros_cautions": [
-            "The principal stresses assume plane stress (a gage bonded on a free surface) in an isotropic, linear elastic material. They do not apply after yielding or to anisotropic materials (composites, single crystals).",
+            "The principal stresses assume plane stress (a gauge bonded on a free surface) in an isotropic, linear elastic material. They do not apply after yielding or to anisotropic materials (composites, single crystals).",
             "Transverse sensitivity correction, temperature compensation (apparent strain) and lead wire correction are not included. Enter readings that have already been corrected.",
             "Any error in E carries straight into the stresses (3 % off in E means 3 % off in stress)."
           ],
-          "cap_ros": "Directions of gages a, b and c (counterclockwise from a), and of the principal strains ε₁ ({p}) and ε₂ (90° from it).",
+          "cap_ros": "Directions of gauges a, b and c (counterclockwise from a), and of the principal strains ε₁ ({p}) and ε₂ (90° from it).",
           "ps_main": "Plane strain (εz = 0) produces σz = ν(σx + σy) = {z}, while plane stress (σz = 0) produces a thickness change εz = {e}. The von Mises equivalent stress is {a} in plane stress and {b} in plane strain.",
           "h_ps": "Plane stress versus plane strain",
           "ps_cols": [
@@ -730,8 +730,8 @@
           "p": "Internal pressure p in a closed thin-walled cylinder produces a hoop stress σθ = pr/t and an axial stress σz = pr/(2t), so the hoop stress is twice the axial stress (r is the radius and t the wall thickness). The radial stress is −p at the inner surface and 0 at the outer surface; when r/t is large it is small compared with the other two and is taken as 0. A common rule of thumb (not a sharp limit from a specific source) is that below roughly r/t = 10 the thin-wall approximation becomes inaccurate and the thick-walled cylinder equations should be used. Since σθ and σz are both tensile, the Tresca equivalent stress is σθ (measured against σ₃ = σr ≈ 0), and the von Mises value is √(σθ² − σθσz + σz²) = (√3/2)σθ. Allowable stresses and wall thicknesses for real vessels come from pressure vessel codes."
         },
         {
-          "h": "Strain gage rosette equations and orientation",
-          "p": "A strain gage measures normal strain in one direction only, so the three plane strain components εx, εy and γxy are found with a rosette of three gages in different directions. A gage at angle θ reads ε(θ) = εx cos²θ + εy sin²θ + γxy sin θ cos θ. For a rectangular rosette (0°/45°/90°), εx = εa, εy = εc and γxy = 2εb − εa − εc; for a delta rosette (0°/60°/120°), εx = εa, εy = (2εb + 2εc − εa)/3 and γxy = (2/√3)(εb − εc). The principal strains then follow from the strain Mohr’s circle. Gages are numbered counterclockwise from a; numbering them clockwise reverses the sign of the angle. The principal stresses follow for plane stress in an isotropic, linear elastic material, for example σ₁ = E(ε₁ + νε₂)/(1 − ν²)."
+          "h": "Strain gauge rosette equations and orientation",
+          "p": "A strain gauge measures normal strain in one direction only, so the three plane strain components εx, εy and γxy are found with a rosette of three gauges in different directions. A gauge at angle θ reads ε(θ) = εx cos²θ + εy sin²θ + γxy sin θ cos θ. For a rectangular rosette (0°/45°/90°), εx = εa, εy = εc and γxy = 2εb − εa − εc; for a delta rosette (0°/60°/120°), εx = εa, εy = (2εb + 2εc − εa)/3 and γxy = (2/√3)(εb − εc). The principal strains then follow from the strain Mohr’s circle. Gauges are numbered counterclockwise from a; numbering them clockwise reverses the sign of the angle. The principal stresses follow for plane stress in an isotropic, linear elastic material, for example σ₁ = E(ε₁ + νε₂)/(1 − ν²)."
         },
         {
           "h": "Plane stress and plane strain",
@@ -743,7 +743,7 @@
         },
         {
           "h": "Assumptions and limits of this tool",
-          "p": "Stress transformation, principal stresses and invariants follow from equilibrium and coordinate rotation alone and do not depend on the material. Converting rosette readings to stress and comparing plane stress with plane strain assume an isotropic, linear elastic material and small strains. The yield criteria are guides for ductile metals; brittle materials need other approaches such as the maximum principal stress criterion. Transverse sensitivity, temperature compensation and gage factor corrections are not handled, nor are stress concentrations, residual stresses or cyclic loading (fatigue). Base design and safety decisions on codes, material data and expert judgment."
+          "p": "Stress transformation, principal stresses and invariants follow from equilibrium and coordinate rotation alone and do not depend on the material. Converting rosette readings to stress and comparing plane stress with plane strain assume an isotropic, linear elastic material and small strains. The yield criteria are guides for ductile metals; brittle materials need other approaches such as the maximum principal stress criterion. Transverse sensitivity, temperature compensation and gauge factor corrections are not handled, nor are stress concentrations, residual stresses or cyclic loading (fatigue). Base design and safety decisions on codes, material data and expert judgment."
         }
       ],
       "faq": [
@@ -773,7 +773,7 @@
         },
         {
           "q": "How reliable are stresses calculated from rosette readings?",
-          "a": "On the surface of an isotropic, linear elastic material (plane stress), with readings corrected for transverse sensitivity and temperature-induced apparent strain, the stresses are as reliable as the values of E and ν. The calculation does not apply after yielding, to anisotropic materials, or where the stress changes steeply over the gage length."
+          "a": "On the surface of an isotropic, linear elastic material (plane stress), with readings corrected for transverse sensitivity and temperature-induced apparent strain, the stresses are as reliable as the values of E and ν. The calculation does not apply after yielding, to anisotropic materials, or where the stress changes steeply over the gauge length."
         }
       ]
     },
