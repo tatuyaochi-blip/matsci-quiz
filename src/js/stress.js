@@ -244,6 +244,7 @@ function setup() {
 .ss-tbl th, .ss-tbl td { text-align: left; padding: 5px 6px; border-bottom: 1px solid var(--border); vertical-align: top; }
 .ss-tbl td.ss-num { white-space: nowrap; font-variant-numeric: tabular-nums; }
 .ss-tbl thead th { font-size: .78rem; color: var(--muted); font-weight: 600; }
+.ss-tbl tbody th { min-width: 6.5em; }
 @media (max-width: 480px) { .ss-tbl th, .ss-tbl td { padding: 4px 3px; font-size: .78rem; } }
 .ss-links { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; }
 .ss-figs { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 8px; }

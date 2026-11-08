@@ -677,7 +677,7 @@
           "ps_eq_lead": "Generalized Hooke’s law εz = [σz − ν(σx + σy)]/E with σz = 0 for plane stress and εz = 0 for plane strain.",
           "eq_pstress": "Plane stress",
           "eq_pstrain": "Plane strain",
-          "ps_note": "Thin plates are close to plane stress, and the interior of thick plates or the cross section of long parts (not free to contract through the thickness) is close to plane strain. The drop in fracture toughness K_c toward K_IC in thick plates comes from the same effect: in plane strain σz appears, shear yielding becomes harder (the equivalent stress drops) and the plastic zone at the crack tip is smaller.",
+          "ps_note": "Thin plates are close to plane stress, and the interior of thick plates or the cross section of long parts (not free to contract through the thickness) is close to plane strain. The drop in fracture toughness K_c toward K_IC in thick plates comes from the same effect: in plane strain σz appears and shear yielding becomes harder (the equivalent stress drops).",
           "ps_cautions": [
             "Isotropic, linear elastic and small strains are assumed. Thermal strain αΔT is not included (use the Thermal Expansion and Stress Lab for thermal stress).",
             "In plane strain σz follows from the in-plane stresses and is not an input. To enter σz freely, use tab 2 or 3."
