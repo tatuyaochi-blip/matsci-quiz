@@ -822,7 +822,7 @@
     "change in diameter"
    ],
    "m": [
-    "Poisson’s ratio (metals 0.26–0.35, rubber near 0.5)",
+    "Poisson’s ratio (0.25–0.35 for most metals, rubber near 0.5)",
     "axial strain",
     "lateral strain",
     "original diameter and its change"
