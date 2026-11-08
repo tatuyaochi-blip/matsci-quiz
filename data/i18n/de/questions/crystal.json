@@ -223,5 +223,50 @@
       "Etwa 4,2 %"
     ],
     "explanation": "Nach der Vegardschen Regel ist a = 0,8 × 0,5431 + 0,2 × 0,5658 ≈ 0,5476 nm, und der relative Unterschied zu Si beträgt (0,5476 − 0,5431)/0,5431 ≈ 0,0084, also etwa 0,84 %. Das ist das 0,2-Fache der Fehlpassung zwischen reinem Ge und Si, (0,5658 − 0,5431)/0,5431 ≈ 4,2 %. Etwa 4,2 % vergleicht reines Ge mit Si und lässt den Ge-Anteil außer Acht, etwa 3,3 % verwechselt den Si-Anteil von 0,8 mit dem Ge-Anteil. Die Vegardsche Regel ist eine Näherung, die die Gitteraufweitung durch gelöste Atome als additiv behandelt; reale Mischkristalle können leicht von einer Geraden abweichen. Dennoch wird sie häufig genutzt, um die Zusammensetzung eines Mischkristalls aus einer mit XRD gemessenen Gitterkonstante abzuschätzen."
+  },
+  "crystal-026": {
+    "question": "Magnesium hat eine hdP-Struktur mit den Gitterkonstanten a = 0,321 nm und c = 0,521 nm, und seine molare Masse beträgt 24,31 g/mol. Welcher Wert kommt seiner Dichte am nächsten, wenn man das sechsseitige Prisma als Zelle verwendet (Grundfläche (3√3/2)a², 6 Atome)? Die Avogadro-Konstante sei 6,022×10²³ mol⁻¹.",
+    "choices": [
+      "Etwa 0,58 g/cm³",
+      "Etwa 1,74 g/cm³",
+      "Etwa 1,50 g/cm³"
+    ],
+    "explanation": "Das Volumen des sechsseitigen Prismas beträgt (3√3/2)a²c = 2,598 × 0,321² × 0,521 ≈ 0,1395 nm³ = 1,395×10⁻²² cm³. Es enthält 12 Eckatome × 1/6, 2 Atome in den Mitten der Deckflächen × 1/2 und 3 Atome in der mittleren Lage, insgesamt 6, sodass die Dichte 6 × 24,31/(6,022×10²³ × 1,395×10⁻²²) ≈ 1,74 g/cm³ beträgt; das stimmt gut mit der tatsächlichen Dichte von Magnesium überein. Etwa 0,58 g/cm³ nimmt nur 2 Atome im Prisma an (die primitive Zelle mit 2 Atomen hat ein Drittel seines Volumens). Etwa 1,50 g/cm³ setzt die Grundfläche als a² statt als Sechseck an und zählt 2 Atome."
+  },
+  "crystal-027": {
+    "question": "Um eine hexagonale Richtung von drei Indizes [UVW] (Achsen a₁, a₂, c) in vier Indizes [uvtw] (Achsen a₁, a₂, a₃, c) umzurechnen, bestimmt man u = (2U − V)/3, v = (2V − U)/3, t = −(u + v) und w = W und bringt sie auf die kleinsten ganzen Zahlen. Wie lautet [100], die Richtung der a₁-Achse, mit vier Indizes?",
+    "choices": [
+      "u = 1, v = 0, t = −1, w = 0",
+      "u = 1, v = 1, t = −2, w = 0",
+      "u = 2, v = −1, t = −1, w = 0"
+    ],
+    "explanation": "Einsetzen von U = 1, V = 0 und W = 0 ergibt u = 2/3, v = −1/3, t = −(2/3 − 1/3) = −1/3 und w = 0; Multiplizieren mit 3 ergibt u = 2, v = −1, t = −1, w = 0. Als Vektor gilt wegen a₁ + a₂ + a₃ = 0 auch 2a₁ − a₂ − a₃ = 3a₁, was in Richtung a₁ zeigt. u = 1, v = 0, t = −1, w = 0 wendet die Regel für Ebenenindizes i = −(h + k) direkt auf die Richtung [100] an; das zeigt tatsächlich in Richtung a₁ − a₃, um 30° von a₁ abweichend. u = 1, v = 1, t = −2, w = 0 zeigt in Richtung a₁ + a₂, mit drei Indizes [110]."
+  },
+  "crystal-028": {
+    "question": "Die wichtigsten Gleitsysteme in krz-Metallen sind {110}<111> (Gleitebene {110}, Gleitrichtung <111>). Wie viele solche Gleitsysteme gibt es, wenn man aus der Zahl der nicht parallelen {110}-Ebenen und der Zahl der in jeder {110}-Ebene liegenden <111>-Richtungen zählt? Positiver und negativer Richtungssinn derselben Richtung werden nicht unterschieden.",
+    "choices": [
+      "12",
+      "24",
+      "6"
+    ],
+    "explanation": "Die {110}-Familie eines kubischen Kristalls besteht aus (110), (101) und (011) sowie den Ebenen, bei denen einer der beiden von null verschiedenen Indizes negativ ist, insgesamt sechs Ebenen, von denen keine zu einer anderen parallel ist. Eine in der (110)-Ebene liegende Richtung [uvw] erfüllt u + v = 0, sodass die darin enthaltenen <111>-Richtungen die beiden sind, deren erster und zweiter Index entgegengesetzte Vorzeichen haben. Die Zahl der Gleitsysteme ist daher 6 × 2 = 12. 24 zählt positiven und negativen Richtungssinn jeder Richtung getrennt, doch Gleitung im Gegensinn ist nur die umgekehrte Bewegung desselben Systems. 6 zählt nur die Ebenen. Auch kfz {111}<110> ergibt 4 Ebenen × 3 Richtungen = 12, weit mehr als die Basisgleitung im hdP-Gitter mit 1 Ebene × 3 Richtungen = 3."
+  },
+  "crystal-029": {
+    "question": "Welcher Wert kommt beim γ-Eisen (kfz, Gitterkonstante 0,3647 nm bei 912 °C) dem größten Radius einer Kugel am nächsten, die in eine Oktaederlücke (Raummitte und Kantenmitten der Elementarzelle) passt? Die Eisenatome seien harte Kugeln, die sich entlang der Flächendiagonalen berühren.",
+    "choices": [
+      "Etwa 0,129 nm",
+      "Etwa 0,029 nm",
+      "Etwa 0,053 nm"
+    ],
+    "explanation": "Im kfz-Gitter berühren sich die Atome entlang der Flächendiagonalen, sodass der Radius eines Eisenatoms R = √2a/4 = 1,414 × 0,3647/4 ≈ 0,1289 nm beträgt. Die Oktaederlücke in der Raummitte ist von den sechs Flächenmittenatomen im Abstand a/2 umgeben, sodass der Radius der passenden Kugel r = a/2 − R = 0,1824 − 0,1289 ≈ 0,053 nm beträgt (r/R ≈ 0,414). Etwa 0,129 nm ist der Radius des Eisenatoms selbst. Etwa 0,029 nm ist die Größe einer Tetraederlücke, erhalten durch Abziehen von R von √3a/4, einem Viertel der Raumdiagonalen. Im kfz-Gitter ist die Oktaederlücke die größere, sodass Kohlenstoff sie besetzt; dennoch ist ein Kohlenstoffatom größer als diese Lücke und löst sich, indem es das umgebende Gitter aufweitet."
+  },
+  "crystal-030": {
+    "question": "Welche Aussage darüber, ob die Eigenschaften eines kubischen Einkristalls von der Richtung abhängen, trifft zu?",
+    "choices": [
+      "Da ein kubischer Kristall drei gleiche Achsen hat, sind Elastizitätsmodul und Längenausdehnungskoeffizient in jeder Richtung gleich",
+      "Längenausdehnungskoeffizient und elektrische Leitfähigkeit sind in jeder Richtung gleich, der Elastizitätsmodul aber hängt von der Richtung ab",
+      "Der Elastizitätsmodul ist in jeder Richtung gleich, doch der Längenausdehnungskoeffizient unterscheidet sich wegen der anderen Atompackung zwischen [100] und [111]"
+    ],
+    "explanation": "Eigenschaften wie Wärmeausdehnung und elektrische Leitung, die zwei vektorartige Größen (ein Feld oder einen Gradienten und einen Fluss) oder eine Temperaturänderung und eine Dehnung verknüpfen, sind Tensoren zweiter Stufe, und die kubische Symmetrie macht sie in jeder Richtung gleich. Die Elastizität, die Spannung und Dehnung verknüpft, ist ein Tensor vierter Stufe; selbst ein kubischer Kristall hat drei unabhängige Konstanten, sodass der Modul von der Richtung abhängt. Deshalb unterscheidet sich der Elastizitätsmodul eines Eisen-Einkristalls so stark: etwa 273 GPa in [111] und etwa 125 GPa in [100]. Die Vorstellung, jede Eigenschaft eines kubischen Kristalls sei isotrop, trifft für die Elastizität nicht zu. Richtungsabhängig ist die Wärmeausdehnung in Kristallen mit ungleichen Achsen, etwa hexagonalen oder tetragonalen."
   }
 }
