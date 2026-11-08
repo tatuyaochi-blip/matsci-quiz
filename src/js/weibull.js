@@ -138,8 +138,8 @@ export const sizeScale = (s1, ve1, ve2, m) => (ok(s1, ve1, ve2, m) && ve1 > 0 &&
 // 例(値は計算のしかたを示すために作ったもの。実在の材料の測定データではない)
 export const SAMPLE = [384, 300, 298, 371, 313, 372, 318, 334, 301, 347, 385, 429, 372, 393, 390, 331, 398, 369, 378, 371];
 export const EXAMPLES = [
-  { mode: 'fit', est: 'med', dec: 'dot', data: SAMPLE },
-  { mode: 'fit', est: 'hazen', dec: 'dot', data: SAMPLE, focus: 'cmp' },
+  { mode: 'fit', est: 'med', data: SAMPLE },
+  { mode: 'fit', est: 'hazen', data: SAMPLE, focus: 'cmp' },
   { mode: 'prob', pm: 11.3, ps0: 374, psig: 300, pf: 0.1, pm2: '' },
   { mode: 'size', sm: 11.3, ss1: 374, g1: 't3', b1: 4, d1: 3, l1: 30, v1: '', g2: 'ten', b2: 10, d2: 10, l2: 50, v2: '' },
   { mode: 'size', sm: 11.3, ss1: 374, g1: 't3', b1: 4, d1: 3, l1: 40, v1: '', g2: 'q4', b2: 4, d2: 3, l2: 40, v2: '' },
@@ -261,6 +261,14 @@ function setup() {
   });
 
   // ---- データの貼り付け欄 ----
+  // de では貼り付けの小数点の既定をコンマにする(ドイツ語の表計算から貼った 412,5 を 412 と 5 に分けて読まないため)。
+  // tool-share.js が既定と比べられるよう defaultSelected も移す。URL に dec があればそちらに従う
+  if (lang === 'de') {
+    let urlDec = null;
+    try { urlDec = new URL(performance.getEntriesByType?.('navigation')?.[0]?.name || location.href).searchParams.get('dec'); } catch { /* 読めなくても続ける */ }
+    for (const o of E.dec.options) o.defaultSelected = o.value === 'comma';
+    E.dec.value = urlDec === 'dot' || urlDec === 'comma' ? urlDec : 'comma';
+  }
   const fmtIn = v => (E.dec.value === 'comma' ? String(v).replace('.', ',') : String(v));
   const joinIn = vs => vs.map(fmtIn).join(E.dec.value === 'comma' ? ' ' : ', ');
   const ta = el('textarea', { name: 'data', rows: '5', spellcheck: 'false', autocomplete: 'off', autocapitalize: 'off', placeholder: U.paste_ph });
