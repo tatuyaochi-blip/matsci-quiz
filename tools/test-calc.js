@@ -11,7 +11,7 @@
 import { readFileSync } from 'node:fs';
 
 const tools = {};
-for (const id of ['measure', 'ellingham', 'fatigue', 'corrosionrate', 'polymercalc', 'steelcolor', 'tensile', 'galvanic', 'micro', 'materials',
+for (const id of ['measure', 'creep', 'ellingham', 'fatigue', 'corrosionrate', 'polymercalc', 'steelcolor', 'tensile', 'galvanic', 'micro', 'materials',
   'fe-c', 'ashby', 'diffusion', 'composite', 'xrd', 'thermal', 'lever', 'xtal', 'eng', 'ptable', 'drill']) {
   try { tools[id] = await import(`../src/js/${id}.js`); } catch (e) { tools[id] = e; }
 }
@@ -55,6 +55,51 @@ T('measure', '境目: 0・負の値・E562 の格子の表', '① ASTM E562 の�
   ['stats 1 個の s', m.stats([3]).s, null, EQ], ['pointFieldsFor(p = 0)', m.pointFieldsFor(10, 0, 100), null, EQ],
   ['gridFor(3 %)', m.gridFor(0.03), 100, EQ], ['gridFor(7 %)', m.gridFor(0.07), 49, EQ], ['gridFor(15 %)', m.gridFor(0.15), 25, EQ], ['gridFor(50 %)', m.gridFor(0.5), 16, EQ],
   ['gridFor(97 %、少ない方で見る)', m.gridFor(0.97), 100, EQ]]);
+
+// =====================================================================
+// creep(クリープ寿命ラボ): Larson–Miller、OSD、Manson–Haferd、ノートン則、Monkman–Grant、Robinson
+// ②の python は review の check/calc_creep.py(numpy の lstsq を含む)
+// =====================================================================
+T('creep', 'LMP の定義(1000 K・1000 h → 10⁵ h の温度)', '① 定義 P = T(C + log₁₀t_r) から手で計算できる値(C = 20: P = 1000 × 23 = 23000、T = 23000/25 = 920 K)', m => [
+  ['P', m.lmpP(1000, 1000, 20), 23000, rel(1e-12)], ['T', m.lmpT(23000, 1e5, 20), 920, rel(1e-12)], ['t_r', m.lmpTr(23000, 920, 20), 1e5, rel(1e-9)]]);
+T('creep', '例①: 600 ℃・10万 h と同じ P で 1000 h になる温度', '② calc_creep.py(P = 873.15 × 25 = 21828.75、T₂ = P/23 = 949.076 K = 675.93 ℃、650 ℃の t_r = 4425.3 h、10 K 上げると 1.919 分の1)', m => {
+  const P = m.lmpP(600 + m.K0, 1e5, 20);
+  return [['P', P, 21828.75, rel(1e-12)], ['T₂(K)', m.lmpT(P, 1000, 20), 949.0760869565217, rel(1e-12)], ['650 ℃の t_r', m.lmpTr(P, 650 + m.K0, 20), 4425.277704927844, rel(1e-9)],
+    ['10 K の倍率', m.lmpPerK(P, 600 + m.K0, 20, 10), 1.9190116880469137, rel(1e-9)], ['見かけの Q(J/mol)', m.lmpQ(22382.45), 428506.5815450802, rel(1e-6)]];
+});
+T('creep', 'パラメータの比べ(700 ℃・1000 h → 600 ℃、C 20、Q 300 kJ/mol、T_a 50 ℃、log t_a 15)', '② calc_creep.py(LMP 4.307 × 10⁵ h、OSD 6.985 × 10⁴ h、MH 7.017 × 10⁴ h)', m => {
+  const x = m.extrapolate(700 + m.K0, 1000, 600 + m.K0, { C: 20, Q: 300e3, Ta: 50 + m.K0, lta: 15 });
+  return [['LMP', x.lmp, 430666.16667791357, rel(1e-9)], ['OSD', x.osd, 69851.79492768437, rel(1e-6)], ['MH', x.mh, 70170.38286703808, rel(1e-9)],
+    ['P(OSD)', x.Po, -13.102436455282543, rel(1e-6)], ['P(MH)', x.Pm, -0.018461538461538463, rel(1e-12)]];
+});
+T('creep', 'ノートン則: n・Q・A・倍率', '② calc_creep.py(n = ln(10/3)/ln 1.25 = 5.3955、A、Q = 358.04 kJ/mol、ε̇)と ① 公式集の例(n = 5 で応力 1.2 倍 → 1.2⁵ = 2.48832、Q = 300 kJ/mol で 900 → 950 K は 8.25 倍)', m => {
+  const n = m.fitN(120, 3e-5, 150, 1e-4);
+  return [['n', n, 5.395507946499492, rel(1e-12)], ['A', m.nortonA(3e-5, 120, n, 300e3, 600 + m.K0), 160.50787500141013, rel(1e-6)],
+    ['Q', m.fitQ(550 + m.K0, 1e-6, 600 + m.K0, 2e-5), 358042.8618131895, rel(1e-6)], ['ε̇', m.nortonRate(2e-3, 100, 5, 300e3, 873.15), 2.2616009091100634e-11, rel(1e-6)],
+    ['応力 1.2 倍', m.rateRatio(100, 900, 120, 900, 5, 300e3), 2.48832, rel(1e-12)], ['900 → 950 K', m.rateRatio(100, 900, 100, 950, 5, 300e3), 8.25, abs(0.005)],
+    ['両方', m.rateRatio(100, 900, 120, 950, 5, 300e3), 20.525111763223617, rel(1e-6)]];
+});
+T('creep', 'モンクマン・グラント', '① 問題 high-temperature-016 の条件(1.0 × 10⁻⁵ h⁻¹・2000 h → 4.0 × 10⁻⁵ h⁻¹ で 500 h)と ② calc_creep.py(例③ C_MG 0.08 → 4000 h、m = 0.9 で 2705 h)', m => [
+  ['問題 016', m.mgTr(4e-5, 1, m.mgC(1e-5, 2000, 1)), 500, rel(1e-12)], ['例③ C_MG', m.mgC(1e-3, 80, 1), 0.08, rel(1e-12)], ['例③ t_r', m.mgTr(2e-5, 1, 0.08), 4000, rel(1e-12)],
+  ['m = 0.9', m.mgTr(2e-5, 0.9, m.mgC(1e-3, 80, 0.9)), 2704.9733512249654, rel(1e-9)]]);
+T('creep', '例④: ロビンソン則(650 ℃・2000 h の試験点、570・590・610 ℃)', '② calc_creep.py(t_r = 3.250 × 10⁵・8.332 × 10⁴・2.272 × 10⁴ h、D = 0.33113、残り 15196 h)', m => {
+  const P = m.lmpP(650 + m.K0, 2000, 20);
+  const L = m.lifeFraction([[570, 40000], [590, 10000], [610, 2000]].map(([t, h]) => ({ t: h, tr: m.lmpTr(P, t + m.K0, 20) })));
+  return [['t_r,1', L.last && m.lmpTr(P, 570 + m.K0, 20), 325001.22898593725, rel(1e-9)], ['D', L.D, 0.33112718463644714, rel(1e-9)], ['残りの時間', L.remH, 15196.149555951102, rel(1e-9)],
+    ['空の行は数えない', m.lifeFraction([{ t: NaN, tr: 100 }, { t: 50, tr: 100 }]).D, 0.5, rel(1e-12)]];
+});
+T('creep', '試験点の線(6点、1次・2次、C 固定と C も当てはめ)', '② calc_creep.py(numpy.linalg.lstsq で log₁₀t_r の残差を最小に。C を当てはめた2次は C = 23.846、s = 0.01991。自由度は 6 − 4 = 2)', m => {
+  const pts = [[250, 550, 3200], [200, 575, 4100], [160, 600, 3500], [120, 625, 3900], [90, 650, 2600], [200, 600, 650]].map(([s, t, h]) => ({ s, T: t + m.K0, tr: h }));
+  const a = m.fitCurve(pts, 1, 20), b = m.fitCurve(pts, 2, 20), c = m.fitCurve(pts, 2, null);
+  return [['1次 b₀', a.b[0], 31841.561569704107, rel(1e-8)], ['1次 b₁', a.b[1], -5166.618559012943, rel(1e-8)], ['1次 s', a.sd, 0.1310464881960453, rel(1e-6)],
+    ['2次 b₂', b.b[2], -4557.7198361615165, rel(1e-6)], ['2次 s', b.sd, 0.05662633160954717, rel(1e-6)], ['2次の見積もり 150 MPa・560 ℃', m.curveTr(b, 150, 560 + m.K0), 71118.0245602781, rel(1e-6)],
+    ['C も当てはめ: C', c.C, 23.845808724708284, rel(1e-6)], ['C も当てはめ: s', c.sd, 0.019909169814790746, rel(1e-5)], ['その見積もり', m.curveTr(c, 150, 560 + m.K0), 121987.13404447005, rel(1e-5)]];
+});
+T('creep', '境目: 0 以下・足りない点・T_a より下', '関数の決まり(0 以下の時間・温度は NaN、点が足りなければ error、T ≤ T_a では MH を出さない)', m => [
+  ['lmpP(T, 0)', m.lmpP(900, 0, 20), NaN, EQ], ['lmpT(C + log t ≤ 0)', m.lmpT(20000, 1e-21, 20), NaN, EQ], ['fitN(同じ σ)', m.fitN(100, 1e-5, 100, 2e-5), NaN, EQ],
+  ['fitQ(同じ T)', m.fitQ(900, 1e-5, 900, 2e-5), NaN, EQ], ['mgTr(0)', m.mgTr(0, 1, 0.05), NaN, EQ], ['lifeFraction([])', m.lifeFraction([]), null, EQ],
+  ['fitCurve 1 点', m.fitCurve([{ s: 100, T: 900, tr: 1000 }], 1, 20).error, 'few', EQ], ['fitCurve C を合わせるのに温度が1つ', m.fitCurve([{ s: 100, T: 900, tr: 1000 }, { s: 120, T: 900, tr: 500 }, { s: 140, T: 900, tr: 200 }], 1, null).error, 'temps', EQ],
+  ['MH は T₂ ≤ T_a で出さない', m.extrapolate(900, 1000, 300, { C: 20, Q: 3e5, Ta: 323, lta: 15 }).mh, NaN, EQ]]);
 
 // =====================================================================
 // ellingham(エリンガム図ラボ): NIST-JANAF、IAPWS

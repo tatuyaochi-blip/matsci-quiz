@@ -1,0 +1,1303 @@
+{
+  "id": "creep",
+  "order": 18,
+  "slug": "creep-life",
+  "cats": [
+    "high-temperature",
+    "mechanical",
+    "metals"
+  ],
+  "cat": "high-temperature",
+  "terms": [
+    "クリープ",
+    "ラーソン・ミラー・パラメータ",
+    "べき乗則クリープ",
+    "拡散クリープ",
+    "変形機構図"
+  ],
+  "questions": [
+    "high-temperature-002",
+    "high-temperature-007",
+    "high-temperature-016"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "creep-form",
+    "fields": [
+      {
+        "name": "mode",
+        "options": [
+          "lmp",
+          "cmp",
+          "norton",
+          "mg",
+          "life",
+          "fit"
+        ],
+        "value": "lmp"
+      },
+      {
+        "name": "tu",
+        "options": [
+          "C",
+          "K"
+        ],
+        "value": "C"
+      },
+      {
+        "name": "sv",
+        "options": [
+          "tt",
+          "pt",
+          "pr"
+        ],
+        "value": "tt"
+      },
+      {
+        "name": "t",
+        "value": 600,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "tr",
+        "value": 100000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "p",
+        "value": 21829,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "c",
+        "value": 20,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "tr2",
+        "value": 1000,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "t2",
+        "value": 650,
+        "attrs": "step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "q",
+        "value": 300,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "ta",
+        "value": 50,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "lta",
+        "value": 15,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "nm",
+        "options": [
+          "n",
+          "q",
+          "rate",
+          "ratio"
+        ],
+        "value": "n"
+      },
+      {
+        "name": "eu",
+        "options": [
+          "h",
+          "s"
+        ],
+        "value": "h"
+      },
+      {
+        "name": "s1",
+        "value": 120,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "s2",
+        "value": 150,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "nt1",
+        "value": 600,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "nt2",
+        "value": 650,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "e1",
+        "value": "3e-5",
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "e2",
+        "value": "1e-4",
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "n",
+        "value": 5,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "qn",
+        "value": 300,
+        "attrs": "step=\"any\""
+      },
+      {
+        "name": "a",
+        "value": 1000,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "mgm",
+        "options": [
+          "ref",
+          "c"
+        ],
+        "value": "ref"
+      },
+      {
+        "name": "mre",
+        "value": "1e-3",
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "mrt",
+        "value": 80,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "mm",
+        "value": 1,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "me",
+        "value": "2e-5",
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "mc",
+        "value": 0.05,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "rs",
+        "options": [
+          "lmp",
+          "dir"
+        ],
+        "value": "lmp"
+      },
+      {
+        "name": "lt1",
+        "value": 570,
+        "attrs": "step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "lh1",
+        "value": 40000,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "lr1",
+        "value": 300000,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "lt2",
+        "value": 590,
+        "attrs": "step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "lh2",
+        "value": 10000,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "lr2",
+        "value": 80000,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "lt3",
+        "value": 610,
+        "attrs": "step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "lh3",
+        "value": 2000,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "lr3",
+        "value": 20000,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "lt4",
+        "value": "",
+        "attrs": "step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "lh4",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "lr4",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "deg",
+        "options": [
+          "1",
+          "2"
+        ],
+        "value": "2"
+      },
+      {
+        "name": "cf",
+        "options": [
+          "fix",
+          "best"
+        ],
+        "value": "fix"
+      },
+      {
+        "name": "fs1",
+        "value": 250,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "ft1",
+        "value": 550,
+        "attrs": "step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "fr1",
+        "value": 3200,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "fs2",
+        "value": 200,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "ft2",
+        "value": 575,
+        "attrs": "step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "fr2",
+        "value": 4100,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "fs3",
+        "value": 160,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "ft3",
+        "value": 600,
+        "attrs": "step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "fr3",
+        "value": 3500,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "fs4",
+        "value": 120,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "ft4",
+        "value": 625,
+        "attrs": "step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "fr4",
+        "value": 3900,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "fs5",
+        "value": 90,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "ft5",
+        "value": 650,
+        "attrs": "step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "fr5",
+        "value": 2600,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "fs6",
+        "value": 200,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "ft6",
+        "value": 600,
+        "attrs": "step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "fr6",
+        "value": 650,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "qs",
+        "value": 150,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "qt",
+        "value": 560,
+        "attrs": "step=\"any\""
+      }
+    ],
+    "outputs": [
+      {
+        "box": "res"
+      }
+    ],
+    "svg": "cr-chart",
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "クリープ寿命ラボ",
+      "card": "ラーソン・ミラー・パラメータで温度と破断時間を取り替え、OSD・マンソン・ハファードと外挿を比べ、ノートン則の n・Q、モンクマン・グラント、ロビンソン則の余寿命を式と代入つきで",
+      "title": "クリープ寿命ラボ(ラーソン・ミラー・パラメータ・ノートン則・モンクマン・グラント・寿命消費則)",
+      "description": "ラーソン・ミラー・パラメータ P = T(C + log₁₀t_r) で温度・破断時間・P を相互に計算し、同じ P になる温度と時間の組を表とグラフで示します。オア・シャービー・ドーン、マンソン・ハファードのパラメータとの外挿の違い、ノートン則 ε̇ = Aσⁿexp(−Q/RT) の n と Q、モンクマン・グラントの関係による破断時間、ロビンソンの寿命消費則による余寿命、自分の試験点からの LMP–応力の線も。式と値を代入した形、出典つき。",
+      "h1": "クリープ寿命ラボ",
+      "lead": "高温で一定の荷重を受ける部材のクリープ寿命を見積もる6つの計算を、式に値を代入した形といっしょに出します。①ラーソン・ミラー・パラメータ(同じ P になる温度と時間の組)、②パラメータの選び方による外挿の違い、③ノートン則(n・Q・速さの倍率)、④モンクマン・グラントの関係、⑤ロビンソンの寿命消費則、⑥自分の試験点から LMP–応力の線を引く。式の中の温度は絶対温度(K)、時間は h、log は常用対数(log₁₀)です。材料のマスターカーブ(公表データの線)は置いていません。",
+      "in_heading": "入力",
+      "out_heading": "結果",
+      "presets_h": "例",
+      "note": "式は教科書・原論文の定番のもの(ラーソン・ミラー、オア・シャービー・ドーン、マンソン・ハファード、ノートン則、モンクマン・グラント、ロビンソンの寿命消費則)。出典は結果の下にあります。結果は外挿を含む見積もりで、設計・保全の判断は規格(ASME など)、材料のデータシートと専門家に従ってください。",
+      "practice": "高温材料とクリープの問題を解く",
+      "related": "関連する用語",
+      "chart_label": "結果のグラフ",
+      "mode": "計算",
+      "mode_lmp": "ラーソン・ミラー",
+      "mode_cmp": "パラメータの比べ",
+      "mode_norton": "ノートン則",
+      "mode_mg": "モンクマン・グラント",
+      "mode_life": "寿命消費則",
+      "mode_fit": "自分の試験点の線",
+      "tu": "温度の単位",
+      "tu_C": "℃",
+      "tu_K": "K",
+      "sv": "求めるもの",
+      "sv_tt": "T と t_r から P",
+      "sv_pt": "P と T から t_r",
+      "sv_pr": "P と t_r から T",
+      "t": "温度 T",
+      "tr": "破断時間 t_r(h)",
+      "p": "パラメータ P",
+      "c": "定数 C",
+      "tr2": "同じ P で別の破断時間(h)",
+      "t2": "同じ P で別の温度",
+      "q": "OSD の活性化エネルギー Q(kJ/mol)",
+      "ta": "MH の T_a",
+      "lta": "MH の log₁₀t_a",
+      "nm": "求めるもの",
+      "nm_n": "2点から n",
+      "nm_q": "2点から Q",
+      "nm_rate": "ε̇ を出す",
+      "nm_ratio": "速さの倍率",
+      "eu": "ひずみ速度の単位",
+      "eu_h": "h⁻¹(1/h)",
+      "eu_s": "s⁻¹(1/s)",
+      "s1": "応力 σ₁(MPa)",
+      "s2": "応力 σ₂(MPa)",
+      "nt1": "温度 T₁",
+      "nt2": "温度 T₂",
+      "e1": "ひずみ速度 ε̇₁",
+      "e2": "ひずみ速度 ε̇₂",
+      "n": "応力指数 n",
+      "qn": "活性化エネルギー Q(kJ/mol)",
+      "a": "定数 A",
+      "mgm": "C_MG の決め方",
+      "mgm_ref": "1つの試験から",
+      "mgm_c": "C_MG を入力",
+      "mre": "基準の試験の ε̇_min",
+      "mrt": "基準の試験の t_r(h)",
+      "mm": "指数 m",
+      "me": "見積もる ε̇_min",
+      "mc": "C_MG(ε̇ は 1/h、t は h)",
+      "rs": "各期間の破断時間",
+      "rs_lmp": "LMP で計算",
+      "rs_dir": "自分で入れる",
+      "deg": "P(log σ) の式",
+      "deg_1": "1次式",
+      "deg_2": "2次式",
+      "cf": "C",
+      "cf_fix": "入れた値",
+      "cf_best": "データから",
+      "qs": "見積もる応力 σ(MPa)",
+      "qt": "見積もる温度",
+      "lt1": "期間1の温度",
+      "lh1": "期間1の時間(h)",
+      "lr1": "期間1の t_r(h)",
+      "lt2": "期間2の温度",
+      "lh2": "期間2の時間(h)",
+      "lr2": "期間2の t_r(h)",
+      "lt3": "期間3の温度",
+      "lh3": "期間3の時間(h)",
+      "lr3": "期間3の t_r(h)",
+      "lt4": "期間4の温度",
+      "lh4": "期間4の時間(h)",
+      "lr4": "期間4の t_r(h)",
+      "fs1": "試験点1の σ(MPa)",
+      "ft1": "試験点1の温度",
+      "fr1": "試験点1の t_r(h)",
+      "fs2": "試験点2の σ(MPa)",
+      "ft2": "試験点2の温度",
+      "fr2": "試験点2の t_r(h)",
+      "fs3": "試験点3の σ(MPa)",
+      "ft3": "試験点3の温度",
+      "fr3": "試験点3の t_r(h)",
+      "fs4": "試験点4の σ(MPa)",
+      "ft4": "試験点4の温度",
+      "fr4": "試験点4の t_r(h)",
+      "fs5": "試験点5の σ(MPa)",
+      "ft5": "試験点5の温度",
+      "fr5": "試験点5の t_r(h)",
+      "fs6": "試験点6の σ(MPa)",
+      "ft6": "試験点6の温度",
+      "fr6": "試験点6の t_r(h)",
+      "js": {
+        "ui": {
+          "degc": "℃",
+          "yr": "年",
+          "tabs_label": "計算の種類",
+          "tab_lmp": "① LMP",
+          "tab_cmp": "② 比べ",
+          "tab_norton": "③ ノートン則",
+          "tab_mg": "④ M–G",
+          "tab_life": "⑤ 寿命消費",
+          "tab_fit": "⑥ 試験点の線",
+          "examples": "例:",
+          "ex": [
+            "600 ℃・10万 h と同じ P の加速試験",
+            "2つの試験からノートン則の n",
+            "最小クリープ速度から破断時間",
+            "3つの運転期間の寿命消費",
+            "3つのパラメータで外挿",
+            "6つの試験点で LMP の線"
+          ],
+          "ex_note": "例の値と、入力欄に最初から入っている値(OSD の Q、MH の T_a・log₁₀t_a、ノートン則の A など)は、計算のしかたを示すために作った数で、実在の材料や部材の測定データではありません。",
+          "rows_legend": "運転の期間(空の行は使いません)",
+          "rows_help": "同じ応力で温度の違う期間は「LMP で計算」、応力も違う期間は、それぞれの条件の破断時間を材料のデータや⑥の線から読んで「自分で入れる」を選んでください。",
+          "pts_legend": "試験点(空の行は使いません)",
+          "pts_help": "破断した試験だけを入れてください(途中で止めた試験は破断時間ではありません)。",
+          "col_t": "温度({u})",
+          "col_h": "時間(h)",
+          "col_tr": "破断時間 t_r(h)",
+          "col_s": "応力(MPa)",
+          "t_lab": "温度 T({u})",
+          "t_test": "試験点の温度 T₁({u})",
+          "tr_lab": "破断時間 t_r(h)",
+          "tr_test": "試験点の破断時間 t₁(h)",
+          "t2_lab": "同じ P で別の温度({u})",
+          "t2_cmp": "見積もる温度 T₂({u})",
+          "ta_lab": "MH の T_a({u})",
+          "nt_same": "温度 T(2点で同じ、{u})",
+          "nt1_lab": "温度 T₁({u})",
+          "nt2_lab": "温度 T₂({u})",
+          "s_same": "応力 σ(MPa)",
+          "s1_lab": "応力 σ₁(MPa)",
+          "e1_lab": "ひずみ速度 ε̇₁({u})",
+          "e2_lab": "ひずみ速度 ε̇₂({u})",
+          "a_lab": "定数 A({u}·MPa⁻ⁿ)",
+          "me_lab": "見積もる ε̇_min",
+          "mre_lab": "基準の試験の ε̇_min",
+          "qt_lab": "見積もる温度({u})",
+          "need_c": "定数 C を入れてください。",
+          "need_ttr": "温度と破断時間(0 より大きい値。温度は絶対温度で 0 K より上)を入れてください。",
+          "need_pt": "P と温度(0 K より上)を入れてください。",
+          "need_ptr": "P と破断時間を入れてください(C + log₁₀t_r が 0 より大きくなる値)。",
+          "lmp_main_p": "温度 {t}・破断時間 {h} の条件は、C = {c} で P = {p} です。",
+          "lmp_main_tr": "P = {p}(C = {c})のとき、温度 {t} での破断時間は {h} です。",
+          "lmp_main_t": "P = {p}(C = {c})のとき、破断時間 {h} になる温度は {t} です。",
+          "cold": "温度が 0 ℃より低くなっています。高温の試験から外挿する範囲から大きく外れています。入力を確かめてください。",
+          "s_p": "P(K の単位の数)",
+          "s_t": "温度 T",
+          "s_tr": "破断時間 t_r",
+          "s_t2": "{h} h になる温度",
+          "s_tr2": "{t} での破断時間",
+          "eq_t2": "同じ P で t₂ = {h} h になる温度:",
+          "eq_tr2": "同じ P で温度 {t} の破断時間:",
+          "h_eq": "使った式と代入した値",
+          "lmp_eq_lead": "ラーソン・ミラー・パラメータ P = T(C + log₁₀t_r) は、同じ応力なら試験の温度によらずほぼ一定とみなせる値です。T は絶対温度(K)、t_r は時間(h)の数、log は常用対数です。",
+          "k_note": "温度は式の中ではケルビンを使います(T/K = t/℃ + 273.15)。C は破断時間を h で表したときの値なので、秒や年で入れると C も変わります。",
+          "h_same": "P = {p} と同じ温度と時間の組",
+          "same_cols": [
+            "破断時間",
+            "年",
+            "温度(℃)",
+            "温度(K)"
+          ],
+          "per10k": "{t} のあたりでは、この P のまま温度を 10 K 上げると、破断時間は約 {f} 分の1 になります。",
+          "lmp_q": "この P は、log₁₀t_r–1/T の線の傾き(= P)から読むと、見かけの活性化エネルギー 2.303RP ≈ {q} にあたります(LMP では応力ごとにこの値が変わる)。",
+          "same_note": "1年 = 8760 h(365日)として年に直しています。表の温度は、この P(同じ応力)で外挿した値です。",
+          "c_odd": "C が 10〜35 の外にあります。h で表した破断時間に対する C としてはふつうでない値です。単位(h)と入力を確かめてください。",
+          "h_caution": "注意",
+          "lmp_cautions": [
+            "パラメータ法は外挿です。Manson・Haferd(1953)は、C = 20 の LMP で 100 h 程度の試験から 10,000 h の破断時間を見積もると、場合によって10倍ずれたと報告しています。試験の時間から大きく離れるほど誤差は大きくなります。",
+            "C = 20 は多くの鋼で使われる慣用の値で、理論から決まる数ではありません。材料ごとに違い、複数の温度の試験から決めるのが基本です(⑥で試せます)。",
+            "長い時間の間の組織の変化(析出物の粗大化など)、酸化などの環境、多軸の応力、応力緩和のある条件では、短い試験からの見積もりが成り立たないことがあります。",
+            "設計・保全の判断は、規格(ASME など)・材料のデータシート・専門家に従ってください。"
+          ],
+          "y_tr": "破断時間 t_r (h)",
+          "cap_lmp": "同じ P(C = {c})になる温度と破断時間の線。縦は対数目盛り。",
+          "key_lmp": "P = {p}",
+          "extrap_far": "見積もった時間が、もとにした試験の時間の約 {r} 倍です。外挿の幅が大きく、誤差も大きくなりえます。",
+          "need_cmp": "試験点の温度と破断時間、見積もる温度を入れてください。",
+          "need_consts": "C・Q・T_a・log₁₀t_a を入れてください。",
+          "cmp_main": "試験点 {t1}・{h1} h から {t2} の破断時間を外挿すると、LMP で {a}、OSD で {b}、MH で {c} です。大きいものと小さいものの比は {r} 倍です(どれが正しいかは、この1点からは決まりません)。",
+          "mh_ta": "MH の式は T > T_a の範囲で使います。T_a を試験点と見積もる温度より低くしてください。",
+          "s_lmp": "LMP の t₂",
+          "s_osd": "OSD の t₂",
+          "s_mh": "MH の t₂",
+          "s_spread": "最大/最小",
+          "cmp_eq_lead": "3つのパラメータは、それぞれ「同じ応力では値が一定」として試験点から温度 T₂ の破断時間を出します。違うのは、等しい応力の線(等応力線)の形の仮定です。",
+          "cmp_q": "LMP の線の傾きから読む見かけの活性化エネルギーは {q}、OSD に入れた Q は {q2} です。この差が、外挿の結果の違いになります。",
+          "cmp_note": "OSD の Q と MH の T_a・log₁₀t_a は材料の定数で、ここに入っている既定の値は計算の例として作ったものです。実際には複数の温度・応力の試験から当てはめて決めます。",
+          "h_lines": "等応力線の形の仮定",
+          "lines_list": [
+            "LMP: log₁₀t_r を 1/T に対して描くと直線で、応力の違う線が 1/T = 0、log₁₀t_r = −C の1点に集まる。",
+            "OSD: log₁₀t_r–1/T の線が、どの応力でも同じ傾き Q/(2.303R) の平行な直線(Q は一定)。",
+            "MH: log₁₀t_r を T に対して描くと直線で、応力の違う線が (T_a, log₁₀t_a) の1点に集まる(Manson・Haferd の原論文は P = (T − T_a)/(log t − log t_a) の形で、ここではその逆数を使う。どちらも同じ線)。"
+          ],
+          "cmp_cautions": [
+            "3つのどれが合うかは材料とデータの範囲で違います。実際のデータでも、等応力線が1点に集まらない、平行にならない例が報告されています(Abdallah ほか 2018)。",
+            "この画面の差は、1つの試験点と仮の定数から出した例です。実際の比べには、複数の温度・応力の試験に3つを当てはめ、残差で比べます。"
+          ],
+          "mk_test": "試験点",
+          "cap_cmp": "同じ試験点を通る3つの等応力線(縦は対数目盛り)。印は見積もる温度での値。",
+          "need_n": "2つの応力(違う値)と2つのひずみ速度(0 より大きい値)を入れてください。",
+          "n_main": "同じ温度 {t} の2つの試験から、応力指数は n = {n} です。",
+          "s_n": "応力指数 n",
+          "s_a": "定数 A({u}·MPa⁻ⁿ)",
+          "n_eq_lead": "同じ温度なら A と exp(−Q/RT) は変わらないので、2点のひずみ速度の比は応力の比の n 乗です。Q を入れると、1点目から A も出します。",
+          "n_note": "n は両対数のグラフ(log ε̇–log σ)の傾きです。2点だけから出した n は、測定のばらつきの影響を大きく受けます。",
+          "h_mech": "n の値と機構の目安",
+          "mech_lead": "n = {n} です。n の値は機構を考える手がかりになりますが、n だけで機構は決まりません(粒径・温度・組織で確かめる)。",
+          "mech_cols": [
+            "n",
+            "主な機構(目安)"
+          ],
+          "mech_rows": [
+            [
+              "≈ 1",
+              "拡散クリープ(粒内のナバロ・ヘリング、粒界のコブル)。低い応力・細かい粒"
+            ],
+            [
+              "≈ 3",
+              "転位のすべりが遅い過程になる場合(固溶原子が転位を引きずる Al–Mg 合金など)"
+            ],
+            [
+              "≈ 5",
+              "転位の上昇運動が律速の転位クリープ(純金属・多くの単相合金)。中くらいの応力の転位クリープの n は全体でおよそ 3〜8"
+            ],
+            [
+              "8 より大きい",
+              "高い応力でのべき乗則の破綻、粒子分散強化合金のしきい応力(σ − σ_th で整理すると下がる)"
+            ]
+          ],
+          "mech_note": "Sandström(2024)の 2 章と、このサイトの用語集(べき乗則クリープ・拡散クリープ)による。",
+          "x_s": "応力 σ (MPa)",
+          "y_e": "ひずみ速度 ε̇ ({u})",
+          "cap_n": "同じ温度の2点と、傾き n = {n} の線(両対数)。",
+          "key_n": "傾き n = {n}",
+          "need_q": "2つの温度(違う値)と2つのひずみ速度(0 より大きい値)を入れてください。",
+          "q_main": "同じ応力 {s} MPa の2つの試験から、見かけの活性化エネルギーは Q = {q} です。",
+          "s_q": "活性化エネルギー Q",
+          "s_qev": "Q(1原子あたり)",
+          "q_eq_lead": "同じ応力なら A と σⁿ は変わらないので、ln ε̇ を 1/T に対して描いた直線の傾きが −Q/R です(ln は自然対数)。n を入れると A も出します。",
+          "q_note": "Q は自己拡散の活性化エネルギーと比べることが多い値です。拡散係数の活性化エネルギーは「拡散・表面処理シミュレーター」で扱っています。",
+          "q_neg": "Q が 0 以下です。温度の高いほうのひずみ速度が小さくなっています。入力を確かめてください。",
+          "x_invt": "1000/T (K⁻¹)",
+          "cap_q": "同じ応力の2点と、Q = {q} の線(縦は対数目盛り)。",
+          "key_q": "アレニウスの線",
+          "need_rate": "A・応力・温度・n・Q を入れてください(A・応力は 0 より大きい値)。",
+          "rate_main": "{s} MPa・{t} での定常(最小)クリープ速度は ε̇ = {e} {u} です。",
+          "s_e": "ε̇({u})",
+          "s_eh": "ε̇(%/h)",
+          "s_1pct": "この速さで 1 % のひずみまで",
+          "rate_eq_lead": "ノートン則(べき乗則)ε̇ = Aσⁿ exp(−Q/RT) に入れた値です。A の単位は ε̇ の単位 ÷ MPaⁿ で、σ の単位を変えると A も変わります。",
+          "rate_note": "「1 % のひずみまで」は定常の速さが続くとした単純な割り算で、遷移クリープのひずみは入っていません。",
+          "cap_rate": "{t} での ε̇ と σ の関係(両対数)。",
+          "key_rate": "ε̇ ∝ σ^{n}",
+          "need_ratio": "2つの応力と2つの温度(0 より大きい値)、n と Q を入れてください。",
+          "ratio_main": "応力を {a} → {b} MPa、温度を {t1} → {t2} にすると、定常クリープ速度は {r} 倍になります。",
+          "s_rs": "応力による倍率",
+          "s_rt": "温度による倍率",
+          "s_r": "全体の倍率",
+          "s_rlife": "破断時間の目安(M–G、m = 1)",
+          "ratio_eq_lead": "A は同じなので打ち消し合い、応力の比の n 乗と、温度による exp の比の積になります。",
+          "ratio_note": "破断時間の倍率は、モンクマン・グラントの関係(m = 1)が成り立つとしたときの目安で、速さの倍率の逆数です。",
+          "x_sr": "応力の比 σ₂/σ₁",
+          "y_r": "速さの倍率 ε̇₂/ε̇₁",
+          "cap_ratio": "応力の比と速さの倍率(縦は対数目盛り)。",
+          "key_ratio": "T₂ = {t}",
+          "norton_cautions": [
+            "n と Q は応力・温度の範囲で変わることがあり、試験の範囲の外に延ばすと別の機構に移ることがあります。",
+            "Q は kJ/mol と J/mol、eV を取り違えやすい値です。exp の中は Q/(RT) で次元がなくなるようにします(R = 8.314 J/(mol·K))。",
+            "応力指数 n が大きいほど、応力のわずかな見積もり違いで速さが大きく変わります(n = 5 なら応力 10 % 増で約 1.6 倍)。"
+          ],
+          "need_mg": "最小クリープ速度と指数 m(どちらも 0 より大きい値)を入れてください。",
+          "need_mgref": "基準の試験の最小クリープ速度と破断時間を入れてください。",
+          "need_mgc": "C_MG(0 より大きい値)を入れてください。",
+          "mg_main": "最小クリープ速度 {e} {u} では、破断時間の見当は {h} です(C_MG = {c}、m = {m})。",
+          "s_cmg": "C_MG",
+          "s_strain": "C_MG(m = 1 のときはひずみ)",
+          "mg_eq_lead": "モンクマン・グラントの関係 ε̇_min^m · t_r = C_MG を t_r について解きました。ε̇ は 1/h、t_r は h で計算します。",
+          "mg_note": "m = 1 のとき C_MG は次元のない数(ひずみ)で、定常クリープの速さで破断まで進んだときのひずみにあたります。",
+          "mg_m": "m ≠ 1 のときは、C_MG の値が ε̇ と t_r の単位で変わります。基準の試験と同じ単位(1/h と h)で使ってください。",
+          "mg_cautions": [
+            "C_MG と m は材料ごとに試験で決めます。報告されている m はおよそ 0.8〜0.95 です(Abdallah ほか 2018 による紹介)。",
+            "C_MG は一定とは限りません。試験の時間が長くなると変わる例(銅、Grade 91・92・122 の鋼)が報告されています(Whittaker ほか 2018)。",
+            "実機の低い応力では、最小クリープ速度に達するまでに数万時間かかることがあり、早く測れるという利点が使えない場合があります。"
+          ],
+          "x_e": "最小クリープ速度 ε̇_min ({u})",
+          "mk_ref": "基準",
+          "cap_mg": "ε̇_min と破断時間の線(両対数)。",
+          "key_mg": "m = {m}",
+          "need_life_lmp": "試験点の温度・破断時間と C を入れてください。",
+          "need_life": "運転の期間の温度と時間を、少なくとも1行入れてください。",
+          "need_life_dir": "運転の期間の時間と、その条件の破断時間を、少なくとも1行入れてください。",
+          "life_main": "寿命の {d} を消費し、残りは {r} です。期間{n}の条件のまま運転すると、残りの時間は約 {h} です。",
+          "life_over": "消費した割合は {d} で、寿命消費則では破断の目安(D = 1)を超えています。",
+          "s_d": "消費した割合 D",
+          "s_rem": "残り 1 − D",
+          "s_remh": "期間{n}の条件での残り",
+          "s_used": "運転の時間の合計",
+          "col_no": "期間",
+          "col_tc": "温度",
+          "col_h2": "時間(h)",
+          "col_tr2": "破断時間(h)",
+          "col_fr": "消費",
+          "h_rows": "期間ごとの消費",
+          "life_eq_lmp": "試験点(同じ応力)の P から、各期間の温度での破断時間 t_r,ᵢ を出し、運転の時間 tᵢ との比を足しました(ロビンソンの寿命消費則)。",
+          "life_eq_dir": "入れた破断時間 t_r,ᵢ と運転の時間 tᵢ の比を足しました(ロビンソンの寿命消費則)。",
+          "eq_rem": "期間{n}の条件で",
+          "life_note": "寿命消費則は、条件の順序の影響を考えない近似です。和が 1 になったら破断する、とみなします。",
+          "life_d1": "D が 1 以上です。この見積もりでは、すでに破断の目安を超えています。",
+          "life_cautions": [
+            "寿命消費則が合うかどうかは材料と条件で違い、試験で確かめる必要があります(Bocek 1978)。温度を繰り返し変えた試験で、破断のときの和が 1.11 になった報告もあります。",
+            "各期間の破断時間の見積もり(LMP の外挿)の誤差がそのまま入ります。",
+            "設備の余寿命の評価は、検査(組織・ひずみ・き裂)と規格の手順と組み合わせて行ってください。"
+          ],
+          "x_hours": "運転の時間の合計 (h)",
+          "y_d": "消費した割合 D",
+          "cap_life": "運転の時間と、消費した割合の積み上げ。破線は最後の期間の条件で続けたとき。",
+          "key_used": "消費",
+          "key_rem": "期間{n}で続けたとき",
+          "fit_few": "試験点が足りません。この式には {k} 点以上が要ります(今は {n} 点)。",
+          "fit_temps": "C をデータに合わせるには、温度の違う試験点が要ります。",
+          "fit_stresses": "応力の違う試験点が足りません(2次式なら3つ以上の応力)。",
+          "fit_singular": "試験点から線を決められません(点が重なっているなど)。",
+          "fit_main": "試験点の線から、{s} MPa・{t} の破断時間は {h} と見積もられます(P = {p})。",
+          "fit_out": "見積もる条件が試験点の範囲(σ {s1}〜{s2} MPa、P {p1}〜{p2})の外です。線の外挿になります。",
+          "s_cfit": "C",
+          "s_sd": "log₁₀t_r の残差の標準偏差",
+          "s_scatter": "ばらつきの倍率(10^s)",
+          "s_trq": "見積もった破断時間",
+          "fit_eq_free": "P = T(C + log₁₀t_r) を log₁₀σ の多項式で表し、b と C を同時に、log₁₀t_r の残差の二乗和が最小になるように決めました(最小二乗)。",
+          "fit_eq_fix": "P = T(C + log₁₀t_r) を log₁₀σ の多項式で表し、log₁₀t_r の残差の二乗和が最小になるように b を決めました(C は固定)。",
+          "fit_note": "残差は log₁₀t_r の差です。2次式は点の範囲の外で曲がりやすいので、範囲の外では使わないでください。",
+          "h_pts": "試験点と残差",
+          "pts_cols": [
+            "点",
+            "σ(MPa)",
+            "温度",
+            "t_r(h)",
+            "P",
+            "残差"
+          ],
+          "pts_note": "残差 = log₁₀(測った t_r) − log₁₀(線から出した t_r)。0.3 は約 2 倍のずれです。",
+          "fit_dof0": "点の数と式の係数の数が同じなので、線はすべての点を通り、ばらつきは分かりません。",
+          "fit_cautions": [
+            "この線は入れた試験点だけから引いたもので、材料の代表の線(マスターカーブ)ではありません。",
+            "試験点の範囲の外(応力・温度・時間)では使わないでください。長時間側で線が下に曲がる(組織の変化など)ことがあります。",
+            "公表されている材料の線を使うときは、データシート(物質・材料研究機構 NIMS のクリープデータシートなど)の材料・範囲・式に従ってください。"
+          ],
+          "x_p": "P = T(C + log₁₀t_r)",
+          "mk_q": "見積もり",
+          "cap_fit": "試験点の P と応力、当てはめた線(C = {c}、縦は対数目盛り)。",
+          "key_fit": "{d}次式の線",
+          "src_h": "出典:",
+          "src_more": null,
+          "l_term": "クリープ(用語集)",
+          "l_lmp": "ラーソン・ミラー・パラメータ(用語集)",
+          "l_plc": "べき乗則クリープ",
+          "l_dmm": "変形機構図",
+          "l_formula": "公式集",
+          "l_drill": "計算ドリル(ラーソン・ミラー)",
+          "l_fatigue": "疲労寿命とき裂進展の計算",
+          "l_diff": "拡散・表面処理シミュレーター",
+          "l_cat": "高温材料の分野"
+        }
+      },
+      "sections": [
+        {
+          "h": "クリープの3段階と試験",
+          "p": "一定の荷重と温度のもとでひずみを時間に対して描いたクリープ曲線は、ひずみ速度がしだいに下がる遷移(1次)クリープ、速度がほぼ一定の定常(2次)クリープ、速度が増して破断に至る加速(3次)クリープに分けられます。定常の段階の速度が最小クリープ速度で、ひずみの見積もりと破断時間の予測の基準になります。ASTM E139 は、一定の引張の力と一定の温度での、時間に対する変形の量を測るクリープ試験と、破断までの時間を測る破断試験を定めています。"
+        },
+        {
+          "h": "クリープが目立つ温度",
+          "p": "クリープが目立ち始める温度の目安は、融点(絶対温度)の約0.4倍で、資料によって0.3〜0.5倍と書かれます。目安は融点との比なので、鉛やはんだ、高分子では室温でもクリープを考える必要があります。比を出すときは、温度を必ずケルビンにします。"
+        },
+        {
+          "h": "ラーソン・ミラー・パラメータの考え方",
+          "p": "Larson と Miller(1952)は、同じ応力のクリープ破断では P = T(C + log₁₀t_r) がほぼ一定になるとして、温度と時間を取り替えられることを示しました。T は絶対温度、t_r は時間(h)の数です。log₁₀t_r を 1/T に対して描くと、同じ応力の点は直線に並び、応力の違う線は 1/T = 0 で log₁₀t_r = −C の1点に集まります。この性質を使えば、使用温度より高い温度の短い試験から、使用温度での長い寿命を見積もれます。例えば C = 20 で、600 ℃・10万時間と同じ P になるのは、約 676 ℃・1000 時間です。"
+        },
+        {
+          "h": "定数 C の意味",
+          "p": "C は上の直線が集まる点の高さで、理論から決まる数ではありません。Larson と Miller は 20 をすべての材料に共通の近似として使い、多くの鋼でこの慣用の値が使われています。Manson と Haferd(1953)による紹介では、原論文の材料ごとの値はおよそ 14〜22 で、ほかの合金で約 25 が当てはまった例もあります。C は時間を h で表したときの値なので、秒で表すと値が変わります。精度が要るときは、温度の違う複数の試験から材料ごとに決めます。"
+        },
+        {
+          "h": "ほかのパラメータ(OSD・マンソン・ハファード)",
+          "p": "オア・シャービー・ドーン(OSD)のパラメータ P = log₁₀t_r − Q/(2.303RT) は、等応力線が log₁₀t_r–1/T で平行な直線(傾きが一定の Q/(2.303R))になると仮定します。マンソン・ハファード(MH)のパラメータ P = (log₁₀t_r − log₁₀t_a)/(T − T_a) は、log₁₀t_r を T に対して描いた等応力線が (T_a, log₁₀t_a) の1点に集まると仮定します(原論文は逆数の形)。同じ試験点から同じ温度へ外挿しても、仮定の違いで寿命の見積もりが数倍違うことがあり、どれが合うかは材料とデータで確かめます。"
+        },
+        {
+          "h": "ノートン則の n と Q",
+          "p": "定常(最小)クリープ速度は、ε̇ = Aσⁿ exp(−Q/RT) の形(ノートン則、べき乗則)で表されることが多くあります。n は応力指数で、同じ温度で応力を変えた試験の log ε̇–log σ の傾きです。Q は見かけの活性化エネルギーで、同じ応力で温度を変えた試験の ln ε̇–1/T の傾き −Q/R から出します。n = 5 なら応力が 2 倍で速度は 32 倍、Q = 300 kJ/mol なら 900 K から 950 K で約 8 倍と、どちらも速度を大きく変えます。"
+        },
+        {
+          "h": "機構と変形機構図",
+          "p": "n の値は機構の手がかりになります。低い応力と細かい粒では、原子の拡散で粒が伸びる拡散クリープ(n ≈ 1)、中くらいの応力では転位クリープ(n はおよそ 3〜8。転位の上昇運動が律速なら約 5、すべりが律速なら約 3)が主になり、応力が高いとべき乗則が破綻して n が大きくなります。どの機構が主かは、応力(剛性率で割った値)と相同温度を軸にした変形機構図で整理できます。ただし、粒径や組織で境界は大きく動き、試験より低い応力へ延ばすと機構が変わることがあります。"
+        },
+        {
+          "h": "モンクマン・グラントの関係",
+          "p": "多くの金属で、最小クリープ速度 ε̇_min と破断時間 t_r の間に ε̇_min^m · t_r = C_MG(m は 1 に近い)の関係が見られます。破断まで試験を続けなくても、最小クリープ速度から破断時間の見当をつけられるのが利点です。m = 1 なら C_MG はひずみの次元で、最小クリープ速度が 4 倍になると破断時間は 4 分の 1 です。ただし C_MG は材料ごとに実測で決める値で、試験の時間とともに変わる例もあります。"
+        },
+        {
+          "h": "ロビンソンの寿命消費則",
+          "p": "温度や応力の違う期間が続くとき、条件 i での破断時間 t_r,ᵢ のうち tᵢ だけ運転すると寿命の tᵢ/t_r,ᵢ を消費したとみなし、その和 Σ tᵢ/t_r,ᵢ が 1 になったら破断すると考えるのが寿命消費則(ロビンソン則)です。疲労のマイナー則と同じ形の近似で、順序の影響を考えません。合うかどうかは材料と条件で違い、和が 1 から外れた試験の報告もあります。"
+        },
+        {
+          "h": "外挿の限界",
+          "p": "パラメータ法は、試験の温度と使用温度で同じ機構が働き、組織も同じように変わることを前提にしています。長い時間の間に析出物が粗大化したり、変形の機構が移ったりすると、短い試験からの外挿は寿命を長く見積もりすぎるおそれがあります。Manson と Haferd(1953)は、C = 20 の LMP で 100 h 程度の試験から 10,000 h を見積もると、場合によって 10 倍ずれたと報告しています。酸化などの環境、多軸の応力、応力緩和の条件でも、単純な一軸の試験の線は成り立たないことがあります。"
+        },
+        {
+          "h": "よくある誤り",
+          "p": "1つ目は、温度を ℃のまま式に入れることです。P の T は絶対温度で、600 ℃は 873.15 K です。2つ目は、log₁₀ と ln の取り違えです。LMP・OSD・MH の log は常用対数で、ノートン則の exp と Q を出すときの ln は自然対数です(OSD の 2.303 = ln 10 はその換算)。3つ目は、秒と時間の取り違えです。C = 20 は h のときの値で、ひずみ速度も 1/s と 1/h で 3600 倍違います。4つ目は、C を材料と関係なく 20 に固定して、精度のある値のように扱うことです。5つ目は、試験の範囲から大きく外へ外挿しすぎることです。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "温度は ℃で入れてもよいですか?",
+          "a": "このツールでは ℃か K を選べます。℃で入れても、式の中では 273.15 を足したケルビンで計算します(画面の式にも K の値を出しています)。手で計算するときは、必ずケルビンにしてください。"
+        },
+        {
+          "q": "C = 20 はどの材料でも使えますか?",
+          "a": "多くの鋼で使われる慣用の値で、理論から決まる数ではありません。材料ごとに値は違い(原論文の材料ではおよそ 14〜22)、精度が要るときは温度の違う複数の試験から決めます。⑥「自分の試験点の線」で C をデータに合わせることもできます。"
+        },
+        {
+          "q": "LMP・OSD・MH のどれを使えばよいですか?",
+          "a": "どれが合うかは材料とデータで違い、この1点の比べからは決まりません。複数の温度・応力の試験に当てはめて残差で比べるのが基本で、規格や材料のデータシートで決められた方法があれば、それに従います。"
+        },
+        {
+          "q": "破断時間の単位を秒にしてもよいですか?",
+          "a": "式の形は同じですが、log₁₀t_r の値が変わるので C も変わります。C = 20 は h のときの値なので、このツールでは h で入れてください。年に直すときは 1年 = 8760 h としています。"
+        },
+        {
+          "q": "ノートン則の A の単位は何ですか?",
+          "a": "ε̇ の単位を MPaⁿ で割った単位です(このツールでは h⁻¹·MPa⁻ⁿ か s⁻¹·MPa⁻ⁿ)。n によって単位が変わるので、σ を Pa で入れた資料の A をそのまま使うと桁が大きくずれます。"
+        },
+        {
+          "q": "モンクマン・グラントの C_MG はどこで手に入りますか?",
+          "a": "その材料で、最小クリープ速度と破断時間の両方を測った試験から決めます。このツールの「1つの試験から」は、1つの試験から C_MG を出して、別の条件に当てはめる計算です。試験の時間とともに C_MG が変わる例もあるので、近い条件の試験を使ってください。"
+        },
+        {
+          "q": "材料のマスターカーブ(LMP–応力の線)はありませんか?",
+          "a": "置いていません。公表されているデータ(物質・材料研究機構 NIMS のクリープデータシートなど)は、材料・範囲・式をそのとおりに使う必要があり、このツールでは数値を確かめて載せられなかったためです。⑥で、自分の試験点やデータシートから読んだ点を入れて線を引けます。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Creep Life Lab",
+      "card": "Trade temperature for rupture time with the Larson–Miller parameter, compare extrapolations with Orr–Sherby–Dorn and Manson–Haferd, and work out Norton’s n and Q, Monkman–Grant and Robinson’s life fraction rule, with the equations and substituted values",
+      "title": "Creep Life Lab (Larson–Miller Parameter, Norton Law, Monkman–Grant, Life Fraction Rule)",
+      "description": "Calculate temperature, rupture time or the Larson–Miller parameter P = T(C + log₁₀t_r) from the other two, with a table and chart of temperature–time pairs that give the same P. Compare extrapolations with the Orr–Sherby–Dorn and Manson–Haferd parameters, find n and Q of the Norton law ε̇ = Aσⁿexp(−Q/RT), estimate rupture time from the Monkman–Grant relation and remaining life from Robinson’s life fraction rule, and fit your own LMP–stress line to test points. Equations, substituted values and sources included.",
+      "h1": "Creep Life Lab",
+      "lead": "Six calculations for estimating the creep life of parts under constant load at high temperature, each shown with the equation and the values substituted into it: (1) the Larson–Miller parameter (temperature–time pairs with the same P), (2) how the choice of parameter changes an extrapolation, (3) the Norton law (n, Q and rate ratios), (4) the Monkman–Grant relation, (5) Robinson’s life fraction rule, and (6) an LMP–stress line through your own test points. Temperatures in the equations are absolute (K), times are in hours, and log means the common logarithm (log₁₀). No material master curves (published data lines) are included.",
+      "in_heading": "Input",
+      "out_heading": "Result",
+      "presets_h": "Examples",
+      "note": "The equations are the standard ones from textbooks and the original papers (Larson–Miller, Orr–Sherby–Dorn, Manson–Haferd, the Norton law, Monkman–Grant and Robinson’s life fraction rule). Sources are listed under the result. Results are estimates that involve extrapolation; base design and maintenance decisions on codes (such as ASME), material data sheets and expert judgment.",
+      "practice": "Practice high-temperature materials and creep questions",
+      "related": "Related terms",
+      "chart_label": "Result chart",
+      "mode": "Calculation",
+      "mode_lmp": "Larson–Miller",
+      "mode_cmp": "Compare parameters",
+      "mode_norton": "Norton law",
+      "mode_mg": "Monkman–Grant",
+      "mode_life": "Life fraction rule",
+      "mode_fit": "Line from your tests",
+      "tu": "Temperature unit",
+      "tu_C": "°C",
+      "tu_K": "K",
+      "sv": "Solve for",
+      "sv_tt": "P from T, t_r",
+      "sv_pt": "t_r from P, T",
+      "sv_pr": "T from P, t_r",
+      "t": "Temperature T",
+      "tr": "Rupture time t_r (h)",
+      "p": "Parameter P",
+      "c": "Constant C",
+      "tr2": "Other rupture time, same P (h)",
+      "t2": "Other temperature, same P",
+      "q": "OSD activation energy Q (kJ/mol)",
+      "ta": "MH T_a",
+      "lta": "MH log₁₀t_a",
+      "nm": "Solve for",
+      "nm_n": "n from 2 tests",
+      "nm_q": "Q from 2 tests",
+      "nm_rate": "ε̇ from n, Q, A",
+      "nm_ratio": "Rate ratio",
+      "eu": "Strain rate unit",
+      "eu_h": "h⁻¹ (1/h)",
+      "eu_s": "s⁻¹ (1/s)",
+      "s1": "Stress σ₁ (MPa)",
+      "s2": "Stress σ₂ (MPa)",
+      "nt1": "Temperature T₁",
+      "nt2": "Temperature T₂",
+      "e1": "Strain rate ε̇₁",
+      "e2": "Strain rate ε̇₂",
+      "n": "Stress exponent n",
+      "qn": "Activation energy Q (kJ/mol)",
+      "a": "Constant A",
+      "mgm": "C_MG from",
+      "mgm_ref": "One test",
+      "mgm_c": "Enter C_MG",
+      "mre": "Reference test ε̇_min",
+      "mrt": "Reference test t_r (h)",
+      "mm": "Exponent m",
+      "me": "ε̇_min to evaluate",
+      "mc": "C_MG (ε̇ in 1/h, t in h)",
+      "rs": "Rupture time of each period",
+      "rs_lmp": "LMP from test",
+      "rs_dir": "Enter yourself",
+      "deg": "Form of P(log σ)",
+      "deg_1": "Linear",
+      "deg_2": "Quadratic",
+      "cf": "C",
+      "cf_fix": "Fixed",
+      "cf_best": "Fit to data",
+      "qs": "Stress to evaluate σ (MPa)",
+      "qt": "Temperature to evaluate",
+      "lt1": "Period 1 temperature",
+      "lh1": "Period 1 hours",
+      "lr1": "Period 1 t_r (h)",
+      "lt2": "Period 2 temperature",
+      "lh2": "Period 2 hours",
+      "lr2": "Period 2 t_r (h)",
+      "lt3": "Period 3 temperature",
+      "lh3": "Period 3 hours",
+      "lr3": "Period 3 t_r (h)",
+      "lt4": "Period 4 temperature",
+      "lh4": "Period 4 hours",
+      "lr4": "Period 4 t_r (h)",
+      "fs1": "Test 1 σ (MPa)",
+      "ft1": "Test 1 temperature",
+      "fr1": "Test 1 t_r (h)",
+      "fs2": "Test 2 σ (MPa)",
+      "ft2": "Test 2 temperature",
+      "fr2": "Test 2 t_r (h)",
+      "fs3": "Test 3 σ (MPa)",
+      "ft3": "Test 3 temperature",
+      "fr3": "Test 3 t_r (h)",
+      "fs4": "Test 4 σ (MPa)",
+      "ft4": "Test 4 temperature",
+      "fr4": "Test 4 t_r (h)",
+      "fs5": "Test 5 σ (MPa)",
+      "ft5": "Test 5 temperature",
+      "fr5": "Test 5 t_r (h)",
+      "fs6": "Test 6 σ (MPa)",
+      "ft6": "Test 6 temperature",
+      "fr6": "Test 6 t_r (h)",
+      "js": {
+        "ui": {
+          "degc": "°C",
+          "yr": "years",
+          "tabs_label": "Type of calculation",
+          "tab_lmp": "1 LMP",
+          "tab_cmp": "2 Compare",
+          "tab_norton": "3 Norton",
+          "tab_mg": "4 M–G",
+          "tab_life": "5 Life fraction",
+          "tab_fit": "6 Test line",
+          "examples": "Examples:",
+          "ex": [
+            "Accelerated test with the same P as 600 °C, 100,000 h",
+            "Norton n from two tests",
+            "Rupture time from minimum creep rate",
+            "Life used in three service periods",
+            "Extrapolate with three parameters",
+            "LMP line through six tests"
+          ],
+          "ex_note": "The example values and the values already in the input fields (such as Q for OSD, T_a and log₁₀t_a for MH, and A for the Norton law) are made up to show how the calculation works. They are not measured data for any real material or component.",
+          "rows_legend": "Service periods (empty rows are ignored)",
+          "rows_help": "For periods at the same stress but different temperatures, choose “LMP from test”. If the stress also differs, read the rupture time for each condition from material data or from the line in calculation 6 and choose “Enter yourself”.",
+          "pts_legend": "Test points (empty rows are ignored)",
+          "pts_help": "Enter only tests that ruptured (a test stopped before rupture does not give a rupture time).",
+          "col_t": "Temperature ({u})",
+          "col_h": "Hours",
+          "col_tr": "Rupture time t_r (h)",
+          "col_s": "Stress (MPa)",
+          "t_lab": "Temperature T ({u})",
+          "t_test": "Test temperature T₁ ({u})",
+          "tr_lab": "Rupture time t_r (h)",
+          "tr_test": "Test rupture time t₁ (h)",
+          "t2_lab": "Other temperature, same P ({u})",
+          "t2_cmp": "Temperature to estimate T₂ ({u})",
+          "ta_lab": "MH T_a ({u})",
+          "nt_same": "Temperature T (same for both, {u})",
+          "nt1_lab": "Temperature T₁ ({u})",
+          "nt2_lab": "Temperature T₂ ({u})",
+          "s_same": "Stress σ (MPa)",
+          "s1_lab": "Stress σ₁ (MPa)",
+          "e1_lab": "Strain rate ε̇₁ ({u})",
+          "e2_lab": "Strain rate ε̇₂ ({u})",
+          "a_lab": "Constant A ({u}·MPa⁻ⁿ)",
+          "me_lab": "ε̇_min to evaluate",
+          "mre_lab": "Reference test ε̇_min",
+          "qt_lab": "Temperature to evaluate ({u})",
+          "need_c": "Enter the constant C.",
+          "need_ttr": "Enter a temperature (above 0 K) and a rupture time greater than 0.",
+          "need_pt": "Enter P and a temperature above 0 K.",
+          "need_ptr": "Enter P and a rupture time (such that C + log₁₀t_r is greater than 0).",
+          "lmp_main_p": "The condition {t} for {h} gives P = {p} with C = {c}.",
+          "lmp_main_tr": "With P = {p} (C = {c}), the rupture time at {t} is {h}.",
+          "lmp_main_t": "With P = {p} (C = {c}), the temperature for a rupture time of {h} is {t}.",
+          "cold": "The temperature is below 0 °C, far outside the range for extrapolating from high-temperature tests. Check the input.",
+          "s_p": "P (in kelvin units)",
+          "s_t": "Temperature T",
+          "s_tr": "Rupture time t_r",
+          "s_t2": "Temperature for {h} h",
+          "s_tr2": "Rupture time at {t}",
+          "eq_t2": "Temperature for t₂ = {h} h at the same P:",
+          "eq_tr2": "Rupture time at {t} at the same P:",
+          "h_eq": "Equations and substituted values",
+          "lmp_eq_lead": "The Larson–Miller parameter P = T(C + log₁₀t_r) is taken to be nearly constant at a given stress, whatever the test temperature. T is the absolute temperature (K), t_r is the time in hours, and log is the common logarithm.",
+          "k_note": "The equations use kelvin (T/K = t/°C + 273.15). C is the value for rupture time in hours; entering seconds or years changes C as well.",
+          "h_same": "Temperature–time pairs with P = {p}",
+          "same_cols": [
+            "Rupture time",
+            "Years",
+            "Temp. (°C)",
+            "Temp. (K)"
+          ],
+          "per10k": "Near {t}, raising the temperature by 10 K at this P shortens the rupture time by a factor of about {f}.",
+          "lmp_q": "Read from the slope of the log₁₀t_r–1/T line (which equals P), this P corresponds to an apparent activation energy 2.303RP ≈ {q} (with LMP this value changes from stress to stress).",
+          "same_note": "Years assume 1 year = 8760 h (365 days). The temperatures in the table are extrapolated at this P (the same stress).",
+          "c_odd": "C is outside 10–35, which is unusual for C with rupture time in hours. Check the unit (h) and the input.",
+          "h_caution": "Cautions",
+          "lmp_cautions": [
+            "Parameter methods extrapolate. Manson and Haferd (1953) reported that predicting 10,000 h rupture times from tests of about 100 h with the C = 20 LMP was in some cases off by a factor of 10. The further from the test times, the larger the error can be.",
+            "C = 20 is a conventional value used for many steels, not a number that follows from theory. It differs between materials and is basically determined from tests at several temperatures (try calculation 6).",
+            "Estimates from short tests may not hold when the microstructure changes over long times (such as coarsening of precipitates), or with environmental effects such as oxidation, multiaxial stress or stress relaxation.",
+            "Base design and maintenance decisions on codes (such as ASME), material data sheets and expert judgment."
+          ],
+          "y_tr": "Rupture time t_r (h)",
+          "cap_lmp": "Temperature and rupture time with the same P (C = {c}). Log scale on the vertical axis.",
+          "key_lmp": "P = {p}",
+          "extrap_far": "The estimated time is about {r} times the time of the test it is based on. This is a long extrapolation, and the error can be large.",
+          "need_cmp": "Enter the test temperature, the test rupture time and the temperature to estimate.",
+          "need_consts": "Enter C, Q, T_a and log₁₀t_a.",
+          "cmp_main": "Extrapolating the test at {t1}, {h1} h to {t2} gives {a} with LMP, {b} with OSD and {c} with MH. The largest is {r} times the smallest (this single point cannot tell which one is right).",
+          "mh_ta": "The MH equation is used for T > T_a. Set T_a below both the test temperature and the temperature to estimate.",
+          "s_lmp": "LMP t₂",
+          "s_osd": "OSD t₂",
+          "s_mh": "MH t₂",
+          "s_spread": "Max/min",
+          "cmp_eq_lead": "Each of the three parameters is taken to be constant at a given stress and gives the rupture time at T₂ from the test point. They differ in the assumed shape of the lines of equal stress (isostress lines).",
+          "cmp_q": "The apparent activation energy read from the slope of the LMP line is {q}; the Q entered for OSD is {q2}. This difference is what makes the extrapolations differ.",
+          "cmp_note": "Q for OSD and T_a, log₁₀t_a for MH are material constants; the default values here are made up for the example. In practice they are fitted to tests at several temperatures and stresses.",
+          "h_lines": "Assumed shape of the isostress lines",
+          "lines_list": [
+            "LMP: log₁₀t_r against 1/T is a straight line, and lines for different stresses meet at one point, 1/T = 0 and log₁₀t_r = −C.",
+            "OSD: the log₁₀t_r–1/T lines are parallel straight lines with the same slope Q/(2.303R) at every stress (Q is constant).",
+            "MH: log₁₀t_r against T is a straight line, and lines for different stresses meet at one point (T_a, log₁₀t_a). (The original paper writes P = (T − T_a)/(log t − log t_a); this tool uses its reciprocal, which gives the same lines.)"
+          ],
+          "cmp_cautions": [
+            "Which of the three fits best depends on the material and the range of the data. Real data sets have been reported where the isostress lines neither meet at one point nor run parallel (Abdallah et al. 2018).",
+            "The differences on this screen come from one test point and assumed constants. A real comparison fits all three to tests at several temperatures and stresses and compares the residuals."
+          ],
+          "mk_test": "Test",
+          "cap_cmp": "Three isostress lines through the same test point (log scale on the vertical axis). Marks show the values at the temperature to estimate.",
+          "need_n": "Enter two different stresses and two strain rates greater than 0.",
+          "n_main": "From two tests at the same temperature {t}, the stress exponent is n = {n}.",
+          "s_n": "Stress exponent n",
+          "s_a": "Constant A ({u}·MPa⁻ⁿ)",
+          "n_eq_lead": "At the same temperature, A and exp(−Q/RT) do not change, so the ratio of the two strain rates is the stress ratio to the power n. If Q is entered, A is also calculated from the first test.",
+          "n_note": "n is the slope of the log ε̇–log σ plot. An n from only two points is strongly affected by scatter in the measurements.",
+          "h_mech": "Value of n and likely mechanism",
+          "mech_lead": "n = {n}. The value of n is a clue to the mechanism, but n alone does not decide it (check with grain size, temperature and microstructure).",
+          "mech_cols": [
+            "n",
+            "Main mechanism (guide)"
+          ],
+          "mech_rows": [
+            [
+              "≈ 1",
+              "Diffusion creep (Nabarro–Herring through the grains, Coble along grain boundaries). Low stress, fine grains"
+            ],
+            [
+              "≈ 3",
+              "Dislocation glide is the slow step (for example solute drag in Al–Mg alloys)"
+            ],
+            [
+              "≈ 5",
+              "Climb-controlled dislocation creep (pure metals and many single-phase alloys). Over intermediate stresses, n for dislocation creep is about 3–8 overall"
+            ],
+            [
+              "Above 8",
+              "Power-law breakdown at high stress, or a threshold stress in particle-strengthened alloys (n drops when σ − σ_th is used)"
+            ]
+          ],
+          "mech_note": "Based on chapter 2 of Sandström (2024) and this site’s glossary (power-law creep, diffusion creep).",
+          "x_s": "Stress σ (MPa)",
+          "y_e": "Strain rate ε̇ ({u})",
+          "cap_n": "Two tests at the same temperature and the line with slope n = {n} (log–log).",
+          "key_n": "Slope n = {n}",
+          "need_q": "Enter two different temperatures and two strain rates greater than 0.",
+          "q_main": "From two tests at the same stress {s} MPa, the apparent activation energy is Q = {q}.",
+          "s_q": "Activation energy Q",
+          "s_qev": "Q (per atom)",
+          "q_eq_lead": "At the same stress, A and σⁿ do not change, so the slope of ln ε̇ against 1/T is −Q/R (ln is the natural logarithm). If n is entered, A is also calculated.",
+          "q_note": "Q is often compared with the activation energy for self-diffusion. Activation energies of diffusion coefficients are covered in the Diffusion and Surface Treatment Simulator.",
+          "q_neg": "Q is 0 or negative: the strain rate is lower at the higher temperature. Check the input.",
+          "x_invt": "1000/T (K⁻¹)",
+          "cap_q": "Two tests at the same stress and the line with Q = {q} (log scale on the vertical axis).",
+          "key_q": "Arrhenius line",
+          "need_rate": "Enter A, stress, temperature, n and Q (A and the stress greater than 0).",
+          "rate_main": "The steady-state (minimum) creep rate at {s} MPa and {t} is ε̇ = {e} {u}.",
+          "s_e": "ε̇ ({u})",
+          "s_eh": "ε̇ (%/h)",
+          "s_1pct": "Time to 1 % strain at this rate",
+          "rate_eq_lead": "Values substituted into the Norton (power) law ε̇ = Aσⁿ exp(−Q/RT). A has units of the ε̇ unit divided by MPaⁿ; changing the stress unit changes A.",
+          "rate_note": "“Time to 1 % strain” simply divides by the steady-state rate and leaves out primary creep strain.",
+          "cap_rate": "ε̇ against σ at {t} (log–log).",
+          "key_rate": "ε̇ ∝ σ^{n}",
+          "need_ratio": "Enter two stresses and two temperatures (greater than 0), n and Q.",
+          "ratio_main": "Changing the stress from {a} to {b} MPa and the temperature from {t1} to {t2} multiplies the steady-state creep rate by {r}.",
+          "s_rs": "Factor from stress",
+          "s_rt": "Factor from temperature",
+          "s_r": "Overall factor",
+          "s_rlife": "Rupture time (M–G, m = 1)",
+          "ratio_eq_lead": "A is the same and cancels, leaving the stress ratio to the power n times the ratio of the exponential terms for temperature.",
+          "ratio_note": "The rupture time factor is a rough guide assuming the Monkman–Grant relation with m = 1: the reciprocal of the rate factor.",
+          "x_sr": "Stress ratio σ₂/σ₁",
+          "y_r": "Rate ratio ε̇₂/ε̇₁",
+          "cap_ratio": "Stress ratio and rate ratio (log scale on the vertical axis).",
+          "key_ratio": "T₂ = {t}",
+          "norton_cautions": [
+            "n and Q can change with the range of stress and temperature, and extending beyond the test range can move into a different mechanism.",
+            "Q is easily mixed up between kJ/mol, J/mol and eV. Make Q/(RT) in the exponent dimensionless (R = 8.314 J/(mol·K)).",
+            "The larger the stress exponent n, the more a small error in the stress changes the rate (with n = 5, 10 % more stress gives about 1.6 times the rate)."
+          ],
+          "need_mg": "Enter the minimum creep rate and the exponent m (both greater than 0).",
+          "need_mgref": "Enter the minimum creep rate and rupture time of the reference test.",
+          "need_mgc": "Enter C_MG (greater than 0).",
+          "mg_main": "At a minimum creep rate of {e} {u}, the rupture time is roughly {h} (C_MG = {c}, m = {m}).",
+          "s_cmg": "C_MG",
+          "s_strain": "C_MG (a strain when m = 1)",
+          "mg_eq_lead": "The Monkman–Grant relation ε̇_min^m · t_r = C_MG solved for t_r, with ε̇ in 1/h and t_r in h.",
+          "mg_note": "With m = 1, C_MG is a dimensionless number (a strain): the strain reached if the steady-state rate continued until rupture.",
+          "mg_m": "When m ≠ 1, the value of C_MG depends on the units of ε̇ and t_r. Use it with the same units as the reference test (1/h and h).",
+          "mg_cautions": [
+            "C_MG and m are determined by tests for each material. Reported values of m are about 0.8 to 0.95 (as reviewed by Abdallah et al. 2018).",
+            "C_MG is not necessarily constant. It has been reported to change as tests get longer (copper; Grade 91, 92 and 122 steels; Whittaker et al. 2018).",
+            "At the low stresses of real components, reaching the minimum creep rate can take tens of thousands of hours, so the advantage of an early measurement may be lost."
+          ],
+          "x_e": "Minimum creep rate ε̇_min ({u})",
+          "mk_ref": "Ref.",
+          "cap_mg": "ε̇_min and rupture time (log–log).",
+          "key_mg": "m = {m}",
+          "need_life_lmp": "Enter the test temperature, the test rupture time and C.",
+          "need_life": "Enter the temperature and hours for at least one service period.",
+          "need_life_dir": "Enter the hours and the rupture time for that condition for at least one service period.",
+          "life_main": "The periods used {d} of the life, leaving {r}. Continuing at the condition of period {n}, about {h} remain.",
+          "life_over": "The life fraction used is {d}, beyond the rupture criterion (D = 1) of the life fraction rule.",
+          "s_d": "Life fraction used D",
+          "s_rem": "Remaining 1 − D",
+          "s_remh": "Remaining at period {n}",
+          "s_used": "Total service hours",
+          "col_no": "Period",
+          "col_tc": "Temperature",
+          "col_h2": "Hours",
+          "col_tr2": "Rupture time (h)",
+          "col_fr": "Used",
+          "h_rows": "Life used in each period",
+          "life_eq_lmp": "From the P of the test (same stress), the rupture time t_r,ᵢ at the temperature of each period is found, and the ratios of the service hours tᵢ to it are added (Robinson’s life fraction rule).",
+          "life_eq_dir": "The ratios of the service hours tᵢ to the entered rupture times t_r,ᵢ are added (Robinson’s life fraction rule).",
+          "eq_rem": "at period {n}",
+          "life_note": "The life fraction rule is an approximation that ignores the order of the conditions. Rupture is assumed when the sum reaches 1.",
+          "life_d1": "D is 1 or more. By this estimate the rupture criterion has already been passed.",
+          "life_cautions": [
+            "Whether the life fraction rule holds depends on the material and the conditions and needs to be checked by tests (Bocek 1978). In one report of tests with cycled temperature, the sum at rupture was 1.11.",
+            "The error of the rupture time estimate for each period (LMP extrapolation) carries straight into the result.",
+            "Assess the remaining life of plant together with inspection (microstructure, strain, cracks) and the procedures of the applicable codes."
+          ],
+          "x_hours": "Total service hours (h)",
+          "y_d": "Life fraction used D",
+          "cap_life": "Service hours and the accumulated life fraction. The dashed line continues at the condition of the last period.",
+          "key_used": "Used",
+          "key_rem": "Continuing at period {n}",
+          "fit_few": "Not enough test points: this form needs at least {k} (now {n}).",
+          "fit_temps": "Fitting C needs test points at different temperatures.",
+          "fit_stresses": "Not enough different stresses (a quadratic needs at least three).",
+          "fit_singular": "The test points do not determine a line (points may coincide).",
+          "fit_main": "From the line through the test points, the rupture time at {s} MPa and {t} is estimated as {h} (P = {p}).",
+          "fit_out": "The condition is outside the range of the test points (σ {s1}–{s2} MPa, P {p1}–{p2}). This extrapolates the line.",
+          "s_cfit": "C",
+          "s_sd": "Std. dev. of log₁₀t_r residuals",
+          "s_scatter": "Scatter factor (10^s)",
+          "s_trq": "Estimated rupture time",
+          "fit_eq_free": "P = T(C + log₁₀t_r) is written as a polynomial in log₁₀σ, and b and C are found together by least squares, minimizing the sum of squared log₁₀t_r residuals.",
+          "fit_eq_fix": "P = T(C + log₁₀t_r) is written as a polynomial in log₁₀σ, and b is found by least squares, minimizing the sum of squared log₁₀t_r residuals (C fixed).",
+          "fit_note": "Residuals are differences in log₁₀t_r. A quadratic bends easily outside the points, so do not use it beyond their range.",
+          "h_pts": "Test points and residuals",
+          "pts_cols": [
+            "Pt",
+            "σ (MPa)",
+            "Temperature",
+            "t_r (h)",
+            "P",
+            "Residual"
+          ],
+          "pts_note": "Residual = log₁₀(measured t_r) − log₁₀(t_r from the line). 0.3 is about a factor of 2.",
+          "fit_dof0": "The number of points equals the number of coefficients, so the line passes through every point and the scatter is unknown.",
+          "fit_cautions": [
+            "This line is drawn only from the test points you entered; it is not a representative line (master curve) for the material.",
+            "Do not use it outside the range of the test points (stress, temperature, time). The line can bend down on the long-time side (for example from microstructural change).",
+            "When using a published line for a material, follow the material, range and equations of the data sheet (such as the NIMS Creep Data Sheets)."
+          ],
+          "x_p": "P = T(C + log₁₀t_r)",
+          "mk_q": "Estimate",
+          "cap_fit": "P and stress of the test points with the fitted line (C = {c}; log scale on the vertical axis).",
+          "key_fit": "Degree {d} line",
+          "src_h": "Sources:",
+          "src_more": null,
+          "l_term": "Creep (glossary)",
+          "l_lmp": "Larson–Miller parameter (glossary)",
+          "l_plc": "Power-law creep",
+          "l_dmm": "Deformation mechanism map",
+          "l_formula": "Formula sheet",
+          "l_drill": "Calculation drill (Larson–Miller)",
+          "l_fatigue": "Fatigue and crack growth calculator",
+          "l_diff": "Diffusion and surface treatment simulator",
+          "l_cat": "High-temperature materials"
+        }
+      },
+      "sections": [
+        {
+          "h": "The three stages of creep and the tests",
+          "p": "A creep curve, strain plotted against time at constant load and temperature, is divided into primary creep, where the strain rate gradually falls; secondary (steady-state) creep, where the rate is nearly constant; and tertiary creep, where the rate rises until rupture. The rate in the steady-state stage is the minimum creep rate, the basis for estimating strain and predicting rupture time. ASTM E139 covers creep tests, which measure deformation as a function of time, and rupture tests, which measure the time to rupture, both under constant tensile force at constant temperature."
+        },
+        {
+          "h": "When creep becomes significant",
+          "p": "Creep becomes noticeable above roughly 0.4 of the absolute melting temperature; sources give 0.3 to 0.5. Because the guide is a ratio to the melting point, creep must be considered at room temperature for lead, solders and polymers. Always use kelvin when taking the ratio."
+        },
+        {
+          "h": "The idea behind the Larson–Miller parameter",
+          "p": "Larson and Miller (1952) showed that for creep rupture at a given stress, P = T(C + log₁₀t_r) is nearly constant, so temperature can be traded for time. T is the absolute temperature and t_r the time in hours. Plotting log₁₀t_r against 1/T puts points of equal stress on a straight line, and lines for different stresses meet at one point, log₁₀t_r = −C at 1/T = 0. This lets short tests above the service temperature estimate long lives at the service temperature. For example, with C = 20, 600 °C for 100,000 h has the same P as about 676 °C for 1000 h."
+        },
+        {
+          "h": "What the constant C means",
+          "p": "C is the height of the point where those lines meet; it does not follow from theory. Larson and Miller used 20 as an approximation for all materials, and this conventional value is used for many steels. As reviewed by Manson and Haferd (1953), the values for the individual materials in the original paper were about 14 to 22, and a value of about 25 has been fitted for other alloys. C is the value for time in hours and changes if time is expressed in seconds. When accuracy matters, determine C for each material from tests at several temperatures."
+        },
+        {
+          "h": "Other parameters (OSD and Manson–Haferd)",
+          "p": "The Orr–Sherby–Dorn (OSD) parameter P = log₁₀t_r − Q/(2.303RT) assumes that isostress lines are parallel straight lines on a log₁₀t_r–1/T plot (with a constant slope Q/(2.303R)). The Manson–Haferd (MH) parameter P = (log₁₀t_r − log₁₀t_a)/(T − T_a) assumes that isostress lines of log₁₀t_r against T meet at one point (T_a, log₁₀t_a); the original paper writes the reciprocal. Extrapolating from the same test point to the same temperature can give lives that differ by several times because of these assumptions, and which one fits must be checked against the material’s data."
+        },
+        {
+          "h": "n and Q in the Norton law",
+          "p": "The steady-state (minimum) creep rate is often written as ε̇ = Aσⁿ exp(−Q/RT) (the Norton or power law). The stress exponent n is the slope of log ε̇ against log σ for tests at one temperature and several stresses. The apparent activation energy Q comes from the slope −Q/R of ln ε̇ against 1/T for tests at one stress and several temperatures. With n = 5, doubling the stress multiplies the rate by 32, and with Q = 300 kJ/mol going from 900 K to 950 K multiplies it by about 8, so both change the rate strongly."
+        },
+        {
+          "h": "Mechanisms and deformation mechanism maps",
+          "p": "The value of n is a clue to the mechanism. At low stress and with fine grains, diffusion creep, in which grains elongate by atomic diffusion, dominates (n ≈ 1); at intermediate stress, dislocation creep dominates (n about 3 to 8; about 5 when climb controls the rate and about 3 when glide does); at high stress the power law breaks down and n becomes large. Which mechanism dominates can be organized on a deformation mechanism map with stress (divided by the shear modulus) and homologous temperature as axes. Grain size and microstructure move the boundaries a great deal, however, and extending to stresses below the tests can change the mechanism."
+        },
+        {
+          "h": "The Monkman–Grant relation",
+          "p": "For many metals, the minimum creep rate ε̇_min and the rupture time t_r follow ε̇_min^m · t_r = C_MG, with m close to 1. Its advantage is that the minimum creep rate gives a rough rupture time without running the test to rupture. With m = 1, C_MG has the dimension of strain, and four times the minimum creep rate means a quarter of the rupture time. C_MG must be measured for each material, however, and it has been seen to change with test duration."
+        },
+        {
+          "h": "Robinson’s life fraction rule",
+          "p": "When periods with different temperatures or stresses follow one another, running for tᵢ under condition i, whose rupture time is t_r,ᵢ, is taken to use the fraction tᵢ/t_r,ᵢ of the life, and rupture is assumed when the sum Σ tᵢ/t_r,ᵢ reaches 1. This is the life fraction rule (Robinson’s rule). It has the same form as Miner’s rule for fatigue and ignores the order of the conditions. Whether it holds depends on the material and conditions, and tests where the sum differed from 1 have been reported."
+        },
+        {
+          "h": "Limits of extrapolation",
+          "p": "Parameter methods assume that the same mechanism operates at the test and service temperatures and that the microstructure changes in the same way. If precipitates coarsen or the deformation mechanism shifts over long times, extrapolating short tests can overestimate the life. Manson and Haferd (1953) reported that predicting 10,000 h from tests of about 100 h with the C = 20 LMP was in some cases off by a factor of 10. Lines from simple uniaxial tests may also fail with environmental effects such as oxidation, multiaxial stress or stress relaxation."
+        },
+        {
+          "h": "Common mistakes",
+          "p": "First, entering temperature in °C. The T in P is absolute temperature: 600 °C is 873.15 K. Second, mixing up log₁₀ and ln. The log in LMP, OSD and MH is the common logarithm, while the exp in the Norton law and the ln used to find Q are natural (the 2.303 = ln 10 in OSD converts between them). Third, mixing up seconds and hours. C = 20 applies to hours, and strain rates differ by a factor of 3600 between 1/s and 1/h. Fourth, fixing C at 20 regardless of the material and treating it as an accurate value. Fifth, extrapolating too far beyond the test range."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I enter temperatures in °C?",
+          "a": "Yes, this tool lets you choose °C or K. Temperatures entered in °C are converted to kelvin by adding 273.15 inside the equations (the equations on screen show the K values). When calculating by hand, always convert to kelvin."
+        },
+        {
+          "q": "Can C = 20 be used for any material?",
+          "a": "It is a conventional value used for many steels, not a number from theory. C differs between materials (about 14 to 22 for the materials in the original paper); when accuracy matters, determine it from tests at several temperatures. Calculation 6, “Line from your tests”, can fit C to your data."
+        },
+        {
+          "q": "Which should I use: LMP, OSD or MH?",
+          "a": "It depends on the material and the data, and this one-point comparison cannot decide. The basic approach is to fit each to tests at several temperatures and stresses and compare the residuals. If a code or material data sheet specifies a method, follow it."
+        },
+        {
+          "q": "Can I use seconds for rupture time?",
+          "a": "The form of the equation is the same, but log₁₀t_r changes, so C changes too. C = 20 applies to hours, so enter hours in this tool. Years are shown with 1 year = 8760 h."
+        },
+        {
+          "q": "What are the units of A in the Norton law?",
+          "a": "The unit of ε̇ divided by MPaⁿ (h⁻¹·MPa⁻ⁿ or s⁻¹·MPa⁻ⁿ in this tool). Because the unit depends on n, using an A from a source that enters σ in Pa gives a result that is off by many orders of magnitude."
+        },
+        {
+          "q": "Where do I get the Monkman–Grant C_MG?",
+          "a": "From tests on that material that measured both the minimum creep rate and the rupture time. “One test” in this tool takes C_MG from a single test and applies it to another condition. C_MG has been seen to change with test duration, so use a test at similar conditions."
+        },
+        {
+          "q": "Are there master curves (LMP–stress lines) for materials?",
+          "a": "No. Published data (such as the NIMS Creep Data Sheets) must be used with exactly their material, range and equations, and this tool could not verify those numbers well enough to include them. In calculation 6 you can draw a line through your own test points or points read from a data sheet."
+        }
+      ]
+    }
+  }
+}
