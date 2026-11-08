@@ -692,11 +692,13 @@ export const TYPES = {
       if (v.v === 'time') {
         const T2 = TK(v.t2c), e = P / T2 - C, h2 = 10 ** e;
         return { ans: h2, fam: 'time', unit: 'h', k: { T1: fs(T1, 5), lg: f4(Math.log10(v.h1)), P: fs(P, 5), T2: fs(T2, 5), e: f4(e), h2: fs(h2, 4) },
-          alt: { celsius: 10 ** (v.t1c * (C + Math.log10(v.h1)) / v.t2c - C), ln: Math.exp(T1 * (C + Math.log(v.h1)) / T2 - C) } };
+          alt: { celsius: 10 ** (v.t1c * (C + Math.log10(v.h1)) / v.t2c - C), ln: Math.exp(T1 * (C + Math.log(v.h1)) / T2 - C) },
+          tool: { id: 'creep', q: { mode: 'lmp', sv: 'tt', tu: 'C', t: v.t1c, tr: v.h1, c: C, t2: v.t2c, tr2: '' } } };
       }
       const T2 = P / (C + Math.log10(v.h2)), t2 = T2 - 273.15;
       return { ans: t2, fam: 'temp', unit: '°C', k: { T1: fs(T1, 5), lg: f4(Math.log10(v.h1)), P: fs(P, 5), lg2: f4(Math.log10(v.h2)), T2: fs(T2, 5), t2: fs(t2, 4) },
-        alt: { kelvin: T2, celsius: v.t1c * (C + Math.log10(v.h1)) / (C + Math.log10(v.h2)) } };
+        alt: { kelvin: T2, celsius: v.t1c * (C + Math.log10(v.h1)) / (C + Math.log10(v.h2)) },
+        tool: { id: 'creep', q: { mode: 'lmp', sv: 'tt', tu: 'C', t: v.t1c, tr: v.h1, c: C, tr2: v.h2, t2: '' } } };
     },
   },
 };
