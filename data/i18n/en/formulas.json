@@ -1755,9 +1755,9 @@
     "rupture time (the number in hours goes into the log)",
     "1 h (log₁₀t_r means log₁₀(t_r/t₀))"
    ],
-   "when": "Trading temperature against time for creep rupture at the same stress (estimating long low-temperature lives from short hot tests). C refers to time in hours; 20 is typical (15–25). Keep extrapolations within about ten times the test duration.",
+   "when": "Trading temperature against time for creep rupture at the same stress (estimating long low-temperature lives from short hot tests). C refers to time in hours; 20 is typical (15–25). Errors grow the farther you extrapolate beyond the tested range, so keep the extrapolation as short as possible (some sources use about three times the test duration as a guide).",
    "miss": "Using °C; using ln instead of log₁₀; time in seconds (C = 20 is for hours).",
-   "ex": "An alloy that ruptured in 50 h at 900 °C under a given stress, used at 800 °C under the same stress (C = 20): P = 1173.15 × (20 + log₁₀50) = 25456 K, t_r = 10^(25456/1073.15 − 20) = 5260 h. Lowering the temperature by 100 K extends the life about 105 times.",
+   "ex": "An alloy that ruptured in 50 h at 900 °C under a given stress, used at 800 °C under the same stress (C = 20): P = 1173.15 × (20 + log₁₀50) = 25456 K, t_r = 10^(25456/1073.15 − 20) = 5260 h. Lowering the temperature by 100 K extends the life about 105 times. That is an extrapolation of about 100 times the test duration, so confirm it with longer tests in practice.",
    "kw": "Larson Miller creep rupture life extrapolation heat resistant alloy"
   },
   "creep": {

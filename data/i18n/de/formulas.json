@@ -1755,9 +1755,9 @@
         "Bruchzeit (die Zahl in Stunden geht in den Logarithmus ein)",
         "1 h (log₁₀t_r bedeutet log₁₀(t_r/t₀))"
       ],
-      "when": "Austausch von Temperatur und Zeit beim Zeitstandbruch unter gleicher Spannung (Abschätzung langer Lebensdauern bei tieferer Temperatur aus kurzen Versuchen bei hoher Temperatur). C bezieht sich auf die Zeit in Stunden; 20 ist ein Richtwert (15–25). Extrapolationen sollten etwa das Zehnfache der Versuchsdauer nicht überschreiten.",
+      "when": "Austausch von Temperatur und Zeit beim Zeitstandbruch unter gleicher Spannung (Abschätzung langer Lebensdauern bei tieferer Temperatur aus kurzen Versuchen bei hoher Temperatur). C bezieht sich auf die Zeit in Stunden; 20 ist ein Richtwert (15–25). Der Fehler wächst, je weiter man über den geprüften Bereich hinaus extrapoliert; die Extrapolation sollte daher möglichst kurz bleiben (manche Quellen nennen etwa das Dreifache der Versuchsdauer als Richtwert).",
       "miss": "°C einsetzen. ln statt log₁₀ verwenden. Die Zeit in Sekunden einsetzen (C = 20 gilt für Stunden).",
-      "ex": "Eine Legierung, die unter einer bestimmten Spannung bei 900 °C nach 50 h gebrochen ist, wird unter derselben Spannung bei 800 °C eingesetzt (C = 20): P = 1173,15 × (20 + log₁₀50) = 25456 K; t_r = 10^(25456/1073,15 − 20) = 5260 h. Eine um 100 K tiefere Temperatur verlängert die Lebensdauer etwa auf das 105-Fache.",
+      "ex": "Eine Legierung, die unter einer bestimmten Spannung bei 900 °C nach 50 h gebrochen ist, wird unter derselben Spannung bei 800 °C eingesetzt (C = 20): P = 1173,15 × (20 + log₁₀50) = 25456 K; t_r = 10^(25456/1073,15 − 20) = 5260 h. Eine um 100 K tiefere Temperatur verlängert die Lebensdauer etwa auf das 105-Fache. Das ist eine Extrapolation auf etwa das 100-Fache der Versuchsdauer; in der Praxis ist sie mit längeren Versuchen zu prüfen.",
       "kw": "Larson Miller Larson-Miller Zeitstandbruch Kriechbruch Lebensdauer Extrapolation warmfeste Legierung"
     },
     "creep": {
