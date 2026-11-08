@@ -11,7 +11,7 @@
 import { readFileSync } from 'node:fs';
 
 const tools = {};
-for (const id of ['measure', 'weibull', 'creep', 'stress', 'ellingham', 'fatigue', 'corrosionrate', 'polymercalc', 'steelcolor', 'tensile', 'galvanic', 'micro', 'materials',
+for (const id of ['measure', 'weibull', 'strength', 'creep', 'stress', 'ellingham', 'fatigue', 'corrosionrate', 'polymercalc', 'steelcolor', 'tensile', 'galvanic', 'micro', 'materials',
   'fe-c', 'ashby', 'diffusion', 'composite', 'xrd', 'thermal', 'lever', 'xtal', 'eng', 'ptable', 'drill']) {
   try { tools[id] = await import(`../src/js/${id}.js`); } catch (e) { tools[id] = e; }
 }
@@ -88,6 +88,47 @@ T('weibull', '例④⑤: 有効体積と寸法効果', '① Quinn & Quinn(2010)�
   return [['④ V_E(3点)', a, 1.189767995240928, rel(1e-12)], ['④ V_E(引張)', t, 5000, rel(1e-12)], ['④ σ₂', m.sizeScale(374, a, t, 11.3), 178.7340111909095, rel(1e-9)],
     ['⑤ V_E(1/4 点)', b4, 10.54927622446956, rel(1e-12)], ['⑤ σ₃/σ₄', 374 / m.sizeScale(374, b3, b4, 11.3), (13.3 / 2) ** (1 / 11.3), rel(1e-12)],
     ['1/3 点 m 10', m.effVolume('h4', 10, { b: 4, d: 3, L: 30 }).ve, 6.446280991735538, rel(1e-12)], ['寸法が 0', m.effVolume('t3', 10, { b: 0, d: 3, L: 30 }), null, EQ]];
+});
+
+// =====================================================================
+// strength(強化機構の計算ラボ): 単位の換算、ホール・ペッチ、テイラーの式、粒子の間隔とオロワン応力、規則相の切断との交点、固溶強化、重ね合わせ
+// ②の python は review の check/calc_strength.py(math と scipy の brentq で別に計算。53 項目一致)
+// =====================================================================
+T('strength', '単位の換算(µm・nm・mm → m、MPa·µm^(1/2) → MPa·m^(1/2)、cm⁻² → m⁻²、GPa → MPa)', '① SI の接頭語(1 µm = 10⁻⁶ m、1 MPa·µm^(1/2) = 10⁻³ MPa·m^(1/2)、1 cm⁻² = 10⁴ m⁻²)。Cordero ほか(2016)表 1 の Fe の k = 310 MPa·µm^(1/2)', m => [
+  ['50 µm', m.toM(50, 'um'), 5e-5, rel(1e-12)], ['5 nm', m.nmToM(5), 5e-9, rel(1e-12)], ['0.02 mm', m.toM(0.02, 'mm'), 2e-5, rel(1e-12)],
+  ['k 310 MPa·µm^(1/2)', m.kToSI(310, 'um'), 0.31, rel(1e-12)], ['k 1 MPa·mm^(1/2)', m.kToSI(1, 'mm'), Math.sqrt(1e-3), rel(1e-12)],
+  ['10¹⁰ cm⁻²', m.rhoToSI(1e10, 'cm2'), 1e14, rel(1e-12)], ['48 GPa', m.gpaToMpa(48), 48000, rel(1e-12)], ['単位が違う', m.toM(1, 'ft'), NaN, EQ]]);
+T('strength', 'バーガースベクトル(FCC a/√2・BCC √3a/2)', '① 公式集 burgers の例(Cu a = 0.36146 nm → 0.2556 nm、Fe a = 0.28665 nm → 0.2482 nm)。a は data/materials.json', m => [
+  ['Cu', m.matB('cu'), 0.2556, abs(1e-9)], ['Fe', m.matB('fe'), 0.2482, abs(1e-9)], ['Al', m.burgers(0.40496, 'fcc'), 0.40496 / Math.SQRT2, rel(1e-12)], ['Ni', m.matB('ni'), 0.2492, abs(1e-9)]]);
+T('strength', 'ホール・ペッチ(公式集の例・例①・d → ∞)', '① 公式集 hall-petch の例(σ₀ 70 MPa・k 0.74 MPa·√m: 20 µm で 235.5、5 µm で 400.9 MPa)。② calc_strength.py(例① 50 µm、µm のまま入れた誤りの値)', m => [
+  ['20 µm', m.hallPetch(70, 0.74, m.toM(20, 'um')).sy, 235.5, abs(0.05)], ['5 µm', m.hallPetch(70, 0.74, m.toM(5, 'um')).sy, 400.9, abs(0.05)],
+  ['例① 50 µm', m.hallPetch(70, 0.74, 5e-5).sy, 174.65180361560903, rel(1e-12)], ['µm のまま(誤り)', m.hallPetch(70, 0.74, 50).gb, 0.10465180361560902, rel(1e-12)],
+  ['d → ∞', m.hallPetch(70, 0.74, Infinity).sy, 70, rel(1e-12)], ['d = 0', m.hallPetch(70, 0.74, 0), null, EQ]]);
+T('strength', 'テイラーの式(問題 strengthening-007・例②・ρ = 0)', '① 問題 strengthening-007(M 3.06・α 0.3・G 48 GPa・b 0.256 nm・ρ 10¹⁴ m⁻² → 約 113 MPa、M を掛け忘れると約 37 MPa)。② calc_strength.py(例② Cu で 10¹² → 10¹⁵ m⁻²)', m => {
+  const q = m.taylor(3.06, 0.3, 48e3, 0.256e-9, 1e14), b = m.nmToM(m.matB('cu'));
+  return [['007 σ', q.sig, 113, abs(0.5)], ['007 τ', q.tau, 37, abs(0.5)], ['例② 10¹²', m.taylor(3.06, 0.3, 48e3, b, 1e12).sig, 11.2627584, rel(1e-9)],
+    ['例② 10¹⁵', m.taylor(3.06, 0.3, 48e3, b, 1e15).sig, 356.1596928019376, rel(1e-9)], ['ρ = 0', m.taylor(3.06, 0.3, 48e3, b, 0).sig, 0, abs(1e-12)], ['ρ < 0', m.taylor(3.06, 0.3, 48e3, b, -1), null, EQ]];
+});
+T('strength', '粒子の間隔とオロワン応力(問題 strengthening-010・024・例③・f = 0)', '① 問題 strengthening-024(r 5 nm・f 0.050 → L ≈ 22 nm)、strengthening-010(G 26 GPa・b 0.286 nm・L 100 nm → Δτ ≈ 74 MPa、Δσ ≈ 228 MPa)。② calc_strength.py(例③ の λ = (√(π/f) − 2)·πr/4 とオロワン・アシュビーの式)', m => {
+  const G = 26e3, b = m.nmToM(m.matB('al'));
+  return [['024 L', m.spacing('c3', 5e-9, 0.05) / 1e-9, 22, abs(0.5)], ['010 Δτ', m.orowan(26e3, 0.286e-9, 100e-9), 74, abs(0.5)], ['010 Δσ', 3.06 * m.orowan(26e3, 0.286e-9, 100e-9), 228, abs(1)],
+    ['例③ λ', m.spacing('e2', 10e-9, 0.03) / 1e-9, 64.66392842972394, rel(1e-12)], ['例③ アシュビー', m.ashbyOrowan(G, b, 0.35, 10e-9, 0.03), 72.80745820031355, rel(1e-9)],
+    ['例③ 基本形(面と面)', m.orowan(G, b, m.spacing('e3', 10e-9, 0.03)), 233.5038464094525, rel(1e-9)], ['f = 0', m.orowan(G, b, m.spacing('c3', 10e-9, 0)), 0, abs(1e-12)],
+    ['f = 5(% のまま)', m.spacing('c3', 5e-9, 5), NaN, EQ], ['2r̄ ≤ b', m.ashbyOrowan(G, b, 0.35, 0.15e-9, 0.03), NaN, EQ]];
+});
+T('strength', '規則相の切断(Brown・Ham)とオロワンの交点(例⑥)', '② calc_strength.py(scipy の brentq で Δτ_cut = (γ/2b)[√(3π²γfr/(32T)) − f]、T = Gb²/2 と Gb/L の交点を解く)', m => {
+  const G = 76e3, b = m.nmToM(m.matB('ni'));
+  const X = m.crossover(r => m.brownHam(0.1, G, b, r, 0.1), r => m.orowan(G, b, m.spacing('c3', r, 0.1)));
+  return [['20 nm の切断', m.brownHam(0.1, G, b, 20e-9, 0.1), 36.12237981957963, rel(1e-9)], ['交点 r', X.r / 1e-9, 66.308709892029, rel(1e-6)], ['交点 Δτ', X.tau, 82.24222453248125, rel(1e-6)],
+    ['f = 0', m.brownHam(0.1, G, b, 20e-9, 0), 0, abs(1e-12)]];
+});
+T('strength', '固溶強化と重ね合わせ(問題 strengthening-005・013・例⑤)', '① 問題 strengthening-005(30 MPa × 4^(1/2) = 60、4^(2/3) で約 76)、strengthening-013(50 + 60 + √(200² + 100²) ≈ 334、すべて足すと 410)。② calc_strength.py(例⑤ の4通り)', m => {
+  const e5 = { ss: 40, gb: 150, dis: 120, ppt: 180 };
+  return [['005 n = 1/2', m.solid(30, 4, m.SSN.h), 60, rel(1e-12)], ['005 n = 2/3', m.solid(30, 4, m.SSN.t), 76, abs(0.5)], ['c = 0', m.solid(30, 0, m.SSN.t), 0, abs(1e-12)],
+    ['013 混ぜ方', m.combine(50, { ss: 60, dis: 100, ppt: 200 }, 'mix').total, 334, abs(0.5)], ['013 線形', m.combine(50, { ss: 60, dis: 100, ppt: 200 }, 'lin').total, 410, rel(1e-12)],
+    ['例⑤ 二乗和', m.combine(50, e5, 'rss').total, 316.27053911388697, rel(1e-12)], ['例⑤ 混ぜ方', m.combine(50, e5, 'mix').total, 456.33307652783935, rel(1e-12)],
+    ['例⑤ q 1.5', m.combine(50, e5, 'pow', 1.5).total, 373.54009874552224, rel(1e-9)], ['q = 2 は二乗和', m.combine(50, e5, 'pow', 2).total, m.combine(50, e5, 'rss').total, rel(1e-12)],
+    ['負の寄与', m.combine(50, { ss: -1 }, 'lin'), null, EQ]];
 });
 
 // =====================================================================
