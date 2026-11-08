@@ -26,7 +26,10 @@ export function termMatcher(terms) {
     for (const k0 of [term, ...(m ? [m[1], m[2]] : []), ...aliases]) {
       // 英数字と漢字・かなの間の空白はあってもなくても一致させる(「功率 MOSFET」と「功率MOSFET」)
       const k1 = k0.trim();
-      for (const k of new Set([k1, k1.replace(/(?<=[A-Za-z0-9])\s+(?=[^\x00-\x7F])|(?<=[^\x00-\x7F])\s+(?=[A-Za-z0-9])/g, '')])) {
+      const k2 = k1.replace(/(?<=[A-Za-z0-9])\s+(?=[^\x00-\x7F])|(?<=[^\x00-\x7F])\s+(?=[A-Za-z0-9])/g, '');
+      // 英字の間のアポストロフィは ' と ’ のどちらでも一致させる(用語は「Mohr's circle」、本文は「Mohr’s circle」と書くことがある)
+      const q = k => [k.replace(/(?<=[A-Za-z])'(?=[A-Za-z])/g, '’'), k.replace(/(?<=[A-Za-z])’(?=[A-Za-z])/g, "'")];
+      for (const k of new Set([k1, k2, ...q(k1), ...q(k2)])) {
         const key = k.toLowerCase();
         if (key.length < 2 || keys.has(key)) continue;
         keys.set(key, id);
