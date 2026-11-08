@@ -1,0 +1,771 @@
+{
+  "id": "weibull",
+  "order": 20,
+  "slug": "weibull-analysis",
+  "cats": [
+    "ceramics",
+    "fracture-fatigue",
+    "glass-amorphous",
+    "mechanical"
+  ],
+  "cat": "ceramics",
+  "terms": [
+    "ワイブル係数",
+    "グリフィスの理論",
+    "破壊靭性",
+    "応力集中係数",
+    "応力腐食割れ"
+  ],
+  "questions": [
+    "ceramics-006",
+    "ceramics-007"
+  ],
+  "figures": [],
+  "compares": [],
+  "form": {
+    "id": "weibull-form",
+    "fields": [
+      {
+        "name": "mode",
+        "options": [
+          "fit",
+          "prob",
+          "size"
+        ],
+        "value": "fit"
+      },
+      {
+        "name": "est",
+        "options": [
+          "med",
+          "mean",
+          "hazen"
+        ],
+        "value": "med"
+      },
+      {
+        "name": "dec",
+        "options": [
+          "dot",
+          "comma"
+        ],
+        "value": "dot"
+      },
+      {
+        "name": "pm",
+        "value": 10,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "ps0",
+        "value": 400,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "psig",
+        "value": 300,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "pf",
+        "value": 0.1,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "pm2",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "sm",
+        "value": 10,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "ss1",
+        "value": 400,
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "g1",
+        "options": [
+          "t3",
+          "q4",
+          "h4",
+          "ten",
+          "v"
+        ],
+        "value": "t3"
+      },
+      {
+        "name": "b1",
+        "value": 4,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "d1",
+        "value": 3,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "l1",
+        "value": 30,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "v1",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      },
+      {
+        "name": "g2",
+        "options": [
+          "t3",
+          "q4",
+          "h4",
+          "ten",
+          "v"
+        ],
+        "value": "ten"
+      },
+      {
+        "name": "b2",
+        "value": 10,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "d2",
+        "value": 10,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "l2",
+        "value": 50,
+        "attrs": "min=\"0\" step=\"any\""
+      },
+      {
+        "name": "v2",
+        "value": "",
+        "attrs": "min=\"0\" step=\"any\" placeholder=\"–\""
+      }
+    ],
+    "outputs": [
+      {
+        "box": "res"
+      }
+    ],
+    "svg": "wb-chart",
+    "note": "note"
+  },
+  "text": {
+    "ja": {
+      "nav": "ワイブル解析ラボ",
+      "card": "強さのデータからワイブルプロットを描き、回帰と最尤法で m・σ₀ を比べ、破壊確率と強さ、平均・中央値、有効体積による寸法効果(3点曲げ・4点曲げ・引張)を式と代入つきで",
+      "title": "ワイブル解析ラボ(ワイブル係数・最尤法・破壊確率・寸法効果)",
+      "description": "セラミックス・ガラスなど脆い材料の強さのデータを貼り付けると、小さい順に並べてワイブルプロット(ln σ と ln ln(1/(1 − F)))と回帰直線を描き、ワイブル係数 m と尺度母数 σ₀ を回帰と最尤法で出して比べます。破壊確率 F(σ) = 1 − exp[−(σ/σ₀)^m]、ある破壊確率での強さ、平均強さ σ₀Γ(1 + 1/m) と中央値、3点曲げ・4点曲げ・単軸引張の有効体積による強さの換算も。式と値を代入した形、出典つき。",
+      "h1": "ワイブル解析ラボ",
+      "lead": "脆い材料の強さのばらつきを2母数のワイブル分布で扱う3つの計算を、式に値を代入した形といっしょに出します。①強さのデータから m と σ₀(ワイブルプロットの回帰と最尤法)、②m と σ₀ から破壊確率と強さ(平均・中央値・低い破壊確率での強さ)、③有効体積による寸法効果(3点曲げ・4点曲げ・単軸引張の換算)。応力は MPa、寸法は mm、ln は自然対数です。",
+      "in_heading": "入力",
+      "out_heading": "結果",
+      "presets_h": "例",
+      "note": "式は教科書・論文・規格の概要で確かめた定番のもの(ワイブル分布、破壊確率の推定、最尤法、Quinn らの有効体積の式)。出典は結果の下にあります。規格の偏りの補正と信頼区間は出していません。設計の判断は規格(ASTM C1239・ISO 20501・JIS R 1625 など)と専門家に従ってください。",
+      "practice": "セラミックスの強さの問題を解く",
+      "related": "関連する用語",
+      "chart_label": "結果のグラフ",
+      "mode": "計算",
+      "mode_fit": "データから m・σ₀",
+      "mode_prob": "破壊確率と強さ",
+      "mode_size": "寸法効果",
+      "est": "破壊確率 F の推定",
+      "est_med": "メジアン (i − 0.3)/(n + 0.4)",
+      "est_mean": "平均ランク i/(n + 1)",
+      "est_hazen": "(i − 0.5)/n",
+      "dec": "貼り付けの小数点",
+      "dec_dot": "「.」(点)",
+      "dec_comma": "「,」(コンマ)",
+      "pm": "ワイブル係数 m",
+      "ps0": "尺度母数 σ₀(MPa)",
+      "psig": "応力 σ(MPa)",
+      "pf": "破壊確率 F(%)",
+      "pm2": "比べる m(空欄可)",
+      "sm": "ワイブル係数 m",
+      "ss1": "試験1の強さ σ₁(MPa)",
+      "g1": "試験1の形",
+      "g1_t3": "3点曲げ",
+      "g1_q4": "4点曲げ(1/4 点)",
+      "g1_h4": "4点曲げ(1/3 点)",
+      "g1_ten": "単軸引張",
+      "g1_v": "V_E を入力",
+      "b1": "幅 b(mm)",
+      "d1": "高さ d(mm)",
+      "l1": "外側の支点間距離 L(mm)",
+      "v1": "有効体積 V_E1(mm³)",
+      "g2": "試験2(換算先)の形",
+      "g2_t3": "3点曲げ",
+      "g2_q4": "4点曲げ(1/4 点)",
+      "g2_h4": "4点曲げ(1/3 点)",
+      "g2_ten": "単軸引張",
+      "g2_v": "V_E を入力",
+      "b2": "幅 b(mm)",
+      "d2": "高さ d(mm)",
+      "l2": "外側の支点間距離 L(mm)",
+      "v2": "有効体積 V_E2(mm³)",
+      "js": {
+        "ui": {
+          "tabs_label": "計算の種類",
+          "tab_fit": "① データから m・σ₀",
+          "tab_prob": "② 破壊確率と強さ",
+          "tab_size": "③ 寸法効果",
+          "examples": "例:",
+          "ex": [
+            "アルミナの3点曲げ 20 本から m・σ₀",
+            "同じデータで回帰と最尤法",
+            "破壊確率 0.1 % の強さ",
+            "小さな試験片から大きな部品へ",
+            "3点曲げと4点曲げ",
+            "m = 5 と m = 20"
+          ],
+          "ex_note": "例の値と、入力欄に最初から入っている値(アルミナの3点曲げ 20 本の強さ、試験片の寸法など)は、計算のしかたを示すために作った数で、実在の材料や部品の測定データではありません。",
+          "est_med": "メジアンランク (i − 0.3)/(n + 0.4)",
+          "est_mean": "平均ランク i/(n + 1)",
+          "est_hazen": "(i − 0.5)/n",
+          "g1_t3": "3点曲げ",
+          "g1_q4": "4点曲げ(1/4 点)",
+          "g1_h4": "4点曲げ(1/3 点)",
+          "g1_ten": "単軸引張",
+          "g1_v": "入力した V_E の試験",
+          "sub_1": "試験1(もとの強さ)",
+          "sub_2": "試験2(換算先)",
+          "b_bend": "幅 b(mm)",
+          "d_bend": "高さ d(mm)",
+          "l_bend": "外側の支点間距離 L(mm)",
+          "b_ten": "断面の幅 b(mm)",
+          "d_ten": "断面の厚さ d(mm)",
+          "l_ten": "ゲージ部の長さ L(mm)",
+          "paste": "強さのデータ(MPa、10〜100 個ほど)",
+          "paste_ph": "384, 300, 298, 371, …",
+          "paste_help": "区切りは、小数点が「.」のときはコンマ・空白・改行・セミコロン・タブ、「,」のときは空白・改行・セミコロン・タブです(「,」を選ぶと 412,5 を 412.5 と読み、「.」を含む数は読みません)。単位は付けずに入れてください。並べ替えはツールがします。共有の URL には 1800 文字までのデータが入ります。",
+          "read": "{n} 個の値を読みました(最小 {a}、最大 {b} MPa)。",
+          "read_none": "読める数がありません。",
+          "bad_tok": "数として読めない語を除きました({n} 個): {t}",
+          "maybe_comma": "コンマが数字に挟まれた形(412,5 など)があります。小数点がコンマのデータなら、「貼り付けの小数点」を「「,」(コンマ)」にしてください。",
+          "share_long": "データが長い({n} 個)ので、共有の URL には入れていません。この URL を開くと、データの欄は最初の例のデータになります。",
+          "err_few": "値が {n} 個です。m と σ₀ を出すには {k} 個以上入れてください(信頼できる m には数十個が望まれます)。",
+          "err_neg": "0 以下の値があります({v})。強さは 0 より大きい値で入れてください。",
+          "err_same": "すべて同じ値なので、ばらつきがなく m は決まりません(m は限りなく大きい)。",
+          "mle_big": "最尤法の m が 10000 を超えます(値がほとんど同じ)。最尤法の値は出していません。",
+          "mle_small": "最尤法の m が 0.001 より小さくなります。データを確かめてください。最尤法の値は出していません。",
+          "mle_noconv": "最尤法の式の解が収束しませんでした。最尤法の値は出していません。",
+          "fit_main": "{n} 個の強さから、最尤法では m = {m}、σ₀ = {s} MPa です。ワイブルプロットの回帰({e})では m = {mr}、σ₀ = {sr} MPa(R² = {r2})です。",
+          "fit_main_reg": "{n} 個の強さから、ワイブルプロットの回帰({e})では m = {mr}、σ₀ = {sr} MPa(R² = {r2})です。",
+          "few_n": "値が {n} 個と少ないので、m の推定のばらつきが大きくなります。Quinn・Quinn(2010)は、試験片が 10 本より少ないと m の偏りが 5 % 以上になりうること、30 本ほどで十分なワイブルの母数が得られるという目安を紹介しています。",
+          "s_n": "個数 n",
+          "s_m_mle": "m(最尤法)",
+          "s_s0_mle": "σ₀(最尤法)",
+          "s_m_reg": "m(回帰)",
+          "s_s0_reg": "σ₀(回帰)",
+          "s_r2": "決定係数 R²",
+          "s_mean": "データの平均",
+          "s_sd": "標準偏差 {s} MPa(変動係数 {c} %)",
+          "h_cmp": "推定のしかたによる違い",
+          "cmp_cols": [
+            "推定のしかた",
+            "m",
+            "σ₀(MPa)",
+            "R²"
+          ],
+          "row_reg": "回帰 {e}",
+          "row_rev": "参考: ln σ を y に回帰({e})",
+          "row_mle": "最尤法",
+          "cmp_diff": "回帰の m は最尤法より {d} %、σ₀ は {s} % 違います。",
+          "cmp_note": "回帰はふつう、縦軸の ln ln(1/(1 − F)) を横軸の ln σ に回帰します(縦の偏差を最小にする)。「参考」の行は x と y を入れ替えた回帰で、同じデータでも m が変わります。ASTM C1239 と ISO 20501 は最尤法による推定を定めています。m の偏りの補正と信頼区間は、規格を参照してください。",
+          "h_eq": "使った式と代入した値",
+          "fit_eq_lead": "強さを小さい順に σ₁ ≤ σ₂ ≤ … ≤ σₙ と並べ、i 番目の破壊確率 Fᵢ を推定します。x = ln σ、y = ln ln(1/(1 − F)) とすると、ワイブル分布は y = m x − m ln σ₀ の直線になるので、傾きが m、切片 b から σ₀ = exp(−b/m) です。",
+          "eq_sort": "小さい順に並べる: σ₁ = {a} … σₙ = {b} MPa",
+          "eqf_med": "({i} − 0.3)/({n} + 0.4)",
+          "eqf_mean": "{i}/({n} + 1)",
+          "eqf_hazen": "({i} − 0.5)/{n}",
+          "eq_icpt": "切片",
+          "eq_mle": "最尤法(F の推定を使わず、データの尤度を最大にする):",
+          "eq_it": "(二分法とニュートン法で {k} 回)",
+          "fit_eq_note": "ln は自然対数です。縦軸と横軸の両方を log₁₀ にしても傾きは同じ m ですが、片方だけ log₁₀ にすると傾きが ln 10 ≈ 2.303 倍ずれ、σ₀ を出すときにも exp と 10^ を取り違えやすいので、このツールは ln にそろえています。",
+          "low_r2": "R² が 0.9 より低く、点が直線から外れています。破壊の起点の種類が混ざっている(プロットが折れる)、しきい値がある、データの入れ間違いなどが考えられます。破面を観察して起点を確かめてください。",
+          "h_data": "並べたデータ",
+          "data_cols": [
+            "i",
+            "σᵢ(MPa)",
+            "Fᵢ",
+            "x = ln σᵢ",
+            "y = ln ln(1/(1 − Fᵢ))"
+          ],
+          "data_note": "Fᵢ は {e} による推定です。",
+          "to_prob": "この m・σ₀(最尤法)で破壊確率と強さを計算する",
+          "h_caution": "注意",
+          "fit_cautions": [
+            "2母数のワイブル分布(しきい値の強さがない)を前提にしています。",
+            "1種類の欠陥(破壊の起点)で壊れることを前提にしています。表面の傷と内部の気孔のように起点が混ざると、プロットが折れ、1本の直線で表せません。規格は、起点ごとに分けて解析する方法(打ち切りのある解析)を定めています。",
+            "応力腐食や疲労による遅れ破壊(時間とともに弱くなる)は扱いません。",
+            "個数が少ないほど m の推定のばらつきが大きく、最尤法の m は少ない個数で大きめに出る(偏りがある)ことが知られています。",
+            "設計の判断は、規格(ASTM C1239・ISO 20501・JIS R 1625 など)と専門家に従ってください。"
+          ],
+          "x_ln": "ln(σ/MPa)",
+          "y_ln": "ln ln(1/(1 − F))",
+          "cap_fit": "ワイブルプロット({a}〜{b} MPa)。点の並びが直線に近いほど、2母数のワイブル分布に合っています。",
+          "key_pts": "データ({e})",
+          "key_reg": "回帰の直線",
+          "key_mle": "最尤法の直線",
+          "need_ms": "ワイブル係数 m と尺度母数 σ₀(どちらも 0 より大きい値)を入れてください。",
+          "need_f": "破壊確率 F は 0 % より大きく 100 % より小さい値で入れてください。",
+          "m_odd": "m が 1〜60 の外にあります。セラミックス・ガラスの強さとしてはふつうでない値です。入力を確かめてください。",
+          "prob_main_f": "応力 {s} MPa での破壊確率は F = {f} です。",
+          "prob_main_s": "破壊確率 {f} になる強さは {s}(σ₀ の {r} 倍)です。",
+          "prob_main_none": "m = {m}、σ₀ = {s} MPa のワイブル分布です。",
+          "s_f": "破壊確率 F(σ)",
+          "s_sf": "{f} の強さ",
+          "s_meanw": "平均の強さ",
+          "s_med": "中央値(F = 50 %)",
+          "s_cov": "変動係数",
+          "s_g": "Γ(1 + 1/m)",
+          "eq_mean": "平均 =",
+          "eq_med": "中央値 =",
+          "eq_cov": "変動係数 =",
+          "prob_eq_lead": "2母数のワイブル分布 F(σ) = 1 − exp[−(σ/σ₀)^m] から、F を決めたときの強さは σ = σ₀[−ln(1 − F)]^(1/m) です。σ = σ₀ では F = 1 − 1/e ≈ 63.2 % です。",
+          "prob_eq_note": "Γ はガンマ関数(ランチョスの近似で計算)です。σ₀ は平均の強さに近い値ですが、平均そのものではありません。",
+          "h_table": "破壊確率と強さ",
+          "col_f": "破壊確率 F",
+          "col_s": "強さ",
+          "col_r": "σ/σ₀",
+          "col_sm": "強さ(m = {m})",
+          "row_mean": "平均の強さ",
+          "row_cov": "変動係数",
+          "h_two": "m = {a} と m = {b} の比べ(σ₀ = {s} MPa で同じ)",
+          "two_note": "σ₀ が同じでも、破壊確率 {f} の強さは、m = {a} で σ₀ の {ra} 倍、m = {b} で {rb} 倍です。低い破壊確率を求める設計では、m の違いが強さそのものの違いと同じくらい効きます。",
+          "table_note": "10⁻⁴ % は 100 万個に 1 個です。このような低い破壊確率の強さは、データのない範囲への外挿です。",
+          "h_read": "m の読み方",
+          "read_m": [
+            "m が大きいほど強さのばらつきが小さく、F(σ) の曲線は σ₀ のまわりで急に立ち上がります。",
+            "m は強さの高さではなく、そろい方を表します。平均の強さが高くても m が小さい材料には、低い応力で壊れるものが混じります。",
+            "変動係数(標準偏差/平均)は m でほぼ決まり、m = 5 で約 23 %、m = 10 で約 12 %、m = 20 で約 6 % です。",
+            "値は資料と材料で幅があります。工業用セラミックス(SiC・Al₂O₃・Si₃N₄)で 5〜10 程度、れんが・陶器・チョークのような伝統的なセラミックスで 3 未満、アルミニウムや鋼で 90〜100 程度という教科書の表があり(Meyers・Chawla の教科書から引いた Guo ほか 2017 の表 1)、歯科用材料の測定の例では、アルミナで約 9〜10、ポーセレンで約 18 です(Quinn・Quinn 2010)。"
+          ],
+          "prob_cautions": [
+            "2母数のワイブル分布(しきい値なし)と、1種類の欠陥で壊れることを前提にしています。",
+            "m と σ₀ は試験の形と寸法で決まる値です。別の寸法・試験法の部品には、③の寸法効果で換算してから使います。",
+            "応力腐食や疲労による遅れ破壊は扱いません。長く荷重を受ける部品では、時間とともに強さが下がることがあります。",
+            "設計の判断は、規格と専門家に従ってください。"
+          ],
+          "x_s": "応力 σ (MPa)",
+          "y_f": "破壊確率 F (%)",
+          "cap_prob": "破壊確率 F(σ)(σ₀ = {s} MPa)。印は入れた応力での値。",
+          "need_m": "ワイブル係数 m(0 より大きい値)を入れてください。",
+          "need_dims": "2つの試験の寸法(b・d・L)か有効体積 V_E を、0 より大きい値で入れてください。",
+          "size_main": "{a} の強さ {s1} MPa は、m = {m} で、{b} では {s2} にあたります(σ₂/σ₁ = {r})。",
+          "size_main_r": "m = {m} で、{b} の強さは {a} の {r} 倍です(試験1の強さを入れると換算します)。",
+          "s_ve1": "試験1の有効体積 V_E1",
+          "s_ve2": "試験2の有効体積 V_E2",
+          "s_vr": "V_E2/V_E1",
+          "s_ratio": "強さの比 σ₂/σ₁",
+          "s_s2": "試験2の強さ σ₂",
+          "eq_given": "入力",
+          "size_eq_lead": "最弱リンクの考え方から、応力のかかる体積が大きいほど大きな欠陥を含みやすく、強さは下がります。有効体積 V_E は、同じ破壊確率になる単軸引張の試験片の体積です。2つの試験の強さ(特性強さ・平均・中央値のどれでも)は σ₁/σ₂ = (V_E2/V_E1)^(1/m) で換算します。",
+          "size_eq_note": "曲げの式は、長方形の断面の試験片で、体積に分布する欠陥から壊れる場合です(Quinn・Quinn 2010、Arndt ほか が引く ASTM C1683)。L は外側の支点間距離、4点曲げの L_i は内側の支点間距離(1/4 点で L/2、1/3 点で L/3)です。表面の傷から壊れる場合は有効面積を使います(式は ASTM C1683 などの規格を参照)。",
+          "h_bend": "3点曲げと4点曲げ",
+          "bend_note": "同じ寸法の試験片でも、{a} の強さは {b} の {r} 倍です。3点曲げは最大の応力がかかるのが中央の線の近くだけなので有効体積が小さく、強さが高く出ます。曲げの試験法の違う強さを、そのまま比べないでください。",
+          "size_cautions": [
+            "2つの試験で同じ種類の欠陥が壊れ方を決めること、m が同じことを前提にしています。体積の欠陥と表面の傷を互いに換算することはできません。",
+            "寸法の比が大きい換算(小さな試験片から大きな部品へ)は外挿で、m の誤差が大きく効きます。",
+            "曲げの式は、はりの理論の応力分布で、試験片の角の面取りや支点の摩擦は考えていません。",
+            "設計の判断は、規格と専門家に従ってください。"
+          ],
+          "x_m": "ワイブル係数 m",
+          "y_ratio": "σ₂/σ₁",
+          "cap_size": "{a} から {b} への強さの比と m の関係(有効体積も m で変わる)。印は入れた m。",
+          "key_ratio": "σ₂/σ₁",
+          "key_one": "σ₂/σ₁ = 1",
+          "src_h": "出典:",
+          "src_pp": "reliability(Python)の資料: 破壊確率の推定の式",
+          "l_term": "ワイブル係数(用語集)",
+          "l_griffith": "グリフィスの理論",
+          "l_kic": "破壊靭性",
+          "l_formula": "公式集",
+          "l_learn": "金属は曲がるのにガラスはなぜ割れるの?",
+          "thermal_slug": "thermal-expansion-stress-calculator",
+          "l_thermal": "熱膨張・熱応力ラボ",
+          "l_cat": "セラミックスの分野"
+        }
+      },
+      "sections": [
+        {
+          "h": "最弱リンクの考え方",
+          "p": "ガラスやセラミックスのような脆い材料は、ほとんど塑性変形しないので、中にある最も大きな欠陥(き裂・気孔・傷)から一気に壊れます。鎖がいちばん弱い輪で切れるのと同じで、これを最弱リンクの考え方といいます。欠陥の大きさは試験片ごとに違うので、同じ製法の試験片でも強さがばらつき、応力のかかる体積が大きいほど大きな欠陥を含みやすいので、強さは下がります。ワイブル(1951)はこの考え方から、強さのばらつきを表す分布を示しました。"
+        },
+        {
+          "h": "ワイブル分布の式",
+          "p": "一様な引張の応力 σ がかかる体積 V の破壊確率は F = 1 − exp[−(V/V₀)(σ/σ₀)^m] と書けます。同じ寸法の試験片だけを扱うときは F = 1 − exp[−(σ/σ₀)^m] です。σ₀ は尺度母数(特性強さ)で、σ = σ₀ のとき F = 1 − 1/e ≈ 63.2 % です。m はワイブル係数(形状母数)で、大きいほど強さがそろっています。このツールは、強さが 0 から始まる2母数の形(しきい値の強さがない)を扱います。"
+        },
+        {
+          "h": "ワイブルプロットの作り方",
+          "p": "n 個の強さを小さい順に並べ、i 番目に破壊確率 Fᵢ を割り当てます。式の両辺の対数を2回とると ln ln[1/(1 − F)] = m ln σ − m ln σ₀ となるので、横軸に x = ln σ、縦軸に y = ln ln[1/(1 − F)] をとると、ワイブル分布に従うデータは直線に並びます。傾きが m で、y = 0 の点の σ が σ₀ です。点が直線から系統的に外れるときは、2母数のワイブル分布が合っていない(起点が混ざっている、しきい値があるなど)と考えます。"
+        },
+        {
+          "h": "破壊確率の推定の違い",
+          "p": "i 番目の試験片の破壊確率には、メジアンランク(ベナードの近似)(i − 0.3)/(n + 0.4)、平均ランク i/(n + 1)、(i − 0.5)/n などの式が使われます。どれも i/n に近い値ですが、両端の点の y が変わるので、回帰で出す m と σ₀ が少し違います。報告するときは、どの式を使ったかを書きます。Quinn・Quinn(2010)は (i − 0.5)/n を使い、n が 20 より多いときに偏りが最も小さいという報告を紹介しています。最尤法は F の推定を使わないので、この選び方に左右されません。"
+        },
+        {
+          "h": "回帰と最尤法の違い",
+          "p": "回帰(最小二乗)は、ワイブルプロットの縦の偏差の二乗和を最小にする直線を引きます。x と y を入れ替えて回帰すると、同じデータでも違う m になります。最尤法(MLE)は、データが出る確率(尤度)が最大になる m と σ₀ を選ぶ方法で、m は Σσᵢ^m ln σᵢ/Σσᵢ^m − 1/m − (1/n)Σ ln σᵢ = 0 の解、σ₀ は (Σσᵢ^m/n)^(1/m) です。Quinn・Quinn(2010)によると、回帰は低い強さの点に、最尤法は高い強さの点に引かれやすく、最尤法の信頼区間のほうが狭くなります。ASTM C1239 と ISO 20501 は最尤法を使い、偏りの補正と信頼区間の方法も定めています(このツールは補正をしていない値を出します)。"
+        },
+        {
+          "h": "寸法効果と有効体積",
+          "p": "試験法によって応力のかかり方が違うので、強さを比べるには有効体積 V_E(同じ破壊確率になる単軸引張の試験片の体積)を使います。単軸引張ではゲージ部の体積 V、長方形の断面のはりの3点曲げでは V_E = bdL/[2(m + 1)²]、4点曲げでは V_E = bdL(mL_i/L + 1)/[2(m + 1)²](1/4 点曲げは L_i = L/2 で bdL(m + 2)/[4(m + 1)²])です。強さは σ₁/σ₂ = (V_E2/V_E1)^(1/m) で換算します。例えば m = 10 で、同じ寸法の試験片の3点曲げの強さは、1/4 点の4点曲げより約 1.20 倍高く出ます。表面の傷で壊れるときは、有効面積で同じように換算します。"
+        },
+        {
+          "h": "m の読み方",
+          "p": "m は強さのそろい方を表し、変動係数(標準偏差/平均)は m = 10 で約 12 %、m = 20 で約 6 % です。強さの高さとは別のもので、低い破壊確率で使う設計では m が大きく効きます。σ₀ が同じでも、破壊確率 0.1 % の強さは m = 5 で σ₀ の約 0.25 倍、m = 20 で約 0.71 倍です。値は資料と材料で幅があり、工業用セラミックスで 5〜10 程度とする教科書の表や、アルミナで約 9〜10、歯科用のポーセレンで約 18 の測定例があります。金属は降伏でき裂の先が鈍るので m が大きく、同じ教科書の表ではアルミニウムと鋼で 90〜100 程度です。"
+        },
+        {
+          "h": "規格での扱い",
+          "p": "ファインセラミックスの強さのワイブル解析には、ASTM C1239、ISO 20501、JIS R 1625 などの規格があります。ASTM C1239 と ISO 20501 は、2母数のワイブル分布、主に一軸の応力の試験(引張・曲げなど)を対象にし、偏りの補正と信頼区間の方法は、すべての破壊が1種類の欠陥から起きる場合にだけ使えるとしています。寸法の換算は ASTM C1683 にあります。補正の係数・信頼区間の表・試験片の数の決まりは、このツールには載せていないので、規格の本文を参照してください。"
+        },
+        {
+          "h": "よくある誤り",
+          "p": "1つ目は ln と log₁₀ の取り違えです。片方の軸だけを log₁₀ にすると m が ln 10 ≈ 2.303 倍ずれ、σ₀ を出すときに exp と 10^ を取り違えると値が大きくずれます。2つ目は、並べ替えを忘れて、試験した順に Fᵢ を割り当てることです。3つ目は、F の推定の式の取り違え(i/n を使うと最後の点で F = 1 になり y が無限大になる)です。4つ目は寸法効果の向きで、体積が大きい部品のほうが強さは低くなります。5つ目は、3点曲げと4点曲げの強さをそのまま比べることです。6つ目は、x と y を逆にして回帰することです。"
+        }
+      ],
+      "faq": [
+        {
+          "q": "σ₀ は平均の強さですか?",
+          "a": "違います。σ₀ は破壊確率が 63.2 % になる強さ(特性強さ)です。平均は σ₀Γ(1 + 1/m) で、m = 10 なら σ₀ の約 0.951 倍です。中央値(F = 50 %)は σ₀(ln 2)^(1/m) です。"
+        },
+        {
+          "q": "何本の試験片が必要ですか?",
+          "a": "決まった本数はありませんが、本数が少ないほど m の推定のばらつきが大きくなります。Quinn・Quinn(2010)は、30 本ほどで十分なワイブルの母数が得られるという目安と、10 本より少ないと m の偏りが 5 % 以上になりうることを紹介しています。このツールは 5 個未満では計算しません。"
+        },
+        {
+          "q": "回帰と最尤法のどちらの m を使えばよいですか?",
+          "a": "ASTM C1239 と ISO 20501 は最尤法を使います。レポートで回帰の m を出すときは、F の推定の式と、どちらの軸に回帰したかを書いてください。どちらの場合も、個数と、規格による偏りの補正をしたかどうかを書くと、ほかの結果と比べられます。"
+        },
+        {
+          "q": "プロットが途中で折れています。",
+          "a": "破壊の起点の種類が混ざっている(表面の傷と内部の気孔など)ことが多い原因です。破面を観察して起点を分け、規格の方法で起点ごとに解析します。低い強さの側で下に曲がるときは、しきい値のある分布のこともありますが、しきい値を仮定するのは、確かな選別や検査がない限り危ないとされています。"
+        },
+        {
+          "q": "データの小数点がコンマです。",
+          "a": "「貼り付けの小数点」で「「,」(コンマ)」を選ぶと、412,5 を 412.5 と読みます。そのときは、値の区切りに空白・改行・セミコロン・タブを使ってください。「.」を選んでいるときは、コンマは値の区切りです。"
+        },
+        {
+          "q": "曲げ試験の強さを、引張の部品の設計に使えますか?",
+          "a": "そのままでは使えません。曲げは最大の応力がかかる体積が小さいので、強さが高く出ます。③の寸法効果で、有効体積の比から換算します。換算は同じ種類の欠陥で壊れることを前提にしており、寸法の差が大きいと誤差も大きくなります。"
+        },
+        {
+          "q": "信頼区間は出せますか?",
+          "a": "このツールでは出していません。ASTM C1239 と ISO 20501 には、最尤法の m と σ₀ の信頼区間と偏りの補正の方法があります。表の値は規格の本文を参照してください。"
+        }
+      ]
+    },
+    "en": {
+      "nav": "Weibull Analysis Lab",
+      "card": "Draw a Weibull plot from strength data, compare m and σ₀ from regression and maximum likelihood, and work out failure probability and strength, the mean and median, and the size effect through effective volume (3-point and 4-point bending, tension), with the equations and substituted values",
+      "title": "Weibull Analysis Lab (Weibull Modulus, MLE, Failure Probability, Size Effect)",
+      "description": "Paste strength data for brittle materials such as ceramics and glass: the tool ranks them, draws a Weibull plot (ln σ against ln ln(1/(1 − F))) with a regression line, and compares the Weibull modulus m and scale parameter σ₀ from regression and from maximum likelihood. It also gives the failure probability F(σ) = 1 − exp[−(σ/σ₀)^m], the strength at a chosen failure probability, the mean strength σ₀Γ(1 + 1/m) and the median, and converts strengths through the effective volumes of 3-point bending, 4-point bending and uniaxial tension. Equations, substituted values and sources included.",
+      "h1": "Weibull Analysis Lab",
+      "lead": "Three calculations that treat the strength scatter of brittle materials with the two-parameter Weibull distribution, each shown with the equation and the values substituted into it: (1) m and σ₀ from strength data (regression on the Weibull plot and maximum likelihood), (2) failure probability and strength from m and σ₀ (mean, median and strength at a low failure probability), and (3) the size effect through effective volume (conversion between 3-point bending, 4-point bending and uniaxial tension). Stresses are in MPa, dimensions in mm, and ln is the natural logarithm.",
+      "in_heading": "Input",
+      "out_heading": "Result",
+      "presets_h": "Examples",
+      "note": "The equations are standard ones checked against textbooks, papers and standard summaries (the Weibull distribution, failure probability estimators, maximum likelihood, and the effective volume equations of Quinn et al.). Sources are listed under the result. The bias correction and confidence intervals of the standards are not given. Base design decisions on standards (such as ASTM C1239, ISO 20501 and JIS R 1625) and expert judgment.",
+      "practice": "Practice questions on ceramic strength",
+      "related": "Related terms",
+      "chart_label": "Result chart",
+      "mode": "Calculation",
+      "mode_fit": "m and σ₀ from data",
+      "mode_prob": "Failure probability and strength",
+      "mode_size": "Size effect",
+      "est": "Estimator of F",
+      "est_med": "Median rank (i − 0.3)/(n + 0.4)",
+      "est_mean": "Mean rank i/(n + 1)",
+      "est_hazen": "(i − 0.5)/n",
+      "dec": "Decimal mark in data",
+      "dec_dot": "Point (.)",
+      "dec_comma": "Comma (,)",
+      "pm": "Weibull modulus m",
+      "ps0": "Scale parameter σ₀ (MPa)",
+      "psig": "Stress σ (MPa)",
+      "pf": "Failure probability F (%)",
+      "pm2": "m to compare (optional)",
+      "sm": "Weibull modulus m",
+      "ss1": "Strength σ₁ in test 1 (MPa)",
+      "g1": "Test 1 type",
+      "g1_t3": "3-point bending",
+      "g1_q4": "4-point (1/4-point)",
+      "g1_h4": "4-point (1/3-point)",
+      "g1_ten": "Uniaxial tension",
+      "g1_v": "Enter V_E",
+      "b1": "Width b (mm)",
+      "d1": "Height d (mm)",
+      "l1": "Outer span L (mm)",
+      "v1": "Effective volume V_E1 (mm³)",
+      "g2": "Test 2 (convert to) type",
+      "g2_t3": "3-point bending",
+      "g2_q4": "4-point (1/4-point)",
+      "g2_h4": "4-point (1/3-point)",
+      "g2_ten": "Uniaxial tension",
+      "g2_v": "Enter V_E",
+      "b2": "Width b (mm)",
+      "d2": "Height d (mm)",
+      "l2": "Outer span L (mm)",
+      "v2": "Effective volume V_E2 (mm³)",
+      "js": {
+        "ui": {
+          "tabs_label": "Type of calculation",
+          "tab_fit": "1 m, σ₀ from data",
+          "tab_prob": "2 Probability and strength",
+          "tab_size": "3 Size effect",
+          "examples": "Examples:",
+          "ex": [
+            "m and σ₀ from 20 alumina 3-point bars",
+            "Regression vs. MLE on the same data",
+            "Strength at 0.1 % failure probability",
+            "Small specimen to large part",
+            "3-point vs. 4-point bending",
+            "m = 5 vs. m = 20"
+          ],
+          "ex_note": "The example values and the values already in the input fields (such as the 20 alumina 3-point bending strengths and the specimen dimensions) are made up to show how the calculation works. They are not measured data for any real material or part.",
+          "est_med": "Median rank (i − 0.3)/(n + 0.4)",
+          "est_mean": "Mean rank i/(n + 1)",
+          "est_hazen": "(i − 0.5)/n",
+          "g1_t3": "3-point bending",
+          "g1_q4": "4-point (1/4-point)",
+          "g1_h4": "4-point (1/3-point)",
+          "g1_ten": "uniaxial tension",
+          "g1_v": "the test with the entered V_E",
+          "sub_1": "Test 1 (original strength)",
+          "sub_2": "Test 2 (convert to)",
+          "b_bend": "Width b (mm)",
+          "d_bend": "Height d (mm)",
+          "l_bend": "Outer span L (mm)",
+          "b_ten": "Section width b (mm)",
+          "d_ten": "Section thickness d (mm)",
+          "l_ten": "Gauge length L (mm)",
+          "paste": "Strength data (MPa, about 10 to 100 values)",
+          "paste_ph": "384, 300, 298, 371, …",
+          "paste_help": "With the point (.) as decimal mark, values are separated by commas, spaces, line breaks, semicolons or tabs; with the comma (,), by spaces, line breaks, semicolons or tabs (412,5 is then read as 412.5, and numbers containing “.” are not read). Enter values without units. The tool sorts them. Data up to 1800 characters is included in the share URL.",
+          "read": "Read {n} values (min {a}, max {b} MPa).",
+          "read_none": "No readable numbers.",
+          "bad_tok": "Removed items that cannot be read as numbers ({n}): {t}",
+          "maybe_comma": "Some commas sit between digits (as in 412,5). If your data uses the comma as decimal mark, set “Decimal mark in data” to “Comma (,)”.",
+          "share_long": "The data is long ({n} values), so it is not included in the share URL. Opening this URL shows the first example’s data in the data field.",
+          "err_few": "There are {n} values. Enter at least {k} to find m and σ₀ (a reliable m calls for several tens).",
+          "err_neg": "Some values are 0 or less ({v}). Enter strengths greater than 0.",
+          "err_same": "All values are the same, so there is no scatter and m cannot be found (m is unbounded).",
+          "mle_big": "The maximum likelihood m exceeds 10,000 (the values are almost identical). No maximum likelihood values are shown.",
+          "mle_small": "The maximum likelihood m is below 0.001. Check the data. No maximum likelihood values are shown.",
+          "mle_noconv": "The maximum likelihood equation did not converge. No maximum likelihood values are shown.",
+          "fit_main": "From {n} strengths, maximum likelihood gives m = {m} and σ₀ = {s} MPa. Regression on the Weibull plot ({e}) gives m = {mr} and σ₀ = {sr} MPa (R² = {r2}).",
+          "fit_main_reg": "From {n} strengths, regression on the Weibull plot ({e}) gives m = {mr} and σ₀ = {sr} MPa (R² = {r2}).",
+          "few_n": "With only {n} values, the estimate of m scatters widely. Quinn and Quinn (2010) note that with fewer than 10 specimens the bias in m can be 5 % or more, and give a rule of thumb that about 30 specimens provide adequate Weibull parameters.",
+          "s_n": "Number n",
+          "s_m_mle": "m (MLE)",
+          "s_s0_mle": "σ₀ (MLE)",
+          "s_m_reg": "m (regression)",
+          "s_s0_reg": "σ₀ (regression)",
+          "s_r2": "R²",
+          "s_mean": "Mean of data",
+          "s_sd": "Standard deviation {s} MPa (coefficient of variation {c} %)",
+          "h_cmp": "Differences between estimation methods",
+          "cmp_cols": [
+            "Method",
+            "m",
+            "σ₀ (MPa)",
+            "R²"
+          ],
+          "row_reg": "Regression, {e}",
+          "row_rev": "For reference: ln σ regressed on y ({e})",
+          "row_mle": "Maximum likelihood",
+          "cmp_diff": "The regression m differs from the maximum likelihood m by {d} %, and σ₀ by {s} %.",
+          "cmp_note": "Regression usually regresses ln ln(1/(1 − F)) on the vertical axis onto ln σ on the horizontal axis (minimizing vertical deviations). The “For reference” row swaps x and y, which changes m even for the same data. ASTM C1239 and ISO 20501 specify estimation by maximum likelihood. For bias correction of m and confidence intervals, refer to the standards.",
+          "h_eq": "Equations and substituted values",
+          "fit_eq_lead": "Rank the strengths from smallest to largest, σ₁ ≤ σ₂ ≤ … ≤ σₙ, and estimate the failure probability Fᵢ of the i-th. With x = ln σ and y = ln ln(1/(1 − F)), the Weibull distribution becomes the straight line y = m x − m ln σ₀, so the slope is m, and σ₀ = exp(−b/m) from the intercept b.",
+          "eq_sort": "Ranked: σ₁ = {a} … σₙ = {b} MPa",
+          "eqf_med": "({i} − 0.3)/({n} + 0.4)",
+          "eqf_mean": "{i}/({n} + 1)",
+          "eqf_hazen": "({i} − 0.5)/{n}",
+          "eq_icpt": "intercept",
+          "eq_mle": "Maximum likelihood (uses no estimator of F; maximizes the likelihood of the data):",
+          "eq_it": " (bisection and Newton’s method, {k} steps)",
+          "fit_eq_note": "ln is the natural logarithm. Using log₁₀ on both axes gives the same slope m, but using it on only one axis shifts the slope by a factor of ln 10 ≈ 2.303, and exp and 10^ are also easy to mix up when finding σ₀, so this tool uses ln throughout.",
+          "low_r2": "R² is below 0.9 and the points depart from a straight line. Possible causes are mixed fracture origins (a kinked plot), a threshold, or data entry errors. Check the fracture origins on the fracture surfaces.",
+          "h_data": "Ranked data",
+          "data_cols": [
+            "i",
+            "σᵢ (MPa)",
+            "Fᵢ",
+            "x = ln σᵢ",
+            "y = ln ln(1/(1 − Fᵢ))"
+          ],
+          "data_note": "Fᵢ is estimated with {e}.",
+          "to_prob": "Calculate failure probability and strength with this m and σ₀ (MLE)",
+          "h_caution": "Cautions",
+          "fit_cautions": [
+            "This assumes the two-parameter Weibull distribution (no threshold strength).",
+            "This assumes failure from a single type of flaw (fracture origin). When origins are mixed, such as surface scratches and internal pores, the plot kinks and cannot be described by one straight line. The standards specify methods that analyze each origin separately (censored analysis).",
+            "Delayed fracture from stress corrosion or fatigue (weakening over time) is not covered.",
+            "The fewer the values, the more the estimate of m scatters, and the maximum likelihood m is known to come out high with few values (it is biased).",
+            "Base design decisions on standards (such as ASTM C1239, ISO 20501 and JIS R 1625) and expert judgment."
+          ],
+          "x_ln": "ln(σ/MPa)",
+          "y_ln": "ln ln(1/(1 − F))",
+          "cap_fit": "Weibull plot ({a} to {b} MPa). The closer the points lie to a straight line, the better they fit the two-parameter Weibull distribution.",
+          "key_pts": "Data ({e})",
+          "key_reg": "Regression line",
+          "key_mle": "Maximum likelihood line",
+          "need_ms": "Enter the Weibull modulus m and the scale parameter σ₀ (both greater than 0).",
+          "need_f": "Enter a failure probability F greater than 0 % and less than 100 %.",
+          "m_odd": "m is outside 1 to 60, an unusual value for the strength of ceramics or glass. Check the input.",
+          "prob_main_f": "The failure probability at a stress of {s} MPa is F = {f}.",
+          "prob_main_s": "The strength at a failure probability of {f} is {s} ({r} times σ₀).",
+          "prob_main_none": "Weibull distribution with m = {m} and σ₀ = {s} MPa.",
+          "s_f": "Failure probability F(σ)",
+          "s_sf": "Strength at {f}",
+          "s_meanw": "Mean strength",
+          "s_med": "Median (F = 50 %)",
+          "s_cov": "Coefficient of variation",
+          "s_g": "Γ(1 + 1/m)",
+          "eq_mean": "Mean =",
+          "eq_med": "Median =",
+          "eq_cov": "Coefficient of variation =",
+          "prob_eq_lead": "From the two-parameter Weibull distribution F(σ) = 1 − exp[−(σ/σ₀)^m], the strength for a given F is σ = σ₀[−ln(1 − F)]^(1/m). At σ = σ₀, F = 1 − 1/e ≈ 63.2 %.",
+          "prob_eq_note": "Γ is the gamma function (calculated with the Lanczos approximation). σ₀ is close to the mean strength but is not the mean itself.",
+          "h_table": "Failure probability and strength",
+          "col_f": "Failure probability F",
+          "col_s": "Strength",
+          "col_r": "σ/σ₀",
+          "col_sm": "Strength (m = {m})",
+          "row_mean": "Mean strength",
+          "row_cov": "Coefficient of variation",
+          "h_two": "m = {a} vs. m = {b} (same σ₀ = {s} MPa)",
+          "two_note": "Even with the same σ₀, the strength at a failure probability of {f} is {ra} times σ₀ for m = {a} and {rb} times for m = {b}. In designs that require a low failure probability, a difference in m matters about as much as a difference in strength itself.",
+          "table_note": "10⁻⁴ % is 1 in a million. Strengths at such low failure probabilities are extrapolations beyond the range of the data.",
+          "h_read": "Reading m",
+          "read_m": [
+            "The larger m is, the smaller the strength scatter, and the F(σ) curve rises steeply around σ₀.",
+            "m expresses how uniform the strength is, not how high. A material with high mean strength but small m includes pieces that fail at low stress.",
+            "The coefficient of variation (standard deviation/mean) is set almost entirely by m: about 23 % for m = 5, about 12 % for m = 10 and about 6 % for m = 20.",
+            "Values vary between sources and materials. A textbook table gives about 5 to 10 for engineering ceramics (SiC, Al₂O₃, Si₃N₄), below 3 for traditional ceramics such as brick, pottery and chalk, and about 90 to 100 for aluminum and steel (Table 1 of Guo et al. 2017, taken from the textbook by Meyers and Chawla); measured examples for dental materials are about 9 to 10 for alumina and about 18 for porcelain (Quinn and Quinn 2010)."
+          ],
+          "prob_cautions": [
+            "This assumes the two-parameter Weibull distribution (no threshold) and failure from a single type of flaw.",
+            "m and σ₀ belong to the test type and size. For parts of another size or test method, convert them with the size effect in calculation 3 first.",
+            "Delayed fracture from stress corrosion or fatigue is not covered. In parts under long-term load, strength can decrease over time.",
+            "Base design decisions on standards and expert judgment."
+          ],
+          "x_s": "Stress σ (MPa)",
+          "y_f": "Failure probability F (%)",
+          "cap_prob": "Failure probability F(σ) (σ₀ = {s} MPa). The marker is the value at the stress entered.",
+          "need_m": "Enter the Weibull modulus m (greater than 0).",
+          "need_dims": "Enter the dimensions (b, d, L) or the effective volume V_E of both tests, greater than 0.",
+          "size_main": "With m = {m}, a strength of {s1} MPa in {a} corresponds to {s2} in {b} (σ₂/σ₁ = {r}).",
+          "size_main_r": "With m = {m}, the strength in {b} is {r} times that in {a} (enter the strength of test 1 to convert it).",
+          "s_ve1": "Effective volume of test 1, V_E1",
+          "s_ve2": "Effective volume of test 2, V_E2",
+          "s_vr": "V_E2/V_E1",
+          "s_ratio": "Strength ratio σ₂/σ₁",
+          "s_s2": "Strength in test 2, σ₂",
+          "eq_given": "entered",
+          "size_eq_lead": "From the weakest-link idea, the larger the stressed volume, the more likely it contains a large flaw, and the lower the strength. The effective volume V_E is the volume of a uniaxial tension specimen with the same failure probability. Strengths in two tests (characteristic, mean or median strength) are converted with σ₁/σ₂ = (V_E2/V_E1)^(1/m).",
+          "size_eq_note": "The bending equations are for specimens of rectangular cross section failing from flaws distributed in the volume (Quinn and Quinn 2010; ASTM C1683 as cited by Arndt et al.). L is the outer span, and L_i for 4-point bending is the inner span (L/2 for 1/4-point, L/3 for 1/3-point). For failure from surface scratches, effective area is used (for its equations, refer to standards such as ASTM C1683).",
+          "h_bend": "3-point and 4-point bending",
+          "bend_note": "Even for specimens of the same size, the strength in {a} is {r} times that in {b}. In 3-point bending the maximum stress acts only near the center line, so the effective volume is small and the strength comes out high. Do not compare strengths from different bending methods directly.",
+          "size_cautions": [
+            "This assumes that the same type of flaw controls failure in both tests and that m is the same. Volume flaws and surface scratches cannot be converted into each other.",
+            "A conversion over a large size ratio (from small specimens to a large part) is an extrapolation, and errors in m have a large effect.",
+            "The bending equations use the stress distribution of beam theory and do not consider chamfered specimen edges or friction at the supports.",
+            "Base design decisions on standards and expert judgment."
+          ],
+          "x_m": "Weibull modulus m",
+          "y_ratio": "σ₂/σ₁",
+          "cap_size": "Strength ratio from {a} to {b} against m (the effective volumes also change with m). The marker is the m entered.",
+          "key_ratio": "σ₂/σ₁",
+          "key_one": "σ₂/σ₁ = 1",
+          "src_h": "Sources:",
+          "src_pp": "reliability (Python) documentation: plotting position formulas",
+          "l_term": "Weibull modulus (glossary)",
+          "l_griffith": "Griffith theory",
+          "l_kic": "Fracture toughness",
+          "l_formula": "Formulas",
+          "thermal_slug": "thermal-expansion-stress-calculator",
+          "l_thermal": "Thermal Expansion and Stress Lab",
+          "l_cat": "Ceramics"
+        }
+      },
+      "sections": [
+        {
+          "h": "The weakest-link idea",
+          "p": "Brittle materials such as glass and ceramics deform hardly at all plastically, so they fail suddenly from the largest flaw inside (a crack, pore or scratch). Just as a chain breaks at its weakest link, this is called the weakest-link idea. Flaw sizes differ from specimen to specimen, so strength scatters even among specimens made the same way, and the larger the stressed volume, the more likely it contains a large flaw, so strength decreases. From this idea, Weibull (1951) proposed a distribution describing the strength scatter."
+        },
+        {
+          "h": "The Weibull distribution",
+          "p": "The failure probability of a volume V under a uniform tensile stress σ can be written F = 1 − exp[−(V/V₀)(σ/σ₀)^m]. When only specimens of the same size are considered, F = 1 − exp[−(σ/σ₀)^m]. σ₀ is the scale parameter (characteristic strength); at σ = σ₀, F = 1 − 1/e ≈ 63.2 %. m is the Weibull modulus (shape parameter); the larger it is, the more uniform the strength. This tool handles the two-parameter form, in which strength starts from 0 (no threshold strength)."
+        },
+        {
+          "h": "Making a Weibull plot",
+          "p": "Rank the n strengths from smallest to largest and assign a failure probability Fᵢ to the i-th. Taking logarithms of both sides twice gives ln ln[1/(1 − F)] = m ln σ − m ln σ₀, so with x = ln σ on the horizontal axis and y = ln ln[1/(1 − F)] on the vertical axis, data following the Weibull distribution lie on a straight line. The slope is m, and σ at y = 0 is σ₀. When the points depart systematically from the line, the two-parameter Weibull distribution does not fit (mixed origins, a threshold and so on)."
+        },
+        {
+          "h": "Differences between estimators of failure probability",
+          "p": "For the failure probability of the i-th specimen, formulas such as the median rank (Benard’s approximation) (i − 0.3)/(n + 0.4), the mean rank i/(n + 1) and (i − 0.5)/n are used. All are close to i/n, but the y of the end points changes, so the m and σ₀ from regression differ slightly. When reporting, state which formula was used. Quinn and Quinn (2010) use (i − 0.5)/n and cite a report that it gives the least bias when n is more than 20. Maximum likelihood does not use an estimator of F, so it does not depend on this choice."
+        },
+        {
+          "h": "Regression vs. maximum likelihood",
+          "p": "Regression (least squares) draws the line that minimizes the sum of squared vertical deviations on the Weibull plot. Swapping x and y in the regression gives a different m even for the same data. Maximum likelihood estimation (MLE) chooses the m and σ₀ that maximize the probability (likelihood) of the data: m is the solution of Σσᵢ^m ln σᵢ/Σσᵢ^m − 1/m − (1/n)Σ ln σᵢ = 0, and σ₀ is (Σσᵢ^m/n)^(1/m). According to Quinn and Quinn (2010), regression tends to chase the low-strength points and MLE the high-strength points, and the confidence intervals from MLE are tighter. ASTM C1239 and ISO 20501 use maximum likelihood and also specify methods for bias correction and confidence intervals (this tool gives uncorrected values)."
+        },
+        {
+          "h": "Size effect and effective volume",
+          "p": "Test methods load specimens differently, so strengths are compared through the effective volume V_E (the volume of a uniaxial tension specimen with the same failure probability). In uniaxial tension V_E is the gauge volume V; for a beam of rectangular cross section, V_E = bdL/[2(m + 1)²] in 3-point bending and V_E = bdL(mL_i/L + 1)/[2(m + 1)²] in 4-point bending (for 1/4-point bending, L_i = L/2 gives bdL(m + 2)/[4(m + 1)²]). Strengths are converted with σ₁/σ₂ = (V_E2/V_E1)^(1/m). For example, with m = 10, the 3-point bending strength of a specimen of the same size comes out about 1.20 times higher than the 1/4-point 4-point bending strength. For failure from surface scratches, effective area is used in the same way."
+        },
+        {
+          "h": "Reading m",
+          "p": "m expresses how uniform the strength is: the coefficient of variation (standard deviation/mean) is about 12 % for m = 10 and about 6 % for m = 20. It is separate from how high the strength is, and m matters greatly in designs used at low failure probabilities. Even with the same σ₀, the strength at a failure probability of 0.1 % is about 0.25 times σ₀ for m = 5 and about 0.71 times for m = 20. Values vary between sources and materials: a textbook table gives about 5 to 10 for engineering ceramics, and measured examples are about 9 to 10 for alumina and about 18 for dental porcelain. In metals, yielding blunts crack tips, so m is large; the same textbook table gives about 90 to 100 for aluminum and steel."
+        },
+        {
+          "h": "How the standards treat it",
+          "p": "Standards for Weibull analysis of the strength of fine (advanced) ceramics include ASTM C1239, ISO 20501 and JIS R 1625. ASTM C1239 and ISO 20501 cover the two-parameter Weibull distribution and tests with mainly uniaxial stress (tension, bending and so on), and state that the methods for bias correction and confidence intervals apply only when all failures come from a single type of flaw. Size conversion is in ASTM C1683. Correction factors, confidence interval tables and rules on the number of specimens are not included in this tool; refer to the text of the standards."
+        },
+        {
+          "h": "Common mistakes",
+          "p": "The first is mixing up ln and log₁₀. Using log₁₀ on only one axis shifts m by a factor of ln 10 ≈ 2.303, and confusing exp and 10^ when finding σ₀ shifts the value greatly. The second is forgetting to sort and assigning Fᵢ in the order tested. The third is using the wrong estimator of F (with i/n, the last point has F = 1 and y becomes infinite). The fourth is the direction of the size effect: the part with the larger volume has the lower strength. The fifth is comparing 3-point and 4-point bending strengths directly. The sixth is regressing with x and y reversed."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is σ₀ the mean strength?",
+          "a": "No. σ₀ is the strength at which the failure probability is 63.2 % (the characteristic strength). The mean is σ₀Γ(1 + 1/m), about 0.951 times σ₀ for m = 10. The median (F = 50 %) is σ₀(ln 2)^(1/m)."
+        },
+        {
+          "q": "How many specimens are needed?",
+          "a": "There is no fixed number, but the fewer the specimens, the more the estimate of m scatters. Quinn and Quinn (2010) give a rule of thumb that about 30 specimens provide adequate Weibull parameters, and note that with fewer than 10 the bias in m can be 5 % or more. This tool does not calculate with fewer than 5 values."
+        },
+        {
+          "q": "Should I use the m from regression or from maximum likelihood?",
+          "a": "ASTM C1239 and ISO 20501 use maximum likelihood. If you report a regression m, state the estimator of F and which axis was regressed onto which. In either case, stating the number of specimens and whether the bias correction of the standards was applied makes the result comparable with others."
+        },
+        {
+          "q": "My plot kinks partway.",
+          "a": "A common cause is mixed types of fracture origin (such as surface scratches and internal pores). Examine the fracture surfaces, separate the origins, and analyze each origin with the methods of the standards. A downward curve on the low-strength side may indicate a distribution with a threshold, but assuming a threshold is considered risky without careful screening or inspection."
+        },
+        {
+          "q": "My data uses the comma as decimal mark.",
+          "a": "Choose “Comma (,)” under “Decimal mark in data” and 412,5 is read as 412.5. Then separate values with spaces, line breaks, semicolons or tabs. With “Point (.)” selected, commas separate values."
+        },
+        {
+          "q": "Can bending strengths be used to design parts loaded in tension?",
+          "a": "Not directly. In bending the volume under the maximum stress is small, so the strength comes out high. Convert with the size effect in calculation 3, from the ratio of effective volumes. The conversion assumes failure from the same type of flaw, and the larger the size difference, the larger the error."
+        },
+        {
+          "q": "Can the tool give confidence intervals?",
+          "a": "Not in this tool. ASTM C1239 and ISO 20501 contain methods for confidence intervals and bias correction of the maximum likelihood m and σ₀. For the table values, refer to the text of the standards."
+        }
+      ]
+    }
+  }
+}

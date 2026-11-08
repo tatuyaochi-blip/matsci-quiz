@@ -11,7 +11,7 @@
 import { readFileSync } from 'node:fs';
 
 const tools = {};
-for (const id of ['measure', 'creep', 'stress', 'ellingham', 'fatigue', 'corrosionrate', 'polymercalc', 'steelcolor', 'tensile', 'galvanic', 'micro', 'materials',
+for (const id of ['measure', 'weibull', 'creep', 'stress', 'ellingham', 'fatigue', 'corrosionrate', 'polymercalc', 'steelcolor', 'tensile', 'galvanic', 'micro', 'materials',
   'fe-c', 'ashby', 'diffusion', 'composite', 'xrd', 'thermal', 'lever', 'xtal', 'eng', 'ptable', 'drill']) {
   try { tools[id] = await import(`../src/js/${id}.js`); } catch (e) { tools[id] = e; }
 }
@@ -55,6 +55,40 @@ T('measure', '境目: 0・負の値・E562 の格子の表', '① ASTM E562 の�
   ['stats 1 個の s', m.stats([3]).s, null, EQ], ['pointFieldsFor(p = 0)', m.pointFieldsFor(10, 0, 100), null, EQ],
   ['gridFor(3 %)', m.gridFor(0.03), 100, EQ], ['gridFor(7 %)', m.gridFor(0.07), 49, EQ], ['gridFor(15 %)', m.gridFor(0.15), 25, EQ], ['gridFor(50 %)', m.gridFor(0.5), 16, EQ],
   ['gridFor(97 %、少ない方で見る)', m.gridFor(0.97), 100, EQ]]);
+
+// =====================================================================
+// weibull(ワイブル解析ラボ): 破壊確率の推定と回帰、最尤法、ガンマ関数、破壊確率と強さ、有効体積と寸法効果
+// ②の python は review の check/calc_weibull.py(numpy.polyfit・scipy の brentq と weibull_min.fit・math.gamma。122 項目一致)
+// =====================================================================
+T('weibull', '問題 ceramics-006・007 と公式集の例', '① 問題 ceramics-006(σ₀ 400・m 10・300 MPa → Pf ≈ 0.055)、ceramics-007(m 10・体積 10 倍 → 500 × 0.1^0.1 ≈ 397 MPa)、公式集 weibull の例(m 10・σ₀ 300・200 MPa → 0.0172)。σ = σ₀ で 1 − 1/e', m => [
+  ['ceramics-006', m.failProb(300, 10, 400), 0.0548, abs(0.0005)], ['ceramics-007', m.sizeScale(500, 1, 10, 10), 397, abs(0.5)], ['公式集の例', m.failProb(200, 10, 300), 0.0172, abs(0.00005)],
+  ['σ = σ₀', m.failProb(400, 7, 400), 1 - Math.exp(-1), rel(1e-12)]]);
+T('weibull', '例①②: 20 本の回帰(3つの推定)と最尤法', '② calc_weibull.py(numpy.polyfit で y = ln ln(1/(1 − F)) を ln σ に回帰。MLE は brentq で式を解き、scipy.stats.weibull_min.fit(floc=0)でも m 11.27231・σ₀ 373.9922)', m => {
+  const a = m.regress(m.SAMPLE, 'med'), b = m.regress(m.SAMPLE, 'hazen'), c = m.regress(m.SAMPLE, 'mean'), q = m.mle(m.SAMPLE);
+  return [['med m', a.m, 10.53902261094418, rel(1e-9)], ['med σ₀', a.s0, 374.64677844007076, rel(1e-9)], ['med R²', a.r2, 0.9270551764371404, rel(1e-9)],
+    ['hazen m', b.m, 11.115974730372834, rel(1e-9)], ['hazen σ₀', b.s0, 374.2749971680074, rel(1e-9)], ['逆向きの回帰 m(med)', a.mRev, 11.368279773214567, rel(1e-9)],
+    ['mean F₁ = 1/21', c.F[0], 1 / 21, rel(1e-12)], ['MLE m', q.m, 11.272298290233856, rel(1e-9)], ['MLE σ₀', q.s0, 373.9921760225497, rel(1e-9)]];
+});
+T('weibull', '最尤法の境目: n = 5・ばらつきが大きい・とても小さい', '② calc_weibull.py(brentq と logsumexp で解いた MLE の式)と関数の決まり(5 個未満は few、0 以下は neg、全部同じは same、m > 10⁴ は big)', m => [
+  ['n = 5 の m', m.mle([310, 352, 287, 401, 365]).m, 9.70696733340357, rel(1e-9)], ['m が小さい', m.mle([40, 95, 160, 210, 260, 330, 420, 515]).m, 1.6874640426071874, rel(1e-9)],
+  ['m がとても大きい', m.mle([500.0, 500.5, 501.0, 501.2, 499.4, 500.8, 499.9]).m, 987.6792886727733, rel(1e-8)], ['n = 4', m.mle([1, 2, 3, 4]).error, 'few', EQ],
+  ['全部同じ', m.regress([400, 400, 400, 400, 400]).error, 'same', EQ], ['0 を含む', m.mle([0, 300, 310, 320, 330]).error, 'neg', EQ], ['m > 10⁴', m.mle([400, 400, 400, 400, 400.0001]).error, 'big', EQ]]);
+T('weibull', 'ガンマ関数(ランチョスの近似)', '② Python の math.gamma(Γ(1.1) 0.951350769866873、Γ(1.2) 0.9181687423997604、Γ(0.5) = √π、Γ(3.5) 3.323350970447842)', m => [
+  ['Γ(1.1)', m.gamma(1.1), 0.951350769866873, rel(1e-13)], ['Γ(1.2)', m.gamma(1.2), 0.9181687423997604, rel(1e-13)], ['Γ(0.5)', m.gamma(0.5), Math.sqrt(Math.PI), rel(1e-13)],
+  ['Γ(3.5)', m.gamma(3.5), 3.323350970447842, rel(1e-13)], ['Γ(1.05)', m.gamma(1.05), 0.9735042655627756, rel(1e-13)]]);
+T('weibull', '例③⑥: 破壊確率・強さ・平均・中央値・変動係数', '② calc_weibull.py(scipy.stats.weibull_min の cdf・ppf・mean・median・std)', m => [
+  ['③ F(300)', m.failProb(300, 11.3, 374), 0.0794631384108593, rel(1e-9)], ['③ σ(0.1 %)', m.strengthAt(1e-3, 11.3, 374), 202.95703101276877, rel(1e-9)],
+  ['③ 平均', m.meanStrength(11.3, 374), 357.5780780938831, rel(1e-12)], ['③ 中央値', m.medianStrength(11.3, 374), 362.0640122747868, rel(1e-12)],
+  ['⑥ m 5 の σ(0.1 %)', m.strengthAt(1e-3, 5, 400), 100.48550949791331, rel(1e-9)], ['⑥ m 20 の σ(0.1 %)', m.strengthAt(1e-3, 20, 400), 283.18539625161196, rel(1e-9)],
+  ['変動係数 m 10', m.cov(10), 0.12031021893115534, rel(1e-9)], ['変動係数 m 5', m.cov(5), 0.22905293328137888, rel(1e-9)], ['F = 0.5 の強さ = 中央値', m.strengthAt(0.5, 10, 400), m.medianStrength(10, 400), rel(1e-12)],
+  ['F = 1 は NaN', m.strengthAt(1, 10, 400), NaN, EQ]]);
+T('weibull', '例④⑤: 有効体積と寸法効果', '① Quinn & Quinn(2010)の 3点曲げ V_E = bdL/[2(m + 1)²]、1/4 点曲げ bdL(m + 2)/[4(m + 1)²] と σ₃pt/σ₄pt = [(m + 2)/2]^(1/m)、② calc_weibull.py(1/3 点は一般式 bdL(mL_i/L + 1)/[2(m + 1)²])', m => {
+  const a = m.effVolume('t3', 11.3, { b: 4, d: 3, L: 30 }).ve, t = m.effVolume('ten', 11.3, { b: 10, d: 10, L: 50 }).ve;
+  const b3 = m.effVolume('t3', 11.3, { b: 4, d: 3, L: 40 }).ve, b4 = m.effVolume('q4', 11.3, { b: 4, d: 3, L: 40 }).ve;
+  return [['④ V_E(3点)', a, 1.189767995240928, rel(1e-12)], ['④ V_E(引張)', t, 5000, rel(1e-12)], ['④ σ₂', m.sizeScale(374, a, t, 11.3), 178.7340111909095, rel(1e-9)],
+    ['⑤ V_E(1/4 点)', b4, 10.54927622446956, rel(1e-12)], ['⑤ σ₃/σ₄', 374 / m.sizeScale(374, b3, b4, 11.3), (13.3 / 2) ** (1 / 11.3), rel(1e-12)],
+    ['1/3 点 m 10', m.effVolume('h4', 10, { b: 4, d: 3, L: 30 }).ve, 6.446280991735538, rel(1e-12)], ['寸法が 0', m.effVolume('t3', 10, { b: 0, d: 3, L: 30 }), null, EQ]];
+});
 
 // =====================================================================
 // stress(応力状態ラボ): 平面応力の変換・主応力、3次元の固有値と不変量、トレスカ・ミーゼス、薄肉円筒、ロゼット、平面ひずみ
