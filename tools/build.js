@@ -1459,8 +1459,8 @@ ${main && qs[main.id]?.length ? `<p class="learn-quiz muted">${esc(LT.quizLine)}
           .replace('<div class="mode-grid">', `<div class="mode-grid">
   <a class="mode-card primary" href="${home}quiz/?mode=category&amp;c=${c.id}&amp;n=10" rel="nofollow">
     <strong>${esc(t('practice_10'))}</strong><span>${esc(t('practice_10_desc'))}</span>
-  </a>`) + toolsIn(code).filter(x => x.cats.includes(c.id))
-          .map(x => `\n<p><a class="btn btn-ghost" href="${home}tools/${x.slug}/">${esc(x.text[code].nav)} →</a></p>`).join('')
+  </a>`) + (catTools => (catTools.length ? `\n<p class="cat-tools"><span class="cat-tools-label">${esc(t('figure_tools'))}</span>${catTools
+          .map(x => `<a class="chip" href="${home}tools/${x.slug}/" data-track="cat_tool">${esc(x.text[code].nav)}</a>`).join('')}</p>` : ''))(toolsIn(code).filter(x => x.cats.includes(c.id)))
           + (beyondCats.includes(c.id) && beyondText[code] && pageNames(code).includes('beyond-scaling') ? `\n<p><a class="btn btn-ghost" href="${home}beyond-scaling/">${esc(beyondText[code].link)} →</a></p>` : '')
           : `<p class="muted">${esc(t('preparing'))}</p>`,
         siblings: catCards(live.filter(x => x.exam === c.exam && x.group === c.group && x.id !== c.id)),
@@ -3078,8 +3078,9 @@ ${toolsIn(code).length > 1 ? `<section>
   <div data-list="recent" hidden><h2>${esc(t('tools_recent'))}</h2><div class="mode-grid compact"></div></div>
   <p class="muted">${esc(t('tools_local_note'))}</p>
 </section>
-${toolGroups().map(g => `<section>
-  <h2>${esc(g.name)}</h2>
+${toolGroups().length > 1 ? `<nav class="tool-jump" aria-label="${esc(S.tools_title)}">${toolGroups().map((g, i) => `<a class="chip" href="#tg-${i + 1}">${esc(g.name)}<small>${g.items.length}</small></a>`).join('')}</nav>` : ''}
+${toolGroups().map((g, i) => `<section id="tg-${i + 1}" class="tool-group">
+  <h2 class="group-title">${esc(g.name)}</h2>
   <div class="mode-grid tool-all">${g.items.map(y => `<a class="mode-card" data-tool="${y.id}" href="${home}tools/${y.slug}/"><strong>${esc(y.text[code].h1)}</strong><span>${esc(y.text[code].card)}</span></a>`).join('')}</div>
 </section>`).join('\n')}
 <div data-ad="tools"></div>`,

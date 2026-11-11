@@ -16,7 +16,9 @@ const learn = fs.existsSync(path.join(root, 'data/learn.json')) ? readJSON('data
 const cats = new Set(readJSON('data/categories.json').map(c => c.id));
 const glossary = readJSON('data/glossary.json');
 const termOk = k => glossary.some(g => g.term === k || (g.aliases ?? []).includes(k));
-const figs = new Set(fs.readdirSync(path.join(root, 'data/figures')).map(f => f.replace(/\.svg$/, '')));
+// 図がまだ1つもないサイトでは data/figures がない(空のフォルダは git に残らない)
+const figDir = path.join(root, 'data/figures');
+const figs = new Set((fs.existsSync(figDir) ? fs.readdirSync(figDir) : []).map(f => f.replace(/\.svg$/, '')));
 const today = new Date().toISOString().slice(0, 7);
 
 const dir = path.join(root, 'src/learn');
