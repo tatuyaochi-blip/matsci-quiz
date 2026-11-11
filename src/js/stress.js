@@ -227,7 +227,7 @@ function setup() {
 @media (max-width: 480px) { #stress-form .dy-field:has(select) { grid-column: 1 / -1; } }
 .ss-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
 .ss-tabs .btn { min-height: 40px; padding: 0 12px; }
-.ss-tabs .btn[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+.ss-tabs .btn[aria-pressed="true"] { background: var(--accent); color: var(--surface); border-color: var(--accent); }
 .ss-ex { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .ss-ex .btn { min-height: 36px; padding: 0 12px; font-size: .85rem; }
 .ss-conv { font-size: .85rem; border-left: 3px solid var(--accent-2); padding-left: 8px; }

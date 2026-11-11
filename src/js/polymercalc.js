@@ -230,7 +230,7 @@ function setup() {
 .pc-paste textarea { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .85rem; line-height: 1.45; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; width: 100%; min-height: 9em; resize: vertical; box-sizing: border-box; }
 .pc-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
 .pc-tabs .btn { min-height: 40px; padding: 0 14px; }
-.pc-tabs .btn[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+.pc-tabs .btn[aria-pressed="true"] { background: var(--accent); color: var(--surface); border-color: var(--accent); }
 .pc-ex { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .pc-ex .btn { min-height: 36px; padding: 0 12px; font-size: .85rem; }
 .pc-read { font-size: .85rem; color: var(--muted); margin: 0; }

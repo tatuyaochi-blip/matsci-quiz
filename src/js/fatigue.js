@@ -245,7 +245,7 @@ function setup() {
 #fatigue-form .fg-rows .fg-ri { font-size: .8rem; color: var(--muted); text-align: right; min-width: 1.2em; }
 .fg-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
 .fg-tabs .btn { min-height: 40px; padding: 0 14px; }
-.fg-tabs .btn[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+.fg-tabs .btn[aria-pressed="true"] { background: var(--accent); color: var(--surface); border-color: var(--accent); }
 .fg-ex { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .fg-ex .btn { min-height: 36px; padding: 0 12px; font-size: .85rem; }
 .fg-box { margin: 12px 0; padding: 10px 12px; border-radius: 8px; background: var(--bg); }

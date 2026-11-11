@@ -44,7 +44,12 @@ if (back && store.hasRecords()) {
   if (store.dueCount()) fill(back.querySelector('[data-due]'), store.dueCount());
   if (store.weakCount()) fill(back.querySelector('[data-weak]'), store.weakCount());
   const cards = [...back.querySelectorAll('.start-card')].filter(a => !a.hidden);
-  if (cards.length) back.hidden = false;
+  if (cards.length) {
+    back.hidden = false;
+    // 学習記録のある人には、最初の画面の「まず1問」の場所に「前回の続き」を出す(下まで探さなくてよいように)
+    const slot = document.querySelector('.hero .hero-try');
+    if (slot) { back.classList.add('hero-back'); slot.replaceWith(back); }
+  }
 }
 
 // トップページの連続学習日数と、今日の1問を解いたかどうか
