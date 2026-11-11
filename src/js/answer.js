@@ -33,6 +33,6 @@ for (const box of document.querySelectorAll('[data-qid]')) {
     details.open = true;
     box.querySelector('.q-continue')?.removeAttribute('hidden');
     store.record(box.dataset.qid, box.dataset.cat, ok);
-    track('answer', { source: box.classList.contains('q-page') ? 'qpage' : 'qmini', category: box.dataset.cat, ok });
+    track('answer', { source: box.dataset.src || (box.classList.contains('q-page') ? 'qpage' : 'qmini'), category: box.dataset.cat, ok });
   }
 }

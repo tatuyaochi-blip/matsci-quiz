@@ -53,7 +53,7 @@ if (streakEl && store.streak()) {
   streakEl.textContent = streakEl.dataset.streak.replace('{n}', store.streak());
   streakEl.hidden = false;
 }
-const daily = document.querySelector('.mode-card[href*="mode=daily"]');
+const daily = document.querySelector(':is(.mode-card, .mode-link)[href*="mode=daily"]');
 if (daily && streakEl && store.dailyDone()) {
   daily.classList.add('done');
   daily.querySelector('strong').append(` ✓ ${streakEl.dataset.dailyDone}`);

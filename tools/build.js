@@ -810,24 +810,45 @@ function buildLang(L) {
     ${startCard(`${home}quiz/?mode=weak`, esc(t('start_weak')), esc(t('start_weak_desc')), ' rel="nofollow" data-weak hidden data-track="home_weak"')}
   </div>
 </section>`;
-  // トップの「できること」: メニューを開かなくても主な機能が分かるカード(実在するページだけ。見出しはヘッダーの名前とそろえる)
-  const feature = (href, title, desc, track) => `<a class="feature-card" href="${href}" data-track="${track}"><strong>${esc(title)}</strong><span>${esc(desc)}</span></a>`;
+  // トップの「できること」: メニューを開かなくても主な機能が分かる一覧(実在するページだけ。見出しはヘッダーの名前とそろえる)
+  // ヘッダーのナビと同じ3つのグループ(学ぶ・練習する・調べる/計算する)に分けて並べる。「練習する」には練習モード(今日の1問・苦手問題など)も入れる
+  const feature = (href, title, desc, track, extra = '') => `<a class="feat-link${extra}" href="${href}"${track ? ` data-track="${track}"` : ''}><strong>${esc(title)}</strong><span>${esc(desc)}</span></a>`;
+  const featGroup = (id, title, items) => (items.filter(Boolean).length ? `<section class="feat-col feat-${id}" aria-labelledby="fg-${id}">
+    <h3 id="fg-${id}">${esc(title)}</h3>
+    <div class="feat-list">${items.filter(Boolean).join('')}</div>
+  </section>` : '');
   const homeFeatures = `<section class="features" aria-labelledby="features-h">
-  <h2 id="features-h" class="visually-hidden">${esc(t('home_feat_heading'))}</h2>
-  <div class="feature-grid">
-    ${feature('#topics', S.nav_topics, t('home_feat_topics_desc', { n: live.length }), 'home_feat_topics')}
-    ${learnArts.length ? feature(`${home}learn/`, LT.nav, LT.card, 'home_feat_learn') : ''}
-    ${courses.some(co => (typeof co.name !== 'object' || co.name[code]) && co.steps.some(id => qs[id]?.length)) ? feature('#courses', S.course_heading, t('home_feat_courses_desc'), 'home_feat_courses') : ''}
-    ${feature(`${home}glossary/`, S.nav_glossary, t('home_feat_glossary_desc'), 'home_feat_glossary')}
-    ${dictLangs.includes(code) ? feature(`${home}glossary/trilingual/`, dictText[code].nav, dictText[code].card, 'home_feat_dict') : ''}
-    ${careerText[code] && careers.some(x => isDef || carByLang[code][x.id]) ? feature(`${home}careers/`, careerText[code].nav, careerText[code].card, 'home_feat_careers') : ''}
-    ${interviewText[code] ? feature(`${home}interview-questions/`, interviewText[code].nav, interviewText[code].card, 'home_feat_interview') : ''}
-    ${beyondText[code] && pageNames(code).includes('beyond-scaling') ? feature(`${home}beyond-scaling/`, beyondText[code].nav, beyondText[code].card, 'home_feat_beyond') : ''}
-    ${compares.some(e => isDef || tr('compare')[e.slug]) ? feature(`${home}compare/`, S.nav_compare, t('home_feat_compare_desc'), 'home_feat_compare') : ''}
-    ${fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : ''}${atl ? feature(`${home}atlas/`, S.nav_atlas, t('home_feat_atlas_desc'), 'home_feat_atlas') : ''}${drl ? feature(`${home}drill/`, S.nav_drill, t('home_feat_drill_desc'), 'home_feat_drill') : ''}${mtl ? feature(`${home}materials/`, S.nav_materials, t('home_feat_materials_desc'), 'home_feat_materials') : ''}${fml ? feature(`${home}formulas/`, S.nav_formulas, t('home_feat_formulas_desc', { n: fml.formulas.length }), 'home_feat_formulas') : ''}${mtd ? feature(`${home}methods/`, S.nav_methods, t('home_feat_methods_desc', { n: mtd.methods.length }), 'home_feat_methods') : ''}${prp ? feature(`${home}prep/`, S.nav_prep, t('home_feat_prep_desc', { n: prp.materials.length }), 'home_feat_prep') : ''}${msr ? feature(`${home}measure/`, S.nav_measure, t('home_feat_measure_desc'), 'home_feat_measure') : ''}${phr ? feature(`${home}phrases/`, phr.ui.nav, phr.ui.card.replace('{n}', phr.phrases.length), 'home_feat_phrases') : ''}
-    ${Object.keys(figs).length ? feature(`${home}figures/`, S.footer_figures, t('home_feat_figures_desc'), 'home_feat_figures') : ''}
-    ${toolsIn(code).length ? feature(`${home}tools/`, S.nav_tools, t('home_feat_tools_desc'), 'home_feat_tools') : ''}
-    ${news.length ? feature(`${home}news-terms/`, S.news_title, t('home_feat_news_desc'), 'home_feat_news') : ''}
+  <h2 id="features-h">${esc(t('home_feat_heading'))}</h2>
+  <div class="feature-cols">
+  ${featGroup('learn', S.nav_group_learn, [
+    feature('#topics', S.nav_topics, t('home_feat_topics_desc', { n: live.length }), 'home_feat_topics'),
+    learnArts.length ? feature(`${home}learn/`, LT.nav, LT.card, 'home_feat_learn') : '',
+    courses.some(co => (typeof co.name !== 'object' || co.name[code]) && co.steps.some(id => qs[id]?.length)) ? feature('#courses', S.course_heading, t('home_feat_courses_desc'), 'home_feat_courses') : '',
+    feature(`${home}glossary/`, S.nav_glossary, t('home_feat_glossary_desc'), 'home_feat_glossary'),
+    dictLangs.includes(code) ? feature(`${home}glossary/trilingual/`, dictText[code].nav, dictText[code].card, 'home_feat_dict') : '',
+    careerText[code] && careers.some(x => isDef || carByLang[code][x.id]) ? feature(`${home}careers/`, careerText[code].nav, careerText[code].card, 'home_feat_careers') : '',
+    interviewText[code] ? feature(`${home}interview-questions/`, interviewText[code].nav, interviewText[code].card, 'home_feat_interview') : '',
+    beyondText[code] && pageNames(code).includes('beyond-scaling') ? feature(`${home}beyond-scaling/`, beyondText[code].nav, beyondText[code].card, 'home_feat_beyond') : '',
+    compares.some(e => isDef || tr('compare')[e.slug]) ? feature(`${home}compare/`, S.nav_compare, t('home_feat_compare_desc'), 'home_feat_compare') : '',
+    atl ? feature(`${home}atlas/`, S.nav_atlas, t('home_feat_atlas_desc'), 'home_feat_atlas') : '',
+    Object.keys(figs).length ? feature(`${home}figures/`, S.footer_figures, t('home_feat_figures_desc'), 'home_feat_figures') : '',
+    news.length ? feature(`${home}news-terms/`, S.news_title, t('home_feat_news_desc'), 'home_feat_news') : '',
+  ])}
+  ${featGroup('practice', S.nav_group_practice, [
+    ...modes.filter(m => m.scope.includes('top') && m.id !== 'random').map(m => `<a class="feat-link mode-link" href="${quizUrl(m)}" rel="nofollow" data-track="home_mode_${m.id}"><strong>${esc(modeText(m, 'label'))}</strong><span>${esc(modeText(m, 'desc'))}</span></a>`),
+    drl ? feature(`${home}drill/`, S.nav_drill, t('home_feat_drill_desc'), 'home_feat_drill') : '',
+    feature(`${home}stats/`, S.nav_stats, t('home_feat_stats_desc'), 'home_feat_stats'),
+  ])}
+  ${featGroup('lookup', S.nav_group_lookup, [
+    toolsIn(code).length ? feature(`${home}tools/`, S.nav_tools, t('home_feat_tools_desc'), 'home_feat_tools') : '',
+    mtl ? feature(`${home}materials/`, S.nav_materials, t('home_feat_materials_desc'), 'home_feat_materials') : '',
+    fml ? feature(`${home}formulas/`, S.nav_formulas, t('home_feat_formulas_desc', { n: fml.formulas.length }), 'home_feat_formulas') : '',
+    mtd ? feature(`${home}methods/`, S.nav_methods, t('home_feat_methods_desc', { n: mtd.methods.length }), 'home_feat_methods') : '',
+    prp ? feature(`${home}prep/`, S.nav_prep, t('home_feat_prep_desc', { n: prp.materials.length }), 'home_feat_prep') : '',
+    msr ? feature(`${home}measure/`, S.nav_measure, t('home_feat_measure_desc'), 'home_feat_measure') : '',
+    phr ? feature(`${home}phrases/`, phr.ui.nav, phr.ui.card.replace('{n}', phr.phrases.length), 'home_feat_phrases') : '',
+    fail ? feature(`${home}failure/`, S.nav_failure, t('home_feat_failure_desc'), 'home_feat_failure') : '',
+  ])}
   </div>
 </section>`;
   // 分野の選び方: 大きな区分(半導体 / コンピュータ・IT) → 大分類(開閉できる行) → 分野(1行ずつ)。
@@ -905,6 +926,33 @@ function buildLang(L) {
 
   // 静的な問題ブロック(個別問題・用語・比較ページ)を、その場で解けるようにするための属性(動きは answer.js)
   const qData = q => ` data-qid="${esc(q.id)}" data-cat="${esc(q.cat)}" data-answer="${q.answer}" data-correct="${esc(t('correct'))}" data-incorrect="${esc(t('incorrect', { mark: mark(q.answer) }))}"`;
+
+  // トップの「まず1問」: 最初の画面で、このサイトの問題を1問その場で解ける(動きは answer.js。JS がなくても「答えと解説を見る」で読める)
+  // 問題は config.heroQuestion(なければ入門コースの最初の分野の先頭)。この言語に訳がなければ出さない
+  const heroQ = firstCat && (qs[firstCat].find(q => q.id === config.heroQuestion) ?? qs[firstCat][0]);
+  // 飾りの図: 面心立方格子(FCC)の単位胞を斜めから見た図(ビルド時に座標を計算する。奥の稜は点線、面心の原子は強調色)
+  const fccSvg = (() => {
+    // 斜投影: x は右、z は上、y は奥(右上へ)。いちばん奥の下の角 (0,1,0) につながる稜を点線にする
+    const S0 = 80, P = ([x, y, z]) => [24 + (x + y * 0.42) * S0, 132 - (z + y * 0.36) * S0];
+    const corners = [0, 1].flatMap(x => [0, 1].flatMap(y => [0, 1].map(z => [x, y, z])));
+    const edges = corners.flatMap(a => corners.filter(b => b.reduce((n, v, i) => n + Math.abs(v - a[i]), 0) === 1 && b.join() > a.join()).map(b => [a, b]));
+    const faces = [[.5, .5, 0], [.5, .5, 1], [.5, 0, .5], [.5, 1, .5], [0, .5, .5], [1, .5, .5]];
+    const f = n => n.toFixed(1), hid = '0,1,0';
+    const line = ([a, b]) => { const [x1, y1] = P(a), [x2, y2] = P(b), back = a.join() === hid || b.join() === hid; return `<line class="${back ? 'fcc-back' : 'fcc-edge'}" x1="${f(x1)}" y1="${f(y1)}" x2="${f(x2)}" y2="${f(y2)}"/>`; };
+    const atoms = [...corners.map(p => [p, 'c']), ...faces.map(p => [p, 'f'])].sort((a, b) => b[0][1] - a[0][1] || a[0][2] - b[0][2] || a[0][0] - b[0][0])
+      .map(([p, k], i) => { const [x, y] = P(p); return `<circle class="fcc-${k}" cx="${f(x)}" cy="${f(y)}" r="${k === 'c' ? 9 : 10}" style="--i:${i}"/>`; });
+    return `<svg class="fcc" viewBox="0 0 150 150" aria-hidden="true" focusable="false">${edges.map(line).join('')}${atoms.join('')}</svg>`;
+  })();
+  const heroTry = heroQ ? `<aside class="hero-try" aria-labelledby="try-h">
+    <div class="try-head"><p class="try-label" id="try-h">${esc(t('home_try_label'))}</p><span class="try-cat">${esc(live.find(c => c.id === firstCat)?.name ?? '')}</span></div>
+    ${fccSvg}
+    <article class="q-mini q-try"${qData({ ...heroQ, cat: firstCat })} data-src="home">
+      <p class="try-q">${esc(heroQ.question)}</p>
+      <ol class="q-choices">${heroQ.choices.map((ch, k) => `<li><span class="choice-mark">${mark(k)}</span><span class="choice-text">${esc(ch)}</span></li>`).join('')}</ol>
+      <details class="q-answer"><summary>${esc(t('answer_toggle'))}</summary><p class="verdict ok">${esc(t('answer_is', { mark: mark(heroQ.answer), text: heroQ.choices[heroQ.answer] }))}</p><p class="explanation">${linked(heroQ.explanation, firstCat)}</p></details>
+      <p class="q-continue" hidden><a class="btn btn-primary btn-block" href="${startHref}" rel="nofollow" data-track="home_try_next">${esc(t('home_try_next'))}</a></p>
+    </article>
+  </aside>` : '';
 
   // 用語ページの説明文(検索結果に出る): 文の途中で「…」と切らず、収まる文までにする。
   // 余裕があれば練習問題の数を添える(検索から来た人に、解ける問題があることを伝える)
@@ -1138,7 +1186,7 @@ function buildLang(L) {
     topModes: modeCards(modes.filter(m => m.scope.includes('top'))),
     // トップ下部の「ほかの練習方法」(ランダム10問は上の入口にあるので除く)
     moreModes: modeCards(modes.filter(m => m.scope.includes('top') && m.id !== 'random')).replace('mode-grid', 'mode-grid compact'),
-    startPanel, startBack, homeFeatures,
+    startPanel, startBack, homeFeatures, heroTry,
     // 用語集の上に出す、ニュース用語の一覧への案内
     dictLink: dictLangs.includes(code) ? `<p class="news-link"><a class="chip" href="${home}glossary/trilingual/">${esc(dictText[code].h1)}</a></p>` : '',
     newsTermsLink: news.length ? `<p class="news-link"><a class="chip" href="${home}news-terms/">${esc(S.news_title)}</a> <span class="muted">${esc(t('glossary_news_link', { terms: news.slice(0, 3).map(e => e.label ?? terms.find(g => g.key === e.term).term).join(', ') }))}</span></p>` : '',
