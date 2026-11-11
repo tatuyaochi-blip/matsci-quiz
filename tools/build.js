@@ -860,7 +860,7 @@ function buildLang(L) {
         <span class="meter" hidden><span class="meter-bar" data-progress="${c.id}:${qs[c.id].length}" style="width:0%"></span></span></a></li>`).join('') + '</ul>';
   const topicBrowser = open => exams.filter(e => examGroups(e).length).map(e => `
 <section class="topic-area">
-  <h3 class="area-title">${esc(exName(e))}</h3>
+  <${open ? 'h2' : 'h3'} class="area-title">${esc(exName(e))}</${open ? 'h2' : 'h3'}>
   ${examGroups(e).map(({ g, list }) => `<details class="topic-group" id="g-${e.id}-${g.id}"${open ? ' open' : ''}>
     <summary><span class="tg-name">${esc(grName(e, g))}</span><span class="tg-meta">${esc(t('course_steps_n', { n: list.length }))} · ${esc(t('n_questions', { n: list.reduce((s, c) => s + qs[c.id].length, 0) }))}</span><span class="tg-preview">${esc(list.slice(0, 4).map(c => c.name).join(listSep))}${list.length > 4 ? ' …' : ''}</span></summary>
     ${topicRows(list, open ? '' : 'home_topic_row')}

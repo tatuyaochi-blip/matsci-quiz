@@ -199,7 +199,7 @@ function setup() {
 @media (max-width: 480px) { #creep-form .dy-field:has(select:not([name=tu]):not([name=deg])) { grid-column: 1 / -1; } }
 .cr-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
 .cr-tabs .btn { min-height: 40px; padding: 0 12px; }
-.cr-tabs .btn[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+.cr-tabs .btn[aria-pressed="true"] { background: var(--accent); color: var(--surface); border-color: var(--accent); }
 .cr-ex { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .cr-ex .btn { min-height: 36px; padding: 0 12px; font-size: .85rem; }
 .cr-group { grid-column: 1 / -1; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; margin: 0; min-width: 0; }

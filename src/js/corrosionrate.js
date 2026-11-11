@@ -193,7 +193,7 @@ function setup() {
 #corrosionrate-form .cr-comp .dy-field { margin: 0; }
 .cr-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
 .cr-tabs .btn { min-height: 40px; padding: 0 14px; }
-.cr-tabs .btn[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+.cr-tabs .btn[aria-pressed="true"] { background: var(--accent); color: var(--surface); border-color: var(--accent); }
 .cr-ex { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .cr-ex .btn { min-height: 36px; padding: 0 12px; font-size: .85rem; }
 .cr-box { margin: 12px 0; padding: 10px 12px; border-radius: 8px; background: var(--bg); }

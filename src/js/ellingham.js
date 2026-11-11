@@ -238,7 +238,7 @@ function setup() {
 #ellingham-form .dy-field[hidden] { display: none !important; }
 .el-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
 .el-tabs .btn { min-height: 40px; padding: 0 14px; }
-.el-tabs .btn[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+.el-tabs .btn[aria-pressed="true"] { background: var(--accent); color: var(--surface); border-color: var(--accent); }
 .el-ex { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .el-ex .btn { min-height: 36px; padding: 0 12px; font-size: .85rem; }
 .el-box { margin: 12px 0; padding: 10px 12px; border-radius: 8px; background: var(--bg); }

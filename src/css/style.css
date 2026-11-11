@@ -9,9 +9,9 @@
   --accent: #5b3fc4;
   --accent-2: #1d64c8;
   --accent-soft: #eeeafd;
-  --ok: #0a8a5f;
+  --ok: #087a54;  /* 白と淡い緑の上で文字のコントラスト 4.5:1 以上 */
   --ok-bg: #e5f6ef;
-  --ng: #c93a3a;
+  --ng: #bf2f2f;
   --ng-bg: #fcebeb;
   --grad: linear-gradient(135deg, #5b3fc4, #1d64c8);
   --shadow: 0 1px 2px rgba(20, 40, 70, .06), 0 4px 14px rgba(20, 40, 70, .05);
@@ -354,6 +354,13 @@ main.wrap:has(> .hero) .course-grid { grid-template-columns: repeat(auto-fit, mi
 .start-card strong { font-size: 1.05rem; color: var(--accent); line-height: 1.4; }
 .start-card span { font-size: .85rem; color: var(--muted); line-height: 1.5; }
 .start-card:hover { border-color: var(--accent); }
+/* 最初の画面の右側に入ったとき(progress.js が「まず1問」と入れ替える): カードを縦に並べる */
+.hero-back { padding: 20px; border-radius: 18px; background: var(--surface); border: 1px solid var(--border); box-shadow: 0 1px 2px rgba(20, 40, 70, .06), 0 12px 32px rgba(40, 30, 110, .10); }
+.hero-back h2 { margin: 0 0 12px; font-size: .95rem; }
+.hero-back .start-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; margin: 0; }
+.hero-back .start-card { box-shadow: none; padding: 12px 14px; }
+.hero-back .start-card:first-child { border-color: var(--accent); background: var(--accent-soft); }
+@media (max-width: 560px) { .hero-back { padding: 16px 14px; } }
 
 /* 分野カード */
 .cat-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
@@ -374,6 +381,8 @@ main.wrap:has(> .hero) .course-grid { grid-template-columns: repeat(auto-fit, mi
 /* ===== 分野ページ ===== */
 .breadcrumb { font-size: .85rem; color: var(--muted); margin-top: 1rem; }
 .stat-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 1rem 0; }
+/* 2列のとき、最後の1枚が余るなら幅いっぱいにする */
+@media (max-width: 599px) { .stat-tiles > :last-child:nth-child(odd) { grid-column: 1 / -1; } }
 @media (min-width: 600px) { .stat-tiles { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); } }
 .tile { display: flex; flex-direction: column; padding: 14px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); }
 .tile-num { font-size: 1.6rem; font-weight: 800; line-height: 1.3; color: var(--accent); }
@@ -622,7 +631,7 @@ main.wrap:has(.tool-all) { max-width: 1040px; }
 }
 .course-step.done::before { content: "✓"; background: var(--ok); color: #fff; }
 .course-step.next { border: 2px solid var(--accent); }
-.course-step.next::before { background: var(--accent); color: #fff; }
+.course-step.next::before { background: var(--accent); color: var(--surface); }
 .course-step a { display: flex; justify-content: space-between; gap: 8px; font-weight: 700; text-decoration: none; }
 .step-status { font-size: .8rem; color: var(--ok); }
 .step-meta { display: block; font-size: .8rem; color: var(--muted); margin-top: 2px; }

@@ -151,7 +151,7 @@ if (form) {
 .pt-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 46px; padding: 2px 1px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); color: var(--text); font: inherit; line-height: 1.1; cursor: pointer; }
 .pt-cell:hover { border-color: var(--accent); }
 .pt-cell[aria-pressed="true"] { outline: 3px solid var(--accent); outline-offset: 0; position: relative; z-index: 1; }
-.pt-cell .pt-z { font-size: 9px; color: var(--muted); }
+.pt-cell .pt-z { font-size: 9px; color: var(--text); }
 .pt-cell b { font-size: 14px; }
 .pt-cell .pt-v { font-size: 9.5px; font-weight: 700; white-space: nowrap; }
 .pt-bcc { background: var(--fig-n); } .pt-fcc { background: var(--fig-p); } .pt-hcp { background: var(--fig-ox); }
